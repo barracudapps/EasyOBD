@@ -31,8 +31,12 @@ export interface VehicleInfo { vin?: string | null; make?: string | null; model_
 export interface ConnectResult {
   adapter: { transport: string; elm_version: string; protocol_number?: number | null; protocol: string };
   vehicle: VehicleInfo; monitor?: { mil_on: boolean; dtc_count: number } | null; battery_v?: number | null; simulated: boolean;
+  /** Heavy vehicle session (SAE J1939): faults are SPN / FMI pairs. */
+  j1939?: boolean;
 }
-export interface DtcItem { code: string; kind: 'stored' | 'pending' | 'permanent'; diagnosis: Diagnosis | null }
+export interface J1939Lamps { mil: boolean; red_stop: boolean; amber_warning: boolean; protect: boolean }
+export interface J1939Result { lamps: J1939Lamps; items: DtcItem[]; sources: string[] }
+export interface DtcItem { code: string; kind: 'stored' | 'pending' | 'permanent' | 'active'; diagnosis: Diagnosis | null; source?: string; occurrences?: number }
 export interface LiveValue { key: string; label: string; unit: string; min: number; max: number; value: number }
 
 export interface VehicleType { id: string; name: string; icon: string }

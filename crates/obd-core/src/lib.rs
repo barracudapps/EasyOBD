@@ -25,6 +25,7 @@ pub mod detect;
 pub mod dtc;
 pub mod elm327;
 pub mod inspection;
+pub mod j1939;
 pub mod knowledge;
 pub mod maintenance;
 pub mod pids;

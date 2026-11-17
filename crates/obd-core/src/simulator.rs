@@ -25,6 +25,11 @@ pub struct Simulator {
     param_0100: u8,
     /// Readiness monitors are reset by a code clear (service 04), like on a real car.
     monitors_reset: bool,
+    /// Heavy vehicle side (J1939): active faults (SPN, FMI, occurrences, source address), protocol A selected,
+    /// DM1 monitoring in progress (stopped by any received byte, like a real adapter).
+    j1939: Vec<(u32, u8, u8, u8)>,
+    j1939_mode: bool,
+    monitoring: bool,
 }
 
 /// Encodes a 5-character DTC into its two raw bytes (inverse of [`crate::dtc::decode`]).
@@ -39,7 +44,9 @@ pub fn encode(code: &str) -> Option<[u8; 2]> {
 
 impl Simulator {
     pub fn new(dtcs: Vec<Dtc>, vin: &str) -> Self {
-        Self { dtcs, vin: vin.to_string(), echo: true, searched: false, tick: 0, input: Vec::new(), output: VecDeque::new(), overrides: HashMap::new(), header: None, session: 1, param_0100: 0, monitors_reset: false }
+        Self { dtcs, vin: vin.to_string(), echo: true, searched: false, tick: 0, input: Vec::new(), output: VecDeque::new(), overrides: HashMap::new(), header: None, session: 1, param_0100: 0, monitors_reset: false,
+            // Truck demo: DPF back-pressure high and AdBlue low (aftertreatment), torque derate (engine).
+            j1939: vec![(3251, 0, 2, 0x3D), (1761, 18, 1, 0x3D), (1569, 31, 1, 0x00)], j1939_mode: false, monitoring: false }
     }
 
     /// Demo car: misfire on cylinder 2, lean mixture, tired catalytic converter.
@@ -97,7 +104,24 @@ impl Simulator {
                     self.echo = false;
                     "OK".into()
                 }
-                "DPN" => "A6".into(),
+                "DPN" => if self.j1939_mode { "A".into() } else { "A6".into() },
+                "SPA" | "SPA0" => {
+                    self.j1939_mode = true;
+                    "OK".into()
+                }
+                "SP0" => {
+                    self.j1939_mode = false;
+                    "OK".into()
+                }
+                "DM1" if self.j1939_mode => {
+                    self.monitoring = true;
+                    let mut out = String::new();
+                    for _ in 0..2 {
+                        out.push_str(&self.dm1_frames());
+                    }
+                    out
+                }
+                "DM1" => "?".into(),
                 sh if sh.starts_with("SH") => {
                     self.header = u16::from_str_radix(&sh[2..], 16).ok().filter(|h| *h != 0x7DF);
                     "OK".into()
@@ -146,6 +170,35 @@ impl Simulator {
     }
 
     /// Physical UDS requests: engine ECU (7E0) and gearbox (7E1) answer, others are silent.
+    /// DM1 broadcast of every source address, as seen with headers on (`ATH1`, `ATS1`).
+    fn dm1_frames(&self) -> String {
+        let mut sources: Vec<u8> = self.j1939.iter().map(|f| f.3).collect();
+        sources.sort();
+        sources.dedup();
+        let mut out = String::new();
+        for sa in sources {
+            let faults: Vec<_> = self.j1939.iter().filter(|f| f.3 == sa).collect();
+            let lamps: u8 = if sa == 0x3D { 0x44 } else { 0x04 };
+            let mut payload = vec![lamps, 0xFF];
+            for (spn, fmi, oc, _) in &faults {
+                payload.extend_from_slice(&[(*spn & 0xFF) as u8, ((*spn >> 8) & 0xFF) as u8, (((*spn >> 16) & 7) << 5) as u8 | (fmi & 0x1F), oc & 0x7F]);
+            }
+            if payload.len() <= 8 {
+                payload.resize(8, 0xFF);
+                out.push_str(&format!("18 FE CA {sa:02X} {}\r", hex(&payload)));
+            } else {
+                let n = payload.len().div_ceil(7);
+                out.push_str(&format!("1C EC FF {sa:02X} 20 {:02X} {:02X} {n:02X} FF CA FE 00\r", payload.len() & 0xFF, payload.len() >> 8));
+                for (i, chunk) in payload.chunks(7).enumerate() {
+                    let mut c = chunk.to_vec();
+                    c.resize(7, 0xFF);
+                    out.push_str(&format!("1C EB FF {sa:02X} {:02X} {}\r", i + 1, hex(&c)));
+                }
+            }
+        }
+        out
+    }
+
     fn uds_respond(&mut self, ecu: u16, cmd: &str) -> String {
         if ecu != 0x7E0 && ecu != 0x7E1 {
             return "NO DATA".into();
@@ -261,6 +314,12 @@ fn multiframe(payload: &[u8]) -> String {
 impl Transport for Simulator {
     fn write_all(&mut self, data: &[u8]) -> Result<()> {
         for &b in data {
+            if self.monitoring {
+                // Any byte stops a monitor command; the adapter prints its prompt.
+                self.monitoring = false;
+                self.output.extend(b"\r>");
+                continue;
+            }
             if b == b'\r' {
                 let cmd = String::from_utf8_lossy(&self.input).to_string();
                 self.input.clear();
@@ -270,7 +329,9 @@ impl Transport for Simulator {
                     resp.push('\r');
                 }
                 resp.push_str(&self.respond(&cmd));
-                resp.push_str("\r\r>");
+                if !self.monitoring {
+                    resp.push_str("\r\r>");
+                }
                 self.output.extend(resp.bytes());
             } else {
                 self.input.push(b);
@@ -296,6 +357,19 @@ impl Transport for Simulator {
 mod tests {
     use super::*;
     use crate::Elm327;
+
+    #[test]
+    fn j1939_dm1_monitor() {
+        let mut elm = Elm327::new(Box::new(Simulator::demo()));
+        let info = elm.initialize_j1939().unwrap();
+        assert_eq!(info.protocol_number, Some(0xA));
+        let r = elm.read_j1939_dm1().unwrap();
+        assert!(r.lamps.mil && r.lamps.amber_warning);
+        let spns: Vec<u32> = r.active.iter().map(|d| d.spn).collect();
+        assert_eq!(spns, vec![1569, 3251, 1761]);
+        // The adapter is usable again after the monitor was stopped.
+        assert!(elm.command("ATRV").unwrap().contains('V'));
+    }
 
     #[test]
     fn encode_roundtrip() {

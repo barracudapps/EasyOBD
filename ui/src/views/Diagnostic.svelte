@@ -2,7 +2,7 @@
   import { onDestroy } from 'svelte';
   import { call, errorText, isNative } from '../lib/api';
   import { addJournal, app, currentVehicle, selectVehicle, severityLabel, toast, updateVehicle } from '../lib/state.svelte';
-  import type { AdapterCandidate, ConnectResult, ConnectionSpec, DtcItem, LiveValue } from '../lib/types';
+  import type { AdapterCandidate, ConnectResult, ConnectionSpec, DtcItem, J1939Lamps, J1939Result, LiveValue } from '../lib/types';
   import Icon from '../components/Icon.svelte';
   import DiagnosisDetail from '../components/DiagnosisDetail.svelte';
   import Gauge from '../components/Gauge.svelte';
@@ -18,10 +18,14 @@
   let battery = $state<number | null>(null);
   let polling = $state<ReturnType<typeof setInterval> | null>(null);
   let confirmClear = $state(false);
+  /** Heavy vehicle: SAE J1939 instead of OBD-II (default for trucks). */
+  let j1939 = $state(app.profile?.type === 'truck');
+  let lamps = $state<J1939Lamps | null>(null);
+  const isJ1939 = $derived(!!app.connection?.j1939);
   let manual = $state({ kind: 'wifi' as 'wifi' | 'serial', address: '192.168.0.10:35000', baud: 38400 });
 
   const mediumIcon: Record<string, string> = { usb: 'usb', bluetooth: 'bluetooth', ble: 'bluetooth', wifi: 'wifi', simulator: 'sim' };
-  const kindLabel: Record<string, string> = { stored: 'Confirmé', pending: 'En attente', permanent: 'Permanent' };
+  const kindLabel: Record<string, string> = { stored: 'Confirmé', pending: 'En attente', permanent: 'Permanent', active: 'Actif' };
   const current = $derived(app.dtcs.find((d) => d.code === selected) ?? null);
 
   $effect(() => {
@@ -48,7 +52,7 @@
   async function connect(spec: ConnectionSpec) {
     busy = 'connect';
     try {
-      app.connection = await call<ConnectResult>('connect', { spec });
+      app.connection = await call<ConnectResult>('connect', { spec, j1939 });
       toast(`Connecté : ${app.connection.adapter.protocol}`, 'ok');
       // Recognise a garage vehicle by its VIN.
       const vin = app.connection.vehicle.vin;
@@ -68,7 +72,13 @@
   async function readCodes() {
     busy = 'codes';
     try {
-      app.dtcs = await call<DtcItem[]>('read_dtcs');
+      if (app.connection?.j1939) {
+        const r = await call<J1939Result>('read_j1939', { make: app.profile?.make ?? null });
+        app.dtcs = r.items;
+        lamps = r.lamps;
+      } else {
+        app.dtcs = await call<DtcItem[]>('read_dtcs');
+      }
       selected = app.dtcs[0]?.code ?? null;
       if (!app.connection?.simulated) {
         addJournal({ kind: 'diagnostic', title: app.dtcs.length ? `${app.dtcs.length} code(s) défaut lu(s)` : 'Lecture OBD : aucun code', codes: app.dtcs.map((d) => d.code), details: app.dtcs.map((d) => `${d.code} ${d.diagnosis?.title ?? ''}`).join(' · ') });
@@ -106,6 +116,7 @@
     stopLive();
     await call('disconnect');
     app.connection = null;
+    lamps = null;
     app.dtcs = [];
     app.highlight = [];
   }
@@ -139,7 +150,7 @@
 <div class="col">
   <div class="row spread">
     <div>
-      <h1>Diagnostic <span class="grad-text">OBD-II</span></h1>
+      <h1>Diagnostic <span class="grad-text">{isJ1939 || (!app.connection && j1939) ? 'J1939' : 'OBD-II'}</span></h1>
       <p class="muted">Branchez l'adaptateur sur la prise OBD (sous le volant), mettez le contact, puis connectez-vous.</p>
     </div>
   </div>
@@ -198,6 +209,14 @@
       </ul>
       {#each messages as m}<p class="tiny faint">{m}</p>{/each}
 
+      <label class="j1939 card flat">
+        <input type="checkbox" bind:checked={j1939} />
+        <span class="grow">
+          <strong>Poids lourd : protocole J1939</strong>
+          <span class="small muted block">Camions, bus, engins agricoles et de chantier. Codes SPN / FMI lus sur la prise 9 broches (Deutsch) ou la prise 16 broches poids lourd. Adaptateur compatible J1939 requis (OBDLink, ELM327 v1.4b+ authentique, câble 9 broches).</span>
+        </span>
+      </label>
+
       {#if isNative}
         <details>
           <summary class="small muted">Connexion manuelle</summary>
@@ -228,25 +247,35 @@
     </div>
     <div class="card conn">
       <div class="grid-3">
-        <div><div class="tiny faint">VÉHICULE</div><strong>{app.connection.vehicle.make ?? 'Marque inconnue'} {app.connection.vehicle.model_year ?? ''}</strong>
+        <div><div class="tiny faint">VÉHICULE</div><strong>{app.connection.vehicle.make ?? (isJ1939 && app.profile ? `${app.profile.make} ${app.profile.model}` : 'Marque inconnue')} {app.connection.vehicle.model_year ?? ''}</strong>
           <div class="tiny muted mono">{app.connection.vehicle.vin ?? 'VIN non communiqué'}</div></div>
         <div><div class="tiny faint">PROTOCOLE</div><strong class="small">{app.connection.adapter.protocol}</strong>
           <div class="tiny muted">{app.connection.adapter.elm_version} · {app.connection.adapter.transport}</div></div>
         <div><div class="tiny faint">ÉTAT</div>
           <div class="row">
+            {#if isJ1939}
+              {#if lamps?.red_stop}<span class="pill sev-critical">Témoin rouge STOP</span>{/if}
+              {#if lamps?.amber_warning}<span class="pill sev-medium">Témoin ambre</span>{/if}
+              {#if lamps?.mil}<span class="pill sev-high">Voyant dépollution</span>{/if}
+              {#if lamps?.protect}<span class="pill sev-medium">Témoin protection</span>{/if}
+              {#if lamps && !lamps.red_stop && !lamps.amber_warning && !lamps.mil && !lamps.protect}<span class="pill sev-low">Aucun témoin</span>{/if}
+            {:else}
             <span class="pill {app.connection.monitor?.mil_on ? 'sev-high' : 'sev-low'}">Voyant moteur {app.connection.monitor?.mil_on ? 'allumé' : 'éteint'}</span>
+            {/if}
             {#if (battery ?? app.connection.battery_v) != null}<span class="pill"><Icon name="battery" size={13} /> {(battery ?? app.connection.battery_v)?.toFixed(1)} V</span>{/if}
           </div></div>
       </div>
       <div class="row" style="margin-top:0.9rem">
         <button class="btn sm" onclick={readCodes} disabled={!!busy}><Icon name="refresh" size={15} /> Relire les codes</button>
+        {#if !isJ1939}
         <button class="btn sm" onclick={() => (polling ? stopLive() : startLive())}><Icon name="gauge" size={15} /> {polling ? 'Arrêter le direct' : 'Données en direct'}</button>
+        {/if}
         {#if confirmClear}
           <span class="small">Effacer les codes et éteindre le voyant ?</span>
           <button class="btn danger sm" onclick={clearCodes}>Confirmer</button>
           <button class="btn ghost sm" onclick={() => (confirmClear = false)}>Annuler</button>
         {:else}
-          <button class="btn sm" onclick={() => (confirmClear = true)} disabled={!app.dtcs.length}><Icon name="trash" size={15} /> Effacer</button>
+          <button class="btn sm" onclick={() => (confirmClear = true)} disabled={!app.dtcs.length || isJ1939} title={isJ1939 ? "Sur poids lourd, l'effacement se fait avec l'outil du constructeur après réparation" : ''}><Icon name="trash" size={15} /> Effacer</button>
         {/if}
         <div class="grow"></div>
         <button class="btn ghost sm" onclick={() => window.print()} title="Imprimer ou enregistrer en PDF"><Icon name="book" size={15} /> Rapport</button>
@@ -256,7 +285,7 @@
 
     <div class="tabs">
       <button class:active={tab === 'codes'} onclick={() => (tab = 'codes')}>Codes défaut ({app.dtcs.length})</button>
-      <button class:active={tab === 'live'} onclick={startLive}>Données en direct</button>
+      {#if !isJ1939}<button class:active={tab === 'live'} onclick={startLive}>Données en direct</button>{/if}
     </div>
 
     {#if tab === 'codes'}
@@ -266,8 +295,9 @@
         <div class="codes">
           {#each app.dtcs as item}
             <button class="card flat hover dtc sev-bar-{item.diagnosis?.severity ?? 'medium'}" class:selected={selected === item.code} onclick={() => (selected = item.code)}>
-              <div class="row spread"><span class="code-chip">{item.code}</span><span class="pill tiny">{kindLabel[item.kind]}</span></div>
+              <div class="row spread"><span class="code-chip" class:spn={item.code.startsWith('SPN')}>{item.code}</span><span class="pill tiny">{kindLabel[item.kind]}</span></div>
               <div class="small">{item.diagnosis?.title ?? 'Code inconnu'}</div>
+              {#if item.source}<div class="tiny faint">{item.source}{item.occurrences ? ` · ${item.occurrences} occurrence${item.occurrences > 1 ? 's' : ''}` : ''}</div>{/if}
               {#if item.diagnosis}<span class="pill sev-{item.diagnosis.severity}">{severityLabel[item.diagnosis.severity]}</span>{/if}
             </button>
           {/each}
@@ -307,5 +337,9 @@
   .gauges { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 0.6rem; }
   details summary { cursor: pointer; }
   .webhw { display: grid; gap: 0.5rem; }
+  .code-chip.spn { font-size: 0.85rem; }
+  .j1939 { display: flex; gap: 0.7rem; align-items: flex-start; padding: 0.7rem 0.9rem; cursor: pointer; }
+  .j1939 input { margin-top: 0.25rem; accent-color: var(--accent); }
+  .block { display: block; }
   .webhw .adapter { text-align: left; color: inherit; font: inherit; }
 </style>

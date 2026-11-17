@@ -59,6 +59,75 @@ impl Elm327 {
         })
     }
 
+    /// Heavy vehicles: configures the adapter for SAE J1939 (CAN 29 bit, 250 kbaud) with headers,
+    /// without the OBD-II probe (many trucks do not answer service 01 on the J1939 connector).
+    pub fn initialize_j1939(&mut self) -> Result<AdapterInfo> {
+        let reset = self.command_with_timeout("ATZ", Duration::from_secs(3))?;
+        let elm_version = reset
+            .split(['\r', '\n'])
+            .map(str::trim)
+            .find(|l| l.to_uppercase().contains("ELM") || l.to_uppercase().contains("STN"))
+            .unwrap_or("ELM327 (version inconnue)")
+            .to_string();
+        for cmd in ["ATE0", "ATL0", "ATS1", "ATH1", "ATSPA"] {
+            let r = self.command(cmd)?;
+            if r.contains('?') {
+                return Err(Error::Protocol(format!("l'adaptateur refuse « {cmd} » : il ne gère pas le J1939 (ELM327 v1.4b+ ou OBDLink requis)")));
+            }
+        }
+        self.protocol = Some(0xA);
+        Ok(AdapterInfo {
+            transport: self.transport.describe(),
+            elm_version,
+            protocol_number: self.protocol,
+            protocol: protocol_name(self.protocol).to_string(),
+        })
+    }
+
+    /// Runs a monitoring command (e.g. `ATDM1`) for `listen`, then stops it with a carriage return
+    /// and returns everything received.
+    pub fn monitor(&mut self, cmd: &str, listen: Duration) -> Result<String> {
+        self.transport.write_all(format!("{cmd}\r").as_bytes())?;
+        let mut out = Vec::new();
+        let mut buf = [0u8; 512];
+        let mut deadline = Deadline::after(listen);
+        let mut prompt = false;
+        while !deadline.expired() {
+            let n = self.transport.read(&mut buf)?;
+            out.extend_from_slice(&buf[..n]);
+            if out.contains(&b'>') {
+                prompt = true; // the adapter ended by itself (error, "?")
+                break;
+            }
+        }
+        if !prompt {
+            self.transport.write_all(b"\r")?;
+            let mut stop = Deadline::after(Duration::from_secs(2));
+            loop {
+                let n = self.transport.read(&mut buf)?;
+                out.extend_from_slice(&buf[..n]);
+                if out.contains(&b'>') || stop.expired() {
+                    break;
+                }
+            }
+        }
+        let text = String::from_utf8_lossy(&out).replace('\0', "");
+        Ok(text.split('>').next().unwrap_or("").to_string())
+    }
+
+    /// Listens to DM1 broadcasts (active faults) for a few seconds.
+    pub fn read_j1939_dm1(&mut self) -> Result<crate::j1939::DmReport> {
+        let raw = self.monitor("ATDM1", Duration::from_millis(3500))?;
+        if raw.contains('?') {
+            return Err(Error::Protocol("l'adaptateur ne connaît pas la commande ATDM1 (J1939) : ELM327 v1.4b+, OBDLink ou STN requis".into()));
+        }
+        let report = crate::j1939::read_dm1(&raw);
+        if report.sources.is_empty() {
+            return Err(Error::Protocol("aucun message J1939 reçu : contact mis ? prise 9 broches Deutsch ou broches 6/14 J1939 câblées ?".into()));
+        }
+        Ok(report)
+    }
+
     pub fn is_can(&self) -> Option<bool> {
         self.protocol.map(|p| (6..=9).contains(&p))
     }

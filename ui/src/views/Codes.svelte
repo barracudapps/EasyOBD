@@ -34,6 +34,24 @@
   $effect(() => {
     if (typedCode) open(typedCode);
   });
+
+  // Heavy vehicles (J1939): "SPN 110 FMI 0", "110/0", "spn110 fmi 16"…
+  const typedSpn = $derived.by(() => {
+    const m = query.trim().match(/^(?:spn\s*)?(\d{1,6})\s*(?:\/|-|\s)\s*(?:fmi\s*)?(\d{1,2})$/i);
+    return m && (/spn|fmi|\//i.test(query) || m[1].length > 2) ? { spn: Number(m[1]), fmi: Number(m[2]) } : null;
+  });
+  $effect(() => {
+    const t = typedSpn;
+    if (!t) return;
+    err = '';
+    call<Diagnosis>('j1939_lookup', { spn: t.spn, fmi: t.fmi, make: app.profile?.make })
+      .then((r) => {
+        d = r;
+        app.highlightSeverity = r.severity;
+        app.highlight = r.components.map((c) => c.id);
+      })
+      .catch((e) => (err = errorText(e)));
+  });
 </script>
 
 <div class="col">
@@ -41,7 +59,7 @@
   <p class="muted">Chaque fiche explique le fonctionnement, les vérifications à faire avec vos sens et les réparations possibles.</p>
 
   <div class="row">
-    <div class="search grow"><Icon name="search" size={17} /><input class="grow" placeholder="Code ou mot-clé (P0301, lambda, turbo…)" bind:value={query} /></div>
+    <div class="search grow"><Icon name="search" size={17} /><input class="grow" placeholder="Code ou mot-clé (P0301, lambda, turbo, SPN 3251 FMI 0…)" bind:value={query} /></div>
     <select class="input" style="max-width:240px" bind:value={system}>
       <option value="">Tous les systèmes</option>
       {#each systems as s}<option>{s}</option>{/each}

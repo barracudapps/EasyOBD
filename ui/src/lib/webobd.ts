@@ -156,6 +156,46 @@ export class WebObdSession {
     return raw;
   }
 
+  /** Runs a monitor command (ATDM1…) for `ms`, then stops it with a carriage return. */
+  async monitor(cmd: string, ms: number): Promise<string> {
+    this.buf = '';
+    await this.t.write(`${cmd}\r`);
+    await new Promise((r) => setTimeout(r, ms));
+    if (!this.buf.includes('>')) {
+      await this.t.write('\r');
+      const end = Date.now() + 2000;
+      while (!this.buf.includes('>') && Date.now() < end) await new Promise((r) => setTimeout(r, 100));
+    }
+    const raw = this.buf.split('>')[0];
+    this.buf = '';
+    return raw;
+  }
+
+  /** Heavy vehicles: SAE J1939 (CAN 29 bit 250 kbaud) with headers, no OBD-II probe. */
+  async connectJ1939() {
+    const reset = await this.command('ATZ', 3000);
+    const elm = reset.split(/[\r\n]/).map((l) => l.trim()).find((l) => /ELM|STN/i.test(l)) ?? 'ELM327';
+    for (const cmd of ['ATE0', 'ATL0', 'ATS1', 'ATH1', 'ATSPA']) {
+      const r = await this.command(cmd);
+      if (r.includes('?')) throw new Error(`l'adaptateur refuse « ${cmd} » : il ne gère pas le J1939 (ELM327 v1.4b+ ou OBDLink requis)`);
+    }
+    const bat = await this.ask('ATRV').catch(() => ({ battery_v: null }));
+    return {
+      adapter: { transport: this.t.label, elm_version: elm, protocol_number: 10, protocol: 'SAE J1939 CAN' },
+      vehicle: {},
+      monitor: null,
+      battery_v: bat.battery_v,
+      simulated: false,
+      j1939: true,
+    };
+  }
+
+  async readJ1939(decode: (raw: string) => Promise<unknown>) {
+    const raw = await this.monitor('ATDM1', 3500);
+    if (raw.includes('?')) throw new Error("l'adaptateur ne connaît pas ATDM1 (J1939) : ELM327 v1.4b+, OBDLink ou STN requis");
+    return decode(raw);
+  }
+
   private async ask<T = any>(cmd: string, timeoutMs?: number): Promise<T> {
     const raw = await this.command(cmd, timeoutMs);
     return JSON.parse(this.wasm.parse_response(cmd, raw, this.isCan));

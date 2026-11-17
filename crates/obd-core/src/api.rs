@@ -44,6 +44,22 @@ fn e(err: Error) -> String {
     err.to_string()
 }
 
+/// DM1 report → `{ lamps, items: [{ code, kind, source, occurrences, diagnosis }] }` (same item shape as OBD codes).
+fn j1939_items(report: &crate::j1939::DmReport, make: Option<&str>) -> Value {
+    let kb = KnowledgeBase::embedded();
+    let j = crate::j1939::J1939Kb::embedded();
+    let mut active = report.active.clone();
+    // Most severe first; derates (SPN 1569 / 5246) are consequences of another fault: list them last.
+    let consequence = |spn: u32| matches!(spn, 1569 | 5246);
+    let sev = |d: &crate::j1939::J1939Dtc| j.diagnose(kb, d.spn, d.fmi, None).severity;
+    active.sort_by(|a, b| consequence(a.spn).cmp(&consequence(b.spn)).then(sev(b).cmp(&sev(a))));
+    let items: Vec<Value> = active
+        .iter()
+        .map(|d| json!({ "code": d.code(), "kind": "active", "spn": d.spn, "fmi": d.fmi, "source": j.source_name(d.source), "occurrences": d.occurrences, "diagnosis": j.diagnose(kb, d.spn, d.fmi, make) }))
+        .collect();
+    json!({ "lamps": report.lamps, "items": items, "sources": report.sources.iter().map(|s| j.source_name(*s)).collect::<Vec<_>>() })
+}
+
 impl Session {
     pub fn new() -> Self {
         Self::default()
@@ -97,6 +113,14 @@ impl Session {
                 let spec: ConnectionSpec = arg(args, "spec")?;
                 self.elm = None;
                 let mut elm = Elm327::new(detect::open(&spec).map_err(e)?);
+                if opt::<bool>(args, "j1939").unwrap_or(false) {
+                    // Heavy vehicle: J1939 only, no OBD-II probe / VIN / readiness.
+                    let adapter = elm.initialize_j1939().map_err(e)?;
+                    let battery = elm.battery_voltage().ok().flatten();
+                    self.vehicle = Some(VehicleInfo::default());
+                    self.elm = Some(elm);
+                    return Ok(json!({ "adapter": adapter, "vehicle": VehicleInfo::default(), "monitor": null, "battery_v": battery, "simulated": spec.kind == ConnKind::Simulator, "j1939": true }));
+                }
                 let adapter = elm.initialize().map_err(e)?;
                 let vehicle = elm.read_vehicle().unwrap_or_default();
                 let monitor = elm.monitor_status().ok().flatten();
@@ -118,6 +142,26 @@ impl Session {
                     .map(|d| json!({ "code": d.code, "kind": d.kind, "diagnosis": kb.lookup(&d.code, make.as_deref()) }))
                     .collect();
                 Ok(Value::Array(items))
+            }
+            "read_j1939" => {
+                let make = opt::<String>(args, "make").or_else(|| self.make());
+                let report = self.elm()?.read_j1939_dm1().map_err(e)?;
+                Ok(j1939_items(&report, make.as_deref()))
+            }
+            "j1939_decode" => {
+                // Browser build: raw ATDM1 monitor output captured by JavaScript.
+                let raw: String = arg(args, "raw")?;
+                let make: Option<String> = opt(args, "make");
+                let report = crate::j1939::read_dm1(&raw);
+                if report.sources.is_empty() {
+                    return Err("aucun message J1939 reçu : contact mis ? prise poids lourd J1939 ?".into());
+                }
+                Ok(j1939_items(&report, make.as_deref()))
+            }
+            "j1939_lookup" => {
+                let spn: u32 = arg(args, "spn")?;
+                let fmi: u8 = arg(args, "fmi")?;
+                to_value(crate::j1939::J1939Kb::embedded().diagnose(kb, spn, fmi, opt::<String>(args, "make").as_deref()))
             }
             "clear_dtcs" => {
                 self.elm()?.clear_dtcs().map_err(e)?;
@@ -267,6 +311,16 @@ mod tests {
         let w = json!({ "ecu": 0x7E0, "did": 0x0100, "data": "05" });
         assert!(s.handle("uds_write", &w).unwrap_err().contains("ACCEPTE"));
         assert!(s.handle("uds_raw", &json!({ "ecu": 0x7E0, "request": "22F190" })).unwrap()["response"].as_str().unwrap().starts_with("62 F1 90"));
+
+        // Heavy vehicle (J1939) on the simulator
+        let r = s.handle("connect", &json!({ "spec": { "kind": "simulator", "address": "" }, "j1939": true })).unwrap();
+        assert_eq!(r["j1939"], true);
+        let j = s.handle("read_j1939", &Value::Null).unwrap();
+        assert_eq!(j["items"].as_array().unwrap().len(), 3);
+        assert!(j["lamps"]["red_stop"] == false && j["lamps"]["mil"] == true);
+        assert!(j["items"][0]["diagnosis"]["title"].as_str().unwrap().contains("FAP"));
+        assert_eq!(j["items"][0]["source"], "Post-traitement (échappement)");
+        assert_eq!(j["items"][2]["spn"], 1569);
 
         let info = s.handle("kb_info", &Value::Null).unwrap();
         assert!(info["components"]["oil_filter"].is_string());

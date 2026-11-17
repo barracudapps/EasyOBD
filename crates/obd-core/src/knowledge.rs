@@ -78,7 +78,7 @@ fn one() -> u32 {
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
-struct SolutionDef {
+pub(crate) struct SolutionDef {
     title: String,
     #[serde(default)]
     description: Option<String>,
@@ -327,7 +327,7 @@ impl KnowledgeBase {
         Some(ComponentInfo { name: tpl.name.replace("{n}", n), description: tpl.description.as_ref().map(|d| d.replace("{n}", n)) })
     }
 
-    fn component_ref(&self, id: &str) -> ComponentRef {
+    pub(crate) fn component_ref(&self, id: &str) -> ComponentRef {
         let name = self.component_info(id).map(|c| c.name).unwrap_or_else(|| id.replace('_', " "));
         ComponentRef { id: id.to_string(), name }
     }
@@ -345,7 +345,7 @@ impl KnowledgeBase {
             .collect()
     }
 
-    fn build_solution(&self, s: SolutionDef, make: Option<&str>) -> Solution {
+    pub(crate) fn build_solution(&self, s: SolutionDef, make: Option<&str>) -> Solution {
         let parts: Vec<Part> = s
             .parts
             .into_iter()

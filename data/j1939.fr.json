@@ -1,0 +1,3338 @@
+{
+  "version": "2026.11.1",
+  "fmi": {
+    "0": {
+      "short": "Valeur trop haute (niveau critique)",
+      "long": "La valeur mesurée est au-dessus de la plage normale, au niveau le plus grave.",
+      "kind": "value_high",
+      "severity": "high"
+    },
+    "1": {
+      "short": "Valeur trop basse (niveau critique)",
+      "long": "La valeur mesurée est en dessous de la plage normale, au niveau le plus grave.",
+      "kind": "value_low",
+      "severity": "high"
+    },
+    "2": {
+      "short": "Données erratiques ou incohérentes",
+      "long": "Le signal varie de façon anormale ou ne concorde pas avec les autres mesures.",
+      "kind": "signal",
+      "severity": null
+    },
+    "3": {
+      "short": "Tension trop haute ou court-circuit au plus",
+      "long": "Le circuit du capteur ou de l’actionneur est ouvert ou en contact avec le plus.",
+      "kind": "electrical",
+      "severity": null
+    },
+    "4": {
+      "short": "Tension trop basse ou court-circuit à la masse",
+      "long": "Le circuit du capteur ou de l’actionneur touche la masse ou n’est plus alimenté.",
+      "kind": "electrical",
+      "severity": null
+    },
+    "5": {
+      "short": "Courant trop faible ou circuit ouvert",
+      "long": "Le courant est trop faible : fil coupé, connecteur débranché ou bobine coupée.",
+      "kind": "electrical",
+      "severity": null
+    },
+    "6": {
+      "short": "Courant trop fort ou court-circuit à la masse",
+      "long": "Le courant est trop fort : court-circuit dans le faisceau ou dans la pièce.",
+      "kind": "electrical",
+      "severity": null
+    },
+    "7": {
+      "short": "Le système mécanique ne répond pas",
+      "long": "La commande est envoyée mais la pièce ne réagit pas comme prévu (grippage, blocage).",
+      "kind": "mechanical",
+      "severity": null
+    },
+    "8": {
+      "short": "Fréquence, durée ou période anormale",
+      "long": "Le signal pulsé (vitesse, régime) a une fréquence incohérente.",
+      "kind": "signal",
+      "severity": null
+    },
+    "9": {
+      "short": "Mise à jour anormale",
+      "long": "Le calculateur ne reçoit plus cette information assez souvent sur le réseau.",
+      "kind": "network",
+      "severity": null
+    },
+    "10": {
+      "short": "Variation anormale",
+      "long": "La valeur change trop vite pour être physiquement possible.",
+      "kind": "signal",
+      "severity": null
+    },
+    "11": {
+      "short": "Cause indéterminée",
+      "long": "Le calculateur a détecté un défaut sans pouvoir en préciser le type.",
+      "kind": "other",
+      "severity": null
+    },
+    "12": {
+      "short": "Pièce ou calculateur défectueux",
+      "long": "Le calculateur considère l’appareil lui-même comme en panne.",
+      "kind": "other",
+      "severity": null
+    },
+    "13": {
+      "short": "Hors calibration",
+      "long": "La pièce n’est pas étalonnée ou ses valeurs d’apprentissage sont incohérentes.",
+      "kind": "other",
+      "severity": null
+    },
+    "14": {
+      "short": "Instruction spéciale du constructeur",
+      "long": "Code dont le sens précis est défini par le constructeur : consultez sa documentation.",
+      "kind": "other",
+      "severity": null
+    },
+    "15": {
+      "short": "Valeur trop haute (niveau faible)",
+      "long": "La valeur est un peu au-dessus de la normale (premier niveau d’alerte).",
+      "kind": "value_high",
+      "severity": "low"
+    },
+    "16": {
+      "short": "Valeur trop haute (niveau modéré)",
+      "long": "La valeur est nettement au-dessus de la normale.",
+      "kind": "value_high",
+      "severity": "medium"
+    },
+    "17": {
+      "short": "Valeur trop basse (niveau faible)",
+      "long": "La valeur est un peu en dessous de la normale (premier niveau d’alerte).",
+      "kind": "value_low",
+      "severity": "low"
+    },
+    "18": {
+      "short": "Valeur trop basse (niveau modéré)",
+      "long": "La valeur est nettement en dessous de la normale.",
+      "kind": "value_low",
+      "severity": "medium"
+    },
+    "19": {
+      "short": "Donnée reçue du réseau en erreur",
+      "long": "Un autre calculateur envoie cette donnée en signalant qu’elle est invalide.",
+      "kind": "network",
+      "severity": null
+    },
+    "20": {
+      "short": "Dérive vers le haut",
+      "long": "La mesure dérive lentement vers le haut.",
+      "kind": "signal",
+      "severity": null
+    },
+    "21": {
+      "short": "Dérive vers le bas",
+      "long": "La mesure dérive lentement vers le bas.",
+      "kind": "signal",
+      "severity": null
+    },
+    "22": {
+      "short": "Réservé",
+      "long": "Code FMI réservé par la norme.",
+      "kind": "other",
+      "severity": null
+    },
+    "23": {
+      "short": "Réservé",
+      "long": "Code FMI réservé par la norme.",
+      "kind": "other",
+      "severity": null
+    },
+    "24": {
+      "short": "Réservé",
+      "long": "Code FMI réservé par la norme.",
+      "kind": "other",
+      "severity": null
+    },
+    "25": {
+      "short": "Réservé",
+      "long": "Code FMI réservé par la norme.",
+      "kind": "other",
+      "severity": null
+    },
+    "26": {
+      "short": "Réservé",
+      "long": "Code FMI réservé par la norme.",
+      "kind": "other",
+      "severity": null
+    },
+    "27": {
+      "short": "Réservé",
+      "long": "Code FMI réservé par la norme.",
+      "kind": "other",
+      "severity": null
+    },
+    "28": {
+      "short": "Réservé",
+      "long": "Code FMI réservé par la norme.",
+      "kind": "other",
+      "severity": null
+    },
+    "29": {
+      "short": "Réservé",
+      "long": "Code FMI réservé par la norme.",
+      "kind": "other",
+      "severity": null
+    },
+    "30": {
+      "short": "Réservé",
+      "long": "Code FMI réservé par la norme.",
+      "kind": "other",
+      "severity": null
+    },
+    "31": {
+      "short": "Condition présente",
+      "long": "L’état surveillé est actif (par exemple une limitation de couple en cours).",
+      "kind": "other",
+      "severity": null
+    }
+  },
+  "sources": {
+    "0": "Moteur",
+    "1": "Moteur n°2",
+    "3": "Boîte de vitesses",
+    "11": "Freinage (EBS / ABS)",
+    "15": "Ralentisseur moteur",
+    "16": "Ralentisseur de transmission",
+    "23": "Combiné d’instruments",
+    "33": "Carrosserie",
+    "47": "Suspension pneumatique",
+    "49": "Cabine",
+    "61": "Post-traitement (échappement)",
+    "71": "Châssis",
+    "238": "Chronotachygraphe",
+    "239": "Calculateur hybride",
+    "242": "Calculateur de batterie"
+  },
+  "spns": [
+    {
+      "spn": 27,
+      "name": "Position de la vanne EGR",
+      "system": "Recirculation des gaz (EGR)",
+      "severity": "medium",
+      "components": [
+        "egr_valve",
+        "ecu"
+      ],
+      "how_it_works": "La vanne EGR renvoie une partie des gaz d'échappement à l'admission pour réduire les NOx. Un capteur indique sa position réelle au calculateur.",
+      "description": "La position mesurée de la vanne EGR ne correspond pas à la commande.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "Fumée noire à l’accélération, suie autour de la vanne ?",
+          "means": "Vanne encrassée ou bloquée ouverte."
+        },
+        {
+          "sense": "feel",
+          "tip": "Perte de puissance, ralenti qui galope ?",
+          "means": "EGR bloquée : le moteur respire mal."
+        }
+      ],
+      "value_causes": [
+        {
+          "text": "Vanne encrassée par la calamine",
+          "likelihood": 50
+        },
+        {
+          "text": "Moteur de vanne / capteur de position",
+          "likelihood": 30
+        },
+        {
+          "text": "Faisceau",
+          "likelihood": 20
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Nettoyer / remplacer la vanne EGR",
+          "difficulty": 3,
+          "time_min": 90,
+          "time_max": 240,
+          "tools": [
+            "Clés à douille",
+            "Nettoyant décalaminant"
+          ],
+          "steps": [
+            "Déposer la vanne et son refroidisseur si accessible",
+            "Décalaminer ou remplacer",
+            "Apprentissage de la vanne à la valise"
+          ],
+          "parts": [
+            {
+              "name": "Vanne EGR poids lourd",
+              "query": "vanne egr camion",
+              "price_min": 250,
+              "price_max": 900
+            }
+          ]
+        }
+      ],
+      "drivable": null
+    },
+    {
+      "spn": 84,
+      "name": "Vitesse du véhicule (roues)",
+      "system": "Transmission",
+      "severity": "medium",
+      "components": [
+        "vehicle_speed_sensor",
+        "abs_module",
+        "can_bus"
+      ],
+      "how_it_works": "La vitesse est mesurée sur la boîte ou par l'ABS puis partagée sur le réseau (régulateur, tachygraphe, boîte).",
+      "description": "La vitesse transmise est absente ou incohérente.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "Compteur de vitesse ou tachygraphe à zéro en roulant ?",
+          "means": "Information vitesse perdue."
+        },
+        {
+          "sense": "feel",
+          "tip": "Boîte qui passe mal les rapports, régulateur inopérant ?",
+          "means": "Les calculateurs n’ont plus la vitesse."
+        }
+      ],
+      "value_causes": [
+        {
+          "text": "Capteur de vitesse ou cible encrassée",
+          "likelihood": 45
+        },
+        {
+          "text": "Connecteur / faisceau",
+          "likelihood": 35
+        },
+        {
+          "text": "Calculateur source (ABS, boîte)",
+          "likelihood": 20
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Contrôler le capteur de vitesse",
+          "difficulty": 2,
+          "time_min": 30,
+          "time_max": 60,
+          "tools": [
+            "Multimètre",
+            "Nettoyant"
+          ],
+          "steps": [
+            "Déposer, nettoyer le capteur et la cible",
+            "Mesurer la résistance / le signal",
+            "Remplacer si besoin"
+          ],
+          "parts": [
+            {
+              "name": "Capteur de vitesse boîte",
+              "query": "capteur vitesse boite camion",
+              "price_min": 40,
+              "price_max": 150
+            }
+          ]
+        }
+      ],
+      "drivable": null
+    },
+    {
+      "spn": 91,
+      "name": "Position de la pédale d'accélérateur",
+      "system": "Commande moteur",
+      "severity": "high",
+      "components": [
+        "accelerator_pedal",
+        "ecu"
+      ],
+      "how_it_works": "La pédale contient deux capteurs dont les signaux doivent concorder. En cas d'écart, le moteur reste au ralenti par sécurité.",
+      "description": "Le signal de la pédale d’accélérateur est hors plage ou incohérent.",
+      "sensory_checks": [
+        {
+          "sense": "feel",
+          "tip": "Le moteur ne monte plus en régime, reste au ralenti ?",
+          "means": "Mode sécurité pédale."
+        },
+        {
+          "sense": "sight",
+          "tip": "Connecteur de pédale (plancher cabine) humide ou oxydé ?",
+          "means": "Infiltration d’eau : cause fréquente."
+        }
+      ],
+      "value_causes": [
+        {
+          "text": "Capteur de pédale usé",
+          "likelihood": 50
+        },
+        {
+          "text": "Connecteur oxydé (eau dans la cabine)",
+          "likelihood": 35
+        },
+        {
+          "text": "Faisceau",
+          "likelihood": 15
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Remplacer la pédale d'accélérateur",
+          "difficulty": 2,
+          "time_min": 20,
+          "time_max": 45,
+          "tools": [
+            "Clés"
+          ],
+          "steps": [
+            "Débrancher, déposer la pédale",
+            "Monter la neuve",
+            "Apprentissage à la valise si nécessaire"
+          ],
+          "parts": [
+            {
+              "name": "Pédale d'accélérateur électronique",
+              "query": "pédale accélérateur camion",
+              "price_min": 90,
+              "price_max": 350
+            }
+          ]
+        }
+      ],
+      "drivable": "Souvent immobilisé au ralenti : faites remorquer ou dépanner sur place."
+    },
+    {
+      "spn": 94,
+      "name": "Pression d’alimentation en carburant (basse pression)",
+      "system": "Alimentation carburant",
+      "severity": "high",
+      "components": [
+        "fuel_filter",
+        "fuel_pump",
+        "fuel_tank"
+      ],
+      "how_it_works": "Une pompe de gavage aspire le gazole à travers le préfiltre et le filtre principal, puis alimente la pompe haute pression.",
+      "description": "La pression de gazole en amont de la pompe haute pression est anormale.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "Filtres changés depuis plus de 60 000 km ? Gazole trouble dans le décanteur ?",
+          "means": "Filtre colmaté : cause n°1."
+        },
+        {
+          "sense": "feel",
+          "tip": "Perte de puissance en côte ou à pleine charge, à-coups ?",
+          "means": "Manque de débit carburant sous charge."
+        }
+      ],
+      "value_causes": [
+        {
+          "text": "Filtre à gazole colmaté",
+          "likelihood": 45
+        },
+        {
+          "text": "Prise d’air / fuite côté aspiration",
+          "likelihood": 25
+        },
+        {
+          "text": "Pompe de gavage",
+          "likelihood": 20
+        },
+        {
+          "text": "Capteur de pression",
+          "likelihood": 10
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Remplacer les filtres à gazole et purger le circuit",
+          "difficulty": 2,
+          "time_min": 30,
+          "time_max": 75,
+          "tools": [
+            "Clé à filtre",
+            "Bac",
+            "Pompe d’amorçage manuelle"
+          ],
+          "steps": [
+            "Vidanger le décanteur",
+            "Remplacer préfiltre et filtre principal",
+            "Amorcer à la pompe manuelle jusqu’à résistance",
+            "Démarrer et contrôler l’absence de fuite"
+          ],
+          "parts": [
+            {
+              "name": "Kit filtres à gazole poids lourd",
+              "query": "filtre gasoil camion",
+              "price_min": 40,
+              "price_max": 140
+            }
+          ]
+        }
+      ],
+      "drivable": null
+    },
+    {
+      "spn": 97,
+      "name": "Présence d’eau dans le gazole",
+      "system": "Alimentation carburant",
+      "severity": "medium",
+      "components": [
+        "fuel_filter"
+      ],
+      "how_it_works": "Le décanteur sous le préfiltre recueille l'eau, plus lourde que le gazole. Une sonde détecte quand le niveau d'eau monte.",
+      "description": "De l’eau est détectée dans le décanteur du filtre à gazole.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "Purgez le décanteur dans un récipient transparent : eau au fond ?",
+          "means": "Eau confirmée : purge et contrôle de la source (plein, réservoir)."
+        },
+        {
+          "sense": "feel",
+          "tip": "Moteur qui tousse après un plein ?",
+          "means": "Carburant contaminé."
+        }
+      ],
+      "value_causes": [
+        {
+          "text": "Eau dans le carburant (plein, condensation)",
+          "likelihood": 65
+        },
+        {
+          "text": "Décanteur plein, non purgé",
+          "likelihood": 25
+        },
+        {
+          "text": "Sonde défectueuse",
+          "likelihood": 10
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Purger le décanteur",
+          "difficulty": 1,
+          "time_min": 10,
+          "time_max": 20,
+          "tools": [
+            "Récipient"
+          ],
+          "steps": [
+            "Ouvrir la vis de purge sous le préfiltre",
+            "Laisser couler jusqu’au gazole clair",
+            "Refermer, amorcer si nécessaire"
+          ],
+          "parts": []
+        },
+        {
+          "title": "Remplacer les filtres à gazole et purger le circuit",
+          "difficulty": 2,
+          "time_min": 30,
+          "time_max": 75,
+          "tools": [
+            "Clé à filtre",
+            "Bac",
+            "Pompe d’amorçage manuelle"
+          ],
+          "steps": [
+            "Vidanger le décanteur",
+            "Remplacer préfiltre et filtre principal",
+            "Amorcer à la pompe manuelle jusqu’à résistance",
+            "Démarrer et contrôler l’absence de fuite"
+          ],
+          "parts": [
+            {
+              "name": "Kit filtres à gazole poids lourd",
+              "query": "filtre gasoil camion",
+              "price_min": 40,
+              "price_max": 140
+            }
+          ]
+        }
+      ],
+      "drivable": "Purgez dès que possible : l’eau détruit pompe et injecteurs haute pression."
+    },
+    {
+      "spn": 98,
+      "name": "Niveau d'huile moteur",
+      "system": "Lubrification",
+      "severity": "medium",
+      "components": [
+        "dipstick",
+        "engine"
+      ],
+      "how_it_works": "Une sonde dans le carter mesure le niveau d'huile, contrôlé moteur arrêté et camion à plat.",
+      "description": "Le niveau d'huile moteur est anormal.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "Contrôlez à la jauge, camion à plat, moteur arrêté depuis 5 min.",
+          "means": "Niveau bas : complétez avec l’huile préconisée."
+        },
+        {
+          "sense": "smell",
+          "tip": "Odeur de gazole sur la jauge, niveau qui monte ?",
+          "means": "Dilution par le gazole (régénérations répétées, injecteur) : grave."
+        }
+      ],
+      "value_causes": [
+        {
+          "text": "Niveau réellement bas (consommation, fuite)",
+          "likelihood": 50
+        },
+        {
+          "text": "Niveau trop haut (sur-remplissage, dilution)",
+          "likelihood": 25
+        },
+        {
+          "text": "Sonde de niveau",
+          "likelihood": 25
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Faire l'appoint / la vidange",
+          "difficulty": 1,
+          "time_min": 15,
+          "time_max": 60,
+          "tools": [
+            "Entonnoir"
+          ],
+          "steps": [
+            "Contrôler le niveau à froid",
+            "Compléter ou vidanger si l’huile sent le gazole"
+          ],
+          "parts": [
+            {
+              "name": "Huile moteur poids lourd 20 L",
+              "query": "huile moteur camion 10w40 20l",
+              "price_min": 80,
+              "price_max": 180
+            }
+          ]
+        }
+      ],
+      "drivable": null
+    },
+    {
+      "spn": 100,
+      "name": "Pression d'huile moteur",
+      "system": "Lubrification",
+      "severity": "critical",
+      "components": [
+        "oil_pressure_sensor",
+        "oil_filter",
+        "engine"
+      ],
+      "how_it_works": "La pompe à huile pousse l'huile dans les paliers. Sans pression, les coussinets et le turbo se détruisent en quelques minutes.",
+      "description": "La pression d'huile mesurée est anormale.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "Niveau à la jauge ? Fuite sous le moteur ?",
+          "means": "Niveau bas = arrêt immédiat."
+        },
+        {
+          "sense": "sound",
+          "tip": "Claquement métallique qui augmente avec le régime ?",
+          "means": "Paliers sans huile : n’insistez pas."
+        }
+      ],
+      "value_causes": [
+        {
+          "text": "Niveau d'huile bas ou fuite",
+          "likelihood": 35
+        },
+        {
+          "text": "Capteur de pression défectueux",
+          "likelihood": 30
+        },
+        {
+          "text": "Filtre colmaté / huile inadaptée",
+          "likelihood": 20
+        },
+        {
+          "text": "Pompe à huile ou usure des paliers",
+          "likelihood": 15
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Contrôler le niveau puis la pression au manomètre",
+          "difficulty": 3,
+          "time_min": 30,
+          "time_max": 90,
+          "tools": [
+            "Manomètre de pression d’huile"
+          ],
+          "steps": [
+            "Contrôler le niveau",
+            "Monter un manomètre à la place du capteur",
+            "Comparer aux valeurs constructeur"
+          ],
+          "parts": [
+            {
+              "name": "Capteur de pression d'huile",
+              "query": "capteur pression huile camion",
+              "price_min": 30,
+              "price_max": 120
+            }
+          ]
+        }
+      ],
+      "drivable": "Arrêtez le moteur dès que possible si la valeur est réellement basse : risque de casse moteur."
+    },
+    {
+      "spn": 102,
+      "name": "Pression de suralimentation (collecteur d’admission)",
+      "system": "Suralimentation",
+      "severity": "high",
+      "components": [
+        "map_sensor",
+        "turbo",
+        "intercooler",
+        "vacuum_hoses"
+      ],
+      "how_it_works": "Le turbo comprime l'air ; il passe par l'échangeur (intercooler) puis le collecteur, où un capteur mesure la pression.",
+      "description": "La pression de suralimentation est hors plage.",
+      "sensory_checks": [
+        {
+          "sense": "sound",
+          "tip": "Sifflement ou souffle d’air à l’accélération ?",
+          "means": "Durite de suralimentation fendue ou collier desserré."
+        },
+        {
+          "sense": "sight",
+          "tip": "Traces d’huile sur les durites ou l’échangeur ?",
+          "means": "Fuite d’air (et usure turbo possible)."
+        }
+      ],
+      "value_causes": [
+        {
+          "text": "Fuite d’air (durite, collier, échangeur fendu)",
+          "likelihood": 40
+        },
+        {
+          "text": "Turbo / actionneur VGT",
+          "likelihood": 30
+        },
+        {
+          "text": "Capteur de pression encrassé",
+          "likelihood": 20
+        },
+        {
+          "text": "Filtre à air colmaté",
+          "likelihood": 10
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Rechercher la fuite de suralimentation",
+          "difficulty": 2,
+          "time_min": 30,
+          "time_max": 90,
+          "tools": [
+            "Testeur de fuite (bouchon + air comprimé)",
+            "Eau savonneuse"
+          ],
+          "steps": [
+            "Boucher l’entrée du circuit, pressuriser à 1,5 bar",
+            "Repérer la fuite au savon",
+            "Remplacer durite ou collier"
+          ],
+          "parts": [
+            {
+              "name": "Durite de turbo poids lourd",
+              "query": "durite turbo camion",
+              "price_min": 40,
+              "price_max": 200
+            }
+          ]
+        }
+      ],
+      "drivable": null
+    },
+    {
+      "spn": 105,
+      "name": "Température d’air d’admission",
+      "system": "Suralimentation",
+      "severity": "medium",
+      "components": [
+        "iat_sensor",
+        "intercooler"
+      ],
+      "how_it_works": "L'air comprimé chauffe ; l'échangeur le refroidit. Un capteur mesure la température dans le collecteur.",
+      "description": "La température d’air d’admission est anormale.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "Échangeur avant obstrué (insectes, boue, feuilles) ?",
+          "means": "Air mal refroidi : nettoyage simple."
+        },
+        {
+          "sense": "feel",
+          "tip": "Perte de puissance par forte chaleur ou en côte ?",
+          "means": "Le moteur réduit la puissance pour se protéger."
+        }
+      ],
+      "value_causes": [
+        {
+          "text": "Échangeur obstrué ou entartré",
+          "likelihood": 40
+        },
+        {
+          "text": "Capteur de température",
+          "likelihood": 35
+        },
+        {
+          "text": "Ventilateur moteur (visco) qui ne s’enclenche pas",
+          "likelihood": 25
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Nettoyer l'échangeur et contrôler le capteur",
+          "difficulty": 2,
+          "time_min": 30,
+          "time_max": 60,
+          "tools": [
+            "Soufflette",
+            "Multimètre"
+          ],
+          "steps": [
+            "Nettoyer les faisceaux de radiateurs à l’air de l’intérieur vers l’extérieur",
+            "Mesurer la résistance du capteur à froid"
+          ],
+          "parts": []
+        }
+      ],
+      "drivable": null
+    },
+    {
+      "spn": 110,
+      "name": "Température du liquide de refroidissement",
+      "system": "Refroidissement",
+      "severity": "high",
+      "components": [
+        "coolant_temp_sensor",
+        "radiator",
+        "thermostat",
+        "cooling_fan",
+        "coolant_reservoir"
+      ],
+      "how_it_works": "Le liquide circule entre le moteur et le radiateur ; le thermostat régule et le ventilateur visco ou électrique renforce le refroidissement.",
+      "description": "La température du liquide de refroidissement est anormale.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "Niveau du vase d’expansion (moteur froid) ? Traces de liquide sous le camion ?",
+          "means": "Fuite : à traiter avant de rouler."
+        },
+        {
+          "sense": "sound",
+          "tip": "Le ventilateur rugit-il quand le moteur est chaud ?",
+          "means": "Silence moteur chaud : visco-coupleur ou commande en défaut."
+        }
+      ],
+      "value_causes": [
+        {
+          "text": "Manque de liquide / fuite",
+          "likelihood": 35
+        },
+        {
+          "text": "Thermostat bloqué",
+          "likelihood": 20
+        },
+        {
+          "text": "Ventilateur (visco) inopérant",
+          "likelihood": 20
+        },
+        {
+          "text": "Radiateur colmaté",
+          "likelihood": 15
+        },
+        {
+          "text": "Capteur",
+          "likelihood": 10
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Contrôler niveau, thermostat et ventilateur",
+          "difficulty": 2,
+          "time_min": 30,
+          "time_max": 120,
+          "tools": [
+            "Lampe",
+            "Thermomètre infrarouge"
+          ],
+          "steps": [
+            "Compléter le niveau moteur froid",
+            "Mesurer les températures entrée / sortie radiateur",
+            "Contrôler l’enclenchement du ventilateur"
+          ],
+          "parts": [
+            {
+              "name": "Liquide de refroidissement 20 L",
+              "query": "liquide refroidissement camion 20l",
+              "price_min": 40,
+              "price_max": 90
+            },
+            {
+              "name": "Thermostat",
+              "query": "thermostat camion",
+              "price_min": 30,
+              "price_max": 120
+            }
+          ]
+        }
+      ],
+      "drivable": "Surchauffe : arrêtez-vous et laissez refroidir, n’ouvrez jamais le vase d’expansion chaud."
+    },
+    {
+      "spn": 111,
+      "name": "Niveau de liquide de refroidissement",
+      "system": "Refroidissement",
+      "severity": "high",
+      "components": [
+        "coolant_reservoir",
+        "radiator"
+      ],
+      "how_it_works": "Une sonde dans le vase d'expansion surveille le niveau de liquide de refroidissement.",
+      "description": "Le niveau de liquide de refroidissement est bas.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "Niveau du vase moteur froid ? Traces blanches ou roses sur les durites ?",
+          "means": "Fuite à localiser."
+        },
+        {
+          "sense": "smell",
+          "tip": "Odeur sucrée dans la cabine ou fumée blanche ?",
+          "means": "Fuite de radiateur de chauffage ou joint de culasse."
+        }
+      ],
+      "value_causes": [
+        {
+          "text": "Fuite (durite, pompe à eau, radiateur)",
+          "likelihood": 60
+        },
+        {
+          "text": "Sonde de niveau",
+          "likelihood": 25
+        },
+        {
+          "text": "Joint de culasse / refroidisseur EGR",
+          "likelihood": 15
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Compléter et rechercher la fuite",
+          "difficulty": 2,
+          "time_min": 20,
+          "time_max": 90,
+          "tools": [
+            "Testeur de pression de circuit"
+          ],
+          "steps": [
+            "Compléter avec le liquide préconisé",
+            "Mettre le circuit sous pression et chercher la fuite"
+          ],
+          "parts": [
+            {
+              "name": "Liquide de refroidissement 20 L",
+              "query": "liquide refroidissement camion 20l",
+              "price_min": 40,
+              "price_max": 90
+            }
+          ]
+        }
+      ],
+      "drivable": null
+    },
+    {
+      "spn": 157,
+      "name": "Pression de rampe commune (haute pression)",
+      "system": "Injection",
+      "severity": "high",
+      "components": [
+        "fuel_rail",
+        "fuel_pump",
+        "fuel_filter"
+      ],
+      "how_it_works": "La pompe haute pression comprime le gazole jusqu'à 2 500 bar dans la rampe commune ; un capteur et une vanne régulent cette pression.",
+      "description": "La pression dans la rampe d’injection est hors plage.",
+      "sensory_checks": [
+        {
+          "sense": "feel",
+          "tip": "Démarrage long, à-coups ou perte de puissance ?",
+          "means": "Pression insuffisante."
+        },
+        {
+          "sense": "smell",
+          "tip": "Odeur de gazole sous la cabine basculée ?",
+          "means": "Fuite haute pression : dangereuse, ne mettez pas la main sur un jet."
+        }
+      ],
+      "value_causes": [
+        {
+          "text": "Filtres colmatés / basse pression insuffisante",
+          "likelihood": 35
+        },
+        {
+          "text": "Régulateur de pression / capteur de rampe",
+          "likelihood": 30
+        },
+        {
+          "text": "Fuite de retour injecteurs",
+          "likelihood": 20
+        },
+        {
+          "text": "Pompe haute pression usée",
+          "likelihood": 15
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Remplacer les filtres à gazole et purger le circuit",
+          "difficulty": 2,
+          "time_min": 30,
+          "time_max": 75,
+          "tools": [
+            "Clé à filtre",
+            "Bac",
+            "Pompe d’amorçage manuelle"
+          ],
+          "steps": [
+            "Vidanger le décanteur",
+            "Remplacer préfiltre et filtre principal",
+            "Amorcer à la pompe manuelle jusqu’à résistance",
+            "Démarrer et contrôler l’absence de fuite"
+          ],
+          "parts": [
+            {
+              "name": "Kit filtres à gazole poids lourd",
+              "query": "filtre gasoil camion",
+              "price_min": 40,
+              "price_max": 140
+            }
+          ]
+        },
+        {
+          "title": "Test de débit de retour des injecteurs",
+          "difficulty": 4,
+          "time_min": 60,
+          "time_max": 150,
+          "tools": [
+            "Kit de test de retour",
+            "Valise de diagnostic"
+          ],
+          "steps": [
+            "Mesurer le retour de chaque injecteur",
+            "Comparer aux valeurs constructeur",
+            "Remplacer l’injecteur qui fuit"
+          ],
+          "parts": []
+        }
+      ],
+      "drivable": null
+    },
+    {
+      "spn": 158,
+      "name": "Tension batterie (après contact)",
+      "system": "Électricité",
+      "severity": "medium",
+      "components": [
+        "battery",
+        "alternator"
+      ],
+      "how_it_works": "Le calculateur mesure la tension qu'il reçoit par le contact : un camion fonctionne en 24 V (deux batteries 12 V en série).",
+      "description": "La tension d’alimentation au contact est anormale.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "Cosses des batteries oxydées, coupe-batterie desserré ?",
+          "means": "Mauvais contact : cause fréquente."
+        },
+        {
+          "sense": "sight",
+          "tip": "Tension moteur tournant entre 27,5 et 28,8 V ?",
+          "means": "Hors plage : alternateur ou régulateur."
+        }
+      ],
+      "value_causes": [
+        {
+          "text": "Batteries fatiguées",
+          "likelihood": 35
+        },
+        {
+          "text": "Cosses / coupe-batterie / masse",
+          "likelihood": 35
+        },
+        {
+          "text": "Alternateur",
+          "likelihood": 20
+        },
+        {
+          "text": "Faisceau d’alimentation",
+          "likelihood": 10
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Contrôler batteries, coupe-batterie et charge",
+          "difficulty": 2,
+          "time_min": 20,
+          "time_max": 60,
+          "tools": [
+            "Multimètre",
+            "Testeur de batterie",
+            "Brosse à cosses"
+          ],
+          "steps": [
+            "Nettoyer et serrer cosses et masses",
+            "Tester chaque batterie séparément",
+            "Mesurer la charge moteur tournant"
+          ],
+          "parts": [
+            {
+              "name": "Batterie poids lourd 12 V 180 Ah",
+              "query": "batterie camion 180ah",
+              "price_min": 180,
+              "price_max": 350
+            }
+          ]
+        }
+      ],
+      "drivable": null
+    },
+    {
+      "spn": 168,
+      "name": "Tension batterie",
+      "system": "Électricité",
+      "severity": "medium",
+      "components": [
+        "battery",
+        "alternator",
+        "accessory_belt"
+      ],
+      "how_it_works": "Le calculateur mesure la tension permanente du réseau de bord (24 V sur la plupart des poids lourds).",
+      "description": "La tension du réseau de bord est trop basse ou trop haute.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "Voyant de charge, éclairage qui faiblit au ralenti ?",
+          "means": "Charge insuffisante."
+        },
+        {
+          "sense": "smell",
+          "tip": "Odeur de soufre près des batteries ?",
+          "means": "Surcharge : batteries qui bouillent."
+        }
+      ],
+      "value_causes": [
+        {
+          "text": "Alternateur / régulateur",
+          "likelihood": 40
+        },
+        {
+          "text": "Batteries en fin de vie",
+          "likelihood": 30
+        },
+        {
+          "text": "Courroie qui patine",
+          "likelihood": 15
+        },
+        {
+          "text": "Connexions",
+          "likelihood": 15
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Tester la charge et l'alternateur",
+          "difficulty": 2,
+          "time_min": 30,
+          "time_max": 120,
+          "tools": [
+            "Multimètre",
+            "Pince ampèremétrique"
+          ],
+          "steps": [
+            "Mesurer 27,5–28,8 V moteur tournant",
+            "Contrôler la courroie",
+            "Remplacer alternateur ou régulateur"
+          ],
+          "parts": [
+            {
+              "name": "Alternateur 24 V",
+              "query": "alternateur 24v camion",
+              "price_min": 250,
+              "price_max": 700
+            }
+          ]
+        }
+      ],
+      "drivable": null
+    },
+    {
+      "spn": 174,
+      "name": "Température du gazole",
+      "system": "Alimentation carburant",
+      "severity": "low",
+      "components": [
+        "fuel_rail",
+        "fuel_filter"
+      ],
+      "how_it_works": "Le gazole chauffe en passant par la pompe haute pression et les injecteurs ; un capteur surveille sa température.",
+      "description": "La température du carburant est anormale.",
+      "sensory_checks": [
+        {
+          "sense": "touch",
+          "tip": "Réservoir très chaud au toucher après un long trajet, réservoir presque vide ?",
+          "means": "Gazole qui recircule trop : roulez avec plus de carburant."
+        },
+        {
+          "sense": "feel",
+          "tip": "Perte de puissance par forte chaleur ?",
+          "means": "Le moteur se protège."
+        }
+      ],
+      "value_causes": [
+        {
+          "text": "Niveau de réservoir bas par forte chaleur",
+          "likelihood": 35
+        },
+        {
+          "text": "Refroidisseur de gazole / retour",
+          "likelihood": 35
+        },
+        {
+          "text": "Capteur",
+          "likelihood": 30
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Remplacer les filtres à gazole et purger le circuit",
+          "difficulty": 2,
+          "time_min": 30,
+          "time_max": 75,
+          "tools": [
+            "Clé à filtre",
+            "Bac",
+            "Pompe d’amorçage manuelle"
+          ],
+          "steps": [
+            "Vidanger le décanteur",
+            "Remplacer préfiltre et filtre principal",
+            "Amorcer à la pompe manuelle jusqu’à résistance",
+            "Démarrer et contrôler l’absence de fuite"
+          ],
+          "parts": [
+            {
+              "name": "Kit filtres à gazole poids lourd",
+              "query": "filtre gasoil camion",
+              "price_min": 40,
+              "price_max": 140
+            }
+          ]
+        }
+      ],
+      "drivable": null
+    },
+    {
+      "spn": 175,
+      "name": "Température d'huile moteur",
+      "system": "Lubrification",
+      "severity": "medium",
+      "components": [
+        "engine",
+        "oil_filter"
+      ],
+      "how_it_works": "L'huile est refroidie par un échangeur eau / huile. Trop chaude, elle perd son pouvoir lubrifiant.",
+      "description": "La température d'huile moteur est anormale.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "Liquide de refroidissement couleur chocolat, ou huile laiteuse ?",
+          "means": "Échangeur eau / huile percé : mélange des fluides."
+        },
+        {
+          "sense": "feel",
+          "tip": "Problème apparu en côte à pleine charge ?",
+          "means": "Surcharge thermique : vérifiez le refroidissement."
+        }
+      ],
+      "value_causes": [
+        {
+          "text": "Échangeur eau / huile encrassé",
+          "likelihood": 40
+        },
+        {
+          "text": "Refroidissement moteur insuffisant",
+          "likelihood": 35
+        },
+        {
+          "text": "Capteur",
+          "likelihood": 25
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Contrôler l'échangeur eau / huile",
+          "difficulty": 4,
+          "time_min": 120,
+          "time_max": 300,
+          "tools": [
+            "Clés",
+            "Bac"
+          ],
+          "steps": [
+            "Contrôler le mélange des fluides",
+            "Remplacer l’échangeur et son joint"
+          ],
+          "parts": [
+            {
+              "name": "Refroidisseur d’huile",
+              "query": "refroidisseur huile moteur camion",
+              "price_min": 150,
+              "price_max": 500
+            }
+          ]
+        }
+      ],
+      "drivable": null
+    },
+    {
+      "spn": 190,
+      "name": "Régime moteur",
+      "system": "Gestion moteur",
+      "severity": "high",
+      "components": [
+        "crank_sensor",
+        "ecu"
+      ],
+      "how_it_works": "Le capteur de vilebrequin lit les dents du volant moteur ; c'est l'information de base de l'injection.",
+      "description": "Le signal de régime moteur est absent ou incohérent.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "Compte-tours qui chute à zéro par instants ?",
+          "means": "Signal régime perdu."
+        },
+        {
+          "sense": "feel",
+          "tip": "Le moteur cale ou refuse de démarrer à chaud ?",
+          "means": "Capteur de régime défaillant à chaud."
+        }
+      ],
+      "value_causes": [
+        {
+          "text": "Capteur de vilebrequin / volant",
+          "likelihood": 50
+        },
+        {
+          "text": "Connecteur / faisceau",
+          "likelihood": 35
+        },
+        {
+          "text": "Calculateur",
+          "likelihood": 15
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Remplacer le capteur de régime",
+          "difficulty": 2,
+          "time_min": 20,
+          "time_max": 60,
+          "tools": [
+            "Clés",
+            "Multimètre"
+          ],
+          "steps": [
+            "Contrôler l’entrefer et la propreté",
+            "Remplacer le capteur"
+          ],
+          "parts": [
+            {
+              "name": "Capteur de régime vilebrequin",
+              "query": "capteur régime moteur camion",
+              "price_min": 40,
+              "price_max": 150
+            }
+          ]
+        }
+      ],
+      "drivable": "Risque de calage : roulez prudemment jusqu’au garage."
+    },
+    {
+      "spn": 412,
+      "name": "Température des gaz EGR",
+      "system": "Recirculation des gaz (EGR)",
+      "severity": "medium",
+      "components": [
+        "egr_valve",
+        "exhaust"
+      ],
+      "how_it_works": "Les gaz recirculés passent par un refroidisseur EGR avant l'admission ; un capteur vérifie leur température.",
+      "description": "La température des gaz recirculés est anormale.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "Fumée blanche à l’échappement, perte de liquide de refroidissement ?",
+          "means": "Refroidisseur EGR percé."
+        },
+        {
+          "sense": "smell",
+          "tip": "Odeur sucrée à l’échappement ?",
+          "means": "Liquide de refroidissement brûlé."
+        }
+      ],
+      "value_causes": [
+        {
+          "text": "Refroidisseur EGR encrassé ou percé",
+          "likelihood": 50
+        },
+        {
+          "text": "Capteur de température",
+          "likelihood": 30
+        },
+        {
+          "text": "Vanne EGR",
+          "likelihood": 20
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Nettoyer / remplacer la vanne EGR",
+          "difficulty": 3,
+          "time_min": 90,
+          "time_max": 240,
+          "tools": [
+            "Clés à douille",
+            "Nettoyant décalaminant"
+          ],
+          "steps": [
+            "Déposer la vanne et son refroidisseur si accessible",
+            "Décalaminer ou remplacer",
+            "Apprentissage de la vanne à la valise"
+          ],
+          "parts": [
+            {
+              "name": "Vanne EGR poids lourd",
+              "query": "vanne egr camion",
+              "price_min": 250,
+              "price_max": 900
+            }
+          ]
+        }
+      ],
+      "drivable": null
+    },
+    {
+      "spn": 597,
+      "name": "Contacteur de pédale de frein",
+      "system": "Commande moteur",
+      "severity": "low",
+      "components": [
+        "brake_switch"
+      ],
+      "how_it_works": "Le contacteur de frein coupe le régulateur de vitesse et informe la boîte et les feux stop.",
+      "description": "Le signal du contacteur de frein est incohérent.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "Les feux stop s’allument-ils en freinant ?",
+          "means": "Non : contacteur ou fusible."
+        },
+        {
+          "sense": "feel",
+          "tip": "Régulateur de vitesse qui refuse de s’enclencher ?",
+          "means": "Contacteur de frein vu enfoncé en permanence."
+        }
+      ],
+      "value_causes": [
+        {
+          "text": "Contacteur déréglé ou défectueux",
+          "likelihood": 70
+        },
+        {
+          "text": "Faisceau",
+          "likelihood": 30
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Régler ou remplacer le contacteur",
+          "difficulty": 1,
+          "time_min": 15,
+          "time_max": 30,
+          "tools": [
+            "Clés"
+          ],
+          "steps": [
+            "Contrôler le jeu de la pédale",
+            "Remplacer le contacteur"
+          ],
+          "parts": [
+            {
+              "name": "Contacteur de feux stop",
+              "query": "contacteur stop camion",
+              "price_min": 15,
+              "price_max": 60
+            }
+          ]
+        }
+      ],
+      "drivable": null
+    },
+    {
+      "spn": 629,
+      "name": "Calculateur moteur (défaut interne)",
+      "system": "Gestion moteur",
+      "severity": "high",
+      "components": [
+        "ecu",
+        "battery"
+      ],
+      "how_it_works": "Le calculateur surveille sa propre mémoire, ses alimentations et ses étages de sortie.",
+      "description": "Le calculateur signale un défaut interne ou d’alimentation.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "Travaux de soudure sur le châssis récemment, batteries débranchées sans précaution ?",
+          "means": "Surtension possible."
+        },
+        {
+          "sense": "feel",
+          "tip": "Défauts multiples sans lien entre eux ?",
+          "means": "Alimentation ou masse du calculateur."
+        }
+      ],
+      "value_causes": [
+        {
+          "text": "Alimentation / masse du calculateur",
+          "likelihood": 45
+        },
+        {
+          "text": "Logiciel à mettre à jour",
+          "likelihood": 30
+        },
+        {
+          "text": "Calculateur défectueux",
+          "likelihood": 25
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Contrôler alimentations et masses du calculateur",
+          "difficulty": 3,
+          "time_min": 30,
+          "time_max": 120,
+          "tools": [
+            "Multimètre",
+            "Schémas constructeur"
+          ],
+          "steps": [
+            "Mesurer les alimentations permanentes et après contact",
+            "Nettoyer les masses moteur et châssis",
+            "Mise à jour logicielle si disponible"
+          ],
+          "parts": []
+        }
+      ],
+      "drivable": null
+    },
+    {
+      "spn": 636,
+      "name": "Capteur de position d'arbre à cames",
+      "system": "Gestion moteur",
+      "severity": "high",
+      "components": [
+        "cam_sensor",
+        "ecu"
+      ],
+      "how_it_works": "Le capteur d'arbre à cames permet au calculateur de savoir quel cylindre est en phase de compression.",
+      "description": "Le signal d’arbre à cames est absent ou incohérent avec le vilebrequin.",
+      "sensory_checks": [
+        {
+          "sense": "feel",
+          "tip": "Démarrage long (le démarreur tourne plusieurs secondes) ?",
+          "means": "Le calculateur cherche la phase."
+        },
+        {
+          "sense": "sight",
+          "tip": "Connecteur du capteur huileux ?",
+          "means": "Joint de capteur qui fuit."
+        }
+      ],
+      "value_causes": [
+        {
+          "text": "Capteur défectueux",
+          "likelihood": 50
+        },
+        {
+          "text": "Connecteur / faisceau",
+          "likelihood": 35
+        },
+        {
+          "text": "Calage de distribution",
+          "likelihood": 15
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Remplacer le capteur d'arbre à cames",
+          "difficulty": 2,
+          "time_min": 20,
+          "time_max": 60,
+          "tools": [
+            "Clés",
+            "Multimètre"
+          ],
+          "steps": [
+            "Contrôler le connecteur",
+            "Remplacer le capteur (joint neuf)"
+          ],
+          "parts": [
+            {
+              "name": "Capteur d'arbre à cames",
+              "query": "capteur arbre a cames camion",
+              "price_min": 40,
+              "price_max": 150
+            }
+          ]
+        }
+      ],
+      "drivable": null
+    },
+    {
+      "spn": 637,
+      "name": "Capteur de vilebrequin (synchronisation)",
+      "system": "Gestion moteur",
+      "severity": "high",
+      "components": [
+        "crank_sensor",
+        "ecu"
+      ],
+      "how_it_works": "Le capteur de vilebrequin donne la position exacte des pistons pour le moment d'injection.",
+      "description": "Le signal de synchronisation moteur est anormal.",
+      "sensory_checks": [
+        {
+          "sense": "feel",
+          "tip": "Calages ou refus de démarrer à chaud ?",
+          "means": "Capteur qui lâche à la chaleur."
+        },
+        {
+          "sense": "sight",
+          "tip": "Limaille sur l’aimant du capteur ?",
+          "means": "Signal perturbé : nettoyez."
+        }
+      ],
+      "value_causes": [
+        {
+          "text": "Capteur défectueux ou encrassé",
+          "likelihood": 50
+        },
+        {
+          "text": "Faisceau",
+          "likelihood": 30
+        },
+        {
+          "text": "Cible / volant endommagé",
+          "likelihood": 20
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Nettoyer / remplacer le capteur de vilebrequin",
+          "difficulty": 2,
+          "time_min": 20,
+          "time_max": 60,
+          "tools": [
+            "Clés"
+          ],
+          "steps": [
+            "Déposer et nettoyer",
+            "Remplacer si la résistance est hors tolérance"
+          ],
+          "parts": [
+            {
+              "name": "Capteur de vilebrequin",
+              "query": "capteur vilebrequin camion",
+              "price_min": 40,
+              "price_max": 150
+            }
+          ]
+        }
+      ],
+      "drivable": null
+    },
+    {
+      "spn": 639,
+      "name": "Réseau J1939 n°1",
+      "system": "Réseau multiplexé (CAN)",
+      "severity": "high",
+      "components": [
+        "can_bus",
+        "ecu"
+      ],
+      "how_it_works": "Tous les calculateurs du camion (moteur, boîte, freins, tachygraphe…) dialoguent sur ce réseau CAN.",
+      "description": "Le calculateur détecte un défaut de communication sur le réseau principal.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "Plusieurs voyants allumés en même temps, compteur qui « danse » ?",
+          "means": "Réseau perturbé."
+        },
+        {
+          "sense": "sight",
+          "tip": "Accessoire ajouté récemment (traceur, éclairage) branché sur le réseau ?",
+          "means": "Montage mal fait : cause fréquente."
+        }
+      ],
+      "value_causes": [
+        {
+          "text": "Connecteur / faisceau CAN",
+          "likelihood": 45
+        },
+        {
+          "text": "Calculateur qui perturbe le réseau",
+          "likelihood": 30
+        },
+        {
+          "text": "Résistance de terminaison",
+          "likelihood": 15
+        },
+        {
+          "text": "Accessoire ajouté",
+          "likelihood": 10
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Contrôler le réseau CAN",
+          "difficulty": 3,
+          "time_min": 30,
+          "time_max": 120,
+          "tools": [
+            "Multimètre",
+            "Oscilloscope (idéal)"
+          ],
+          "steps": [
+            "Contact coupé, mesurer ≈ 60 Ω entre CAN-H et CAN-L à la prise diagnostic",
+            "Débrancher les calculateurs un par un",
+            "Réparer le faisceau"
+          ],
+          "parts": []
+        }
+      ],
+      "drivable": null
+    },
+    {
+      "spn": 641,
+      "name": "Actionneur de turbo à géométrie variable (VGT)",
+      "system": "Suralimentation",
+      "severity": "high",
+      "components": [
+        "turbo",
+        "ecu"
+      ],
+      "how_it_works": "Un actionneur électrique ou pneumatique oriente les ailettes du turbo pour ajuster la pression à tout régime.",
+      "description": "L'actionneur de turbo ne répond pas ou signale un défaut.",
+      "sensory_checks": [
+        {
+          "sense": "feel",
+          "tip": "Manque de puissance à bas régime, ou suralimentation brutale ?",
+          "means": "Ailettes bloquées."
+        },
+        {
+          "sense": "sound",
+          "tip": "Bruit de moteur électrique qui force au contact mis ?",
+          "means": "Actionneur qui cherche sa butée : ailettes grippées."
+        }
+      ],
+      "value_causes": [
+        {
+          "text": "Ailettes grippées par la calamine",
+          "likelihood": 45
+        },
+        {
+          "text": "Actionneur électrique défaillant",
+          "likelihood": 40
+        },
+        {
+          "text": "Faisceau",
+          "likelihood": 15
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Apprentissage puis remplacement de l’actionneur",
+          "difficulty": 4,
+          "time_min": 60,
+          "time_max": 180,
+          "tools": [
+            "Valise de diagnostic",
+            "Clés"
+          ],
+          "steps": [
+            "Lancer le test / l’apprentissage de l’actionneur",
+            "Décalaminer le turbo si possible",
+            "Remplacer l’actionneur"
+          ],
+          "parts": [
+            {
+              "name": "Actionneur de turbo VGT",
+              "query": "actionneur turbo vgt camion",
+              "price_min": 350,
+              "price_max": 1200
+            }
+          ]
+        }
+      ],
+      "drivable": null
+    },
+    {
+      "spn": 677,
+      "name": "Relais de démarreur",
+      "system": "Démarrage",
+      "severity": "medium",
+      "components": [
+        "starter",
+        "battery"
+      ],
+      "how_it_works": "Le calculateur moteur commande le démarreur via un relais pour éviter les démarrages moteur tournant.",
+      "description": "Le circuit de commande du démarreur est en défaut.",
+      "sensory_checks": [
+        {
+          "sense": "sound",
+          "tip": "Un « clac » au démarrage puis rien ?",
+          "means": "Relais ou solénoïde."
+        },
+        {
+          "sense": "sight",
+          "tip": "Batteries correctement chargées (> 24,8 V à l’arrêt) ?",
+          "means": "Tension faible : cause fréquente."
+        }
+      ],
+      "value_causes": [
+        {
+          "text": "Batteries faibles",
+          "likelihood": 35
+        },
+        {
+          "text": "Relais / solénoïde",
+          "likelihood": 40
+        },
+        {
+          "text": "Faisceau",
+          "likelihood": 25
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Contrôler batteries puis relais de démarreur",
+          "difficulty": 2,
+          "time_min": 20,
+          "time_max": 60,
+          "tools": [
+            "Multimètre"
+          ],
+          "steps": [
+            "Mesurer la tension au démarrage (> 20 V)",
+            "Contrôler le relais et le fil de commande"
+          ],
+          "parts": [
+            {
+              "name": "Relais de démarreur 24 V",
+              "query": "relais démarreur 24v",
+              "price_min": 15,
+              "price_max": 60
+            }
+          ]
+        }
+      ],
+      "drivable": null
+    },
+    {
+      "spn": 1127,
+      "name": "Pression de suralimentation du turbo",
+      "system": "Suralimentation",
+      "severity": "high",
+      "components": [
+        "turbo",
+        "intercooler",
+        "map_sensor"
+      ],
+      "how_it_works": "Pression de sortie du compresseur du turbo, mesurée avant l'échangeur.",
+      "description": "La pression fournie par le turbo est anormale.",
+      "sensory_checks": [
+        {
+          "sense": "sound",
+          "tip": "Sifflement aigu qui change avec le régime ?",
+          "means": "Fuite d’air ou turbo usé."
+        },
+        {
+          "sense": "sight",
+          "tip": "Fumée bleue, huile dans les durites ?",
+          "means": "Turbo qui fuit (jeu à l’axe)."
+        }
+      ],
+      "value_causes": [
+        {
+          "text": "Fuite d’air",
+          "likelihood": 40
+        },
+        {
+          "text": "Turbo usé / VGT",
+          "likelihood": 35
+        },
+        {
+          "text": "Capteur",
+          "likelihood": 25
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Contrôler le jeu du turbo et l’étanchéité",
+          "difficulty": 3,
+          "time_min": 30,
+          "time_max": 120,
+          "tools": [
+            "Lampe",
+            "Testeur de fuite"
+          ],
+          "steps": [
+            "Contrôler le jeu axial et radial de l’axe",
+            "Tester l’étanchéité du circuit"
+          ],
+          "parts": [
+            {
+              "name": "Turbo échange standard",
+              "query": "turbo camion échange standard",
+              "price_min": 900,
+              "price_max": 2500
+            }
+          ]
+        }
+      ],
+      "drivable": null
+    },
+    {
+      "spn": 1569,
+      "name": "Limitation de couple de protection moteur",
+      "system": "Gestion moteur",
+      "severity": "high",
+      "components": [
+        "engine",
+        "ecu"
+      ],
+      "how_it_works": "Quand un paramètre critique est hors limite (température, AdBlue, pression), le calculateur bride volontairement le couple.",
+      "description": "Le moteur est bridé pour se protéger : ce code accompagne toujours un autre défaut, à traiter en priorité.",
+      "sensory_checks": [
+        {
+          "sense": "feel",
+          "tip": "Puissance nettement réduite, vitesse limitée ?",
+          "means": "Bridage actif."
+        },
+        {
+          "sense": "sight",
+          "tip": "Autres voyants ou messages (AdBlue, température) ?",
+          "means": "C’est la cause du bridage."
+        }
+      ],
+      "value_causes": [
+        {
+          "text": "Conséquence d’un autre défaut actif (AdBlue, température, pression)",
+          "likelihood": 90
+        },
+        {
+          "text": "Calibration",
+          "likelihood": 10
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Traiter le défaut d’origine",
+          "difficulty": 2,
+          "time_min": 10,
+          "time_max": 60,
+          "tools": [
+            "Valise de diagnostic"
+          ],
+          "steps": [
+            "Lire tous les codes actifs",
+            "Réparer le défaut cause du bridage",
+            "Le bridage disparaît une fois la cause corrigée"
+          ],
+          "parts": []
+        }
+      ],
+      "drivable": null
+    },
+    {
+      "spn": 1761,
+      "name": "Niveau d'AdBlue (DEF)",
+      "system": "Dépollution (SCR / AdBlue)",
+      "severity": "medium",
+      "components": [
+        "adblue_tank"
+      ],
+      "how_it_works": "L'AdBlue est injecté dans l'échappement pour transformer les NOx. Sans AdBlue, la loi impose un bridage progressif du moteur.",
+      "description": "Le niveau d'AdBlue est bas ou la jauge est en défaut.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "Jauge AdBlue au combiné, contrôle visuel dans le réservoir (bouchon bleu) ?",
+          "means": "Niveau bas : faites le plein d’AdBlue."
+        },
+        {
+          "sense": "sight",
+          "tip": "Cristaux blancs autour du réservoir ?",
+          "means": "Fuite d’AdBlue."
+        }
+      ],
+      "value_causes": [
+        {
+          "text": "Réservoir réellement bas",
+          "likelihood": 70
+        },
+        {
+          "text": "Jauge / sonde du module réservoir",
+          "likelihood": 20
+        },
+        {
+          "text": "Fuite",
+          "likelihood": 10
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Faire le plein d'AdBlue",
+          "difficulty": 1,
+          "time_min": 5,
+          "time_max": 15,
+          "tools": [
+            "Pistolet AdBlue en station"
+          ],
+          "steps": [
+            "Remplir avec de l'AdBlue ISO 22241",
+            "Le bridage se lève après quelques minutes de fonctionnement"
+          ],
+          "parts": [
+            {
+              "name": "AdBlue 20 L",
+              "query": "adblue 20 litres",
+              "price_min": 20,
+              "price_max": 40
+            }
+          ]
+        }
+      ],
+      "drivable": "Faites le plein d’AdBlue rapidement : sinon vitesse et puissance seront bridées."
+    },
+    {
+      "spn": 2791,
+      "name": "Commande de la vanne EGR",
+      "system": "Recirculation des gaz (EGR)",
+      "severity": "medium",
+      "components": [
+        "egr_valve",
+        "ecu"
+      ],
+      "how_it_works": "Le calculateur pilote un moteur électrique ou une électrovanne pneumatique qui ouvre la vanne EGR.",
+      "description": "La commande de la vanne EGR est en défaut.",
+      "sensory_checks": [
+        {
+          "sense": "sound",
+          "tip": "Contact mis, entend-on la vanne faire un cycle ?",
+          "means": "Silence : vanne non commandée."
+        },
+        {
+          "sense": "sight",
+          "tip": "Connecteur de vanne brûlé, gaine fondue ?",
+          "means": "Chaleur de l’échappement : faisceau abîmé."
+        }
+      ],
+      "value_causes": [
+        {
+          "text": "Moteur de vanne EGR",
+          "likelihood": 45
+        },
+        {
+          "text": "Vanne grippée",
+          "likelihood": 30
+        },
+        {
+          "text": "Faisceau",
+          "likelihood": 25
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Nettoyer / remplacer la vanne EGR",
+          "difficulty": 3,
+          "time_min": 90,
+          "time_max": 240,
+          "tools": [
+            "Clés à douille",
+            "Nettoyant décalaminant"
+          ],
+          "steps": [
+            "Déposer la vanne et son refroidisseur si accessible",
+            "Décalaminer ou remplacer",
+            "Apprentissage de la vanne à la valise"
+          ],
+          "parts": [
+            {
+              "name": "Vanne EGR poids lourd",
+              "query": "vanne egr camion",
+              "price_min": 250,
+              "price_max": 900
+            }
+          ]
+        }
+      ],
+      "drivable": null
+    },
+    {
+      "spn": 3031,
+      "name": "Température de l'AdBlue",
+      "system": "Dépollution (SCR / AdBlue)",
+      "severity": "medium",
+      "components": [
+        "adblue_tank"
+      ],
+      "how_it_works": "L'AdBlue gèle à −11 °C ; un chauffage (souvent par le liquide de refroidissement) le maintient liquide.",
+      "description": "La température de l'AdBlue est anormale ou son capteur est en défaut.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "Températures négatives, AdBlue gelé dans le réservoir ?",
+          "means": "Chauffage inopérant."
+        },
+        {
+          "sense": "touch",
+          "tip": "Durites de chauffage du réservoir froides moteur chaud ?",
+          "means": "Électrovanne de chauffage bloquée."
+        }
+      ],
+      "value_causes": [
+        {
+          "text": "Électrovanne de chauffage par liquide de refroidissement",
+          "likelihood": 40
+        },
+        {
+          "text": "Module réservoir (capteur)",
+          "likelihood": 40
+        },
+        {
+          "text": "Faisceau",
+          "likelihood": 20
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Contrôler le chauffage du réservoir AdBlue",
+          "difficulty": 3,
+          "time_min": 30,
+          "time_max": 120,
+          "tools": [
+            "Multimètre",
+            "Thermomètre infrarouge"
+          ],
+          "steps": [
+            "Vérifier la circulation de liquide dans le réservoir",
+            "Contrôler l’électrovanne de chauffage",
+            "Remplacer le module si le capteur est hors tolérance"
+          ],
+          "parts": [
+            {
+              "name": "Électrovanne de chauffage AdBlue",
+              "query": "electrovanne chauffage adblue camion",
+              "price_min": 60,
+              "price_max": 200
+            }
+          ]
+        }
+      ],
+      "drivable": null
+    },
+    {
+      "spn": 3216,
+      "name": "Capteur NOx entrée catalyseur SCR",
+      "system": "Dépollution (SCR / AdBlue)",
+      "severity": "medium",
+      "components": [
+        "nox_sensor"
+      ],
+      "how_it_works": "Le capteur NOx amont mesure les oxydes d'azote sortant du moteur, pour doser l'AdBlue.",
+      "description": "Le capteur NOx amont signale un défaut ou une valeur incohérente.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "Câble du capteur collé à l’échappement, boîtier électronique abîmé ?",
+          "means": "Capteur endommagé."
+        },
+        {
+          "sense": "feel",
+          "tip": "Bridage moteur et message AdBlue ?",
+          "means": "Dosage impossible sans ce capteur."
+        }
+      ],
+      "value_causes": [
+        {
+          "text": "Capteur NOx défectueux",
+          "likelihood": 65
+        },
+        {
+          "text": "Alimentation / faisceau",
+          "likelihood": 25
+        },
+        {
+          "text": "Fuite à l’échappement",
+          "likelihood": 10
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Remplacer le capteur NOx amont",
+          "difficulty": 2,
+          "time_min": 30,
+          "time_max": 60,
+          "tools": [
+            "Clé pour sonde",
+            "Dégrippant"
+          ],
+          "steps": [
+            "Déposer la sonde et son boîtier",
+            "Monter la neuve",
+            "Effacer les codes et rouler"
+          ],
+          "parts": [
+            {
+              "name": "Capteur NOx 24 V",
+              "query": "capteur nox camion",
+              "price_min": 250,
+              "price_max": 650
+            }
+          ]
+        }
+      ],
+      "drivable": null
+    },
+    {
+      "spn": 3226,
+      "name": "Capteur NOx sortie catalyseur SCR",
+      "system": "Dépollution (SCR / AdBlue)",
+      "severity": "medium",
+      "components": [
+        "nox_sensor",
+        "catalytic_converter"
+      ],
+      "how_it_works": "Le capteur NOx aval vérifie que le catalyseur SCR a bien réduit les oxydes d'azote.",
+      "description": "Le capteur NOx aval signale un défaut ou une valeur incohérente.",
+      "sensory_checks": [
+        {
+          "sense": "smell",
+          "tip": "Odeur d'ammoniaque à l'échappement ?",
+          "means": "Surdosage AdBlue : le capteur aval peut le lire comme des NOx."
+        },
+        {
+          "sense": "sight",
+          "tip": "Dépôts blancs en sortie d’échappement ?",
+          "means": "Cristallisation d’AdBlue."
+        }
+      ],
+      "value_causes": [
+        {
+          "text": "Capteur NOx défectueux",
+          "likelihood": 55
+        },
+        {
+          "text": "Catalyseur SCR inefficace",
+          "likelihood": 25
+        },
+        {
+          "text": "Faisceau",
+          "likelihood": 20
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Remplacer le capteur NOx aval",
+          "difficulty": 2,
+          "time_min": 30,
+          "time_max": 60,
+          "tools": [
+            "Clé pour sonde",
+            "Dégrippant"
+          ],
+          "steps": [
+            "Identifier le capteur aval",
+            "Remplacer",
+            "Effacer et rouler"
+          ],
+          "parts": [
+            {
+              "name": "Capteur NOx 24 V",
+              "query": "capteur nox camion",
+              "price_min": 250,
+              "price_max": 650
+            }
+          ]
+        }
+      ],
+      "drivable": null
+    },
+    {
+      "spn": 3242,
+      "name": "Température d'entrée du FAP",
+      "system": "Dépollution (FAP)",
+      "severity": "medium",
+      "components": [
+        "egt_sensor",
+        "dpf"
+      ],
+      "how_it_works": "La température avant le filtre à particules pilote les régénérations (combustion des suies vers 600 °C).",
+      "description": "La température avant le FAP est anormale ou le capteur est en défaut.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "Câble de sonde fondu ou connecteur noirci ?",
+          "means": "Faisceau abîmé par la chaleur."
+        },
+        {
+          "sense": "feel",
+          "tip": "Régénérations qui ne se lancent plus, ventilateur qui tourne longtemps ?",
+          "means": "Régénération impossible."
+        }
+      ],
+      "value_causes": [
+        {
+          "text": "Sonde de température",
+          "likelihood": 60
+        },
+        {
+          "text": "Faisceau",
+          "likelihood": 30
+        },
+        {
+          "text": "Injecteur de gazole à l’échappement (7e injecteur)",
+          "likelihood": 10
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Remplacer la sonde de température d'échappement",
+          "difficulty": 2,
+          "time_min": 20,
+          "time_max": 45,
+          "tools": [
+            "Clé",
+            "Graisse cuivre"
+          ],
+          "steps": [
+            "Déposer la sonde",
+            "Monter la neuve avec graisse haute température"
+          ],
+          "parts": [
+            {
+              "name": "Sonde de température échappement",
+              "query": "sonde temperature echappement camion",
+              "price_min": 40,
+              "price_max": 150
+            }
+          ]
+        }
+      ],
+      "drivable": null
+    },
+    {
+      "spn": 3251,
+      "name": "Pression différentielle du FAP",
+      "system": "Dépollution (FAP)",
+      "severity": "high",
+      "components": [
+        "dpf_pressure_sensor",
+        "dpf"
+      ],
+      "how_it_works": "Un capteur mesure la différence de pression avant / après le FAP : plus il est chargé en suie ou en cendres, plus elle augmente.",
+      "description": "La contre-pression du filtre à particules est anormale.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "Petits tuyaux du capteur fendus, débranchés ou bouchés ?",
+          "means": "Mesure fausse : réparation simple."
+        },
+        {
+          "sense": "feel",
+          "tip": "Perte de puissance, régénérations très fréquentes ?",
+          "means": "FAP chargé ou plein de cendres."
+        }
+      ],
+      "value_causes": [
+        {
+          "text": "FAP chargé en suies (trajets courts)",
+          "likelihood": 40
+        },
+        {
+          "text": "FAP plein de cendres (fin de vie / nettoyage)",
+          "likelihood": 25
+        },
+        {
+          "text": "Tuyaux / capteur différentiel",
+          "likelihood": 25
+        },
+        {
+          "text": "Injecteur à l’échappement",
+          "likelihood": 10
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Régénération forcée du FAP (à l’arrêt)",
+          "difficulty": 3,
+          "time_min": 30,
+          "time_max": 60,
+          "tools": [
+            "Valise de diagnostic poids lourd"
+          ],
+          "steps": [
+            "Moteur chaud, véhicule à l’arrêt sur zone dégagée, rien d’inflammable sous l’échappement",
+            "Lancer la régénération stationnaire (ou le bouton au tableau de bord)",
+            "Laisser finir sans couper le moteur (20 à 45 min)"
+          ],
+          "parts": []
+        },
+        {
+          "title": "Nettoyer le FAP (cendres)",
+          "difficulty": 4,
+          "time_min": 120,
+          "time_max": 360,
+          "tools": [
+            "Palan",
+            "Clés"
+          ],
+          "steps": [
+            "Déposer le FAP",
+            "Nettoyage en machine spécialisée (cuisson + soufflage)",
+            "Repose et remise à zéro de la charge en cendres"
+          ],
+          "parts": [
+            {
+              "name": "Nettoyage FAP poids lourd (prestation)",
+              "query": "nettoyage fap camion",
+              "price_min": 300,
+              "price_max": 700
+            }
+          ]
+        }
+      ],
+      "drivable": "Roulez sur voie rapide si possible ; si la puissance est fortement réduite, demandez une régénération forcée."
+    },
+    {
+      "spn": 3361,
+      "name": "Doseur / injecteur AdBlue",
+      "system": "Dépollution (SCR / AdBlue)",
+      "severity": "medium",
+      "components": [
+        "adblue_tank",
+        "exhaust"
+      ],
+      "how_it_works": "L'injecteur pulvérise l'AdBlue dans l'échappement en amont du catalyseur SCR.",
+      "description": "L'injecteur d'AdBlue est en défaut ou bouché.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "Dépôts blancs autour de l’injecteur AdBlue sur l’échappement ?",
+          "means": "Injecteur cristallisé."
+        },
+        {
+          "sense": "sound",
+          "tip": "La pompe AdBlue bourdonne-t-elle à la coupure du contact (purge) ?",
+          "means": "Pas de purge : pompe ou électrovanne de retour."
+        }
+      ],
+      "value_causes": [
+        {
+          "text": "Injecteur cristallisé",
+          "likelihood": 50
+        },
+        {
+          "text": "Pompe AdBlue / filtre",
+          "likelihood": 30
+        },
+        {
+          "text": "Faisceau",
+          "likelihood": 20
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Vidanger l'AdBlue et nettoyer le doseur",
+          "difficulty": 3,
+          "time_min": 60,
+          "time_max": 150,
+          "tools": [
+            "Pompe de vidange",
+            "Eau déminéralisée",
+            "Valise de diagnostic"
+          ],
+          "steps": [
+            "Vidanger le réservoir, remplir d'AdBlue neuf (ISO 22241)",
+            "Remplacer le filtre de la pompe AdBlue",
+            "Nettoyer l’injecteur AdBlue cristallisé",
+            "Test de dosage"
+          ],
+          "parts": [
+            {
+              "name": "AdBlue 20 L",
+              "query": "adblue 20 litres",
+              "price_min": 20,
+              "price_max": 40
+            },
+            {
+              "name": "Filtre de pompe AdBlue",
+              "query": "filtre pompe adblue camion",
+              "price_min": 15,
+              "price_max": 60
+            }
+          ]
+        }
+      ],
+      "drivable": null
+    },
+    {
+      "spn": 3364,
+      "name": "Qualité de l'AdBlue",
+      "system": "Dépollution (SCR / AdBlue)",
+      "severity": "high",
+      "components": [
+        "adblue_tank",
+        "nox_sensor"
+      ],
+      "how_it_works": "Un capteur dans le réservoir mesure la concentration en urée (32,5 %). Une AdBlue diluée ou contaminée rend le SCR inefficace.",
+      "description": "La qualité de l'AdBlue est jugée insuffisante.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "AdBlue d’un bidon ouvert depuis longtemps, ou remplissage avec de l’eau ?",
+          "means": "Liquide non conforme."
+        },
+        {
+          "sense": "sight",
+          "tip": "Liquide trouble ou coloré au fond du réservoir ?",
+          "means": "Contamination (gazole, liquide de refroidissement)."
+        }
+      ],
+      "value_causes": [
+        {
+          "text": "AdBlue diluée ou vieillie",
+          "likelihood": 55
+        },
+        {
+          "text": "Contamination",
+          "likelihood": 25
+        },
+        {
+          "text": "Capteur de qualité",
+          "likelihood": 20
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Vidanger l'AdBlue et nettoyer le doseur",
+          "difficulty": 3,
+          "time_min": 60,
+          "time_max": 150,
+          "tools": [
+            "Pompe de vidange",
+            "Eau déminéralisée",
+            "Valise de diagnostic"
+          ],
+          "steps": [
+            "Vidanger le réservoir, remplir d'AdBlue neuf (ISO 22241)",
+            "Remplacer le filtre de la pompe AdBlue",
+            "Nettoyer l’injecteur AdBlue cristallisé",
+            "Test de dosage"
+          ],
+          "parts": [
+            {
+              "name": "AdBlue 20 L",
+              "query": "adblue 20 litres",
+              "price_min": 20,
+              "price_max": 40
+            },
+            {
+              "name": "Filtre de pompe AdBlue",
+              "query": "filtre pompe adblue camion",
+              "price_min": 15,
+              "price_max": 60
+            }
+          ]
+        }
+      ],
+      "drivable": "Vidangez et remplacez l’AdBlue rapidement : un bridage s’enclenchera sinon."
+    },
+    {
+      "spn": 3719,
+      "name": "Charge en suie du FAP",
+      "system": "Dépollution (FAP)",
+      "severity": "medium",
+      "components": [
+        "dpf",
+        "dpf_pressure_sensor"
+      ],
+      "how_it_works": "Le calculateur estime la quantité de suie dans le filtre et déclenche une régénération quand elle dépasse un seuil.",
+      "description": "Le filtre à particules est trop chargé en suie.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "Témoin FAP allumé, demande de régénération au tableau de bord ?",
+          "means": "Régénération nécessaire."
+        },
+        {
+          "sense": "feel",
+          "tip": "Usage urbain, ralenti prolongé, trajets courts ?",
+          "means": "Les régénérations n’ont pas le temps de se faire."
+        }
+      ],
+      "value_causes": [
+        {
+          "text": "Trajets courts / ralenti prolongé",
+          "likelihood": 50
+        },
+        {
+          "text": "Régénérations interrompues",
+          "likelihood": 25
+        },
+        {
+          "text": "Injecteur moteur ou EGR qui produisent trop de suie",
+          "likelihood": 25
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Régénération forcée du FAP (à l’arrêt)",
+          "difficulty": 3,
+          "time_min": 30,
+          "time_max": 60,
+          "tools": [
+            "Valise de diagnostic poids lourd"
+          ],
+          "steps": [
+            "Moteur chaud, véhicule à l’arrêt sur zone dégagée, rien d’inflammable sous l’échappement",
+            "Lancer la régénération stationnaire (ou le bouton au tableau de bord)",
+            "Laisser finir sans couper le moteur (20 à 45 min)"
+          ],
+          "parts": []
+        }
+      ],
+      "drivable": null
+    },
+    {
+      "spn": 4364,
+      "name": "Efficacité de conversion du SCR",
+      "system": "Dépollution (SCR / AdBlue)",
+      "severity": "high",
+      "components": [
+        "catalytic_converter",
+        "nox_sensor",
+        "adblue_tank"
+      ],
+      "how_it_works": "Le calculateur compare les NOx avant et après le catalyseur SCR pour vérifier qu'au moins la quantité attendue est réduite.",
+      "description": "Le catalyseur SCR ne réduit pas assez les NOx.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "AdBlue achetée en bidon douteux ? Dépôts blancs dans l’échappement ?",
+          "means": "Dosage ou qualité en cause."
+        },
+        {
+          "sense": "smell",
+          "tip": "Odeur d'ammoniaque ?",
+          "means": "Surdosage ou catalyseur saturé."
+        }
+      ],
+      "value_causes": [
+        {
+          "text": "Qualité ou dosage de l’AdBlue",
+          "likelihood": 35
+        },
+        {
+          "text": "Capteur NOx",
+          "likelihood": 30
+        },
+        {
+          "text": "Injecteur AdBlue cristallisé",
+          "likelihood": 20
+        },
+        {
+          "text": "Catalyseur SCR empoisonné",
+          "likelihood": 15
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Vidanger l'AdBlue et nettoyer le doseur",
+          "difficulty": 3,
+          "time_min": 60,
+          "time_max": 150,
+          "tools": [
+            "Pompe de vidange",
+            "Eau déminéralisée",
+            "Valise de diagnostic"
+          ],
+          "steps": [
+            "Vidanger le réservoir, remplir d'AdBlue neuf (ISO 22241)",
+            "Remplacer le filtre de la pompe AdBlue",
+            "Nettoyer l’injecteur AdBlue cristallisé",
+            "Test de dosage"
+          ],
+          "parts": [
+            {
+              "name": "AdBlue 20 L",
+              "query": "adblue 20 litres",
+              "price_min": 20,
+              "price_max": 40
+            },
+            {
+              "name": "Filtre de pompe AdBlue",
+              "query": "filtre pompe adblue camion",
+              "price_min": 15,
+              "price_max": 60
+            }
+          ]
+        }
+      ],
+      "drivable": "Un bridage progressif est imposé par la réglementation : traitez rapidement."
+    },
+    {
+      "spn": 5246,
+      "name": "Niveau de bridage (induction) du SCR",
+      "system": "Dépollution (SCR / AdBlue)",
+      "severity": "critical",
+      "components": [
+        "adblue_tank",
+        "engine"
+      ],
+      "how_it_works": "Quand un défaut AdBlue persiste, la réglementation impose une induction : avertissement, puis bridage du couple, puis vitesse limitée à 20 km/h.",
+      "description": "Le moteur est en mode d’induction lié à l’AdBlue : la gravité augmente avec le temps.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "Message de vitesse limitée ou compte à rebours ?",
+          "means": "Induction active."
+        },
+        {
+          "sense": "sight",
+          "tip": "Autres codes AdBlue / NOx présents ?",
+          "means": "Ce sont eux qu’il faut réparer."
+        }
+      ],
+      "value_causes": [
+        {
+          "text": "Défaut AdBlue ou NOx non réparé",
+          "likelihood": 90
+        },
+        {
+          "text": "Réservoir vide",
+          "likelihood": 10
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Réparer le défaut AdBlue d’origine",
+          "difficulty": 2,
+          "time_min": 10,
+          "time_max": 120,
+          "tools": [
+            "Valise de diagnostic"
+          ],
+          "steps": [
+            "Lire les codes SCR",
+            "Corriger la cause (niveau, qualité, capteur, doseur)",
+            "Le bridage se lève après réparation (parfois via la valise)"
+          ],
+          "parts": []
+        }
+      ],
+      "drivable": "La vitesse sera limitée : réparez avant le stade final."
+    },
+    {
+      "spn": 651,
+      "name": "Injecteur du cylindre 1",
+      "system": "Injection",
+      "severity": "high",
+      "components": [
+        "injector_1",
+        "fuel_rail",
+        "ecu"
+      ],
+      "how_it_works": "Chaque injecteur est une électrovanne pilotée par le calculateur sous forte tension ; le calculateur surveille courant et équilibrage des cylindres.",
+      "description": "L'injecteur du cylindre 1 (ou son circuit) est en défaut.",
+      "sensory_checks": [
+        {
+          "sense": "feel",
+          "tip": "Moteur qui tremble au ralenti, perte de puissance ?",
+          "means": "Un cylindre ne travaille pas."
+        },
+        {
+          "sense": "sight",
+          "tip": "Fumée noire ou blanche à l’échappement ?",
+          "means": "Injection défaillante (fuite ou mauvaise pulvérisation)."
+        }
+      ],
+      "value_causes": [
+        {
+          "text": "Injecteur 1 défectueux",
+          "likelihood": 50
+        },
+        {
+          "text": "Faisceau sous le cache-culbuteurs (frottement, huile)",
+          "likelihood": 35
+        },
+        {
+          "text": "Calculateur",
+          "likelihood": 15
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Contrôler puis remplacer l'injecteur 1",
+          "difficulty": 4,
+          "time_min": 90,
+          "time_max": 240,
+          "tools": [
+            "Clé dynamométrique",
+            "Extracteur",
+            "Valise de diagnostic"
+          ],
+          "steps": [
+            "Test de coupure / équilibrage des cylindres à la valise",
+            "Contrôler la résistance et le faisceau sous le cache",
+            "Remplacer l’injecteur (joints neufs), saisir le code de correction"
+          ],
+          "parts": [
+            {
+              "name": "Injecteur poids lourd (échange standard)",
+              "query": "injecteur camion échange standard",
+              "price_min": 250,
+              "price_max": 900
+            }
+          ]
+        }
+      ],
+      "drivable": "Évitez les longs trajets : un injecteur qui fuit peut diluer l’huile ou endommager le piston."
+    },
+    {
+      "spn": 652,
+      "name": "Injecteur du cylindre 2",
+      "system": "Injection",
+      "severity": "high",
+      "components": [
+        "injector_2",
+        "fuel_rail",
+        "ecu"
+      ],
+      "how_it_works": "Chaque injecteur est une électrovanne pilotée par le calculateur sous forte tension ; le calculateur surveille courant et équilibrage des cylindres.",
+      "description": "L'injecteur du cylindre 2 (ou son circuit) est en défaut.",
+      "sensory_checks": [
+        {
+          "sense": "feel",
+          "tip": "Moteur qui tremble au ralenti, perte de puissance ?",
+          "means": "Un cylindre ne travaille pas."
+        },
+        {
+          "sense": "sight",
+          "tip": "Fumée noire ou blanche à l’échappement ?",
+          "means": "Injection défaillante (fuite ou mauvaise pulvérisation)."
+        }
+      ],
+      "value_causes": [
+        {
+          "text": "Injecteur 2 défectueux",
+          "likelihood": 50
+        },
+        {
+          "text": "Faisceau sous le cache-culbuteurs (frottement, huile)",
+          "likelihood": 35
+        },
+        {
+          "text": "Calculateur",
+          "likelihood": 15
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Contrôler puis remplacer l'injecteur 2",
+          "difficulty": 4,
+          "time_min": 90,
+          "time_max": 240,
+          "tools": [
+            "Clé dynamométrique",
+            "Extracteur",
+            "Valise de diagnostic"
+          ],
+          "steps": [
+            "Test de coupure / équilibrage des cylindres à la valise",
+            "Contrôler la résistance et le faisceau sous le cache",
+            "Remplacer l’injecteur (joints neufs), saisir le code de correction"
+          ],
+          "parts": [
+            {
+              "name": "Injecteur poids lourd (échange standard)",
+              "query": "injecteur camion échange standard",
+              "price_min": 250,
+              "price_max": 900
+            }
+          ]
+        }
+      ],
+      "drivable": "Évitez les longs trajets : un injecteur qui fuit peut diluer l’huile ou endommager le piston."
+    },
+    {
+      "spn": 653,
+      "name": "Injecteur du cylindre 3",
+      "system": "Injection",
+      "severity": "high",
+      "components": [
+        "injector_3",
+        "fuel_rail",
+        "ecu"
+      ],
+      "how_it_works": "Chaque injecteur est une électrovanne pilotée par le calculateur sous forte tension ; le calculateur surveille courant et équilibrage des cylindres.",
+      "description": "L'injecteur du cylindre 3 (ou son circuit) est en défaut.",
+      "sensory_checks": [
+        {
+          "sense": "feel",
+          "tip": "Moteur qui tremble au ralenti, perte de puissance ?",
+          "means": "Un cylindre ne travaille pas."
+        },
+        {
+          "sense": "sight",
+          "tip": "Fumée noire ou blanche à l’échappement ?",
+          "means": "Injection défaillante (fuite ou mauvaise pulvérisation)."
+        }
+      ],
+      "value_causes": [
+        {
+          "text": "Injecteur 3 défectueux",
+          "likelihood": 50
+        },
+        {
+          "text": "Faisceau sous le cache-culbuteurs (frottement, huile)",
+          "likelihood": 35
+        },
+        {
+          "text": "Calculateur",
+          "likelihood": 15
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Contrôler puis remplacer l'injecteur 3",
+          "difficulty": 4,
+          "time_min": 90,
+          "time_max": 240,
+          "tools": [
+            "Clé dynamométrique",
+            "Extracteur",
+            "Valise de diagnostic"
+          ],
+          "steps": [
+            "Test de coupure / équilibrage des cylindres à la valise",
+            "Contrôler la résistance et le faisceau sous le cache",
+            "Remplacer l’injecteur (joints neufs), saisir le code de correction"
+          ],
+          "parts": [
+            {
+              "name": "Injecteur poids lourd (échange standard)",
+              "query": "injecteur camion échange standard",
+              "price_min": 250,
+              "price_max": 900
+            }
+          ]
+        }
+      ],
+      "drivable": "Évitez les longs trajets : un injecteur qui fuit peut diluer l’huile ou endommager le piston."
+    },
+    {
+      "spn": 654,
+      "name": "Injecteur du cylindre 4",
+      "system": "Injection",
+      "severity": "high",
+      "components": [
+        "injector_4",
+        "fuel_rail",
+        "ecu"
+      ],
+      "how_it_works": "Chaque injecteur est une électrovanne pilotée par le calculateur sous forte tension ; le calculateur surveille courant et équilibrage des cylindres.",
+      "description": "L'injecteur du cylindre 4 (ou son circuit) est en défaut.",
+      "sensory_checks": [
+        {
+          "sense": "feel",
+          "tip": "Moteur qui tremble au ralenti, perte de puissance ?",
+          "means": "Un cylindre ne travaille pas."
+        },
+        {
+          "sense": "sight",
+          "tip": "Fumée noire ou blanche à l’échappement ?",
+          "means": "Injection défaillante (fuite ou mauvaise pulvérisation)."
+        }
+      ],
+      "value_causes": [
+        {
+          "text": "Injecteur 4 défectueux",
+          "likelihood": 50
+        },
+        {
+          "text": "Faisceau sous le cache-culbuteurs (frottement, huile)",
+          "likelihood": 35
+        },
+        {
+          "text": "Calculateur",
+          "likelihood": 15
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Contrôler puis remplacer l'injecteur 4",
+          "difficulty": 4,
+          "time_min": 90,
+          "time_max": 240,
+          "tools": [
+            "Clé dynamométrique",
+            "Extracteur",
+            "Valise de diagnostic"
+          ],
+          "steps": [
+            "Test de coupure / équilibrage des cylindres à la valise",
+            "Contrôler la résistance et le faisceau sous le cache",
+            "Remplacer l’injecteur (joints neufs), saisir le code de correction"
+          ],
+          "parts": [
+            {
+              "name": "Injecteur poids lourd (échange standard)",
+              "query": "injecteur camion échange standard",
+              "price_min": 250,
+              "price_max": 900
+            }
+          ]
+        }
+      ],
+      "drivable": "Évitez les longs trajets : un injecteur qui fuit peut diluer l’huile ou endommager le piston."
+    },
+    {
+      "spn": 655,
+      "name": "Injecteur du cylindre 5",
+      "system": "Injection",
+      "severity": "high",
+      "components": [
+        "injector_5",
+        "fuel_rail",
+        "ecu"
+      ],
+      "how_it_works": "Chaque injecteur est une électrovanne pilotée par le calculateur sous forte tension ; le calculateur surveille courant et équilibrage des cylindres.",
+      "description": "L'injecteur du cylindre 5 (ou son circuit) est en défaut.",
+      "sensory_checks": [
+        {
+          "sense": "feel",
+          "tip": "Moteur qui tremble au ralenti, perte de puissance ?",
+          "means": "Un cylindre ne travaille pas."
+        },
+        {
+          "sense": "sight",
+          "tip": "Fumée noire ou blanche à l’échappement ?",
+          "means": "Injection défaillante (fuite ou mauvaise pulvérisation)."
+        }
+      ],
+      "value_causes": [
+        {
+          "text": "Injecteur 5 défectueux",
+          "likelihood": 50
+        },
+        {
+          "text": "Faisceau sous le cache-culbuteurs (frottement, huile)",
+          "likelihood": 35
+        },
+        {
+          "text": "Calculateur",
+          "likelihood": 15
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Contrôler puis remplacer l'injecteur 5",
+          "difficulty": 4,
+          "time_min": 90,
+          "time_max": 240,
+          "tools": [
+            "Clé dynamométrique",
+            "Extracteur",
+            "Valise de diagnostic"
+          ],
+          "steps": [
+            "Test de coupure / équilibrage des cylindres à la valise",
+            "Contrôler la résistance et le faisceau sous le cache",
+            "Remplacer l’injecteur (joints neufs), saisir le code de correction"
+          ],
+          "parts": [
+            {
+              "name": "Injecteur poids lourd (échange standard)",
+              "query": "injecteur camion échange standard",
+              "price_min": 250,
+              "price_max": 900
+            }
+          ]
+        }
+      ],
+      "drivable": "Évitez les longs trajets : un injecteur qui fuit peut diluer l’huile ou endommager le piston."
+    },
+    {
+      "spn": 656,
+      "name": "Injecteur du cylindre 6",
+      "system": "Injection",
+      "severity": "high",
+      "components": [
+        "injector_6",
+        "fuel_rail",
+        "ecu"
+      ],
+      "how_it_works": "Chaque injecteur est une électrovanne pilotée par le calculateur sous forte tension ; le calculateur surveille courant et équilibrage des cylindres.",
+      "description": "L'injecteur du cylindre 6 (ou son circuit) est en défaut.",
+      "sensory_checks": [
+        {
+          "sense": "feel",
+          "tip": "Moteur qui tremble au ralenti, perte de puissance ?",
+          "means": "Un cylindre ne travaille pas."
+        },
+        {
+          "sense": "sight",
+          "tip": "Fumée noire ou blanche à l’échappement ?",
+          "means": "Injection défaillante (fuite ou mauvaise pulvérisation)."
+        }
+      ],
+      "value_causes": [
+        {
+          "text": "Injecteur 6 défectueux",
+          "likelihood": 50
+        },
+        {
+          "text": "Faisceau sous le cache-culbuteurs (frottement, huile)",
+          "likelihood": 35
+        },
+        {
+          "text": "Calculateur",
+          "likelihood": 15
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Contrôler puis remplacer l'injecteur 6",
+          "difficulty": 4,
+          "time_min": 90,
+          "time_max": 240,
+          "tools": [
+            "Clé dynamométrique",
+            "Extracteur",
+            "Valise de diagnostic"
+          ],
+          "steps": [
+            "Test de coupure / équilibrage des cylindres à la valise",
+            "Contrôler la résistance et le faisceau sous le cache",
+            "Remplacer l’injecteur (joints neufs), saisir le code de correction"
+          ],
+          "parts": [
+            {
+              "name": "Injecteur poids lourd (échange standard)",
+              "query": "injecteur camion échange standard",
+              "price_min": 250,
+              "price_max": 900
+            }
+          ]
+        }
+      ],
+      "drivable": "Évitez les longs trajets : un injecteur qui fuit peut diluer l’huile ou endommager le piston."
+    },
+    {
+      "spn": 3509,
+      "name": "Alimentation de référence capteurs n°1",
+      "system": "Gestion moteur",
+      "severity": "high",
+      "components": [
+        "ecu",
+        "map_sensor",
+        "accelerator_pedal"
+      ],
+      "how_it_works": "Le calculateur fournit un 5 V de référence partagé par plusieurs capteurs. Un seul capteur en court-circuit fait chuter la référence pour tous.",
+      "description": "La tension de référence capteurs n°1 est anormale.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "Plusieurs codes de capteurs apparus en même temps ?",
+          "means": "Alimentation commune en cause."
+        },
+        {
+          "sense": "sight",
+          "tip": "Faisceau frotté ou écrasé près du moteur ?",
+          "means": "Court-circuit probable."
+        }
+      ],
+      "value_causes": [
+        {
+          "text": "Capteur en court-circuit",
+          "likelihood": 45
+        },
+        {
+          "text": "Faisceau abîmé",
+          "likelihood": 40
+        },
+        {
+          "text": "Calculateur",
+          "likelihood": 15
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Isoler le capteur fautif",
+          "difficulty": 3,
+          "time_min": 30,
+          "time_max": 120,
+          "tools": [
+            "Multimètre"
+          ],
+          "steps": [
+            "Mesurer la référence (≈ 5 V)",
+            "Débrancher les capteurs un par un",
+            "Réparer le faisceau ou remplacer le capteur fautif"
+          ],
+          "parts": []
+        }
+      ],
+      "drivable": null
+    },
+    {
+      "spn": 3510,
+      "name": "Alimentation de référence capteurs n°2",
+      "system": "Gestion moteur",
+      "severity": "high",
+      "components": [
+        "ecu",
+        "map_sensor",
+        "accelerator_pedal"
+      ],
+      "how_it_works": "Le calculateur fournit un 5 V de référence partagé par plusieurs capteurs. Un seul capteur en court-circuit fait chuter la référence pour tous.",
+      "description": "La tension de référence capteurs n°2 est anormale.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "Plusieurs codes de capteurs apparus en même temps ?",
+          "means": "Alimentation commune en cause."
+        },
+        {
+          "sense": "sight",
+          "tip": "Faisceau frotté ou écrasé près du moteur ?",
+          "means": "Court-circuit probable."
+        }
+      ],
+      "value_causes": [
+        {
+          "text": "Capteur en court-circuit",
+          "likelihood": 45
+        },
+        {
+          "text": "Faisceau abîmé",
+          "likelihood": 40
+        },
+        {
+          "text": "Calculateur",
+          "likelihood": 15
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Isoler le capteur fautif",
+          "difficulty": 3,
+          "time_min": 30,
+          "time_max": 120,
+          "tools": [
+            "Multimètre"
+          ],
+          "steps": [
+            "Mesurer la référence (≈ 5 V)",
+            "Débrancher les capteurs un par un",
+            "Réparer le faisceau ou remplacer le capteur fautif"
+          ],
+          "parts": []
+        }
+      ],
+      "drivable": null
+    },
+    {
+      "spn": 3511,
+      "name": "Alimentation de référence capteurs n°3",
+      "system": "Gestion moteur",
+      "severity": "high",
+      "components": [
+        "ecu",
+        "map_sensor",
+        "accelerator_pedal"
+      ],
+      "how_it_works": "Le calculateur fournit un 5 V de référence partagé par plusieurs capteurs. Un seul capteur en court-circuit fait chuter la référence pour tous.",
+      "description": "La tension de référence capteurs n°3 est anormale.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "Plusieurs codes de capteurs apparus en même temps ?",
+          "means": "Alimentation commune en cause."
+        },
+        {
+          "sense": "sight",
+          "tip": "Faisceau frotté ou écrasé près du moteur ?",
+          "means": "Court-circuit probable."
+        }
+      ],
+      "value_causes": [
+        {
+          "text": "Capteur en court-circuit",
+          "likelihood": 45
+        },
+        {
+          "text": "Faisceau abîmé",
+          "likelihood": 40
+        },
+        {
+          "text": "Calculateur",
+          "likelihood": 15
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Isoler le capteur fautif",
+          "difficulty": 3,
+          "time_min": 30,
+          "time_max": 120,
+          "tools": [
+            "Multimètre"
+          ],
+          "steps": [
+            "Mesurer la référence (≈ 5 V)",
+            "Débrancher les capteurs un par un",
+            "Réparer le faisceau ou remplacer le capteur fautif"
+          ],
+          "parts": []
+        }
+      ],
+      "drivable": null
+    }
+  ]
+}

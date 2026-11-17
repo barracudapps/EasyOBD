@@ -46,7 +46,7 @@ export async function call<T = unknown>(cmd: string, args: Record<string, unknow
       const lookup = (code: string, make?: string | null) => call('kb_lookup', { code, make });
       const s = await WebObdSession.open(spec.kind, mod, lookup, spec.baud);
       try {
-        const r = await s.connect();
+        const r = (args as { j1939?: boolean }).j1939 ? await s.connectJ1939() : await s.connect();
         webSession = s;
         return r as T;
       } catch (e) {
@@ -57,6 +57,10 @@ export async function call<T = unknown>(cmd: string, args: Record<string, unknow
     if (webSession) {
       switch (cmd) {
         case 'read_dtcs': return (await webSession.readDtcs()) as T;
+        case 'read_j1939': {
+          const make = (args as { make?: string }).make;
+          return (await webSession.readJ1939((raw) => call('j1939_decode', { raw, make }))) as T;
+        }
         case 'read_live': return (await webSession.readLive()) as T;
         case 'clear_dtcs': return (await webSession.clear()) as T;
         case 'inspection_precheck': return (await webSession.precheck()) as T;
