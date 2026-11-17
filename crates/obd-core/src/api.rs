@@ -272,7 +272,7 @@ mod tests {
         assert!(info["components"]["oil_filter"].is_string());
         let g = s.handle("symptoms_evaluate", &json!({ "answers": { "noises": ["click_turn"] } })).unwrap();
         assert_eq!(g["hypotheses"][0]["id"], "cv_joint");
-        let p = &Maintenance::embedded().profiles[0];
+        let p = Maintenance::embedded().profiles.iter().find(|p| p.id == "renault-clio4-dci90").unwrap();
         let t = s.handle("tutorial", &json!({ "id": "oil_change", "profile": p })).unwrap();
         assert!(t["shopping"]["items"].as_array().unwrap().len() >= 3);
         assert!(t["alternatives"][0].as_array().unwrap().len() >= 1);
