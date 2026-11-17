@@ -53,7 +53,9 @@ des liens vers AutoDoc, Mister Auto et Oscaro, le temps nécessaire et le niveau
 |---|---|
 | ![Accueil](docs/screenshots/accueil.jpg) **Accueil** : carrosserie peinte, reflets et ombres | ![Diagnostic](docs/screenshots/diagnostic-3d.jpg) **Diagnostic** : la pièce en cause en 3D |
 | ![À l'œil](docs/screenshots/diagnostic-a-l-oeil.jpg) **Diagnostic à l'œil** : hypothèses classées | ![Fiche technique](docs/screenshots/fiche-technique.jpg) **Fiche technique** : sources des valeurs |
-| ![Contrôle technique](docs/screenshots/controle-technique.jpg) **Contrôle technique** : pré-contrôle OBD et VIN | ![Mode expert](docs/screenshots/mode-expert.jpg) **Mode expert** : garde-fous |
+| ![Poids lourd J1939](docs/screenshots/poids-lourd-j1939.jpg) **Poids lourd (J1939)** : SPN / FMI, témoins, calculateur source | ![Vue éclatée](docs/screenshots/vue-eclatee-moto.jpg) **Vue éclatée** : chaque organe écarté pour être identifié |
+| ![Tutoriel cardan](docs/screenshots/tutoriel-cardan.jpg) **Tutoriel moto à cardan** : étapes, sécurité, pièce en 3D | ![Contrôle technique](docs/screenshots/controle-technique.jpg) **Contrôle technique** : pré-contrôle OBD et VIN |
+| ![Mode expert](docs/screenshots/mode-expert.jpg) **Mode expert** : garde-fous | |
 
 ### Garde-fous du mode expert
 
