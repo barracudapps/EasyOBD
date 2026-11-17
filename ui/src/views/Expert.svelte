@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import { call, errorText } from '../lib/api';
-  import { app, go, toast } from '../lib/state.svelte';
+  import { app, disconnect, go, leaveExpert, toast } from '../lib/state.svelte';
   import type { ConnectResult, EcuReport, WriteRecord } from '../lib/types';
   import Icon from '../components/Icon.svelte';
 
@@ -90,7 +90,10 @@
 </script>
 
 <div class="col">
-  <h1>Mode <span class="danger-text">expert</span></h1>
+  <div class="row spread">
+    <h1>Mode <span class="danger-text">expert</span></h1>
+    {#if app.expertUnlocked}<button class="btn ghost sm" onclick={leaveExpert}><Icon name="lock" size={15} /> Quitter le mode expert</button>{/if}
+  </div>
 
   {#if !app.expertUnlocked}
     <div class="card col warnbox">
@@ -116,7 +119,10 @@
       </div>
     </div>
   {:else}
-    {#if app.connection.simulated}<div class="callout info small">Simulateur : idéal pour apprendre la console UDS sans risque.</div>{/if}
+    <div class="callout {app.connection.simulated ? 'info' : 'warn'} small row spread">
+      <span>{app.connection.simulated ? 'Simulateur : idéal pour apprendre la console UDS sans risque.' : `Connecté au véhicule (${app.connection.adapter.protocol}).`}</span>
+      <button class="btn sm" onclick={disconnect}><Icon name="x" size={14} /> {app.connection.simulated ? 'Quitter le simulateur' : 'Déconnecter'}</button>
+    </div>
 
     <div class="card col">
       <div class="row spread">

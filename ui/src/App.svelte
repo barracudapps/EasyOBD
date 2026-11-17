@@ -1,6 +1,6 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import { app, bootstrap, go, save, type View } from './lib/state.svelte';
+  import { app, bootstrap, disconnect, go, leaveExpert, leaveScenario, save, type View } from './lib/state.svelte';
   import { errorText, isNative } from './lib/api';
   import Icon from './components/Icon.svelte';
   import Viewer3D from './components/Viewer3D.svelte';
@@ -63,9 +63,20 @@
       <Icon name={vehicleIcon} size={18} />
       <span class="vlabel">{app.temporaryProfile ? `Scénario : ${app.profile?.make} ${app.profile?.model}` : (app.garage.find((v) => v.id === app.vehicleId)?.name ?? (app.profile ? `${app.profile.make} ${app.profile.model}` : 'Choisir mon véhicule'))}</span>
     </button>
-    <span class="pill conn" class:on={!!app.connection} title={app.connection?.adapter.transport}>
-      <span class="led"></span>{app.connection ? (app.connection.simulated ? 'Simulation' : 'Connecté') : 'Hors ligne OBD'}
-    </span>
+    <!-- Active modes, each with its own one-click exit -->
+    {#if app.temporaryProfile}
+      <button class="pill mode-exit" title="Quitter le scénario d'entraînement et revenir à votre véhicule" onclick={leaveScenario}>Scénario <Icon name="x" size={13} /></button>
+    {/if}
+    {#if app.expertUnlocked}
+      <button class="pill mode-exit danger" title="Quitter le mode expert" onclick={leaveExpert}>Expert <Icon name="x" size={13} /></button>
+    {/if}
+    {#if app.connection}
+      <button class="pill conn on mode-exit" title={app.connection.simulated ? 'Quitter la simulation' : `Déconnecter (${app.connection.adapter.transport})`} onclick={disconnect}>
+        <span class="led"></span>{app.connection.simulated ? 'Simulation' : 'Connecté'} <Icon name="x" size={13} />
+      </button>
+    {:else}
+      <span class="pill conn"><span class="led"></span>Hors ligne OBD</span>
+    {/if}
     <button class="btn ghost sm" aria-label="Thème" onclick={() => (app.theme = app.theme === 'dark' ? 'light' : 'dark')}>
       <Icon name={app.theme === 'dark' ? 'sun' : 'moon'} size={18} />
     </button>
@@ -140,6 +151,9 @@
   .name { font-weight: 800; font-size: 1.15rem; letter-spacing: -0.02em; }
   .vehicle { max-width: 40vw; }
   .vlabel { overflow: hidden; text-overflow: ellipsis; }
+  .mode-exit { cursor: pointer; display: inline-flex; align-items: center; gap: 6px; font: inherit; }
+  .mode-exit:hover { filter: brightness(1.25); }
+  .mode-exit.danger { color: var(--high); border-color: color-mix(in srgb, var(--high) 45%, transparent); }
   .conn .led { width: 7px; height: 7px; border-radius: 50%; background: var(--faint); }
   .conn.on .led { background: var(--ok); box-shadow: 0 0 8px var(--ok); }
   .sidenav { position: sticky; top: 60px; height: calc(100vh - 60px); display: flex; flex-direction: column; gap: 4px; padding: 10px 8px; border-right: 1px solid var(--border); }
@@ -175,7 +189,7 @@
     .moresheet button { display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 0.7rem 0.3rem; border: 1px solid var(--border); border-radius: 12px; background: var(--panel-2); color: var(--text); font-size: 0.78rem; font-weight: 600; cursor: pointer; }
     .moresheet button.active { border-color: var(--accent); }
     .topbar { padding: 0 0.75rem; }
-    .vlabel, .conn { display: none; }
+    .vlabel { display: none; }
     .main { padding: 0.75rem; gap: 0.75rem; }
     .stage { height: 38vh; min-height: 260px; }
     .toast { left: 12px; right: 12px; bottom: 80px; }

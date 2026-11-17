@@ -202,6 +202,32 @@ export function importGarage(json: string): number {
   return add.length;
 }
 
+/** Ends the OBD session (real adapter or simulator) from anywhere in the app. */
+export async function disconnect() {
+  try {
+    await call('disconnect');
+  } catch {
+    /* already closed */
+  }
+  app.connection = null;
+  app.dtcs = [];
+  app.highlight = [];
+}
+
+/** Leaves a training scenario: back to the garage vehicle, simulator closed. */
+export async function leaveScenario() {
+  if (app.connection?.simulated) await disconnect();
+  selectVehicle(app.vehicleId);
+  app.highlight = [];
+}
+
+/** Locks the expert mode again (and closes a simulator opened for it). */
+export async function leaveExpert() {
+  app.expertUnlocked = false;
+  if (app.connection?.simulated) await disconnect();
+  if (app.view === 'expert') go('home');
+}
+
 export function toast(text: string, kind: 'info' | 'error' | 'ok' = 'info') {
   app.toast = { text, kind };
   setTimeout(() => {

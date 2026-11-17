@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { onDestroy } from 'svelte';
+  import { onDestroy, untrack } from 'svelte';
   import { call, errorText, isNative } from '../lib/api';
-  import { addJournal, app, currentVehicle, selectVehicle, severityLabel, toast, updateVehicle } from '../lib/state.svelte';
+  import { addJournal, app, currentVehicle, selectVehicle, severityLabel, toast, updateVehicle, disconnect as endSession } from '../lib/state.svelte';
   import type { AdapterCandidate, ConnectResult, ConnectionSpec, DtcItem, J1939Lamps, J1939Result, LiveValue } from '../lib/types';
   import Icon from '../components/Icon.svelte';
   import DiagnosisDetail from '../components/DiagnosisDetail.svelte';
@@ -127,12 +127,17 @@
 
   async function disconnect() {
     stopLive();
-    await call('disconnect');
-    app.connection = null;
-    lamps = null;
-    app.dtcs = [];
-    app.highlight = [];
+    await endSession();
   }
+  // Session closed from elsewhere (header pill, Expert page): stop polling and clear local state.
+  $effect(() => {
+    if (!app.connection) {
+      untrack(() => {
+        stopLive();
+        lamps = null;
+      });
+    }
+  });
 
   async function pollLive() {
     try {

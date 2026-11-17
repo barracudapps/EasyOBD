@@ -54,7 +54,7 @@
     <button class="btn sm" title="Gros plan sur le moteur, carrosserie transparente : tournez et zoomez pour repérer chaque pièce" onclick={() => { app.highlight = []; xray = true; scene?.setXray(true); setTimeout(() => scene?.focusEngine(), 30); }}>
       <Icon name="wrench" size={16} /> Moteur
     </button>
-    <button class="btn sm" title="Vue d'ensemble" onclick={() => { app.highlight = []; }}>
+    <button class="btn sm" title="Vue d'ensemble : quitte la transparence, la vue éclatée et le gros plan" onclick={() => { app.highlight = []; xray = false; exploded = false; scene?.setXray(false); scene?.setExploded(false); }}>
       <Icon name="cube" size={16} /> Vue globale
     </button>
   </div>
