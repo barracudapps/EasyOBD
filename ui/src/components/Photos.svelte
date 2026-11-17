@@ -1,6 +1,6 @@
 <script lang="ts">
   // Reference photos for the given components + the user's own photos for this context.
-  import { onDestroy } from 'svelte';
+  import { onDestroy, untrack } from 'svelte';
   import { addUserPhoto, deleteUserPhoto, photoUrl, referencePhotos, userPhotos, type RefPhoto, type UserPhoto } from '../lib/photos';
   import { toast } from '../lib/state.svelte';
   import Icon from './Icon.svelte';
@@ -23,9 +23,13 @@
 
   $effect(() => {
     const ids = [...components];
-    void userKey;
-    referencePhotos(ids).then((r) => (refs = r));
-    loadMine();
+    const key = userKey;
+    // untrack: loading reads/writes `mine`, which must not re-trigger this effect (infinite loop).
+    untrack(() => {
+      void key;
+      referencePhotos(ids).then((r) => (refs = r));
+      loadMine();
+    });
   });
   onDestroy(revoke);
 

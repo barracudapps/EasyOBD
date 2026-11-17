@@ -21,7 +21,7 @@ export interface KbInfo {
   components: Record<string, string>; catalog: CatalogItem[];
 }
 
-export type ConnKind = 'simulator' | 'wifi' | 'serial' | 'ble';
+export type ConnKind = 'simulator' | 'wifi' | 'serial' | 'ble' | 'webserial' | 'webble';
 export interface ConnectionSpec { kind: ConnKind; address: string; baud?: number | null }
 export interface AdapterCandidate {
   spec: ConnectionSpec; label: string; medium: 'usb' | 'bluetooth' | 'ble' | 'wifi' | 'simulator';

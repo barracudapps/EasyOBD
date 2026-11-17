@@ -43,6 +43,7 @@ des liens vers AutoDoc, Mister Auto et Oscaro, le temps nécessaire et le niveau
 | **Catalogue** | Plus de 400 profils (79 marques) de voitures, utilitaires, motos et poids lourds, dont des véhicules électriques et des marques chinoises (Kia, Tesla, Zeekr, BYD, NIO, Volvo, Saab, Triumph, Aprilia, Scania…), avec filtres par marque et par énergie. |
 | **Mon garage** | Plusieurs véhicules, chacun avec son propre travail (photos, listes, contrôle technique), un **carnet** (diagnostics, entretiens, réparations, coûts), des **rappels** d'entretien et de contrôle technique, l'impression ou l'export PDF, et la sauvegarde ou restauration en JSON. Le véhicule est reconnu par son VIN au branchement. |
 | **Photos** | Photos de référence libres de droits (Wikimedia Commons, auteur crédité) et vos propres photos par étape ou par pièce, compressées et stockées sur l'appareil. |
+| **Adaptateurs dans le navigateur** | Version web : vrais adaptateurs via **Web Serial** (USB, Bluetooth classique appairé) et **Web Bluetooth** (BLE), dans Chrome et Edge, y compris Chrome sur Android, sans installation. Le décodage reste fait par le cœur Rust (WASM). |
 | **Rapport** | Rapport de diagnostic imprimable ou enregistrable en PDF. |
 
 ## Captures d'écran
@@ -155,7 +156,7 @@ Pistes détaillées dans [docs/MODELE_ECONOMIQUE.md](docs/MODELE_ECONOMIQUE.md) 
 
 ## Feuille de route
 
-- Bluetooth LE sur Android et iOS ; Web Serial et Web Bluetooth pour la version navigateur.
+- Bluetooth LE dans l'application Android et iOS (déjà possible dans Chrome Android via la version web).
 - J1939 (poids lourds) et adressage CAN 29 bits pour le mode expert.
 - Packs de données téléchargeables par véhicule (base de codes constructeur, profils), mis en cache pour un usage hors ligne.
 - Partenariats ou API marchands pour des prix en temps réel.

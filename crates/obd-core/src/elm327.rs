@@ -38,7 +38,7 @@ impl Elm327 {
         // ATZ may answer slowly and with garbage from a previous session: drain it.
         let reset = self.command_with_timeout("ATZ", Duration::from_secs(3))?;
         let elm_version = reset
-            .lines()
+            .split(['\r', '\n'])
             .map(str::trim)
             .find(|l| l.to_uppercase().contains("ELM"))
             .unwrap_or("ELM327 (version inconnue)")
@@ -159,7 +159,7 @@ impl Elm327 {
     }
 }
 
-fn check_errors(raw: &str) -> Result<()> {
+pub fn check_errors(raw: &str) -> Result<()> {
     let up = raw.to_uppercase();
     if up.contains("UNABLE TO CONNECT") || up.contains("BUS INIT: ...ERROR") || up.contains("CAN ERROR") {
         return Err(Error::UnableToConnect);
@@ -239,7 +239,7 @@ pub fn assemble_messages(lines: &[String]) -> Vec<Vec<u8>> {
     messages
 }
 
-fn parse_protocol_number(dpn: &str) -> Option<u8> {
+pub fn parse_protocol_number(dpn: &str) -> Option<u8> {
     let t = dpn.trim().trim_start_matches(['A', 'a']);
     t.chars().last().and_then(|c| c.to_digit(16)).map(|d| d as u8)
 }

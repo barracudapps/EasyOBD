@@ -38,3 +38,19 @@ pub fn analyze_audio(samples: &[f32], request_json: &str) -> Result<String, JsVa
     let evidence = report.as_evidence();
     Ok(serde_json::json!({ "report": report, "evidence": evidence }).to_string())
 }
+
+/// Stateless parsing for browser-driven adapters (Web Serial / Web Bluetooth).
+#[wasm_bindgen]
+pub fn parse_response(cmd: &str, raw: &str, is_can: Option<bool>) -> Result<String, JsValue> {
+    obd_core::raw::parse_response(cmd, raw, is_can).map(|v| v.to_string()).map_err(|e| JsValue::from_str(&e.to_string()))
+}
+
+#[wasm_bindgen]
+pub fn init_sequence() -> String {
+    serde_json::to_string(obd_core::raw::INIT_SEQUENCE).unwrap_or_default()
+}
+
+#[wasm_bindgen]
+pub fn live_requests() -> String {
+    serde_json::to_string(&obd_core::raw::live_requests()).unwrap_or_default()
+}

@@ -2,11 +2,19 @@
 // - Native app (Tauri): `invoke('api', { cmd, args })` → real adapters (USB, Bluetooth, BLE, Wi-Fi) + simulator.
 // - Browser: the same Rust code compiled to WebAssembly (simulator, knowledge base, audio, training…).
 
+import { WebObdSession } from './webobd';
+
 type WasmModule = {
   default: (input?: unknown) => Promise<unknown>;
   Api: new () => { call(cmd: string, args: string): string };
   analyze_audio(samples: Float32Array, req: string): string;
+  parse_response(cmd: string, raw: string, isCan?: boolean | null): string;
+  init_sequence(): string;
+  live_requests(): string;
 };
+
+/** Browser-driven real adapter (Web Serial / Web Bluetooth), when connected. */
+let webSession: WebObdSession | null = null;
 
 export const isNative = typeof window !== 'undefined' && '__TAURI_INTERNALS__' in window;
 
@@ -29,11 +37,44 @@ export async function call<T = unknown>(cmd: string, args: Record<string, unknow
     const { invoke } = await import('@tauri-apps/api/core');
     return invoke<T>('api', { cmd, args });
   }
-  const { api } = await wasm();
+  const { api, mod } = await wasm();
   try {
+    const spec = (args as { spec?: { kind?: string; baud?: number } }).spec;
+    if (cmd === 'connect' && (spec?.kind === 'webserial' || spec?.kind === 'webble')) {
+      await webSession?.close();
+      webSession = null;
+      const lookup = (code: string, make?: string | null) => call('kb_lookup', { code, make });
+      const s = await WebObdSession.open(spec.kind, mod, lookup, spec.baud);
+      try {
+        const r = await s.connect();
+        webSession = s;
+        return r as T;
+      } catch (e) {
+        await s.close();
+        throw e;
+      }
+    }
+    if (webSession) {
+      switch (cmd) {
+        case 'read_dtcs': return (await webSession.readDtcs()) as T;
+        case 'read_live': return (await webSession.readLive()) as T;
+        case 'clear_dtcs': return (await webSession.clear()) as T;
+        case 'inspection_precheck': return (await webSession.precheck()) as T;
+        case 'connect':
+        case 'disconnect':
+          await webSession.close();
+          webSession = null;
+          if (cmd === 'disconnect') return null as T;
+          break;
+        case 'uds_scan': case 'uds_raw': case 'uds_write': case 'uds_preconditions':
+          throw new Error("Le mode expert UDS n'est disponible que dans l'application installée.");
+      }
+    }
     return JSON.parse(api.call(cmd, JSON.stringify(args))) as T;
   } catch (e) {
-    throw typeof e === 'string' ? e : (e as Error).message ?? String(e);
+    const msg = typeof e === 'string' ? e : (e as Error).message ?? String(e);
+    if (/No port selected|User cancelled|chooser/i.test(msg)) throw 'Aucun adaptateur sélectionné.';
+    throw msg;
   }
 }
 

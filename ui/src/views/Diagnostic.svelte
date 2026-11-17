@@ -6,6 +6,7 @@
   import Icon from '../components/Icon.svelte';
   import DiagnosisDetail from '../components/DiagnosisDetail.svelte';
   import Gauge from '../components/Gauge.svelte';
+  import { webBluetoothSupported, webSerialSupported } from '../lib/webobd';
 
   let candidates = $state<AdapterCandidate[]>([]);
   let messages = $state<string[]>([]);
@@ -154,10 +155,28 @@
         {/if}
       </div>
       {#if !isNative}
-        <div class="callout info small">
-          Version web : pas d'accès direct au matériel. Utilisez le simulateur pour découvrir l'application,
-          ou l'application installée (Windows, macOS, Linux, Android, iOS) pour les adaptateurs USB, Bluetooth, BLE et Wi-Fi.
-        </div>
+        {#if webSerialSupported || webBluetoothSupported}
+          <div class="webhw">
+            {#if webBluetoothSupported}
+              <button class="card flat hover adapter" disabled={!!busy} onclick={() => connect({ kind: 'webble', address: '' })}>
+                <span class="aicon"><Icon name="bluetooth" size={22} /></span>
+                <div class="grow"><strong>Adaptateur Bluetooth LE</strong><div class="small muted">Vgate iCar BLE, OBDLink CX, Veepeak BLE… Choisissez l'appareil dans la fenêtre du navigateur.</div></div>
+              </button>
+            {/if}
+            {#if webSerialSupported}
+              <button class="card flat hover adapter" disabled={!!busy} onclick={() => connect({ kind: 'webserial', address: '', baud: manual.baud })}>
+                <span class="aicon"><Icon name="usb" size={22} /></span>
+                <div class="grow"><strong>Adaptateur USB / série</strong><div class="small muted">ELM327 USB, OBDLink SX/EX, ou Bluetooth classique appairé (ordinateur). Débit : {manual.baud} bauds.</div></div>
+              </button>
+            {/if}
+          </div>
+          <p class="tiny faint">Accès matériel du navigateur (Chrome, Edge, Chrome Android). Les adaptateurs Wi-Fi et le mode expert nécessitent l'application installée.</p>
+        {:else}
+          <div class="callout info small">
+            Ce navigateur n'a pas accès aux adaptateurs : utilisez Chrome ou Edge (ordinateur, Android), l'application installée,
+            ou le simulateur pour découvrir EasyOBD.
+          </div>
+        {/if}
       {/if}
       <ul class="list-reset col">
         {#each candidates.length ? candidates : [{ spec: { kind: 'simulator', address: '' }, label: 'Simulateur (véhicule de démonstration)', medium: 'simulator', verified: true, chip: 'ELM327 v1.5 (virtuel)', clone_suspected: false, note: null } as AdapterCandidate] as c}
@@ -287,4 +306,6 @@
   .dtc { display: flex; flex-direction: column; gap: 0.45rem; text-align: left; border-left: 3px solid var(--sev); color: inherit; font: inherit; }
   .gauges { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 0.6rem; }
   details summary { cursor: pointer; }
+  .webhw { display: grid; gap: 0.5rem; }
+  .webhw .adapter { text-align: left; color: inherit; font: inherit; }
 </style>

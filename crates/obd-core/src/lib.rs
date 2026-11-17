@@ -28,6 +28,7 @@ pub mod inspection;
 pub mod knowledge;
 pub mod maintenance;
 pub mod pids;
+pub mod raw;
 pub mod simulator;
 pub mod specs;
 pub mod symptoms;
