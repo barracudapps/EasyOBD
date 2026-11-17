@@ -35,6 +35,11 @@ export class VehicleScene {
   onPick: ((id: string | null) => void) | null = null;
   /** Transparent body (X-ray). Off = painted body, shown when nothing is highlighted. */
   xray = false;
+  /** Exploded view: 0 = assembled, 1 = parts pulled apart. */
+  private explode = 0;
+  private explodeTarget = 0;
+  private explodeOffsets = new Map<THREE.Object3D, THREE.Vector3>();
+  private spinning: THREE.Object3D[] = [];
 
   constructor(private container: HTMLElement) {
     this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: 'high-performance' });
@@ -147,6 +152,7 @@ export class VehicleScene {
       }
     });
     this.scene.add(this.model);
+    this.computeExplode();
     this.applyXray();
     this.fit();
     const ids = [...this.highlighted];
@@ -163,21 +169,47 @@ export class VehicleScene {
     this.applyXray();
   }
 
+  /** Pulls every component group away from the vehicle centre (animated). */
+  setExploded(on: boolean) {
+    this.explodeTarget = on ? 1 : 0;
+    this.applyXray();
+    this.controls.autoRotate = false;
+    if (!this.highlighted.size) this.fit(on ? 1.35 : 1);
+  }
+
+  private computeExplode() {
+    this.explodeOffsets.clear();
+    if (!this.model) return;
+    const all = new THREE.Box3();
+    for (const g of this.components.values()) all.expandByObject(g);
+    const center = all.getCenter(new THREE.Vector3());
+    const size = all.getSize(new THREE.Vector3());
+    const k = Math.max(size.x, size.z) * 0.32;
+    for (const g of this.components.values()) {
+      const c = new THREE.Box3().setFromObject(g).getCenter(new THREE.Vector3()).sub(center);
+      // Spread mostly sideways and upwards; length is compressed so the view stays compact.
+      const off = new THREE.Vector3((c.x / (size.x / 2 || 1)) * 0.6, 0.35 + Math.max(0, c.y / (size.y || 1)) * 1.4, (c.z / (size.z / 2 || 1)) * 1.1);
+      this.explodeOffsets.set(g, off.multiplyScalar(k));
+    }
+    for (const g of this.components.values()) g.position.copy(this.explodeOffsets.get(g)!).multiplyScalar(this.explode);
+  }
+
   /** Painted body when idle; ghost body in X-ray mode or when parts are highlighted. */
   private applyXray() {
-    const solid = !this.xray && this.highlighted.size === 0;
+    const solid = !this.xray && this.highlighted.size === 0 && this.explodeTarget === 0;
     this.model?.traverse((o) => {
       if (o.userData.isShell) o.visible = !solid;
       if (o.userData.solidShell) o.visible = solid;
     });
   }
 
-  private fit() {
+  private fit(zoom = 1) {
     if (!this.model) return;
     const box = new THREE.Box3().setFromObject(this.model);
     const size = box.getSize(new THREE.Vector3());
     const center = box.getCenter(new THREE.Vector3());
-    const radius = Math.max(size.x, size.y, size.z) * 0.62;
+    if (zoom > 1) center.y += size.y * 0.25;
+    const radius = Math.max(size.x, size.y, size.z) * 0.62 * zoom;
     const dist = radius / Math.sin((this.camera.fov * Math.PI) / 360);
     this.focusTarget = {
       target: center,
@@ -194,6 +226,9 @@ export class VehicleScene {
     if (ids.length && !wanted.length && this.components.has('engine')) wanted = ['engine'];
     this.highlighted = new Set(wanted);
     const any = this.highlighted.size > 0;
+    // Rotating parts of the highlighted components (wheels, discs, fan, pulleys, sprockets) turn slowly.
+    this.spinning = [];
+    for (const id of this.highlighted) this.components.get(id)?.traverse((o) => o.userData.spin && this.spinning.push(o));
 
     this.labelObjects.forEach((l) => l.removeFromParent());
     this.labelObjects = [];
@@ -254,8 +289,8 @@ export class VehicleScene {
       dir.normalize();
       this.focusTarget = { target: center, pos: center.clone().add(dir.multiplyScalar(size * 2.6 + 2.2)) };
     } else {
-      this.fit();
-      this.controls.autoRotate = true;
+      this.fit(this.explodeTarget ? 1.35 : 1);
+      this.controls.autoRotate = this.explodeTarget === 0;
     }
   }
 
@@ -294,6 +329,16 @@ export class VehicleScene {
       this.controls.target.lerp(this.focusTarget.target, k);
       this.camera.position.lerp(this.focusTarget.pos, k);
       if (this.camera.position.distanceTo(this.focusTarget.pos) < 0.01) this.focusTarget = null;
+    }
+    if (this.explode !== this.explodeTarget) {
+      const step = dt * 2.2;
+      this.explode = this.explode < this.explodeTarget ? Math.min(this.explodeTarget, this.explode + step) : Math.max(this.explodeTarget, this.explode - step);
+      const e = this.explode * this.explode * (3 - 2 * this.explode); // smoothstep
+      for (const [g, off] of this.explodeOffsets) g.position.copy(off).multiplyScalar(e);
+    }
+    for (const o of this.spinning) {
+      const axis = o.userData.spin as 'x' | 'y' | 'z';
+      o.rotation[axis] += dt * 2.5;
     }
     if (this.highlighted.size) {
       const pulse = 0.55 + 0.45 * Math.sin(t * 4);

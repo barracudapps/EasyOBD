@@ -39,7 +39,7 @@ export interface VehicleType { id: string; name: string; icon: string }
 export interface VehicleProfile {
   id: string; type: string; make: string; model: string; engine: string; years?: [number, number] | null;
   fuel: string; cylinders?: number | null; oil_capacity_l?: number | null; oil_spec?: string | null;
-  coolant_l?: number | null; chain?: string | null; traction?: string | null;
+  coolant_l?: number | null; chain?: string | null; traction?: string | null; body?: string | null;
 }
 export interface TutorialSummary { id: string; title: string; interval: string; interval_km?: number | null; interval_months?: number | null; difficulty: number; time_min: number; time_max: number }
 export interface TutorialStep { title: string; text: string; components: string[]; tip?: string | null; warning?: string | null; source?: string | null }

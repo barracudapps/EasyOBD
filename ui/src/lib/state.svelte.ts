@@ -165,9 +165,23 @@ export function deleteJournal(id: string) {
 
 /** First launch with the garage: migrate the single saved profile. */
 export function migrateGarage() {
+  // Refresh saved profiles from the embedded catalog (fixes, new fields such as `body`) without touching user data.
+  const byId = new Map(app.profiles.map((p) => [p.id, p]));
+  if (byId.size) {
+    let changed = false;
+    app.garage = app.garage.map((v) => {
+      const fresh = byId.get(v.profile.id);
+      if (!fresh || JSON.stringify(fresh) === JSON.stringify(v.profile)) return v;
+      changed = true;
+      return { ...v, profile: fresh };
+    });
+    if (changed) persistGarage();
+    if (app.profile && byId.has(app.profile.id)) app.profile = byId.get(app.profile.id)!;
+  }
   if (!app.garage.length && app.profile) addVehicle(app.profile);
   else if (app.vehicleId && !currentVehicle()) selectVehicle(app.garage[0]?.id ?? null);
   else if (currentVehicle()) app.profile = currentVehicle()!.profile;
+  save('easyobd.profile', app.profile);
 }
 
 export function exportGarage(): string {
@@ -214,7 +228,7 @@ export async function bootstrap() {
 /** Vehicle description for the 3D scene. */
 export function sceneVehicle() {
   const p = app.profile;
-  return { type: p?.type ?? 'car', cylinders: p?.cylinders ?? 4, fuel: p?.fuel ?? 'petrol', traction: p?.traction ?? 'front', make: p?.make ?? '' };
+  return { type: p?.type ?? 'car', cylinders: p?.cylinders ?? 4, fuel: p?.fuel ?? 'petrol', traction: p?.traction ?? 'front', make: p?.make ?? '', body: p?.body ?? undefined, engine: p?.engine ?? '' };
 }
 
 export const fmt = {

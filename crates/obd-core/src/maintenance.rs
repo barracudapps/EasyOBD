@@ -46,9 +46,13 @@ pub struct VehicleProfile {
     pub coolant_l: Option<f64>,
     #[serde(default)]
     pub chain: Option<String>,
-    /// Driven axle for electric vehicles: "front" or "rear".
+    /// Driven axle(s): "front", "rear" or "both". Absent = front (most cars).
     #[serde(default)]
     pub traction: Option<String>,
+    /// Body style (3D silhouette). Cars: hatch, sedan, estate, suv, mpv, coupe, pickup, micro.
+    /// Motorcycles: naked, adventure, sport, cruiser, scooter.
+    #[serde(default)]
+    pub body: Option<String>,
 }
 
 impl VehicleProfile {
@@ -381,6 +385,12 @@ mod tests {
         for p in &m.profiles {
             assert!(types.contains(&p.vehicle_type.as_str()), "{}", p.id);
             assert!(!m.tutorials_for(p).is_empty(), "no tutorial for {}", p.id);
+            if let Some(t) = &p.traction {
+                assert!(["front", "rear", "both"].contains(&t.as_str()), "{}: bad traction {t}", p.id);
+            }
+            if let Some(b) = &p.body {
+                assert!(["hatch", "sedan", "estate", "suv", "mpv", "coupe", "pickup", "micro", "naked", "adventure", "sport", "cruiser", "scooter"].contains(&b.as_str()), "{}: bad body {b}", p.id);
+            }
         }
         for t in &m.tutorials {
             assert!(t.time_min <= t.time_max, "{}", t.id);

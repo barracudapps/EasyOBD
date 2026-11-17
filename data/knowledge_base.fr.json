@@ -345,6 +345,12 @@
     },
     "reducer_oil": {
       "name": "Huile de réducteur"
+    },
+    "propshaft": {
+      "name": "Arbre de transmission (cardan longitudinal)"
+    },
+    "differential": {
+      "name": "Pont / différentiel arrière"
     }
   },
   "entries": [

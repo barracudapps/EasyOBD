@@ -116,7 +116,8 @@
       ],
       "fuel": "petrol",
       "cylinders": 4,
-      "traction": "0W40 ACEA C3"
+      "oil_spec": "0W40 ACEA C3",
+      "body": "hatch"
     },
     {
       "id": "aiways-u5-63-kwh",
@@ -129,7 +130,8 @@
         2024
       ],
       "fuel": "electric",
-      "traction": "front"
+      "traction": "front",
+      "body": "suv"
     },
     {
       "id": "alfa-romeo-giulia-2-2-jtdm-160",
@@ -143,7 +145,9 @@
       ],
       "fuel": "diesel",
       "cylinders": 4,
-      "traction": "0W20 ACEA C2"
+      "oil_spec": "0W20 ACEA C2",
+      "body": "sedan",
+      "traction": "rear"
     },
     {
       "id": "alfa-romeo-tonale-1-5-hybrid-160",
@@ -156,7 +160,8 @@
         2026
       ],
       "fuel": "hybrid",
-      "cylinders": 4
+      "cylinders": 4,
+      "body": "suv"
     },
     {
       "id": "alpine-a110-1-8-tce-252",
@@ -170,7 +175,9 @@
       ],
       "fuel": "petrol",
       "cylinders": 4,
-      "traction": "5W40 RN17 RSA"
+      "oil_spec": "5W40 RN17 RSA",
+      "body": "coupe",
+      "traction": "rear"
     },
     {
       "id": "audi-a1-gb-30-tfsi-110",
@@ -184,7 +191,8 @@
       ],
       "fuel": "petrol",
       "cylinders": 3,
-      "traction": "0W20 VW 508.00"
+      "oil_spec": "0W20 VW 508.00",
+      "body": "hatch"
     },
     {
       "id": "audi-a3-8v-1-6-tdi-110",
@@ -198,7 +206,8 @@
       ],
       "fuel": "diesel",
       "cylinders": 4,
-      "oil_spec": "5W30 VW 507.00"
+      "oil_spec": "5W30 VW 507.00",
+      "body": "hatch"
     },
     {
       "id": "audi-a3-8y-35-tfsi-1-5-150",
@@ -213,7 +222,8 @@
       "fuel": "petrol",
       "cylinders": 4,
       "oil_capacity_l": 4.0,
-      "oil_spec": "0W20 VW 508.00"
+      "oil_spec": "0W20 VW 508.00",
+      "body": "hatch"
     },
     {
       "id": "audi-a4-b9-2-0-tdi-150",
@@ -228,7 +238,8 @@
       "fuel": "diesel",
       "cylinders": 4,
       "oil_capacity_l": 4.6,
-      "oil_spec": "5W30 VW 507.00"
+      "oil_spec": "5W30 VW 507.00",
+      "body": "sedan"
     },
     {
       "id": "audi-a6-c8-40-tdi-204",
@@ -242,7 +253,8 @@
       ],
       "fuel": "diesel",
       "cylinders": 4,
-      "traction": "0W20 VW 507.00"
+      "oil_spec": "0W20 VW 507.00",
+      "body": "sedan"
     },
     {
       "id": "audi-q4-e-tron-40-77-kwh",
@@ -255,7 +267,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "rear"
+      "traction": "rear",
+      "body": "suv"
     },
     {
       "id": "audi-q5-fy-40-tdi-204",
@@ -269,7 +282,9 @@
       ],
       "fuel": "diesel",
       "cylinders": 4,
-      "traction": "0W20 VW 507.00"
+      "oil_spec": "0W20 VW 507.00",
+      "body": "suv",
+      "traction": "both"
     },
     {
       "id": "audi-q8-e-tron-114-kwh",
@@ -282,7 +297,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "both"
+      "traction": "both",
+      "body": "suv"
     },
     {
       "id": "audi-rs3-8y-2-5-tfsi-400",
@@ -296,7 +312,9 @@
       ],
       "fuel": "petrol",
       "cylinders": 5,
-      "traction": "0W20 VW 508.00"
+      "oil_spec": "0W20 VW 508.00",
+      "body": "hatch",
+      "traction": "both"
     },
     {
       "id": "audi-rs6-avant-c7-4-0-tfsi-v8-560",
@@ -310,7 +328,9 @@
       ],
       "fuel": "petrol",
       "cylinders": 8,
-      "traction": "5W40 VW 502.00"
+      "oil_spec": "5W40 VW 502.00",
+      "body": "estate",
+      "traction": "both"
     },
     {
       "id": "audi-rs6-avant-c8-4-0-tfsi-v8-600",
@@ -324,7 +344,9 @@
       ],
       "fuel": "petrol",
       "cylinders": 8,
-      "traction": "0W20 VW 508.00"
+      "oil_spec": "0W20 VW 508.00",
+      "body": "estate",
+      "traction": "both"
     },
     {
       "id": "audi-e-tron-gt-93-kwh",
@@ -337,7 +359,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "both"
+      "traction": "both",
+      "body": "suv"
     },
     {
       "id": "bmw-m3-g80-3-0-510",
@@ -351,7 +374,9 @@
       ],
       "fuel": "petrol",
       "cylinders": 6,
-      "traction": "0W30 BMW LL-01 FE"
+      "oil_spec": "0W30 BMW LL-01 FE",
+      "body": "sedan",
+      "traction": "rear"
     },
     {
       "id": "bmw-serie-1-f20-116d",
@@ -365,7 +390,8 @@
       ],
       "fuel": "diesel",
       "cylinders": 4,
-      "oil_spec": "5W30 BMW LL-04"
+      "oil_spec": "5W30 BMW LL-04",
+      "body": "hatch"
     },
     {
       "id": "bmw-serie-1-f40-118i-1-5-140",
@@ -380,7 +406,8 @@
       "fuel": "petrol",
       "cylinders": 3,
       "oil_capacity_l": 4.25,
-      "oil_spec": "0W20 BMW LL-17FE+"
+      "oil_spec": "0W20 BMW LL-17FE+",
+      "body": "hatch"
     },
     {
       "id": "bmw-serie-2-active-tourer-u06-218i",
@@ -393,7 +420,8 @@
         2026
       ],
       "fuel": "petrol",
-      "cylinders": 3
+      "cylinders": 3,
+      "body": "mpv"
     },
     {
       "id": "bmw-serie-3-f30-318d",
@@ -407,7 +435,9 @@
       ],
       "fuel": "diesel",
       "cylinders": 4,
-      "oil_spec": "5W30 BMW LL-04"
+      "oil_spec": "5W30 BMW LL-04",
+      "body": "sedan",
+      "traction": "rear"
     },
     {
       "id": "bmw-serie-3-g20-320d-2-0-190",
@@ -422,7 +452,9 @@
       "fuel": "diesel",
       "cylinders": 4,
       "oil_capacity_l": 5.2,
-      "oil_spec": "5W30 BMW LL-04"
+      "oil_spec": "5W30 BMW LL-04",
+      "body": "sedan",
+      "traction": "rear"
     },
     {
       "id": "bmw-serie-5-g30-520d",
@@ -435,7 +467,9 @@
         2023
       ],
       "fuel": "diesel",
-      "cylinders": 4
+      "cylinders": 4,
+      "body": "sedan",
+      "traction": "rear"
     },
     {
       "id": "bmw-x1-u11-sdrive18d",
@@ -450,7 +484,8 @@
       "fuel": "diesel",
       "cylinders": 4,
       "oil_capacity_l": 5.2,
-      "oil_spec": "0W20 BMW LL-19FE"
+      "oil_spec": "0W20 BMW LL-19FE",
+      "body": "suv"
     },
     {
       "id": "bmw-x3-g01-xdrive20d",
@@ -463,7 +498,9 @@
         2024
       ],
       "fuel": "diesel",
-      "cylinders": 4
+      "cylinders": 4,
+      "body": "suv",
+      "traction": "both"
     },
     {
       "id": "bmw-x5-g05-xdrive30d",
@@ -477,7 +514,9 @@
       ],
       "fuel": "diesel",
       "cylinders": 6,
-      "traction": "0W30 BMW LL-04"
+      "oil_spec": "0W30 BMW LL-04",
+      "body": "suv",
+      "traction": "both"
     },
     {
       "id": "bmw-i4-edrive40",
@@ -490,7 +529,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "rear"
+      "traction": "rear",
+      "body": "sedan"
     },
     {
       "id": "bmw-i5-edrive40",
@@ -503,7 +543,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "rear"
+      "traction": "rear",
+      "body": "sedan"
     },
     {
       "id": "bmw-ix-xdrive40-76-kwh",
@@ -516,7 +557,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "both"
+      "traction": "both",
+      "body": "suv"
     },
     {
       "id": "bmw-ix3-286-ch",
@@ -529,7 +571,8 @@
         2025
       ],
       "fuel": "electric",
-      "traction": "rear"
+      "traction": "rear",
+      "body": "suv"
     },
     {
       "id": "byd-atto-2-45-kwh",
@@ -542,7 +585,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "front"
+      "traction": "front",
+      "body": "hatch"
     },
     {
       "id": "byd-atto-3-60-kwh",
@@ -555,7 +599,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "front"
+      "traction": "front",
+      "body": "suv"
     },
     {
       "id": "byd-dolphin-60-kwh",
@@ -568,7 +613,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "front"
+      "traction": "front",
+      "body": "hatch"
     },
     {
       "id": "byd-han-85-kwh",
@@ -581,7 +627,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "both"
+      "traction": "both",
+      "body": "sedan"
     },
     {
       "id": "byd-seal-82-5-kwh",
@@ -594,7 +641,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "rear"
+      "traction": "rear",
+      "body": "sedan"
     },
     {
       "id": "byd-seal-u-dm-i-1-5-phev",
@@ -608,7 +656,8 @@
       ],
       "fuel": "hybrid",
       "cylinders": 4,
-      "oil_spec": "0W20"
+      "oil_spec": "0W20",
+      "body": "suv"
     },
     {
       "id": "byd-tang-86-kwh",
@@ -621,7 +670,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "both"
+      "traction": "both",
+      "body": "suv"
     },
     {
       "id": "citroen-ami-5-5-kwh",
@@ -634,7 +684,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "front"
+      "traction": "front",
+      "body": "micro"
     },
     {
       "id": "citroen-c-zero-16-kwh",
@@ -647,7 +698,8 @@
         2020
       ],
       "fuel": "electric",
-      "traction": "rear"
+      "traction": "rear",
+      "body": "hatch"
     },
     {
       "id": "citroen-c3-ii-1-4-hdi-70",
@@ -661,7 +713,8 @@
       ],
       "fuel": "diesel",
       "cylinders": 4,
-      "oil_spec": "5W30 PSA B71 2290"
+      "oil_spec": "5W30 PSA B71 2290",
+      "body": "hatch"
     },
     {
       "id": "citroen-c3-puretech",
@@ -677,7 +730,8 @@
       "cylinders": 3,
       "oil_capacity_l": 3.5,
       "oil_spec": "0W30 PSA B71 2312",
-      "coolant_l": 5.0
+      "coolant_l": 5.0,
+      "body": "hatch"
     },
     {
       "id": "citroen-c4-iii-1-5-bluehdi-130",
@@ -692,7 +746,8 @@
       "fuel": "diesel",
       "cylinders": 4,
       "oil_capacity_l": 4.25,
-      "oil_spec": "0W30 PSA B71 2312"
+      "oil_spec": "0W30 PSA B71 2312",
+      "body": "hatch"
     },
     {
       "id": "citroen-c4-picasso-ii-1-6-bluehdi-120",
@@ -706,7 +761,8 @@
       ],
       "fuel": "diesel",
       "cylinders": 4,
-      "oil_spec": "0W30 PSA B71 2312"
+      "oil_spec": "0W30 PSA B71 2312",
+      "body": "mpv"
     },
     {
       "id": "citroen-c5-aircross-1-5-bluehdi-130",
@@ -720,7 +776,8 @@
       ],
       "fuel": "diesel",
       "cylinders": 4,
-      "oil_spec": "0W30 PSA B71 2312"
+      "oil_spec": "0W30 PSA B71 2312",
+      "body": "suv"
     },
     {
       "id": "citroen-e-c3-44-kwh",
@@ -733,7 +790,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "front"
+      "traction": "front",
+      "body": "hatch"
     },
     {
       "id": "citroen-e-c4-136-ch-50-kwh",
@@ -746,7 +804,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "front"
+      "traction": "front",
+      "body": "hatch"
     },
     {
       "id": "cupra-born-58-kwh",
@@ -759,7 +818,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "rear"
+      "traction": "rear",
+      "body": "suv"
     },
     {
       "id": "cupra-formentor-1-5-tsi-150",
@@ -773,7 +833,8 @@
       ],
       "fuel": "petrol",
       "cylinders": 4,
-      "traction": "0W20 VW 508.00"
+      "oil_spec": "0W20 VW 508.00",
+      "body": "suv"
     },
     {
       "id": "cupra-tavascan-77-kwh",
@@ -786,7 +847,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "rear"
+      "traction": "rear",
+      "body": "suv"
     },
     {
       "id": "ds-ds-3-e-tense-54-kwh",
@@ -799,7 +861,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "front"
+      "traction": "front",
+      "body": "suv"
     },
     {
       "id": "ds-ds-4-1-2-puretech-130",
@@ -813,7 +876,8 @@
       ],
       "fuel": "petrol",
       "cylinders": 3,
-      "oil_spec": "0W20 PSA B71 2010"
+      "oil_spec": "0W20 PSA B71 2010",
+      "body": "hatch"
     },
     {
       "id": "ds-ds-7-crossback-1-5-bluehdi-130",
@@ -828,7 +892,8 @@
       "fuel": "diesel",
       "cylinders": 4,
       "oil_capacity_l": 4.25,
-      "oil_spec": "0W30 PSA B71 2312"
+      "oil_spec": "0W30 PSA B71 2312",
+      "body": "suv"
     },
     {
       "id": "dacia-bigster-hybrid-155",
@@ -841,7 +906,8 @@
         2026
       ],
       "fuel": "hybrid",
-      "cylinders": 4
+      "cylinders": 4,
+      "body": "suv"
     },
     {
       "id": "dacia-duster-i-1-5-dci-110",
@@ -855,7 +921,8 @@
       ],
       "fuel": "diesel",
       "cylinders": 4,
-      "oil_spec": "5W30 RN0720"
+      "oil_spec": "5W30 RN0720",
+      "body": "suv"
     },
     {
       "id": "dacia-duster-ii-1-5-blue-dci-115",
@@ -870,7 +937,8 @@
       "fuel": "diesel",
       "cylinders": 4,
       "oil_capacity_l": 4.6,
-      "oil_spec": "5W30 RN0720"
+      "oil_spec": "5W30 RN0720",
+      "body": "suv"
     },
     {
       "id": "dacia-jogger-1-0-tce-110",
@@ -885,7 +953,8 @@
       "fuel": "petrol",
       "cylinders": 3,
       "oil_capacity_l": 4.2,
-      "oil_spec": "5W30 RN17"
+      "oil_spec": "5W30 RN17",
+      "body": "suv"
     },
     {
       "id": "dacia-sandero-ii-1-5-dci-90",
@@ -899,7 +968,8 @@
       ],
       "fuel": "diesel",
       "cylinders": 4,
-      "oil_spec": "5W30 RN0720"
+      "oil_spec": "5W30 RN0720",
+      "body": "hatch"
     },
     {
       "id": "dacia-sandero3-tce90",
@@ -915,7 +985,8 @@
       "cylinders": 3,
       "oil_capacity_l": 4.2,
       "oil_spec": "5W30 RN17",
-      "coolant_l": 5.5
+      "coolant_l": 5.5,
+      "body": "hatch"
     },
     {
       "id": "dacia-spring",
@@ -928,7 +999,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "front"
+      "traction": "front",
+      "body": "hatch"
     },
     {
       "id": "dacia-spring-2024-65-ch-27-kwh",
@@ -941,7 +1013,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "front"
+      "traction": "front",
+      "body": "hatch"
     },
     {
       "id": "fiat-500-312-1-0-hybrid-70",
@@ -955,7 +1028,8 @@
       ],
       "fuel": "hybrid",
       "cylinders": 3,
-      "oil_spec": "0W30"
+      "oil_spec": "0W30",
+      "body": "hatch"
     },
     {
       "id": "fiat-500e-42-kwh",
@@ -968,7 +1042,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "front"
+      "traction": "front",
+      "body": "hatch"
     },
     {
       "id": "fiat-600-hybrid-100",
@@ -981,7 +1056,8 @@
         2026
       ],
       "fuel": "hybrid",
-      "cylinders": 3
+      "cylinders": 3,
+      "body": "suv"
     },
     {
       "id": "fiat-600e-54-kwh",
@@ -994,7 +1070,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "front"
+      "traction": "front",
+      "body": "hatch"
     },
     {
       "id": "fiat-panda-iii-1-0-hybrid-70",
@@ -1008,7 +1085,8 @@
       ],
       "fuel": "hybrid",
       "cylinders": 3,
-      "oil_spec": "0W30"
+      "oil_spec": "0W30",
+      "body": "hatch"
     },
     {
       "id": "fiat-tipo-1-6-multijet-120",
@@ -1022,7 +1100,8 @@
       ],
       "fuel": "diesel",
       "cylinders": 4,
-      "oil_spec": "0W30 ACEA C2"
+      "oil_spec": "0W30 ACEA C2",
+      "body": "hatch"
     },
     {
       "id": "fiat-topolino-5-5-kwh",
@@ -1035,7 +1114,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "front"
+      "traction": "front",
+      "body": "micro"
     },
     {
       "id": "ford-explorer-ev-77-kwh",
@@ -1048,7 +1128,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "rear"
+      "traction": "rear",
+      "body": "suv"
     },
     {
       "id": "ford-fiesta-vi-1-4-tdci-70",
@@ -1062,7 +1143,8 @@
       ],
       "fuel": "diesel",
       "cylinders": 4,
-      "oil_spec": "5W30 WSS-M2C913-C"
+      "oil_spec": "5W30 WSS-M2C913-C",
+      "body": "hatch"
     },
     {
       "id": "ford-fiesta-ecoboost",
@@ -1078,7 +1160,8 @@
       "cylinders": 3,
       "oil_capacity_l": 4.1,
       "oil_spec": "5W20 WSS-M2C948-B",
-      "coolant_l": 4.5
+      "coolant_l": 4.5,
+      "body": "hatch"
     },
     {
       "id": "ford-focus-iii-1-0-ecoboost-125",
@@ -1092,7 +1175,8 @@
       ],
       "fuel": "petrol",
       "cylinders": 3,
-      "oil_spec": "5W20 WSS-M2C948-B"
+      "oil_spec": "5W20 WSS-M2C948-B",
+      "body": "hatch"
     },
     {
       "id": "ford-focus-iv-1-5-ecoblue-120",
@@ -1106,7 +1190,8 @@
       ],
       "fuel": "diesel",
       "cylinders": 4,
-      "oil_spec": "0W30 WSS-M2C950-A"
+      "oil_spec": "0W30 WSS-M2C950-A",
+      "body": "hatch"
     },
     {
       "id": "ford-kuga-iii-2-5-fhev-190",
@@ -1120,7 +1205,8 @@
       ],
       "fuel": "hybrid",
       "cylinders": 4,
-      "oil_spec": "0W20 WSS-M2C962-A1"
+      "oil_spec": "0W20 WSS-M2C962-A1",
+      "body": "suv"
     },
     {
       "id": "ford-mustang-mach-e-75-kwh",
@@ -1133,7 +1219,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "rear"
+      "traction": "rear",
+      "body": "suv"
     },
     {
       "id": "ford-puma-1-0-ecoboost-mhev-125",
@@ -1148,7 +1235,8 @@
       "fuel": "hybrid",
       "cylinders": 3,
       "oil_capacity_l": 4.1,
-      "oil_spec": "5W20 WSS-M2C948-B"
+      "oil_spec": "5W20 WSS-M2C948-B",
+      "body": "suv"
     },
     {
       "id": "ford-ranger-2019-2-0-ecoblue-213",
@@ -1162,7 +1250,9 @@
       ],
       "fuel": "diesel",
       "cylinders": 4,
-      "oil_spec": "0W30 WSS-M2C950-A"
+      "oil_spec": "0W30 WSS-M2C950-A",
+      "body": "pickup",
+      "traction": "both"
     },
     {
       "id": "gwm-ora-03-63-kwh",
@@ -1175,7 +1265,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "front"
+      "traction": "front",
+      "body": "suv"
     },
     {
       "id": "honda-cr-v-vi-2-0-e-hev",
@@ -1188,7 +1279,8 @@
         2026
       ],
       "fuel": "hybrid",
-      "cylinders": 4
+      "cylinders": 4,
+      "body": "suv"
     },
     {
       "id": "honda-civic-xi-2-0-e-hev",
@@ -1202,7 +1294,8 @@
       ],
       "fuel": "hybrid",
       "cylinders": 4,
-      "oil_spec": "0W20"
+      "oil_spec": "0W20",
+      "body": "hatch"
     },
     {
       "id": "honda-hr-v-iii-1-5-e-hev",
@@ -1215,7 +1308,8 @@
         2026
       ],
       "fuel": "hybrid",
-      "cylinders": 4
+      "cylinders": 4,
+      "body": "suv"
     },
     {
       "id": "honda-jazz-iv-1-5-e-hev",
@@ -1229,7 +1323,8 @@
       ],
       "fuel": "hybrid",
       "cylinders": 4,
-      "oil_spec": "0W20"
+      "oil_spec": "0W20",
+      "body": "mpv"
     },
     {
       "id": "hongqi-e-hs9-120-kwh",
@@ -1242,7 +1337,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "both"
+      "traction": "both",
+      "body": "suv"
     },
     {
       "id": "hongqi-eh7-82-kwh",
@@ -1255,7 +1351,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "rear"
+      "traction": "rear",
+      "body": "suv"
     },
     {
       "id": "hongqi-hs5-2-0-t-252",
@@ -1268,7 +1365,8 @@
         2026
       ],
       "fuel": "petrol",
-      "cylinders": 4
+      "cylinders": 4,
+      "body": "hatch"
     },
     {
       "id": "hyundai-ioniq-5-77-kwh",
@@ -1281,7 +1379,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "rear"
+      "traction": "rear",
+      "body": "hatch"
     },
     {
       "id": "hyundai-ioniq-6-77-kwh",
@@ -1294,7 +1393,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "rear"
+      "traction": "rear",
+      "body": "sedan"
     },
     {
       "id": "hyundai-kona-electric-64-kwh-204-ch",
@@ -1307,7 +1407,8 @@
         2023
       ],
       "fuel": "electric",
-      "traction": "front"
+      "traction": "front",
+      "body": "suv"
     },
     {
       "id": "hyundai-kona-electric-ii-65-kwh",
@@ -1320,7 +1421,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "front"
+      "traction": "front",
+      "body": "suv"
     },
     {
       "id": "hyundai-kona-ii-1-6-gdi-hybride-141",
@@ -1334,7 +1436,8 @@
       ],
       "fuel": "hybrid",
       "cylinders": 4,
-      "oil_spec": "0W20 ACEA C5"
+      "oil_spec": "0W20 ACEA C5",
+      "body": "suv"
     },
     {
       "id": "hyundai-santa-fe-v-1-6-t-gdi-phev",
@@ -1348,7 +1451,8 @@
       ],
       "fuel": "hybrid",
       "cylinders": 4,
-      "oil_spec": "0W20 ACEA C5"
+      "oil_spec": "0W20 ACEA C5",
+      "body": "suv"
     },
     {
       "id": "hyundai-tucson-iii-1-7-crdi-115",
@@ -1362,7 +1466,8 @@
       ],
       "fuel": "diesel",
       "cylinders": 4,
-      "oil_spec": "5W30 ACEA C3"
+      "oil_spec": "5W30 ACEA C3",
+      "body": "suv"
     },
     {
       "id": "hyundai-tucson-iv-1-6-t-gdi-hybride",
@@ -1377,7 +1482,8 @@
       "fuel": "hybrid",
       "cylinders": 4,
       "oil_capacity_l": 4.8,
-      "oil_spec": "0W20 ACEA C5"
+      "oil_spec": "0W20 ACEA C5",
+      "body": "suv"
     },
     {
       "id": "hyundai-i10-iii-1-0-mpi-67",
@@ -1392,7 +1498,8 @@
       "fuel": "petrol",
       "cylinders": 3,
       "oil_capacity_l": 3.2,
-      "oil_spec": "0W20 ACEA C5"
+      "oil_spec": "0W20 ACEA C5",
+      "body": "hatch"
     },
     {
       "id": "hyundai-i20-iii-1-0-t-gdi-100",
@@ -1407,7 +1514,8 @@
       "fuel": "petrol",
       "cylinders": 3,
       "oil_capacity_l": 3.6,
-      "oil_spec": "0W20 ACEA C5"
+      "oil_spec": "0W20 ACEA C5",
+      "body": "hatch"
     },
     {
       "id": "hyundai-i30-ii-gd-1-6-crdi-110",
@@ -1421,7 +1529,8 @@
       ],
       "fuel": "diesel",
       "cylinders": 4,
-      "oil_spec": "5W30 ACEA C3"
+      "oil_spec": "5W30 ACEA C3",
+      "body": "hatch"
     },
     {
       "id": "hyundai-i30-iii-1-0-t-gdi-120",
@@ -1436,7 +1545,8 @@
       "fuel": "petrol",
       "cylinders": 3,
       "oil_capacity_l": 3.6,
-      "oil_spec": "5W30 ACEA C2"
+      "oil_spec": "5W30 ACEA C2",
+      "body": "hatch"
     },
     {
       "id": "isuzu-d-max-iii-1-9-ddi-164",
@@ -1450,7 +1560,9 @@
       ],
       "fuel": "diesel",
       "cylinders": 4,
-      "oil_spec": "5W30 ACEA C2"
+      "oil_spec": "5W30 ACEA C2",
+      "body": "pickup",
+      "traction": "both"
     },
     {
       "id": "jaguar-i-pace-90-kwh",
@@ -1463,7 +1575,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "both"
+      "traction": "both",
+      "body": "suv"
     },
     {
       "id": "jeep-avenger-1-2-turbo-100",
@@ -1477,7 +1590,8 @@
       ],
       "fuel": "petrol",
       "cylinders": 3,
-      "oil_spec": "0W20 PSA B71 2010"
+      "oil_spec": "0W20 PSA B71 2010",
+      "body": "suv"
     },
     {
       "id": "jeep-compass-ii-1-3-t4-phev-4xe",
@@ -1491,7 +1605,8 @@
       ],
       "fuel": "hybrid",
       "cylinders": 4,
-      "oil_spec": "0W30"
+      "oil_spec": "0W30",
+      "body": "suv"
     },
     {
       "id": "jeep-wrangler-jl-2-2-crd-200",
@@ -1505,7 +1620,9 @@
       ],
       "fuel": "diesel",
       "cylinders": 4,
-      "oil_spec": "0W30 ACEA C2"
+      "oil_spec": "0W30 ACEA C2",
+      "body": "suv",
+      "traction": "both"
     },
     {
       "id": "kia-ceed-ii-jd-1-0-t-gdi-120",
@@ -1519,7 +1636,8 @@
       ],
       "fuel": "petrol",
       "cylinders": 3,
-      "oil_spec": "5W30 ACEA C2"
+      "oil_spec": "5W30 ACEA C2",
+      "body": "hatch"
     },
     {
       "id": "kia-ceed-ii-jd-1-4-cvvt-100",
@@ -1533,7 +1651,8 @@
       ],
       "fuel": "petrol",
       "cylinders": 4,
-      "oil_spec": "5W30 ACEA A5"
+      "oil_spec": "5W30 ACEA A5",
+      "body": "hatch"
     },
     {
       "id": "kia-ceed-ii-jd-1-6-crdi-110-136",
@@ -1547,7 +1666,8 @@
       ],
       "fuel": "diesel",
       "cylinders": 4,
-      "oil_spec": "5W30 ACEA C3"
+      "oil_spec": "5W30 ACEA C3",
+      "body": "hatch"
     },
     {
       "id": "kia-ceed-iii-1-5-t-gdi-160",
@@ -1562,7 +1682,8 @@
       "fuel": "petrol",
       "cylinders": 4,
       "oil_capacity_l": 4.2,
-      "oil_spec": "0W20 ACEA C5"
+      "oil_spec": "0W20 ACEA C5",
+      "body": "hatch"
     },
     {
       "id": "kia-ev3-81-kwh",
@@ -1575,7 +1696,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "front"
+      "traction": "front",
+      "body": "hatch"
     },
     {
       "id": "kia-ev6-77-kwh",
@@ -1588,7 +1710,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "rear"
+      "traction": "rear",
+      "body": "suv"
     },
     {
       "id": "kia-ev9-99-8-kwh",
@@ -1601,7 +1724,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "both"
+      "traction": "both",
+      "body": "suv"
     },
     {
       "id": "kia-niro-ii-1-6-gdi-hybride",
@@ -1616,7 +1740,8 @@
       "fuel": "hybrid",
       "cylinders": 4,
       "oil_capacity_l": 3.8,
-      "oil_spec": "0W20 ACEA C5"
+      "oil_spec": "0W20 ACEA C5",
+      "body": "suv"
     },
     {
       "id": "kia-picanto-iii-1-0-mpi-67",
@@ -1631,7 +1756,8 @@
       "fuel": "petrol",
       "cylinders": 3,
       "oil_capacity_l": 3.2,
-      "oil_spec": "0W20 ACEA C5"
+      "oil_spec": "0W20 ACEA C5",
+      "body": "hatch"
     },
     {
       "id": "kia-rio-iv-1-0-t-gdi-100",
@@ -1646,7 +1772,8 @@
       "fuel": "petrol",
       "cylinders": 3,
       "oil_capacity_l": 3.6,
-      "oil_spec": "0W20 ACEA C5"
+      "oil_spec": "0W20 ACEA C5",
+      "body": "hatch"
     },
     {
       "id": "kia-sorento-iv-1-6-t-gdi-phev",
@@ -1660,7 +1787,8 @@
       ],
       "fuel": "hybrid",
       "cylinders": 4,
-      "oil_spec": "0W20 ACEA C5"
+      "oil_spec": "0W20 ACEA C5",
+      "body": "suv"
     },
     {
       "id": "kia-sportage-iv-1-7-crdi-115",
@@ -1674,7 +1802,8 @@
       ],
       "fuel": "diesel",
       "cylinders": 4,
-      "oil_spec": "5W30 ACEA C3"
+      "oil_spec": "5W30 ACEA C3",
+      "body": "suv"
     },
     {
       "id": "kia-sportage-v-1-6-t-gdi-hybride",
@@ -1689,7 +1818,8 @@
       "fuel": "hybrid",
       "cylinders": 4,
       "oil_capacity_l": 4.8,
-      "oil_spec": "0W20 ACEA C5"
+      "oil_spec": "0W20 ACEA C5",
+      "body": "suv"
     },
     {
       "id": "kia-stonic-1-0-t-gdi-100",
@@ -1703,7 +1833,8 @@
       ],
       "fuel": "petrol",
       "cylinders": 3,
-      "oil_spec": "0W20 ACEA C5"
+      "oil_spec": "0W20 ACEA C5",
+      "body": "suv"
     },
     {
       "id": "kia-xceed-1-5-t-gdi-160",
@@ -1717,7 +1848,8 @@
       ],
       "fuel": "petrol",
       "cylinders": 4,
-      "oil_spec": "0W20 ACEA C5"
+      "oil_spec": "0W20 ACEA C5",
+      "body": "suv"
     },
     {
       "id": "kia-e-niro-niro-ev-64-kwh-204-ch",
@@ -1730,7 +1862,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "front"
+      "traction": "front",
+      "body": "suv"
     },
     {
       "id": "lancia-ypsilon-2024-electrique-51-kwh",
@@ -1743,7 +1876,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "front"
+      "traction": "front",
+      "body": "suv"
     },
     {
       "id": "land-rover-defender-l663-d250-mhev",
@@ -1757,7 +1891,9 @@
       ],
       "fuel": "diesel",
       "cylinders": 6,
-      "oil_spec": "0W20"
+      "oil_spec": "0W20",
+      "body": "suv",
+      "traction": "both"
     },
     {
       "id": "land-rover-discovery-sport-d165-mhev",
@@ -1770,7 +1906,9 @@
         2026
       ],
       "fuel": "diesel",
-      "cylinders": 4
+      "cylinders": 4,
+      "body": "suv",
+      "traction": "both"
     },
     {
       "id": "land-rover-range-rover-evoque-ii-d165-mhev",
@@ -1784,7 +1922,8 @@
       ],
       "fuel": "diesel",
       "cylinders": 4,
-      "oil_spec": "0W20"
+      "oil_spec": "0W20",
+      "body": "suv"
     },
     {
       "id": "leapmotor-c10-69-9-kwh",
@@ -1797,7 +1936,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "rear"
+      "traction": "rear",
+      "body": "suv"
     },
     {
       "id": "leapmotor-t03-37-3-kwh",
@@ -1810,7 +1950,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "front"
+      "traction": "front",
+      "body": "suv"
     },
     {
       "id": "lexus-nx-ii-350h",
@@ -1824,7 +1965,8 @@
       ],
       "fuel": "hybrid",
       "cylinders": 4,
-      "traction": "0W16"
+      "oil_spec": "0W16",
+      "body": "suv"
     },
     {
       "id": "lexus-ux-250h",
@@ -1837,7 +1979,8 @@
         2026
       ],
       "fuel": "hybrid",
-      "cylinders": 4
+      "cylinders": 4,
+      "body": "suv"
     },
     {
       "id": "lynk-co-01-1-5-phev-261",
@@ -1851,7 +1994,8 @@
       ],
       "fuel": "hybrid",
       "cylinders": 3,
-      "oil_spec": "0W20"
+      "oil_spec": "0W20",
+      "body": "hatch"
     },
     {
       "id": "mg-cyberster-77-kwh",
@@ -1864,7 +2008,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "rear"
+      "traction": "rear",
+      "body": "hatch"
     },
     {
       "id": "mg-hs-1-5-t-gdi-162",
@@ -1877,7 +2022,8 @@
         2026
       ],
       "fuel": "petrol",
-      "cylinders": 4
+      "cylinders": 4,
+      "body": "suv"
     },
     {
       "id": "mg-mg3-hybrid-1-5-hybride-194",
@@ -1891,7 +2037,8 @@
       ],
       "fuel": "hybrid",
       "cylinders": 4,
-      "traction": "0W20"
+      "oil_spec": "0W20",
+      "body": "hatch"
     },
     {
       "id": "mg-mg4-electric-64-kwh",
@@ -1904,7 +2051,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "rear"
+      "traction": "rear",
+      "body": "hatch"
     },
     {
       "id": "mg-zs-ev-72-kwh",
@@ -1917,7 +2065,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "front"
+      "traction": "front",
+      "body": "suv"
     },
     {
       "id": "mazda-2-1-5-skyactiv-g-90",
@@ -1932,7 +2081,8 @@
       "fuel": "petrol",
       "cylinders": 4,
       "oil_capacity_l": 4.2,
-      "oil_spec": "0W20"
+      "oil_spec": "0W20",
+      "body": "hatch"
     },
     {
       "id": "mazda-cx-30-2-0-e-skyactiv-g-150",
@@ -1947,7 +2097,8 @@
       "fuel": "petrol",
       "cylinders": 4,
       "oil_capacity_l": 4.2,
-      "oil_spec": "0W20"
+      "oil_spec": "0W20",
+      "body": "suv"
     },
     {
       "id": "mazda-cx-5-ii-2-0-skyactiv-g-165",
@@ -1962,7 +2113,8 @@
       "fuel": "petrol",
       "cylinders": 4,
       "oil_capacity_l": 4.2,
-      "oil_spec": "0W20"
+      "oil_spec": "0W20",
+      "body": "suv"
     },
     {
       "id": "mazda-cx-60-3-3-e-skyactiv-d-200",
@@ -1975,7 +2127,8 @@
         2026
       ],
       "fuel": "diesel",
-      "cylinders": 6
+      "cylinders": 6,
+      "body": "suv"
     },
     {
       "id": "mazda-mx-30-35-5-kwh",
@@ -1988,7 +2141,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "front"
+      "traction": "front",
+      "body": "suv"
     },
     {
       "id": "mercedes-benz-classe-a-w176-a-180-cdi",
@@ -2002,7 +2156,8 @@
       ],
       "fuel": "diesel",
       "cylinders": 4,
-      "oil_spec": "5W30 MB 229.51"
+      "oil_spec": "5W30 MB 229.51",
+      "body": "hatch"
     },
     {
       "id": "mercedes-benz-classe-a-w177-a-180-d-1-5",
@@ -2017,7 +2172,8 @@
       "fuel": "diesel",
       "cylinders": 4,
       "oil_capacity_l": 5.0,
-      "oil_spec": "5W30 MB 229.51"
+      "oil_spec": "5W30 MB 229.51",
+      "body": "hatch"
     },
     {
       "id": "mercedes-benz-classe-c-w205-c-220-d-2-1",
@@ -2032,7 +2188,9 @@
       "fuel": "diesel",
       "cylinders": 4,
       "oil_capacity_l": 6.5,
-      "oil_spec": "5W30 MB 229.51"
+      "oil_spec": "5W30 MB 229.51",
+      "body": "sedan",
+      "traction": "rear"
     },
     {
       "id": "mercedes-benz-classe-c-w206-c-220-d",
@@ -2046,7 +2204,9 @@
       ],
       "fuel": "diesel",
       "cylinders": 4,
-      "traction": "0W20 MB 229.72"
+      "oil_spec": "0W20 MB 229.72",
+      "body": "sedan",
+      "traction": "rear"
     },
     {
       "id": "mercedes-benz-classe-e-w214-e-220-d",
@@ -2059,7 +2219,9 @@
         2026
       ],
       "fuel": "diesel",
-      "cylinders": 4
+      "cylinders": 4,
+      "body": "sedan",
+      "traction": "rear"
     },
     {
       "id": "mercedes-benz-eqa-250",
@@ -2072,7 +2234,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "front"
+      "traction": "front",
+      "body": "suv"
     },
     {
       "id": "mercedes-benz-eqc-80-kwh",
@@ -2085,7 +2248,8 @@
         2023
       ],
       "fuel": "electric",
-      "traction": "both"
+      "traction": "both",
+      "body": "suv"
     },
     {
       "id": "mercedes-benz-eqs-108-kwh",
@@ -2098,7 +2262,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "both"
+      "traction": "both",
+      "body": "sedan"
     },
     {
       "id": "mercedes-benz-gla-h247-200-d",
@@ -2111,7 +2276,8 @@
         2026
       ],
       "fuel": "diesel",
-      "cylinders": 4
+      "cylinders": 4,
+      "body": "suv"
     },
     {
       "id": "mercedes-benz-glc-x253-220-d-4matic",
@@ -2125,7 +2291,9 @@
       ],
       "fuel": "diesel",
       "cylinders": 4,
-      "traction": "5W30 MB 229.51"
+      "oil_spec": "5W30 MB 229.51",
+      "body": "suv",
+      "traction": "both"
     },
     {
       "id": "mini-cooper-f56-1-5-136",
@@ -2140,7 +2308,8 @@
       "fuel": "petrol",
       "cylinders": 3,
       "oil_capacity_l": 4.25,
-      "oil_spec": "5W30 BMW LL-04"
+      "oil_spec": "5W30 BMW LL-04",
+      "body": "hatch"
     },
     {
       "id": "mini-cooper-se-32-6-kwh",
@@ -2153,7 +2322,8 @@
         2024
       ],
       "fuel": "electric",
-      "traction": "front"
+      "traction": "front",
+      "body": "suv"
     },
     {
       "id": "mini-countryman-u25-c-170",
@@ -2166,7 +2336,8 @@
         2026
       ],
       "fuel": "petrol",
-      "cylinders": 3
+      "cylinders": 3,
+      "body": "suv"
     },
     {
       "id": "mitsubishi-l200-2015-2-4-di-d-150",
@@ -2180,7 +2351,9 @@
       ],
       "fuel": "diesel",
       "cylinders": 4,
-      "oil_spec": "5W30 ACEA C3"
+      "oil_spec": "5W30 ACEA C3",
+      "body": "pickup",
+      "traction": "both"
     },
     {
       "id": "mitsubishi-outlander-phev-2-4-phev",
@@ -2194,7 +2367,8 @@
       ],
       "fuel": "hybrid",
       "cylinders": 4,
-      "oil_spec": "0W20"
+      "oil_spec": "0W20",
+      "body": "suv"
     },
     {
       "id": "nio-el6-75-100-kwh",
@@ -2207,7 +2381,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "both"
+      "traction": "both",
+      "body": "suv"
     },
     {
       "id": "nio-et5-75-100-kwh",
@@ -2220,7 +2395,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "both"
+      "traction": "both",
+      "body": "sedan"
     },
     {
       "id": "nissan-ariya-87-kwh",
@@ -2233,7 +2409,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "front"
+      "traction": "front",
+      "body": "suv"
     },
     {
       "id": "nissan-juke-hybrid-1-6-hybride-143",
@@ -2246,7 +2423,8 @@
         2026
       ],
       "fuel": "hybrid",
-      "cylinders": 4
+      "cylinders": 4,
+      "body": "suv"
     },
     {
       "id": "nissan-juke-ii-1-0-dig-t-114",
@@ -2259,7 +2437,8 @@
         2026
       ],
       "fuel": "petrol",
-      "cylinders": 3
+      "cylinders": 3,
+      "body": "suv"
     },
     {
       "id": "nissan-leaf-ii-40-kwh",
@@ -2272,7 +2451,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "front"
+      "traction": "front",
+      "body": "hatch"
     },
     {
       "id": "nissan-micra-v-1-0-ig-t-92",
@@ -2286,7 +2466,8 @@
       ],
       "fuel": "petrol",
       "cylinders": 3,
-      "oil_spec": "5W30 ACEA C3"
+      "oil_spec": "5W30 ACEA C3",
+      "body": "hatch"
     },
     {
       "id": "nissan-navara-d23-np300-2-3-dci-190",
@@ -2300,7 +2481,9 @@
       ],
       "fuel": "diesel",
       "cylinders": 4,
-      "oil_spec": "5W30 ACEA C3"
+      "oil_spec": "5W30 ACEA C3",
+      "body": "pickup",
+      "traction": "both"
     },
     {
       "id": "nissan-navara-d40-2-5-dci-190",
@@ -2314,7 +2497,9 @@
       ],
       "fuel": "diesel",
       "cylinders": 4,
-      "oil_spec": "5W30 ACEA C3"
+      "oil_spec": "5W30 ACEA C3",
+      "body": "pickup",
+      "traction": "both"
     },
     {
       "id": "nissan-qashqai-ii-1-5-dci-110",
@@ -2328,7 +2513,8 @@
       ],
       "fuel": "diesel",
       "cylinders": 4,
-      "oil_spec": "5W30 ACEA C3"
+      "oil_spec": "5W30 ACEA C3",
+      "body": "suv"
     },
     {
       "id": "nissan-qashqai-iii-1-3-dig-t-mild-hybrid-140",
@@ -2341,7 +2527,8 @@
         2026
       ],
       "fuel": "petrol",
-      "cylinders": 4
+      "cylinders": 4,
+      "body": "suv"
     },
     {
       "id": "nissan-x-trail-iii-1-6-dci-130",
@@ -2355,7 +2542,8 @@
       ],
       "fuel": "diesel",
       "cylinders": 4,
-      "oil_spec": "5W30 ACEA C3"
+      "oil_spec": "5W30 ACEA C3",
+      "body": "suv"
     },
     {
       "id": "omoda-5-1-6-tgdi-185",
@@ -2368,7 +2556,8 @@
         2026
       ],
       "fuel": "petrol",
-      "cylinders": 4
+      "cylinders": 4,
+      "body": "hatch"
     },
     {
       "id": "omoda-e5-61-kwh",
@@ -2381,7 +2570,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "front"
+      "traction": "front",
+      "body": "hatch"
     },
     {
       "id": "opel-astra-j-1-7-cdti-110",
@@ -2395,7 +2585,8 @@
       ],
       "fuel": "diesel",
       "cylinders": 4,
-      "oil_spec": "5W30 GM dexos2"
+      "oil_spec": "5W30 GM dexos2",
+      "body": "hatch"
     },
     {
       "id": "opel-astra-l-1-2-turbo-130",
@@ -2410,7 +2601,8 @@
       "fuel": "petrol",
       "cylinders": 3,
       "oil_capacity_l": 3.5,
-      "oil_spec": "0W30 PSA B71 2312"
+      "oil_spec": "0W30 PSA B71 2312",
+      "body": "hatch"
     },
     {
       "id": "opel-corsa-d-1-3-cdti-75",
@@ -2424,7 +2616,8 @@
       ],
       "fuel": "diesel",
       "cylinders": 4,
-      "oil_spec": "5W30 GM dexos2"
+      "oil_spec": "5W30 GM dexos2",
+      "body": "hatch"
     },
     {
       "id": "opel-corsa-f-1-2-turbo-100",
@@ -2439,7 +2632,8 @@
       "fuel": "petrol",
       "cylinders": 3,
       "oil_capacity_l": 3.5,
-      "oil_spec": "0W30 PSA B71 2312"
+      "oil_spec": "0W30 PSA B71 2312",
+      "body": "hatch"
     },
     {
       "id": "opel-corsa-e-136-ch-50-kwh",
@@ -2452,7 +2646,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "front"
+      "traction": "front",
+      "body": "hatch"
     },
     {
       "id": "opel-grandland-1-5-diesel-130",
@@ -2466,7 +2661,8 @@
       ],
       "fuel": "diesel",
       "cylinders": 4,
-      "oil_spec": "0W30 PSA B71 2312"
+      "oil_spec": "0W30 PSA B71 2312",
+      "body": "suv"
     },
     {
       "id": "opel-mokka-b-1-2-turbo-130",
@@ -2480,7 +2676,8 @@
       ],
       "fuel": "petrol",
       "cylinders": 3,
-      "oil_spec": "0W20 PSA B71 2010"
+      "oil_spec": "0W20 PSA B71 2010",
+      "body": "suv"
     },
     {
       "id": "peugeot-2008-ii-1-2-puretech-130",
@@ -2495,7 +2692,8 @@
       "fuel": "petrol",
       "cylinders": 3,
       "oil_capacity_l": 3.5,
-      "oil_spec": "0W30 PSA B71 2312"
+      "oil_spec": "0W30 PSA B71 2312",
+      "body": "suv"
     },
     {
       "id": "peugeot-206-1-4-hdi-70",
@@ -2509,7 +2707,8 @@
       ],
       "fuel": "diesel",
       "cylinders": 4,
-      "oil_spec": "5W30 PSA B71 2290"
+      "oil_spec": "5W30 PSA B71 2290",
+      "body": "hatch"
     },
     {
       "id": "peugeot-207-1-6-hdi-90",
@@ -2523,7 +2722,8 @@
       ],
       "fuel": "diesel",
       "cylinders": 4,
-      "oil_spec": "5W30 PSA B71 2290"
+      "oil_spec": "5W30 PSA B71 2290",
+      "body": "hatch"
     },
     {
       "id": "peugeot-208-puretech",
@@ -2539,7 +2739,8 @@
       "cylinders": 3,
       "oil_capacity_l": 3.5,
       "oil_spec": "0W30 PSA B71 2312",
-      "coolant_l": 5.0
+      "coolant_l": 5.0,
+      "body": "hatch"
     },
     {
       "id": "peugeot-3008-ii-1-5-bluehdi-130",
@@ -2554,7 +2755,8 @@
       "fuel": "diesel",
       "cylinders": 4,
       "oil_capacity_l": 4.25,
-      "oil_spec": "0W30 PSA B71 2312"
+      "oil_spec": "0W30 PSA B71 2312",
+      "body": "suv"
     },
     {
       "id": "peugeot-3008-iii-hybrid-136-1-2-puretech",
@@ -2568,7 +2770,8 @@
       ],
       "fuel": "hybrid",
       "cylinders": 3,
-      "oil_spec": "0W20 PSA B71 2010"
+      "oil_spec": "0W20 PSA B71 2010",
+      "body": "suv"
     },
     {
       "id": "peugeot-308-i-1-6-hdi-110",
@@ -2582,7 +2785,8 @@
       ],
       "fuel": "diesel",
       "cylinders": 4,
-      "oil_spec": "5W30 PSA B71 2290"
+      "oil_spec": "5W30 PSA B71 2290",
+      "body": "hatch"
     },
     {
       "id": "peugeot-308-bluehdi",
@@ -2598,7 +2802,8 @@
       "cylinders": 4,
       "oil_capacity_l": 4.25,
       "oil_spec": "0W30 PSA B71 2312",
-      "coolant_l": 6.0
+      "coolant_l": 6.0,
+      "body": "hatch"
     },
     {
       "id": "peugeot-308-iii-1-2-puretech-130",
@@ -2613,7 +2818,8 @@
       "fuel": "petrol",
       "cylinders": 3,
       "oil_capacity_l": 3.5,
-      "oil_spec": "0W20 PSA B71 2010"
+      "oil_spec": "0W20 PSA B71 2010",
+      "body": "hatch"
     },
     {
       "id": "peugeot-408-1-2-puretech-130",
@@ -2627,7 +2833,8 @@
       ],
       "fuel": "petrol",
       "cylinders": 3,
-      "oil_spec": "0W20 PSA B71 2010"
+      "oil_spec": "0W20 PSA B71 2010",
+      "body": "hatch"
     },
     {
       "id": "peugeot-5008-ii-1-5-bluehdi-130",
@@ -2641,7 +2848,8 @@
       ],
       "fuel": "diesel",
       "cylinders": 4,
-      "oil_spec": "0W30 PSA B71 2312"
+      "oil_spec": "0W30 PSA B71 2312",
+      "body": "suv"
     },
     {
       "id": "peugeot-e-2008-136-ch-50-kwh",
@@ -2654,7 +2862,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "front"
+      "traction": "front",
+      "body": "suv"
     },
     {
       "id": "peugeot-e208",
@@ -2667,7 +2876,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "front"
+      "traction": "front",
+      "body": "hatch"
     },
     {
       "id": "peugeot-e-3008-73-kwh",
@@ -2680,7 +2890,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "front"
+      "traction": "front",
+      "body": "suv"
     },
     {
       "id": "polestar-2-long-range-78-kwh",
@@ -2693,7 +2904,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "rear"
+      "traction": "rear",
+      "body": "hatch"
     },
     {
       "id": "polestar-4-100-kwh",
@@ -2706,7 +2918,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "rear"
+      "traction": "rear",
+      "body": "hatch"
     },
     {
       "id": "porsche-911-992-carrera-3-0-385",
@@ -2720,7 +2933,9 @@
       ],
       "fuel": "petrol",
       "cylinders": 6,
-      "traction": "0W40 Porsche C40"
+      "oil_spec": "0W40 Porsche C40",
+      "body": "coupe",
+      "traction": "rear"
     },
     {
       "id": "porsche-cayenne-e3-3-0-v6-353",
@@ -2733,7 +2948,9 @@
         2026
       ],
       "fuel": "petrol",
-      "cylinders": 6
+      "cylinders": 6,
+      "body": "suv",
+      "traction": "both"
     },
     {
       "id": "porsche-macan-95b-2-0-245",
@@ -2747,7 +2964,9 @@
       ],
       "fuel": "petrol",
       "cylinders": 4,
-      "traction": "0W40 Porsche C40"
+      "oil_spec": "0W40 Porsche C40",
+      "body": "suv",
+      "traction": "both"
     },
     {
       "id": "porsche-taycan-93-kwh",
@@ -2760,7 +2979,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "both"
+      "traction": "both",
+      "body": "sedan"
     },
     {
       "id": "renault-arkana-e-tech-full-hybrid-145",
@@ -2774,7 +2994,8 @@
       ],
       "fuel": "hybrid",
       "cylinders": 4,
-      "oil_spec": "5W30 RN17"
+      "oil_spec": "5W30 RN17",
+      "body": "suv"
     },
     {
       "id": "renault-austral-e-tech-full-hybrid-200",
@@ -2787,7 +3008,8 @@
         2026
       ],
       "fuel": "hybrid",
-      "cylinders": 3
+      "cylinders": 3,
+      "body": "suv"
     },
     {
       "id": "renault-captur-ii-1-3-tce-140",
@@ -2802,7 +3024,8 @@
       "fuel": "petrol",
       "cylinders": 4,
       "oil_capacity_l": 5.3,
-      "oil_spec": "5W30 RN17"
+      "oil_spec": "5W30 RN17",
+      "body": "suv"
     },
     {
       "id": "renault-clio-iii-1-5-dci-85",
@@ -2816,7 +3039,8 @@
       ],
       "fuel": "diesel",
       "cylinders": 4,
-      "oil_spec": "5W30 RN0720"
+      "oil_spec": "5W30 RN0720",
+      "body": "hatch"
     },
     {
       "id": "renault-clio4-dci90",
@@ -2832,7 +3056,8 @@
       "cylinders": 4,
       "oil_capacity_l": 4.5,
       "oil_spec": "5W30 RN0720",
-      "coolant_l": 5.5
+      "coolant_l": 5.5,
+      "body": "hatch"
     },
     {
       "id": "renault-clio5-tce90",
@@ -2848,7 +3073,8 @@
       "cylinders": 3,
       "oil_capacity_l": 4.2,
       "oil_spec": "5W30 RN17",
-      "coolant_l": 5.5
+      "coolant_l": 5.5,
+      "body": "hatch"
     },
     {
       "id": "renault-espace-vi-e-tech-full-hybrid-200",
@@ -2861,7 +3087,8 @@
         2026
       ],
       "fuel": "hybrid",
-      "cylinders": 3
+      "cylinders": 3,
+      "body": "mpv"
     },
     {
       "id": "renault-kadjar-1-5-blue-dci-115",
@@ -2875,7 +3102,8 @@
       ],
       "fuel": "diesel",
       "cylinders": 4,
-      "oil_spec": "5W30 RN0720"
+      "oil_spec": "5W30 RN0720",
+      "body": "suv"
     },
     {
       "id": "renault-kangoo-z-e-33-kwh",
@@ -2888,7 +3116,8 @@
         2021
       ],
       "fuel": "electric",
-      "traction": "front"
+      "traction": "front",
+      "body": "mpv"
     },
     {
       "id": "renault-megane-etech",
@@ -2901,7 +3130,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "front"
+      "traction": "front",
+      "body": "hatch"
     },
     {
       "id": "renault-megane-iii-1-5-dci-110",
@@ -2915,7 +3145,8 @@
       ],
       "fuel": "diesel",
       "cylinders": 4,
-      "oil_spec": "5W30 RN0720"
+      "oil_spec": "5W30 RN0720",
+      "body": "hatch"
     },
     {
       "id": "renault-megane-iv-1-5-blue-dci-115",
@@ -2930,7 +3161,8 @@
       "fuel": "diesel",
       "cylinders": 4,
       "oil_capacity_l": 4.6,
-      "oil_spec": "5W30 RN0720"
+      "oil_spec": "5W30 RN0720",
+      "body": "hatch"
     },
     {
       "id": "renault-r5-e-tech-52-kwh",
@@ -2943,7 +3175,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "front"
+      "traction": "front",
+      "body": "hatch"
     },
     {
       "id": "renault-scenic-e-tech-87-kwh",
@@ -2956,7 +3189,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "front"
+      "traction": "front",
+      "body": "mpv"
     },
     {
       "id": "renault-scenic-iii-1-5-dci-110",
@@ -2970,7 +3204,8 @@
       ],
       "fuel": "diesel",
       "cylinders": 4,
-      "oil_spec": "5W30 RN0720"
+      "oil_spec": "5W30 RN0720",
+      "body": "mpv"
     },
     {
       "id": "renault-twingo-e-tech-22-kwh",
@@ -2983,7 +3218,8 @@
         2024
       ],
       "fuel": "electric",
-      "traction": "front"
+      "traction": "front",
+      "body": "hatch"
     },
     {
       "id": "renault-twingo-iii-sce-65",
@@ -2998,7 +3234,8 @@
       "fuel": "petrol",
       "cylinders": 3,
       "oil_capacity_l": 4.0,
-      "oil_spec": "5W40 RN0710"
+      "oil_spec": "5W40 RN0710",
+      "body": "hatch"
     },
     {
       "id": "renault-twizy-quadricycle-electrique-6-1-kwh",
@@ -3011,7 +3248,8 @@
         2023
       ],
       "fuel": "electric",
-      "traction": "rear"
+      "traction": "rear",
+      "body": "micro"
     },
     {
       "id": "renault-zoe-i-q90-r90-22-41-kwh",
@@ -3024,7 +3262,8 @@
         2019
       ],
       "fuel": "electric",
-      "traction": "front"
+      "traction": "front",
+      "body": "hatch"
     },
     {
       "id": "renault-zoe2-r135",
@@ -3037,7 +3276,8 @@
         2024
       ],
       "fuel": "electric",
-      "traction": "front"
+      "traction": "front",
+      "body": "hatch"
     },
     {
       "id": "saab-9-3-ys3f-1-9-tid-150",
@@ -3051,7 +3291,8 @@
       ],
       "fuel": "diesel",
       "cylinders": 4,
-      "oil_spec": "5W30 GM dexos2"
+      "oil_spec": "5W30 GM dexos2",
+      "body": "sedan"
     },
     {
       "id": "saab-9-3-ys3f-2-0-t-175",
@@ -3065,7 +3306,8 @@
       ],
       "fuel": "petrol",
       "cylinders": 4,
-      "oil_spec": "5W30 GM dexos2"
+      "oil_spec": "5W30 GM dexos2",
+      "body": "sedan"
     },
     {
       "id": "saab-9-5-ys3e-2-3-t-185",
@@ -3079,7 +3321,8 @@
       ],
       "fuel": "petrol",
       "cylinders": 4,
-      "oil_spec": "5W30 GM dexos2"
+      "oil_spec": "5W30 GM dexos2",
+      "body": "sedan"
     },
     {
       "id": "saab-9-5-ys3g-2-0-tid-160",
@@ -3093,7 +3336,8 @@
       ],
       "fuel": "diesel",
       "cylinders": 4,
-      "oil_spec": "5W30 GM dexos2"
+      "oil_spec": "5W30 GM dexos2",
+      "body": "sedan"
     },
     {
       "id": "seat-arona-1-0-tsi-110",
@@ -3107,7 +3351,8 @@
       ],
       "fuel": "petrol",
       "cylinders": 3,
-      "oil_spec": "0W20 VW 508.00"
+      "oil_spec": "0W20 VW 508.00",
+      "body": "suv"
     },
     {
       "id": "seat-ateca-2-0-tdi-150",
@@ -3121,7 +3366,8 @@
       ],
       "fuel": "diesel",
       "cylinders": 4,
-      "traction": "0W30 VW 507.00"
+      "oil_spec": "0W30 VW 507.00",
+      "body": "suv"
     },
     {
       "id": "seat-ibiza-v-1-0-tsi-95",
@@ -3136,7 +3382,8 @@
       "fuel": "petrol",
       "cylinders": 3,
       "oil_capacity_l": 4.0,
-      "oil_spec": "0W20 VW 508.00"
+      "oil_spec": "0W20 VW 508.00",
+      "body": "hatch"
     },
     {
       "id": "seat-leon-iii-1-6-tdi-110",
@@ -3150,7 +3397,8 @@
       ],
       "fuel": "diesel",
       "cylinders": 4,
-      "oil_spec": "5W30 VW 507.00"
+      "oil_spec": "5W30 VW 507.00",
+      "body": "hatch"
     },
     {
       "id": "seat-leon-iv-1-5-tsi-130",
@@ -3165,7 +3413,8 @@
       "fuel": "petrol",
       "cylinders": 4,
       "oil_capacity_l": 4.0,
-      "oil_spec": "0W20 VW 508.00"
+      "oil_spec": "0W20 VW 508.00",
+      "body": "hatch"
     },
     {
       "id": "skoda-elroq-63-kwh",
@@ -3178,7 +3427,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "rear"
+      "traction": "rear",
+      "body": "suv"
     },
     {
       "id": "skoda-enyaq-80-77-kwh",
@@ -3191,7 +3441,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "rear"
+      "traction": "rear",
+      "body": "suv"
     },
     {
       "id": "skoda-fabia-iv-1-0-tsi-95",
@@ -3206,7 +3457,8 @@
       "fuel": "petrol",
       "cylinders": 3,
       "oil_capacity_l": 4.0,
-      "oil_spec": "0W20 VW 508.00"
+      "oil_spec": "0W20 VW 508.00",
+      "body": "hatch"
     },
     {
       "id": "skoda-karoq-1-5-tsi-150",
@@ -3220,7 +3472,8 @@
       ],
       "fuel": "petrol",
       "cylinders": 4,
-      "oil_spec": "0W20 VW 508.00"
+      "oil_spec": "0W20 VW 508.00",
+      "body": "suv"
     },
     {
       "id": "skoda-kodiaq-2-0-tdi-150",
@@ -3234,7 +3487,8 @@
       ],
       "fuel": "diesel",
       "cylinders": 4,
-      "oil_spec": "5W30 VW 507.00"
+      "oil_spec": "5W30 VW 507.00",
+      "body": "suv"
     },
     {
       "id": "skoda-octavia-iii-1-6-tdi-110",
@@ -3248,7 +3502,8 @@
       ],
       "fuel": "diesel",
       "cylinders": 4,
-      "oil_spec": "5W30 VW 507.00"
+      "oil_spec": "5W30 VW 507.00",
+      "body": "sedan"
     },
     {
       "id": "skoda-octavia-iv-2-0-tdi-116",
@@ -3263,7 +3518,8 @@
       "fuel": "diesel",
       "cylinders": 4,
       "oil_capacity_l": 4.6,
-      "oil_spec": "0W30 VW 507.00"
+      "oil_spec": "0W30 VW 507.00",
+      "body": "sedan"
     },
     {
       "id": "skoda-superb-iii-2-0-tdi-150",
@@ -3277,7 +3533,8 @@
       ],
       "fuel": "diesel",
       "cylinders": 4,
-      "oil_spec": "5W30 VW 507.00"
+      "oil_spec": "5W30 VW 507.00",
+      "body": "sedan"
     },
     {
       "id": "smart-1-66-kwh",
@@ -3290,7 +3547,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "rear"
+      "traction": "rear",
+      "body": "suv"
     },
     {
       "id": "smart-3-66-kwh",
@@ -3303,7 +3561,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "rear"
+      "traction": "rear",
+      "body": "suv"
     },
     {
       "id": "smart-fortwo-eq-17-6-kwh",
@@ -3316,7 +3575,8 @@
         2024
       ],
       "fuel": "electric",
-      "traction": "rear"
+      "traction": "rear",
+      "body": "micro"
     },
     {
       "id": "subaru-forester-v-2-0-e-boxer",
@@ -3330,7 +3590,9 @@
       ],
       "fuel": "hybrid",
       "cylinders": 4,
-      "traction": "0W20"
+      "oil_spec": "0W20",
+      "body": "suv",
+      "traction": "both"
     },
     {
       "id": "suzuki-ignis-iii-1-2-dualjet",
@@ -3344,7 +3606,8 @@
       ],
       "fuel": "petrol",
       "cylinders": 4,
-      "oil_spec": "0W20"
+      "oil_spec": "0W20",
+      "body": "hatch"
     },
     {
       "id": "suzuki-swace-1-8-hybride-122",
@@ -3357,7 +3620,8 @@
         2026
       ],
       "fuel": "hybrid",
-      "cylinders": 4
+      "cylinders": 4,
+      "body": "hatch"
     },
     {
       "id": "suzuki-swift-vi-1-2-dualjet-hybrid",
@@ -3372,7 +3636,8 @@
       "fuel": "hybrid",
       "cylinders": 4,
       "oil_capacity_l": 3.1,
-      "oil_spec": "0W20"
+      "oil_spec": "0W20",
+      "body": "hatch"
     },
     {
       "id": "suzuki-vitara-iv-1-4-boosterjet-hybrid",
@@ -3386,7 +3651,8 @@
       ],
       "fuel": "hybrid",
       "cylinders": 4,
-      "oil_spec": "0W20"
+      "oil_spec": "0W20",
+      "body": "suv"
     },
     {
       "id": "tesla-model-3-grande-autonomie-awd",
@@ -3399,7 +3665,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "both"
+      "traction": "both",
+      "body": "sedan"
     },
     {
       "id": "tesla-model3-rwd",
@@ -3412,7 +3679,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "rear"
+      "traction": "rear",
+      "body": "sedan"
     },
     {
       "id": "tesla-model-3-highland-propulsion",
@@ -3425,7 +3693,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "rear"
+      "traction": "rear",
+      "body": "sedan"
     },
     {
       "id": "tesla-model-s-long-range",
@@ -3438,7 +3707,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "both"
+      "traction": "both",
+      "body": "sedan"
     },
     {
       "id": "tesla-model-x-long-range",
@@ -3451,7 +3721,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "both"
+      "traction": "both",
+      "body": "suv"
     },
     {
       "id": "tesla-model-y-propulsion-grande-autonomie",
@@ -3464,7 +3735,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "rear"
+      "traction": "rear",
+      "body": "suv"
     },
     {
       "id": "toyota-auris-ii-1-8-hybride-136",
@@ -3478,7 +3750,8 @@
       ],
       "fuel": "hybrid",
       "cylinders": 4,
-      "oil_spec": "0W20"
+      "oil_spec": "0W20",
+      "body": "hatch"
     },
     {
       "id": "toyota-aygo-x-1-0-vvt-i-72",
@@ -3492,7 +3765,8 @@
       ],
       "fuel": "petrol",
       "cylinders": 3,
-      "oil_spec": "0W20"
+      "oil_spec": "0W20",
+      "body": "hatch"
     },
     {
       "id": "toyota-c-hr-1-8-hybride-122",
@@ -3507,7 +3781,8 @@
       "fuel": "hybrid",
       "cylinders": 4,
       "oil_capacity_l": 4.2,
-      "oil_spec": "0W20"
+      "oil_spec": "0W20",
+      "body": "suv"
     },
     {
       "id": "toyota-c-hr-ii-1-8-hybride-140",
@@ -3521,7 +3796,8 @@
       ],
       "fuel": "hybrid",
       "cylinders": 4,
-      "oil_spec": "0W16 / 0W20"
+      "oil_spec": "0W16 / 0W20",
+      "body": "suv"
     },
     {
       "id": "toyota-corolla-xii-1-8-hybride-122",
@@ -3536,7 +3812,8 @@
       "fuel": "hybrid",
       "cylinders": 4,
       "oil_capacity_l": 4.2,
-      "oil_spec": "0W16 / 0W20"
+      "oil_spec": "0W16 / 0W20",
+      "body": "hatch"
     },
     {
       "id": "toyota-hilux-viii-2-4-d-4d-150",
@@ -3550,7 +3827,9 @@
       ],
       "fuel": "diesel",
       "cylinders": 4,
-      "oil_spec": "0W30 ACEA C2"
+      "oil_spec": "0W30 ACEA C2",
+      "body": "pickup",
+      "traction": "both"
     },
     {
       "id": "toyota-land-cruiser-j150-2-8-d-4d-177",
@@ -3564,7 +3843,8 @@
       ],
       "fuel": "diesel",
       "cylinders": 4,
-      "oil_spec": "0W30 ACEA C2"
+      "oil_spec": "0W30 ACEA C2",
+      "body": "suv"
     },
     {
       "id": "toyota-prius-iii-1-8-hybride-136",
@@ -3578,7 +3858,8 @@
       ],
       "fuel": "hybrid",
       "cylinders": 4,
-      "oil_spec": "0W20"
+      "oil_spec": "0W20",
+      "body": "hatch"
     },
     {
       "id": "toyota-rav4-v-2-5-hybride-218",
@@ -3593,7 +3874,8 @@
       "fuel": "hybrid",
       "cylinders": 4,
       "oil_capacity_l": 4.5,
-      "oil_spec": "0W16 / 0W20"
+      "oil_spec": "0W16 / 0W20",
+      "body": "suv"
     },
     {
       "id": "toyota-yaris-cross-1-5-hybride-116",
@@ -3607,7 +3889,8 @@
       ],
       "fuel": "hybrid",
       "cylinders": 3,
-      "oil_spec": "0W16 / 0W20"
+      "oil_spec": "0W16 / 0W20",
+      "body": "hatch"
     },
     {
       "id": "toyota-yaris3-hybrid",
@@ -3623,7 +3906,8 @@
       "cylinders": 4,
       "oil_capacity_l": 3.7,
       "oil_spec": "0W20",
-      "coolant_l": 4.5
+      "coolant_l": 4.5,
+      "body": "hatch"
     },
     {
       "id": "toyota-yaris-iv-1-5-hybride-116",
@@ -3638,7 +3922,8 @@
       "fuel": "hybrid",
       "cylinders": 3,
       "oil_capacity_l": 4.0,
-      "oil_spec": "0W16 / 0W20"
+      "oil_spec": "0W16 / 0W20",
+      "body": "hatch"
     },
     {
       "id": "toyota-bz4x-71-kwh",
@@ -3651,7 +3936,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "front"
+      "traction": "front",
+      "body": "suv"
     },
     {
       "id": "volkswagen-golf-vi-1-6-tdi-105",
@@ -3665,7 +3951,8 @@
       ],
       "fuel": "diesel",
       "cylinders": 4,
-      "oil_spec": "5W30 VW 507.00"
+      "oil_spec": "5W30 VW 507.00",
+      "body": "hatch"
     },
     {
       "id": "vw-golf7-tsi",
@@ -3681,7 +3968,8 @@
       "cylinders": 4,
       "oil_capacity_l": 4.0,
       "oil_spec": "5W30 VW 504.00",
-      "coolant_l": 6.0
+      "coolant_l": 6.0,
+      "body": "hatch"
     },
     {
       "id": "vw-golf7-tdi",
@@ -3697,7 +3985,8 @@
       "cylinders": 4,
       "oil_capacity_l": 4.3,
       "oil_spec": "5W30 VW 507.00",
-      "coolant_l": 6.5
+      "coolant_l": 6.5,
+      "body": "hatch"
     },
     {
       "id": "volkswagen-golf-viii-1-5-etsi-150",
@@ -3712,7 +4001,8 @@
       "fuel": "petrol",
       "cylinders": 4,
       "oil_capacity_l": 4.0,
-      "oil_spec": "0W20 VW 508.00"
+      "oil_spec": "0W20 VW 508.00",
+      "body": "hatch"
     },
     {
       "id": "volkswagen-golf-viii-2-0-tdi-150",
@@ -3727,7 +4017,8 @@
       "fuel": "diesel",
       "cylinders": 4,
       "oil_capacity_l": 4.6,
-      "oil_spec": "0W30 VW 507.00"
+      "oil_spec": "0W30 VW 507.00",
+      "body": "hatch"
     },
     {
       "id": "vw-id3-pro",
@@ -3740,7 +4031,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "rear"
+      "traction": "rear",
+      "body": "hatch"
     },
     {
       "id": "volkswagen-id-4-pro-77-kwh",
@@ -3753,7 +4045,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "rear"
+      "traction": "rear",
+      "body": "suv"
     },
     {
       "id": "volkswagen-id-7-77-kwh",
@@ -3766,7 +4059,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "rear"
+      "traction": "rear",
+      "body": "hatch"
     },
     {
       "id": "volkswagen-passat-b8-2-0-tdi-150",
@@ -3780,7 +4074,8 @@
       ],
       "fuel": "diesel",
       "cylinders": 4,
-      "oil_spec": "5W30 VW 507.00"
+      "oil_spec": "5W30 VW 507.00",
+      "body": "sedan"
     },
     {
       "id": "volkswagen-polo-v-1-2-tsi-90",
@@ -3794,7 +4089,8 @@
       ],
       "fuel": "petrol",
       "cylinders": 4,
-      "oil_spec": "5W30 VW 504.00"
+      "oil_spec": "5W30 VW 504.00",
+      "body": "hatch"
     },
     {
       "id": "volkswagen-polo-vi-1-0-tsi-95",
@@ -3809,7 +4105,8 @@
       "fuel": "petrol",
       "cylinders": 3,
       "oil_capacity_l": 4.0,
-      "oil_spec": "0W20 VW 508.00"
+      "oil_spec": "0W20 VW 508.00",
+      "body": "hatch"
     },
     {
       "id": "volkswagen-t-cross-1-0-tsi-110",
@@ -3823,7 +4120,8 @@
       ],
       "fuel": "petrol",
       "cylinders": 3,
-      "oil_spec": "0W20 VW 508.00"
+      "oil_spec": "0W20 VW 508.00",
+      "body": "suv"
     },
     {
       "id": "volkswagen-t-roc-1-5-tsi-150",
@@ -3837,7 +4135,8 @@
       ],
       "fuel": "petrol",
       "cylinders": 4,
-      "oil_spec": "0W20 VW 508.00"
+      "oil_spec": "0W20 VW 508.00",
+      "body": "suv"
     },
     {
       "id": "volkswagen-tiguan-ii-2-0-tdi-150",
@@ -3852,7 +4151,8 @@
       "fuel": "diesel",
       "cylinders": 4,
       "oil_capacity_l": 4.6,
-      "oil_spec": "5W30 VW 507.00"
+      "oil_spec": "5W30 VW 507.00",
+      "body": "suv"
     },
     {
       "id": "volkswagen-touran-ii-2-0-tdi-150",
@@ -3866,7 +4166,8 @@
       ],
       "fuel": "diesel",
       "cylinders": 4,
-      "oil_spec": "5W30 VW 507.00"
+      "oil_spec": "5W30 VW 507.00",
+      "body": "mpv"
     },
     {
       "id": "volvo-c40-recharge-78-kwh",
@@ -3879,7 +4180,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "both"
+      "traction": "both",
+      "body": "suv"
     },
     {
       "id": "volvo-ex30-69-kwh",
@@ -3892,7 +4194,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "rear"
+      "traction": "rear",
+      "body": "suv"
     },
     {
       "id": "volvo-ex30-cross-country-69-kwh",
@@ -3905,7 +4208,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "both"
+      "traction": "both",
+      "body": "estate"
     },
     {
       "id": "volvo-ex40-69-kwh",
@@ -3918,7 +4222,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "rear"
+      "traction": "rear",
+      "body": "suv"
     },
     {
       "id": "volvo-ex90-111-kwh",
@@ -3931,7 +4236,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "both"
+      "traction": "both",
+      "body": "suv"
     },
     {
       "id": "volvo-s60-iii-b5-mild-hybrid",
@@ -3945,7 +4251,8 @@
       ],
       "fuel": "petrol",
       "cylinders": 4,
-      "traction": "0W20 VCC RBS0-2AE"
+      "oil_spec": "0W20 VCC RBS0-2AE",
+      "body": "sedan"
     },
     {
       "id": "volvo-v40-ii-d2-1-6-115",
@@ -3959,7 +4266,8 @@
       ],
       "fuel": "diesel",
       "cylinders": 4,
-      "traction": "0W30 VCC RBS0-2AE"
+      "oil_spec": "0W30 VCC RBS0-2AE",
+      "body": "hatch"
     },
     {
       "id": "volvo-v40-ii-d2-2-0-120",
@@ -3973,7 +4281,8 @@
       ],
       "fuel": "diesel",
       "cylinders": 4,
-      "traction": "0W20 VCC RBS0-2AE"
+      "oil_spec": "0W20 VCC RBS0-2AE",
+      "body": "hatch"
     },
     {
       "id": "volvo-v60-ii-b4-mild-hybrid",
@@ -3987,7 +4296,8 @@
       ],
       "fuel": "petrol",
       "cylinders": 4,
-      "traction": "0W20 VCC RBS0-2AE"
+      "oil_spec": "0W20 VCC RBS0-2AE",
+      "body": "estate"
     },
     {
       "id": "volvo-v70-iii-d5-2-4-205",
@@ -4001,7 +4311,8 @@
       ],
       "fuel": "diesel",
       "cylinders": 5,
-      "traction": "0W30 VCC RBS0-2AE"
+      "oil_spec": "0W30 VCC RBS0-2AE",
+      "body": "estate"
     },
     {
       "id": "volvo-v90-d4-2-0-190",
@@ -4015,7 +4326,8 @@
       ],
       "fuel": "diesel",
       "cylinders": 4,
-      "traction": "0W20 VCC RBS0-2AE"
+      "oil_spec": "0W20 VCC RBS0-2AE",
+      "body": "estate"
     },
     {
       "id": "volvo-xc40-b4-mild-hybrid",
@@ -4029,7 +4341,8 @@
       ],
       "fuel": "hybrid",
       "cylinders": 4,
-      "oil_spec": "0W20 VCC RBS0-2AE"
+      "oil_spec": "0W20 VCC RBS0-2AE",
+      "body": "suv"
     },
     {
       "id": "volvo-xc40-recharge-78-kwh",
@@ -4042,7 +4355,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "both"
+      "traction": "both",
+      "body": "suv"
     },
     {
       "id": "volvo-xc60-i-d4-2-0-181",
@@ -4056,7 +4370,8 @@
       ],
       "fuel": "diesel",
       "cylinders": 4,
-      "traction": "0W30 VCC RBS0-2AE"
+      "oil_spec": "0W30 VCC RBS0-2AE",
+      "body": "suv"
     },
     {
       "id": "volvo-xc60-ii-b4-diesel-mild-hybrid",
@@ -4070,7 +4385,8 @@
       ],
       "fuel": "diesel",
       "cylinders": 4,
-      "traction": "0W20 VCC RBS0-2AE"
+      "oil_spec": "0W20 VCC RBS0-2AE",
+      "body": "suv"
     },
     {
       "id": "volvo-xc60-ii-t6-recharge-phev",
@@ -4084,7 +4400,9 @@
       ],
       "fuel": "hybrid",
       "cylinders": 4,
-      "traction": "0W20 VCC RBS0-2AE"
+      "oil_spec": "0W20 VCC RBS0-2AE",
+      "body": "suv",
+      "traction": "both"
     },
     {
       "id": "volvo-xc90-ii-b5-diesel-mild-hybrid",
@@ -4098,7 +4416,8 @@
       ],
       "fuel": "diesel",
       "cylinders": 4,
-      "traction": "0W20 VCC RBS0-2AE"
+      "oil_spec": "0W20 VCC RBS0-2AE",
+      "body": "suv"
     },
     {
       "id": "volvo-xc90-ii-t8-recharge-phev",
@@ -4112,7 +4431,9 @@
       ],
       "fuel": "hybrid",
       "cylinders": 4,
-      "traction": "0W20 VCC RBS0-2AE"
+      "oil_spec": "0W20 VCC RBS0-2AE",
+      "body": "suv",
+      "traction": "both"
     },
     {
       "id": "xpeng-g6-87-5-kwh",
@@ -4125,7 +4446,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "rear"
+      "traction": "rear",
+      "body": "suv"
     },
     {
       "id": "xpeng-p7-86-kwh",
@@ -4138,7 +4460,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "rear"
+      "traction": "rear",
+      "body": "sedan"
     },
     {
       "id": "zeekr-001-100-kwh",
@@ -4151,7 +4474,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "rear"
+      "traction": "rear",
+      "body": "estate"
     },
     {
       "id": "zeekr-7x-100-kwh",
@@ -4164,7 +4488,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "rear"
+      "traction": "rear",
+      "body": "suv"
     },
     {
       "id": "zeekr-x-66-kwh",
@@ -4177,7 +4502,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "rear"
+      "traction": "rear",
+      "body": "hatch"
     },
     {
       "id": "aprilia-rs-660-659-cm3-bicylindre",
@@ -4190,7 +4516,8 @@
         2026
       ],
       "fuel": "petrol",
-      "cylinders": 2
+      "cylinders": 2,
+      "body": "sport"
     },
     {
       "id": "aprilia-tuareg-660-659-cm3-bicylindre",
@@ -4203,7 +4530,8 @@
         2026
       ],
       "fuel": "petrol",
-      "cylinders": 2
+      "cylinders": 2,
+      "body": "adventure"
     },
     {
       "id": "aprilia-tuono-v4-1077-cm3-v4",
@@ -4216,7 +4544,8 @@
         2026
       ],
       "fuel": "petrol",
-      "cylinders": 4
+      "cylinders": 4,
+      "body": "naked"
     },
     {
       "id": "bmw-c-400-x-350-cm3-monocylindre",
@@ -4230,7 +4559,8 @@
       ],
       "fuel": "petrol",
       "cylinders": 1,
-      "oil_spec": "5W40 JASO MB"
+      "oil_spec": "5W40 JASO MB",
+      "body": "scooter"
     },
     {
       "id": "bmw-ce-04-8-9-kwh",
@@ -4243,7 +4573,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "rear"
+      "traction": "rear",
+      "body": "scooter"
     },
     {
       "id": "bmw-f-900-gs-895-cm3-bicylindre",
@@ -4256,7 +4587,8 @@
         2026
       ],
       "fuel": "petrol",
-      "cylinders": 2
+      "cylinders": 2,
+      "body": "adventure"
     },
     {
       "id": "bmw-f-900-r-895-cm3-bicylindre",
@@ -4270,7 +4602,8 @@
       ],
       "fuel": "petrol",
       "cylinders": 2,
-      "oil_spec": "5W40 JASO MA2"
+      "oil_spec": "5W40 JASO MA2",
+      "body": "naked"
     },
     {
       "id": "bmw-r-1200-gs-lc-1170-cm3-boxer",
@@ -4284,7 +4617,8 @@
       ],
       "fuel": "petrol",
       "cylinders": 2,
-      "oil_spec": "5W40 JASO MA2"
+      "oil_spec": "5W40 JASO MA2",
+      "body": "adventure"
     },
     {
       "id": "bmw-r-1250-gs-1254-cm3-boxer",
@@ -4299,7 +4633,8 @@
       "fuel": "petrol",
       "cylinders": 2,
       "oil_capacity_l": 4.0,
-      "oil_spec": "5W40 JASO MA2"
+      "oil_spec": "5W40 JASO MA2",
+      "body": "adventure"
     },
     {
       "id": "bmw-r-1300-gs-1300-cm3-boxer",
@@ -4313,7 +4648,8 @@
       ],
       "fuel": "petrol",
       "cylinders": 2,
-      "oil_spec": "5W40 JASO MA2"
+      "oil_spec": "5W40 JASO MA2",
+      "body": "adventure"
     },
     {
       "id": "bmw-s-1000-rr-999-cm3-4-cylindres",
@@ -4327,7 +4663,8 @@
       ],
       "fuel": "petrol",
       "cylinders": 4,
-      "oil_spec": "5W40 JASO MA2"
+      "oil_spec": "5W40 JASO MA2",
+      "body": "sport"
     },
     {
       "id": "benelli-trk-502-500-cm3-bicylindre",
@@ -4340,7 +4677,8 @@
         2026
       ],
       "fuel": "petrol",
-      "cylinders": 2
+      "cylinders": 2,
+      "body": "adventure"
     },
     {
       "id": "cfmoto-800mt-799-cm3-bicylindre",
@@ -4353,7 +4691,8 @@
         2026
       ],
       "fuel": "petrol",
-      "cylinders": 2
+      "cylinders": 2,
+      "body": "adventure"
     },
     {
       "id": "ducati-desertx-937-cm3-bicylindre",
@@ -4366,7 +4705,8 @@
         2026
       ],
       "fuel": "petrol",
-      "cylinders": 2
+      "cylinders": 2,
+      "body": "adventure"
     },
     {
       "id": "ducati-monster-937-937-cm3-bicylindre",
@@ -4380,7 +4720,8 @@
       ],
       "fuel": "petrol",
       "cylinders": 2,
-      "oil_spec": "15W50 JASO MA2"
+      "oil_spec": "15W50 JASO MA2",
+      "body": "naked"
     },
     {
       "id": "ducati-multistrada-v4-1158-cm3-v4",
@@ -4394,7 +4735,8 @@
       ],
       "fuel": "petrol",
       "cylinders": 4,
-      "oil_spec": "15W50 JASO MA2"
+      "oil_spec": "15W50 JASO MA2",
+      "body": "adventure"
     },
     {
       "id": "ducati-panigale-v4-1103-cm3-v4",
@@ -4407,7 +4749,8 @@
         2026
       ],
       "fuel": "petrol",
-      "cylinders": 4
+      "cylinders": 4,
+      "body": "sport"
     },
     {
       "id": "ducati-scrambler-800-803-cm3-bicylindre",
@@ -4421,7 +4764,8 @@
       ],
       "fuel": "petrol",
       "cylinders": 2,
-      "oil_spec": "15W50 JASO MA2"
+      "oil_spec": "15W50 JASO MA2",
+      "body": "naked"
     },
     {
       "id": "energica-experia-22-5-kwh",
@@ -4434,7 +4778,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "front"
+      "traction": "front",
+      "body": "naked"
     },
     {
       "id": "harley-davidson-pan-america-1250-1252-cm3-v-twin",
@@ -4447,7 +4792,8 @@
         2026
       ],
       "fuel": "petrol",
-      "cylinders": 2
+      "cylinders": 2,
+      "body": "adventure"
     },
     {
       "id": "harley-davidson-sportster-s-1252-cm3-v-twin",
@@ -4461,7 +4807,8 @@
       ],
       "fuel": "petrol",
       "cylinders": 2,
-      "oil_spec": "SAE 20W50"
+      "oil_spec": "SAE 20W50",
+      "body": "cruiser"
     },
     {
       "id": "honda-africa-twin-crf1100l-1084-cm3-bicylindre",
@@ -4475,7 +4822,8 @@
       ],
       "fuel": "petrol",
       "cylinders": 2,
-      "oil_spec": "10W30 JASO MA"
+      "oil_spec": "10W30 JASO MA",
+      "body": "adventure"
     },
     {
       "id": "honda-cb500f",
@@ -4491,7 +4839,8 @@
       "cylinders": 2,
       "oil_capacity_l": 3.2,
       "oil_spec": "10W30 JASO MA",
-      "chain": "520 – 112 maillons"
+      "chain": "520 – 112 maillons",
+      "body": "naked"
     },
     {
       "id": "honda-cb650r-649-cm3-4-cylindres",
@@ -4505,7 +4854,8 @@
       ],
       "fuel": "petrol",
       "cylinders": 4,
-      "oil_spec": "10W30 JASO MA"
+      "oil_spec": "10W30 JASO MA",
+      "body": "naked"
     },
     {
       "id": "honda-forza-125-125-cm3-monocylindre",
@@ -4519,7 +4869,8 @@
       ],
       "fuel": "petrol",
       "cylinders": 1,
-      "oil_spec": "10W30 JASO MB"
+      "oil_spec": "10W30 JASO MB",
+      "body": "scooter"
     },
     {
       "id": "honda-gold-wing-sc79-1833-cm3-flat-six",
@@ -4532,7 +4883,8 @@
         2026
       ],
       "fuel": "petrol",
-      "cylinders": 6
+      "cylinders": 6,
+      "body": "sport"
     },
     {
       "id": "honda-nc750x-745-cm3-bicylindre",
@@ -4546,7 +4898,8 @@
       ],
       "fuel": "petrol",
       "cylinders": 2,
-      "oil_spec": "10W30 JASO MA"
+      "oil_spec": "10W30 JASO MA",
+      "body": "adventure"
     },
     {
       "id": "honda-pcx125",
@@ -4561,7 +4914,8 @@
       "fuel": "petrol",
       "cylinders": 1,
       "oil_capacity_l": 0.8,
-      "oil_spec": "10W30 JASO MB"
+      "oil_spec": "10W30 JASO MB",
+      "body": "scooter"
     },
     {
       "id": "honda-rebel-500-471-cm3-bicylindre",
@@ -4574,7 +4928,8 @@
         2026
       ],
       "fuel": "petrol",
-      "cylinders": 2
+      "cylinders": 2,
+      "body": "cruiser"
     },
     {
       "id": "honda-transalp-xl750-755-cm3-bicylindre",
@@ -4587,7 +4942,8 @@
         2026
       ],
       "fuel": "petrol",
-      "cylinders": 2
+      "cylinders": 2,
+      "body": "adventure"
     },
     {
       "id": "husqvarna-norden-901-889-cm3-bicylindre",
@@ -4600,7 +4956,8 @@
         2026
       ],
       "fuel": "petrol",
-      "cylinders": 2
+      "cylinders": 2,
+      "body": "adventure"
     },
     {
       "id": "husqvarna-svartpilen-401-399-cm3-monocylindre",
@@ -4613,7 +4970,8 @@
         2026
       ],
       "fuel": "petrol",
-      "cylinders": 1
+      "cylinders": 1,
+      "body": "naked"
     },
     {
       "id": "indian-scout-1133-cm3-v-twin",
@@ -4626,7 +4984,8 @@
         2024
       ],
       "fuel": "petrol",
-      "cylinders": 2
+      "cylinders": 2,
+      "body": "cruiser"
     },
     {
       "id": "ktm-1290-super-adventure-1301-cm3-bicylindre",
@@ -4640,7 +4999,8 @@
       ],
       "fuel": "petrol",
       "cylinders": 2,
-      "oil_spec": "10W50 JASO MA2"
+      "oil_spec": "10W50 JASO MA2",
+      "body": "adventure"
     },
     {
       "id": "ktm-390-duke-373-cm3-monocylindre",
@@ -4654,7 +5014,8 @@
       ],
       "fuel": "petrol",
       "cylinders": 1,
-      "oil_spec": "10W50 JASO MA2"
+      "oil_spec": "10W50 JASO MA2",
+      "body": "naked"
     },
     {
       "id": "ktm-790-adventure-799-cm3-bicylindre",
@@ -4668,7 +5029,8 @@
       ],
       "fuel": "petrol",
       "cylinders": 2,
-      "oil_spec": "10W50 JASO MA2"
+      "oil_spec": "10W50 JASO MA2",
+      "body": "adventure"
     },
     {
       "id": "ktm-890-duke-889-cm3-bicylindre",
@@ -4682,7 +5044,8 @@
       ],
       "fuel": "petrol",
       "cylinders": 2,
-      "oil_spec": "10W50 JASO MA2"
+      "oil_spec": "10W50 JASO MA2",
+      "body": "naked"
     },
     {
       "id": "kawasaki-ninja-650-649-cm3-bicylindre",
@@ -4695,7 +5058,8 @@
         2026
       ],
       "fuel": "petrol",
-      "cylinders": 2
+      "cylinders": 2,
+      "body": "sport"
     },
     {
       "id": "kawasaki-versys-650-649-cm3-bicylindre",
@@ -4709,7 +5073,8 @@
       ],
       "fuel": "petrol",
       "cylinders": 2,
-      "oil_spec": "10W40 JASO MA"
+      "oil_spec": "10W40 JASO MA",
+      "body": "adventure"
     },
     {
       "id": "kawasaki-z650",
@@ -4725,7 +5090,8 @@
       "cylinders": 2,
       "oil_capacity_l": 2.3,
       "oil_spec": "10W40 JASO MA",
-      "chain": "520 – 114 maillons"
+      "chain": "520 – 114 maillons",
+      "body": "naked"
     },
     {
       "id": "kawasaki-z900-948-cm3-4-cylindres",
@@ -4739,7 +5105,8 @@
       ],
       "fuel": "petrol",
       "cylinders": 4,
-      "oil_spec": "10W40 JASO MA"
+      "oil_spec": "10W40 JASO MA",
+      "body": "naked"
     },
     {
       "id": "kawasaki-z900rs-948-cm3-4-cylindres",
@@ -4752,7 +5119,8 @@
         2026
       ],
       "fuel": "petrol",
-      "cylinders": 4
+      "cylinders": 4,
+      "body": "naked"
     },
     {
       "id": "kymco-ak-550-550-cm3-bicylindre",
@@ -4765,7 +5133,8 @@
         2026
       ],
       "fuel": "petrol",
-      "cylinders": 2
+      "cylinders": 2,
+      "body": "scooter"
     },
     {
       "id": "mv-agusta-brutale-800-798-cm3-tricylindre",
@@ -4778,7 +5147,8 @@
         2026
       ],
       "fuel": "petrol",
-      "cylinders": 3
+      "cylinders": 3,
+      "body": "naked"
     },
     {
       "id": "moto-guzzi-v85-tt-853-cm3-v-twin",
@@ -4792,7 +5162,8 @@
       ],
       "fuel": "petrol",
       "cylinders": 2,
-      "oil_spec": "10W60 JASO MA2"
+      "oil_spec": "10W60 JASO MA2",
+      "body": "adventure"
     },
     {
       "id": "niu-nqi-gt-2-1-kwh",
@@ -4805,7 +5176,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "rear"
+      "traction": "rear",
+      "body": "scooter"
     },
     {
       "id": "piaggio-mp3-400-350-cm3-monocylindre",
@@ -4818,7 +5190,8 @@
         2026
       ],
       "fuel": "petrol",
-      "cylinders": 1
+      "cylinders": 1,
+      "body": "scooter"
     },
     {
       "id": "piaggio-vespa-gts-300-278-cm3-monocylindre",
@@ -4832,7 +5205,8 @@
       ],
       "fuel": "petrol",
       "cylinders": 1,
-      "oil_spec": "5W40 JASO MB"
+      "oil_spec": "5W40 JASO MB",
+      "body": "scooter"
     },
     {
       "id": "royal-enfield-himalayan-450-452-cm3-monocylindre",
@@ -4846,7 +5220,8 @@
       ],
       "fuel": "petrol",
       "cylinders": 1,
-      "oil_spec": "10W50 JASO MA2"
+      "oil_spec": "10W50 JASO MA2",
+      "body": "adventure"
     },
     {
       "id": "silence-s01-5-6-kwh",
@@ -4859,7 +5234,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "rear"
+      "traction": "rear",
+      "body": "scooter"
     },
     {
       "id": "super-soco-cpx-2-batteries-60-v",
@@ -4872,7 +5248,8 @@
         2026
       ],
       "fuel": "electric",
-      "traction": "front"
+      "traction": "front",
+      "body": "scooter"
     },
     {
       "id": "suzuki-gsx-8s-776-cm3-bicylindre",
@@ -4885,7 +5262,8 @@
         2026
       ],
       "fuel": "petrol",
-      "cylinders": 2
+      "cylinders": 2,
+      "body": "naked"
     },
     {
       "id": "suzuki-sv650-645-cm3-bicylindre",
@@ -4899,7 +5277,8 @@
       ],
       "fuel": "petrol",
       "cylinders": 2,
-      "oil_spec": "10W40 JASO MA"
+      "oil_spec": "10W40 JASO MA",
+      "body": "naked"
     },
     {
       "id": "suzuki-v-strom-650-645-cm3-bicylindre",
@@ -4913,7 +5292,8 @@
       ],
       "fuel": "petrol",
       "cylinders": 2,
-      "oil_spec": "10W40 JASO MA"
+      "oil_spec": "10W40 JASO MA",
+      "body": "adventure"
     },
     {
       "id": "triumph-bonneville-t120-1200-cm3-bicylindre",
@@ -4927,7 +5307,8 @@
       ],
       "fuel": "petrol",
       "cylinders": 2,
-      "oil_spec": "10W40 JASO MA"
+      "oil_spec": "10W40 JASO MA",
+      "body": "naked"
     },
     {
       "id": "triumph-speed-400-398-cm3-monocylindre",
@@ -4940,7 +5321,8 @@
         2026
       ],
       "fuel": "petrol",
-      "cylinders": 1
+      "cylinders": 1,
+      "body": "naked"
     },
     {
       "id": "triumph-street-triple-765-765-cm3-tricylindre",
@@ -4954,7 +5336,8 @@
       ],
       "fuel": "petrol",
       "cylinders": 3,
-      "oil_spec": "10W40 JASO MA"
+      "oil_spec": "10W40 JASO MA",
+      "body": "naked"
     },
     {
       "id": "triumph-street-twin-900-900-cm3-bicylindre",
@@ -4967,7 +5350,8 @@
         2026
       ],
       "fuel": "petrol",
-      "cylinders": 2
+      "cylinders": 2,
+      "body": "naked"
     },
     {
       "id": "triumph-tiger-1200-2022-1160-cm3-tricylindre",
@@ -4981,7 +5365,8 @@
       ],
       "fuel": "petrol",
       "cylinders": 3,
-      "oil_spec": "10W40 JASO MA"
+      "oil_spec": "10W40 JASO MA",
+      "body": "adventure"
     },
     {
       "id": "triumph-tiger-850-sport-888-cm3-tricylindre",
@@ -4994,7 +5379,8 @@
         2026
       ],
       "fuel": "petrol",
-      "cylinders": 3
+      "cylinders": 3,
+      "body": "adventure"
     },
     {
       "id": "triumph-tiger-900-888-cm3-tricylindre",
@@ -5008,7 +5394,8 @@
       ],
       "fuel": "petrol",
       "cylinders": 3,
-      "oil_spec": "10W40 JASO MA"
+      "oil_spec": "10W40 JASO MA",
+      "body": "adventure"
     },
     {
       "id": "triumph-tiger-explorer-1200-1215-cm3-tricylindre",
@@ -5022,7 +5409,8 @@
       ],
       "fuel": "petrol",
       "cylinders": 3,
-      "oil_spec": "10W40 JASO MA"
+      "oil_spec": "10W40 JASO MA",
+      "body": "adventure"
     },
     {
       "id": "triumph-trident-660-660-cm3-tricylindre",
@@ -5036,7 +5424,8 @@
       ],
       "fuel": "petrol",
       "cylinders": 3,
-      "oil_spec": "10W40 JASO MA"
+      "oil_spec": "10W40 JASO MA",
+      "body": "naked"
     },
     {
       "id": "voge-525-dsx-494-cm3-bicylindre",
@@ -5049,7 +5438,8 @@
         2026
       ],
       "fuel": "petrol",
-      "cylinders": 2
+      "cylinders": 2,
+      "body": "adventure"
     },
     {
       "id": "yamaha-mt-03-321-cm3-bicylindre",
@@ -5062,7 +5452,8 @@
         2026
       ],
       "fuel": "petrol",
-      "cylinders": 2
+      "cylinders": 2,
+      "body": "naked"
     },
     {
       "id": "yamaha-mt07",
@@ -5078,7 +5469,8 @@
       "cylinders": 2,
       "oil_capacity_l": 3.0,
       "oil_spec": "10W40 JASO MA2",
-      "chain": "525 – 108 maillons"
+      "chain": "525 – 108 maillons",
+      "body": "naked"
     },
     {
       "id": "yamaha-mt-09-889-cm3-tricylindre",
@@ -5092,7 +5484,8 @@
       ],
       "fuel": "petrol",
       "cylinders": 3,
-      "oil_spec": "10W40 JASO MA"
+      "oil_spec": "10W40 JASO MA",
+      "body": "naked"
     },
     {
       "id": "yamaha-tmax-560-562-cm3-bicylindre",
@@ -5106,7 +5499,8 @@
       ],
       "fuel": "petrol",
       "cylinders": 2,
-      "oil_spec": "10W40 JASO MA"
+      "oil_spec": "10W40 JASO MA",
+      "body": "scooter"
     },
     {
       "id": "yamaha-tracer-7-689-cm3-bicylindre",
@@ -5119,7 +5513,8 @@
         2026
       ],
       "fuel": "petrol",
-      "cylinders": 2
+      "cylinders": 2,
+      "body": "adventure"
     },
     {
       "id": "yamaha-tracer-9-890-cm3-tricylindre",
@@ -5133,7 +5528,8 @@
       ],
       "fuel": "petrol",
       "cylinders": 3,
-      "oil_spec": "10W40 JASO MA"
+      "oil_spec": "10W40 JASO MA",
+      "body": "adventure"
     },
     {
       "id": "yamaha-tenere-700-689-cm3-bicylindre",
@@ -5147,7 +5543,8 @@
       ],
       "fuel": "petrol",
       "cylinders": 2,
-      "oil_spec": "10W40 JASO MA"
+      "oil_spec": "10W40 JASO MA",
+      "body": "adventure"
     },
     {
       "id": "yamaha-xmax-125-125-cm3-monocylindre",
@@ -5161,7 +5558,8 @@
       ],
       "fuel": "petrol",
       "cylinders": 1,
-      "oil_spec": "10W40 JASO MB"
+      "oil_spec": "10W40 JASO MB",
+      "body": "scooter"
     },
     {
       "id": "zero-srf",
@@ -5175,7 +5573,8 @@
       ],
       "fuel": "electric",
       "chain": "courroie crantée",
-      "traction": "front"
+      "traction": "front",
+      "body": "naked"
     },
     {
       "id": "zontes-350t-348-cm3-monocylindre",
@@ -5188,7 +5587,8 @@
         2026
       ],
       "fuel": "petrol",
-      "cylinders": 1
+      "cylinders": 1,
+      "body": "adventure"
     },
     {
       "id": "daf-lf-px-7-6-7-l",

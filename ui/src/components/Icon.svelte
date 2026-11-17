@@ -53,6 +53,7 @@
     battery: 'M3 8h15v8H3zM21 11v2M7 10v4M11 10v4',
     thermo: 'M14 14.8V4a2 2 0 0 0-4 0v10.8a4 4 0 1 0 4 0zM12 9v7',
     layers: 'M12 3l9 5-9 5-9-5zM3 13l9 5 9-5',
+    explode: 'M9 9h6v6H9zM4 4l3 3M20 4l-3 3M4 20l3-3M20 20l-3-3',
   };
 </script>
 

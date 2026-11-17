@@ -9,6 +9,7 @@
   let scene: VehicleScene | null = null;
   let picked = $state<string | null>(null);
   let xray = $state(false);
+  let exploded = $state(false);
   let webgl = $state(true);
 
   onMount(() => {
@@ -47,6 +48,9 @@
     <button class="btn sm" class:active={xray} title="Voir à travers la carrosserie" onclick={() => { xray = !xray; scene?.setXray(xray); }}>
       <Icon name="layers" size={16} /> Transparence
     </button>
+    <button class="btn sm" class:active={exploded} title="Écarter les pièces pour voir comment elles s'assemblent" onclick={() => { exploded = !exploded; scene?.setExploded(exploded); }}>
+      <Icon name="explode" size={16} /> Vue éclatée
+    </button>
     <button class="btn sm" title="Vue d'ensemble" onclick={() => { app.highlight = []; }}>
       <Icon name="cube" size={16} /> Vue globale
     </button>
@@ -76,7 +80,7 @@
     background: radial-gradient(ellipse at 50% 30%, rgba(34, 211, 238, 0.08), transparent 65%), var(--bg-2); border: 1px solid var(--border); }
   .host { position: absolute; inset: 0; }
   .host :global(canvas) { display: block; touch-action: none; }
-  .tools { position: absolute; top: 10px; right: 10px; display: flex; gap: 6px; }
+  .tools { position: absolute; top: 10px; right: 10px; display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; max-width: calc(100% - 20px); }
   .tools .btn { backdrop-filter: blur(10px); background: color-mix(in srgb, var(--panel-solid) 70%, transparent); }
   .tools .btn.active { border-color: var(--accent); color: var(--accent); }
   .legend { position: absolute; left: 12px; bottom: 10px; display: flex; align-items: center; gap: 6px; }
