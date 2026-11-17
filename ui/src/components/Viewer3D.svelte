@@ -7,7 +7,7 @@
   let host: HTMLDivElement;
   let scene: VehicleScene | null = null;
   let picked = $state<string | null>(null);
-  let xray = $state(true);
+  let xray = $state(false);
   let webgl = $state(true);
 
   onMount(() => {
@@ -43,8 +43,8 @@
     <div class="nogl muted small">La 3D n'est pas disponible sur cet appareil (WebGL désactivé).</div>
   {/if}
   <div class="tools">
-    <button class="btn sm" class:active={xray} title="Carrosserie transparente" onclick={() => { xray = !xray; scene?.setXray(xray); }}>
-      <Icon name="layers" size={16} /> Carrosserie
+    <button class="btn sm" class:active={xray} title="Voir à travers la carrosserie" onclick={() => { xray = !xray; scene?.setXray(xray); }}>
+      <Icon name="layers" size={16} /> Transparence
     </button>
     <button class="btn sm" title="Vue d'ensemble" onclick={() => { app.highlight = []; }}>
       <Icon name="cube" size={16} /> Vue globale

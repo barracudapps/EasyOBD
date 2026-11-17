@@ -1,6 +1,7 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { CSS2DObject, CSS2DRenderer } from 'three/addons/renderers/CSS2DRenderer.js';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 import { buildVehicle, type VehicleSpec } from './vehicles';
 
 export const SEVERITY_COLORS: Record<string, number> = {
@@ -32,14 +33,22 @@ export class VehicleScene {
   private down = { x: 0, y: 0 };
   private nameOf: (id: string) => string = (id) => id;
   onPick: ((id: string | null) => void) | null = null;
-  xray = true;
+  /** Transparent body (X-ray). Off = painted body, shown when nothing is highlighted. */
+  xray = false;
 
   constructor(private container: HTMLElement) {
     this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: 'high-performance' });
     this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     this.renderer.outputColorSpace = THREE.SRGBColorSpace;
     this.renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    this.renderer.toneMappingExposure = 1.05;
+    this.renderer.shadowMap.enabled = true;
+    this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     container.appendChild(this.renderer.domElement);
+    // Studio reflections for paint, glass and metal.
+    const pmrem = new THREE.PMREMGenerator(this.renderer);
+    this.scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+    pmrem.dispose();
 
     this.labels = new CSS2DRenderer();
     this.labels.domElement.className = 'scene-labels';
@@ -58,10 +67,24 @@ export class VehicleScene {
       this.focusTarget = null;
     });
 
-    this.scene.add(new THREE.HemisphereLight(0xdbeafe, 0x0f172a, 1.4));
-    const key = new THREE.DirectionalLight(0xffffff, 2.2);
-    key.position.set(4, 6, 3);
+    this.scene.add(new THREE.HemisphereLight(0xdbeafe, 0x0f172a, 0.7));
+    const key = new THREE.DirectionalLight(0xffffff, 2.0);
+    key.position.set(4, 8, 3);
+    key.castShadow = true;
+    key.shadow.mapSize.set(2048, 2048);
+    key.shadow.camera.left = -7;
+    key.shadow.camera.right = 7;
+    key.shadow.camera.top = 7;
+    key.shadow.camera.bottom = -7;
+    key.shadow.camera.far = 30;
+    key.shadow.bias = -0.0005;
+    key.shadow.radius = 6;
     this.scene.add(key);
+    const shadowFloor = new THREE.Mesh(new THREE.PlaneGeometry(30, 30), new THREE.ShadowMaterial({ opacity: 0.35 }));
+    shadowFloor.rotation.x = -Math.PI / 2;
+    shadowFloor.position.y = 0.001;
+    shadowFloor.receiveShadow = true;
+    this.scene.add(shadowFloor);
     const rim = new THREE.DirectionalLight(0x8b5cf6, 1.2);
     rim.position.set(-5, 3, -4);
     this.scene.add(rim);
@@ -108,7 +131,9 @@ export class VehicleScene {
     this.components.clear();
     this.model.traverse((o) => {
       if (o.userData.componentId && o.name === o.userData.componentId) this.components.set(o.name, o);
-      if (o instanceof THREE.Mesh) {
+      if (o instanceof THREE.Mesh && !o.userData.shell) o.castShadow = true;
+      if (o instanceof THREE.Mesh && o.userData.shell && o.parent?.userData.solidShell) o.castShadow = true;
+      if (o instanceof THREE.Mesh && !o.userData.shell) {
         const m = o.material as THREE.MeshStandardMaterial;
         o.material = m.clone();
         const c = o.material as THREE.MeshStandardMaterial;
@@ -138,9 +163,12 @@ export class VehicleScene {
     this.applyXray();
   }
 
+  /** Painted body when idle; ghost body in X-ray mode or when parts are highlighted. */
   private applyXray() {
+    const solid = !this.xray && this.highlighted.size === 0;
     this.model?.traverse((o) => {
-      if (o.userData.isShell) o.visible = this.xray;
+      if (o.userData.isShell) o.visible = !solid;
+      if (o.userData.solidShell) o.visible = solid;
     });
   }
 
@@ -170,9 +198,10 @@ export class VehicleScene {
     this.labelObjects.forEach((l) => l.removeFromParent());
     this.labelObjects = [];
 
+    this.applyXray();
     // Dim every mesh of the model that is not highlighted (including decorative parts).
     this.model?.traverse((o) => {
-      if (!(o instanceof THREE.Mesh)) return;
+      if (!(o instanceof THREE.Mesh) || o.userData.shell) return;
       const on = this.highlighted.has(o.userData.componentId);
       const m = o.material as THREE.MeshStandardMaterial;
       const orig = o.userData.orig as MatState | undefined;

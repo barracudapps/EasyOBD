@@ -13,12 +13,20 @@
       : { id: 'custom', type: 'car', make: '', model: '', engine: '', fuel: 'petrol', cylinders: 4, oil_capacity_l: null, oil_spec: '' },
   );
   let showCustom = $state(app.profile?.id === 'custom');
+  let make = $state('');
+  let fuel = $state('');
 
+  const makes = $derived([...new Set(app.profiles.filter((p) => p.type === type).map((p) => p.make))].sort((a, b) => a.localeCompare(b, 'fr')));
   const list = $derived(
     app.profiles.filter(
-      (p) => p.type === type && `${p.make} ${p.model} ${p.engine}`.toLowerCase().includes(query.toLowerCase()),
+      (p) =>
+        p.type === type &&
+        (!make || p.make === make) &&
+        (!fuel || p.fuel === fuel) &&
+        `${p.make} ${p.model} ${p.engine}`.toLowerCase().includes(query.toLowerCase()),
     ),
   );
+  const fuelLabel: Record<string, string> = { petrol: 'Essence', diesel: 'Diesel', hybrid: 'Hybride', electric: 'Électrique' };
 
   function pick(p: VehicleProfile) {
     setProfile(p);
@@ -54,7 +62,7 @@
 
     <div class="types">
       {#each app.vehicleTypes as t}
-        <button class="card flat hover type" class:selected={type === t.id} onclick={() => (type = t.id)}>
+        <button class="card flat hover type" class:selected={type === t.id} onclick={() => { type = t.id; make = ''; }}>
           <Icon name={t.icon} size={26} /><span>{t.name}</span>
         </button>
       {/each}
@@ -66,16 +74,28 @@
     </div>
 
     {#if !showCustom}
-      <input class="input" placeholder="Rechercher (marque, modèle, moteur)…" bind:value={query} />
+      <div class="filters">
+        <input class="input" placeholder="Rechercher (modèle, moteur)…" bind:value={query} />
+        <select class="input" bind:value={make}>
+          <option value="">Toutes les marques ({makes.length})</option>
+          {#each makes as mk}<option>{mk}</option>{/each}
+        </select>
+        <select class="input" bind:value={fuel}>
+          <option value="">Toutes énergies</option>
+          {#each Object.entries(fuelLabel) as [v, l]}<option value={v}>{l}</option>{/each}
+        </select>
+      </div>
+      <div class="tiny faint">{list.length} modèle{list.length > 1 ? 's' : ''}</div>
       <div class="plist">
         {#each list as p}
           <button class="card flat hover prow" class:selected={app.profile?.id === p.id} onclick={() => pick(p)}>
             <div class="grow">
               <strong>{p.make} {p.model}</strong>
               <div class="small muted">{p.engine}{p.years ? ` · ${p.years[0]}–${p.years[1]}` : ''}</div>
+              <span class="pill tiny f-{p.fuel}">{fuelLabel[p.fuel] ?? p.fuel}</span>
             </div>
             <div class="small faint right">
-              {p.oil_capacity_l ? `${p.oil_capacity_l} L` : ''}<br />{p.oil_spec ?? ''}
+              {#if p.fuel !== 'electric'}{p.oil_capacity_l ? `${p.oil_capacity_l} L` : ''}<br />{p.oil_spec ?? ''}{/if}
             </div>
           </button>
         {:else}
@@ -110,6 +130,9 @@
   .modal { width: min(640px, 100%); max-height: 90vh; overflow: auto; display: flex; flex-direction: column; gap: 0.9rem; background: var(--panel-solid); }
   .types { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.5rem; }
   .type { display: flex; flex-direction: column; align-items: center; gap: 0.3rem; padding: 0.7rem 0.3rem; font-size: 0.82rem; font-weight: 600; }
+  .filters { display: grid; grid-template-columns: 1fr 180px 150px; gap: 0.5rem; }
+  .f-electric { color: #22d3ee; } .f-hybrid { color: #22c55e; } .f-diesel { color: #f59e0b; }
+  @media (max-width: 560px) { .filters { grid-template-columns: 1fr; } }
   .plist { display: flex; flex-direction: column; gap: 0.45rem; max-height: 40vh; overflow: auto; }
   .prow { display: flex; align-items: center; gap: 0.75rem; text-align: left; padding: 0.7rem 0.9rem; }
   .right { text-align: right; }

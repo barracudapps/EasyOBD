@@ -13,6 +13,7 @@
   import Training from './views/Training.svelte';
   import Codes from './views/Codes.svelte';
   import Expert from './views/Expert.svelte';
+  import Inspection from './views/Inspection.svelte';
 
   let ready = $state(false);
   let failure = $state('');
@@ -23,11 +24,12 @@
     { id: 'eye', label: "À l'œil", icon: 'eye' },
     { id: 'audio', label: 'Audio', icon: 'wave' },
     { id: 'maintenance', label: 'Entretien', icon: 'wrench' },
+    { id: 'inspection', label: 'Contrôle', icon: 'shield' },
     { id: 'training', label: 'Formation', icon: 'school' },
     { id: 'codes', label: 'Codes', icon: 'book' },
     { id: 'expert', label: 'Expert', icon: 'chip' },
   ];
-  const withStage: View[] = ['home', 'diagnostic', 'eye', 'maintenance', 'training', 'codes'];
+  const withStage: View[] = ['home', 'diagnostic', 'eye', 'maintenance', 'inspection', 'training', 'codes'];
 
   onMount(async () => {
     try {
@@ -90,6 +92,7 @@
           {:else if app.view === 'maintenance'}<Maintenance />
           {:else if app.view === 'training'}<Training />
           {:else if app.view === 'codes'}<Codes />
+          {:else if app.view === 'inspection'}<Inspection />
           {:else if app.view === 'expert'}<Expert />
           {/if}
         {/key}

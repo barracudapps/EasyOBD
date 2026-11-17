@@ -4,6 +4,9 @@
   import type { ShoppingList, Tutorial, TutorialSummary } from '../lib/types';
   import Icon from '../components/Icon.svelte';
   import SenseChecks from '../components/SenseChecks.svelte';
+  import Alternatives from '../components/Alternatives.svelte';
+  import VehicleSheet from '../components/VehicleSheet.svelte';
+  import type { Alternative } from '../lib/types';
 
   let list = $state<TutorialSummary[]>([]);
   let tut = $state<Tutorial | null>(null);
@@ -11,6 +14,9 @@
   let tab = $state<'why' | 'shop' | 'steps'>('steps');
   let step = $state(0);
   let bought = $state<Record<string, boolean>>({});
+  let alternatives = $state<Alternative[][]>([]);
+  let openAlt = $state<number | null>(null);
+  let section = $state<'tutorials' | 'sheet'>('tutorials');
 
   $effect(() => {
     const p = app.profile;
@@ -29,9 +35,11 @@
 
   async function open(id: string) {
     try {
-      const r = await call<{ tutorial: Tutorial; shopping: ShoppingList }>('tutorial', { id, profile: app.profile });
+      const r = await call<{ tutorial: Tutorial; shopping: ShoppingList; alternatives: Alternative[][] }>('tutorial', { id, profile: app.profile });
       tut = r.tutorial;
       shopping = r.shopping;
+      alternatives = r.alternatives ?? [];
+      openAlt = null;
       step = 0;
       tab = 'steps';
       try {
@@ -72,7 +80,18 @@
       <button class="btn primary" onclick={() => (app.pickerOpen = true)}><Icon name="car" /> Choisir mon véhicule</button>
     </div>
   {:else if !tut}
-    <p class="muted">Tutoriels pour <strong>{app.profile.make} {app.profile.model} {app.profile.engine}</strong>. {app.maintenanceDisclaimer}</p>
+    <div class="row spread">
+      <p class="muted"><strong>{app.profile.make} {app.profile.model}</strong> · {app.profile.engine}</p>
+      <button class="btn ghost sm" onclick={() => (app.pickerOpen = true)}>Changer</button>
+    </div>
+    <div class="tabs">
+      <button class:active={section === 'tutorials'} onclick={() => (section = 'tutorials')}><Icon name="wrench" size={15} /> Tutoriels ({list.length})</button>
+      <button class:active={section === 'sheet'} onclick={() => (section = 'sheet')}><Icon name="book" size={15} /> Fiche technique</button>
+    </div>
+    {#if section === 'sheet'}
+      <VehicleSheet />
+    {:else}
+    <p class="tiny faint">{app.maintenanceDisclaimer}</p>
     <div class="grid-2">
       {#each list as t}
         <button class="card hover tcard" onclick={() => open(t.id)}>
@@ -85,6 +104,7 @@
         </button>
       {/each}
     </div>
+    {/if}
   {:else}
     <div class="row">
       <button class="btn ghost sm" onclick={() => { tut = null; app.highlight = []; }}><Icon name="back" size={15} /> Tutoriels</button>
@@ -99,6 +119,7 @@
       </div>
     </div>
 
+    {#each tut.vehicle_notes as n}<div class="callout info small row"><Icon name="info" size={16} /><span class="grow">{n}</span></div>{/each}
     <div class="tabs">
       <button class:active={tab === 'steps'} onclick={() => { tab = 'steps'; showStep(); }}><Icon name="wrench" size={15} /> Étapes</button>
       <button class:active={tab === 'shop'} onclick={() => (tab = 'shop')}><Icon name="cart" size={15} /> Liste de courses</button>
@@ -113,7 +134,8 @@
             <button class="sdot" class:on={i === step} class:done={i < step} aria-label="Étape {i + 1}" onclick={() => { step = i; showStep(); }}>{i + 1}</button>
           {/each}
         </div>
-        <div class="tiny faint">ÉTAPE {step + 1} / {tut.steps.length}</div>
+        <div class="row tiny faint">ÉTAPE {step + 1} / {tut.steps.length}
+          {#if s.source}<span class="pill tiny srcpill"><Icon name="book" size={12} /> {s.source}</span>{/if}</div>
         <h3>{s.title}</h3>
         <p>{s.text}</p>
         {#if s.warning}<div class="callout danger small row"><Icon name="alert" size={16} /> <span class="grow">{s.warning}</span></div>{/if}
@@ -137,7 +159,7 @@
     {:else if tab === 'shop' && shopping}
       <div class="card col fade-in">
         <div class="row spread"><h3>Pour {shopping.vehicle}</h3><button class="btn sm" onclick={copyList}>Copier la liste</button></div>
-        {#each shopping.items as i}
+        {#each shopping.items as i, idx}
           <div class="item" class:done={bought[i.name]}>
             <button class="check" aria-label="Acheté" onclick={() => toggleBought(i.name)}>{#if bought[i.name]}<Icon name="check" size={14} />{/if}</button>
             <div class="grow">
@@ -149,7 +171,11 @@
               {#each i.links as l}
                 <button class="btn sm shop" style="--shop:{l.color ?? 'var(--accent)'}" onclick={() => openUrl(l.url)}>{l.name} <Icon name="external" size={12} /></button>
               {/each}
+              {#if alternatives[idx]?.length}
+                <button class="btn sm ghost" onclick={() => (openAlt = openAlt === idx ? null : idx)}><Icon name="euro" size={13} /> Moins cher ?</button>
+              {/if}
             </div>
+            {#if openAlt === idx}<div class="altwrap"><Alternatives items={alternatives[idx]} /></div>{/if}
           </div>
         {/each}
         <div class="totals">
@@ -179,6 +205,8 @@
   .check { width: 24px; height: 24px; border-radius: 7px; border: 1px solid var(--border-2); background: var(--panel-2); display: grid; place-items: center; cursor: pointer; color: var(--ok); }
   .shop { border-color: color-mix(in srgb, var(--shop) 55%, transparent); }
   .warnq { color: var(--medium); }
+  .altwrap { flex-basis: 100%; }
+  .srcpill { color: var(--accent); }
   .totals { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; }
   .totals > div { padding: 0.75rem; border-radius: 12px; background: var(--panel-2); border: 1px solid var(--border); }
   .big { font-size: 1.35rem; font-weight: 800; }

@@ -1375,7 +1375,9 @@
       "codes": [],
       "components": [
         "cv_joint_fl",
-        "cv_joint_fr"
+        "cv_joint_fr",
+        "cv_joint_rl",
+        "cv_joint_rr"
       ],
       "next_checks": [
         "Inspecter les soufflets (graisse projetée dans le passage de roue)"

@@ -15,6 +15,7 @@
   let evidence = $state<Evidence[]>([]);
   let regime = $state<'idle' | '2000' | '3000' | 'unknown' | 'obd'>('idle');
   let cylinders = $state(app.profile?.cylinders ?? 4);
+  const electric = $derived(app.profile?.fuel === 'electric');
   let source = $state('');
   let spectrumCanvas = $state<HTMLCanvasElement>();
   let envCanvas = $state<HTMLCanvasElement>();
@@ -120,7 +121,7 @@
     try {
       const samples = await prepare(buf);
       const [rpm_min, rpm_max] = await rpmRange();
-      const r = await analyzeAudio<{ report: AudioReport; evidence: Evidence[] }>(samples, { sample_rate: TARGET_SR, cylinders, rpm_min, rpm_max });
+      const r = await analyzeAudio<{ report: AudioReport; evidence: Evidence[] }>(samples, { sample_rate: TARGET_SR, cylinders: electric ? null : cylinders, rpm_min, rpm_max, electric });
       report = r.report;
       evidence = r.evidence;
       queueMicrotask(draw);
@@ -194,6 +195,12 @@
   </p>
 
   <div class="card col">
+    {#if electric}
+      <div class="callout info small">
+        Véhicule électrique : pas de bruit moteur à analyser. Enregistrez <strong>en roulant doucement</strong> (passager qui tient le téléphone,
+        vitre fermée) pour repérer un sifflement de réducteur, un ronronnement de roulement ou un frottement de frein.
+      </div>
+    {:else}
     <div class="grid-2">
       <label class="field">Régime pendant l'enregistrement
         <select class="input" bind:value={regime}>
@@ -208,6 +215,7 @@
         <input class="input" type="number" min="1" max="12" bind:value={cylinders} />
       </label>
     </div>
+    {/if}
 
     <div class="row">
       {#if mode === 'recording'}
@@ -235,11 +243,13 @@
         <h2>Résultat</h2>
         <span class="tiny faint">{source} · {report.duration_s} s</span>
       </div>
+      {#if !electric}
       <div class="kpis">
         <div><div class="tiny faint">RÉGIME ESTIMÉ</div><div class="big">{report.estimated_rpm ? `${report.estimated_rpm}` : '—'}<small> tr/min</small></div></div>
         <div><div class="tiny faint">RÉGULARITÉ</div><div class="big">{Math.round(report.periodicity * 100)}<small> %</small></div></div>
         <div><div class="tiny faint">INDICE DE RATÉS</div><div class="big">{report.misfire_index != null ? Math.round(report.misfire_index * 100) : '—'}<small>{report.misfire_index != null ? ' %' : ''}</small></div></div>
       </div>
+      {/if}
       {#each report.warnings as w}<div class="callout warn small">{w}</div>{/each}
 
       {#each report.findings as f}
@@ -249,7 +259,7 @@
           <p class="small">{f.explanation}</p>
         </div>
       {:else}
-        {#if !report.warnings.length}<div class="callout ok small">Aucune anomalie sonore marquée détectée. Le moteur semble tourner régulièrement.</div>{/if}
+        {#if !report.warnings.length}<div class="callout ok small">Aucune anomalie sonore marquée détectée{electric ? '.' : '. Le moteur semble tourner régulièrement.'}</div>{/if}
       {/each}
 
       <div class="col">

@@ -18,7 +18,7 @@ export function save(key: string, value: unknown) {
   }
 }
 
-export type View = 'home' | 'diagnostic' | 'eye' | 'audio' | 'maintenance' | 'training' | 'codes' | 'expert';
+export type View = 'home' | 'diagnostic' | 'eye' | 'audio' | 'maintenance' | 'inspection' | 'training' | 'codes' | 'expert';
 
 export const app = $state({
   view: load<View>('easyobd.view', 'home'),
@@ -76,7 +76,7 @@ export async function bootstrap() {
 /** Vehicle description for the 3D scene. */
 export function sceneVehicle() {
   const p = app.profile;
-  return { type: p?.type ?? 'car', cylinders: p?.cylinders ?? 4, fuel: p?.fuel ?? 'petrol' };
+  return { type: p?.type ?? 'car', cylinders: p?.cylinders ?? 4, fuel: p?.fuel ?? 'petrol', traction: p?.traction ?? 'front', make: p?.make ?? '' };
 }
 
 export const fmt = {
@@ -89,4 +89,6 @@ export const fmt = {
 };
 
 export const severityLabel: Record<string, string> = { low: 'Faible', medium: 'Modérée', high: 'Élevée', critical: 'Critique' };
+export const compatLabel: Record<string, string> = { equivalent: 'Équivalent', compatible: 'Compatible', discouraged: 'Déconseillé', forbidden: 'À proscrire' };
+export const sourceLabel: Record<string, string> = { vehicle: 'Modèle', make: 'Marque', typical: 'Typique' };
 export const senseLabel: Record<string, string> = { sight: 'Vue', sound: 'Ouïe', smell: 'Odorat', touch: 'Toucher', feel: 'Ressenti' };

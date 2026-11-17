@@ -10,6 +10,7 @@
     { view: 'eye', icon: 'eye', title: "Diagnostic à l'œil", text: 'Sans outil : fumée, bruits, odeurs, voyants… le questionnaire oriente vers la cause.', tone: 'violet' },
     { view: 'audio', icon: 'wave', title: 'Écouter le moteur', text: "Enregistrez le moteur : régime, ratés, sifflements, claquements. Analyse sur l'appareil.", tone: 'pink' },
     { view: 'maintenance', icon: 'wrench', title: 'Entretien guidé', text: 'Tutoriels illustrés en 3D et liste de courses adaptée à votre véhicule.', tone: 'amber' },
+    { view: 'inspection', icon: 'shield', title: 'Préparer le contrôle technique', text: 'Liste adaptée au véhicule, emplacement du VIN, pré-contrôle OBD.', tone: 'blue' },
     { view: 'training', icon: 'school', title: 'Formation', text: "Pannes simulées réalistes pour s'entraîner avant d'intervenir.", tone: 'green' },
     { view: 'codes', icon: 'book', title: 'Encyclopédie des codes', text: 'Chaque code expliqué : fonctionnement, vérifications par les sens, solutions.', tone: 'blue' },
   ];

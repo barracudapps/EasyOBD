@@ -102,6 +102,7 @@
     {:else}
       <div class="card col">
         <h3>Codes lus</h3>
+        {#if !dtcs.length}<div class="callout info small">Aucun code défaut : la panne n'est pas visible par le calculateur. Fiez-vous à vos sens.</div>{/if}
         <div class="row">
           {#each dtcs as d}
             <button class="btn sm" class:sel={current?.code === d.code} onclick={() => { selectedCode = d.code; if (d.diagnosis) { app.highlightSeverity = d.diagnosis.severity; app.highlight = d.diagnosis.components.map((c) => c.id); } }}>

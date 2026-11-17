@@ -14,8 +14,13 @@
   let focus = $state<string | null>(null);
 
   const senseIcon: Record<string, string> = { sight: 'eye', sound: 'ear', smell: 'nose', touch: 'hand', feel: 'steering' };
-  const done = $derived(step >= questions.length);
-  const q = $derived(questions[step]);
+  function visible(x: Question) {
+    const m = (c: { question: string; options: string[] } | null | undefined) => !!c && (answers[c.question] ?? []).some((o) => c.options.includes(o));
+    return (!x.show_if || m(x.show_if)) && !m(x.hide_if);
+  }
+  const shown = $derived(questions.filter(visible));
+  const done = $derived(step >= shown.length);
+  const q = $derived(shown[step]);
 
   onMount(async () => {
     try {
@@ -24,7 +29,7 @@
       questions = g.questions;
       const fuel = app.profile?.fuel;
       if (fuel && g.questions.some((x) => x.id === 'fuel')) {
-        answers = { fuel: [fuel === 'electric' ? 'unknown' : fuel] };
+        answers = { fuel: [fuel] };
         step = 1;
       }
       evaluate();
@@ -87,17 +92,17 @@
   {/if}
 
   <div class="progress row">
-    {#each questions as qq, i}
+    {#each shown as qq, i}
       <button class="pstep" class:done={answers[qq.id]?.length} class:current={i === step} aria-label={qq.text} onclick={() => (step = i)}>
         <Icon name={senseIcon[qq.sense]} size={14} />
       </button>
     {/each}
-    <button class="pstep" class:current={done} aria-label="Résultats" onclick={() => (step = questions.length)}><Icon name="star" size={14} /></button>
+    <button class="pstep" class:current={done} aria-label="Résultats" onclick={() => (step = shown.length)}><Icon name="star" size={14} /></button>
   </div>
 
   {#if q && !done}
     <div class="card col fade-in">
-      <div class="row tiny faint upper"><Icon name={senseIcon[q.sense]} size={15} /> {senseLabel[q.sense]} · question {step + 1}/{questions.length}</div>
+      <div class="row tiny faint upper"><Icon name={senseIcon[q.sense]} size={15} /> {senseLabel[q.sense]} · question {step + 1}/{shown.length}</div>
       <h2>{q.text}</h2>
       {#if q.help}<p class="small muted">{q.help}</p>{/if}
       <div class="options">
@@ -141,7 +146,7 @@
             <div class="row">
               {#each h.codes as c}<button class="btn sm" onclick={() => openCode(c.code)}><span class="mono">{c.code}</span></button>{/each}
               {#if h.tutorial}<button class="btn sm" onclick={() => openTutorial(h.tutorial!)}><Icon name="wrench" size={14} /> Tutoriel</button>{/if}
-              {#if h.id.includes('misfire') || h.id.includes('belt') || h.id.includes('turbo')}
+              {#if ['misfire_ignition', 'accessory_belt', 'turbo_worn', 'reducer_noise', 'wheel_bearing', 'brake_wear'].includes(h.id)}
                 <button class="btn sm" onclick={() => go('audio')}><Icon name="wave" size={14} /> Confirmer à l'oreille</button>
               {/if}
             </div>

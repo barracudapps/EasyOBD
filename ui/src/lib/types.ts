@@ -39,19 +39,35 @@ export interface VehicleType { id: string; name: string; icon: string }
 export interface VehicleProfile {
   id: string; type: string; make: string; model: string; engine: string; years?: [number, number] | null;
   fuel: string; cylinders?: number | null; oil_capacity_l?: number | null; oil_spec?: string | null;
-  coolant_l?: number | null; chain?: string | null;
+  coolant_l?: number | null; chain?: string | null; traction?: string | null;
 }
 export interface TutorialSummary { id: string; title: string; interval: string; difficulty: number; time_min: number; time_max: number }
-export interface TutorialStep { title: string; text: string; components: string[]; tip?: string | null; warning?: string | null }
+export interface TutorialStep { title: string; text: string; components: string[]; tip?: string | null; warning?: string | null; source?: string | null }
 export interface Tutorial extends TutorialSummary {
   why: string; sensory_checks: SensoryCheck[]; components: string[]; tools: string[]; safety: string[]; steps: TutorialStep[];
+  vehicle_notes: string[];
+}
+export type Compatibility = 'equivalent' | 'compatible' | 'discouraged' | 'forbidden';
+export interface Alternative { label: string; compatibility: Compatibility; saving?: string | null; note: string }
+export interface SpecItem { label: string; value: string; source: 'vehicle' | 'make' | 'typical'; note?: string | null }
+export interface VehicleSheet { vehicle: string; sections: { title: string; items: SpecItem[] }[]; oil_alternatives: Alternative[]; disclaimer: string }
+export interface CheckItem { id: string; label: string; how: string; sense: Sense; severity: 'minor' | 'major' | 'critical'; components: string[] }
+export interface InspectionGuide {
+  vehicle: string; periodicity: string; severity_labels: Record<string, string>;
+  sections: { title: string; items: CheckItem[] }[]; vin: { make_places: string[]; generic: { place: string; detail: string }[] }; disclaimer: string;
+}
+export interface Precheck {
+  mil_on: boolean; ready: boolean; advice: string[]; readiness: { name: string; complete: boolean }[];
+  dtcs: { code: string; kind: string }[];
 }
 export interface ShoppingItem { name: string; qty: number; unit: string; optional: boolean; qty_known: boolean; price_min: number; price_max: number; links: ShopLink[] }
 export interface ShoppingList { vehicle: string; items: ShoppingItem[]; total_min: number; total_max: number; labor_min: number; labor_max: number }
 
+export interface Condition { question: string; options: string[] }
 export interface Question {
   id: string; sense: Sense; multi: boolean; text: string; help?: string | null;
   options: { id: string; label: string; note?: string | null }[];
+  show_if?: Condition | null; hide_if?: Condition | null;
 }
 export interface RankedHypothesis {
   id: string; title: string; explanation: string; score: number; relative: number; strength: string;

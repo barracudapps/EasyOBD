@@ -138,7 +138,8 @@
         2021,
         2026
       ],
-      "fuel": "electric"
+      "fuel": "electric",
+      "traction": "rear"
     },
     {
       "id": "bmw-serie-1-f40-118i-1-5-140",
@@ -195,7 +196,8 @@
         2021,
         2026
       ],
-      "fuel": "electric"
+      "fuel": "electric",
+      "traction": "rear"
     },
     {
       "id": "bmw-ix3-286-ch",
@@ -207,7 +209,8 @@
         2021,
         2025
       ],
-      "fuel": "electric"
+      "fuel": "electric",
+      "traction": "rear"
     },
     {
       "id": "byd-atto-3-60-kwh",
@@ -219,7 +222,8 @@
         2022,
         2026
       ],
-      "fuel": "electric"
+      "fuel": "electric",
+      "traction": "front"
     },
     {
       "id": "byd-dolphin-60-kwh",
@@ -231,7 +235,8 @@
         2023,
         2026
       ],
-      "fuel": "electric"
+      "fuel": "electric",
+      "traction": "front"
     },
     {
       "id": "citroen-ami-5-5-kwh",
@@ -243,7 +248,8 @@
         2020,
         2026
       ],
-      "fuel": "electric"
+      "fuel": "electric",
+      "traction": "front"
     },
     {
       "id": "citroen-c3-puretech",
@@ -286,7 +292,8 @@
         2020,
         2026
       ],
-      "fuel": "electric"
+      "fuel": "electric",
+      "traction": "front"
     },
     {
       "id": "cupra-born-58-kwh",
@@ -298,7 +305,8 @@
         2021,
         2026
       ],
-      "fuel": "electric"
+      "fuel": "electric",
+      "traction": "rear"
     },
     {
       "id": "ds-ds-7-crossback-1-5-bluehdi-130",
@@ -398,7 +406,8 @@
         2020,
         2026
       ],
-      "fuel": "electric"
+      "fuel": "electric",
+      "traction": "front"
     },
     {
       "id": "fiat-panda-iii-1-0-hybrid-70",
@@ -454,7 +463,8 @@
         2021,
         2026
       ],
-      "fuel": "electric"
+      "fuel": "electric",
+      "traction": "rear"
     },
     {
       "id": "ford-puma-1-0-ecoboost-mhev-125",
@@ -509,7 +519,8 @@
         2021,
         2026
       ],
-      "fuel": "electric"
+      "fuel": "electric",
+      "traction": "rear"
     },
     {
       "id": "hyundai-kona-electric-64-kwh-204-ch",
@@ -521,7 +532,8 @@
         2018,
         2023
       ],
-      "fuel": "electric"
+      "fuel": "electric",
+      "traction": "front"
     },
     {
       "id": "hyundai-tucson-iv-1-6-t-gdi-hybride",
@@ -608,7 +620,8 @@
         2024,
         2026
       ],
-      "fuel": "electric"
+      "fuel": "electric",
+      "traction": "front"
     },
     {
       "id": "kia-ev6-77-kwh",
@@ -620,7 +633,8 @@
         2021,
         2026
       ],
-      "fuel": "electric"
+      "fuel": "electric",
+      "traction": "rear"
     },
     {
       "id": "kia-niro-ii-1-6-gdi-hybride",
@@ -692,7 +706,8 @@
         2019,
         2026
       ],
-      "fuel": "electric"
+      "fuel": "electric",
+      "traction": "front"
     },
     {
       "id": "mg-mg4-electric-64-kwh",
@@ -704,7 +719,8 @@
         2022,
         2026
       ],
-      "fuel": "electric"
+      "fuel": "electric",
+      "traction": "rear"
     },
     {
       "id": "mg-zs-ev-72-kwh",
@@ -716,7 +732,8 @@
         2021,
         2026
       ],
-      "fuel": "electric"
+      "fuel": "electric",
+      "traction": "front"
     },
     {
       "id": "mazda-2-1-5-skyactiv-g-90",
@@ -758,7 +775,8 @@
         2020,
         2026
       ],
-      "fuel": "electric"
+      "fuel": "electric",
+      "traction": "front"
     },
     {
       "id": "mercedes-benz-classe-a-w177-a-180-d-1-5",
@@ -800,7 +818,8 @@
         2021,
         2026
       ],
-      "fuel": "electric"
+      "fuel": "electric",
+      "traction": "front"
     },
     {
       "id": "mini-cooper-f56-1-5-136",
@@ -827,7 +846,8 @@
         2020,
         2024
       ],
-      "fuel": "electric"
+      "fuel": "electric",
+      "traction": "front"
     },
     {
       "id": "nissan-juke-ii-1-0-dig-t-114",
@@ -852,7 +872,8 @@
         2018,
         2026
       ],
-      "fuel": "electric"
+      "fuel": "electric",
+      "traction": "front"
     },
     {
       "id": "nissan-qashqai-iii-1-3-dig-t-mild-hybrid-140",
@@ -907,7 +928,8 @@
         2020,
         2026
       ],
-      "fuel": "electric"
+      "fuel": "electric",
+      "traction": "front"
     },
     {
       "id": "peugeot-2008-ii-1-2-puretech-130",
@@ -996,7 +1018,8 @@
         2020,
         2026
       ],
-      "fuel": "electric"
+      "fuel": "electric",
+      "traction": "front"
     },
     {
       "id": "peugeot-e208",
@@ -1109,7 +1132,8 @@
         2024,
         2026
       ],
-      "fuel": "electric"
+      "fuel": "electric",
+      "traction": "front"
     },
     {
       "id": "renault-twingo-e-tech-22-kwh",
@@ -1121,7 +1145,8 @@
         2020,
         2024
       ],
-      "fuel": "electric"
+      "fuel": "electric",
+      "traction": "front"
     },
     {
       "id": "renault-twingo-iii-sce-65",
@@ -1191,7 +1216,8 @@
         2021,
         2026
       ],
-      "fuel": "electric"
+      "fuel": "electric",
+      "traction": "rear"
     },
     {
       "id": "skoda-fabia-iv-1-0-tsi-95",
@@ -1262,7 +1288,8 @@
         2019,
         2026
       ],
-      "fuel": "electric"
+      "fuel": "electric",
+      "traction": "both"
     },
     {
       "id": "tesla-model3-rwd",
@@ -1287,7 +1314,8 @@
         2016,
         2026
       ],
-      "fuel": "electric"
+      "fuel": "electric",
+      "traction": "both"
     },
     {
       "id": "tesla-model-y-propulsion-grande-autonomie",
@@ -1299,7 +1327,8 @@
         2021,
         2026
       ],
-      "fuel": "electric"
+      "fuel": "electric",
+      "traction": "rear"
     },
     {
       "id": "toyota-c-hr-1-8-hybride-122",
@@ -1387,7 +1416,8 @@
         2022,
         2026
       ],
-      "fuel": "electric"
+      "fuel": "electric",
+      "traction": "front"
     },
     {
       "id": "vw-golf7-tsi",
@@ -1474,7 +1504,8 @@
         2021,
         2026
       ],
-      "fuel": "electric"
+      "fuel": "electric",
+      "traction": "rear"
     },
     {
       "id": "volkswagen-polo-vi-1-0-tsi-95",
@@ -1516,7 +1547,8 @@
         2023,
         2026
       ],
-      "fuel": "electric"
+      "fuel": "electric",
+      "traction": "rear"
     },
     {
       "id": "volvo-xc40-b4-mild-hybrid",
@@ -1585,7 +1617,8 @@
         2022,
         2026
       ],
-      "fuel": "electric"
+      "fuel": "electric",
+      "traction": "front"
     },
     {
       "id": "harley-davidson-sportster-s-1252-cm3-v-twin",
@@ -1742,7 +1775,8 @@
         2019,
         2026
       ],
-      "fuel": "electric"
+      "fuel": "electric",
+      "traction": "front"
     },
     {
       "id": "suzuki-sv650-645-cm3-bicylindre",
@@ -1855,7 +1889,8 @@
         2026
       ],
       "fuel": "electric",
-      "chain": "courroie crantée"
+      "chain": "courroie crantée",
+      "traction": "front"
     },
     {
       "id": "daf-xf-mx-13-12-9-l",
@@ -1925,7 +1960,8 @@
         2023,
         2026
       ],
-      "fuel": "electric"
+      "fuel": "electric",
+      "traction": "rear"
     },
     {
       "id": "renault-trucks-t-dti13",
@@ -1981,7 +2017,8 @@
         2022,
         2026
       ],
-      "fuel": "electric"
+      "fuel": "electric",
+      "traction": "rear"
     },
     {
       "id": "citroen-berlingo-bluehdi",
@@ -2023,7 +2060,8 @@
         2022,
         2026
       ],
-      "fuel": "electric"
+      "fuel": "electric",
+      "traction": "front"
     },
     {
       "id": "ford-transit-custom-2-0-ecoblue-130",
@@ -2063,7 +2101,8 @@
         2023,
         2026
       ],
-      "fuel": "electric"
+      "fuel": "electric",
+      "traction": "front"
     },
     {
       "id": "peugeot-expert-iii-2-0-bluehdi-145",
@@ -2089,7 +2128,8 @@
         2020,
         2026
       ],
-      "fuel": "electric"
+      "fuel": "electric",
+      "traction": "front"
     },
     {
       "id": "renault-kangoo-etech",
@@ -2158,7 +2198,8 @@
         2022,
         2026
       ],
-      "fuel": "electric"
+      "fuel": "electric",
+      "traction": "rear"
     },
     {
       "id": "volkswagen-transporter-t6-1-2-0-tdi-150",
@@ -3958,27 +3999,6 @@
   "procedures": [
     {
       "match": {
-        "fuel": "electric"
-      },
-      "tutorials": [
-        "brake_pads_front",
-        "ev_brakes",
-        "chassis_check"
-      ],
-      "steps_before": [
-        {
-          "title": "Lever un véhicule électrique",
-          "text": "Utilisez uniquement les points de levage indiqués dans le manuel, avec des tampons adaptés. Ne placez jamais le cric ou une chandelle sous la batterie de traction (le plancher).",
-          "components": [
-            "hv_battery"
-          ],
-          "warning": "Un cric mal placé peut endommager la batterie haute tension : risque d'incendie différé.",
-          "source": "Règle générale véhicules électriques"
-        }
-      ]
-    },
-    {
-      "match": {
         "make": "Tesla"
       },
       "tutorials": [
@@ -3995,6 +4015,27 @@
             "battery"
           ],
           "source": "Manuel du propriétaire Tesla"
+        }
+      ]
+    },
+    {
+      "match": {
+        "fuel": "electric"
+      },
+      "tutorials": [
+        "brake_pads_front",
+        "ev_brakes",
+        "chassis_check"
+      ],
+      "steps_before": [
+        {
+          "title": "Lever un véhicule électrique",
+          "text": "Utilisez uniquement les points de levage indiqués dans le manuel, avec des tampons adaptés. Ne placez jamais le cric ou une chandelle sous la batterie de traction (le plancher).",
+          "components": [
+            "hv_battery"
+          ],
+          "warning": "Un cric mal placé peut endommager la batterie haute tension : risque d'incendie différé.",
+          "source": "Règle générale véhicules électriques"
         }
       ]
     },

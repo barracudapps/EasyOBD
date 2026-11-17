@@ -234,6 +234,18 @@
     },
     "shock_rr": {
       "name": "Amortisseur arrière droit"
+    },
+    "cv_joint_rl": {
+      "name": "Cardan arrière gauche (soufflet + joint)"
+    },
+    "cv_joint_rr": {
+      "name": "Cardan arrière droit (soufflet + joint)"
+    },
+    "airbag": {
+      "name": "Airbag conducteur / ceinture (module de retenue)"
+    },
+    "starter": {
+      "name": "Démarreur"
     }
   },
   "entries": [
@@ -5820,6 +5832,1742 @@
               "query": "onduleur véhicule électrique",
               "price_min": 800,
               "price_max": 3000
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "range": [
+        "P0120",
+        "P0124"
+      ],
+      "title": "Capteur de position du papillon : signal anormal",
+      "description": "Le capteur qui mesure l'ouverture du papillon envoie un signal hors plage ou instable. Le calculateur passe souvent en mode dégradé.",
+      "system": "Admission d'air",
+      "severity": "high",
+      "drivable": "En mode dégradé, accélération limitée. Prudence lors des insertions.",
+      "how_it_works": "Sur un papillon motorisé, deux pistes résistives mesurent l'angle du volet. Le calculateur compare la demande de la pédale à la position réelle.",
+      "sensory_checks": [
+        {
+          "sense": "feel",
+          "tip": "Pédale « molle », accélération limitée, ralenti instable.",
+          "means": "Mode dégradé déclenché par le capteur."
+        },
+        {
+          "sense": "sight",
+          "tip": "Connecteur du boîtier papillon oxydé ou mal enfoncé.",
+          "means": "Contact : à nettoyer en premier."
+        }
+      ],
+      "symptoms": [
+        "Mode dégradé",
+        "Ralenti instable"
+      ],
+      "components": [
+        "throttle_body",
+        "ecu"
+      ],
+      "causes": [
+        {
+          "text": "Boîtier papillon (piste usée)",
+          "likelihood": 50
+        },
+        {
+          "text": "Connecteur / faisceau",
+          "likelihood": 35
+        },
+        {
+          "text": "Encrassement",
+          "likelihood": 15
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Nettoyer le boîtier papillon et son connecteur",
+          "difficulty": 2,
+          "time_min": 20,
+          "time_max": 60,
+          "tools": [
+            "Nettoyant carburateur",
+            "Nettoyant contact"
+          ],
+          "steps": [
+            "Nettoyer",
+            "Apprentissage du papillon"
+          ],
+          "parts": [
+            {
+              "name": "Nettoyant carburateur",
+              "query": "nettoyant carburateur",
+              "price_min": 6,
+              "price_max": 15,
+              "qty": 1
+            }
+          ]
+        },
+        {
+          "title": "Remplacer le boîtier papillon",
+          "difficulty": 3,
+          "time_min": 45,
+          "time_max": 120,
+          "tools": [
+            "Clés",
+            "Valise (apprentissage)"
+          ],
+          "steps": [
+            "Remplacer",
+            "Apprentissage"
+          ],
+          "parts": [
+            {
+              "name": "Boîtier papillon",
+              "query": "boîtier papillon",
+              "price_min": 70,
+              "price_max": 300,
+              "qty": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "range": [
+        "P0190",
+        "P0194"
+      ],
+      "title": "Capteur de pression de rampe : signal anormal",
+      "description": "Le capteur de pression de carburant de la rampe envoie un signal incohérent. Le calculateur ne peut plus réguler précisément l'injection.",
+      "system": "Alimentation carburant",
+      "severity": "high",
+      "drivable": "Risque de calage ou de mode dégradé. Limitez les trajets.",
+      "how_it_works": "Sur un common-rail diesel ou une injection directe essence, la pression de rampe (jusqu'à 2 000 bar) est mesurée en permanence pour doser chaque injection.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "Connecteur du capteur (en bout de rampe) imbibé de gazole ou oxydé.",
+          "means": "Fuite ou contact : nettoyer, vérifier le serrage."
+        },
+        {
+          "sense": "smell",
+          "tip": "Odeur de gazole sous le capot.",
+          "means": "Fuite au capteur ou sur la rampe : dangereux, à traiter vite."
+        }
+      ],
+      "symptoms": [
+        "Démarrage difficile",
+        "Mode dégradé",
+        "Calage"
+      ],
+      "components": [
+        "fuel_rail",
+        "ecu"
+      ],
+      "causes": [
+        {
+          "text": "Capteur de pression défectueux",
+          "likelihood": 50
+        },
+        {
+          "text": "Connecteur / faisceau",
+          "likelihood": 35
+        },
+        {
+          "text": "Calculateur",
+          "likelihood": 15
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Remplacer le capteur de pression de rampe",
+          "difficulty": 3,
+          "time_min": 30,
+          "time_max": 90,
+          "tools": [
+            "Clés",
+            "Chiffons"
+          ],
+          "steps": [
+            "Dépressuriser (moteur arrêté depuis 30 min)",
+            "Remplacer le capteur",
+            "Contrôler l'étanchéité"
+          ],
+          "parts": [
+            {
+              "name": "Capteur de pression de rampe",
+              "query": "capteur pression rampe injection",
+              "price_min": 40,
+              "price_max": 150,
+              "qty": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "P0093",
+      "title": "Fuite importante détectée sur le circuit de carburant",
+      "description": "La pression de rampe chute anormalement vite : le calculateur suspecte une fuite importante (raccord, tuyau haute pression, injecteur, régulateur).",
+      "system": "Alimentation carburant",
+      "severity": "critical",
+      "drivable": "NON. Arrêtez-vous : une fuite de carburant sur un moteur chaud présente un risque d'incendie.",
+      "how_it_works": "Le calculateur compare la pression demandée et la pression mesurée. Une chute rapide et inexpliquée signale une fuite haute pression ou un retour excessif.",
+      "sensory_checks": [
+        {
+          "sense": "smell",
+          "tip": "Forte odeur de gazole ou d'essence, moteur chaud.",
+          "means": "Fuite : coupez le moteur, éloignez-vous."
+        },
+        {
+          "sense": "sight",
+          "tip": "Traces humides sur les tuyaux métalliques, la rampe ou sous le véhicule.",
+          "means": "Localise la fuite."
+        }
+      ],
+      "symptoms": [
+        "Odeur de carburant",
+        "Calage",
+        "Perte de puissance"
+      ],
+      "components": [
+        "fuel_rail",
+        "fuel_pump",
+        "injector_1",
+        "injector_2",
+        "injector_3",
+        "injector_4"
+      ],
+      "causes": [
+        {
+          "text": "Raccord ou tuyau haute pression fuyard",
+          "likelihood": 45
+        },
+        {
+          "text": "Fuite interne d'injecteur (retour)",
+          "likelihood": 30
+        },
+        {
+          "text": "Régulateur de pression",
+          "likelihood": 25
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Recherche et réparation de fuite en atelier",
+          "difficulty": 4,
+          "time_min": 60,
+          "time_max": 180,
+          "tools": [
+            "Valise",
+            "Test de retour injecteurs"
+          ],
+          "steps": [
+            "Localiser la fuite",
+            "Remplacer raccord, tuyau ou injecteur"
+          ],
+          "parts": [
+            {
+              "name": "Tuyau d'injection haute pression",
+              "query": "tuyau injection haute pression",
+              "price_min": 25,
+              "price_max": 90,
+              "qty": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "P0230",
+      "title": "Circuit primaire de la pompe à carburant",
+      "description": "Défaut électrique sur la commande (relais) de la pompe à carburant.",
+      "system": "Alimentation carburant",
+      "severity": "high",
+      "drivable": "Risque d'arrêt moteur.",
+      "how_it_works": "Le calculateur commande la pompe via un relais. Il surveille ce circuit : coupure ou court-circuit sont détectés.",
+      "sensory_checks": [
+        {
+          "sense": "sound",
+          "tip": "Contact mis : bourdonnement de 2–3 s à l'arrière ?",
+          "means": "Absent : relais, fusible ou pompe."
+        },
+        {
+          "sense": "touch",
+          "tip": "Relais de pompe tiède et qui claque à la mise du contact (main dessus).",
+          "means": "Relais qui fonctionne."
+        }
+      ],
+      "symptoms": [
+        "Démarrage difficile",
+        "Calage"
+      ],
+      "components": [
+        "fuel_pump",
+        "ecu"
+      ],
+      "causes": [
+        {
+          "text": "Relais ou fusible",
+          "likelihood": 45
+        },
+        {
+          "text": "Connecteur de pompe",
+          "likelihood": 30
+        },
+        {
+          "text": "Pompe",
+          "likelihood": 25
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Contrôler relais et fusible",
+          "difficulty": 2,
+          "time_min": 15,
+          "time_max": 40,
+          "tools": [
+            "Multimètre"
+          ],
+          "steps": [
+            "Fusible",
+            "Relais (échange avec un identique)"
+          ],
+          "parts": [
+            {
+              "name": "Relais de pompe à carburant",
+              "query": "relais pompe carburant",
+              "price_min": 10,
+              "price_max": 35,
+              "qty": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "P0603",
+      "title": "Erreur de la mémoire de maintien du calculateur",
+      "description": "Le calculateur a perdu sa mémoire d'apprentissage (KAM). Souvent après un débranchement de batterie ou une tension faible.",
+      "system": "Électronique",
+      "severity": "low",
+      "drivable": "Oui. Le moteur réapprend ses réglages en quelques trajets.",
+      "how_it_works": "Le calculateur garde en mémoire les corrections apprises (ralenti, richesse, papillon). Une coupure d'alimentation les efface.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "La batterie a-t-elle été débranchée ou remplacée récemment ?",
+          "means": "Cause banale : effacez le code et roulez."
+        },
+        {
+          "sense": "sight",
+          "tip": "Cosses oxydées ou desserrées.",
+          "means": "Coupures d'alimentation répétées."
+        }
+      ],
+      "symptoms": [
+        "Ralenti instable quelques jours"
+      ],
+      "components": [
+        "ecu",
+        "battery"
+      ],
+      "causes": [
+        {
+          "text": "Batterie débranchée / faible",
+          "likelihood": 60
+        },
+        {
+          "text": "Masse ou fusible d'alimentation permanente",
+          "likelihood": 25
+        },
+        {
+          "text": "Calculateur",
+          "likelihood": 15
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Contrôler l'alimentation permanente du calculateur",
+          "difficulty": 2,
+          "time_min": 15,
+          "time_max": 45,
+          "tools": [
+            "Multimètre"
+          ],
+          "steps": [
+            "Tension batterie",
+            "Fusible d'alimentation permanente",
+            "Effacer et rouler"
+          ],
+          "parts": []
+        }
+      ]
+    },
+    {
+      "code": "P0615",
+      "title": "Circuit du relais de démarreur",
+      "description": "Le calculateur détecte un défaut sur la commande du démarreur.",
+      "system": "Démarrage",
+      "severity": "medium",
+      "drivable": "Oui, mais le démarrage peut échouer.",
+      "how_it_works": "Le calculateur (ou le boîtier de servitude) commande un relais qui alimente le solénoïde du démarreur, seulement si les conditions sont remplies (embrayage, levier sur P).",
+      "sensory_checks": [
+        {
+          "sense": "sound",
+          "tip": "Un seul « clac » sans rotation du démarreur.",
+          "means": "Démarreur ou batterie faible."
+        },
+        {
+          "sense": "sound",
+          "tip": "Aucun bruit à la clé.",
+          "means": "Relais, contacteur d'embrayage ou de position P."
+        }
+      ],
+      "symptoms": [
+        "Démarrage impossible",
+        "Clac sans rotation"
+      ],
+      "components": [
+        "starter",
+        "battery",
+        "ecu"
+      ],
+      "causes": [
+        {
+          "text": "Relais de démarreur",
+          "likelihood": 35
+        },
+        {
+          "text": "Contacteur d'embrayage / position P",
+          "likelihood": 25
+        },
+        {
+          "text": "Démarreur",
+          "likelihood": 25
+        },
+        {
+          "text": "Faisceau",
+          "likelihood": 15
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Contrôler relais et contacteurs",
+          "difficulty": 2,
+          "time_min": 20,
+          "time_max": 60,
+          "tools": [
+            "Multimètre"
+          ],
+          "steps": [
+            "Échanger le relais",
+            "Tester avec embrayage bien enfoncé ou levier sur N"
+          ],
+          "parts": [
+            {
+              "name": "Relais de démarreur",
+              "query": "relais démarreur",
+              "price_min": 10,
+              "price_max": 35,
+              "qty": 1
+            }
+          ]
+        },
+        {
+          "title": "Remplacer le démarreur",
+          "difficulty": 3,
+          "time_min": 60,
+          "time_max": 180,
+          "tools": [
+            "Clés",
+            "Chandelles"
+          ],
+          "steps": [
+            "Débrancher la batterie",
+            "Remplacer"
+          ],
+          "parts": [
+            {
+              "name": "Démarreur",
+              "query": "démarreur",
+              "price_min": 90,
+              "price_max": 300,
+              "qty": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "P0620",
+      "title": "Circuit de commande de l'alternateur",
+      "description": "Le calculateur pilote l'alternateur (charge intelligente) et détecte un défaut sur ce circuit.",
+      "system": "Électricité",
+      "severity": "medium",
+      "drivable": "Oui à court terme ; surveillez le voyant batterie.",
+      "how_it_works": "Sur les véhicules récents, le calculateur module la charge de l'alternateur (récupération d'énergie, Start & Stop) via une ligne de commande (LIN ou PWM).",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "Tension moteur tournant hors 13,8–14,7 V.",
+          "means": "Charge mal régulée."
+        },
+        {
+          "sense": "sight",
+          "tip": "Connecteur de l'alternateur oxydé ou cassé.",
+          "means": "Contact."
+        }
+      ],
+      "symptoms": [
+        "Voyant batterie",
+        "Tension instable"
+      ],
+      "components": [
+        "alternator",
+        "ecu",
+        "battery"
+      ],
+      "causes": [
+        {
+          "text": "Régulateur d'alternateur",
+          "likelihood": 45
+        },
+        {
+          "text": "Faisceau de commande",
+          "likelihood": 35
+        },
+        {
+          "text": "Calculateur",
+          "likelihood": 20
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Remplacer l'alternateur (régulateur intégré)",
+          "difficulty": 3,
+          "time_min": 60,
+          "time_max": 180,
+          "tools": [
+            "Clés",
+            "Outil de tension de courroie"
+          ],
+          "steps": [
+            "Confirmer la mesure",
+            "Remplacer"
+          ],
+          "parts": [
+            {
+              "name": "Alternateur",
+              "query": "alternateur",
+              "price_min": 120,
+              "price_max": 380,
+              "qty": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "P0650",
+      "title": "Circuit du voyant moteur (MIL)",
+      "description": "Le calculateur ne parvient pas à commander le voyant moteur du tableau de bord.",
+      "system": "Électronique",
+      "severity": "low",
+      "drivable": "Oui, mais vous ne seriez plus averti d'une panne : faites réparer.",
+      "how_it_works": "Le voyant moteur est piloté par le calculateur, directement ou via le réseau. Il doit s'allumer quelques secondes à la mise du contact (test).",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "À la mise du contact, le voyant moteur s'allume-t-il quelques secondes ?",
+          "means": "Non : ampoule, tableau de bord ou commande en cause."
+        },
+        {
+          "sense": "sight",
+          "tip": "Les autres voyants (batterie, huile) s'allument-ils normalement au contact ?",
+          "means": "Si aucun voyant ne s'allume : tableau de bord ou son alimentation."
+        }
+      ],
+      "symptoms": [
+        "Voyant moteur qui ne s'allume jamais"
+      ],
+      "components": [
+        "ecu",
+        "can_bus"
+      ],
+      "causes": [
+        {
+          "text": "Tableau de bord",
+          "likelihood": 45
+        },
+        {
+          "text": "Faisceau / réseau",
+          "likelihood": 35
+        },
+        {
+          "text": "Calculateur",
+          "likelihood": 20
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Diagnostic du tableau de bord",
+          "difficulty": 3,
+          "time_min": 30,
+          "time_max": 90,
+          "tools": [
+            "Valise"
+          ],
+          "steps": [
+            "Test des voyants du combiné",
+            "Contrôle de la communication"
+          ],
+          "parts": []
+        }
+      ]
+    },
+    {
+      "code": "P0715",
+      "title": "Capteur de vitesse d'entrée de boîte automatique",
+      "description": "Le capteur qui mesure la vitesse de l'arbre d'entrée de la boîte automatique envoie un signal anormal.",
+      "system": "Transmission",
+      "severity": "high",
+      "drivable": "Mode secours probable (rapport bloqué). Roulez doucement jusqu'au garage.",
+      "how_it_works": "La boîte compare la vitesse d'entrée (moteur / convertisseur) et de sortie pour piloter les passages et détecter le patinage.",
+      "sensory_checks": [
+        {
+          "sense": "feel",
+          "tip": "Passages brutaux ou boîte bloquée en 3e.",
+          "means": "Mode secours."
+        },
+        {
+          "sense": "sight",
+          "tip": "Huile de boîte noire ou sentant le brûlé (si jauge).",
+          "means": "Usure interne possible."
+        }
+      ],
+      "symptoms": [
+        "Mode secours",
+        "Passages brutaux"
+      ],
+      "components": [
+        "transmission"
+      ],
+      "causes": [
+        {
+          "text": "Capteur défectueux",
+          "likelihood": 45
+        },
+        {
+          "text": "Faisceau / connecteur",
+          "likelihood": 35
+        },
+        {
+          "text": "Huile de boîte dégradée",
+          "likelihood": 20
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Remplacer le capteur de vitesse d'entrée",
+          "difficulty": 3,
+          "time_min": 45,
+          "time_max": 150,
+          "tools": [
+            "Clés",
+            "Bac"
+          ],
+          "steps": [
+            "Accéder au capteur",
+            "Remplacer, contrôler le niveau d'huile"
+          ],
+          "parts": [
+            {
+              "name": "Capteur de vitesse de boîte automatique",
+              "query": "capteur vitesse boîte automatique",
+              "price_min": 25,
+              "price_max": 90,
+              "qty": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "P0730",
+      "title": "Rapport de boîte incorrect",
+      "description": "Le rapport de vitesse mesuré ne correspond pas au rapport engagé : la boîte patine.",
+      "system": "Transmission",
+      "severity": "high",
+      "drivable": "Limitez l'usage : le patinage use rapidement les embrayages internes.",
+      "how_it_works": "La boîte calcule le rapport réel (vitesse d'entrée / vitesse de sortie). S'il ne correspond pas au rapport demandé, un embrayage interne patine ou la pression est insuffisante.",
+      "sensory_checks": [
+        {
+          "sense": "feel",
+          "tip": "Le régime monte sans que la voiture accélère.",
+          "means": "Patinage confirmé."
+        },
+        {
+          "sense": "smell",
+          "tip": "Odeur de brûlé après un trajet.",
+          "means": "Huile de boîte qui surchauffe."
+        }
+      ],
+      "symptoms": [
+        "Patinage",
+        "Mode secours"
+      ],
+      "components": [
+        "transmission"
+      ],
+      "causes": [
+        {
+          "text": "Niveau / qualité d'huile",
+          "likelihood": 40
+        },
+        {
+          "text": "Électrovanne",
+          "likelihood": 30
+        },
+        {
+          "text": "Usure interne",
+          "likelihood": 30
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Vidange de boîte automatique",
+          "difficulty": 4,
+          "time_min": 60,
+          "time_max": 150,
+          "tools": [
+            "Pompe de remplissage",
+            "Valise"
+          ],
+          "steps": [
+            "Contrôle du niveau à température",
+            "Vidange et filtre"
+          ],
+          "parts": [
+            {
+              "name": "Huile ATF (1 L)",
+              "query": "huile boîte automatique ATF",
+              "price_min": 9,
+              "price_max": 20,
+              "qty": 6
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "P0740",
+      "title": "Embrayage du convertisseur de couple : défaut de circuit",
+      "description": "Le verrouillage du convertisseur de couple (lock-up) ne fonctionne pas correctement.",
+      "system": "Transmission",
+      "severity": "medium",
+      "drivable": "Oui ; consommation en hausse et risque de surchauffe de la boîte.",
+      "how_it_works": "À vitesse stabilisée, le convertisseur se verrouille pour supprimer le glissement entre moteur et boîte. Une électrovanne commande ce verrouillage.",
+      "sensory_checks": [
+        {
+          "sense": "feel",
+          "tip": "Sur voie rapide, le régime « flotte » de quelques centaines de tours.",
+          "means": "Verrouillage absent."
+        },
+        {
+          "sense": "feel",
+          "tip": "Vibrations ou à-coups vers 60–80 km/h.",
+          "means": "Verrouillage instable."
+        }
+      ],
+      "symptoms": [
+        "Surconsommation",
+        "Régime instable sur autoroute"
+      ],
+      "components": [
+        "transmission"
+      ],
+      "causes": [
+        {
+          "text": "Électrovanne de lock-up",
+          "likelihood": 45
+        },
+        {
+          "text": "Huile de boîte",
+          "likelihood": 30
+        },
+        {
+          "text": "Convertisseur",
+          "likelihood": 25
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Vidange puis contrôle de l'électrovanne",
+          "difficulty": 4,
+          "time_min": 60,
+          "time_max": 180,
+          "tools": [
+            "Valise"
+          ],
+          "steps": [
+            "Vidange",
+            "Test de l'électrovanne"
+          ],
+          "parts": []
+        }
+      ]
+    },
+    {
+      "range": [
+        "P2096",
+        "P2097"
+      ],
+      "title": "Correction de richesse après catalyseur hors limite",
+      "description": "La sonde lambda aval montre que le mélange reste trop pauvre (P2096) ou trop riche (P2097) après le catalyseur.",
+      "system": "Échappement / dépollution",
+      "severity": "medium",
+      "drivable": "Oui. À traiter pour protéger le catalyseur.",
+      "how_it_works": "Le calculateur affine le dosage grâce à la sonde aval. Si cette correction atteint sa limite, le mélange est durablement déséquilibré : fuite d'échappement, sonde, injection.",
+      "sensory_checks": [
+        {
+          "sense": "sound",
+          "tip": "Tapotement d'échappement près des sondes.",
+          "means": "Fuite : l'air faussé fait croire à un mélange pauvre."
+        },
+        {
+          "sense": "smell",
+          "tip": "Odeur d'essence ou d'œuf pourri.",
+          "means": "Mélange riche."
+        }
+      ],
+      "symptoms": [
+        "Voyant moteur",
+        "Surconsommation"
+      ],
+      "components": [
+        "o2_sensor_downstream",
+        "o2_sensor_upstream",
+        "exhaust",
+        "catalytic_converter"
+      ],
+      "causes": [
+        {
+          "text": "Fuite d'échappement",
+          "likelihood": 35
+        },
+        {
+          "text": "Sonde lambda",
+          "likelihood": 35
+        },
+        {
+          "text": "Mélange réellement déséquilibré (prise d'air, injecteur)",
+          "likelihood": 30
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Réparer la fuite ou remplacer la sonde aval",
+          "difficulty": 2,
+          "time_min": 30,
+          "time_max": 90,
+          "tools": [
+            "Douille à sonde lambda"
+          ],
+          "steps": [
+            "Chercher une fuite",
+            "Remplacer la sonde suspecte"
+          ],
+          "parts": [
+            {
+              "name": "Sonde lambda aval",
+              "query": "sonde lambda aval",
+              "price_min": 25,
+              "price_max": 110,
+              "qty": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "range": [
+        "P2195",
+        "P2196"
+      ],
+      "title": "Sonde lambda amont bloquée pauvre / riche",
+      "description": "Le signal de la sonde amont reste figé côté pauvre (P2195) ou riche (P2196) : elle ne réagit plus.",
+      "system": "Échappement / dépollution",
+      "severity": "medium",
+      "drivable": "Oui. Faites réparer rapidement.",
+      "how_it_works": "Une sonde saine oscille plusieurs fois par seconde. Une sonde figée ne permet plus au calculateur de réguler le mélange.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "En données en direct, la tension de la sonde amont reste fixe.",
+          "means": "Sonde morte."
+        },
+        {
+          "sense": "sound",
+          "tip": "Prise d'air (sifflement) au ralenti.",
+          "means": "Mélange réellement pauvre : la sonde peut dire vrai."
+        }
+      ],
+      "symptoms": [
+        "Surconsommation",
+        "Ralenti instable"
+      ],
+      "components": [
+        "o2_sensor_upstream",
+        "vacuum_hoses"
+      ],
+      "causes": [
+        {
+          "text": "Sonde vieillissante",
+          "likelihood": 50
+        },
+        {
+          "text": "Prise d'air réelle",
+          "likelihood": 30
+        },
+        {
+          "text": "Fuite d'échappement",
+          "likelihood": 20
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Remplacer la sonde lambda amont",
+          "difficulty": 2,
+          "time_min": 20,
+          "time_max": 60,
+          "tools": [
+            "Douille à sonde lambda"
+          ],
+          "steps": [
+            "Vérifier d'abord les prises d'air",
+            "Remplacer la sonde"
+          ],
+          "parts": [
+            {
+              "name": "Sonde lambda amont",
+              "query": "sonde lambda amont",
+              "price_min": 30,
+              "price_max": 130,
+              "qty": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "P2279",
+      "title": "Prise d'air à l'admission",
+      "description": "Le calculateur détecte plus d'air que prévu : une fuite existe entre le débitmètre et le moteur.",
+      "system": "Admission d'air",
+      "severity": "medium",
+      "drivable": "Oui à court terme.",
+      "how_it_works": "Le calculateur compare l'air mesuré par le débitmètre à l'air réellement aspiré (déduit de la pression d'admission et du régime). Un écart signale une fuite.",
+      "sensory_checks": [
+        {
+          "sense": "sound",
+          "tip": "Sifflement au ralenti autour du collecteur.",
+          "means": "Prise d'air."
+        },
+        {
+          "sense": "feel",
+          "tip": "Aspiration au bouchon d'huile, moteur au ralenti.",
+          "means": "Reniflard percé."
+        }
+      ],
+      "symptoms": [
+        "Ralenti instable",
+        "Calage"
+      ],
+      "components": [
+        "vacuum_hoses",
+        "intake_manifold"
+      ],
+      "causes": [
+        {
+          "text": "Durite / reniflard",
+          "likelihood": 55
+        },
+        {
+          "text": "Joint de collecteur",
+          "likelihood": 30
+        },
+        {
+          "text": "Débitmètre",
+          "likelihood": 15
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Rechercher et réparer la prise d'air",
+          "difficulty": 2,
+          "time_min": 30,
+          "time_max": 90,
+          "tools": [
+            "Nettoyant frein",
+            "Machine à fumée"
+          ],
+          "steps": [
+            "Test au ralenti",
+            "Remplacer la pièce fuyarde"
+          ],
+          "parts": [
+            {
+              "name": "Durite de reniflard",
+              "query": "durite reniflard",
+              "price_min": 10,
+              "price_max": 60,
+              "qty": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "P20EE",
+      "title": "Efficacité du catalyseur SCR (NOx) insuffisante",
+      "description": "Le système AdBlue (SCR) ne réduit plus assez les oxydes d'azote. Le compte à rebours d'interdiction de redémarrage peut s'afficher.",
+      "system": "Dépollution diesel",
+      "severity": "high",
+      "drivable": "Oui, mais un compte à rebours peut bloquer le redémarrage après quelques centaines de km : faites réparer.",
+      "how_it_works": "L'AdBlue (urée) est injecté dans l'échappement ; dans le catalyseur SCR, il transforme les NOx en azote et en eau. Des capteurs NOx en amont et en aval vérifient l'efficacité.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "AdBlue ancien, trouble ou cristaux blancs autour de l'injecteur ou du bouchon.",
+          "means": "AdBlue dégradé ou injecteur bouché."
+        },
+        {
+          "sense": "sight",
+          "tip": "Niveau d'AdBlue et qualité (achat récent, bidon scellé).",
+          "means": "Un AdBlue pollué ou dilué fausse l'efficacité."
+        }
+      ],
+      "symptoms": [
+        "Voyant moteur",
+        "Compte à rebours de démarrage",
+        "Message AdBlue"
+      ],
+      "components": [
+        "adblue_tank",
+        "exhaust",
+        "catalytic_converter"
+      ],
+      "causes": [
+        {
+          "text": "Qualité de l'AdBlue",
+          "likelihood": 30
+        },
+        {
+          "text": "Injecteur AdBlue encrassé",
+          "likelihood": 30
+        },
+        {
+          "text": "Capteur NOx",
+          "likelihood": 25
+        },
+        {
+          "text": "Catalyseur SCR",
+          "likelihood": 15
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Vidanger et remplacer l'AdBlue",
+          "difficulty": 2,
+          "time_min": 30,
+          "time_max": 60,
+          "tools": [
+            "Pompe de vidange"
+          ],
+          "steps": [
+            "Vidanger le réservoir si possible",
+            "Remplir avec de l'AdBlue neuf (ISO 22241)"
+          ],
+          "parts": [
+            {
+              "name": "AdBlue 10 L",
+              "query": "AdBlue 10L",
+              "price_min": 12,
+              "price_max": 25,
+              "qty": 1
+            }
+          ]
+        },
+        {
+          "title": "Nettoyer / remplacer l'injecteur AdBlue",
+          "difficulty": 3,
+          "time_min": 45,
+          "time_max": 120,
+          "tools": [
+            "Clés",
+            "Eau chaude"
+          ],
+          "steps": [
+            "Déposer l'injecteur",
+            "Dissoudre les cristaux à l'eau chaude",
+            "Remplacer si défectueux"
+          ],
+          "parts": [
+            {
+              "name": "Injecteur AdBlue",
+              "query": "injecteur adblue",
+              "price_min": 80,
+              "price_max": 300,
+              "qty": 1
+            }
+          ]
+        },
+        {
+          "title": "Remplacer un capteur NOx",
+          "difficulty": 3,
+          "time_min": 30,
+          "time_max": 90,
+          "tools": [
+            "Douille de sonde"
+          ],
+          "steps": [
+            "Identifier le capteur (amont / aval)",
+            "Remplacer"
+          ],
+          "parts": [
+            {
+              "name": "Capteur NOx",
+              "query": "capteur NOx",
+              "price_min": 150,
+              "price_max": 450,
+              "qty": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "U0101",
+      "title": "Communication perdue avec le calculateur de boîte de vitesses",
+      "description": "Le réseau ne reçoit plus de messages du calculateur de boîte automatique.",
+      "system": "Réseau multiplexé",
+      "severity": "high",
+      "drivable": "La boîte peut se bloquer en mode secours. Roulez doucement jusqu'au garage.",
+      "how_it_works": "Le calculateur de boîte échange en permanence avec le calculateur moteur (couple, régime, rapport). Sans lui, chacun passe en mode de sécurité.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "Fusible du calculateur de boîte et connecteur sur la boîte (exposé aux projections).",
+          "means": "Alimentation ou connecteur oxydé."
+        },
+        {
+          "sense": "feel",
+          "tip": "Défaut après un passage dans l'eau profonde ou un lavage moteur.",
+          "means": "Infiltration."
+        }
+      ],
+      "symptoms": [
+        "Mode secours de boîte",
+        "Voyants multiples"
+      ],
+      "components": [
+        "transmission",
+        "can_bus"
+      ],
+      "causes": [
+        {
+          "text": "Alimentation / fusible",
+          "likelihood": 35
+        },
+        {
+          "text": "Connecteur ou faisceau",
+          "likelihood": 40
+        },
+        {
+          "text": "Calculateur de boîte",
+          "likelihood": 25
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Contrôler fusibles et connecteur",
+          "difficulty": 3,
+          "time_min": 30,
+          "time_max": 120,
+          "tools": [
+            "Multimètre",
+            "Schéma électrique"
+          ],
+          "steps": [
+            "Fusibles",
+            "Connecteur de boîte",
+            "Résistance du réseau CAN"
+          ],
+          "parts": []
+        }
+      ]
+    },
+    {
+      "code": "U0140",
+      "title": "Communication perdue avec le boîtier de servitude (BCM)",
+      "description": "Le boîtier qui gère l'éclairage, les ouvrants et le confort ne répond plus sur le réseau.",
+      "system": "Réseau multiplexé",
+      "severity": "medium",
+      "drivable": "Oui avec prudence : éclairage ou essuie-glaces peuvent ne plus fonctionner.",
+      "how_it_works": "Le boîtier de servitude (BSI chez PSA, UCH chez Renault…) centralise les fonctions de carrosserie et sert souvent de passerelle entre réseaux.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "Éclairage, essuie-glaces, verrouillage centralisé : quelles fonctions ne marchent plus ?",
+          "means": "Confirme le boîtier ou son alimentation."
+        },
+        {
+          "sense": "sight",
+          "tip": "Humidité dans l'habitacle (moquette côté conducteur, sous la boîte à gants).",
+          "means": "Infiltration sur le boîtier."
+        }
+      ],
+      "symptoms": [
+        "Fonctions de confort inopérantes",
+        "Voyants multiples"
+      ],
+      "components": [
+        "can_bus",
+        "cabin",
+        "battery"
+      ],
+      "causes": [
+        {
+          "text": "Alimentation / batterie",
+          "likelihood": 35
+        },
+        {
+          "text": "Infiltration d'eau",
+          "likelihood": 30
+        },
+        {
+          "text": "Boîtier défectueux",
+          "likelihood": 35
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Contrôler l'alimentation et l'humidité",
+          "difficulty": 2,
+          "time_min": 30,
+          "time_max": 90,
+          "tools": [
+            "Multimètre"
+          ],
+          "steps": [
+            "Tension batterie",
+            "Fusibles du boîtier",
+            "Sécher et traiter l'infiltration"
+          ],
+          "parts": []
+        }
+      ]
+    },
+    {
+      "code": "U0155",
+      "title": "Communication perdue avec le tableau de bord",
+      "description": "Le combiné d'instruments ne communique plus avec les autres calculateurs.",
+      "system": "Réseau multiplexé",
+      "severity": "medium",
+      "drivable": "Prudence : les voyants et le compteur peuvent ne plus s'afficher.",
+      "how_it_works": "Le tableau de bord reçoit toutes ses informations (vitesse, alertes) par le réseau. S'il se tait, les autres calculateurs enregistrent ce code.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "Écran ou aiguilles éteints, compteur figé.",
+          "means": "Tableau de bord sans alimentation ou défaillant."
+        },
+        {
+          "sense": "feel",
+          "tip": "Défaut intermittent sur route bosselée.",
+          "means": "Faux contact au connecteur du combiné."
+        }
+      ],
+      "symptoms": [
+        "Compteur éteint",
+        "Voyants absents"
+      ],
+      "components": [
+        "cabin",
+        "can_bus"
+      ],
+      "causes": [
+        {
+          "text": "Connecteur / alimentation du combiné",
+          "likelihood": 45
+        },
+        {
+          "text": "Tableau de bord défectueux",
+          "likelihood": 40
+        },
+        {
+          "text": "Réseau",
+          "likelihood": 15
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Contrôle du connecteur et réparation du combiné",
+          "difficulty": 3,
+          "time_min": 30,
+          "time_max": 120,
+          "tools": [
+            "Outils de démontage plastique"
+          ],
+          "steps": [
+            "Contrôler l'alimentation",
+            "Réparation spécialisée du combiné si défaillant"
+          ],
+          "parts": [
+            {
+              "name": "Réparation de tableau de bord",
+              "query": "réparation compteur tableau de bord",
+              "price_min": 80,
+              "price_max": 300,
+              "qty": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "B0001",
+      "title": "Airbag conducteur : défaut du circuit de déclenchement",
+      "description": "Le calculateur d'airbag détecte une résistance anormale sur le circuit de l'airbag conducteur. L'airbag peut ne pas se déclencher en cas de choc.",
+      "system": "Sécurité passive",
+      "severity": "critical",
+      "drivable": "Le véhicule roule, mais l'airbag peut être inopérant. Faites réparer sans attendre ; refus au contrôle technique.",
+      "how_it_works": "Le calculateur d'airbag teste en permanence la résistance de chaque circuit pyrotechnique. Dans le volant, un contacteur tournant (ressort spiral) relie l'airbag au faisceau malgré la rotation.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "Voyant airbag allumé en permanence après le test de démarrage.",
+          "means": "Défaut confirmé."
+        },
+        {
+          "sense": "feel",
+          "tip": "Klaxon ou commandes au volant qui ne fonctionnent plus.",
+          "means": "Contacteur tournant (ressort spiral) défaillant, cause très fréquente."
+        }
+      ],
+      "symptoms": [
+        "Voyant airbag",
+        "Klaxon inopérant"
+      ],
+      "components": [
+        "airbag",
+        "cabin"
+      ],
+      "causes": [
+        {
+          "text": "Contacteur tournant sous volant",
+          "likelihood": 50
+        },
+        {
+          "text": "Connecteur sous l'airbag",
+          "likelihood": 25
+        },
+        {
+          "text": "Module d'airbag",
+          "likelihood": 25
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Remplacer le contacteur tournant (atelier)",
+          "difficulty": 4,
+          "time_min": 45,
+          "time_max": 120,
+          "tools": [
+            "Débrancher la batterie 10 min avant"
+          ],
+          "steps": [
+            "Batterie débranchée, attendre 10 minutes",
+            "Déposer l'airbag (ne jamais le poser face contre la table)",
+            "Remplacer le contacteur tournant",
+            "Effacer le code"
+          ],
+          "parts": [
+            {
+              "name": "Contacteur tournant / ressort spiral",
+              "query": "contacteur tournant airbag",
+              "price_min": 30,
+              "price_max": 150,
+              "qty": 1
+            }
+          ],
+          "description": "Intervention sur un élément pyrotechnique : confiez-la de préférence à un professionnel."
+        }
+      ]
+    },
+    {
+      "code": "C0035",
+      "title": "Capteur de vitesse de roue avant gauche : défaut de circuit",
+      "description": "Le calculateur ABS ne reçoit plus un signal correct du capteur de la roue avant gauche. ABS et ESP sont désactivés.",
+      "system": "Freinage",
+      "severity": "high",
+      "drivable": "Oui avec prudence : le freinage classique fonctionne, mais sans ABS ni ESP.",
+      "how_it_works": "Chaque roue porte une cible magnétique (souvent intégrée au roulement) lue par un capteur. L'ABS compare les quatre vitesses pour détecter un blocage ou un patinage.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "Câble du capteur avant gauche arraché, rongé ou frottant sur le pneu.",
+          "means": "Câble à remplacer."
+        },
+        {
+          "sense": "sound",
+          "tip": "Ronronnement de roulement côté avant gauche.",
+          "means": "La cible magnétique est souvent dans le roulement : un roulement usé fausse le signal."
+        }
+      ],
+      "symptoms": [
+        "Voyants ABS / ESP",
+        "Compteur erratique"
+      ],
+      "components": [
+        "wheel_speed_sensor_fl",
+        "wheel_bearing_fl",
+        "abs_module"
+      ],
+      "causes": [
+        {
+          "text": "Capteur défectueux ou encrassé",
+          "likelihood": 45
+        },
+        {
+          "text": "Câble / connecteur",
+          "likelihood": 30
+        },
+        {
+          "text": "Cible ou roulement",
+          "likelihood": 25
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Nettoyer ou remplacer le capteur ABS",
+          "difficulty": 2,
+          "time_min": 20,
+          "time_max": 60,
+          "tools": [
+            "Clés",
+            "Chandelles"
+          ],
+          "steps": [
+            "Déposer le capteur",
+            "Nettoyer la limaille",
+            "Remplacer si défectueux"
+          ],
+          "parts": [
+            {
+              "name": "Capteur ABS",
+              "query": "capteur ABS",
+              "price_min": 15,
+              "price_max": 70,
+              "qty": 1
+            }
+          ]
+        },
+        {
+          "title": "Remplacer le roulement (cible magnétique)",
+          "difficulty": 4,
+          "time_min": 60,
+          "time_max": 150,
+          "tools": [
+            "Presse ou outil spécifique"
+          ],
+          "steps": [
+            "Remplacer le roulement",
+            "Respecter le sens de la cible magnétique"
+          ],
+          "parts": [
+            {
+              "name": "Kit roulement de roue",
+              "query": "kit roulement de roue",
+              "price_min": 25,
+              "price_max": 120,
+              "qty": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "C0040",
+      "title": "Capteur de vitesse de roue avant droit : défaut de circuit",
+      "description": "Le calculateur ABS ne reçoit plus un signal correct du capteur de la roue avant droit. ABS et ESP sont désactivés.",
+      "system": "Freinage",
+      "severity": "high",
+      "drivable": "Oui avec prudence : le freinage classique fonctionne, mais sans ABS ni ESP.",
+      "how_it_works": "Chaque roue porte une cible magnétique (souvent intégrée au roulement) lue par un capteur. L'ABS compare les quatre vitesses pour détecter un blocage ou un patinage.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "Câble du capteur avant droit arraché, rongé ou frottant sur le pneu.",
+          "means": "Câble à remplacer."
+        },
+        {
+          "sense": "sound",
+          "tip": "Ronronnement de roulement côté avant droit.",
+          "means": "La cible magnétique est souvent dans le roulement : un roulement usé fausse le signal."
+        }
+      ],
+      "symptoms": [
+        "Voyants ABS / ESP",
+        "Compteur erratique"
+      ],
+      "components": [
+        "wheel_speed_sensor_fr",
+        "wheel_bearing_fr",
+        "abs_module"
+      ],
+      "causes": [
+        {
+          "text": "Capteur défectueux ou encrassé",
+          "likelihood": 45
+        },
+        {
+          "text": "Câble / connecteur",
+          "likelihood": 30
+        },
+        {
+          "text": "Cible ou roulement",
+          "likelihood": 25
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Nettoyer ou remplacer le capteur ABS",
+          "difficulty": 2,
+          "time_min": 20,
+          "time_max": 60,
+          "tools": [
+            "Clés",
+            "Chandelles"
+          ],
+          "steps": [
+            "Déposer le capteur",
+            "Nettoyer la limaille",
+            "Remplacer si défectueux"
+          ],
+          "parts": [
+            {
+              "name": "Capteur ABS",
+              "query": "capteur ABS",
+              "price_min": 15,
+              "price_max": 70,
+              "qty": 1
+            }
+          ]
+        },
+        {
+          "title": "Remplacer le roulement (cible magnétique)",
+          "difficulty": 4,
+          "time_min": 60,
+          "time_max": 150,
+          "tools": [
+            "Presse ou outil spécifique"
+          ],
+          "steps": [
+            "Remplacer le roulement",
+            "Respecter le sens de la cible magnétique"
+          ],
+          "parts": [
+            {
+              "name": "Kit roulement de roue",
+              "query": "kit roulement de roue",
+              "price_min": 25,
+              "price_max": 120,
+              "qty": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "C0045",
+      "title": "Capteur de vitesse de roue arrière gauche : défaut de circuit",
+      "description": "Le calculateur ABS ne reçoit plus un signal correct du capteur de la roue arrière gauche. ABS et ESP sont désactivés.",
+      "system": "Freinage",
+      "severity": "high",
+      "drivable": "Oui avec prudence : le freinage classique fonctionne, mais sans ABS ni ESP.",
+      "how_it_works": "Chaque roue porte une cible magnétique (souvent intégrée au roulement) lue par un capteur. L'ABS compare les quatre vitesses pour détecter un blocage ou un patinage.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "Câble du capteur arrière gauche arraché, rongé ou frottant sur le pneu.",
+          "means": "Câble à remplacer."
+        },
+        {
+          "sense": "sound",
+          "tip": "Ronronnement de roulement côté arrière gauche.",
+          "means": "La cible magnétique est souvent dans le roulement : un roulement usé fausse le signal."
+        }
+      ],
+      "symptoms": [
+        "Voyants ABS / ESP",
+        "Compteur erratique"
+      ],
+      "components": [
+        "wheel_speed_sensor_rl",
+        "wheel_bearing_rl",
+        "abs_module"
+      ],
+      "causes": [
+        {
+          "text": "Capteur défectueux ou encrassé",
+          "likelihood": 45
+        },
+        {
+          "text": "Câble / connecteur",
+          "likelihood": 30
+        },
+        {
+          "text": "Cible ou roulement",
+          "likelihood": 25
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Nettoyer ou remplacer le capteur ABS",
+          "difficulty": 2,
+          "time_min": 20,
+          "time_max": 60,
+          "tools": [
+            "Clés",
+            "Chandelles"
+          ],
+          "steps": [
+            "Déposer le capteur",
+            "Nettoyer la limaille",
+            "Remplacer si défectueux"
+          ],
+          "parts": [
+            {
+              "name": "Capteur ABS",
+              "query": "capteur ABS",
+              "price_min": 15,
+              "price_max": 70,
+              "qty": 1
+            }
+          ]
+        },
+        {
+          "title": "Remplacer le roulement (cible magnétique)",
+          "difficulty": 4,
+          "time_min": 60,
+          "time_max": 150,
+          "tools": [
+            "Presse ou outil spécifique"
+          ],
+          "steps": [
+            "Remplacer le roulement",
+            "Respecter le sens de la cible magnétique"
+          ],
+          "parts": [
+            {
+              "name": "Kit roulement de roue",
+              "query": "kit roulement de roue",
+              "price_min": 25,
+              "price_max": 120,
+              "qty": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "C0050",
+      "title": "Capteur de vitesse de roue arrière droit : défaut de circuit",
+      "description": "Le calculateur ABS ne reçoit plus un signal correct du capteur de la roue arrière droit. ABS et ESP sont désactivés.",
+      "system": "Freinage",
+      "severity": "high",
+      "drivable": "Oui avec prudence : le freinage classique fonctionne, mais sans ABS ni ESP.",
+      "how_it_works": "Chaque roue porte une cible magnétique (souvent intégrée au roulement) lue par un capteur. L'ABS compare les quatre vitesses pour détecter un blocage ou un patinage.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "Câble du capteur arrière droit arraché, rongé ou frottant sur le pneu.",
+          "means": "Câble à remplacer."
+        },
+        {
+          "sense": "sound",
+          "tip": "Ronronnement de roulement côté arrière droit.",
+          "means": "La cible magnétique est souvent dans le roulement : un roulement usé fausse le signal."
+        }
+      ],
+      "symptoms": [
+        "Voyants ABS / ESP",
+        "Compteur erratique"
+      ],
+      "components": [
+        "wheel_speed_sensor_rr",
+        "wheel_bearing_rr",
+        "abs_module"
+      ],
+      "causes": [
+        {
+          "text": "Capteur défectueux ou encrassé",
+          "likelihood": 45
+        },
+        {
+          "text": "Câble / connecteur",
+          "likelihood": 30
+        },
+        {
+          "text": "Cible ou roulement",
+          "likelihood": 25
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Nettoyer ou remplacer le capteur ABS",
+          "difficulty": 2,
+          "time_min": 20,
+          "time_max": 60,
+          "tools": [
+            "Clés",
+            "Chandelles"
+          ],
+          "steps": [
+            "Déposer le capteur",
+            "Nettoyer la limaille",
+            "Remplacer si défectueux"
+          ],
+          "parts": [
+            {
+              "name": "Capteur ABS",
+              "query": "capteur ABS",
+              "price_min": 15,
+              "price_max": 70,
+              "qty": 1
+            }
+          ]
+        },
+        {
+          "title": "Remplacer le roulement (cible magnétique)",
+          "difficulty": 4,
+          "time_min": 60,
+          "time_max": 150,
+          "tools": [
+            "Presse ou outil spécifique"
+          ],
+          "steps": [
+            "Remplacer le roulement",
+            "Respecter le sens de la cible magnétique"
+          ],
+          "parts": [
+            {
+              "name": "Kit roulement de roue",
+              "query": "kit roulement de roue",
+              "price_min": 25,
+              "price_max": 120,
+              "qty": 1
             }
           ]
         }
