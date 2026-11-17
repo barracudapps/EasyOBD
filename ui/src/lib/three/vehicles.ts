@@ -1217,8 +1217,8 @@ function motorcycle(spec: VehicleSpec, style: MotoStyle): THREE.Group {
       const outZ = side * (0.33 - up * 0.08);
       const outY = oy + 0.02 + Math.sin(up) * 0.2;
       b.add(`spark_plug_${i}`, at(tf(cyl(0.012, 0.012, 0.07, 0xe5e7eb), { rotation: [Math.PI / 2, 0, 0] }), ox + 0.04 + along, outY + 0.04, outZ));
-      b.add(`coil_${cid(i)}`, at(box(0.05, 0.05, 0.04, 0x111827, 0.01), ox + 0.04 + along, outY + 0.09, outZ));
-      b.add(`injector_${cid(i)}`, at(cyl(0.01, 0.01, 0.07, 0x84cc16), ox - 0.06 + along, outY + 0.02, side * 0.24));
+      b.add(`coil_${i}`, at(box(0.05, 0.05, 0.04, 0x111827, 0.01), ox + 0.04 + along, outY + 0.09, outZ));
+      b.add(`injector_${i}`, at(cyl(0.01, 0.01, 0.07, 0x84cc16), ox - 0.06 + along, outY + 0.02, side * 0.24));
       b.add('cam_sensor', at(cyl(0.012, 0.012, 0.04, 0x10b981), ox + 0.1, outY, outZ - side * 0.03));
     } else if (layout === 'v') {
       // Longitudinal V: front cylinder leans forward, rear cylinder leans back
@@ -1232,8 +1232,8 @@ function motorcycle(spec: VehicleSpec, style: MotoStyle): THREE.Group {
       const tx = cx - Math.sin(ang) * 0.15;
       const ty = oy + 0.22 * s + Math.cos(ang) * 0.15;
       b.add(`spark_plug_${i}`, at(tf(cyl(0.01, 0.01, 0.07, 0xe5e7eb), { rotation: [0, 0, ang] }), tx, ty, z + 0.05));
-      b.add(`coil_${cid(i)}`, at(box(0.04, 0.05, 0.04, 0x111827, 0.01), tx, ty + 0.04, z + 0.08));
-      b.add(`injector_${cid(i)}`, at(cyl(0.01, 0.01, 0.07, 0x84cc16), (cx + ox) / 2, oy + 0.32 * s, z - 0.06));
+      b.add(`coil_${i}`, at(box(0.04, 0.05, 0.04, 0x111827, 0.01), tx, ty + 0.04, z + 0.08));
+      b.add(`injector_${i}`, at(cyl(0.01, 0.01, 0.07, 0x84cc16), (cx + ox) / 2, oy + 0.32 * s, z - 0.06));
     } else {
       const z = -((n - 1) * 0.1 * s) / 2 + (i - 1) * 0.1 * s;
       const c = cyl(0.05 * s, 0.05 * s, 0.22 * s, 0x94a3b8);
@@ -1244,8 +1244,8 @@ function motorcycle(spec: VehicleSpec, style: MotoStyle): THREE.Group {
       const tx = scooter ? cx + 0.13 : cx + 0.03;
       const ty = scooter ? cy + 0.04 : cy + 0.15;
       b.add(`spark_plug_${i}`, at(cyl(0.01, 0.01, 0.07, 0xe5e7eb), tx, ty, z));
-      b.add(`coil_${cid(i)}`, at(box(0.04, 0.06, 0.04, 0x111827, 0.01), tx, ty + 0.06, z));
-      b.add(`injector_${cid(i)}`, at(cyl(0.01, 0.01, 0.07, 0x84cc16), cx - 0.12, cy + 0.08, z));
+      b.add(`coil_${i}`, at(box(0.04, 0.06, 0.04, 0x111827, 0.01), tx, ty + 0.06, z));
+      b.add(`injector_${i}`, at(cyl(0.01, 0.01, 0.07, 0x84cc16), cx - 0.12, cy + 0.08, z));
     }
   }
   b.add('oil_filter', at(cyl(0.04, 0.04, 0.08, 0x2563eb), ox + 0.15 * s, oy - 0.12, 0.12));
