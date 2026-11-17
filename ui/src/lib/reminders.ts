@@ -56,7 +56,7 @@ export function computeReminders(v: GarageVehicle, journal: JournalEntry[], tuto
       detail: months < 0 ? `Échéance dépassée (${fmtDate(ct)})` : `Avant ${fmtDate(ct)}`,
       urgency: months,
     });
-  } else if (v.profile.type !== 'motorcycle') {
+  } else if (v.profile.type !== 'motorcycle' && v.profile.type !== 'tractor') {
     out.push({ id: 'ct', title: 'Contrôle technique', status: 'unknown', detail: 'Renseignez la date de 1re mise en circulation (carte grise, rubrique B)', urgency: 50 });
   }
 

@@ -93,8 +93,8 @@
   {/if}
   {#if picked}
     <div class="picked card fade-in">
-      <div class="row spread">
-        <strong>{componentName(picked)}</strong>
+      <div class="row spread nowrap">
+        <strong class="grow">{componentName(picked)}</strong>
         <button class="btn ghost sm" aria-label="Fermer" onclick={() => (picked = null)}><Icon name="x" size={14} /></button>
       </div>
       <Photos components={[picked]} userKey={`part.${vkey()}.${picked}`} compact />
@@ -145,6 +145,7 @@
   .picked { position: absolute; left: 10px; top: 10px; max-width: 290px; max-height: calc(100% - 20px); overflow: auto; padding: 0.7rem; background: var(--panel-solid); box-shadow: var(--shadow); z-index: 3; display: flex; flex-direction: column; gap: 0.5rem; }
   .action { display: flex; align-items: center; gap: 0.45rem; width: 100%; text-align: left; padding: 0.45rem 0.55rem; border-radius: 8px; border: 1px solid var(--border, rgba(148, 163, 184, 0.25)); background: transparent; color: inherit; font: inherit; font-size: 0.85rem; cursor: pointer; }
   .action:hover { border-color: var(--accent, #22d3ee); }
+  .nowrap { flex-wrap: nowrap; align-items: flex-start; }
   .codes { display: flex; flex-wrap: wrap; gap: 0.3rem; }
   .chip { font-family: var(--mono, ui-monospace, monospace); font-size: 0.75rem; padding: 0.15rem 0.45rem; border-radius: 6px; border: 1px solid rgba(148, 163, 184, 0.35); background: transparent; color: inherit; cursor: pointer; }
   .chip.sev-high, .chip.sev-critical { border-color: rgba(239, 68, 68, 0.6); }

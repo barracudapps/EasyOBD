@@ -177,7 +177,8 @@ function fan(radius: number) {
 // ---------------------------------------------------------------- body panels (painted + X-ray twin)
 
 type PanelKind = 'paint' | 'glass' | 'dark' | 'light' | 'lamp' | 'trim' | 'plate' | 'alu';
-type Panel = { geo: THREE.BufferGeometry; kind?: PanelKind; ghost?: boolean };
+/** `edges`: coarse twin used for the X-ray outline (subdivided panels would draw every split edge). */
+type Panel = { geo: THREE.BufferGeometry; kind?: PanelKind; ghost?: boolean; edges?: THREE.BufferGeometry };
 
 /** Bakes a transform into a geometry (shared by the painted mesh and its ghost twin). */
 function place(geo: THREE.BufferGeometry, x: number, y: number, z: number, r: [number, number, number] = [0, 0, 0], s?: [number, number, number]) {
@@ -242,7 +243,7 @@ function bodyShell(panels: Panel[], paint: number) {
   const ghostEdge = new THREE.LineBasicMaterial({ color: 0x7dd3fc, transparent: true, opacity: 0.4 });
   for (const p of panels) {
     solid.add(new THREE.Mesh(p.geo, mats[p.kind ?? 'paint']));
-    if (p.ghost) ghost.add(new THREE.Mesh(p.geo, ghostFill), new THREE.LineSegments(new THREE.EdgesGeometry(p.geo, 28), ghostEdge));
+    if (p.ghost) ghost.add(new THREE.Mesh(p.geo, ghostFill), new THREE.LineSegments(new THREE.EdgesGeometry(p.edges ?? p.geo, 28), ghostEdge));
   }
   const g = new THREE.Group();
   g.add(solid, ghost);
@@ -334,8 +335,9 @@ function carBody(st: Style, axleF: number, axleR: number, paint: number) {
   // The flat sides of an extrusion only have vertices on their outline: subdivide them so the
   // sculpting below (door bulge, character lines) really bends the panels.
   const fine = (g: THREE.BufferGeometry) => new TessellateModifier(0.045, 10).modify(g.index ? g.toNonIndexed() : g);
+  const lowerGeo = ext(lower, W * 2 - 0.16, 0.08);
   const panels: Panel[] = [
-    { geo: fine(ext(lower, W * 2 - 0.16, 0.08)), ghost: true },
+    { geo: fine(lowerGeo.clone()), ghost: true, edges: lowerGeo },
     { geo: ext(glass, W * 2 - 0.36, 0.08), kind: 'glass', ghost: true },
   ];
   const add = (geo: THREE.BufferGeometry, kind: PanelKind = 'paint') => panels.push({ geo, kind });
@@ -423,7 +425,10 @@ function carBody(st: Style, axleF: number, axleR: number, paint: number) {
     const v = y <= belt ? 1 - 0.05 * Math.min(1, ((y - mid) / half) ** 2) + crease : 0.95 * (1 - 0.2 * Math.min(1, (y - belt) / (roof - belt)));
     return plan * v;
   };
-  for (const p of panels) sculpt(p.geo, shape);
+  for (const p of panels) {
+    sculpt(p.geo, shape);
+    if (p.edges) sculpt(p.edges, shape);
+  }
   return bodyShell(panels, paint);
 }
 
