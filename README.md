@@ -7,6 +7,10 @@ défaut en explications claires et montre la pièce concernée en 3D. Elle propo
 des liens vers AutoDoc, Mister Auto et Oscaro, le temps nécessaire et le niveau de compétence requis. Elle apprend aussi
 à reconnaître la panne la prochaine fois, sans ordinateur.
 
+<p align="center">
+  <img src="docs/screenshots/diagnostic-3d.jpg" alt="Diagnostic d'un raté d'allumage avec mise en évidence 3D" width="100%" />
+</p>
+
 > ⚠️ EasyOBD est un outil d'aide et de formation. Les prix, temps et probabilités sont **indicatifs**. En cas de doute,
 > en particulier sur les freins, la direction, les airbags ou une alerte rouge, faites contrôler le véhicule par un
 > professionnel.
@@ -26,6 +30,24 @@ des liens vers AutoDoc, Mister Auto et Oscaro, le temps nécessaire et le niveau
 | **Mode expert** | Scan UDS (ISO 14229) de tous les calculateurs : identification, références, versions logicielles, défauts UDS. Console UDS. Écriture de paramètres (DID) avec garde-fous. |
 | **Adaptateurs** | Détection **USB** (FTDI, CH340, CP210x, PL2303, OBDLink), **Bluetooth classique** (SPP), **Bluetooth LE** (Vgate, OBDLink CX, Veepeak, Konnwei…) et **Wi-Fi** (adresses usuelles). Débit série détecté automatiquement. Identification de la puce (ELM327, STN) et signalement des clones. |
 | **Hors ligne** | Base de codes, tutoriels, profils, scénarios, 3D procédurale et analyse audio sont embarqués. Aucun serveur n'est nécessaire, seuls les liens boutiques demandent Internet. |
+
+| Module | Ce qu'il fait |
+|---|---|
+| **Véhicules électriques** | Modèle 3D dédié (batterie de traction, moteur, onduleur, réducteur, chargeur, câbles orange), codes P0Axx, pistes propres aux électriques (batterie 12 V, isolement, recharge, réducteur, disques corrodés), tutoriels et scénarios dédiés, mode audio adapté. |
+| **Fiche technique** | Capacités (huile, refroidissement, liquide de frein, boîte, AdBlue), fluides et **couples de serrage**, chaque valeur étant marquée *Modèle*, *Marque* ou *Typique*. |
+| **Alternatives moins chères** | Huile de même norme en marque distributeur, 5W40 à la place de 5W30 seulement quand le moteur l'autorise (interdit sur les courroies baignées dans l'huile), équipementier d'origine plutôt que pièce siglée, DOT 4 ou 5.1 mais jamais DOT 5… |
+| **Contrôle technique** | Liste de préparation filtrée selon le véhicule, emplacements du **VIN** par marque, pré-contrôle OBD (voyant, codes, autodiagnostics terminés). |
+| **Procédures spécifiques** | Étapes issues du manuel du propriétaire, insérées dans les tutoriels (ex. Tesla : mise hors tension, mode Cric, batterie basse tension) avec leur source. |
+| **Vidéos de réparation** | Recherche YouTube préremplie (intervention + véhicule), lecteur intégré (youtube-nocookie) pour une vidéo collée ou mise en favori, recherche dans l'app avec votre propre clé API. |
+| **Catalogue** | Plus de 200 profils de voitures, utilitaires, motos et poids lourds (Kia, Hyundai, Tesla, BMW, Mercedes, Renault, Peugeot, Triumph, Ducati, KTM, Scania…), avec filtres par marque et par énergie. |
+
+## Captures d'écran
+
+| | |
+|---|---|
+| ![Accueil](docs/screenshots/accueil.jpg) **Accueil** : carrosserie peinte, reflets et ombres | ![Diagnostic](docs/screenshots/diagnostic-3d.jpg) **Diagnostic** : la pièce en cause en 3D |
+| ![À l'œil](docs/screenshots/diagnostic-a-l-oeil.jpg) **Diagnostic à l'œil** : hypothèses classées | ![Fiche technique](docs/screenshots/fiche-technique.jpg) **Fiche technique** : sources des valeurs |
+| ![Contrôle technique](docs/screenshots/controle-technique.jpg) **Contrôle technique** : pré-contrôle OBD et VIN | ![Mode expert](docs/screenshots/mode-expert.jpg) **Mode expert** : garde-fous |
 
 ### Garde-fous du mode expert
 
@@ -86,7 +108,7 @@ npm install && npm install --prefix ui
 npm run dev:web      # version web (simulateur) sur http://localhost:5173
 npm run dev          # application native (adaptateurs réels)
 npm run build        # paquets d'installation desktop
-npm test             # tests Rust + vérification TypeScript/Svelte
+sh scripts/check.sh  # vérification complète (tests Rust, WASM, types, build)
 ```
 
 ### Mobile (Android / iOS)
@@ -114,6 +136,18 @@ Android.
 - Les **profils véhicules** (contenances, normes d'huile) sont des valeurs de départ à vérifier dans le carnet d'entretien. La saisie manuelle couvre tous les autres véhicules.
 - **Poids lourds** : les codes moteur OBD sur CAN sont lus. Le protocole J1939 (codes SPN/FMI) est dans la feuille de route.
 - **Analyse audio** : elle est heuristique et oriente, sans jamais remplacer un contrôle.
+- **Vidéos** : YouTube n'autorise plus l'intégration d'une page de résultats de recherche. La recherche s'ouvre donc sur YouTube, sauf si une clé API est fournie. Dans l'application de bureau, certaines vidéos peuvent refuser la lecture intégrée : le bouton « ouvrir dans YouTube » sert alors de repli.
+
+## Modèle économique
+
+Pistes détaillées dans [docs/MODELE_ECONOMIQUE.md](docs/MODELE_ECONOMIQUE.md) :
+
+- freemium (« EasyOBD+ ») ;
+- affiliation transparente ;
+- adaptateur à la marque EasyOBD ;
+- mise en relation avec des garages ;
+- certificat batterie pour les véhicules électriques ;
+- offres de formation et pour les flottes.
 
 ## Feuille de route
 

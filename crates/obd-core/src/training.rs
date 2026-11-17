@@ -80,13 +80,13 @@ pub fn scenario(id: &str) -> Option<&'static Scenario> {
 pub fn simulator_for(s: &Scenario) -> Simulator {
     let make = Maintenance::embedded().profiles.iter().find(|p| p.id == s.profile).map(|p| p.make.as_str()).unwrap_or("");
     let vin = match make {
-        "Renault" => "VF1RJA00X6W100001",
+        "Renault" => "VF1RJA00XLW100001",
         "Peugeot" => "VR3UPHNKSKT100002",
         "Citroën" => "VR7EFYHZRKN100003",
-        "Dacia" => "UU1DJF00X6W100004",
+        "Dacia" => "UU1DJF00XLW100004",
         "Volkswagen" => "WVWZZZAUZHW100005",
-        "Toyota" => "VNKKD3D3X0A100006",
-        "Ford" => "WF0DXXGAKDH100007",
+        "Toyota" => "VNKKD3D3XEA100006",
+        "Ford" => "WF0DXXGAKJH100007",
         "Tesla" => "LRW3E7EK0NC100008",
         "Kia" => "KNADB812AM6100009",
         "Hyundai" => "KMHK381GFNU100010",
@@ -123,6 +123,9 @@ mod tests {
             let vehicle = elm.read_vehicle().unwrap();
             let profile = m.profiles.iter().find(|p| p.id == s.profile).unwrap();
             assert_eq!(vehicle.make.as_deref(), Some(profile.make.as_str()), "{}: VIN make", s.id);
+            if let (Some(y), Some([y0, y1])) = (vehicle.model_year, profile.years) {
+                assert!((y0..=y1).contains(&y), "{}: VIN year {y} outside {y0}-{y1}", s.id);
+            }
         }
     }
 }
