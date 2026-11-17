@@ -22,6 +22,16 @@
   let j1939 = $state(app.profile?.type === 'truck');
   let lamps = $state<J1939Lamps | null>(null);
   const isJ1939 = $derived(!!app.connection?.j1939);
+  const fold = (t: string) => t.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]/g, '');
+  /** Vehicle shown in the connection card: the selected model when it matches what the car reports. */
+  const vehicleLabel = $derived.by(() => {
+    const v = app.connection?.vehicle;
+    const p = app.profile;
+    const year = v?.model_year ?? '';
+    const same = p && (app.connection?.simulated || isJ1939 || !v?.make || fold(v.make).startsWith(fold(p.make)) || fold(p.make).startsWith(fold(v.make)));
+    if (p && same) return `${p.make} ${p.model} ${year}`.trim();
+    return `${v?.make ?? 'Marque inconnue'} ${year}`.trim();
+  });
   let manual = $state({ kind: 'wifi' as 'wifi' | 'serial', address: '192.168.0.10:35000', baud: 38400 });
 
   const mediumIcon: Record<string, string> = { usb: 'usb', bluetooth: 'bluetooth', ble: 'bluetooth', wifi: 'wifi', simulator: 'sim' };
@@ -52,7 +62,10 @@
   async function connect(spec: ConnectionSpec) {
     busy = 'connect';
     try {
-      app.connection = await call<ConnectResult>('connect', { spec, j1939 });
+      const p = app.profile;
+      // Simulator: the demo vehicle takes the identity of the selected one.
+      const ident = spec.kind === 'simulator' && p ? { make: p.make, vehicle_type: p.type, year: p.years ? Math.min(p.years[1], new Date().getFullYear()) : null } : {};
+      app.connection = await call<ConnectResult>('connect', { spec, j1939, ...ident });
       toast(`Connecté : ${app.connection.adapter.protocol}`, 'ok');
       // Recognise a garage vehicle by its VIN.
       const vin = app.connection.vehicle.vin;
@@ -247,8 +260,8 @@
     </div>
     <div class="card conn">
       <div class="grid-3">
-        <div><div class="tiny faint">VÉHICULE</div><strong>{app.connection.vehicle.make ?? (isJ1939 && app.profile ? `${app.profile.make} ${app.profile.model}` : 'Marque inconnue')} {app.connection.vehicle.model_year ?? ''}</strong>
-          <div class="tiny muted mono">{app.connection.vehicle.vin ?? 'VIN non communiqué'}</div></div>
+        <div><div class="tiny faint">VÉHICULE</div><strong>{vehicleLabel}</strong>
+          <div class="tiny muted mono">{app.connection.vehicle.vin ?? 'VIN non communiqué'}{app.connection.simulated && app.connection.vehicle.vin ? ' (démo)' : ''}</div></div>
         <div><div class="tiny faint">PROTOCOLE</div><strong class="small">{app.connection.adapter.protocol}</strong>
           <div class="tiny muted">{app.connection.adapter.elm_version} · {app.connection.adapter.transport}</div></div>
         <div><div class="tiny faint">ÉTAT</div>

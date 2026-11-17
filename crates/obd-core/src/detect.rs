@@ -88,15 +88,15 @@ pub const WIFI_ENDPOINTS: &[(&str, u16)] = &[
 /// Baud rates to try on serial adapters, most common first.
 pub const BAUD_RATES: &[u32] = &[38400, 115_200, 9600, 230_400, 500_000, 57600];
 
+/// Simulator for a training scenario id, or the demo car.
+pub fn simulator(scenario: &str) -> crate::simulator::Simulator {
+    crate::training::scenario(scenario).map(crate::training::simulator_for).unwrap_or_else(crate::simulator::Simulator::demo)
+}
+
 /// Opens the transport described by `spec`.
 pub fn open(spec: &ConnectionSpec) -> Result<Box<dyn Transport>> {
     match spec.kind {
-        ConnKind::Simulator => {
-            let sim = crate::training::scenario(&spec.address)
-                .map(crate::training::simulator_for)
-                .unwrap_or_else(crate::simulator::Simulator::demo);
-            Ok(Box::new(sim))
-        }
+        ConnKind::Simulator => Ok(Box::new(simulator(&spec.address))),
         ConnKind::Wifi => {
             let (host, port) = spec.address.rsplit_once(':').unwrap_or((spec.address.as_str(), "35000"));
             let port = port.parse().map_err(|_| Error::Protocol(format!("port invalide : {port}")))?;

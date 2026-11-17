@@ -112,7 +112,16 @@ impl Session {
             "connect" => {
                 let spec: ConnectionSpec = arg(args, "spec")?;
                 self.elm = None;
-                let mut elm = Elm327::new(detect::open(&spec).map_err(e)?);
+                // Simulator: the demo car takes the identity of the selected vehicle (brand, year).
+                let sim_make = (spec.kind == ConnKind::Simulator).then(|| opt::<String>(args, "make")).flatten();
+                let transport: Box<dyn crate::transport::Transport> = match &sim_make {
+                    Some(make) => {
+                        let vin = crate::vin::demo_vin(make, &opt::<String>(args, "vehicle_type").unwrap_or_default(), opt::<u16>(args, "year"));
+                        Box::new(detect::simulator(&spec.address).with_vin(&vin))
+                    }
+                    None => detect::open(&spec).map_err(e)?,
+                };
+                let mut elm = Elm327::new(transport);
                 if opt::<bool>(args, "j1939").unwrap_or(false) {
                     // Heavy vehicle: J1939 only, no OBD-II probe / VIN / readiness.
                     let adapter = elm.initialize_j1939().map_err(e)?;
@@ -122,7 +131,11 @@ impl Session {
                     return Ok(json!({ "adapter": adapter, "vehicle": VehicleInfo::default(), "monitor": null, "battery_v": battery, "simulated": spec.kind == ConnKind::Simulator, "j1939": true }));
                 }
                 let adapter = elm.initialize().map_err(e)?;
-                let vehicle = elm.read_vehicle().unwrap_or_default();
+                let mut vehicle = elm.read_vehicle().unwrap_or_default();
+                if let (Some(make), None) = (&sim_make, &vehicle.make) {
+                    vehicle.make = Some(make.clone());
+                    vehicle.country = None;
+                }
                 let monitor = elm.monitor_status().ok().flatten();
                 let battery = elm.battery_voltage().ok().flatten();
                 self.vehicle = Some(vehicle.clone());
@@ -312,6 +325,13 @@ mod tests {
         assert!(s.handle("uds_write", &w).unwrap_err().contains("ACCEPTE"));
         assert!(s.handle("uds_raw", &json!({ "ecu": 0x7E0, "request": "22F190" })).unwrap()["response"].as_str().unwrap().starts_with("62 F1 90"));
 
+        // The simulator takes the identity of the selected vehicle.
+        let r = s.handle("connect", &json!({ "spec": { "kind": "simulator", "address": "" }, "make": "Peugeot", "vehicle_type": "car", "year": 2021 })).unwrap();
+        assert_eq!(r["vehicle"]["make"], "Peugeot");
+        assert_eq!(r["vehicle"]["model_year"], 2021);
+        let r = s.handle("connect", &json!({ "spec": { "kind": "simulator", "address": "" }, "make": "Silence", "vehicle_type": "motorcycle" })).unwrap();
+        assert_eq!(r["vehicle"]["make"], "Silence");
+        assert!(r["vehicle"]["country"].is_null());
         // Heavy vehicle (J1939) on the simulator
         let r = s.handle("connect", &json!({ "spec": { "kind": "simulator", "address": "" }, "j1939": true })).unwrap();
         assert_eq!(r["j1939"], true);

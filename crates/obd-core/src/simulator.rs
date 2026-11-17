@@ -64,6 +64,12 @@ impl Simulator {
         sim
     }
 
+    /// Replaces the VIN answered in mode 09 / UDS F190.
+    pub fn with_vin(mut self, vin: &str) -> Self {
+        self.vin = vin.to_string();
+        self
+    }
+
     /// Forces live values (physical units, keys of [`crate::pids::LIVE_PIDS`]).
     pub fn with_live(mut self, overrides: HashMap<String, f64>) -> Self {
         self.overrides = overrides;

@@ -17,14 +17,17 @@
   let fuel = $state('');
 
   const makes = $derived([...new Set(app.profiles.filter((p) => p.type === type).map((p) => p.make))].sort((a, b) => a.localeCompare(b, 'fr')));
+  // Accent- and case-insensitive; every word typed must appear ("Scania R" finds "Scania Série R",
+  // "megane etech" finds "Mégane E-Tech").
+  const fold = (t: string) => t.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+  const words = $derived(fold(query).split(/[\s,]+/).filter(Boolean));
+  const matches = (p: VehicleProfile) => {
+    const hay = fold(`${p.make} ${p.model} ${p.engine} ${p.years ? p.years.join(' ') : ''}`);
+    const compact = hay.replace(/[^a-z0-9]/g, '');
+    return words.every((w) => hay.includes(w) || compact.includes(w.replace(/[^a-z0-9]/g, '')));
+  };
   const list = $derived(
-    app.profiles.filter(
-      (p) =>
-        p.type === type &&
-        (!make || p.make === make) &&
-        (!fuel || p.fuel === fuel) &&
-        `${p.make} ${p.model} ${p.engine}`.toLowerCase().includes(query.toLowerCase()),
-    ),
+    app.profiles.filter((p) => p.type === type && (!make || p.make === make) && (!fuel || p.fuel === fuel) && matches(p)),
   );
   const fuelLabel: Record<string, string> = { petrol: 'Essence', diesel: 'Diesel', hybrid: 'Hybride', electric: 'Électrique' };
 
