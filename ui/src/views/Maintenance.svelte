@@ -1,6 +1,7 @@
 <script lang="ts">
   import { call, errorText, openUrl } from '../lib/api';
-  import { addJournal, app, currentVehicle, fmt, save, toast, vkey } from '../lib/state.svelte';
+  import { addJournal, app, currentVehicle, fmt, save, toast, updateVehicle, vkey } from '../lib/state.svelte';
+  import { computeReminders } from '../lib/reminders';
   import type { ShoppingList, Tutorial, TutorialSummary } from '../lib/types';
   import Icon from '../components/Icon.svelte';
   import SenseChecks from '../components/SenseChecks.svelte';
@@ -18,7 +19,76 @@
   let bought = $state<Record<string, boolean>>({});
   let alternatives = $state<Alternative[][]>([]);
   let openAlt = $state<number | null>(null);
-  let section = $state<'tutorials' | 'sheet'>('tutorials');
+  let section = $state<'plan' | 'tutorials' | 'sheet'>(currentVehicle() ? 'plan' : 'tutorials');
+
+  // ---- Maintenance plan (garage vehicle): what is due, overdue, never recorded
+  const vehicle = $derived(app.garage.find((v) => v.id === app.vehicleId) ?? null);
+  const plan = $derived(vehicle && !app.temporaryProfile ? computeReminders(vehicle, app.journal, list).filter((r) => r.tutorialId) : []);
+  const byId = $derived(new Map(list.map((t) => [t.id, t])));
+  const midCost = (id?: string) => {
+    const t = id ? byId.get(id) : undefined;
+    return t?.cost_min != null && t.cost_max != null ? (t.cost_min + t.cost_max) / 2 : 0;
+  };
+  const dueNow = $derived(plan.filter((r) => r.status === 'overdue' || r.status === 'soon'));
+  const budget = $derived(dueNow.reduce((a, r) => a + midCost(r.tutorialId), 0));
+  const label: Record<string, string> = { overdue: 'En retard', soon: 'Bientôt', ok: 'À jour', unknown: 'À renseigner' };
+  const cls: Record<string, string> = { overdue: 'sev-critical', soon: 'sev-medium', ok: 'sev-low', unknown: '' };
+  let logging = $state<string | null>(null);
+  /** Today as YYYY-MM-DD in local time (toISOString would give the UTC date). */
+  const today = () => {
+    const d = new Date();
+    return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+  };
+  let logDate = $state(today());
+  let logKm = $state<number | null>(null);
+  let logCost = $state<number | null>(null);
+  function startLog(id: string, cost?: number) {
+    logging = id;
+    logDate = today();
+    logKm = vehicle?.mileage ?? null;
+    logCost = cost ?? null;
+  }
+  /** Records a maintenance in the vehicle log (feeds the reminders) and updates the odometer. */
+  function saveLog(t: { id: string; title: string }) {
+    const date = new Date(`${logDate}T12:00:00`).getTime() || Date.now();
+    addJournal({ kind: 'maintenance', title: t.title, tutorialId: t.id, date, mileage: logKm ?? undefined, cost: logCost ?? undefined });
+    if (vehicle && logKm && logKm > (vehicle.mileage ?? 0)) updateVehicle(vehicle.id, { mileage: logKm });
+    logging = null;
+    toast(`« ${t.title} » ajouté au carnet`, 'ok');
+  }
+  function setMileage(e: Event) {
+    const km = Number((e.target as HTMLInputElement).value);
+    if (vehicle && km > 0) updateVehicle(vehicle.id, { mileage: km });
+  }
+
+  // ---- Tutorial list filters
+  let search = $state('');
+  let category = $state('');
+  let level = $state<'' | 'easy' | 'mid' | 'hard'>('');
+  const fold = (t: string) => t.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+  const categories = $derived([...new Set(list.map((t) => t.category ?? 'Entretien'))].sort((a, b) => a.localeCompare(b, 'fr')));
+  const filtered = $derived(
+    list.filter(
+      (t) =>
+        (!category || t.category === category) &&
+        (!level || (level === 'easy' ? t.difficulty <= 2 : level === 'mid' ? t.difficulty === 3 : t.difficulty >= 4)) &&
+        fold(search)
+          .split(/\s+/)
+          .filter(Boolean)
+          .every((w) => fold(`${t.title} ${t.category} ${t.interval}`).includes(w)),
+    ),
+  );
+  const every = (t: { interval_km?: number | null; interval_months?: number | null; interval_hours?: number | null }) =>
+    [t.interval_hours ? `${t.interval_hours} h` : '', t.interval_km ? `${t.interval_km.toLocaleString('fr-FR')} km` : '', t.interval_months ? (t.interval_months >= 12 && t.interval_months % 12 === 0 ? `${t.interval_months / 12} an${t.interval_months > 12 ? 's' : ''}` : `${t.interval_months} mois`) : '']
+      .filter(Boolean)
+      .join(' / ');
+  const levelLabel = (d: number) => (d <= 2 ? 'Facile' : d === 3 ? 'Intermédiaire' : 'Confirmé');
+
+  // ---- Step progress, kept per vehicle and tutorial so a job can be resumed later
+  let resumed = $state(false);
+  $effect(() => {
+    if (tut) save(`easyobd.progress.${vkey()}.${tut.id}`, step);
+  });
 
   $effect(() => {
     const p = app.profile;
@@ -52,7 +122,15 @@
       shopping = r.shopping;
       alternatives = r.alternatives ?? [];
       openAlt = null;
-      step = 0;
+      let saved = 0;
+      try {
+        saved = Number(JSON.parse(localStorage.getItem(`easyobd.progress.${vkey()}.${id}`) ?? '0')) || 0;
+      } catch {
+        saved = 0;
+      }
+      step = Math.max(0, Math.min(saved, r.tutorial.steps.length - 1));
+      resumed = step > 0;
+      logging = null;
       tab = 'steps';
       try {
         bought = JSON.parse(localStorage.getItem(`easyobd.bought.${vkey()}.${id}`) ?? '{}');
@@ -97,26 +175,87 @@
       <button class="btn ghost sm" onclick={() => (app.pickerOpen = true)}>Changer</button>
     </div>
     <div class="tabs">
+      <button class:active={section === 'plan'} onclick={() => (section = 'plan')}><Icon name="clock" size={15} /> Plan d'entretien{#if dueNow.length} <span class="badge">{dueNow.length}</span>{/if}</button>
       <button class:active={section === 'tutorials'} onclick={() => (section = 'tutorials')}><Icon name="wrench" size={15} /> Tutoriels ({list.length})</button>
       <button class:active={section === 'sheet'} onclick={() => (section = 'sheet')}><Icon name="book" size={15} /> Fiche technique</button>
     </div>
     {#if section === 'sheet'}
       <VehicleSheet />
+    {:else if section === 'plan'}
+      {#if !vehicle || app.temporaryProfile}
+        <div class="card col">
+          <p>Le plan d'entretien suit un véhicule de votre garage : ajoutez celui-ci pour enregistrer ce que vous faites et voir ce qui arrive à échéance.</p>
+          <button class="btn primary sm" onclick={() => (app.pickerOpen = true)}><Icon name="car" size={15} /> Ajouter à mon garage</button>
+        </div>
+      {:else}
+        <div class="summary">
+          <div class="card stat"><div class="tiny faint">EN RETARD</div><div class="big" class:bad={plan.some((r) => r.status === 'overdue')}>{plan.filter((r) => r.status === 'overdue').length}</div></div>
+          <div class="card stat"><div class="tiny faint">BIENTÔT</div><div class="big">{plan.filter((r) => r.status === 'soon').length}</div></div>
+          <div class="card stat"><div class="tiny faint">PIÈCES À PRÉVOIR</div><div class="big">{fmt.eur(budget)}</div></div>
+          <label class="card stat"><span class="tiny faint">KILOMÉTRAGE ACTUEL</span>
+            <input class="input km" type="number" min="0" step="100" value={vehicle.mileage ?? ''} placeholder="ex. 84000" onchange={setMileage} /></label>
+        </div>
+        <ul class="list-reset col planlist">
+          {#each plan as r (r.id)}
+            {@const t = byId.get(r.tutorialId ?? '')}
+            <li class="card prow">
+              <div class="row nowrap">
+                <span class="pill tiny {cls[r.status]}">{label[r.status]}</span>
+                <button class="grow body" onclick={() => open(r.tutorialId!)}>
+                  <strong class="small">{r.title}</strong>
+                  <span class="tiny muted">{r.detail}{#if t && every(t)}{' · '}tous les {every(t)}{/if}</span>
+                </button>
+                {#if t?.cost_min != null}<span class="tiny muted cost">{fmt.eur(t.cost_min, t.cost_max ?? undefined)}</span>{/if}
+                <button class="btn ghost sm" title="Enregistrer une intervention déjà faite" onclick={() => startLog(r.tutorialId!, Math.round(midCost(r.tutorialId)) || undefined)}><Icon name="check" size={14} /> Déjà fait</button>
+              </div>
+              {#if logging === r.tutorialId && t}
+                <div class="logform">
+                  <label><span class="tiny faint">Date</span><input class="input" type="date" bind:value={logDate} /></label>
+                  <label><span class="tiny faint">Kilométrage</span><input class="input" type="number" min="0" bind:value={logKm} /></label>
+                  <label><span class="tiny faint">Coût (€)</span><input class="input" type="number" min="0" bind:value={logCost} /></label>
+                  <button class="btn primary sm" onclick={() => saveLog(t)}>Enregistrer</button>
+                  <button class="btn ghost sm" onclick={() => (logging = null)}>Annuler</button>
+                </div>
+              {/if}
+            </li>
+          {:else}
+            <li class="small muted">Aucun entretien périodique connu pour ce véhicule : voyez les tutoriels.</li>
+          {/each}
+        </ul>
+        <p class="tiny faint">Échéances calculées depuis votre carnet (date et kilométrage de la dernière intervention) et des intervalles typiques : le carnet du constructeur prime.</p>
+      {/if}
     {:else}
     <p class="tiny faint">{app.maintenanceDisclaimer}</p>
+    <div class="filters">
+      <div class="search"><Icon name="search" size={16} /><input class="grow" placeholder="Rechercher (vidange, frein, pneu…)" bind:value={search} /></div>
+      <div class="chips">
+        <button class="chip" class:on={!category} onclick={() => (category = '')}>Toutes</button>
+        {#each categories as c}<button class="chip" class:on={category === c} onclick={() => (category = category === c ? '' : c)}>{c}</button>{/each}
+      </div>
+      <div class="chips">
+        {#each [['', 'Tous niveaux'], ['easy', 'Facile'], ['mid', 'Intermédiaire'], ['hard', 'Confirmé']] as [k, l]}
+          <button class="chip" class:on={level === k} onclick={() => (level = k as typeof level)}>{l}</button>
+        {/each}
+      </div>
+    </div>
     <div class="grid-2">
-      {#each list as t}
+      {#each filtered as t}
         <button class="card hover tcard" onclick={() => open(t.id)}>
+          <div class="row spread"><span class="pill tiny">{t.category}</span>{#if t.cost_min != null}<span class="tiny muted">{fmt.eur(t.cost_min, t.cost_max ?? undefined)} de pièces</span>{/if}</div>
           <h3>{t.title}</h3>
           <p class="small muted">{t.interval}</p>
           <div class="row small muted">
-            <span class="dots">{#each [1, 2, 3, 4, 5] as k}<i class:on={k <= t.difficulty}></i>{/each}</span>
+            <span class="dots" title={levelLabel(t.difficulty)}>{#each [1, 2, 3, 4, 5] as k}<i class:on={k <= t.difficulty}></i>{/each}</span>
             <span class="row" style="gap:4px"><Icon name="clock" size={14} /> {fmt.time(t.time_min, t.time_max)}</span>
+            {#if every(t)}<span class="row" style="gap:4px"><Icon name="refresh" size={13} /> {every(t)}</span>{/if}
           </div>
         </button>
+      {:else}
+        <p class="small muted">Aucun tutoriel ne correspond à ces filtres.</p>
       {/each}
     </div>
     {/if}
+
   {:else}
     <div class="row">
       <button class="btn ghost sm" onclick={() => { tut = null; app.highlight = []; }}><Icon name="back" size={15} /> Tutoriels</button>
@@ -142,6 +281,10 @@
     {#if tab === 'steps'}
       {@const s = tut.steps[step]}
       <div class="card col fade-in">
+        {#if resumed}
+          <div class="callout info small row"><Icon name="refresh" size={15} /><span class="grow">Reprise là où vous vous étiez arrêté (étape {step + 1}).</span>
+            <button class="btn ghost sm" onclick={() => { step = 0; resumed = false; showStep(); }}>Recommencer</button></div>
+        {/if}
         <div class="stepper">
           {#each tut.steps as _, i}
             <button class="sdot" class:on={i === step} class:done={i < step} aria-label="Étape {i + 1}" onclick={() => { step = i; showStep(); }}>{i + 1}</button>
@@ -160,9 +303,18 @@
           {#if step < tut.steps.length - 1}
             <button class="btn primary sm" onclick={() => { step += 1; showStep(); }}>Suivante <Icon name="chevron" size={15} /></button>
           {:else}
-            <button class="btn primary sm" onclick={() => { addJournal({ kind: 'maintenance', title: tut!.title, cost: shopping ? Math.round((shopping.total_min + shopping.total_max) / 2) : undefined }); toast(currentVehicle() ? 'Bravo ! Intervention ajoutée au carnet du véhicule (Mon garage).' : 'Bravo, entretien terminé !', 'ok'); }}><Icon name="check" size={15} /> Terminé</button>
+            <button class="btn primary sm" onclick={() => { if (currentVehicle() && !app.temporaryProfile) startLog(tut!.id, shopping ? Math.round((shopping.total_min + shopping.total_max) / 2) : undefined); else toast('Bravo, entretien terminé !', 'ok'); }}><Icon name="check" size={15} /> Terminé</button>
           {/if}
         </div>
+        {#if logging === tut.id}
+          <div class="logform card flat">
+            <strong class="small grow-all">Bravo ! Ajouter au carnet de {currentVehicle()?.name} :</strong>
+            <label><span class="tiny faint">Date</span><input class="input" type="date" bind:value={logDate} /></label>
+            <label><span class="tiny faint">Kilométrage</span><input class="input" type="number" min="0" bind:value={logKm} /></label>
+            <label><span class="tiny faint">Coût (€)</span><input class="input" type="number" min="0" bind:value={logCost} /></label>
+            <button class="btn primary sm" onclick={() => { saveLog(tut!); save(`easyobd.progress.${vkey()}.${tut!.id}`, 0); }}>Enregistrer</button>
+          </div>
+        {/if}
       </div>
       {#if tut.safety.length}
         <div class="callout warn small"><strong>Sécurité</strong><ul>{#each tut.safety as x}<li>{x}</li>{/each}</ul></div>
@@ -214,6 +366,27 @@
 </div>
 
 <style>
+  .summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 0.6rem; }
+  .stat { padding: 0.75rem; display: flex; flex-direction: column; gap: 0.25rem; }
+  .stat .big.bad { color: var(--critical); }
+  .km { margin-top: 0.15rem; font-weight: 700; font-size: 1.05rem; }
+  .planlist { gap: 0.45rem; }
+  .prow { padding: 0.6rem 0.75rem; display: flex; flex-direction: column; gap: 0.5rem; }
+  .prow .pill { min-width: 86px; justify-content: center; }
+  .nowrap { flex-wrap: nowrap; gap: 0.6rem; align-items: center; }
+  .body { display: flex; flex-direction: column; text-align: left; background: none; border: none; padding: 0; cursor: pointer; color: inherit; min-width: 0; font: inherit; }
+  .cost { white-space: nowrap; }
+  .logform { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: flex-end; padding: 0.6rem; }
+  .logform label { display: flex; flex-direction: column; gap: 0.2rem; }
+  .logform .input { width: 150px; }
+  .grow-all { flex-basis: 100%; }
+  .badge { display: inline-grid; place-items: center; min-width: 18px; height: 18px; padding: 0 5px; border-radius: 9px; background: var(--high); color: #fff; font-size: 0.7rem; font-weight: 800; margin-left: 4px; }
+  .filters { display: flex; flex-direction: column; gap: 0.5rem; }
+  .search { display: flex; align-items: center; gap: 0.5rem; padding: 0.55rem 0.8rem; border-radius: 12px; border: 1px solid var(--border); background: var(--panel); }
+  .search input { background: transparent; border: none; outline: none; color: inherit; font: inherit; }
+  .chips { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+  .chip { padding: 0.28rem 0.7rem; border-radius: 999px; border: 1px solid var(--border-2); background: transparent; color: var(--muted); font: inherit; font-size: 0.8rem; cursor: pointer; }
+  .chip.on { color: var(--accent); border-color: var(--accent); background: color-mix(in srgb, var(--accent) 10%, transparent); }
   .tcard { text-align: left; display: flex; flex-direction: column; gap: 0.4rem; color: inherit; font: inherit; }
   .stepper { display: flex; gap: 0.35rem; flex-wrap: wrap; }
   .sdot { width: 30px; height: 30px; border-radius: 50%; border: 1px solid var(--border-2); background: var(--panel-2); cursor: pointer; font-weight: 700; font-size: 0.8rem; }

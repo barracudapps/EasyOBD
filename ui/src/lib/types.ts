@@ -50,7 +50,7 @@ export interface VehicleProfile {
   fuel: string; cylinders?: number | null; oil_capacity_l?: number | null; oil_spec?: string | null;
   coolant_l?: number | null; chain?: string | null; traction?: string | null; body?: string | null; final_drive?: string | null; engine_position?: string | null;
 }
-export interface TutorialSummary { id: string; title: string; interval: string; interval_km?: number | null; interval_months?: number | null; difficulty: number; time_min: number; time_max: number }
+export interface TutorialSummary { id: string; title: string; interval: string; interval_km?: number | null; interval_months?: number | null; interval_hours?: number | null; category?: string; difficulty: number; time_min: number; time_max: number; cost_min?: number | null; cost_max?: number | null }
 export interface TutorialStep { title: string; text: string; components: string[]; tip?: string | null; warning?: string | null; source?: string | null }
 export interface Tutorial extends TutorialSummary {
   why: string; sensory_checks: SensoryCheck[]; components: string[]; tools: string[]; safety: string[]; steps: TutorialStep[];

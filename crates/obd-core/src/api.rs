@@ -228,7 +228,14 @@ impl Session {
             })),
             "tutorials_for" => {
                 let p: VehicleProfile = arg(args, "profile")?;
-                to_value(maint.tutorials_for(&p))
+                let mut list = maint.tutorials_for(&p);
+                for t in &mut list {
+                    if let Some(sl) = maint.shopping_list(kb, &t.id, &p) {
+                        t.cost_min = Some(sl.total_min);
+                        t.cost_max = Some(sl.total_max);
+                    }
+                }
+                to_value(list)
             }
             "tutorial" => {
                 let id: String = arg(args, "id")?;

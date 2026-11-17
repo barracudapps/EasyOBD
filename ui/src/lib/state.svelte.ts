@@ -27,6 +27,8 @@ export interface JournalEntry {
   codes?: string[];
   mileage?: number;
   cost?: number;
+  /** Maintenance done from a tutorial (reminders match on it, then on the title). */
+  tutorialId?: string;
 }
 
 function load<T>(key: string, fallback: T): T {

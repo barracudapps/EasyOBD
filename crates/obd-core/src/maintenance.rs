@@ -174,7 +174,16 @@ pub struct Tutorial {
     /// Restricts a motorcycle tutorial to some final drives (e.g. chain maintenance → `["chain"]`).
     #[serde(default)]
     pub final_drives: Vec<String>,
+    /// Restricts a tutorial to some makes (e.g. licence-free quadricycles: Aixam, Ligier…).
+    #[serde(default)]
+    pub makes: Vec<String>,
+    /// Family shown as a filter in the maintenance view (Moteur, Freinage, Visibilité…).
+    #[serde(default)]
+    pub category: Option<String>,
     pub interval: String,
+    /// Tractors and machinery: interval in engine hours.
+    #[serde(default)]
+    pub interval_hours: Option<u32>,
     /// Typical interval used for reminders (the manufacturer schedule prevails).
     #[serde(default)]
     pub interval_km: Option<u32>,
@@ -205,6 +214,7 @@ impl Tutorial {
         self.vehicle_types.contains(&p.vehicle_type)
             && self.fuels.contains(&p.fuel)
             && (self.final_drives.is_empty() || p.final_drive_kind().is_some_and(|f| self.final_drives.iter().any(|x| x == f)))
+            && (self.makes.is_empty() || self.makes.contains(&p.make))
     }
 }
 
@@ -240,9 +250,14 @@ pub struct TutorialSummary {
     pub interval: String,
     pub interval_km: Option<u32>,
     pub interval_months: Option<u32>,
+    pub interval_hours: Option<u32>,
+    pub category: String,
     pub difficulty: u8,
     pub time_min: u32,
     pub time_max: u32,
+    /// Parts budget for this vehicle (required items), filled by the API.
+    pub cost_min: Option<f64>,
+    pub cost_max: Option<f64>,
 }
 
 #[derive(Debug, Deserialize)]
@@ -296,9 +311,13 @@ impl Maintenance {
                 interval: t.interval.clone(),
                 interval_km: t.interval_km,
                 interval_months: t.interval_months,
+                interval_hours: t.interval_hours,
+                category: t.category.clone().unwrap_or_else(|| "Entretien".into()),
                 difficulty: t.difficulty,
                 time_min: t.time_min,
                 time_max: t.time_max,
+                cost_min: None,
+                cost_max: None,
             })
             .collect()
     }
@@ -429,6 +448,20 @@ mod tests {
                 assert!(m.components.contains_key(c) || kb.component_info(c).is_some(), "{}: unknown component {c}", t.id);
             }
         }
+    }
+
+    #[test]
+    fn make_specific_tutorials() {
+        let m = Maintenance::embedded();
+        let ids = |make: &str| -> Vec<String> {
+            let p = VehicleProfile { vehicle_type: "car".into(), make: make.into(), model: "x".into(), fuel: "diesel".into(), ..Default::default() };
+            m.tutorials_for(&p).into_iter().map(|t| t.id).collect()
+        };
+        assert!(ids("Aixam").contains(&"quadricycle_service".to_string()));
+        assert!(!ids("Renault").contains(&"quadricycle_service".to_string()));
+        assert!(ids("Renault").contains(&"adblue_refill".to_string()));
+        // Every tutorial has a category
+        assert!(m.tutorials.iter().all(|t| t.category.is_some()), "missing category");
     }
 
     #[test]

@@ -10713,6 +10713,111 @@
       "cylinders": 6,
       "body": "tractor",
       "traction": "both"
+    },
+    {
+      "id": "maxus-edeliver-3-50-kwh",
+      "type": "van",
+      "make": "Maxus",
+      "model": "eDeliver 3",
+      "engine": "50 kWh",
+      "years": [
+        2020,
+        2026
+      ],
+      "fuel": "electric"
+    },
+    {
+      "id": "maxus-edeliver-7-77-kwh",
+      "type": "van",
+      "make": "Maxus",
+      "model": "eDeliver 7",
+      "engine": "77 kWh",
+      "years": [
+        2023,
+        2026
+      ],
+      "fuel": "electric"
+    },
+    {
+      "id": "maxus-edeliver-9-88-kwh",
+      "type": "van",
+      "make": "Maxus",
+      "model": "eDeliver 9",
+      "engine": "88 kWh",
+      "years": [
+        2021,
+        2026
+      ],
+      "fuel": "electric",
+      "traction": "rear"
+    },
+    {
+      "id": "maxus-deliver-9-2-0-d-163",
+      "type": "van",
+      "make": "Maxus",
+      "model": "Deliver 9",
+      "engine": "2.0 D 163",
+      "years": [
+        2020,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 4
+    },
+    {
+      "id": "maxus-t60-max-2-0-biturbo-diesel-215",
+      "type": "car",
+      "make": "Maxus",
+      "model": "T60 Max",
+      "engine": "2.0 biturbo diesel 215",
+      "years": [
+        2021,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "body": "pickup",
+      "traction": "both"
+    },
+    {
+      "id": "maxus-et90-88-5-kwh",
+      "type": "car",
+      "make": "Maxus",
+      "model": "eT90",
+      "engine": "88,5 kWh",
+      "years": [
+        2023,
+        2026
+      ],
+      "fuel": "electric",
+      "body": "pickup",
+      "traction": "rear"
+    },
+    {
+      "id": "maxus-mifa-9-90-kwh",
+      "type": "car",
+      "make": "Maxus",
+      "model": "Mifa 9",
+      "engine": "90 kWh",
+      "years": [
+        2022,
+        2026
+      ],
+      "fuel": "electric",
+      "body": "mpv"
+    },
+    {
+      "id": "maxus-euniq-5-52-5-kwh",
+      "type": "car",
+      "make": "Maxus",
+      "model": "Euniq 5",
+      "engine": "52,5 kWh",
+      "years": [
+        2022,
+        2025
+      ],
+      "fuel": "electric",
+      "body": "mpv"
     }
   ],
   "tutorials": [
@@ -10864,7 +10969,8 @@
         }
       ],
       "interval_km": 20000,
-      "interval_months": 12
+      "interval_months": 12,
+      "category": "Moteur"
     },
     {
       "id": "air_filter",
@@ -10942,7 +11048,8 @@
         }
       ],
       "interval_km": 30000,
-      "interval_months": 24
+      "interval_months": 24,
+      "category": "Moteur"
     },
     {
       "id": "cabin_filter",
@@ -11027,7 +11134,8 @@
         }
       ],
       "interval_km": 15000,
-      "interval_months": 12
+      "interval_months": 12,
+      "category": "Habitacle"
     },
     {
       "id": "spark_plugs",
@@ -11150,7 +11258,8 @@
         }
       ],
       "interval_km": 60000,
-      "interval_months": 60
+      "interval_months": 60,
+      "category": "Moteur"
     },
     {
       "id": "fuel_filter_diesel",
@@ -11230,7 +11339,8 @@
         }
       ],
       "interval_km": 40000,
-      "interval_months": 36
+      "interval_months": 36,
+      "category": "Moteur"
     },
     {
       "id": "brake_pads_front",
@@ -11395,7 +11505,8 @@
         }
       ],
       "interval_km": 20000,
-      "interval_months": 12
+      "interval_months": 12,
+      "category": "Freinage"
     },
     {
       "id": "fluids_check",
@@ -11522,7 +11633,8 @@
           ]
         }
       ],
-      "interval_months": 1
+      "interval_months": 1,
+      "category": "Contrôles"
     },
     {
       "id": "battery_replace",
@@ -11617,7 +11729,8 @@
           ]
         }
       ],
-      "interval_months": 60
+      "interval_months": 60,
+      "category": "Électricité"
     },
     {
       "id": "moto_oil_change",
@@ -11723,7 +11836,8 @@
         }
       ],
       "interval_km": 10000,
-      "interval_months": 12
+      "interval_months": 12,
+      "category": "Moteur"
     },
     {
       "id": "chain_maintenance",
@@ -11846,7 +11960,8 @@
       "interval_months": 1,
       "final_drives": [
         "chain"
-      ]
+      ],
+      "category": "Transmission"
     },
     {
       "id": "truck_daily_check",
@@ -11950,7 +12065,8 @@
             "headlights"
           ]
         }
-      ]
+      ],
+      "category": "Contrôles"
     },
     {
       "id": "truck_oil_service",
@@ -12059,7 +12175,8 @@
         }
       ],
       "interval_km": 100000,
-      "interval_months": 12
+      "interval_months": 12,
+      "category": "Moteur"
     },
     {
       "id": "ev_check",
@@ -12192,7 +12309,8 @@
           ]
         }
       ],
-      "interval_months": 1
+      "interval_months": 1,
+      "category": "Électricité"
     },
     {
       "id": "ev_brakes",
@@ -12299,7 +12417,8 @@
         }
       ],
       "interval_km": 15000,
-      "interval_months": 12
+      "interval_months": 12,
+      "category": "Freinage"
     },
     {
       "id": "chassis_check",
@@ -12447,7 +12566,8 @@
         }
       ],
       "interval_km": 20000,
-      "interval_months": 12
+      "interval_months": 12,
+      "category": "Pneus et châssis"
     },
     {
       "id": "ev_moto_check",
@@ -12526,7 +12646,8 @@
           ]
         }
       ],
-      "interval_months": 1
+      "interval_months": 1,
+      "category": "Électricité"
     },
     {
       "id": "clutch_slave",
@@ -12671,7 +12792,8 @@
             "clutch_slave"
           ]
         }
-      ]
+      ],
+      "category": "Transmission"
     },
     {
       "id": "final_drive_oil",
@@ -12791,7 +12913,8 @@
             "wheel_rr"
           ]
         }
-      ]
+      ],
+      "category": "Transmission"
     },
     {
       "id": "belt_drive_check",
@@ -12879,7 +13002,8 @@
           ],
           "tip": "Contrôlez à froid et avec la charge indiquée (pilote assis ou non selon le carnet)."
         }
-      ]
+      ],
+      "category": "Transmission"
     },
     {
       "id": "cvt_service",
@@ -12989,7 +13113,8 @@
           ],
           "warning": "Un écrou de poulie mal serré détruit l’arbre de vilebrequin."
         }
-      ]
+      ],
+      "category": "Transmission"
     },
     {
       "id": "tractor_daily_check",
@@ -13111,7 +13236,9 @@
             "headlights"
           ]
         }
-      ]
+      ],
+      "category": "Contrôles",
+      "interval_hours": 10
     },
     {
       "id": "tractor_greasing",
@@ -13212,7 +13339,9 @@
             "differential"
           ]
         }
-      ]
+      ],
+      "category": "Pneus et châssis",
+      "interval_hours": 50
     },
     {
       "id": "tractor_engine_service",
@@ -13354,7 +13483,9 @@
             "engine"
           ]
         }
-      ]
+      ],
+      "category": "Moteur",
+      "interval_hours": 500
     },
     {
       "id": "tractor_hydraulic_service",
@@ -13448,6 +13579,918 @@
           "text": "Moteur au ralenti, actionnez plusieurs fois relevage, direction et distributeurs, puis recontrôlez le niveau.",
           "components": [
             "transmission"
+          ]
+        }
+      ],
+      "category": "Transmission",
+      "interval_hours": 1000
+    },
+    {
+      "id": "brake_fluid",
+      "category": "Freinage",
+      "title": "Remplacement du liquide de frein (purge)",
+      "vehicle_types": [
+        "car",
+        "van",
+        "motorcycle"
+      ],
+      "fuels": [
+        "petrol",
+        "diesel",
+        "hybrid",
+        "electric"
+      ],
+      "interval": "Tous les 2 ans en général (le liquide absorbe l'humidité de l'air), quel que soit le kilométrage.",
+      "interval_months": 24,
+      "difficulty": 3,
+      "time_min": 45,
+      "time_max": 90,
+      "why": "Le liquide de frein est hygroscopique : il se charge d'eau, son point d'ébullition baisse et, après une longue descente, la pédale peut devenir molle (vapor lock). L'eau corrode aussi les étriers et le bloc ABS.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "Liquide foncé, ambré ou brun dans le bocal (neuf : presque transparent).",
+          "means": "Liquide ancien chargé d'humidité : purge à prévoir."
+        },
+        {
+          "sense": "touch",
+          "tip": "Pédale spongieuse ou qui s'enfonce plus qu'avant.",
+          "means": "Air ou liquide qui bout dans le circuit : purge, et contrôle des fuites."
+        },
+        {
+          "sense": "sight",
+          "tip": "Niveau qui baisse sans usure des plaquettes, traces grasses près d'une roue.",
+          "means": "Fuite (flexible, étrier, cylindre) : ne roulez pas avant contrôle."
+        }
+      ],
+      "components": [
+        "brake_fluid_reservoir",
+        "brake_fl",
+        "brake_fr",
+        "brake_rl",
+        "brake_rr"
+      ],
+      "tools": [
+        "Clé à pipe pour vis de purge (8–11 mm)",
+        "Tuyau transparent + bocal",
+        "Seringue",
+        "Cric + chandelles",
+        "Clé dynamométrique (roues)",
+        "Gants et lunettes"
+      ],
+      "safety": [
+        "Le liquide de frein décape la peinture et irrite les yeux : lunettes, chiffon, rinçage à l'eau.",
+        "Ne laissez jamais le bocal se vider pendant la purge : l'air entrerait dans le bloc ABS.",
+        "Sur les véhicules à ABS / ESP récents, certaines purges exigent un outil de diagnostic : en cas de doute, garage."
+      ],
+      "shopping": [
+        {
+          "name": "Liquide de frein DOT 4 (ou norme du bocal)",
+          "query": "liquide de frein DOT 4 1L",
+          "qty": 1,
+          "unit": "flacon 1 L",
+          "price_min": 8,
+          "price_max": 18
+        },
+        {
+          "name": "Kit de purge à une personne (clapet anti-retour)",
+          "query": "kit purge frein",
+          "qty": 1,
+          "unit": "kit",
+          "price_min": 10,
+          "price_max": 30,
+          "optional": true
+        }
+      ],
+      "steps": [
+        {
+          "title": "Vérifier la norme",
+          "text": "Lisez la norme sur le bouchon du bocal (DOT 4, DOT 5.1…). Ne mélangez jamais avec du DOT 5 (silicone) ni du LHM.",
+          "components": [
+            "brake_fluid_reservoir"
+          ]
+        },
+        {
+          "title": "Vider le bocal",
+          "text": "Aspirez l'ancien liquide du bocal à la seringue et remplissez de neuf jusqu'au MAX.",
+          "components": [
+            "brake_fluid_reservoir"
+          ]
+        },
+        {
+          "title": "Purger roue par roue",
+          "text": "Généralement de la roue la plus éloignée du maître-cylindre à la plus proche (arrière droite, arrière gauche, avant droite, avant gauche). Ouvrez la vis, pompez, refermez avant de relâcher, jusqu'à liquide clair et sans bulles.",
+          "components": [
+            "brake_rr",
+            "brake_rl",
+            "brake_fr",
+            "brake_fl"
+          ],
+          "tip": "Gardez toujours le bocal au-dessus du MIN pendant l'opération."
+        },
+        {
+          "title": "Contrôler",
+          "text": "Niveau au MAX, pédale ferme dès le premier appui, vis de purge sèches. Essai à basse vitesse avant de reprendre la route.",
+          "components": [
+            "brake_fluid_reservoir"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "coolant_change",
+      "category": "Refroidissement",
+      "title": "Vidange du liquide de refroidissement",
+      "vehicle_types": [
+        "car",
+        "van"
+      ],
+      "fuels": [
+        "petrol",
+        "diesel",
+        "hybrid"
+      ],
+      "interval": "Souvent tous les 4 à 5 ans ou 100 000 à 160 000 km (liquides longue durée) : suivez le carnet.",
+      "interval_months": 60,
+      "difficulty": 3,
+      "time_min": 60,
+      "time_max": 120,
+      "why": "L'antigel perd ses additifs anticorrosion avec le temps : la pompe à eau, le radiateur et le joint de culasse s'abîment. Un mauvais mélange de technologies (OAT, Si-OAT, HOAT) peut aussi former des dépôts.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "Liquide trouble, rouillé ou avec une couche huileuse dans le vase.",
+          "means": "Liquide épuisé ou huile dans le circuit (joint de culasse à suspecter)."
+        },
+        {
+          "sense": "smell",
+          "tip": "Odeur sucrée dans l'habitacle ou sous le capot.",
+          "means": "Fuite de liquide (radiateur de chauffage, durite)."
+        },
+        {
+          "sense": "sight",
+          "tip": "Traces blanches ou colorées sèches sur les durites et raccords.",
+          "means": "Suintement : resserrer ou remplacer le collier / la durite."
+        }
+      ],
+      "components": [
+        "coolant_reservoir",
+        "radiator",
+        "thermostat",
+        "engine"
+      ],
+      "tools": [
+        "Bac de vidange",
+        "Entonnoir de purge (à bouchon)",
+        "Pinces à collier",
+        "Cric + chandelles",
+        "Gants"
+      ],
+      "safety": [
+        "Jamais bouchon ouvert moteur chaud : risque de brûlure grave par le liquide sous pression.",
+        "L'antigel est toxique (et sucré pour les animaux) : récupérez tout, déposez-le en déchetterie."
+      ],
+      "shopping": [
+        {
+          "name": "Liquide de refroidissement prêt à l'emploi (technologie constructeur)",
+          "query": "liquide de refroidissement",
+          "qty_from": "coolant_l",
+          "qty": 6,
+          "round_up": true,
+          "unit": "L",
+          "price_min": 3,
+          "price_max": 7
+        }
+      ],
+      "steps": [
+        {
+          "title": "Moteur froid",
+          "text": "Ouvrez le bouchon du vase d'expansion, chauffage réglé au maximum (vanne ouverte).",
+          "components": [
+            "coolant_reservoir"
+          ]
+        },
+        {
+          "title": "Vidanger",
+          "text": "Ouvrez le robinet du radiateur ou déposez la durite inférieure, et laissez couler entièrement.",
+          "components": [
+            "radiator"
+          ]
+        },
+        {
+          "title": "Remplir",
+          "text": "Refermez, remplissez lentement avec un liquide de même technologie que celle du carnet, en ouvrant les vis de purge si le moteur en a.",
+          "components": [
+            "coolant_reservoir",
+            "thermostat"
+          ]
+        },
+        {
+          "title": "Purger l'air",
+          "text": "Moteur au ralenti avec l'entonnoir de purge, jusqu'à ouverture du thermostat (durite supérieure chaude) et disparition des bulles. Ajustez au repère à froid le lendemain.",
+          "components": [
+            "thermostat",
+            "engine"
+          ],
+          "warning": "Surveillez la température : une poche d'air peut faire chauffer le moteur."
+        }
+      ]
+    },
+    {
+      "id": "tyre_check",
+      "category": "Pneus et châssis",
+      "title": "Pneus : pression, usure et âge",
+      "vehicle_types": [
+        "car",
+        "van",
+        "motorcycle"
+      ],
+      "fuels": [
+        "petrol",
+        "diesel",
+        "hybrid",
+        "electric"
+      ],
+      "interval": "Pression chaque mois et avant un long trajet, à froid ; usure et état à chaque plein.",
+      "interval_months": 1,
+      "difficulty": 1,
+      "time_min": 10,
+      "time_max": 20,
+      "why": "Les pneus sont le seul contact avec la route. Un pneu sous-gonflé chauffe, s'use sur les bords, allonge le freinage et augmente la consommation ; un pneu trop vieux durcit et perd son adhérence sur le mouillé.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "Usure sur les deux bords (sous-gonflage) ou au centre (sur-gonflage), ou d'un seul côté (géométrie).",
+          "means": "Corriger la pression ; usure d'un côté : parallélisme à faire contrôler."
+        },
+        {
+          "sense": "feel",
+          "tip": "Volant qui tremble vers 90–130 km/h.",
+          "means": "Roue à équilibrer ou jante voilée."
+        },
+        {
+          "sense": "sight",
+          "tip": "Craquelures sur le flanc, hernie (bosse) ou coupure.",
+          "means": "Pneu à remplacer, une hernie peut éclater."
+        }
+      ],
+      "components": [
+        "wheel_fl",
+        "wheel_fr",
+        "wheel_rl",
+        "wheel_rr"
+      ],
+      "tools": [
+        "Manomètre",
+        "Jauge de profondeur (ou pièce de 1 €)",
+        "Compresseur ou station de gonflage"
+      ],
+      "safety": [
+        "Pression à froid uniquement (moins de 3 km parcourus).",
+        "Témoin légal d'usure : 1,6 mm ; sur le mouillé, l'adhérence chute déjà nettement sous 3 mm."
+      ],
+      "shopping": [
+        {
+          "name": "Manomètre numérique",
+          "query": "manomètre pneu numérique",
+          "qty": 1,
+          "unit": "pièce",
+          "price_min": 8,
+          "price_max": 25,
+          "optional": true
+        }
+      ],
+      "steps": [
+        {
+          "title": "Lire la pression conseillée",
+          "text": "Étiquette dans la feuillure de porte conducteur, la trappe à carburant ou la notice (charge normale / pleine charge).",
+          "components": [
+            "wheel_fl"
+          ]
+        },
+        {
+          "title": "Contrôler et ajuster",
+          "text": "Les quatre roues (et la roue de secours), bouchons de valve remis en place. Après correction, réinitialisez le système de surveillance de pression s'il existe.",
+          "components": [
+            "wheel_fl",
+            "wheel_fr",
+            "wheel_rl",
+            "wheel_rr"
+          ]
+        },
+        {
+          "title": "Profondeur et état",
+          "text": "Profondeur aux trois points de la bande de roulement, flancs, objets plantés.",
+          "components": [
+            "wheel_fl",
+            "wheel_fr",
+            "wheel_rl",
+            "wheel_rr"
+          ]
+        },
+        {
+          "title": "Âge du pneu",
+          "text": "Code DOT sur le flanc : les 4 derniers chiffres donnent la semaine et l'année (ex. 2321 = semaine 23 de 2021). Au-delà de 6 à 8 ans, faites-le contrôler même s'il paraît bon.",
+          "components": [
+            "wheel_fl",
+            "wheel_fr",
+            "wheel_rl",
+            "wheel_rr"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wiper_blades",
+      "category": "Visibilité",
+      "title": "Remplacement des balais d'essuie-glace",
+      "vehicle_types": [
+        "car",
+        "van"
+      ],
+      "fuels": [
+        "petrol",
+        "diesel",
+        "hybrid",
+        "electric"
+      ],
+      "interval": "Environ une fois par an, idéalement avant l'hiver.",
+      "interval_months": 12,
+      "difficulty": 1,
+      "time_min": 5,
+      "time_max": 15,
+      "why": "Le caoutchouc durcit au soleil et au gel : il laisse des traînées et réduit la visibilité de nuit sous la pluie, au moment où on en a le plus besoin.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "Traînées, zones non essuyées ou voile gras sur le pare-brise.",
+          "means": "Lame usée ou encrassée."
+        },
+        {
+          "sense": "sound",
+          "tip": "Broutage ou grincement à chaque passage.",
+          "means": "Caoutchouc durci, ou bras mal orienté."
+        }
+      ],
+      "components": [
+        "wiper_blades"
+      ],
+      "tools": [
+        "Mètre ruban",
+        "Chiffon"
+      ],
+      "safety": [
+        "Posez un chiffon sur le pare-brise : un bras qui se rabat sans balai peut fissurer la vitre.",
+        "Sur beaucoup de modèles récents, activez la « position service » des essuie-glaces (voir la notice) pour pouvoir les relever."
+      ],
+      "shopping": [
+        {
+          "name": "Balais d'essuie-glace avant (paire, longueurs du modèle)",
+          "query": "balais essuie glace avant",
+          "qty": 1,
+          "unit": "paire",
+          "price_min": 15,
+          "price_max": 45
+        },
+        {
+          "name": "Balai arrière",
+          "query": "balai essuie glace arrière",
+          "qty": 1,
+          "unit": "pièce",
+          "price_min": 6,
+          "price_max": 18,
+          "optional": true
+        }
+      ],
+      "steps": [
+        {
+          "title": "Position service",
+          "text": "Mettez les essuie-glaces en position service si nécessaire, puis relevez le bras.",
+          "components": [
+            "wiper_blades"
+          ]
+        },
+        {
+          "title": "Déposer l'ancien balai",
+          "text": "Appuyez sur le clip de l'adaptateur et faites glisser le balai le long du bras.",
+          "components": [
+            "wiper_blades"
+          ]
+        },
+        {
+          "title": "Poser le neuf",
+          "text": "Même longueur et même type de fixation, jusqu'au clic. Reposez doucement le bras.",
+          "components": [
+            "wiper_blades"
+          ]
+        },
+        {
+          "title": "Essai",
+          "text": "Pare-brise mouillé, vérifiez l'essuyage sur toute la surface.",
+          "components": [
+            "wiper_blades"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bulb_replace",
+      "category": "Visibilité",
+      "title": "Remplacement d'une ampoule (phare, feu, clignotant)",
+      "vehicle_types": [
+        "car",
+        "van"
+      ],
+      "fuels": [
+        "petrol",
+        "diesel",
+        "hybrid",
+        "electric"
+      ],
+      "interval": "Dès qu'une ampoule est grillée (contrôle mensuel de l'éclairage).",
+      "difficulty": 2,
+      "time_min": 10,
+      "time_max": 45,
+      "why": "Un feu éteint réduit votre visibilité et celle que les autres ont de vous : c'est aussi une défaillance au contrôle technique et une amende.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "Clignotant qui clignote deux fois plus vite.",
+          "means": "Une ampoule de ce côté est grillée."
+        },
+        {
+          "sense": "sight",
+          "tip": "Ampoule halogène noircie ou filament cassé.",
+          "means": "À remplacer ; changez par paire pour un éclairage homogène."
+        }
+      ],
+      "components": [
+        "headlights"
+      ],
+      "tools": [
+        "Gants propres (ne touchez jamais le verre d'une ampoule halogène)",
+        "Tournevis",
+        "Lampe"
+      ],
+      "safety": [
+        "Éclairage coupé, contact coupé.",
+        "Phares au xénon : haute tension, laissez faire un professionnel. LED intégrées : souvent bloc complet à remplacer."
+      ],
+      "shopping": [
+        {
+          "name": "Ampoule (référence du modèle : H7, H4, P21W…)",
+          "query": "ampoule phare H7",
+          "qty": 2,
+          "unit": "pièce",
+          "price_min": 4,
+          "price_max": 15
+        }
+      ],
+      "steps": [
+        {
+          "title": "Identifier la référence",
+          "text": "Notice ou ampoule déposée (H7, H4, H1, W5W, P21W…). Vérifiez dans la notice si l'accès se fait par le capot, le passage de roue ou en déposant le phare.",
+          "components": [
+            "headlights"
+          ]
+        },
+        {
+          "title": "Déposer",
+          "text": "Retirez le cache arrière du phare, le connecteur, puis le ressort ou la bague qui tient l'ampoule.",
+          "components": [
+            "headlights"
+          ]
+        },
+        {
+          "title": "Poser sans toucher le verre",
+          "text": "Tenez l'ampoule par le culot, ergots dans les encoches, ressort refermé, connecteur et cache remis.",
+          "components": [
+            "headlights"
+          ]
+        },
+        {
+          "title": "Contrôle du réglage",
+          "text": "Allumez face à un mur : faisceaux symétriques. Faites contrôler le réglage si un phare éclaire plus haut.",
+          "components": [
+            "headlights"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "timing_belt",
+      "category": "Moteur",
+      "title": "Courroie de distribution : savoir quand la changer",
+      "vehicle_types": [
+        "car",
+        "van"
+      ],
+      "fuels": [
+        "petrol",
+        "diesel",
+        "hybrid"
+      ],
+      "interval": "Selon le carnet : souvent entre 90 000 et 240 000 km ou 5 à 10 ans. Certains moteurs ont une chaîne (pas de remplacement périodique) ou une courroie baignée dans l'huile.",
+      "difficulty": 5,
+      "time_min": 180,
+      "time_max": 420,
+      "why": "Si la courroie casse sur la plupart des moteurs, pistons et soupapes se rencontrent : la casse moteur coûte souvent plus que la valeur du véhicule. C'est l'entretien à ne jamais repousser.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "Craquelures, dents abîmées ou effilochage visibles par la trappe de visite.",
+          "means": "Courroie à remplacer sans attendre."
+        },
+        {
+          "sense": "sound",
+          "tip": "Sifflement ou frottement côté distribution, qui varie avec le régime.",
+          "means": "Galet tendeur ou pompe à eau fatigués : à faire contrôler."
+        },
+        {
+          "sense": "sight",
+          "tip": "Fuite d'huile ou de liquide sur le carter de distribution.",
+          "means": "Une courroie souillée s'use très vite : réparer la fuite avec le remplacement."
+        }
+      ],
+      "components": [
+        "timing_chain",
+        "engine",
+        "accessory_belt"
+      ],
+      "tools": [
+        "Outils de calage spécifiques au moteur (piges, blocage d'arbres)",
+        "Clé dynamométrique",
+        "Cric + chandelles",
+        "Manuel technique du moteur"
+      ],
+      "safety": [
+        "Intervention réservée aux mécaniciens expérimentés : une erreur de calage d'une seule dent peut casser le moteur.",
+        "Utilisez toujours le kit complet (courroie, galets, souvent pompe à eau) et les couples / angles du constructeur."
+      ],
+      "shopping": [
+        {
+          "name": "Kit de distribution avec pompe à eau",
+          "query": "kit distribution pompe à eau",
+          "qty": 1,
+          "unit": "kit",
+          "price_min": 90,
+          "price_max": 320
+        }
+      ],
+      "steps": [
+        {
+          "title": "Chaîne ou courroie ?",
+          "text": "Le carnet ou la fiche technique l'indique. Une chaîne ne se remplace qu'en cas de bruit ou de code de calage (P0016…).",
+          "components": [
+            "timing_chain"
+          ]
+        },
+        {
+          "title": "Vérifier l'échéance",
+          "text": "Comparez kilométrage ET âge avec le carnet, et cherchez la facture du dernier remplacement. Sans preuve sur un véhicule d'occasion, considérez qu'il est à faire.",
+          "components": [
+            "engine"
+          ]
+        },
+        {
+          "title": "Faire chiffrer",
+          "text": "Demandez un devis « kit + pompe à eau + liquide », avec la marque des pièces. Comparez avec le prix du kit seul pour juger la main-d'œuvre.",
+          "components": [
+            "timing_chain"
+          ]
+        },
+        {
+          "title": "Si vous le faites vous-même",
+          "text": "Uniquement avec les outils de calage du moteur et sa procédure. Après montage, deux tours de vilebrequin à la main et contrôle du calage avant de démarrer.",
+          "components": [
+            "timing_chain",
+            "engine"
+          ],
+          "warning": "Jamais de démarrage si le moteur force en tournant à la main."
+        }
+      ]
+    },
+    {
+      "id": "adblue_refill",
+      "category": "Dépollution",
+      "title": "Remplir le réservoir d'AdBlue",
+      "vehicle_types": [
+        "car",
+        "van"
+      ],
+      "fuels": [
+        "diesel"
+      ],
+      "interval": "Selon la consommation (souvent 1 à 1,5 L aux 1 000 km) ; le véhicule prévient à partir d'environ 2 400 km d'autonomie.",
+      "difficulty": 1,
+      "time_min": 5,
+      "time_max": 10,
+      "why": "Sans AdBlue, la réduction des oxydes d'azote ne fonctionne plus : la loi impose au moteur de refuser de redémarrer une fois le réservoir vide.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "Cristaux blancs autour de la goulotte ou sous le véhicule.",
+          "means": "Débordement ou fuite d'AdBlue : rincer à l'eau, surveiller."
+        },
+        {
+          "sense": "sight",
+          "tip": "Message « AdBlue » ou « dépollution » malgré un réservoir plein.",
+          "means": "Défaut du système SCR (pompe, réchauffeur, capteur NOx) : diagnostic."
+        }
+      ],
+      "components": [
+        "adblue_tank"
+      ],
+      "tools": [
+        "Bidon à bec verseur antidébordement"
+      ],
+      "safety": [
+        "Jamais d'AdBlue dans le réservoir de gazole (ni l'inverse) : réparation très coûteuse. La goulotte AdBlue a un bouchon bleu.",
+        "L'AdBlue corrode certains métaux : essuyez et rincez les coulures."
+      ],
+      "shopping": [
+        {
+          "name": "AdBlue (norme ISO 22241)",
+          "query": "AdBlue 10L",
+          "qty": 1,
+          "unit": "bidon 10 L",
+          "price_min": 10,
+          "price_max": 22
+        }
+      ],
+      "steps": [
+        {
+          "title": "Trouver la goulotte",
+          "text": "Bouchon bleu : à côté du gazole, dans le coffre ou sous le capot selon le modèle.",
+          "components": [
+            "adblue_tank"
+          ]
+        },
+        {
+          "title": "Remplir",
+          "text": "Avec le bec antidébordement, sans dépasser : arrêtez dès que le bec ne s'écoule plus.",
+          "components": [
+            "adblue_tank"
+          ]
+        },
+        {
+          "title": "Contact",
+          "text": "Mettez le contact une minute avant de démarrer (certains modèles l'exigent) pour que le niveau soit relu.",
+          "components": [
+            "adblue_tank"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "quadricycle_service",
+      "category": "Moteur",
+      "title": "Entretien de la voiture sans permis (vidange, filtres, courroie de variateur)",
+      "vehicle_types": [
+        "car"
+      ],
+      "fuels": [
+        "diesel"
+      ],
+      "makes": [
+        "Aixam",
+        "Ligier",
+        "Microcar",
+        "Chatenet"
+      ],
+      "interval": "Souvent tous les 5 000 à 10 000 km ou 1 an selon le constructeur ; courroie de variateur à contrôler à chaque révision.",
+      "interval_km": 5000,
+      "interval_months": 12,
+      "difficulty": 3,
+      "time_min": 60,
+      "time_max": 150,
+      "why": "Le petit diesel bicylindre (Kubota ou Lombardini) tourne vite et longtemps avec peu d'huile, et la transmission à variateur use sa courroie : un entretien régulier évite la perte de vitesse et la casse.",
+      "sensory_checks": [
+        {
+          "sense": "feel",
+          "tip": "Le véhicule plafonne plus bas qu'avant ou peine en côte, moteur qui monte en régime.",
+          "means": "Courroie de variateur usée ou glissante, galets du variateur usés."
+        },
+        {
+          "sense": "sound",
+          "tip": "Claquement ou sifflement au démarrage et à l'accélération.",
+          "means": "Courroie ou embrayage centrifuge à contrôler."
+        },
+        {
+          "sense": "sight",
+          "tip": "Fumée noire à l'accélération.",
+          "means": "Filtre à air encrassé ou injection à contrôler."
+        }
+      ],
+      "components": [
+        "engine",
+        "oil_filter",
+        "oil_drain_plug",
+        "air_filter",
+        "fuel_filter"
+      ],
+      "tools": [
+        "Clés et douilles",
+        "Clé à filtre",
+        "Bac de vidange",
+        "Entonnoir",
+        "Chandelles"
+      ],
+      "safety": [
+        "Moteur froid, contact coupé, frein à main serré, véhicule calé.",
+        "Courroie de variateur : la largeur minimale est indiquée par le constructeur ; montez une courroie à la bonne référence."
+      ],
+      "shopping": [
+        {
+          "name": "Huile moteur diesel (norme du carnet)",
+          "query": "huile moteur 10W40 diesel 2L",
+          "qty": 2,
+          "unit": "L",
+          "price_min": 7,
+          "price_max": 14
+        },
+        {
+          "name": "Filtre à huile",
+          "query": "filtre à huile voiture sans permis",
+          "qty": 1,
+          "unit": "pièce",
+          "price_min": 8,
+          "price_max": 20
+        },
+        {
+          "name": "Filtre à air",
+          "query": "filtre à air voiture sans permis",
+          "qty": 1,
+          "unit": "pièce",
+          "price_min": 8,
+          "price_max": 25
+        },
+        {
+          "name": "Filtre à gazole",
+          "query": "filtre gasoil voiture sans permis",
+          "qty": 1,
+          "unit": "pièce",
+          "price_min": 8,
+          "price_max": 20
+        },
+        {
+          "name": "Courroie de variateur",
+          "query": "courroie variateur voiture sans permis",
+          "qty": 1,
+          "unit": "pièce",
+          "price_min": 35,
+          "price_max": 90,
+          "optional": true
+        }
+      ],
+      "steps": [
+        {
+          "title": "Vidange et filtre à huile",
+          "text": "Moteur tiède, bouchon de carter, filtre neuf au joint huilé, remplissage à la jauge (souvent 1,5 à 2 L).",
+          "components": [
+            "oil_drain_plug",
+            "oil_filter"
+          ]
+        },
+        {
+          "title": "Filtres à air et à gazole",
+          "text": "Remplacez-les, puis purgez l'air du circuit de gazole selon la notice avant de démarrer.",
+          "components": [
+            "air_filter",
+            "fuel_filter"
+          ]
+        },
+        {
+          "title": "Courroie de variateur",
+          "text": "Déposez le carter de transmission, mesurez la largeur de la courroie, cherchez les craquelures et les galets plats. Remplacez si elle est sous la cote.",
+          "components": [
+            "engine"
+          ]
+        },
+        {
+          "title": "Essai",
+          "text": "Démarrage, absence de fuite, vitesse maximale normale et pas de patinage en côte.",
+          "components": [
+            "engine"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "scooter_service",
+      "category": "Moteur",
+      "title": "Révision du scooter 125 (huile, bougie, filtre à air, transmission)",
+      "vehicle_types": [
+        "motorcycle"
+      ],
+      "fuels": [
+        "petrol"
+      ],
+      "final_drives": [
+        "cvt"
+      ],
+      "interval": "Souvent tous les 3 000 à 6 000 km ou 1 an (vidange) selon le constructeur.",
+      "interval_km": 5000,
+      "interval_months": 12,
+      "difficulty": 2,
+      "time_min": 45,
+      "time_max": 90,
+      "why": "Le petit monocylindre d'un scooter contient souvent moins d'un litre d'huile, qui s'use vite en ville. L'huile de transmission finale et le filtre à air sont souvent oubliés.",
+      "sensory_checks": [
+        {
+          "sense": "sound",
+          "tip": "Cliquetis moteur à chaud.",
+          "means": "Huile usée ou niveau bas, ou jeu aux soupapes à régler."
+        },
+        {
+          "sense": "feel",
+          "tip": "À-coups au démarrage et à la reprise.",
+          "means": "Embrayage centrifuge ou galets du variateur usés (voir le tutoriel variateur)."
+        }
+      ],
+      "components": [
+        "engine",
+        "oil_filter",
+        "oil_drain_plug",
+        "spark_plug_1",
+        "air_filter",
+        "final_drive"
+      ],
+      "tools": [
+        "Clés et douilles",
+        "Clé à bougie",
+        "Bac de vidange",
+        "Entonnoir",
+        "Seringue pour l'huile de transmission"
+      ],
+      "safety": [
+        "Scooter sur béquille centrale, moteur tiède (pas chaud).",
+        "Le pot d'échappement reste brûlant longtemps."
+      ],
+      "shopping": [
+        {
+          "name": "Huile moteur 4T JASO MA / MB (selon notice)",
+          "query": "huile moteur scooter 4T 1L",
+          "qty": 1,
+          "unit": "L",
+          "price_min": 8,
+          "price_max": 16
+        },
+        {
+          "name": "Filtre à huile ou crépine",
+          "query": "filtre à huile scooter 125",
+          "qty": 1,
+          "unit": "pièce",
+          "price_min": 5,
+          "price_max": 14
+        },
+        {
+          "name": "Bougie",
+          "query": "bougie scooter 125",
+          "qty": 1,
+          "unit": "pièce",
+          "price_min": 5,
+          "price_max": 15
+        },
+        {
+          "name": "Huile de transmission finale (80W90)",
+          "query": "huile transmission scooter 80W90",
+          "qty": 1,
+          "unit": "flacon",
+          "price_min": 5,
+          "price_max": 12,
+          "optional": true
+        }
+      ],
+      "steps": [
+        {
+          "title": "Vidange moteur",
+          "text": "Bouchon de carter, crépine ou filtre nettoyés / remplacés, remplissage à la jauge (souvent 0,8 à 1 L).",
+          "components": [
+            "oil_drain_plug",
+            "oil_filter"
+          ]
+        },
+        {
+          "title": "Huile de transmission",
+          "text": "Bouchon de vidange du carter de roue arrière, puis remplissage à la seringue de la quantité indiquée (souvent 0,1 à 0,2 L).",
+          "components": [
+            "final_drive"
+          ]
+        },
+        {
+          "title": "Bougie et filtre à air",
+          "text": "Bougie neuve à l'écartement prescrit ; filtre à air remplacé ou nettoyé selon le type.",
+          "components": [
+            "spark_plug_1",
+            "air_filter"
+          ]
+        },
+        {
+          "title": "Essai",
+          "text": "Pas de fuite, ralenti stable, reprise franche.",
+          "components": [
+            "engine"
           ]
         }
       ]

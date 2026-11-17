@@ -62,7 +62,7 @@ export function computeReminders(v: GarageVehicle, journal: JournalEntry[], tuto
 
   for (const t of tutorials) {
     if (!t.interval_km && !t.interval_months) continue;
-    const last = mine.filter((j) => j.kind === 'maintenance' && j.title === t.title).sort((a, b) => b.date - a.date)[0];
+    const last = mine.filter((j) => j.kind === 'maintenance' && (j.tutorialId === t.id || j.title === t.title)).sort((a, b) => b.date - a.date)[0];
     if (!last) {
       out.push({ id: t.id, title: t.title, status: 'unknown', detail: 'Jamais enregistré : faites-le ou notez la dernière intervention', tutorialId: t.id, urgency: 40 });
       continue;
