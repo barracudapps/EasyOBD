@@ -29,8 +29,9 @@
   const fuelLabel: Record<string, string> = { petrol: 'Essence', diesel: 'Diesel', hybrid: 'Hybride', electric: 'Électrique' };
 
   function pick(p: VehicleProfile) {
-    setProfile(p);
-    toast(`Véhicule : ${p.make} ${p.model}`, 'ok');
+    const creating = !app.vehicleId || app.temporaryProfile;
+    setProfile(p, { asNew: !app.vehicleId });
+    toast(creating ? `${p.make} ${p.model} ajouté à votre garage` : `Modèle mis à jour : ${p.make} ${p.model}`, 'ok');
     onclose();
   }
 
@@ -119,9 +120,7 @@
       <p class="tiny faint">Contenance et norme : carnet d'entretien ou notice du véhicule.</p>
       <button class="btn primary" onclick={saveCustom}><Icon name="check" /> Utiliser ce véhicule</button>
     {/if}
-    {#if app.profile}
-      <button class="btn ghost sm" onclick={() => { setProfile(null); onclose(); }}>Oublier le véhicule</button>
-    {/if}
+    <p class="tiny faint">{app.vehicleId ? 'Le modèle choisi remplace celui du véhicule actif du garage.' : 'Le modèle choisi sera ajouté à votre garage.'}</p>
   </div>
 </div>
 

@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onDestroy, onMount } from 'svelte';
   import { VehicleScene } from '../lib/three/scene';
-  import { app, componentName, sceneVehicle } from '../lib/state.svelte';
+  import { app, componentName, sceneVehicle, vkey } from '../lib/state.svelte';
   import Icon from './Icon.svelte';
   import Photos from './Photos.svelte';
 
@@ -65,7 +65,7 @@
         <strong>{componentName(picked)}</strong>
         <button class="btn ghost sm" aria-label="Fermer" onclick={() => (picked = null)}><Icon name="x" size={14} /></button>
       </div>
-      <Photos components={[picked]} userKey={`part.${app.profile?.id ?? 'any'}.${picked}`} compact />
+      <Photos components={[picked]} userKey={`part.${vkey()}.${picked}`} compact />
       <button class="btn sm" onclick={() => { app.highlightSeverity = 'info'; app.highlight = [picked!]; }}>Isoler cette pièce</button>
     </div>
   {/if}

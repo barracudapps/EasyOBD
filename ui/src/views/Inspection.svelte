@@ -1,6 +1,6 @@
 <script lang="ts">
   import { call, errorText } from '../lib/api';
-  import { app, go, save, senseLabel, toast } from '../lib/state.svelte';
+  import { app, addJournal, go, save, senseLabel, toast, vkey } from '../lib/state.svelte';
   import type { CheckItem, ConnectResult, InspectionGuide, Precheck } from '../lib/types';
   import Icon from '../components/Icon.svelte';
 
@@ -11,7 +11,7 @@
   let checking = $state(false);
 
   const senseIcon: Record<string, string> = { sight: 'eye', sound: 'ear', smell: 'nose', touch: 'hand', feel: 'steering' };
-  const key = $derived(app.profile ? `easyobd.ct.${app.profile.id}` : '');
+  const key = $derived(app.profile ? `easyobd.ct.${vkey()}` : '');
 
   $effect(() => {
     const p = app.profile;
@@ -20,8 +20,8 @@
       .then((g) => (guide = g))
       .catch((e) => toast(errorText(e), 'error'));
     try {
-      done = JSON.parse(localStorage.getItem(`easyobd.ct.${p.id}`) ?? '{}');
-      myVin = localStorage.getItem(`easyobd.vin.${p.id}`) ?? '';
+      done = JSON.parse(localStorage.getItem(`easyobd.ct.${vkey()}`) ?? '{}');
+      myVin = localStorage.getItem(`easyobd.vin.${vkey()}`) ?? '';
     } catch {
       done = {};
     }
@@ -44,6 +44,7 @@
     checking = true;
     try {
       pre = await call<Precheck>('inspection_precheck');
+      addJournal({ kind: 'inspection', title: pre.ready ? 'Pré-contrôle OBD : prêt' : 'Pré-contrôle OBD : à corriger', details: pre.advice.join(' '), codes: pre.dtcs.map((d) => d.code) });
     } catch (e) {
       toast(errorText(e), 'error');
     } finally {
@@ -111,7 +112,7 @@
         {#each guide.vin.generic as g}<li class="small"><strong>{g.place}</strong> · <span class="muted">{g.detail}</span></li>{/each}
       </ul>
       <label class="field">Mon emplacement (mémorisé sur cet appareil)
-        <input class="input" bind:value={myVin} placeholder="Ex. sous la moquette, à droite du siège passager" onchange={() => { try { localStorage.setItem(`easyobd.vin.${app.profile!.id}`, myVin); } catch {} }} />
+        <input class="input" bind:value={myVin} placeholder="Ex. sous la moquette, à droite du siège passager" onchange={() => { try { localStorage.setItem(`easyobd.vin.${vkey()}`, myVin); } catch {} }} />
       </label>
     </div>
 

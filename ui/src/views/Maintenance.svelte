@@ -1,6 +1,6 @@
 <script lang="ts">
   import { call, errorText, openUrl } from '../lib/api';
-  import { app, fmt, save, toast } from '../lib/state.svelte';
+  import { addJournal, app, currentVehicle, fmt, save, toast, vkey } from '../lib/state.svelte';
   import type { ShoppingList, Tutorial, TutorialSummary } from '../lib/types';
   import Icon from '../components/Icon.svelte';
   import SenseChecks from '../components/SenseChecks.svelte';
@@ -45,7 +45,7 @@
       step = 0;
       tab = 'steps';
       try {
-        bought = JSON.parse(localStorage.getItem(`easyobd.bought.${id}`) ?? '{}');
+        bought = JSON.parse(localStorage.getItem(`easyobd.bought.${vkey()}.${id}`) ?? '{}');
       } catch {
         bought = {};
       }
@@ -63,7 +63,7 @@
 
   function toggleBought(name: string) {
     bought = { ...bought, [name]: !bought[name] };
-    if (tut) save(`easyobd.bought.${tut.id}`, bought);
+    if (tut) save(`easyobd.bought.${vkey()}.${tut.id}`, bought);
   }
 
   function copyList() {
@@ -143,14 +143,14 @@
         <p>{s.text}</p>
         {#if s.warning}<div class="callout danger small row"><Icon name="alert" size={16} /> <span class="grow">{s.warning}</span></div>{/if}
         {#if s.tip}<div class="callout info small row"><Icon name="info" size={16} /> <span class="grow">{s.tip}</span></div>{/if}
-        <Photos components={s.components} userKey={`step.${app.profile?.id}.${tut.id}.${step}`} />
+        <Photos components={s.components} userKey={`step.${vkey()}.${tut.id}.${step}`} />
         <p class="tiny faint">Les pièces concernées sont mises en évidence dans la vue 3D. Ajoutez vos photos (sens de montage, repères) : elles restent sur cet appareil.</p>
         <div class="row spread">
           <button class="btn sm" disabled={step === 0} onclick={() => { step -= 1; showStep(); }}><Icon name="back" size={15} /> Précédente</button>
           {#if step < tut.steps.length - 1}
             <button class="btn primary sm" onclick={() => { step += 1; showStep(); }}>Suivante <Icon name="chevron" size={15} /></button>
           {:else}
-            <button class="btn primary sm" onclick={() => toast('Bravo, entretien terminé ! Notez le kilométrage dans votre carnet.', 'ok')}><Icon name="check" size={15} /> Terminé</button>
+            <button class="btn primary sm" onclick={() => { addJournal({ kind: 'maintenance', title: tut!.title, cost: shopping ? Math.round((shopping.total_min + shopping.total_max) / 2) : undefined }); toast(currentVehicle() ? 'Bravo ! Intervention ajoutée au carnet du véhicule (Mon garage).' : 'Bravo, entretien terminé !', 'ok'); }}><Icon name="check" size={15} /> Terminé</button>
           {/if}
         </div>
       </div>

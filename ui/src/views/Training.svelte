@@ -32,7 +32,7 @@
     revealed = 0;
     answer = null;
     const p = app.profiles.find((x) => x.id === s.profile);
-    if (p) setProfile(p);
+    if (p) setProfile(p, { temporary: true });
     app.highlight = [];
   }
 

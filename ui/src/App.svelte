@@ -14,12 +14,14 @@
   import Codes from './views/Codes.svelte';
   import Expert from './views/Expert.svelte';
   import Inspection from './views/Inspection.svelte';
+  import Garage from './views/Garage.svelte';
 
   let ready = $state(false);
   let failure = $state('');
 
   const nav: { id: View; label: string; icon: string }[] = [
     { id: 'home', label: 'Accueil', icon: 'home' },
+    { id: 'garage', label: 'Garage', icon: 'car' },
     { id: 'diagnostic', label: 'Diagnostic', icon: 'scan' },
     { id: 'eye', label: "À l'œil", icon: 'eye' },
     { id: 'audio', label: 'Audio', icon: 'wave' },
@@ -55,9 +57,9 @@
       <span class="name">Easy<span class="grad-text">OBD</span></span>
     </button>
     <div class="grow"></div>
-    <button class="btn sm vehicle" onclick={() => (app.pickerOpen = true)} title="Choisir le véhicule">
+    <button class="btn sm vehicle" onclick={() => (app.garage.length && !app.temporaryProfile ? go('garage') : (app.pickerOpen = true))} title="Mon garage">
       <Icon name={vehicleIcon} size={18} />
-      <span class="vlabel">{app.profile ? `${app.profile.make} ${app.profile.model}` : 'Choisir mon véhicule'}</span>
+      <span class="vlabel">{app.temporaryProfile ? `Scénario : ${app.profile?.make} ${app.profile?.model}` : (app.garage.find((v) => v.id === app.vehicleId)?.name ?? (app.profile ? `${app.profile.make} ${app.profile.model}` : 'Choisir mon véhicule'))}</span>
     </button>
     <span class="pill conn" class:on={!!app.connection} title={app.connection?.adapter.transport}>
       <span class="led"></span>{app.connection ? (app.connection.simulated ? 'Simulation' : 'Connecté') : 'Hors ligne OBD'}
@@ -93,6 +95,7 @@
           {:else if app.view === 'training'}<Training />
           {:else if app.view === 'codes'}<Codes />
           {:else if app.view === 'inspection'}<Inspection />
+          {:else if app.view === 'garage'}<Garage />
           {:else if app.view === 'expert'}<Expert />
           {/if}
         {/key}

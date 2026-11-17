@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onDestroy } from 'svelte';
   import { call, errorText, isNative } from '../lib/api';
-  import { app, severityLabel, toast } from '../lib/state.svelte';
+  import { addJournal, app, currentVehicle, selectVehicle, severityLabel, toast, updateVehicle } from '../lib/state.svelte';
   import type { AdapterCandidate, ConnectResult, ConnectionSpec, DtcItem, LiveValue } from '../lib/types';
   import Icon from '../components/Icon.svelte';
   import DiagnosisDetail from '../components/DiagnosisDetail.svelte';
@@ -49,6 +49,13 @@
     try {
       app.connection = await call<ConnectResult>('connect', { spec });
       toast(`Connecté : ${app.connection.adapter.protocol}`, 'ok');
+      // Recognise a garage vehicle by its VIN.
+      const vin = app.connection.vehicle.vin;
+      const known = vin ? app.garage.find((v) => v.vin === vin) : undefined;
+      if (known && known.id !== app.vehicleId && !app.connection.simulated) {
+        selectVehicle(known.id);
+        toast(`Véhicule reconnu : ${known.name}`, 'ok');
+      }
       await readCodes();
     } catch (e) {
       toast(errorText(e), 'error');
@@ -62,6 +69,12 @@
     try {
       app.dtcs = await call<DtcItem[]>('read_dtcs');
       selected = app.dtcs[0]?.code ?? null;
+      if (!app.connection?.simulated) {
+        addJournal({ kind: 'diagnostic', title: app.dtcs.length ? `${app.dtcs.length} code(s) défaut lu(s)` : 'Lecture OBD : aucun code', codes: app.dtcs.map((d) => d.code), details: app.dtcs.map((d) => `${d.code} ${d.diagnosis?.title ?? ''}`).join(' · ') });
+        const v = currentVehicle();
+        const vin = app.connection?.vehicle.vin;
+        if (v && vin && !v.vin) updateVehicle(v.id, { vin });
+      }
       if (!app.dtcs.length) {
         app.highlight = [];
         toast('Aucun code défaut enregistré.', 'ok');
@@ -79,6 +92,7 @@
       await call('clear_dtcs');
       confirmClear = false;
       toast('Codes effacés. Le voyant s’éteint ; le code reviendra si la panne persiste.', 'ok');
+      if (!app.connection?.simulated) addJournal({ kind: 'repair', title: 'Codes défaut effacés', codes: app.dtcs.map((d) => d.code) });
       await readCodes();
     } catch (e) {
       toast(errorText(e), 'error');
