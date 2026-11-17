@@ -8207,6 +8207,2512 @@
       "fuel": "petrol",
       "cylinders": 4,
       "body": "hatch"
+    },
+    {
+      "id": "peugeot-107-1-0-68",
+      "type": "car",
+      "make": "Peugeot",
+      "model": "107",
+      "engine": "1.0 68",
+      "years": [
+        2005,
+        2014
+      ],
+      "fuel": "petrol",
+      "cylinders": 3,
+      "body": "micro"
+    },
+    {
+      "id": "peugeot-108-1-0-vti-72",
+      "type": "car",
+      "make": "Peugeot",
+      "model": "108",
+      "engine": "1.0 VTi 72",
+      "years": [
+        2014,
+        2021
+      ],
+      "fuel": "petrol",
+      "cylinders": 3,
+      "body": "micro"
+    },
+    {
+      "id": "peugeot-307-1-6-hdi-110",
+      "type": "car",
+      "make": "Peugeot",
+      "model": "307",
+      "engine": "1.6 HDi 110",
+      "years": [
+        2001,
+        2008
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "body": "hatch"
+    },
+    {
+      "id": "peugeot-407-2-0-hdi-136",
+      "type": "car",
+      "make": "Peugeot",
+      "model": "407",
+      "engine": "2.0 HDi 136",
+      "years": [
+        2004,
+        2011
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "body": "sedan"
+    },
+    {
+      "id": "peugeot-508-i-2-0-hdi-140",
+      "type": "car",
+      "make": "Peugeot",
+      "model": "508 I",
+      "engine": "2.0 HDi 140",
+      "years": [
+        2011,
+        2018
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "body": "sedan"
+    },
+    {
+      "id": "peugeot-508-ii-1-5-bluehdi-130",
+      "type": "car",
+      "make": "Peugeot",
+      "model": "508 II",
+      "engine": "1.5 BlueHDi 130",
+      "years": [
+        2018,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "body": "sedan"
+    },
+    {
+      "id": "peugeot-3008-i-1-6-hdi-112",
+      "type": "car",
+      "make": "Peugeot",
+      "model": "3008 I",
+      "engine": "1.6 HDi 112",
+      "years": [
+        2009,
+        2016
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "body": "suv"
+    },
+    {
+      "id": "peugeot-5008-i-1-6-hdi-112",
+      "type": "car",
+      "make": "Peugeot",
+      "model": "5008 I",
+      "engine": "1.6 HDi 112",
+      "years": [
+        2009,
+        2017
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "body": "mpv"
+    },
+    {
+      "id": "peugeot-rifter-1-5-bluehdi-130",
+      "type": "car",
+      "make": "Peugeot",
+      "model": "Rifter",
+      "engine": "1.5 BlueHDi 130",
+      "years": [
+        2018,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "body": "mpv"
+    },
+    {
+      "id": "citroen-c1-1-0-68",
+      "type": "car",
+      "make": "Citroën",
+      "model": "C1",
+      "engine": "1.0 68",
+      "years": [
+        2005,
+        2014
+      ],
+      "fuel": "petrol",
+      "cylinders": 3,
+      "body": "micro"
+    },
+    {
+      "id": "citroen-c3-i-1-4-hdi-70",
+      "type": "car",
+      "make": "Citroën",
+      "model": "C3 I",
+      "engine": "1.4 HDi 70",
+      "years": [
+        2002,
+        2009
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "body": "hatch"
+    },
+    {
+      "id": "citroen-c4-i-1-6-hdi-110",
+      "type": "car",
+      "make": "Citroën",
+      "model": "C4 I",
+      "engine": "1.6 HDi 110",
+      "years": [
+        2004,
+        2010
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "body": "hatch"
+    },
+    {
+      "id": "citroen-c5-ii-2-0-hdi-140",
+      "type": "car",
+      "make": "Citroën",
+      "model": "C5 II",
+      "engine": "2.0 HDi 140",
+      "years": [
+        2008,
+        2017
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "body": "sedan"
+    },
+    {
+      "id": "citroen-berlingo-ii-1-6-hdi-90",
+      "type": "car",
+      "make": "Citroën",
+      "model": "Berlingo II",
+      "engine": "1.6 HDi 90",
+      "years": [
+        2008,
+        2018
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "body": "mpv"
+    },
+    {
+      "id": "citroen-c3-aircross-1-2-puretech-110",
+      "type": "car",
+      "make": "Citroën",
+      "model": "C3 Aircross",
+      "engine": "1.2 PureTech 110",
+      "years": [
+        2017,
+        2024
+      ],
+      "fuel": "petrol",
+      "cylinders": 3,
+      "body": "suv"
+    },
+    {
+      "id": "citroen-c5-x-1-6-hybrid-225",
+      "type": "car",
+      "make": "Citroën",
+      "model": "C5 X",
+      "engine": "1.6 Hybrid 225",
+      "years": [
+        2022,
+        2026
+      ],
+      "fuel": "hybrid",
+      "cylinders": 4,
+      "body": "estate"
+    },
+    {
+      "id": "ds-3-crossback-1-2-puretech-130",
+      "type": "car",
+      "make": "DS",
+      "model": "3 Crossback",
+      "engine": "1.2 PureTech 130",
+      "years": [
+        2019,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 3,
+      "body": "suv"
+    },
+    {
+      "id": "renault-megane-ii-1-5-dci-105",
+      "type": "car",
+      "make": "Renault",
+      "model": "Mégane II",
+      "engine": "1.5 dCi 105",
+      "years": [
+        2002,
+        2009
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "body": "hatch"
+    },
+    {
+      "id": "renault-laguna-iii-2-0-dci-150",
+      "type": "car",
+      "make": "Renault",
+      "model": "Laguna III",
+      "engine": "2.0 dCi 150",
+      "years": [
+        2007,
+        2015
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "body": "sedan"
+    },
+    {
+      "id": "renault-scenic-ii-1-5-dci-105",
+      "type": "car",
+      "make": "Renault",
+      "model": "Scénic II",
+      "engine": "1.5 dCi 105",
+      "years": [
+        2003,
+        2009
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "body": "mpv"
+    },
+    {
+      "id": "renault-captur-i-1-5-dci-90",
+      "type": "car",
+      "make": "Renault",
+      "model": "Captur I",
+      "engine": "1.5 dCi 90",
+      "years": [
+        2013,
+        2019
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "body": "suv"
+    },
+    {
+      "id": "renault-koleos-ii-2-0-dci-175",
+      "type": "car",
+      "make": "Renault",
+      "model": "Koleos II",
+      "engine": "2.0 dCi 175",
+      "years": [
+        2017,
+        2023
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "body": "suv",
+      "traction": "both"
+    },
+    {
+      "id": "renault-talisman-1-6-dci-160",
+      "type": "car",
+      "make": "Renault",
+      "model": "Talisman",
+      "engine": "1.6 dCi 160",
+      "years": [
+        2015,
+        2022
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "body": "sedan"
+    },
+    {
+      "id": "renault-twingo-ii-1-2-75",
+      "type": "car",
+      "make": "Renault",
+      "model": "Twingo II",
+      "engine": "1.2 75",
+      "years": [
+        2007,
+        2014
+      ],
+      "fuel": "petrol",
+      "cylinders": 4,
+      "body": "hatch"
+    },
+    {
+      "id": "renault-clio-v-e-tech-full-hybrid-145",
+      "type": "car",
+      "make": "Renault",
+      "model": "Clio V",
+      "engine": "E-Tech Full Hybrid 145",
+      "years": [
+        2020,
+        2026
+      ],
+      "fuel": "hybrid",
+      "cylinders": 4,
+      "body": "hatch"
+    },
+    {
+      "id": "renault-symbioz-e-tech-full-hybrid-145",
+      "type": "car",
+      "make": "Renault",
+      "model": "Symbioz",
+      "engine": "E-Tech Full Hybrid 145",
+      "years": [
+        2024,
+        2026
+      ],
+      "fuel": "hybrid",
+      "cylinders": 4,
+      "body": "suv"
+    },
+    {
+      "id": "renault-rafale-e-tech-full-hybrid-200",
+      "type": "car",
+      "make": "Renault",
+      "model": "Rafale",
+      "engine": "E-Tech Full Hybrid 200",
+      "years": [
+        2024,
+        2026
+      ],
+      "fuel": "hybrid",
+      "cylinders": 3,
+      "body": "suv"
+    },
+    {
+      "id": "dacia-logan-ii-1-5-dci-90",
+      "type": "car",
+      "make": "Dacia",
+      "model": "Logan II",
+      "engine": "1.5 dCi 90",
+      "years": [
+        2012,
+        2020
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "body": "sedan"
+    },
+    {
+      "id": "dacia-lodgy-1-5-dci-110",
+      "type": "car",
+      "make": "Dacia",
+      "model": "Lodgy",
+      "engine": "1.5 dCi 110",
+      "years": [
+        2012,
+        2022
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "body": "mpv"
+    },
+    {
+      "id": "dacia-duster-iii-hybrid-140",
+      "type": "car",
+      "make": "Dacia",
+      "model": "Duster III",
+      "engine": "Hybrid 140",
+      "years": [
+        2024,
+        2026
+      ],
+      "fuel": "hybrid",
+      "cylinders": 4,
+      "body": "suv"
+    },
+    {
+      "id": "volkswagen-polo-iv-1-4-tdi-70",
+      "type": "car",
+      "make": "Volkswagen",
+      "model": "Polo IV",
+      "engine": "1.4 TDI 70",
+      "years": [
+        2001,
+        2009
+      ],
+      "fuel": "diesel",
+      "cylinders": 3,
+      "body": "hatch"
+    },
+    {
+      "id": "volkswagen-up-1-0-60",
+      "type": "car",
+      "make": "Volkswagen",
+      "model": "Up!",
+      "engine": "1.0 60",
+      "years": [
+        2011,
+        2023
+      ],
+      "fuel": "petrol",
+      "cylinders": 3,
+      "body": "micro"
+    },
+    {
+      "id": "volkswagen-passat-b6-2-0-tdi-140",
+      "type": "car",
+      "make": "Volkswagen",
+      "model": "Passat B6",
+      "engine": "2.0 TDI 140",
+      "years": [
+        2005,
+        2010
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "body": "sedan"
+    },
+    {
+      "id": "volkswagen-touareg-ii-3-0-v6-tdi-245",
+      "type": "car",
+      "make": "Volkswagen",
+      "model": "Touareg II",
+      "engine": "3.0 V6 TDI 245",
+      "years": [
+        2010,
+        2018
+      ],
+      "fuel": "diesel",
+      "cylinders": 6,
+      "body": "suv",
+      "traction": "both"
+    },
+    {
+      "id": "volkswagen-sharan-ii-2-0-tdi-140",
+      "type": "car",
+      "make": "Volkswagen",
+      "model": "Sharan II",
+      "engine": "2.0 TDI 140",
+      "years": [
+        2010,
+        2022
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "body": "mpv"
+    },
+    {
+      "id": "volkswagen-scirocco-iii-2-0-tsi-210",
+      "type": "car",
+      "make": "Volkswagen",
+      "model": "Scirocco III",
+      "engine": "2.0 TSI 210",
+      "years": [
+        2008,
+        2017
+      ],
+      "fuel": "petrol",
+      "cylinders": 4,
+      "body": "coupe"
+    },
+    {
+      "id": "volkswagen-arteon-2-0-tdi-150",
+      "type": "car",
+      "make": "Volkswagen",
+      "model": "Arteon",
+      "engine": "2.0 TDI 150",
+      "years": [
+        2017,
+        2024
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "body": "sedan"
+    },
+    {
+      "id": "volkswagen-golf-vi-gti-2-0-tsi-211",
+      "type": "car",
+      "make": "Volkswagen",
+      "model": "Golf VI GTI",
+      "engine": "2.0 TSI 211",
+      "years": [
+        2009,
+        2012
+      ],
+      "fuel": "petrol",
+      "cylinders": 4,
+      "body": "hatch"
+    },
+    {
+      "id": "volkswagen-golf-vii-r-2-0-tsi-300",
+      "type": "car",
+      "make": "Volkswagen",
+      "model": "Golf VII R",
+      "engine": "2.0 TSI 300",
+      "years": [
+        2014,
+        2020
+      ],
+      "fuel": "petrol",
+      "cylinders": 4,
+      "body": "hatch",
+      "traction": "both"
+    },
+    {
+      "id": "skoda-fabia-ii-1-2-70",
+      "type": "car",
+      "make": "Skoda",
+      "model": "Fabia II",
+      "engine": "1.2 70",
+      "years": [
+        2007,
+        2014
+      ],
+      "fuel": "petrol",
+      "cylinders": 3,
+      "body": "hatch"
+    },
+    {
+      "id": "skoda-octavia-ii-1-9-tdi-105",
+      "type": "car",
+      "make": "Skoda",
+      "model": "Octavia II",
+      "engine": "1.9 TDI 105",
+      "years": [
+        2004,
+        2013
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "body": "sedan"
+    },
+    {
+      "id": "skoda-yeti-2-0-tdi-140",
+      "type": "car",
+      "make": "Skoda",
+      "model": "Yeti",
+      "engine": "2.0 TDI 140",
+      "years": [
+        2009,
+        2017
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "body": "suv"
+    },
+    {
+      "id": "skoda-kamiq-1-0-tsi-110",
+      "type": "car",
+      "make": "Skoda",
+      "model": "Kamiq",
+      "engine": "1.0 TSI 110",
+      "years": [
+        2019,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 3,
+      "body": "suv"
+    },
+    {
+      "id": "skoda-scala-1-0-tsi-110",
+      "type": "car",
+      "make": "Skoda",
+      "model": "Scala",
+      "engine": "1.0 TSI 110",
+      "years": [
+        2019,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 3,
+      "body": "hatch"
+    },
+    {
+      "id": "seat-leon-ii-1-9-tdi-105",
+      "type": "car",
+      "make": "Seat",
+      "model": "Leon II",
+      "engine": "1.9 TDI 105",
+      "years": [
+        2005,
+        2012
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "body": "hatch"
+    },
+    {
+      "id": "seat-ibiza-iv-1-2-70",
+      "type": "car",
+      "make": "Seat",
+      "model": "Ibiza IV",
+      "engine": "1.2 70",
+      "years": [
+        2008,
+        2017
+      ],
+      "fuel": "petrol",
+      "cylinders": 3,
+      "body": "hatch"
+    },
+    {
+      "id": "seat-tarraco-2-0-tdi-150",
+      "type": "car",
+      "make": "Seat",
+      "model": "Tarraco",
+      "engine": "2.0 TDI 150",
+      "years": [
+        2018,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "body": "suv"
+    },
+    {
+      "id": "audi-a3-8p-2-0-tdi-140",
+      "type": "car",
+      "make": "Audi",
+      "model": "A3 (8P)",
+      "engine": "2.0 TDI 140",
+      "years": [
+        2003,
+        2012
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "body": "hatch"
+    },
+    {
+      "id": "audi-a4-b8-2-0-tdi-143",
+      "type": "car",
+      "make": "Audi",
+      "model": "A4 (B8)",
+      "engine": "2.0 TDI 143",
+      "years": [
+        2008,
+        2015
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "body": "sedan"
+    },
+    {
+      "id": "audi-a6-c7-2-0-tdi-177",
+      "type": "car",
+      "make": "Audi",
+      "model": "A6 (C7)",
+      "engine": "2.0 TDI 177",
+      "years": [
+        2011,
+        2018
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "body": "sedan"
+    },
+    {
+      "id": "audi-q3-f3-35-tfsi-150",
+      "type": "car",
+      "make": "Audi",
+      "model": "Q3 (F3)",
+      "engine": "35 TFSI 150",
+      "years": [
+        2018,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 4,
+      "body": "suv"
+    },
+    {
+      "id": "audi-q7-4m-50-tdi-286",
+      "type": "car",
+      "make": "Audi",
+      "model": "Q7 (4M)",
+      "engine": "50 TDI 286",
+      "years": [
+        2015,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 6,
+      "body": "suv",
+      "traction": "both"
+    },
+    {
+      "id": "audi-tt-8s-2-0-tfsi-230",
+      "type": "car",
+      "make": "Audi",
+      "model": "TT (8S)",
+      "engine": "2.0 TFSI 230",
+      "years": [
+        2014,
+        2023
+      ],
+      "fuel": "petrol",
+      "cylinders": 4,
+      "body": "coupe"
+    },
+    {
+      "id": "audi-q2-30-tfsi-110",
+      "type": "car",
+      "make": "Audi",
+      "model": "Q2",
+      "engine": "30 TFSI 110",
+      "years": [
+        2016,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 3,
+      "body": "suv"
+    },
+    {
+      "id": "ford-focus-ii-1-6-tdci-110",
+      "type": "car",
+      "make": "Ford",
+      "model": "Focus II",
+      "engine": "1.6 TDCi 110",
+      "years": [
+        2004,
+        2011
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "body": "hatch"
+    },
+    {
+      "id": "ford-fiesta-v-1-4-tdci-68",
+      "type": "car",
+      "make": "Ford",
+      "model": "Fiesta V",
+      "engine": "1.4 TDCi 68",
+      "years": [
+        2002,
+        2008
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "body": "hatch"
+    },
+    {
+      "id": "ford-c-max-ii-1-6-tdci-115",
+      "type": "car",
+      "make": "Ford",
+      "model": "C-Max II",
+      "engine": "1.6 TDCi 115",
+      "years": [
+        2010,
+        2019
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "body": "mpv"
+    },
+    {
+      "id": "ford-mondeo-iv-2-0-tdci-140",
+      "type": "car",
+      "make": "Ford",
+      "model": "Mondeo IV",
+      "engine": "2.0 TDCi 140",
+      "years": [
+        2007,
+        2014
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "body": "sedan"
+    },
+    {
+      "id": "ford-mustang-vi-5-0-v8-450",
+      "type": "car",
+      "make": "Ford",
+      "model": "Mustang VI",
+      "engine": "5.0 V8 450",
+      "years": [
+        2015,
+        2023
+      ],
+      "fuel": "petrol",
+      "cylinders": 8,
+      "body": "coupe",
+      "traction": "rear"
+    },
+    {
+      "id": "ford-s-max-i-2-0-tdci-140",
+      "type": "car",
+      "make": "Ford",
+      "model": "S-Max I",
+      "engine": "2.0 TDCi 140",
+      "years": [
+        2006,
+        2015
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "body": "mpv"
+    },
+    {
+      "id": "ford-ecosport-1-0-ecoboost-125",
+      "type": "car",
+      "make": "Ford",
+      "model": "EcoSport",
+      "engine": "1.0 EcoBoost 125",
+      "years": [
+        2014,
+        2022
+      ],
+      "fuel": "petrol",
+      "cylinders": 3,
+      "body": "suv"
+    },
+    {
+      "id": "opel-astra-h-1-7-cdti-100",
+      "type": "car",
+      "make": "Opel",
+      "model": "Astra H",
+      "engine": "1.7 CDTI 100",
+      "years": [
+        2004,
+        2010
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "body": "hatch"
+    },
+    {
+      "id": "opel-astra-k-1-6-cdti-110",
+      "type": "car",
+      "make": "Opel",
+      "model": "Astra K",
+      "engine": "1.6 CDTI 110",
+      "years": [
+        2015,
+        2021
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "body": "hatch"
+    },
+    {
+      "id": "opel-zafira-b-1-7-cdti-110",
+      "type": "car",
+      "make": "Opel",
+      "model": "Zafira B",
+      "engine": "1.7 CDTI 110",
+      "years": [
+        2005,
+        2014
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "body": "mpv"
+    },
+    {
+      "id": "opel-insignia-a-2-0-cdti-130",
+      "type": "car",
+      "make": "Opel",
+      "model": "Insignia A",
+      "engine": "2.0 CDTI 130",
+      "years": [
+        2008,
+        2017
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "body": "sedan"
+    },
+    {
+      "id": "opel-meriva-b-1-4-turbo-120",
+      "type": "car",
+      "make": "Opel",
+      "model": "Meriva B",
+      "engine": "1.4 Turbo 120",
+      "years": [
+        2010,
+        2017
+      ],
+      "fuel": "petrol",
+      "cylinders": 4,
+      "body": "mpv"
+    },
+    {
+      "id": "opel-crossland-1-2-turbo-110",
+      "type": "car",
+      "make": "Opel",
+      "model": "Crossland",
+      "engine": "1.2 Turbo 110",
+      "years": [
+        2017,
+        2024
+      ],
+      "fuel": "petrol",
+      "cylinders": 3,
+      "body": "suv"
+    },
+    {
+      "id": "toyota-yaris-ii-1-0-vvt-i-69",
+      "type": "car",
+      "make": "Toyota",
+      "model": "Yaris II",
+      "engine": "1.0 VVT-i 69",
+      "years": [
+        2005,
+        2011
+      ],
+      "fuel": "petrol",
+      "cylinders": 3,
+      "body": "hatch"
+    },
+    {
+      "id": "toyota-avensis-iii-2-0-d-4d-126",
+      "type": "car",
+      "make": "Toyota",
+      "model": "Avensis III",
+      "engine": "2.0 D-4D 126",
+      "years": [
+        2009,
+        2018
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "body": "sedan"
+    },
+    {
+      "id": "toyota-gr-yaris-1-6-turbo-261",
+      "type": "car",
+      "make": "Toyota",
+      "model": "GR Yaris",
+      "engine": "1.6 Turbo 261",
+      "years": [
+        2020,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 3,
+      "body": "hatch",
+      "traction": "both"
+    },
+    {
+      "id": "toyota-gr86-2-4-boxer-234",
+      "type": "car",
+      "make": "Toyota",
+      "model": "GR86",
+      "engine": "2.4 boxer 234",
+      "years": [
+        2022,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 4,
+      "body": "coupe",
+      "traction": "rear"
+    },
+    {
+      "id": "toyota-supra-a90-3-0-340",
+      "type": "car",
+      "make": "Toyota",
+      "model": "Supra (A90)",
+      "engine": "3.0 340",
+      "years": [
+        2019,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 6,
+      "body": "coupe",
+      "traction": "rear"
+    },
+    {
+      "id": "toyota-prius-iv-1-8-hybride-122",
+      "type": "car",
+      "make": "Toyota",
+      "model": "Prius IV",
+      "engine": "1.8 Hybride 122",
+      "years": [
+        2016,
+        2022
+      ],
+      "fuel": "hybrid",
+      "cylinders": 4,
+      "body": "hatch"
+    },
+    {
+      "id": "honda-civic-viii-2-2-i-ctdi-140",
+      "type": "car",
+      "make": "Honda",
+      "model": "Civic VIII",
+      "engine": "2.2 i-CTDi 140",
+      "years": [
+        2006,
+        2011
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "body": "hatch"
+    },
+    {
+      "id": "honda-jazz-ii-1-2-78",
+      "type": "car",
+      "make": "Honda",
+      "model": "Jazz II",
+      "engine": "1.2 78",
+      "years": [
+        2002,
+        2008
+      ],
+      "fuel": "petrol",
+      "cylinders": 4,
+      "body": "hatch"
+    },
+    {
+      "id": "honda-e-35-5-kwh",
+      "type": "car",
+      "make": "Honda",
+      "model": "e",
+      "engine": "35,5 kWh",
+      "years": [
+        2020,
+        2024
+      ],
+      "fuel": "electric",
+      "body": "hatch",
+      "traction": "rear"
+    },
+    {
+      "id": "mazda-mx-5-nd-1-5-skyactiv-g-132",
+      "type": "car",
+      "make": "Mazda",
+      "model": "MX-5 (ND)",
+      "engine": "1.5 Skyactiv-G 132",
+      "years": [
+        2015,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 4,
+      "body": "coupe",
+      "traction": "rear"
+    },
+    {
+      "id": "mazda-mx-5-nc-1-8-126",
+      "type": "car",
+      "make": "Mazda",
+      "model": "MX-5 (NC)",
+      "engine": "1.8 126",
+      "years": [
+        2005,
+        2015
+      ],
+      "fuel": "petrol",
+      "cylinders": 4,
+      "body": "coupe",
+      "traction": "rear"
+    },
+    {
+      "id": "mazda-3-bp-2-0-e-skyactiv-g-122",
+      "type": "car",
+      "make": "Mazda",
+      "model": "3 (BP)",
+      "engine": "2.0 e-Skyactiv-G 122",
+      "years": [
+        2019,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 4,
+      "body": "hatch"
+    },
+    {
+      "id": "mazda-6-gj-2-2-skyactiv-d-150",
+      "type": "car",
+      "make": "Mazda",
+      "model": "6 (GJ)",
+      "engine": "2.2 Skyactiv-D 150",
+      "years": [
+        2013,
+        2023
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "body": "sedan"
+    },
+    {
+      "id": "nissan-qashqai-i-1-5-dci-106",
+      "type": "car",
+      "make": "Nissan",
+      "model": "Qashqai I",
+      "engine": "1.5 dCi 106",
+      "years": [
+        2007,
+        2013
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "body": "suv"
+    },
+    {
+      "id": "nissan-micra-iii-1-2-80",
+      "type": "car",
+      "make": "Nissan",
+      "model": "Micra III",
+      "engine": "1.2 80",
+      "years": [
+        2003,
+        2010
+      ],
+      "fuel": "petrol",
+      "cylinders": 4,
+      "body": "hatch"
+    },
+    {
+      "id": "nissan-note-ii-1-5-dci-90",
+      "type": "car",
+      "make": "Nissan",
+      "model": "Note II",
+      "engine": "1.5 dCi 90",
+      "years": [
+        2013,
+        2017
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "body": "mpv"
+    },
+    {
+      "id": "hyundai-bayon-1-0-t-gdi-100",
+      "type": "car",
+      "make": "Hyundai",
+      "model": "Bayon",
+      "engine": "1.0 T-GDi 100",
+      "years": [
+        2021,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 3,
+      "body": "suv"
+    },
+    {
+      "id": "hyundai-inster-49-kwh",
+      "type": "car",
+      "make": "Hyundai",
+      "model": "Inster",
+      "engine": "49 kWh",
+      "years": [
+        2024,
+        2026
+      ],
+      "fuel": "electric",
+      "body": "micro"
+    },
+    {
+      "id": "suzuki-jimny-iv-1-5-102",
+      "type": "car",
+      "make": "Suzuki",
+      "model": "Jimny IV",
+      "engine": "1.5 102",
+      "years": [
+        2018,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 4,
+      "body": "suv",
+      "traction": "both"
+    },
+    {
+      "id": "suzuki-swift-iv-1-2-94",
+      "type": "car",
+      "make": "Suzuki",
+      "model": "Swift IV",
+      "engine": "1.2 94",
+      "years": [
+        2010,
+        2017
+      ],
+      "fuel": "petrol",
+      "cylinders": 4,
+      "body": "hatch"
+    },
+    {
+      "id": "subaru-outback-vi-2-5-boxer-169",
+      "type": "car",
+      "make": "Subaru",
+      "model": "Outback VI",
+      "engine": "2.5 boxer 169",
+      "years": [
+        2021,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 4,
+      "body": "estate",
+      "traction": "both"
+    },
+    {
+      "id": "subaru-impreza-wrx-sti-2-5-boxer-turbo-300",
+      "type": "car",
+      "make": "Subaru",
+      "model": "Impreza WRX STI",
+      "engine": "2.5 boxer turbo 300",
+      "years": [
+        2008,
+        2014
+      ],
+      "fuel": "petrol",
+      "cylinders": 4,
+      "body": "sedan",
+      "traction": "both"
+    },
+    {
+      "id": "subaru-brz-2-0-boxer-200",
+      "type": "car",
+      "make": "Subaru",
+      "model": "BRZ",
+      "engine": "2.0 boxer 200",
+      "years": [
+        2012,
+        2020
+      ],
+      "fuel": "petrol",
+      "cylinders": 4,
+      "body": "coupe",
+      "traction": "rear"
+    },
+    {
+      "id": "mitsubishi-space-star-1-2-80",
+      "type": "car",
+      "make": "Mitsubishi",
+      "model": "Space Star",
+      "engine": "1.2 80",
+      "years": [
+        2013,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 3,
+      "body": "hatch"
+    },
+    {
+      "id": "mitsubishi-asx-1-6-117",
+      "type": "car",
+      "make": "Mitsubishi",
+      "model": "ASX",
+      "engine": "1.6 117",
+      "years": [
+        2010,
+        2022
+      ],
+      "fuel": "petrol",
+      "cylinders": 4,
+      "body": "suv"
+    },
+    {
+      "id": "bmw-serie-3-e46-320d-150",
+      "type": "car",
+      "make": "BMW",
+      "model": "Série 3 (E46)",
+      "engine": "320d 150",
+      "years": [
+        1998,
+        2005
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "body": "sedan",
+      "traction": "rear"
+    },
+    {
+      "id": "bmw-serie-3-e90-320d-177",
+      "type": "car",
+      "make": "BMW",
+      "model": "Série 3 (E90)",
+      "engine": "320d 177",
+      "years": [
+        2005,
+        2012
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "body": "sedan",
+      "traction": "rear"
+    },
+    {
+      "id": "bmw-serie-1-e87-118d-143",
+      "type": "car",
+      "make": "BMW",
+      "model": "Série 1 (E87)",
+      "engine": "118d 143",
+      "years": [
+        2004,
+        2011
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "body": "hatch",
+      "traction": "rear"
+    },
+    {
+      "id": "bmw-serie-5-e60-520d-177",
+      "type": "car",
+      "make": "BMW",
+      "model": "Série 5 (E60)",
+      "engine": "520d 177",
+      "years": [
+        2003,
+        2010
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "body": "sedan",
+      "traction": "rear"
+    },
+    {
+      "id": "bmw-x5-e70-xdrive30d-235",
+      "type": "car",
+      "make": "BMW",
+      "model": "X5 (E70)",
+      "engine": "xDrive30d 235",
+      "years": [
+        2007,
+        2013
+      ],
+      "fuel": "diesel",
+      "cylinders": 6,
+      "body": "suv",
+      "traction": "both"
+    },
+    {
+      "id": "bmw-i3-42-kwh",
+      "type": "car",
+      "make": "BMW",
+      "model": "i3",
+      "engine": "42 kWh",
+      "years": [
+        2013,
+        2022
+      ],
+      "fuel": "electric",
+      "body": "hatch",
+      "traction": "rear"
+    },
+    {
+      "id": "bmw-m2-g87-3-0-460",
+      "type": "car",
+      "make": "BMW",
+      "model": "M2 (G87)",
+      "engine": "3.0 460",
+      "years": [
+        2023,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 6,
+      "body": "coupe",
+      "traction": "rear"
+    },
+    {
+      "id": "bmw-z4-g29-sdrive20i-197",
+      "type": "car",
+      "make": "BMW",
+      "model": "Z4 (G29)",
+      "engine": "sDrive20i 197",
+      "years": [
+        2019,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 4,
+      "body": "coupe",
+      "traction": "rear"
+    },
+    {
+      "id": "mercedes-benz-classe-c-w204-c-220-cdi-170",
+      "type": "car",
+      "make": "Mercedes-Benz",
+      "model": "Classe C (W204)",
+      "engine": "C 220 CDI 170",
+      "years": [
+        2007,
+        2014
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "body": "sedan",
+      "traction": "rear"
+    },
+    {
+      "id": "mercedes-benz-classe-e-w212-e-220-cdi-170",
+      "type": "car",
+      "make": "Mercedes-Benz",
+      "model": "Classe E (W212)",
+      "engine": "E 220 CDI 170",
+      "years": [
+        2009,
+        2016
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "body": "sedan",
+      "traction": "rear"
+    },
+    {
+      "id": "mercedes-benz-classe-b-w246-b-180-cdi-109",
+      "type": "car",
+      "make": "Mercedes-Benz",
+      "model": "Classe B (W246)",
+      "engine": "B 180 CDI 109",
+      "years": [
+        2011,
+        2018
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "body": "mpv"
+    },
+    {
+      "id": "mercedes-benz-classe-g-w463-g-350-d-286",
+      "type": "car",
+      "make": "Mercedes-Benz",
+      "model": "Classe G (W463)",
+      "engine": "G 350 d 286",
+      "years": [
+        2018,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 6,
+      "body": "suv",
+      "traction": "both"
+    },
+    {
+      "id": "land-rover-range-rover-sport-l494-3-0-sdv6-306",
+      "type": "car",
+      "make": "Land Rover",
+      "model": "Range Rover Sport (L494)",
+      "engine": "3.0 SDV6 306",
+      "years": [
+        2013,
+        2022
+      ],
+      "fuel": "diesel",
+      "cylinders": 6,
+      "body": "suv",
+      "traction": "both"
+    },
+    {
+      "id": "land-rover-defender-110-1990-2-4-tdci-122",
+      "type": "car",
+      "make": "Land Rover",
+      "model": "Defender 110 (1990)",
+      "engine": "2.4 TDCi 122",
+      "years": [
+        2007,
+        2016
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "body": "suv",
+      "traction": "both"
+    },
+    {
+      "id": "land-rover-freelander-2-2-2-td4-150",
+      "type": "car",
+      "make": "Land Rover",
+      "model": "Freelander 2",
+      "engine": "2.2 TD4 150",
+      "years": [
+        2006,
+        2014
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "body": "suv",
+      "traction": "both"
+    },
+    {
+      "id": "jeep-renegade-1-6-multijet-120",
+      "type": "car",
+      "make": "Jeep",
+      "model": "Renegade",
+      "engine": "1.6 MultiJet 120",
+      "years": [
+        2014,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "body": "suv"
+    },
+    {
+      "id": "jeep-grand-cherokee-wk2-3-0-v6-crd-250",
+      "type": "car",
+      "make": "Jeep",
+      "model": "Grand Cherokee (WK2)",
+      "engine": "3.0 V6 CRD 250",
+      "years": [
+        2011,
+        2021
+      ],
+      "fuel": "diesel",
+      "cylinders": 6,
+      "body": "suv",
+      "traction": "both"
+    },
+    {
+      "id": "alfa-romeo-giulietta-1-6-jtdm-105",
+      "type": "car",
+      "make": "Alfa Romeo",
+      "model": "Giulietta",
+      "engine": "1.6 JTDm 105",
+      "years": [
+        2010,
+        2020
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "body": "hatch"
+    },
+    {
+      "id": "alfa-romeo-mito-1-4-78",
+      "type": "car",
+      "make": "Alfa Romeo",
+      "model": "MiTo",
+      "engine": "1.4 78",
+      "years": [
+        2008,
+        2018
+      ],
+      "fuel": "petrol",
+      "cylinders": 4,
+      "body": "hatch"
+    },
+    {
+      "id": "alfa-romeo-stelvio-2-2-210-q4",
+      "type": "car",
+      "make": "Alfa Romeo",
+      "model": "Stelvio",
+      "engine": "2.2 210 Q4",
+      "years": [
+        2017,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "body": "suv",
+      "traction": "both"
+    },
+    {
+      "id": "alfa-romeo-147-1-9-jtd-115",
+      "type": "car",
+      "make": "Alfa Romeo",
+      "model": "147",
+      "engine": "1.9 JTD 115",
+      "years": [
+        2001,
+        2010
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "body": "hatch"
+    },
+    {
+      "id": "mini-cooper-r56-1-6-120",
+      "type": "car",
+      "make": "Mini",
+      "model": "Cooper (R56)",
+      "engine": "1.6 120",
+      "years": [
+        2006,
+        2013
+      ],
+      "fuel": "petrol",
+      "cylinders": 4,
+      "body": "hatch"
+    },
+    {
+      "id": "lancia-ypsilon-2011-1-2-69",
+      "type": "car",
+      "make": "Lancia",
+      "model": "Ypsilon (2011)",
+      "engine": "1.2 69",
+      "years": [
+        2011,
+        2024
+      ],
+      "fuel": "petrol",
+      "cylinders": 4,
+      "body": "hatch"
+    },
+    {
+      "id": "smart-fortwo-451-1-0-71",
+      "type": "car",
+      "make": "Smart",
+      "model": "ForTwo (451)",
+      "engine": "1.0 71",
+      "years": [
+        2007,
+        2014
+      ],
+      "fuel": "petrol",
+      "cylinders": 3,
+      "body": "micro",
+      "traction": "rear"
+    },
+    {
+      "id": "honda-forza-350-330-cm-monocylindre",
+      "type": "motorcycle",
+      "make": "Honda",
+      "model": "Forza 350",
+      "engine": "330 cm³ monocylindre",
+      "years": [
+        2021,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 1,
+      "body": "scooter",
+      "final_drive": "cvt"
+    },
+    {
+      "id": "honda-sh-125-125-cm-monocylindre",
+      "type": "motorcycle",
+      "make": "Honda",
+      "model": "SH 125",
+      "engine": "125 cm³ monocylindre",
+      "years": [
+        2013,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 1,
+      "body": "scooter",
+      "final_drive": "cvt"
+    },
+    {
+      "id": "honda-cbr650r-649-cm-4-cylindres",
+      "type": "motorcycle",
+      "make": "Honda",
+      "model": "CBR650R",
+      "engine": "649 cm³ 4 cylindres",
+      "years": [
+        2019,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 4,
+      "body": "sport",
+      "final_drive": "chain"
+    },
+    {
+      "id": "honda-hornet-750-755-cm-bicylindre",
+      "type": "motorcycle",
+      "make": "Honda",
+      "model": "Hornet 750",
+      "engine": "755 cm³ bicylindre",
+      "years": [
+        2023,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 2,
+      "body": "naked",
+      "final_drive": "chain"
+    },
+    {
+      "id": "yamaha-nmax-125-125-cm-monocylindre",
+      "type": "motorcycle",
+      "make": "Yamaha",
+      "model": "NMAX 125",
+      "engine": "125 cm³ monocylindre",
+      "years": [
+        2015,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 1,
+      "body": "scooter",
+      "final_drive": "cvt"
+    },
+    {
+      "id": "yamaha-yzf-r7-689-cm-bicylindre",
+      "type": "motorcycle",
+      "make": "Yamaha",
+      "model": "YZF-R7",
+      "engine": "689 cm³ bicylindre",
+      "years": [
+        2021,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 2,
+      "body": "sport",
+      "final_drive": "chain"
+    },
+    {
+      "id": "yamaha-xsr700-689-cm-bicylindre",
+      "type": "motorcycle",
+      "make": "Yamaha",
+      "model": "XSR700",
+      "engine": "689 cm³ bicylindre",
+      "years": [
+        2016,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 2,
+      "body": "naked",
+      "final_drive": "chain"
+    },
+    {
+      "id": "yamaha-fjr1300-1298-cm-4-cylindres",
+      "type": "motorcycle",
+      "make": "Yamaha",
+      "model": "FJR1300",
+      "engine": "1298 cm³ 4 cylindres",
+      "years": [
+        2006,
+        2021
+      ],
+      "fuel": "petrol",
+      "cylinders": 4,
+      "body": "adventure",
+      "final_drive": "shaft"
+    },
+    {
+      "id": "kawasaki-ninja-zx-10r-998-cm-4-cylindres",
+      "type": "motorcycle",
+      "make": "Kawasaki",
+      "model": "Ninja ZX-10R",
+      "engine": "998 cm³ 4 cylindres",
+      "years": [
+        2016,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 4,
+      "body": "sport",
+      "final_drive": "chain"
+    },
+    {
+      "id": "kawasaki-versys-1000-1043-cm-4-cylindres",
+      "type": "motorcycle",
+      "make": "Kawasaki",
+      "model": "Versys 1000",
+      "engine": "1043 cm³ 4 cylindres",
+      "years": [
+        2015,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 4,
+      "body": "adventure",
+      "final_drive": "chain"
+    },
+    {
+      "id": "suzuki-gsx-s1000-999-cm-4-cylindres",
+      "type": "motorcycle",
+      "make": "Suzuki",
+      "model": "GSX-S1000",
+      "engine": "999 cm³ 4 cylindres",
+      "years": [
+        2021,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 4,
+      "body": "naked",
+      "final_drive": "chain"
+    },
+    {
+      "id": "suzuki-hayabusa-2021-1340-cm-4-cylindres",
+      "type": "motorcycle",
+      "make": "Suzuki",
+      "model": "Hayabusa (2021)",
+      "engine": "1340 cm³ 4 cylindres",
+      "years": [
+        2021,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 4,
+      "body": "sport",
+      "final_drive": "chain"
+    },
+    {
+      "id": "suzuki-v-strom-1050-1037-cm-v2",
+      "type": "motorcycle",
+      "make": "Suzuki",
+      "model": "V-Strom 1050",
+      "engine": "1037 cm³ V2",
+      "years": [
+        2020,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 2,
+      "body": "adventure",
+      "final_drive": "chain"
+    },
+    {
+      "id": "suzuki-burgman-400-400-cm-monocylindre",
+      "type": "motorcycle",
+      "make": "Suzuki",
+      "model": "Burgman 400",
+      "engine": "400 cm³ monocylindre",
+      "years": [
+        2017,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 1,
+      "body": "scooter",
+      "final_drive": "cvt"
+    },
+    {
+      "id": "bmw-r-ninet-1170-cm-boxer",
+      "type": "motorcycle",
+      "make": "BMW",
+      "model": "R nineT",
+      "engine": "1170 cm³ boxer",
+      "years": [
+        2014,
+        2024
+      ],
+      "fuel": "petrol",
+      "cylinders": 2,
+      "body": "naked",
+      "final_drive": "shaft"
+    },
+    {
+      "id": "bmw-f-850-gs-853-cm-bicylindre",
+      "type": "motorcycle",
+      "make": "BMW",
+      "model": "F 850 GS",
+      "engine": "853 cm³ bicylindre",
+      "years": [
+        2018,
+        2024
+      ],
+      "fuel": "petrol",
+      "cylinders": 2,
+      "body": "adventure",
+      "final_drive": "chain"
+    },
+    {
+      "id": "bmw-r-1250-rt-1254-cm-boxer",
+      "type": "motorcycle",
+      "make": "BMW",
+      "model": "R 1250 RT",
+      "engine": "1254 cm³ boxer",
+      "years": [
+        2019,
+        2025
+      ],
+      "fuel": "petrol",
+      "cylinders": 2,
+      "body": "adventure",
+      "final_drive": "shaft"
+    },
+    {
+      "id": "bmw-g-310-r-313-cm-monocylindre",
+      "type": "motorcycle",
+      "make": "BMW",
+      "model": "G 310 R",
+      "engine": "313 cm³ monocylindre",
+      "years": [
+        2016,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 1,
+      "body": "naked",
+      "final_drive": "chain"
+    },
+    {
+      "id": "triumph-speed-twin-1200-1200-cm-bicylindre",
+      "type": "motorcycle",
+      "make": "Triumph",
+      "model": "Speed Twin 1200",
+      "engine": "1200 cm³ bicylindre",
+      "years": [
+        2019,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 2,
+      "body": "naked",
+      "final_drive": "chain"
+    },
+    {
+      "id": "triumph-rocket-3-2458-cm-3-cylindres",
+      "type": "motorcycle",
+      "make": "Triumph",
+      "model": "Rocket 3",
+      "engine": "2458 cm³ 3 cylindres",
+      "years": [
+        2019,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 3,
+      "body": "cruiser",
+      "final_drive": "shaft"
+    },
+    {
+      "id": "ducati-hypermotard-950-937-cm-v2",
+      "type": "motorcycle",
+      "make": "Ducati",
+      "model": "Hypermotard 950",
+      "engine": "937 cm³ V2",
+      "years": [
+        2019,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 2,
+      "body": "naked",
+      "final_drive": "chain"
+    },
+    {
+      "id": "ducati-diavel-v4-1158-cm-v4",
+      "type": "motorcycle",
+      "make": "Ducati",
+      "model": "Diavel V4",
+      "engine": "1158 cm³ V4",
+      "years": [
+        2023,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 4,
+      "body": "cruiser",
+      "final_drive": "chain"
+    },
+    {
+      "id": "ktm-1290-super-duke-r-1301-cm-v2",
+      "type": "motorcycle",
+      "make": "KTM",
+      "model": "1290 Super Duke R",
+      "engine": "1301 cm³ V2",
+      "years": [
+        2020,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 2,
+      "body": "naked",
+      "final_drive": "chain"
+    },
+    {
+      "id": "ktm-890-adventure-889-cm-bicylindre",
+      "type": "motorcycle",
+      "make": "KTM",
+      "model": "890 Adventure",
+      "engine": "889 cm³ bicylindre",
+      "years": [
+        2021,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 2,
+      "body": "adventure",
+      "final_drive": "chain"
+    },
+    {
+      "id": "ktm-125-duke-125-cm-monocylindre",
+      "type": "motorcycle",
+      "make": "KTM",
+      "model": "125 Duke",
+      "engine": "125 cm³ monocylindre",
+      "years": [
+        2017,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 1,
+      "body": "naked",
+      "final_drive": "chain"
+    },
+    {
+      "id": "harley-davidson-street-bob-114-1868-cm-v2",
+      "type": "motorcycle",
+      "make": "Harley-Davidson",
+      "model": "Street Bob 114",
+      "engine": "1868 cm³ V2",
+      "years": [
+        2021,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 2,
+      "body": "cruiser",
+      "final_drive": "belt"
+    },
+    {
+      "id": "harley-davidson-fat-boy-114-1868-cm-v2",
+      "type": "motorcycle",
+      "make": "Harley-Davidson",
+      "model": "Fat Boy 114",
+      "engine": "1868 cm³ V2",
+      "years": [
+        2018,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 2,
+      "body": "cruiser",
+      "final_drive": "belt"
+    },
+    {
+      "id": "harley-davidson-road-glide-1923-cm-v2",
+      "type": "motorcycle",
+      "make": "Harley-Davidson",
+      "model": "Road Glide",
+      "engine": "1923 cm³ V2",
+      "years": [
+        2024,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 2,
+      "body": "cruiser",
+      "final_drive": "belt"
+    },
+    {
+      "id": "royal-enfield-interceptor-650-648-cm-bicylindre",
+      "type": "motorcycle",
+      "make": "Royal Enfield",
+      "model": "Interceptor 650",
+      "engine": "648 cm³ bicylindre",
+      "years": [
+        2018,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 2,
+      "body": "naked",
+      "final_drive": "chain"
+    },
+    {
+      "id": "royal-enfield-classic-350-349-cm-monocylindre",
+      "type": "motorcycle",
+      "make": "Royal Enfield",
+      "model": "Classic 350",
+      "engine": "349 cm³ monocylindre",
+      "years": [
+        2021,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 1,
+      "body": "naked",
+      "final_drive": "chain"
+    },
+    {
+      "id": "moto-guzzi-v7-stone-853-cm-v2-transversal",
+      "type": "motorcycle",
+      "make": "Moto Guzzi",
+      "model": "V7 Stone",
+      "engine": "853 cm³ V2 transversal",
+      "years": [
+        2021,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 2,
+      "body": "naked",
+      "final_drive": "shaft"
+    },
+    {
+      "id": "moto-guzzi-stelvio-1042-cm-v2-transversal",
+      "type": "motorcycle",
+      "make": "Moto Guzzi",
+      "model": "Stelvio",
+      "engine": "1042 cm³ V2 transversal",
+      "years": [
+        2024,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 2,
+      "body": "adventure",
+      "final_drive": "shaft"
+    },
+    {
+      "id": "piaggio-vespa-primavera-125-125-cm-monocylindre",
+      "type": "motorcycle",
+      "make": "Piaggio",
+      "model": "Vespa Primavera 125",
+      "engine": "125 cm³ monocylindre",
+      "years": [
+        2014,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 1,
+      "body": "scooter",
+      "final_drive": "cvt"
+    },
+    {
+      "id": "peugeot-django-125-125-cm-monocylindre",
+      "type": "motorcycle",
+      "make": "Peugeot",
+      "model": "Django 125",
+      "engine": "125 cm³ monocylindre",
+      "years": [
+        2014,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 1,
+      "body": "scooter",
+      "final_drive": "cvt"
+    },
+    {
+      "id": "indian-chief-dark-horse-1890-cm-v2",
+      "type": "motorcycle",
+      "make": "Indian",
+      "model": "Chief Dark Horse",
+      "engine": "1890 cm³ V2",
+      "years": [
+        2022,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 2,
+      "body": "cruiser",
+      "final_drive": "belt"
+    },
+    {
+      "id": "kawasaki-z500-451-cm-bicylindre",
+      "type": "motorcycle",
+      "make": "Kawasaki",
+      "model": "Z500",
+      "engine": "451 cm³ bicylindre",
+      "years": [
+        2024,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 2,
+      "body": "naked",
+      "final_drive": "chain"
+    },
+    {
+      "id": "citroen-jumper-iii-2-2-bluehdi-140",
+      "type": "van",
+      "make": "Citroën",
+      "model": "Jumper III",
+      "engine": "2.2 BlueHDi 140",
+      "years": [
+        2014,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 4
+    },
+    {
+      "id": "peugeot-boxer-iii-2-2-bluehdi-140",
+      "type": "van",
+      "make": "Peugeot",
+      "model": "Boxer III",
+      "engine": "2.2 BlueHDi 140",
+      "years": [
+        2014,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 4
+    },
+    {
+      "id": "peugeot-partner-iii-1-5-bluehdi-100",
+      "type": "van",
+      "make": "Peugeot",
+      "model": "Partner III",
+      "engine": "1.5 BlueHDi 100",
+      "years": [
+        2018,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 4
+    },
+    {
+      "id": "renault-kangoo-iii-1-5-blue-dci-95",
+      "type": "van",
+      "make": "Renault",
+      "model": "Kangoo III",
+      "engine": "1.5 Blue dCi 95",
+      "years": [
+        2021,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 4
+    },
+    {
+      "id": "opel-vivaro-c-2-0-diesel-145",
+      "type": "van",
+      "make": "Opel",
+      "model": "Vivaro C",
+      "engine": "2.0 Diesel 145",
+      "years": [
+        2019,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 4
+    },
+    {
+      "id": "volkswagen-transporter-t5-2-0-tdi-140",
+      "type": "van",
+      "make": "Volkswagen",
+      "model": "Transporter T5",
+      "engine": "2.0 TDI 140",
+      "years": [
+        2009,
+        2015
+      ],
+      "fuel": "diesel",
+      "cylinders": 4
+    },
+    {
+      "id": "fiat-scudo-2022-2-0-multijet-145",
+      "type": "van",
+      "make": "Fiat",
+      "model": "Scudo (2022)",
+      "engine": "2.0 Multijet 145",
+      "years": [
+        2022,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 4
+    },
+    {
+      "id": "nissan-primastar-2022-2-0-dci-150",
+      "type": "van",
+      "make": "Nissan",
+      "model": "Primastar (2022)",
+      "engine": "2.0 dCi 150",
+      "years": [
+        2022,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 4
+    },
+    {
+      "id": "mercedes-benz-citan-2021-112-cdi",
+      "type": "van",
+      "make": "Mercedes-Benz",
+      "model": "Citan (2021)",
+      "engine": "112 CDI",
+      "years": [
+        2021,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 4
+    },
+    {
+      "id": "ford-transit-connect-ii-1-5-ecoblue-100",
+      "type": "van",
+      "make": "Ford",
+      "model": "Transit Connect II",
+      "engine": "1.5 EcoBlue 100",
+      "years": [
+        2014,
+        2022
+      ],
+      "fuel": "diesel",
+      "cylinders": 4
+    },
+    {
+      "id": "scania-serie-r-v8-dc16-v8-16-l",
+      "type": "truck",
+      "make": "Scania",
+      "model": "Série R V8",
+      "engine": "DC16 V8 16 L",
+      "years": [
+        2016,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 8
+    },
+    {
+      "id": "volvo-fh16-d17-17-l",
+      "type": "truck",
+      "make": "Volvo",
+      "model": "FH16",
+      "engine": "D17 (17 L)",
+      "years": [
+        2020,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 6
+    },
+    {
+      "id": "man-tgs-d26-12-4-l",
+      "type": "truck",
+      "make": "MAN",
+      "model": "TGS",
+      "engine": "D26 (12,4 L)",
+      "years": [
+        2020,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 6
+    },
+    {
+      "id": "daf-cf-mx-11-10-8-l",
+      "type": "truck",
+      "make": "DAF",
+      "model": "CF",
+      "engine": "MX-11 (10,8 L)",
+      "years": [
+        2017,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 6
+    },
+    {
+      "id": "mercedes-benz-atego-om-936-7-7-l",
+      "type": "truck",
+      "make": "Mercedes-Benz",
+      "model": "Atego",
+      "engine": "OM 936 (7,7 L)",
+      "years": [
+        2013,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 6
+    },
+    {
+      "id": "iveco-eurocargo-tector-7-6-7-l",
+      "type": "truck",
+      "make": "Iveco",
+      "model": "Eurocargo",
+      "engine": "Tector 7 (6,7 L)",
+      "years": [
+        2015,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 6
+    },
+    {
+      "id": "john-deere-6m-125-powertech-4-5-l-125-ch",
+      "type": "tractor",
+      "make": "John Deere",
+      "model": "6M 125",
+      "engine": "PowerTech 4.5 L 125 ch",
+      "years": [
+        2019,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "body": "tractor",
+      "traction": "both"
+    },
+    {
+      "id": "fendt-312-vario-deutz-tcd-3-6-l-125-ch",
+      "type": "tractor",
+      "make": "Fendt",
+      "model": "312 Vario",
+      "engine": "Deutz TCD 3.6 L 125 ch",
+      "years": [
+        2018,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "body": "tractor",
+      "traction": "both"
+    },
+    {
+      "id": "claas-arion-470-fpt-4-5-l-155-ch",
+      "type": "tractor",
+      "make": "Claas",
+      "model": "Arion 470",
+      "engine": "FPT 4.5 L 155 ch",
+      "years": [
+        2019,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "body": "tractor",
+      "traction": "both"
+    },
+    {
+      "id": "new-holland-t5-120-fpt-3-4-l-117-ch",
+      "type": "tractor",
+      "make": "New Holland",
+      "model": "T5.120",
+      "engine": "FPT 3.4 L 117 ch",
+      "years": [
+        2017,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "body": "tractor",
+      "traction": "both"
+    },
+    {
+      "id": "kubota-m5-111-kubota-3-8-l-113-ch",
+      "type": "tractor",
+      "make": "Kubota",
+      "model": "M5-111",
+      "engine": "Kubota 3.8 L 113 ch",
+      "years": [
+        2016,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "body": "tractor",
+      "traction": "both"
+    },
+    {
+      "id": "case-ih-optum-300-fpt-6-7-l-300-ch",
+      "type": "tractor",
+      "make": "Case IH",
+      "model": "Optum 300",
+      "engine": "FPT 6.7 L 300 ch",
+      "years": [
+        2016,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 6,
+      "body": "tractor",
+      "traction": "both"
+    },
+    {
+      "id": "lamborghini-trattori-spark-165-deutz-tcd-6-1-l-165-ch",
+      "type": "tractor",
+      "make": "Lamborghini Trattori",
+      "model": "Spark 165",
+      "engine": "Deutz TCD 6.1 L 165 ch",
+      "years": [
+        2016,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 6,
+      "body": "tractor",
+      "traction": "both"
     }
   ],
   "tutorials": [

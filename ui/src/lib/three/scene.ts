@@ -86,6 +86,7 @@ export class VehicleScene {
     key.shadow.camera.bottom = -7;
     key.shadow.camera.far = 30;
     key.shadow.bias = -0.0005;
+    key.shadow.normalBias = 0.025; // no shadow acne on the finely tessellated body panels
     key.shadow.radius = 6;
     this.scene.add(key);
     const shadowFloor = new THREE.Mesh(new THREE.PlaneGeometry(30, 30), new THREE.ShadowMaterial({ opacity: 0.35 }));

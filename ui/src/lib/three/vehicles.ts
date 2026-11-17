@@ -3,6 +3,7 @@
 // No external asset: works offline and weighs nothing.
 import * as THREE from 'three';
 import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
+import { TessellateModifier } from 'three/addons/modifiers/TessellateModifier.js';
 
 export interface VehicleSpec {
   type: string; // car | van | motorcycle | truck
@@ -86,13 +87,20 @@ function tube(points: [number, number, number][], radius: number, color: number)
 function wheel(radius: number, width: number, outward = true) {
   const g = new THREE.Group();
   const rubber = mat(PALETTE.rubber, { metalness: 0, roughness: 0.92 });
-  const tyre = new THREE.Mesh(new THREE.TorusGeometry(radius * 0.76, radius * 0.25, 20, 56), rubber);
-  tyre.scale.z = width / (radius * 0.5);
+  // Tyre cross-section revolved around the axle: bead → bulging sidewall → rounded shoulder → flat tread.
+  const R = radius, w = width / 2, rb = radius * 0.56;
+  const prof: [number, number][] = [
+    [rb, -w * 0.82], [rb + R * 0.05, -w * 0.95], [R * 0.78, -w * 1.02], [R * 0.9, -w * 0.98], [R * 0.97, -w * 0.88], [R, -w * 0.7],
+    [R, w * 0.7], [R * 0.97, w * 0.88], [R * 0.9, w * 0.98], [R * 0.78, w * 1.02], [rb + R * 0.05, w * 0.95], [rb, w * 0.82],
+  ];
+  const tyreGeo = new THREE.LatheGeometry(prof.map(([r, y]) => new THREE.Vector2(r, y)), 72);
+  tyreGeo.rotateX(Math.PI / 2);
+  const tyre = new THREE.Mesh(tyreGeo, rubber);
   g.add(tyre);
   // Tread grooves: thin dark rings on the contact surface
   const groove = mat(0x050608, { metalness: 0, roughness: 1 });
   for (const k of [-0.22, 0, 0.22]) {
-    const r = new THREE.Mesh(new THREE.TorusGeometry(radius * 1.003, radius * 0.012, 4, 64), groove);
+    const r = new THREE.Mesh(new THREE.TorusGeometry(radius * 1.001, radius * 0.011, 4, 72), groove);
     r.position.z = k * width;
     g.add(r);
   }
@@ -323,8 +331,11 @@ function carBody(st: Style, axleF: number, axleR: number, paint: number) {
     g.translate(0, 0, -depth / 2);
     return g;
   };
+  // The flat sides of an extrusion only have vertices on their outline: subdivide them so the
+  // sculpting below (door bulge, character lines) really bends the panels.
+  const fine = (g: THREE.BufferGeometry) => new TessellateModifier(0.045, 10).modify(g.index ? g.toNonIndexed() : g);
   const panels: Panel[] = [
-    { geo: ext(lower, W * 2 - 0.16, 0.08), ghost: true },
+    { geo: fine(ext(lower, W * 2 - 0.16, 0.08)), ghost: true },
     { geo: ext(glass, W * 2 - 0.36, 0.08), kind: 'glass', ghost: true },
   ];
   const add = (geo: THREE.BufferGeometry, kind: PanelKind = 'paint') => panels.push({ geo, kind });
@@ -348,9 +359,9 @@ function carBody(st: Style, axleF: number, axleR: number, paint: number) {
   else if (st.doors === 2) seams.push(Math.max(rTop + 0.15, axleR + r + 0.05));
   else seams.push((wTop + rTop) / 2 + 0.1, (wTop + rTop) / 2 - 0.8);
   // Seams stop below the shoulder (where the bevel rolls inward) so they never stick out.
-  for (const x of seams) add(place(rbox(0.008, belt - low - 0.24, W * 2 + 0.004, 0.003), x, (belt + low) / 2 - 0.02, 0), 'dark');
+  for (const x of seams) add(place(rbox(0.008, belt - low - 0.24, W * 2 + 0.034, 0.003), x, (belt + low) / 2 - 0.02, 0), 'dark');
   for (let i = 1; i < seams.length; i++) {
-    for (const z of [W + 0.008, -W - 0.008]) add(place(rbox(0.11, 0.025, 0.02, 0.008), seams[i] + 0.1, belt - 0.1, z), 'trim');
+    for (const z of [W + 0.022, -W - 0.022]) add(place(rbox(0.11, 0.025, 0.02, 0.008), seams[i] + 0.1, belt - 0.1, z), 'trim');
   }
   // Lights, grille, plates, mirrors
   for (const z of [W - 0.28, -W + 0.28]) {
@@ -390,6 +401,11 @@ function carBody(st: Style, axleF: number, axleR: number, paint: number) {
     for (const side of [1, -1]) add(place(rbox(0.5, 0.2, 0.06, 0.05), axleR + r + 0.3, (low + belt) / 2 + 0.02, side * (W - 0.01), [0, side * 0.12, 0]), 'dark');
     add(place(rbox(0.12, 0.03, W * 1.7, 0.012), -L + 0.12, belt + 0.06, 0)); // ducktail spoiler
   }
+  // Shark-fin antenna, third brake light, fog lamps, exhaust tips
+  add(place(rbox(0.14, 0.05, 0.035, 0.015), rTop + 0.35, roof + 0.1, 0, [0, 0, 0.35]), 'dark');
+  add(place(rbox(0.03, 0.025, 0.28, 0.01), rTop - 0.02, roof - 0.06, 0, [0, 0, 0.6]), 'light');
+  for (const z of [W - 0.3, -W + 0.3]) add(place(new THREE.CylinderGeometry(0.035, 0.035, 0.02, 20), L + 0.075, low + 0.11, z, [0, 0, Math.PI / 2]), 'lamp');
+  for (const z of st.intakes ? [0.18, -0.18] : [-W + 0.32]) add(place(new THREE.CylinderGeometry(0.038, 0.038, 0.08, 20, 1, true), -L - 0.07, low + 0.07, z, [0, 0, Math.PI / 2]), 'alu');
   // Rear diffuser / lower valance
   add(place(rbox(0.06, 0.08, W * 1.5, 0.02), -L - 0.05, low + 0.06, 0), 'dark');
 
@@ -402,7 +418,9 @@ function carBody(st: Style, axleF: number, axleR: number, paint: number) {
     const tf = Math.min(1, Math.max(0, (x - (L - front)) / front));
     const tr = Math.min(1, Math.max(0, (-x - (L - rear)) / rear));
     const plan = 1 - 0.17 * tf * tf - 0.11 * tr * tr;
-    const v = y <= belt ? 1 - 0.05 * Math.min(1, ((y - mid) / half) ** 2) : 0.95 * (1 - 0.2 * Math.min(1, (y - belt) / (roof - belt)));
+    // Character lines: a crisp shoulder crease under the window line and a softer one low on the doors.
+    const crease = 0.011 * Math.exp(-(((y - (belt - 0.13)) / 0.045) ** 2)) + 0.006 * Math.exp(-(((y - (low + 0.17)) / 0.05) ** 2));
+    const v = y <= belt ? 1 - 0.05 * Math.min(1, ((y - mid) / half) ** 2) + crease : 0.95 * (1 - 0.2 * Math.min(1, (y - belt) / (roof - belt)));
     return plan * v;
   };
   for (const p of panels) sculpt(p.geo, shape);
