@@ -6,6 +6,14 @@
   import Icon from '../components/Icon.svelte';
 
   let query = $state(sessionStorage.getItem('easyobd.codeQuery') ?? '');
+  // Code requested from the 3D part card
+  $effect(() => {
+    const c = app.request?.code;
+    if (c) {
+      query = c;
+      app.request = null;
+    }
+  });
   sessionStorage.removeItem('easyobd.codeQuery');
   let system = $state('');
   let d = $state<Diagnosis | null>(null);

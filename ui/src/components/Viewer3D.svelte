@@ -1,7 +1,9 @@
 <script lang="ts">
   import { onDestroy, onMount } from 'svelte';
   import { VehicleScene } from '../lib/three/scene';
-  import { app, componentName, sceneVehicle, vkey } from '../lib/state.svelte';
+  import { app, componentName, fmt, go, sceneVehicle, vkey } from '../lib/state.svelte';
+  import { call, openUrl } from '../lib/api';
+  import type { ComponentActions } from '../lib/types';
   import Icon from './Icon.svelte';
   import Photos from './Photos.svelte';
 
@@ -11,6 +13,29 @@
   let xray = $state(false);
   let exploded = $state(false);
   let webgl = $state(true);
+  let actions = $state<ComponentActions | null>(null);
+
+  // A picked part suggests what can be done on it: tutorials for this vehicle, related codes, parts.
+  $effect(() => {
+    const id = picked;
+    actions = null;
+    if (!id) return;
+    call<ComponentActions>('component_actions', { id, profile: app.profile })
+      .then((a) => {
+        if (picked === id) actions = a;
+      })
+      .catch(() => {});
+  });
+  function openTutorial(id: string) {
+    sessionStorage.setItem('easyobd.tutorial', id);
+    app.request = { tutorial: id };
+    go('maintenance');
+  }
+  function openCode(code: string) {
+    sessionStorage.setItem('easyobd.codeQuery', code);
+    app.request = { code };
+    go('codes');
+  }
 
   onMount(() => {
     try {
@@ -73,6 +98,35 @@
         <button class="btn ghost sm" aria-label="Fermer" onclick={() => (picked = null)}><Icon name="x" size={14} /></button>
       </div>
       <Photos components={[picked]} userKey={`part.${vkey()}.${picked}`} compact />
+      {#if actions}
+        {#if actions.tutorials.length}
+          <div class="tiny faint">INTERVENIR SUR CETTE PIÈCE</div>
+          {#each actions.tutorials as t}
+            <button class="action" onclick={() => openTutorial(t.id)}>
+              <Icon name="wrench" size={14} />
+              <span class="grow">{t.title}</span>
+              <span class="tiny muted">{fmt.time(t.time_min, t.time_max)}</span>
+            </button>
+          {/each}
+        {:else if app.profile}
+          <div class="tiny muted">Pas de tutoriel pour cette pièce sur ce véhicule : voyez les codes et l'achat ci-dessous.</div>
+        {/if}
+        {#if actions.codes.length}
+          <div class="tiny faint">PANNES LIÉES</div>
+          <div class="codes">
+            {#each actions.codes.slice(0, 6) as c}
+              <button class="chip sev-{c.severity}" title={c.title} onclick={() => openCode(c.code)}>{c.code}</button>
+            {/each}
+          </div>
+        {/if}
+        {#if actions.links.length}
+          <div class="row links">
+            {#each actions.links as l}
+              <button class="btn sm ghost" onclick={() => openUrl(l.url)}><Icon name="cart" size={13} /> {l.name}</button>
+            {/each}
+          </div>
+        {/if}
+      {/if}
       <button class="btn sm" onclick={() => { app.highlightSeverity = 'info'; app.highlight = [picked!]; }}>Isoler cette pièce</button>
     </div>
   {/if}
@@ -88,6 +142,13 @@
   .tools .btn.active { border-color: var(--accent); color: var(--accent); }
   .legend { position: absolute; left: 12px; bottom: 10px; display: flex; align-items: center; gap: 6px; }
   .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--c); box-shadow: 0 0 10px var(--c); }
-  .picked { position: absolute; left: 10px; top: 10px; max-width: 260px; padding: 0.7rem; display: flex; flex-direction: column; gap: 0.5rem; }
+  .picked { position: absolute; left: 10px; top: 10px; max-width: 290px; max-height: calc(100% - 20px); overflow: auto; padding: 0.7rem; background: var(--panel-solid); box-shadow: var(--shadow); z-index: 3; display: flex; flex-direction: column; gap: 0.5rem; }
+  .action { display: flex; align-items: center; gap: 0.45rem; width: 100%; text-align: left; padding: 0.45rem 0.55rem; border-radius: 8px; border: 1px solid var(--border, rgba(148, 163, 184, 0.25)); background: transparent; color: inherit; font: inherit; font-size: 0.85rem; cursor: pointer; }
+  .action:hover { border-color: var(--accent, #22d3ee); }
+  .codes { display: flex; flex-wrap: wrap; gap: 0.3rem; }
+  .chip { font-family: var(--mono, ui-monospace, monospace); font-size: 0.75rem; padding: 0.15rem 0.45rem; border-radius: 6px; border: 1px solid rgba(148, 163, 184, 0.35); background: transparent; color: inherit; cursor: pointer; }
+  .chip.sev-high, .chip.sev-critical { border-color: rgba(239, 68, 68, 0.6); }
+  .chip.sev-medium { border-color: rgba(245, 158, 11, 0.6); }
+  .links { flex-wrap: wrap; gap: 0.3rem; }
   .nogl { position: absolute; inset: 0; display: grid; place-items: center; padding: 1rem; text-align: center; }
 </style>

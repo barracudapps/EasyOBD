@@ -2,6 +2,11 @@ export type Severity = 'low' | 'medium' | 'high' | 'critical';
 export type Sense = 'sight' | 'sound' | 'smell' | 'touch' | 'feel';
 
 export interface ShopLink { provider: string; name: string; url: string; color?: string | null }
+export interface ComponentActions {
+  id: string; name: string; description?: string | null; links: ShopLink[];
+  tutorials: { id: string; title: string; difficulty: number; time_min: number; time_max: number }[];
+  codes: { code: string; title: string; system: string; severity: string }[];
+}
 export interface Part { name: string; qty: number; price_min: number; price_max: number; links: ShopLink[] }
 export interface Cost { parts_min: number; parts_max: number; labor_min: number; labor_max: number; garage_min: number; garage_max: number }
 export interface Solution {

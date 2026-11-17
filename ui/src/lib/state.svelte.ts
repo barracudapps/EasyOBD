@@ -68,6 +68,8 @@ export const app = $state({
   toast: null as { text: string; kind: 'info' | 'error' | 'ok' } | null,
   expertUnlocked: false,
   pickerOpen: false,
+  /** Cross-view request (e.g. from the 3D part card): open this tutorial / look up this code. */
+  request: null as { tutorial?: string; code?: string } | null,
   /** Answers given in the "à l'œil" questionnaire + evidence from audio, shared between views. */
   audioEvidence: [] as { hypothesis: string; weight: number; label: string }[],
 });

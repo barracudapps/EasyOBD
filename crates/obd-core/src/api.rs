@@ -98,6 +98,39 @@ impl Session {
                     "catalog": kb.catalog(),
                 }))
             }
+            // Part picked in the 3D view: what can be done on it (tutorials for this vehicle, related codes).
+            "component_actions" => {
+                let id: String = arg(args, "id")?;
+                let base = id.rsplit_once('_').filter(|(_, n)| n.parse::<u32>().is_ok()).map(|(b, _)| b.to_string());
+                let concerns = |c: &String| *c == id || base.as_deref().is_some_and(|b| c.rsplit_once('_').is_some_and(|(cb, n)| cb == b && (n == "{n}" || n.parse::<u32>().is_ok())));
+                let profile = opt::<crate::maintenance::VehicleProfile>(args, "profile");
+                let vehicle = profile.as_ref().map(|p| format!("{} {}", p.make, p.model));
+                let tutorials: Vec<Value> = match profile {
+                    Some(p) => {
+                        let ids: Vec<String> = maint.tutorials_for(&p).into_iter().map(|t| t.id).collect();
+                        maint
+                            .tutorials
+                            .iter()
+                            .filter(|t| ids.contains(&t.id))
+                            .filter(|t| t.components.iter().any(concerns) || t.steps.iter().any(|s| s.components.iter().any(concerns)))
+                            .map(|t| json!({ "id": t.id, "title": t.title, "difficulty": t.difficulty, "time_min": t.time_min, "time_max": t.time_max }))
+                            .collect()
+                    }
+                    None => vec![],
+                };
+                let info = kb.component_info(&id).or_else(|| maint.components.get(&id).cloned());
+                let name = info.as_ref().map(|i| i.name.clone()).unwrap_or_else(|| id.replace('_', " "));
+                // Shop search: the part without its cylinder number ("Bobine d'allumage – cylindre 2" → "Bobine d'allumage").
+                let part = name.split(" – ").next().unwrap_or(&name).to_string();
+                Ok(json!({
+                    "id": id,
+                    "links": kb.links(&part, vehicle.as_deref()),
+                    "name": name,
+                    "description": info.and_then(|i| i.description),
+                    "tutorials": tutorials,
+                    "codes": kb.codes_for_component(&id).into_iter().take(10).collect::<Vec<_>>(),
+                }))
+            }
             "kb_lookup" => {
                 let code: String = arg(args, "code")?;
                 let make = opt::<String>(args, "make").or_else(|| self.make());
@@ -342,6 +375,14 @@ mod tests {
         assert_eq!(j["items"][0]["source"], "Post-traitement (échappement)");
         assert_eq!(j["items"][2]["spn"], 1569);
 
+        // Clicking a part suggests interventions
+        let a = s.handle("component_actions", &json!({ "id": "coil_2", "profile": { "id": "x", "type": "car", "make": "Renault", "model": "Clio", "fuel": "petrol", "cylinders": 4 } })).unwrap();
+        assert!(a["codes"].as_array().unwrap().iter().any(|c| c["code"] == "P0352"), "{a}");
+        let a = s.handle("component_actions", &json!({ "id": "spark_plug_1", "profile": { "id": "x", "type": "car", "make": "Renault", "model": "Clio", "fuel": "petrol", "cylinders": 4 } })).unwrap();
+        assert!(a["tutorials"].as_array().unwrap().iter().any(|t| t["id"] == "spark_plugs"), "{a}");
+        assert!(a["codes"].as_array().unwrap().iter().any(|c| c["code"] == "P0301"), "{a}");
+        let a = s.handle("component_actions", &json!({ "id": "cam_sensor" })).unwrap();
+        assert!(a["codes"].as_array().unwrap().iter().any(|c| c["code"] == "P0340"), "{a}");
         let info = s.handle("kb_info", &Value::Null).unwrap();
         assert!(info["components"]["oil_filter"].is_string());
         let g = s.handle("symptoms_evaluate", &json!({ "answers": { "noises": ["click_turn"] } })).unwrap();

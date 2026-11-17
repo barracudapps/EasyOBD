@@ -35,6 +35,16 @@
       .catch((e) => toast(errorText(e), 'error'));
   });
 
+  // Tutorial requested from elsewhere (3D part card) while this view is already open.
+  $effect(() => {
+    const want = app.request?.tutorial;
+    if (want && list.some((t) => t.id === want)) {
+      app.request = null;
+      section = 'tutorials';
+      open(want);
+    }
+  });
+
   async function open(id: string) {
     try {
       const r = await call<{ tutorial: Tutorial; shopping: ShoppingList; alternatives: Alternative[][] }>('tutorial', { id, profile: app.profile });

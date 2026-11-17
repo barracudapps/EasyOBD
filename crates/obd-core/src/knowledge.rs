@@ -44,6 +44,15 @@ pub struct ComponentInfo {
     pub description: Option<String>,
 }
 
+/// A fault code linked to a component (part picked in the 3D view).
+#[derive(Debug, Clone, Serialize)]
+pub struct ComponentCode {
+    pub code: String,
+    pub title: String,
+    pub system: String,
+    pub severity: Severity,
+}
+
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct Cause {
     pub text: String,
@@ -325,6 +334,49 @@ impl KnowledgeBase {
         n.parse::<u32>().ok()?;
         let tpl = self.components.get(&format!("{base}_{{n}}"))?;
         Some(ComponentInfo { name: tpl.name.replace("{n}", n), description: tpl.description.as_ref().map(|d| d.replace("{n}", n)) })
+    }
+
+    /// Fault codes that involve a 3D component (`coil_2` → P0352, `cam_sensor` → P0340…),
+    /// most severe first. Numbered parts resolve the matching code inside a range.
+    pub fn codes_for_component(&self, id: &str) -> Vec<ComponentCode> {
+        let (base, num) = match id.rsplit_once('_') {
+            Some((b, n)) if n.parse::<i32>().is_ok() => (b, n.parse::<i32>().ok()),
+            _ => (id, None),
+        };
+        let mut out: Vec<(usize, ComponentCode)> = Vec::new();
+        for (_, d) in &self.entries {
+            // Position of the part in the entry's list: 0 = the code is about this very part.
+            let hit = d.components.iter().enumerate().find_map(|(i, c)| {
+                if c == id {
+                    return Some((i, None));
+                }
+                let tpl = c.strip_suffix("_{n}")?;
+                (tpl == base).then_some((i, num))
+            });
+            let Some((rank, n)) = hit else { continue };
+            let code = match (&d.code, &d.range, n) {
+                (Some(c), _, _) => c.clone(),
+                (None, Some(r), Some(n)) => {
+                    let c = format!("{}{:02}", &r[0][..3], n + d.n_offset);
+                    if !in_range(&c, r) {
+                        continue;
+                    }
+                    c
+                }
+                (None, Some(r), None) => r[0].clone(),
+                _ => continue,
+            };
+            if out.iter().any(|(_, o)| o.code == code) {
+                continue;
+            }
+            let title = match n {
+                Some(n) => d.title.replace("{n}", &n.to_string()),
+                None => d.title.replace("{n}", "n"),
+            };
+            out.push((rank.min(2), ComponentCode { code, title, system: d.system.clone(), severity: d.severity }));
+        }
+        out.sort_by(|(ra, a), (rb, b)| ra.cmp(rb).then(b.severity.cmp(&a.severity)).then(a.code.cmp(&b.code)));
+        out.into_iter().map(|(_, c)| c).collect()
     }
 
     pub(crate) fn component_ref(&self, id: &str) -> ComponentRef {
