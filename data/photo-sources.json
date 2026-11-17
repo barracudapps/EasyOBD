@@ -1,0 +1,14 @@
+{
+  "_doc": "Photos de référence : fichiers Wikimedia Commons sous licence libre (CC BY, CC BY-SA, CC0, domaine public), relus un par un. scripts/fetch-photos.py télécharge une miniature de 640 px et génère ui/public/photos/manifest.json avec auteur, licence et lien source.",
+  "photos": [
+    { "component": "spark_plug", "file": "File:Spark plug.jpg", "alt": "Bougie d'allumage" },
+    { "component": "o2_sensor_upstream", "file": "File:LambdasondeRB.jpg", "alt": "Sonde lambda" },
+    { "component": "o2_sensor_downstream", "file": "File:LambdasondeRB.jpg", "alt": "Sonde lambda" },
+    { "component": "catalytic_converter", "file": "File:Aufgeschnittener Metall Katalysator für ein Auto.jpg", "alt": "Catalyseur en coupe (nid d'abeille)" },
+    { "component": "brake", "file": "File:Brake Discs.jpg", "alt": "Disques de frein" },
+    { "component": "oil_filter", "file": "File:Bosch Oil Filter.JPG", "alt": "Filtre à huile" },
+    { "component": "maf_sensor", "file": "File:Mass-airflow.jpg", "alt": "Débitmètre d'air" },
+    { "component": "egr_valve", "file": "File:Clogged EGR Valve Intake manifold.jpg", "alt": "Vanne EGR encrassée (calamine)" },
+    { "component": "thermostat", "file": "File:Double valve automotive thermostat.jpg", "alt": "Thermostat de refroidissement" }
+  ]
+}

@@ -20,7 +20,8 @@ export async function referencePhotos(ids: string[]): Promise<RefPhoto[]> {
   const seen = new Set<string>();
   const out: RefPhoto[] = [];
   for (const id of ids) {
-    for (const p of manifest![id] ?? manifest![id.replace(/_(\d+|fl|fr|rl|rr)$/, '')] ?? []) {
+    const base = id.replace(/_(\d+|fl|fr|rl|rr)$/, '');
+    for (const p of manifest![id] ?? manifest![base] ?? manifest![base.replace(/^brake$/, 'brake')] ?? []) {
       if (!seen.has(p.file)) {
         seen.add(p.file);
         out.push(p);
