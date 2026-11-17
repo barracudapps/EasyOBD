@@ -7454,6 +7454,759 @@
       "cylinders": 4,
       "body": "tractor",
       "traction": "both"
+    },
+    {
+      "id": "bentley-bentayga-4-0-v8-biturbo-550",
+      "type": "car",
+      "make": "Bentley",
+      "model": "Bentayga",
+      "engine": "4.0 V8 biturbo 550",
+      "years": [
+        2018,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 8,
+      "body": "suv",
+      "traction": "both"
+    },
+    {
+      "id": "bentley-bentayga-6-0-w12-608",
+      "type": "car",
+      "make": "Bentley",
+      "model": "Bentayga",
+      "engine": "6.0 W12 608",
+      "years": [
+        2016,
+        2020
+      ],
+      "fuel": "petrol",
+      "cylinders": 12,
+      "body": "suv",
+      "traction": "both"
+    },
+    {
+      "id": "bentley-flying-spur-6-0-w12-635",
+      "type": "car",
+      "make": "Bentley",
+      "model": "Flying Spur",
+      "engine": "6.0 W12 635",
+      "years": [
+        2019,
+        2024
+      ],
+      "fuel": "petrol",
+      "cylinders": 12,
+      "body": "sedan",
+      "traction": "both"
+    },
+    {
+      "id": "bentley-continental-gt-iii-4-0-v8-biturbo-550",
+      "type": "car",
+      "make": "Bentley",
+      "model": "Continental GT (III)",
+      "engine": "4.0 V8 biturbo 550",
+      "years": [
+        2019,
+        2024
+      ],
+      "fuel": "petrol",
+      "cylinders": 8,
+      "body": "coupe",
+      "traction": "both"
+    },
+    {
+      "id": "bentley-continental-gt-i-6-0-w12-560",
+      "type": "car",
+      "make": "Bentley",
+      "model": "Continental GT (I)",
+      "engine": "6.0 W12 560",
+      "years": [
+        2003,
+        2011
+      ],
+      "fuel": "petrol",
+      "cylinders": 12,
+      "body": "coupe",
+      "traction": "both"
+    },
+    {
+      "id": "bentley-mulsanne-6-75-v8-biturbo-512",
+      "type": "car",
+      "make": "Bentley",
+      "model": "Mulsanne",
+      "engine": "6.75 V8 biturbo 512",
+      "years": [
+        2010,
+        2020
+      ],
+      "fuel": "petrol",
+      "cylinders": 8,
+      "body": "sedan",
+      "traction": "rear"
+    },
+    {
+      "id": "rolls-royce-phantom-viii-6-75-v12-biturbo-571",
+      "type": "car",
+      "make": "Rolls-Royce",
+      "model": "Phantom VIII",
+      "engine": "6.75 V12 biturbo 571",
+      "years": [
+        2017,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 12,
+      "body": "sedan",
+      "traction": "rear"
+    },
+    {
+      "id": "rolls-royce-ghost-ii-6-75-v12-biturbo-571",
+      "type": "car",
+      "make": "Rolls-Royce",
+      "model": "Ghost (II)",
+      "engine": "6.75 V12 biturbo 571",
+      "years": [
+        2020,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 12,
+      "body": "sedan",
+      "traction": "both"
+    },
+    {
+      "id": "rolls-royce-ghost-i-6-6-v12-biturbo-570",
+      "type": "car",
+      "make": "Rolls-Royce",
+      "model": "Ghost (I)",
+      "engine": "6.6 V12 biturbo 570",
+      "years": [
+        2009,
+        2020
+      ],
+      "fuel": "petrol",
+      "cylinders": 12,
+      "body": "sedan",
+      "traction": "rear"
+    },
+    {
+      "id": "rolls-royce-cullinan-6-75-v12-biturbo-571",
+      "type": "car",
+      "make": "Rolls-Royce",
+      "model": "Cullinan",
+      "engine": "6.75 V12 biturbo 571",
+      "years": [
+        2018,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 12,
+      "body": "suv",
+      "traction": "both"
+    },
+    {
+      "id": "rolls-royce-wraith-6-6-v12-biturbo-632",
+      "type": "car",
+      "make": "Rolls-Royce",
+      "model": "Wraith",
+      "engine": "6.6 V12 biturbo 632",
+      "years": [
+        2013,
+        2023
+      ],
+      "fuel": "petrol",
+      "cylinders": 12,
+      "body": "coupe",
+      "traction": "rear"
+    },
+    {
+      "id": "rolls-royce-dawn-6-6-v12-biturbo-571",
+      "type": "car",
+      "make": "Rolls-Royce",
+      "model": "Dawn",
+      "engine": "6.6 V12 biturbo 571",
+      "years": [
+        2015,
+        2023
+      ],
+      "fuel": "petrol",
+      "cylinders": 12,
+      "body": "coupe",
+      "traction": "rear"
+    },
+    {
+      "id": "rolls-royce-spectre-102-kwh",
+      "type": "car",
+      "make": "Rolls-Royce",
+      "model": "Spectre",
+      "engine": "102 kWh",
+      "years": [
+        2023,
+        2026
+      ],
+      "fuel": "electric",
+      "body": "coupe",
+      "traction": "both"
+    },
+    {
+      "id": "aixam-city-400-cm-diesel-kubota-2-cyl",
+      "type": "car",
+      "make": "Aixam",
+      "model": "City",
+      "engine": "400 cm³ diesel (Kubota, 2 cyl.)",
+      "years": [
+        2010,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 2,
+      "body": "micro"
+    },
+    {
+      "id": "aixam-crossline-400-cm-diesel-kubota-2-cyl",
+      "type": "car",
+      "make": "Aixam",
+      "model": "Crossline",
+      "engine": "400 cm³ diesel (Kubota, 2 cyl.)",
+      "years": [
+        2010,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 2,
+      "body": "micro"
+    },
+    {
+      "id": "aixam-coupe-gti-400-cm-diesel-kubota-2-cyl",
+      "type": "car",
+      "make": "Aixam",
+      "model": "Coupé GTI",
+      "engine": "400 cm³ diesel (Kubota, 2 cyl.)",
+      "years": [
+        2016,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 2,
+      "body": "micro"
+    },
+    {
+      "id": "aixam-e-city-electrique",
+      "type": "car",
+      "make": "Aixam",
+      "model": "e-City",
+      "engine": "électrique",
+      "years": [
+        2018,
+        2026
+      ],
+      "fuel": "electric",
+      "body": "micro"
+    },
+    {
+      "id": "ligier-js50-diesel-2-cyl-lombardini-dci",
+      "type": "car",
+      "make": "Ligier",
+      "model": "JS50",
+      "engine": "Diesel 2 cyl. (Lombardini DCI)",
+      "years": [
+        2013,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 2,
+      "body": "micro"
+    },
+    {
+      "id": "ligier-myli-electrique",
+      "type": "car",
+      "make": "Ligier",
+      "model": "Myli",
+      "engine": "électrique",
+      "years": [
+        2023,
+        2026
+      ],
+      "fuel": "electric",
+      "body": "micro"
+    },
+    {
+      "id": "microcar-m-go-diesel-2-cyl-lombardini-dci",
+      "type": "car",
+      "make": "Microcar",
+      "model": "M.Go",
+      "engine": "Diesel 2 cyl. (Lombardini DCI)",
+      "years": [
+        2014,
+        2022
+      ],
+      "fuel": "diesel",
+      "cylinders": 2,
+      "body": "micro"
+    },
+    {
+      "id": "chatenet-ch46-diesel-2-cyl-lombardini-dci",
+      "type": "car",
+      "make": "Chatenet",
+      "model": "CH46",
+      "engine": "Diesel 2 cyl. (Lombardini DCI)",
+      "years": [
+        2016,
+        2024
+      ],
+      "fuel": "diesel",
+      "cylinders": 2,
+      "body": "micro"
+    },
+    {
+      "id": "volkswagen-golf-ii-gti-1-8-112",
+      "type": "car",
+      "make": "Volkswagen",
+      "model": "Golf II",
+      "engine": "GTI 1.8 112",
+      "years": [
+        1984,
+        1991
+      ],
+      "fuel": "petrol",
+      "cylinders": 4,
+      "body": "hatch"
+    },
+    {
+      "id": "volkswagen-golf-iii-1-4-60",
+      "type": "car",
+      "make": "Volkswagen",
+      "model": "Golf III",
+      "engine": "1.4 60",
+      "years": [
+        1991,
+        1997
+      ],
+      "fuel": "petrol",
+      "cylinders": 4,
+      "body": "hatch"
+    },
+    {
+      "id": "volkswagen-golf-iii-1-8-90",
+      "type": "car",
+      "make": "Volkswagen",
+      "model": "Golf III",
+      "engine": "1.8 90",
+      "years": [
+        1991,
+        1997
+      ],
+      "fuel": "petrol",
+      "cylinders": 4,
+      "body": "hatch"
+    },
+    {
+      "id": "volkswagen-golf-iii-gti-2-0-115",
+      "type": "car",
+      "make": "Volkswagen",
+      "model": "Golf III",
+      "engine": "GTI 2.0 115",
+      "years": [
+        1991,
+        1997
+      ],
+      "fuel": "petrol",
+      "cylinders": 4,
+      "body": "hatch"
+    },
+    {
+      "id": "volkswagen-golf-iii-vr6-2-8-174",
+      "type": "car",
+      "make": "Volkswagen",
+      "model": "Golf III",
+      "engine": "VR6 2.8 174",
+      "years": [
+        1991,
+        1997
+      ],
+      "fuel": "petrol",
+      "cylinders": 6,
+      "body": "hatch"
+    },
+    {
+      "id": "volkswagen-golf-iii-1-9-tdi-90",
+      "type": "car",
+      "make": "Volkswagen",
+      "model": "Golf III",
+      "engine": "1.9 TDI 90",
+      "years": [
+        1993,
+        1997
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "body": "hatch"
+    },
+    {
+      "id": "volkswagen-golf-iii-1-9-d-64",
+      "type": "car",
+      "make": "Volkswagen",
+      "model": "Golf III",
+      "engine": "1.9 D 64",
+      "years": [
+        1992,
+        1997
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "body": "hatch"
+    },
+    {
+      "id": "volkswagen-golf-iv-1-9-tdi-110",
+      "type": "car",
+      "make": "Volkswagen",
+      "model": "Golf IV",
+      "engine": "1.9 TDI 110",
+      "years": [
+        1997,
+        2003
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "body": "hatch"
+    },
+    {
+      "id": "volkswagen-golf-iv-1-6-16v-105",
+      "type": "car",
+      "make": "Volkswagen",
+      "model": "Golf IV",
+      "engine": "1.6 16V 105",
+      "years": [
+        2000,
+        2003
+      ],
+      "fuel": "petrol",
+      "cylinders": 4,
+      "body": "hatch"
+    },
+    {
+      "id": "volkswagen-golf-v-1-9-tdi-105",
+      "type": "car",
+      "make": "Volkswagen",
+      "model": "Golf V",
+      "engine": "1.9 TDI 105",
+      "years": [
+        2003,
+        2008
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "body": "hatch"
+    },
+    {
+      "id": "volkswagen-golf-vii-gte-1-4-tsi-hybride-rechargeable-204",
+      "type": "car",
+      "make": "Volkswagen",
+      "model": "Golf VII GTE",
+      "engine": "1.4 TSI hybride rechargeable 204",
+      "years": [
+        2014,
+        2020
+      ],
+      "fuel": "hybrid",
+      "cylinders": 4,
+      "body": "hatch"
+    },
+    {
+      "id": "volkswagen-golf-viii-gte-1-4-ehybrid-245",
+      "type": "car",
+      "make": "Volkswagen",
+      "model": "Golf VIII GTE",
+      "engine": "1.4 eHybrid 245",
+      "years": [
+        2020,
+        2026
+      ],
+      "fuel": "hybrid",
+      "cylinders": 4,
+      "body": "hatch"
+    },
+    {
+      "id": "volkswagen-golf-vii-gti-2-0-tsi-230",
+      "type": "car",
+      "make": "Volkswagen",
+      "model": "Golf VII GTI",
+      "engine": "2.0 TSI 230",
+      "years": [
+        2013,
+        2020
+      ],
+      "fuel": "petrol",
+      "cylinders": 4,
+      "body": "hatch"
+    },
+    {
+      "id": "fiat-multipla-1-6-16v-103",
+      "type": "car",
+      "make": "Fiat",
+      "model": "Multipla",
+      "engine": "1.6 16V 103",
+      "years": [
+        1998,
+        2010
+      ],
+      "fuel": "petrol",
+      "cylinders": 4,
+      "body": "mpv"
+    },
+    {
+      "id": "fiat-multipla-1-9-jtd-115",
+      "type": "car",
+      "make": "Fiat",
+      "model": "Multipla",
+      "engine": "1.9 JTD 115",
+      "years": [
+        1999,
+        2010
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "body": "mpv"
+    },
+    {
+      "id": "fiat-panda-ii-1-2-60",
+      "type": "car",
+      "make": "Fiat",
+      "model": "Panda II",
+      "engine": "1.2 60",
+      "years": [
+        2003,
+        2012
+      ],
+      "fuel": "petrol",
+      "cylinders": 4,
+      "body": "hatch"
+    },
+    {
+      "id": "fiat-punto-ii-1-2-60",
+      "type": "car",
+      "make": "Fiat",
+      "model": "Punto II",
+      "engine": "1.2 60",
+      "years": [
+        1999,
+        2010
+      ],
+      "fuel": "petrol",
+      "cylinders": 4,
+      "body": "hatch"
+    },
+    {
+      "id": "peugeot-205-gti-1-9-130",
+      "type": "car",
+      "make": "Peugeot",
+      "model": "205",
+      "engine": "GTI 1.9 130",
+      "years": [
+        1986,
+        1994
+      ],
+      "fuel": "petrol",
+      "cylinders": 4,
+      "body": "hatch"
+    },
+    {
+      "id": "peugeot-205-1-8-d-60",
+      "type": "car",
+      "make": "Peugeot",
+      "model": "205",
+      "engine": "1.8 D 60",
+      "years": [
+        1989,
+        1998
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "body": "hatch"
+    },
+    {
+      "id": "peugeot-106-1-1-60",
+      "type": "car",
+      "make": "Peugeot",
+      "model": "106",
+      "engine": "1.1 60",
+      "years": [
+        1991,
+        2003
+      ],
+      "fuel": "petrol",
+      "cylinders": 4,
+      "body": "hatch"
+    },
+    {
+      "id": "peugeot-306-1-9-d-70",
+      "type": "car",
+      "make": "Peugeot",
+      "model": "306",
+      "engine": "1.9 D 70",
+      "years": [
+        1993,
+        2002
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "body": "hatch"
+    },
+    {
+      "id": "peugeot-406-2-0-hdi-110",
+      "type": "car",
+      "make": "Peugeot",
+      "model": "406",
+      "engine": "2.0 HDi 110",
+      "years": [
+        1999,
+        2004
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "body": "sedan"
+    },
+    {
+      "id": "renault-clio-i-1-2-60",
+      "type": "car",
+      "make": "Renault",
+      "model": "Clio I",
+      "engine": "1.2 60",
+      "years": [
+        1990,
+        1998
+      ],
+      "fuel": "petrol",
+      "cylinders": 4,
+      "body": "hatch"
+    },
+    {
+      "id": "renault-clio-ii-1-5-dci-65",
+      "type": "car",
+      "make": "Renault",
+      "model": "Clio II",
+      "engine": "1.5 dCi 65",
+      "years": [
+        2001,
+        2012
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "body": "hatch"
+    },
+    {
+      "id": "renault-twingo-i-1-2-60",
+      "type": "car",
+      "make": "Renault",
+      "model": "Twingo I",
+      "engine": "1.2 60",
+      "years": [
+        1993,
+        2007
+      ],
+      "fuel": "petrol",
+      "cylinders": 4,
+      "body": "hatch"
+    },
+    {
+      "id": "renault-super-5-gt-turbo-1-4-120",
+      "type": "car",
+      "make": "Renault",
+      "model": "Super 5",
+      "engine": "GT Turbo 1.4 120",
+      "years": [
+        1985,
+        1991
+      ],
+      "fuel": "petrol",
+      "cylinders": 4,
+      "body": "hatch"
+    },
+    {
+      "id": "renault-espace-iii-2-2-dci-130",
+      "type": "car",
+      "make": "Renault",
+      "model": "Espace III",
+      "engine": "2.2 dCi 130",
+      "years": [
+        2000,
+        2002
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "body": "mpv"
+    },
+    {
+      "id": "citroen-2cv-602-cm-bicylindre-a-plat",
+      "type": "car",
+      "make": "Citroën",
+      "model": "2CV",
+      "engine": "602 cm³ bicylindre à plat",
+      "years": [
+        1970,
+        1990
+      ],
+      "fuel": "petrol",
+      "cylinders": 2,
+      "body": "hatch"
+    },
+    {
+      "id": "citroen-saxo-1-1-60",
+      "type": "car",
+      "make": "Citroën",
+      "model": "Saxo",
+      "engine": "1.1 60",
+      "years": [
+        1996,
+        2003
+      ],
+      "fuel": "petrol",
+      "cylinders": 4,
+      "body": "hatch"
+    },
+    {
+      "id": "citroen-xsara-picasso-2-0-hdi-90",
+      "type": "car",
+      "make": "Citroën",
+      "model": "Xsara Picasso",
+      "engine": "2.0 HDi 90",
+      "years": [
+        1999,
+        2010
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "body": "mpv"
+    },
+    {
+      "id": "mercedes-benz-classe-e-w124-250-d-5-cyl",
+      "type": "car",
+      "make": "Mercedes-Benz",
+      "model": "Classe E (W124)",
+      "engine": "250 D 5 cyl.",
+      "years": [
+        1985,
+        1995
+      ],
+      "fuel": "diesel",
+      "cylinders": 5,
+      "body": "sedan",
+      "traction": "rear"
+    },
+    {
+      "id": "toyota-corolla-e11-1-4-vvt-i-97",
+      "type": "car",
+      "make": "Toyota",
+      "model": "Corolla (E11)",
+      "engine": "1.4 VVT-i 97",
+      "years": [
+        1997,
+        2002
+      ],
+      "fuel": "petrol",
+      "cylinders": 4,
+      "body": "hatch"
     }
   ],
   "tutorials": [

@@ -57,7 +57,7 @@ const WMI_TABLE: &[(&str, &str)] = &[
         ("ZDM", "Ducati"), ("VBK", "KTM"), ("SMT", "Triumph"), ("JYA", "Yamaha"), ("JH2", "Honda Moto"), ("JKA", "Kawasaki"),
         ("WB1", "BMW Motorrad"), ("ZAP", "Piaggio"), ("538", "Zero Motorcycles"), ("WMZ", "Mini"), ("VSE", "Cupra / Seat"),
         ("LVS", "Ford (Chine)"), ("LFV", "Volkswagen (Chine)"), ("WME", "Smart"), ("ZLA", "Lancia"),
-        ("ZGU", "Moto Guzzi"), ("JAL", "Isuzu"), ("ME3", "Royal Enfield"), ("RFB", "Kymco"),
+        ("ZGU", "Moto Guzzi"), ("SCA", "Rolls-Royce"), ("SCB", "Bentley"), ("ZHW", "Lamborghini"), ("SCC", "Lotus"), ("SBM", "McLaren"), ("SCF", "Aston Martin"), ("ZAM", "Maserati"), ("JAL", "Isuzu"), ("ME3", "Royal Enfield"), ("RFB", "Kymco"),
     ];
 
 fn make_from_wmi(wmi: &str) -> Option<&'static str> {

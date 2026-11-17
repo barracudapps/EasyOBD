@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onDestroy, untrack } from 'svelte';
   import { call, errorText, isNative } from '../lib/api';
-  import { addJournal, app, currentVehicle, selectVehicle, severityLabel, toast, updateVehicle, disconnect as endSession } from '../lib/state.svelte';
+  import { addJournal, app, currentVehicle, go, selectVehicle, severityLabel, toast, updateVehicle, disconnect as endSession } from '../lib/state.svelte';
   import type { AdapterCandidate, ConnectResult, ConnectionSpec, DtcItem, J1939Lamps, J1939Result, LiveValue } from '../lib/types';
   import Icon from '../components/Icon.svelte';
   import DiagnosisDetail from '../components/DiagnosisDetail.svelte';
@@ -22,6 +22,20 @@
   let j1939 = $state(app.profile?.type === 'truck' || app.profile?.type === 'tractor');
   let lamps = $state<J1939Lamps | null>(null);
   const isJ1939 = $derived(!!app.connection?.j1939);
+  /** EOBD became mandatory in the EU in 2001 (petrol) and 2004 (diesel); quadricycles are not covered. */
+  const obdNote = $derived.by(() => {
+    const p = app.profile;
+    if (!p || !['car', 'van'].includes(p.type)) return null;
+    if (['Aixam', 'Ligier', 'Microcar', 'Chatenet'].includes(p.make) && p.fuel !== 'electric')
+      return { level: 'warn', text: "Voiture sans permis (quadricycle léger) : elle n'est pas soumise à l'EOBD. La prise de diagnostic, quand elle existe, utilise souvent le protocole du constructeur : un adaptateur OBD-II peut ne rien lire. Le diagnostic à l'œil, l'écoute moteur et les tutoriels restent utilisables." };
+    if (!p.years) return null;
+    const limit = p.fuel === 'diesel' ? 2004 : 2001;
+    if (p.years[1] < limit)
+      return { level: 'warn', text: `Ce véhicule est antérieur à l'EOBD (obligatoire depuis ${limit} en ${p.fuel === 'diesel' ? 'diesel' : 'essence'}) : il n'a en général ni prise OBD normalisée ni codes lisibles par un adaptateur ELM327. Utilisez le diagnostic à l'œil, l'écoute moteur et les tutoriels ; la lecture électronique demande l'outil et le connecteur d'origine du constructeur.` };
+    if (p.years[0] < limit)
+      return { level: 'info', text: `Compatibilité OBD selon l'année : les exemplaires mis en circulation avant ${limit} (${p.fuel === 'diesel' ? 'diesel' : 'essence'}) ne sont en général pas compatibles EOBD.` };
+    return null;
+  });
   const fold = (t: string) => t.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]/g, '');
   /** Vehicle shown in the connection card: the selected model when it matches what the car reports. */
   const vehicleLabel = $derived.by(() => {
@@ -172,6 +186,14 @@
       <p class="muted">Branchez l'adaptateur sur la prise OBD (sous le volant), mettez le contact, puis connectez-vous.</p>
     </div>
   </div>
+
+  {#if obdNote}
+    <div class="callout {obdNote.level} small row">
+      <Icon name="info" size={16} />
+      <span class="grow">{obdNote.text}</span>
+      {#if obdNote.level === 'warn'}<button class="btn sm" onclick={() => go('eye')}><Icon name="eye" size={14} /> Diagnostic à l'œil</button>{/if}
+    </div>
+  {/if}
 
   {#if !app.connection}
     <div class="card col">
