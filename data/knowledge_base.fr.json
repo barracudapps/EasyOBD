@@ -246,6 +246,9 @@
     },
     "starter": {
       "name": "Démarreur"
+    },
+    "adblue_tank": {
+      "name": "Réservoir et injecteur AdBlue (SCR)"
     }
   },
   "entries": [

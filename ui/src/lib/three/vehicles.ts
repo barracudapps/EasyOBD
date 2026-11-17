@@ -415,7 +415,7 @@ function carLike(spec: VehicleSpec, big: boolean): THREE.Group {
     b.add('dpf', at(tf(cyl(0.1, 0.1, 0.4, 0x57534e, 24), { rotation: [0, 0, Math.PI / 2] }), dpfX, yUnder, -0.12));
     b.add('dpf_pressure_sensor', at(box(0.05, 0.04, 0.04, 0x10b981, 0.01), dpfX, yUnder + 0.16, -0.25));
     b.add('dpf_pressure_sensor', tube([[dpfX - 0.18, yUnder + 0.08, -0.12], [dpfX, yUnder + 0.16, -0.25], [dpfX + 0.18, yUnder + 0.08, -0.12]], 0.008, 0x111827));
-    if (big) b.add('adblue_tank', at(box(0.22, 0.2, 0.2, 0x38bdf8, 0.04), axleR + 0.15, 0.4, -W + 0.3));
+    b.add('adblue_tank', at(box(0.22, 0.2, 0.2, 0x38bdf8, 0.04), axleR + 0.15, 0.4, -W + 0.3));
   }
   b.add('exhaust', tube([[axleF - 0.98, yUnder, -0.12], [dpfX - 0.3, yUnder, -0.12], [axleR + 0.1, yUnder + 0.05, -0.3], [-L + 0.35, yUnder + 0.05, -0.35]], 0.03, PALETTE.exhaust));
   b.add('exhaust', at(tf(cyl(0.12, 0.12, 0.4, 0x57534e, 24), { rotation: [0, 0, Math.PI / 2], scale: [1, 1, 0.7] }), -L + 0.25, yUnder + 0.05, -0.35));
