@@ -48,7 +48,7 @@ fn make_from_wmi(wmi: &str) -> Option<&'static str> {
         ("WV1", "Volkswagen Utilitaires"), ("WV2", "Volkswagen Utilitaires"), ("WAU", "Audi"), ("WBA", "BMW"),
         ("WBS", "BMW M"), ("WMW", "Mini"), ("WDB", "Mercedes-Benz"), ("WDD", "Mercedes-Benz"), ("W1K", "Mercedes-Benz"),
         ("WP0", "Porsche"), ("W0L", "Opel"), ("W0V", "Opel"), ("TMB", "Škoda"), ("ZFA", "Fiat"), ("ZAR", "Alfa Romeo"),
-        ("ZFF", "Ferrari"), ("SAL", "Land Rover"), ("SAJ", "Jaguar"), ("YV1", "Volvo"), ("YV4", "Volvo"), ("LYV", "Volvo (Chine)"), ("YS3", "Saab"), ("WP1", "Porsche"), ("JTH", "Lexus"), ("JF1", "Subaru"), ("JF2", "Subaru"), ("1C4", "Jeep"), ("ZAC", "Jeep"), ("LPS", "Polestar"), ("JTD", "Toyota"),
+        ("ZFF", "Ferrari"), ("SAL", "Land Rover"), ("SAJ", "Jaguar"), ("YV1", "Volvo"), ("YV4", "Volvo"), ("LYV", "Volvo (Chine)"), ("YS3", "Saab"), ("ZD4", "Aprilia"), ("ZCG", "MV Agusta"), ("LBB", "Benelli"), ("LCE", "CFMoto"), ("5HD", "Harley-Davidson"), ("56K", "Indian"), ("WP1", "Porsche"), ("JTH", "Lexus"), ("JF1", "Subaru"), ("JF2", "Subaru"), ("1C4", "Jeep"), ("ZAC", "Jeep"), ("LPS", "Polestar"), ("JTD", "Toyota"),
         ("JT2", "Toyota"), ("SB1", "Toyota"), ("VNK", "Toyota"), ("JHM", "Honda"), ("JN1", "Nissan"), ("SJN", "Nissan"),
         ("JMZ", "Mazda"), ("KMH", "Hyundai"), ("TMA", "Hyundai"), ("KNA", "Kia"), ("U5Y", "Kia"), ("WF0", "Ford"),
         ("1FA", "Ford"), ("1G1", "Chevrolet"), ("5YJ", "Tesla"), ("XP7", "Tesla"), ("7SA", "Tesla"), ("LRW", "Tesla"),

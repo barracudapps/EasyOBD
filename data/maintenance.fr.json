@@ -146,6 +146,19 @@
       "traction": "0W20 ACEA C2"
     },
     {
+      "id": "alfa-romeo-tonale-1-5-hybrid-160",
+      "type": "car",
+      "make": "Alfa Romeo",
+      "model": "Tonale",
+      "engine": "1.5 Hybrid 160",
+      "years": [
+        2022,
+        2026
+      ],
+      "fuel": "hybrid",
+      "cylinders": 4
+    },
+    {
       "id": "alpine-a110-1-8-tce-252",
       "type": "car",
       "make": "Alpine",
@@ -370,6 +383,19 @@
       "oil_spec": "0W20 BMW LL-17FE+"
     },
     {
+      "id": "bmw-serie-2-active-tourer-u06-218i",
+      "type": "car",
+      "make": "BMW",
+      "model": "Série 2 Active Tourer (U06)",
+      "engine": "218i",
+      "years": [
+        2022,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 3
+    },
+    {
       "id": "bmw-serie-3-f30-318d",
       "type": "car",
       "make": "BMW",
@@ -399,6 +425,19 @@
       "oil_spec": "5W30 BMW LL-04"
     },
     {
+      "id": "bmw-serie-5-g30-520d",
+      "type": "car",
+      "make": "BMW",
+      "model": "Série 5 (G30)",
+      "engine": "520d",
+      "years": [
+        2017,
+        2023
+      ],
+      "fuel": "diesel",
+      "cylinders": 4
+    },
+    {
       "id": "bmw-x1-u11-sdrive18d",
       "type": "car",
       "make": "BMW",
@@ -412,6 +451,19 @@
       "cylinders": 4,
       "oil_capacity_l": 5.2,
       "oil_spec": "0W20 BMW LL-19FE"
+    },
+    {
+      "id": "bmw-x3-g01-xdrive20d",
+      "type": "car",
+      "make": "BMW",
+      "model": "X3 (G01)",
+      "engine": "xDrive20d",
+      "years": [
+        2017,
+        2024
+      ],
+      "fuel": "diesel",
+      "cylinders": 4
     },
     {
       "id": "bmw-x5-g05-xdrive30d",
@@ -435,6 +487,19 @@
       "engine": "eDrive40",
       "years": [
         2021,
+        2026
+      ],
+      "fuel": "electric",
+      "traction": "rear"
+    },
+    {
+      "id": "bmw-i5-edrive40",
+      "type": "car",
+      "make": "BMW",
+      "model": "i5",
+      "engine": "eDrive40",
+      "years": [
+        2023,
         2026
       ],
       "fuel": "electric",
@@ -465,6 +530,19 @@
       ],
       "fuel": "electric",
       "traction": "rear"
+    },
+    {
+      "id": "byd-atto-2-45-kwh",
+      "type": "car",
+      "make": "BYD",
+      "model": "Atto 2",
+      "engine": "45 kWh",
+      "years": [
+        2025,
+        2026
+      ],
+      "fuel": "electric",
+      "traction": "front"
     },
     {
       "id": "byd-atto-3-60-kwh",
@@ -631,6 +709,33 @@
       "oil_spec": "0W30 PSA B71 2312"
     },
     {
+      "id": "citroen-c5-aircross-1-5-bluehdi-130",
+      "type": "car",
+      "make": "Citroën",
+      "model": "C5 Aircross",
+      "engine": "1.5 BlueHDi 130",
+      "years": [
+        2018,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "oil_spec": "0W30 PSA B71 2312"
+    },
+    {
+      "id": "citroen-e-c3-44-kwh",
+      "type": "car",
+      "make": "Citroën",
+      "model": "ë-C3",
+      "engine": "44 kWh",
+      "years": [
+        2024,
+        2026
+      ],
+      "fuel": "electric",
+      "traction": "front"
+    },
+    {
       "id": "citroen-e-c4-136-ch-50-kwh",
       "type": "car",
       "make": "Citroën",
@@ -671,6 +776,46 @@
       "traction": "0W20 VW 508.00"
     },
     {
+      "id": "cupra-tavascan-77-kwh",
+      "type": "car",
+      "make": "Cupra",
+      "model": "Tavascan",
+      "engine": "77 kWh",
+      "years": [
+        2024,
+        2026
+      ],
+      "fuel": "electric",
+      "traction": "rear"
+    },
+    {
+      "id": "ds-ds-3-e-tense-54-kwh",
+      "type": "car",
+      "make": "DS",
+      "model": "DS 3 E-Tense",
+      "engine": "54 kWh",
+      "years": [
+        2019,
+        2026
+      ],
+      "fuel": "electric",
+      "traction": "front"
+    },
+    {
+      "id": "ds-ds-4-1-2-puretech-130",
+      "type": "car",
+      "make": "DS",
+      "model": "DS 4",
+      "engine": "1.2 PureTech 130",
+      "years": [
+        2021,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 3,
+      "oil_spec": "0W20 PSA B71 2010"
+    },
+    {
       "id": "ds-ds-7-crossback-1-5-bluehdi-130",
       "type": "car",
       "make": "DS",
@@ -684,6 +829,19 @@
       "cylinders": 4,
       "oil_capacity_l": 4.25,
       "oil_spec": "0W30 PSA B71 2312"
+    },
+    {
+      "id": "dacia-bigster-hybrid-155",
+      "type": "car",
+      "make": "Dacia",
+      "model": "Bigster",
+      "engine": "Hybrid 155",
+      "years": [
+        2025,
+        2026
+      ],
+      "fuel": "hybrid",
+      "cylinders": 4
     },
     {
       "id": "dacia-duster-i-1-5-dci-110",
@@ -773,6 +931,19 @@
       "traction": "front"
     },
     {
+      "id": "dacia-spring-2024-65-ch-27-kwh",
+      "type": "car",
+      "make": "Dacia",
+      "model": "Spring (2024)",
+      "engine": "65 ch – 27 kWh",
+      "years": [
+        2024,
+        2026
+      ],
+      "fuel": "electric",
+      "traction": "front"
+    },
+    {
       "id": "fiat-500-312-1-0-hybrid-70",
       "type": "car",
       "make": "Fiat",
@@ -794,6 +965,32 @@
       "engine": "42 kWh",
       "years": [
         2020,
+        2026
+      ],
+      "fuel": "electric",
+      "traction": "front"
+    },
+    {
+      "id": "fiat-600-hybrid-100",
+      "type": "car",
+      "make": "Fiat",
+      "model": "600",
+      "engine": "Hybrid 100",
+      "years": [
+        2024,
+        2026
+      ],
+      "fuel": "hybrid",
+      "cylinders": 3
+    },
+    {
+      "id": "fiat-600e-54-kwh",
+      "type": "car",
+      "make": "Fiat",
+      "model": "600e",
+      "engine": "54 kWh",
+      "years": [
+        2023,
         2026
       ],
       "fuel": "electric",
@@ -839,6 +1036,19 @@
       ],
       "fuel": "electric",
       "traction": "front"
+    },
+    {
+      "id": "ford-explorer-ev-77-kwh",
+      "type": "car",
+      "make": "Ford",
+      "model": "Explorer EV",
+      "engine": "77 kWh",
+      "years": [
+        2024,
+        2026
+      ],
+      "fuel": "electric",
+      "traction": "rear"
     },
     {
       "id": "ford-fiesta-vi-1-4-tdci-70",
@@ -899,6 +1109,20 @@
       "oil_spec": "0W30 WSS-M2C950-A"
     },
     {
+      "id": "ford-kuga-iii-2-5-fhev-190",
+      "type": "car",
+      "make": "Ford",
+      "model": "Kuga III",
+      "engine": "2.5 FHEV 190",
+      "years": [
+        2020,
+        2026
+      ],
+      "fuel": "hybrid",
+      "cylinders": 4,
+      "oil_spec": "0W20 WSS-M2C962-A1"
+    },
+    {
       "id": "ford-mustang-mach-e-75-kwh",
       "type": "car",
       "make": "Ford",
@@ -954,6 +1178,19 @@
       "traction": "front"
     },
     {
+      "id": "honda-cr-v-vi-2-0-e-hev",
+      "type": "car",
+      "make": "Honda",
+      "model": "CR-V VI",
+      "engine": "2.0 e:HEV",
+      "years": [
+        2023,
+        2026
+      ],
+      "fuel": "hybrid",
+      "cylinders": 4
+    },
+    {
       "id": "honda-civic-xi-2-0-e-hev",
       "type": "car",
       "make": "Honda",
@@ -966,6 +1203,19 @@
       "fuel": "hybrid",
       "cylinders": 4,
       "oil_spec": "0W20"
+    },
+    {
+      "id": "honda-hr-v-iii-1-5-e-hev",
+      "type": "car",
+      "make": "Honda",
+      "model": "HR-V III",
+      "engine": "1.5 e:HEV",
+      "years": [
+        2021,
+        2026
+      ],
+      "fuel": "hybrid",
+      "cylinders": 4
     },
     {
       "id": "honda-jazz-iv-1-5-e-hev",
@@ -1034,6 +1284,19 @@
       "traction": "rear"
     },
     {
+      "id": "hyundai-ioniq-6-77-kwh",
+      "type": "car",
+      "make": "Hyundai",
+      "model": "Ioniq 6",
+      "engine": "77 kWh",
+      "years": [
+        2022,
+        2026
+      ],
+      "fuel": "electric",
+      "traction": "rear"
+    },
+    {
       "id": "hyundai-kona-electric-64-kwh-204-ch",
       "type": "car",
       "make": "Hyundai",
@@ -1045,6 +1308,47 @@
       ],
       "fuel": "electric",
       "traction": "front"
+    },
+    {
+      "id": "hyundai-kona-electric-ii-65-kwh",
+      "type": "car",
+      "make": "Hyundai",
+      "model": "Kona Electric II",
+      "engine": "65 kWh",
+      "years": [
+        2023,
+        2026
+      ],
+      "fuel": "electric",
+      "traction": "front"
+    },
+    {
+      "id": "hyundai-kona-ii-1-6-gdi-hybride-141",
+      "type": "car",
+      "make": "Hyundai",
+      "model": "Kona II",
+      "engine": "1.6 GDi Hybride 141",
+      "years": [
+        2023,
+        2026
+      ],
+      "fuel": "hybrid",
+      "cylinders": 4,
+      "oil_spec": "0W20 ACEA C5"
+    },
+    {
+      "id": "hyundai-santa-fe-v-1-6-t-gdi-phev",
+      "type": "car",
+      "make": "Hyundai",
+      "model": "Santa Fe V",
+      "engine": "1.6 T-GDi PHEV",
+      "years": [
+        2024,
+        2026
+      ],
+      "fuel": "hybrid",
+      "cylinders": 4,
+      "oil_spec": "0W20 ACEA C5"
     },
     {
       "id": "hyundai-tucson-iii-1-7-crdi-115",
@@ -1162,6 +1466,20 @@
       "traction": "both"
     },
     {
+      "id": "jeep-avenger-1-2-turbo-100",
+      "type": "car",
+      "make": "Jeep",
+      "model": "Avenger",
+      "engine": "1.2 Turbo 100",
+      "years": [
+        2023,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 3,
+      "oil_spec": "0W20 PSA B71 2010"
+    },
+    {
       "id": "jeep-compass-ii-1-3-t4-phev-4xe",
       "type": "car",
       "make": "Jeep",
@@ -1273,6 +1591,19 @@
       "traction": "rear"
     },
     {
+      "id": "kia-ev9-99-8-kwh",
+      "type": "car",
+      "make": "Kia",
+      "model": "EV9",
+      "engine": "99,8 kWh",
+      "years": [
+        2023,
+        2026
+      ],
+      "fuel": "electric",
+      "traction": "both"
+    },
+    {
       "id": "kia-niro-ii-1-6-gdi-hybride",
       "type": "car",
       "make": "Kia",
@@ -1318,6 +1649,20 @@
       "oil_spec": "0W20 ACEA C5"
     },
     {
+      "id": "kia-sorento-iv-1-6-t-gdi-phev",
+      "type": "car",
+      "make": "Kia",
+      "model": "Sorento IV",
+      "engine": "1.6 T-GDi PHEV",
+      "years": [
+        2020,
+        2026
+      ],
+      "fuel": "hybrid",
+      "cylinders": 4,
+      "oil_spec": "0W20 ACEA C5"
+    },
+    {
       "id": "kia-sportage-iv-1-7-crdi-115",
       "type": "car",
       "make": "Kia",
@@ -1344,6 +1689,34 @@
       "fuel": "hybrid",
       "cylinders": 4,
       "oil_capacity_l": 4.8,
+      "oil_spec": "0W20 ACEA C5"
+    },
+    {
+      "id": "kia-stonic-1-0-t-gdi-100",
+      "type": "car",
+      "make": "Kia",
+      "model": "Stonic",
+      "engine": "1.0 T-GDi 100",
+      "years": [
+        2017,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 3,
+      "oil_spec": "0W20 ACEA C5"
+    },
+    {
+      "id": "kia-xceed-1-5-t-gdi-160",
+      "type": "car",
+      "make": "Kia",
+      "model": "XCeed",
+      "engine": "1.5 T-GDi 160",
+      "years": [
+        2019,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 4,
       "oil_spec": "0W20 ACEA C5"
     },
     {
@@ -1385,6 +1758,19 @@
       "fuel": "diesel",
       "cylinders": 6,
       "oil_spec": "0W20"
+    },
+    {
+      "id": "land-rover-discovery-sport-d165-mhev",
+      "type": "car",
+      "make": "Land Rover",
+      "model": "Discovery Sport",
+      "engine": "D165 MHEV",
+      "years": [
+        2019,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 4
     },
     {
       "id": "land-rover-range-rover-evoque-ii-d165-mhev",
@@ -1439,6 +1825,19 @@
       "fuel": "hybrid",
       "cylinders": 4,
       "traction": "0W16"
+    },
+    {
+      "id": "lexus-ux-250h",
+      "type": "car",
+      "make": "Lexus",
+      "model": "UX",
+      "engine": "250h",
+      "years": [
+        2019,
+        2026
+      ],
+      "fuel": "hybrid",
+      "cylinders": 4
     },
     {
       "id": "lynk-co-01-1-5-phev-261",
@@ -1536,6 +1935,21 @@
       "oil_spec": "0W20"
     },
     {
+      "id": "mazda-cx-30-2-0-e-skyactiv-g-150",
+      "type": "car",
+      "make": "Mazda",
+      "model": "CX-30",
+      "engine": "2.0 e-Skyactiv G 150",
+      "years": [
+        2019,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 4,
+      "oil_capacity_l": 4.2,
+      "oil_spec": "0W20"
+    },
+    {
       "id": "mazda-cx-5-ii-2-0-skyactiv-g-165",
       "type": "car",
       "make": "Mazda",
@@ -1549,6 +1963,19 @@
       "cylinders": 4,
       "oil_capacity_l": 4.2,
       "oil_spec": "0W20"
+    },
+    {
+      "id": "mazda-cx-60-3-3-e-skyactiv-d-200",
+      "type": "car",
+      "make": "Mazda",
+      "model": "CX-60",
+      "engine": "3.3 e-Skyactiv D 200",
+      "years": [
+        2022,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 6
     },
     {
       "id": "mazda-mx-30-35-5-kwh",
@@ -1622,6 +2049,19 @@
       "traction": "0W20 MB 229.72"
     },
     {
+      "id": "mercedes-benz-classe-e-w214-e-220-d",
+      "type": "car",
+      "make": "Mercedes-Benz",
+      "model": "Classe E (W214)",
+      "engine": "E 220 d",
+      "years": [
+        2023,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 4
+    },
+    {
       "id": "mercedes-benz-eqa-250",
       "type": "car",
       "make": "Mercedes-Benz",
@@ -1646,6 +2086,32 @@
       ],
       "fuel": "electric",
       "traction": "both"
+    },
+    {
+      "id": "mercedes-benz-eqs-108-kwh",
+      "type": "car",
+      "make": "Mercedes-Benz",
+      "model": "EQS",
+      "engine": "108 kWh",
+      "years": [
+        2021,
+        2026
+      ],
+      "fuel": "electric",
+      "traction": "both"
+    },
+    {
+      "id": "mercedes-benz-gla-h247-200-d",
+      "type": "car",
+      "make": "Mercedes-Benz",
+      "model": "GLA (H247)",
+      "engine": "200 d",
+      "years": [
+        2020,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 4
     },
     {
       "id": "mercedes-benz-glc-x253-220-d-4matic",
@@ -1688,6 +2154,19 @@
       ],
       "fuel": "electric",
       "traction": "front"
+    },
+    {
+      "id": "mini-countryman-u25-c-170",
+      "type": "car",
+      "make": "Mini",
+      "model": "Countryman (U25)",
+      "engine": "C 170",
+      "years": [
+        2024,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 3
     },
     {
       "id": "mitsubishi-l200-2015-2-4-di-d-150",
@@ -1755,6 +2234,19 @@
       ],
       "fuel": "electric",
       "traction": "front"
+    },
+    {
+      "id": "nissan-juke-hybrid-1-6-hybride-143",
+      "type": "car",
+      "make": "Nissan",
+      "model": "Juke Hybrid",
+      "engine": "1.6 Hybride 143",
+      "years": [
+        2022,
+        2026
+      ],
+      "fuel": "hybrid",
+      "cylinders": 4
     },
     {
       "id": "nissan-juke-ii-1-0-dig-t-114",
@@ -1963,6 +2455,34 @@
       "traction": "front"
     },
     {
+      "id": "opel-grandland-1-5-diesel-130",
+      "type": "car",
+      "make": "Opel",
+      "model": "Grandland",
+      "engine": "1.5 Diesel 130",
+      "years": [
+        2017,
+        2024
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "oil_spec": "0W30 PSA B71 2312"
+    },
+    {
+      "id": "opel-mokka-b-1-2-turbo-130",
+      "type": "car",
+      "make": "Opel",
+      "model": "Mokka B",
+      "engine": "1.2 Turbo 130",
+      "years": [
+        2020,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 3,
+      "oil_spec": "0W20 PSA B71 2010"
+    },
+    {
       "id": "peugeot-2008-ii-1-2-puretech-130",
       "type": "car",
       "make": "Peugeot",
@@ -2037,6 +2557,20 @@
       "oil_spec": "0W30 PSA B71 2312"
     },
     {
+      "id": "peugeot-3008-iii-hybrid-136-1-2-puretech",
+      "type": "car",
+      "make": "Peugeot",
+      "model": "3008 III",
+      "engine": "Hybrid 136 (1.2 PureTech)",
+      "years": [
+        2024,
+        2026
+      ],
+      "fuel": "hybrid",
+      "cylinders": 3,
+      "oil_spec": "0W20 PSA B71 2010"
+    },
+    {
       "id": "peugeot-308-i-1-6-hdi-110",
       "type": "car",
       "make": "Peugeot",
@@ -2082,6 +2616,34 @@
       "oil_spec": "0W20 PSA B71 2010"
     },
     {
+      "id": "peugeot-408-1-2-puretech-130",
+      "type": "car",
+      "make": "Peugeot",
+      "model": "408",
+      "engine": "1.2 PureTech 130",
+      "years": [
+        2022,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 3,
+      "oil_spec": "0W20 PSA B71 2010"
+    },
+    {
+      "id": "peugeot-5008-ii-1-5-bluehdi-130",
+      "type": "car",
+      "make": "Peugeot",
+      "model": "5008 II",
+      "engine": "1.5 BlueHDi 130",
+      "years": [
+        2017,
+        2023
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "oil_spec": "0W30 PSA B71 2312"
+    },
+    {
       "id": "peugeot-e-2008-136-ch-50-kwh",
       "type": "car",
       "make": "Peugeot",
@@ -2102,6 +2664,19 @@
       "engine": "136 ch – 50 kWh",
       "years": [
         2019,
+        2026
+      ],
+      "fuel": "electric",
+      "traction": "front"
+    },
+    {
+      "id": "peugeot-e-3008-73-kwh",
+      "type": "car",
+      "make": "Peugeot",
+      "model": "e-3008",
+      "engine": "73 kWh",
+      "years": [
+        2024,
         2026
       ],
       "fuel": "electric",
@@ -2148,6 +2723,19 @@
       "traction": "0W40 Porsche C40"
     },
     {
+      "id": "porsche-cayenne-e3-3-0-v6-353",
+      "type": "car",
+      "make": "Porsche",
+      "model": "Cayenne (E3)",
+      "engine": "3.0 V6 353",
+      "years": [
+        2018,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 6
+    },
+    {
       "id": "porsche-macan-95b-2-0-245",
       "type": "car",
       "make": "Porsche",
@@ -2173,6 +2761,20 @@
       ],
       "fuel": "electric",
       "traction": "both"
+    },
+    {
+      "id": "renault-arkana-e-tech-full-hybrid-145",
+      "type": "car",
+      "make": "Renault",
+      "model": "Arkana",
+      "engine": "E-Tech Full Hybrid 145",
+      "years": [
+        2021,
+        2026
+      ],
+      "fuel": "hybrid",
+      "cylinders": 4,
+      "oil_spec": "5W30 RN17"
     },
     {
       "id": "renault-austral-e-tech-full-hybrid-200",
@@ -2249,6 +2851,33 @@
       "coolant_l": 5.5
     },
     {
+      "id": "renault-espace-vi-e-tech-full-hybrid-200",
+      "type": "car",
+      "make": "Renault",
+      "model": "Espace VI",
+      "engine": "E-Tech Full Hybrid 200",
+      "years": [
+        2023,
+        2026
+      ],
+      "fuel": "hybrid",
+      "cylinders": 3
+    },
+    {
+      "id": "renault-kadjar-1-5-blue-dci-115",
+      "type": "car",
+      "make": "Renault",
+      "model": "Kadjar",
+      "engine": "1.5 Blue dCi 115",
+      "years": [
+        2018,
+        2022
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "oil_spec": "5W30 RN0720"
+    },
+    {
       "id": "renault-kangoo-z-e-33-kwh",
       "type": "car",
       "make": "Renault",
@@ -2309,6 +2938,19 @@
       "make": "Renault",
       "model": "R5 E-Tech",
       "engine": "52 kWh",
+      "years": [
+        2024,
+        2026
+      ],
+      "fuel": "electric",
+      "traction": "front"
+    },
+    {
+      "id": "renault-scenic-e-tech-87-kwh",
+      "type": "car",
+      "make": "Renault",
+      "model": "Scenic E-Tech",
+      "engine": "87 kWh",
       "years": [
         2024,
         2026
@@ -2454,6 +3096,20 @@
       "oil_spec": "5W30 GM dexos2"
     },
     {
+      "id": "seat-arona-1-0-tsi-110",
+      "type": "car",
+      "make": "Seat",
+      "model": "Arona",
+      "engine": "1.0 TSI 110",
+      "years": [
+        2017,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 3,
+      "oil_spec": "0W20 VW 508.00"
+    },
+    {
       "id": "seat-ateca-2-0-tdi-150",
       "type": "car",
       "make": "Seat",
@@ -2512,6 +3168,19 @@
       "oil_spec": "0W20 VW 508.00"
     },
     {
+      "id": "skoda-elroq-63-kwh",
+      "type": "car",
+      "make": "Skoda",
+      "model": "Elroq",
+      "engine": "63 kWh",
+      "years": [
+        2025,
+        2026
+      ],
+      "fuel": "electric",
+      "traction": "rear"
+    },
+    {
       "id": "skoda-enyaq-80-77-kwh",
       "type": "car",
       "make": "Skoda",
@@ -2538,6 +3207,34 @@
       "cylinders": 3,
       "oil_capacity_l": 4.0,
       "oil_spec": "0W20 VW 508.00"
+    },
+    {
+      "id": "skoda-karoq-1-5-tsi-150",
+      "type": "car",
+      "make": "Skoda",
+      "model": "Karoq",
+      "engine": "1.5 TSI 150",
+      "years": [
+        2017,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 4,
+      "oil_spec": "0W20 VW 508.00"
+    },
+    {
+      "id": "skoda-kodiaq-2-0-tdi-150",
+      "type": "car",
+      "make": "Skoda",
+      "model": "Kodiaq",
+      "engine": "2.0 TDI 150",
+      "years": [
+        2016,
+        2024
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "oil_spec": "5W30 VW 507.00"
     },
     {
       "id": "skoda-octavia-iii-1-6-tdi-110",
@@ -2569,10 +3266,37 @@
       "oil_spec": "0W30 VW 507.00"
     },
     {
+      "id": "skoda-superb-iii-2-0-tdi-150",
+      "type": "car",
+      "make": "Skoda",
+      "model": "Superb III",
+      "engine": "2.0 TDI 150",
+      "years": [
+        2015,
+        2023
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "oil_spec": "5W30 VW 507.00"
+    },
+    {
       "id": "smart-1-66-kwh",
       "type": "car",
       "make": "Smart",
       "model": "#1",
+      "engine": "66 kWh",
+      "years": [
+        2023,
+        2026
+      ],
+      "fuel": "electric",
+      "traction": "rear"
+    },
+    {
+      "id": "smart-3-66-kwh",
+      "type": "car",
+      "make": "Smart",
+      "model": "#3",
       "engine": "66 kWh",
       "years": [
         2023,
@@ -2621,6 +3345,19 @@
       "fuel": "petrol",
       "cylinders": 4,
       "oil_spec": "0W20"
+    },
+    {
+      "id": "suzuki-swace-1-8-hybride-122",
+      "type": "car",
+      "make": "Suzuki",
+      "model": "Swace",
+      "engine": "1.8 Hybride 122",
+      "years": [
+        2020,
+        2026
+      ],
+      "fuel": "hybrid",
+      "cylinders": 4
     },
     {
       "id": "suzuki-swift-vi-1-2-dualjet-hybrid",
@@ -2678,10 +3415,36 @@
       "traction": "rear"
     },
     {
+      "id": "tesla-model-3-highland-propulsion",
+      "type": "car",
+      "make": "Tesla",
+      "model": "Model 3 Highland",
+      "engine": "Propulsion",
+      "years": [
+        2024,
+        2026
+      ],
+      "fuel": "electric",
+      "traction": "rear"
+    },
+    {
       "id": "tesla-model-s-long-range",
       "type": "car",
       "make": "Tesla",
       "model": "Model S",
+      "engine": "Long Range",
+      "years": [
+        2016,
+        2026
+      ],
+      "fuel": "electric",
+      "traction": "both"
+    },
+    {
+      "id": "tesla-model-x-long-range",
+      "type": "car",
+      "make": "Tesla",
+      "model": "Model X",
       "engine": "Long Range",
       "years": [
         2016,
@@ -2718,6 +3481,20 @@
       "oil_spec": "0W20"
     },
     {
+      "id": "toyota-aygo-x-1-0-vvt-i-72",
+      "type": "car",
+      "make": "Toyota",
+      "model": "Aygo X",
+      "engine": "1.0 VVT-i 72",
+      "years": [
+        2022,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 3,
+      "oil_spec": "0W20"
+    },
+    {
       "id": "toyota-c-hr-1-8-hybride-122",
       "type": "car",
       "make": "Toyota",
@@ -2731,6 +3508,20 @@
       "cylinders": 4,
       "oil_capacity_l": 4.2,
       "oil_spec": "0W20"
+    },
+    {
+      "id": "toyota-c-hr-ii-1-8-hybride-140",
+      "type": "car",
+      "make": "Toyota",
+      "model": "C-HR II",
+      "engine": "1.8 Hybride 140",
+      "years": [
+        2023,
+        2026
+      ],
+      "fuel": "hybrid",
+      "cylinders": 4,
+      "oil_spec": "0W16 / 0W20"
     },
     {
       "id": "toyota-corolla-xii-1-8-hybride-122",
@@ -2802,6 +3593,20 @@
       "fuel": "hybrid",
       "cylinders": 4,
       "oil_capacity_l": 4.5,
+      "oil_spec": "0W16 / 0W20"
+    },
+    {
+      "id": "toyota-yaris-cross-1-5-hybride-116",
+      "type": "car",
+      "make": "Toyota",
+      "model": "Yaris Cross",
+      "engine": "1.5 Hybride 116",
+      "years": [
+        2021,
+        2026
+      ],
+      "fuel": "hybrid",
+      "cylinders": 3,
       "oil_spec": "0W16 / 0W20"
     },
     {
@@ -2951,6 +3756,33 @@
       "traction": "rear"
     },
     {
+      "id": "volkswagen-id-7-77-kwh",
+      "type": "car",
+      "make": "Volkswagen",
+      "model": "ID.7",
+      "engine": "77 kWh",
+      "years": [
+        2023,
+        2026
+      ],
+      "fuel": "electric",
+      "traction": "rear"
+    },
+    {
+      "id": "volkswagen-passat-b8-2-0-tdi-150",
+      "type": "car",
+      "make": "Volkswagen",
+      "model": "Passat B8",
+      "engine": "2.0 TDI 150",
+      "years": [
+        2014,
+        2023
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "oil_spec": "5W30 VW 507.00"
+    },
+    {
       "id": "volkswagen-polo-v-1-2-tsi-90",
       "type": "car",
       "make": "Volkswagen",
@@ -2980,6 +3812,34 @@
       "oil_spec": "0W20 VW 508.00"
     },
     {
+      "id": "volkswagen-t-cross-1-0-tsi-110",
+      "type": "car",
+      "make": "Volkswagen",
+      "model": "T-Cross",
+      "engine": "1.0 TSI 110",
+      "years": [
+        2019,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 3,
+      "oil_spec": "0W20 VW 508.00"
+    },
+    {
+      "id": "volkswagen-t-roc-1-5-tsi-150",
+      "type": "car",
+      "make": "Volkswagen",
+      "model": "T-Roc",
+      "engine": "1.5 TSI 150",
+      "years": [
+        2017,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 4,
+      "oil_spec": "0W20 VW 508.00"
+    },
+    {
       "id": "volkswagen-tiguan-ii-2-0-tdi-150",
       "type": "car",
       "make": "Volkswagen",
@@ -2992,6 +3852,20 @@
       "fuel": "diesel",
       "cylinders": 4,
       "oil_capacity_l": 4.6,
+      "oil_spec": "5W30 VW 507.00"
+    },
+    {
+      "id": "volkswagen-touran-ii-2-0-tdi-150",
+      "type": "car",
+      "make": "Volkswagen",
+      "model": "Touran II",
+      "engine": "2.0 TDI 150",
+      "years": [
+        2015,
+        2024
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
       "oil_spec": "5W30 VW 507.00"
     },
     {
@@ -3032,6 +3906,19 @@
       ],
       "fuel": "electric",
       "traction": "both"
+    },
+    {
+      "id": "volvo-ex40-69-kwh",
+      "type": "car",
+      "make": "Volvo",
+      "model": "EX40",
+      "engine": "69 kWh",
+      "years": [
+        2024,
+        2026
+      ],
+      "fuel": "electric",
+      "traction": "rear"
     },
     {
       "id": "volvo-ex90-111-kwh",
@@ -3293,6 +4180,45 @@
       "traction": "rear"
     },
     {
+      "id": "aprilia-rs-660-659-cm3-bicylindre",
+      "type": "motorcycle",
+      "make": "Aprilia",
+      "model": "RS 660",
+      "engine": "659 cm³ bicylindre",
+      "years": [
+        2021,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 2
+    },
+    {
+      "id": "aprilia-tuareg-660-659-cm3-bicylindre",
+      "type": "motorcycle",
+      "make": "Aprilia",
+      "model": "Tuareg 660",
+      "engine": "659 cm³ bicylindre",
+      "years": [
+        2022,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 2
+    },
+    {
+      "id": "aprilia-tuono-v4-1077-cm3-v4",
+      "type": "motorcycle",
+      "make": "Aprilia",
+      "model": "Tuono V4",
+      "engine": "1077 cm³ V4",
+      "years": [
+        2021,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 4
+    },
+    {
       "id": "bmw-c-400-x-350-cm3-monocylindre",
       "type": "motorcycle",
       "make": "BMW",
@@ -3305,6 +4231,32 @@
       "fuel": "petrol",
       "cylinders": 1,
       "oil_spec": "5W40 JASO MB"
+    },
+    {
+      "id": "bmw-ce-04-8-9-kwh",
+      "type": "motorcycle",
+      "make": "BMW",
+      "model": "CE 04",
+      "engine": "8,9 kWh",
+      "years": [
+        2022,
+        2026
+      ],
+      "fuel": "electric",
+      "traction": "rear"
+    },
+    {
+      "id": "bmw-f-900-gs-895-cm3-bicylindre",
+      "type": "motorcycle",
+      "make": "BMW",
+      "model": "F 900 GS",
+      "engine": "895 cm³ bicylindre",
+      "years": [
+        2024,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 2
     },
     {
       "id": "bmw-f-900-r-895-cm3-bicylindre",
@@ -3378,6 +4330,45 @@
       "oil_spec": "5W40 JASO MA2"
     },
     {
+      "id": "benelli-trk-502-500-cm3-bicylindre",
+      "type": "motorcycle",
+      "make": "Benelli",
+      "model": "TRK 502",
+      "engine": "500 cm³ bicylindre",
+      "years": [
+        2017,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 2
+    },
+    {
+      "id": "cfmoto-800mt-799-cm3-bicylindre",
+      "type": "motorcycle",
+      "make": "CFMoto",
+      "model": "800MT",
+      "engine": "799 cm³ bicylindre",
+      "years": [
+        2021,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 2
+    },
+    {
+      "id": "ducati-desertx-937-cm3-bicylindre",
+      "type": "motorcycle",
+      "make": "Ducati",
+      "model": "DesertX",
+      "engine": "937 cm³ bicylindre",
+      "years": [
+        2022,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 2
+    },
+    {
       "id": "ducati-monster-937-937-cm3-bicylindre",
       "type": "motorcycle",
       "make": "Ducati",
@@ -3406,6 +4397,19 @@
       "oil_spec": "15W50 JASO MA2"
     },
     {
+      "id": "ducati-panigale-v4-1103-cm3-v4",
+      "type": "motorcycle",
+      "make": "Ducati",
+      "model": "Panigale V4",
+      "engine": "1103 cm³ V4",
+      "years": [
+        2018,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 4
+    },
+    {
       "id": "ducati-scrambler-800-803-cm3-bicylindre",
       "type": "motorcycle",
       "make": "Ducati",
@@ -3431,6 +4435,19 @@
       ],
       "fuel": "electric",
       "traction": "front"
+    },
+    {
+      "id": "harley-davidson-pan-america-1250-1252-cm3-v-twin",
+      "type": "motorcycle",
+      "make": "Harley-Davidson",
+      "model": "Pan America 1250",
+      "engine": "1252 cm³ V-twin",
+      "years": [
+        2021,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 2
     },
     {
       "id": "harley-davidson-sportster-s-1252-cm3-v-twin",
@@ -3505,6 +4522,19 @@
       "oil_spec": "10W30 JASO MB"
     },
     {
+      "id": "honda-gold-wing-sc79-1833-cm3-flat-six",
+      "type": "motorcycle",
+      "make": "Honda",
+      "model": "Gold Wing (SC79)",
+      "engine": "1833 cm³ flat-six",
+      "years": [
+        2018,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 6
+    },
+    {
       "id": "honda-nc750x-745-cm3-bicylindre",
       "type": "motorcycle",
       "make": "Honda",
@@ -3532,6 +4562,71 @@
       "cylinders": 1,
       "oil_capacity_l": 0.8,
       "oil_spec": "10W30 JASO MB"
+    },
+    {
+      "id": "honda-rebel-500-471-cm3-bicylindre",
+      "type": "motorcycle",
+      "make": "Honda",
+      "model": "Rebel 500",
+      "engine": "471 cm³ bicylindre",
+      "years": [
+        2017,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 2
+    },
+    {
+      "id": "honda-transalp-xl750-755-cm3-bicylindre",
+      "type": "motorcycle",
+      "make": "Honda",
+      "model": "Transalp XL750",
+      "engine": "755 cm³ bicylindre",
+      "years": [
+        2023,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 2
+    },
+    {
+      "id": "husqvarna-norden-901-889-cm3-bicylindre",
+      "type": "motorcycle",
+      "make": "Husqvarna",
+      "model": "Norden 901",
+      "engine": "889 cm³ bicylindre",
+      "years": [
+        2022,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 2
+    },
+    {
+      "id": "husqvarna-svartpilen-401-399-cm3-monocylindre",
+      "type": "motorcycle",
+      "make": "Husqvarna",
+      "model": "Svartpilen 401",
+      "engine": "399 cm³ monocylindre",
+      "years": [
+        2024,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 1
+    },
+    {
+      "id": "indian-scout-1133-cm3-v-twin",
+      "type": "motorcycle",
+      "make": "Indian",
+      "model": "Scout",
+      "engine": "1133 cm³ V-twin",
+      "years": [
+        2015,
+        2024
+      ],
+      "fuel": "petrol",
+      "cylinders": 2
     },
     {
       "id": "ktm-1290-super-adventure-1301-cm3-bicylindre",
@@ -3590,6 +4685,19 @@
       "oil_spec": "10W50 JASO MA2"
     },
     {
+      "id": "kawasaki-ninja-650-649-cm3-bicylindre",
+      "type": "motorcycle",
+      "make": "Kawasaki",
+      "model": "Ninja 650",
+      "engine": "649 cm³ bicylindre",
+      "years": [
+        2017,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 2
+    },
+    {
       "id": "kawasaki-versys-650-649-cm3-bicylindre",
       "type": "motorcycle",
       "make": "Kawasaki",
@@ -3634,6 +4742,45 @@
       "oil_spec": "10W40 JASO MA"
     },
     {
+      "id": "kawasaki-z900rs-948-cm3-4-cylindres",
+      "type": "motorcycle",
+      "make": "Kawasaki",
+      "model": "Z900RS",
+      "engine": "948 cm³ 4 cylindres",
+      "years": [
+        2018,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 4
+    },
+    {
+      "id": "kymco-ak-550-550-cm3-bicylindre",
+      "type": "motorcycle",
+      "make": "Kymco",
+      "model": "AK 550",
+      "engine": "550 cm³ bicylindre",
+      "years": [
+        2017,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 2
+    },
+    {
+      "id": "mv-agusta-brutale-800-798-cm3-tricylindre",
+      "type": "motorcycle",
+      "make": "MV Agusta",
+      "model": "Brutale 800",
+      "engine": "798 cm³ tricylindre",
+      "years": [
+        2016,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 3
+    },
+    {
       "id": "moto-guzzi-v85-tt-853-cm3-v-twin",
       "type": "motorcycle",
       "make": "Moto Guzzi",
@@ -3646,6 +4793,32 @@
       "fuel": "petrol",
       "cylinders": 2,
       "oil_spec": "10W60 JASO MA2"
+    },
+    {
+      "id": "niu-nqi-gt-2-1-kwh",
+      "type": "motorcycle",
+      "make": "NIU",
+      "model": "NQi GT",
+      "engine": "2,1 kWh",
+      "years": [
+        2019,
+        2026
+      ],
+      "fuel": "electric",
+      "traction": "rear"
+    },
+    {
+      "id": "piaggio-mp3-400-350-cm3-monocylindre",
+      "type": "motorcycle",
+      "make": "Piaggio",
+      "model": "MP3 400",
+      "engine": "350 cm³ monocylindre",
+      "years": [
+        2022,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 1
     },
     {
       "id": "piaggio-vespa-gts-300-278-cm3-monocylindre",
@@ -3676,6 +4849,19 @@
       "oil_spec": "10W50 JASO MA2"
     },
     {
+      "id": "silence-s01-5-6-kwh",
+      "type": "motorcycle",
+      "make": "Silence",
+      "model": "S01",
+      "engine": "5,6 kWh",
+      "years": [
+        2019,
+        2026
+      ],
+      "fuel": "electric",
+      "traction": "rear"
+    },
+    {
       "id": "super-soco-cpx-2-batteries-60-v",
       "type": "motorcycle",
       "make": "Super Soco",
@@ -3687,6 +4873,19 @@
       ],
       "fuel": "electric",
       "traction": "front"
+    },
+    {
+      "id": "suzuki-gsx-8s-776-cm3-bicylindre",
+      "type": "motorcycle",
+      "make": "Suzuki",
+      "model": "GSX-8S",
+      "engine": "776 cm³ bicylindre",
+      "years": [
+        2023,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 2
     },
     {
       "id": "suzuki-sv650-645-cm3-bicylindre",
@@ -3731,6 +4930,19 @@
       "oil_spec": "10W40 JASO MA"
     },
     {
+      "id": "triumph-speed-400-398-cm3-monocylindre",
+      "type": "motorcycle",
+      "make": "Triumph",
+      "model": "Speed 400",
+      "engine": "398 cm³ monocylindre",
+      "years": [
+        2024,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 1
+    },
+    {
       "id": "triumph-street-triple-765-765-cm3-tricylindre",
       "type": "motorcycle",
       "make": "Triumph",
@@ -3745,6 +4957,19 @@
       "oil_spec": "10W40 JASO MA"
     },
     {
+      "id": "triumph-street-twin-900-900-cm3-bicylindre",
+      "type": "motorcycle",
+      "make": "Triumph",
+      "model": "Street Twin 900",
+      "engine": "900 cm³ bicylindre",
+      "years": [
+        2016,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 2
+    },
+    {
       "id": "triumph-tiger-1200-2022-1160-cm3-tricylindre",
       "type": "motorcycle",
       "make": "Triumph",
@@ -3757,6 +4982,19 @@
       "fuel": "petrol",
       "cylinders": 3,
       "oil_spec": "10W40 JASO MA"
+    },
+    {
+      "id": "triumph-tiger-850-sport-888-cm3-tricylindre",
+      "type": "motorcycle",
+      "make": "Triumph",
+      "model": "Tiger 850 Sport",
+      "engine": "888 cm³ tricylindre",
+      "years": [
+        2021,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 3
     },
     {
       "id": "triumph-tiger-900-888-cm3-tricylindre",
@@ -3801,6 +5039,32 @@
       "oil_spec": "10W40 JASO MA"
     },
     {
+      "id": "voge-525-dsx-494-cm3-bicylindre",
+      "type": "motorcycle",
+      "make": "Voge",
+      "model": "525 DSX",
+      "engine": "494 cm³ bicylindre",
+      "years": [
+        2023,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 2
+    },
+    {
+      "id": "yamaha-mt-03-321-cm3-bicylindre",
+      "type": "motorcycle",
+      "make": "Yamaha",
+      "model": "MT-03",
+      "engine": "321 cm³ bicylindre",
+      "years": [
+        2016,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 2
+    },
+    {
       "id": "yamaha-mt07",
       "type": "motorcycle",
       "make": "Yamaha",
@@ -3843,6 +5107,19 @@
       "fuel": "petrol",
       "cylinders": 2,
       "oil_spec": "10W40 JASO MA"
+    },
+    {
+      "id": "yamaha-tracer-7-689-cm3-bicylindre",
+      "type": "motorcycle",
+      "make": "Yamaha",
+      "model": "Tracer 7",
+      "engine": "689 cm³ bicylindre",
+      "years": [
+        2020,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 2
     },
     {
       "id": "yamaha-tracer-9-890-cm3-tricylindre",
@@ -3901,6 +5178,32 @@
       "traction": "front"
     },
     {
+      "id": "zontes-350t-348-cm3-monocylindre",
+      "type": "motorcycle",
+      "make": "Zontes",
+      "model": "350T",
+      "engine": "348 cm³ monocylindre",
+      "years": [
+        2022,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 1
+    },
+    {
+      "id": "daf-lf-px-7-6-7-l",
+      "type": "truck",
+      "make": "DAF",
+      "model": "LF",
+      "engine": "PX-7 (6,7 L)",
+      "years": [
+        2013,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 6
+    },
+    {
       "id": "daf-xf-mx-13-12-9-l",
       "type": "truck",
       "make": "DAF",
@@ -3915,6 +5218,19 @@
       "oil_spec": "10W30 ACEA E6"
     },
     {
+      "id": "daf-xg-mx-13-12-9-l",
+      "type": "truck",
+      "make": "DAF",
+      "model": "XG+",
+      "engine": "MX-13 (12,9 L)",
+      "years": [
+        2021,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 6
+    },
+    {
       "id": "iveco-s-way-cursor-13",
       "type": "truck",
       "make": "Iveco",
@@ -3927,6 +5243,19 @@
       "fuel": "diesel",
       "cylinders": 6,
       "oil_spec": "10W40 ACEA E6"
+    },
+    {
+      "id": "man-tgl-d0834-4-6-l",
+      "type": "truck",
+      "make": "MAN",
+      "model": "TGL",
+      "engine": "D0834 (4,6 L)",
+      "years": [
+        2014,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 4
     },
     {
       "id": "man-tgx-d2676-12-4-l",
@@ -3957,6 +5286,45 @@
       "oil_capacity_l": 39,
       "oil_spec": "10W30 MB 228.51",
       "coolant_l": 48
+    },
+    {
+      "id": "mercedes-benz-arocs-om-471-12-8-l",
+      "type": "truck",
+      "make": "Mercedes-Benz",
+      "model": "Arocs",
+      "engine": "OM 471 (12,8 L)",
+      "years": [
+        2013,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 6
+    },
+    {
+      "id": "mercedes-benz-eactros-336-kwh",
+      "type": "truck",
+      "make": "Mercedes-Benz",
+      "model": "eActros",
+      "engine": "336 kWh",
+      "years": [
+        2021,
+        2026
+      ],
+      "fuel": "electric",
+      "traction": "rear"
+    },
+    {
+      "id": "renault-trucks-d-dti-8-7-7-l",
+      "type": "truck",
+      "make": "Renault Trucks",
+      "model": "D",
+      "engine": "DTI 8 (7,7 L)",
+      "years": [
+        2013,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 6
     },
     {
       "id": "renault-trucks-e-tech-t-electrique",
@@ -4002,6 +5370,19 @@
       "oil_spec": "10W30 Scania LDF-4"
     },
     {
+      "id": "scania-serie-s-dc13-13-l",
+      "type": "truck",
+      "make": "Scania",
+      "model": "Série S",
+      "engine": "DC13 (13 L)",
+      "years": [
+        2016,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 6
+    },
+    {
       "id": "volvo-fh-d13k-13-l",
       "type": "truck",
       "make": "Volvo",
@@ -4027,6 +5408,32 @@
       ],
       "fuel": "electric",
       "traction": "rear"
+    },
+    {
+      "id": "volvo-fl-d8k-7-7-l",
+      "type": "truck",
+      "make": "Volvo",
+      "model": "FL",
+      "engine": "D8K (7,7 L)",
+      "years": [
+        2013,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 6
+    },
+    {
+      "id": "volvo-fmx-d13k-13-l",
+      "type": "truck",
+      "make": "Volvo",
+      "model": "FMX",
+      "engine": "D13K (13 L)",
+      "years": [
+        2013,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 6
     },
     {
       "id": "citroen-berlingo-bluehdi",
@@ -4059,6 +5466,20 @@
       "oil_spec": "5W30 PSA B71 2290"
     },
     {
+      "id": "fiat-doblo-2022-1-5-bluehdi-100",
+      "type": "van",
+      "make": "Fiat",
+      "model": "Doblò (2022)",
+      "engine": "1.5 BlueHDi 100",
+      "years": [
+        2022,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "oil_spec": "0W30 PSA B71 2312"
+    },
+    {
       "id": "fiat-ducato-2-2-multijet-140",
       "type": "van",
       "make": "Fiat",
@@ -4084,6 +5505,34 @@
       ],
       "fuel": "electric",
       "traction": "front"
+    },
+    {
+      "id": "ford-transit-2019-2-0-ecoblue-130",
+      "type": "van",
+      "make": "Ford",
+      "model": "Transit (2019)",
+      "engine": "2.0 EcoBlue 130",
+      "years": [
+        2019,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "oil_spec": "0W30 WSS-M2C950-A"
+    },
+    {
+      "id": "ford-transit-courier-1-0-ecoboost-100",
+      "type": "van",
+      "make": "Ford",
+      "model": "Transit Courier",
+      "engine": "1.0 EcoBoost 100",
+      "years": [
+        2024,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 3,
+      "oil_spec": "5W20 WSS-M2C948-B"
     },
     {
       "id": "ford-transit-custom-2-0-ecoblue-130",
@@ -4114,6 +5563,19 @@
       "oil_spec": "5W30 ACEA C3"
     },
     {
+      "id": "iveco-edaily-74-kwh",
+      "type": "van",
+      "make": "Iveco",
+      "model": "eDaily",
+      "engine": "74 kWh",
+      "years": [
+        2023,
+        2026
+      ],
+      "fuel": "electric",
+      "traction": "rear"
+    },
+    {
       "id": "mercedes-benz-sprinter-907-314-cdi-2-1",
       "type": "van",
       "make": "Mercedes-Benz",
@@ -4128,6 +5590,19 @@
       "oil_spec": "5W30 MB 229.52"
     },
     {
+      "id": "mercedes-benz-vito-w447-116-cdi",
+      "type": "van",
+      "make": "Mercedes-Benz",
+      "model": "Vito (W447)",
+      "engine": "116 CDI",
+      "years": [
+        2014,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 4
+    },
+    {
       "id": "mercedes-benz-esprinter-113-kwh",
       "type": "van",
       "make": "Mercedes-Benz",
@@ -4135,6 +5610,45 @@
       "engine": "113 kWh",
       "years": [
         2023,
+        2026
+      ],
+      "fuel": "electric",
+      "traction": "front"
+    },
+    {
+      "id": "mercedes-benz-evito-90-kwh",
+      "type": "van",
+      "make": "Mercedes-Benz",
+      "model": "eVito",
+      "engine": "90 kWh",
+      "years": [
+        2020,
+        2026
+      ],
+      "fuel": "electric",
+      "traction": "front"
+    },
+    {
+      "id": "nissan-townstar-ev-45-kwh",
+      "type": "van",
+      "make": "Nissan",
+      "model": "Townstar EV",
+      "engine": "45 kWh",
+      "years": [
+        2022,
+        2026
+      ],
+      "fuel": "electric",
+      "traction": "front"
+    },
+    {
+      "id": "opel-vivaro-e-75-kwh",
+      "type": "van",
+      "make": "Opel",
+      "model": "Vivaro-e",
+      "engine": "75 kWh",
+      "years": [
+        2020,
         2026
       ],
       "fuel": "electric",
@@ -4225,6 +5739,19 @@
       "coolant_l": 10.0
     },
     {
+      "id": "renault-trafic-e-tech-52-kwh",
+      "type": "van",
+      "make": "Renault",
+      "model": "Trafic E-Tech",
+      "engine": "52 kWh",
+      "years": [
+        2023,
+        2026
+      ],
+      "fuel": "electric",
+      "traction": "front"
+    },
+    {
       "id": "renault-trafic-iii-2-0-blue-dci-130",
       "type": "van",
       "make": "Renault",
@@ -4239,6 +5766,20 @@
       "oil_spec": "5W30 RN0720"
     },
     {
+      "id": "toyota-proace-2016-2-0-d-4d-145",
+      "type": "van",
+      "make": "Toyota",
+      "model": "Proace (2016)",
+      "engine": "2.0 D-4D 145",
+      "years": [
+        2016,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "oil_spec": "0W30"
+    },
+    {
       "id": "toyota-proace-city-1-5-d-4d-100",
       "type": "van",
       "make": "Toyota",
@@ -4251,6 +5792,34 @@
       "fuel": "diesel",
       "cylinders": 4,
       "oil_spec": "0W30"
+    },
+    {
+      "id": "volkswagen-caddy-v-2-0-tdi-122",
+      "type": "van",
+      "make": "Volkswagen",
+      "model": "Caddy V",
+      "engine": "2.0 TDI 122",
+      "years": [
+        2020,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "oil_spec": "0W30 VW 507.00"
+    },
+    {
+      "id": "volkswagen-crafter-ii-2-0-tdi-140",
+      "type": "van",
+      "make": "Volkswagen",
+      "model": "Crafter II",
+      "engine": "2.0 TDI 140",
+      "years": [
+        2017,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "oil_spec": "5W30 VW 507.00"
     },
     {
       "id": "volkswagen-id-buzz-77-kwh",
