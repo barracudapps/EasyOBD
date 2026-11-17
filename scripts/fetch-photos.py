@@ -3,14 +3,17 @@
 
 Only freely licensed files are accepted (CC BY, CC BY-SA, CC0, public domain); author and licence are
 read from Commons metadata and written to ui/public/photos/manifest.json for attribution.
-Run:  python3 -I scripts/fetch-photos.py
+Run:  WIKIMEDIA_CONTACT="vous@exemple.fr" python3 -I scripts/fetch-photos.py
 """
 import json, os, re, sys, time, urllib.error, urllib.parse, urllib.request
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRC = os.path.join(ROOT, "data", "photo-sources.json")
 OUT = os.path.join(ROOT, "ui", "public", "photos")
-UA = {"User-Agent": "EasyOBD-photo-fetch/0.1 (open-source educational app)"}
+# Wikimedia's User-Agent policy asks automated clients for a contact; without one, requests are
+# throttled hard (HTTP 429). Optionally set WIKIMEDIA_CONTACT (e-mail or project URL).
+CONTACT = os.environ.get("WIKIMEDIA_CONTACT", "https://github.com/barracudapps/EasyOBD")
+UA = {"User-Agent": f"EasyOBD-photo-fetch/0.1 ({CONTACT}) python-urllib"}
 OK = re.compile(r"CC BY|CC-BY|CC0|Public domain", re.I)
 
 def get(url, tries=6):
