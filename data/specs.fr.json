@@ -44,6 +44,17 @@
       ],
       "adblue_l": null
     },
+    "tractor": {
+      "coolant_l": "20 – 45 L",
+      "brake_fluid": { "type": "Freins à bain d'huile : huile de transmission UTTO (même circuit) ; commande hydraulique : huile minérale LHM ou DOT selon constructeur", "qty": "Selon circuit (voir notice)", "interval": "Avec l'huile de transmission (1 000 à 2 000 h)" },
+      "gearbox": "Transmission + hydraulique communes : 50 – 200 L d'huile UTTO à la norme constructeur",
+      "torques": [
+        ["Écrous de roue arrière", "400 – 650 N·m selon taille", "Resserrer après 1 à 10 heures de travail suivant un démontage."],
+        ["Écrous de roue avant", "250 – 450 N·m selon taille", ""],
+        ["Bouchon de vidange moteur", "60 – 100 N·m", "Joint neuf."]
+      ],
+      "adblue_l": "Réservoir de 30 à 80 L"
+    },
     "truck": {
       "coolant_l": "40 – 60 L",
       "brake_fluid": { "type": "Freinage pneumatique (pas de liquide) ; embrayage hydraulique : huile minérale ou DOT 4 selon constructeur", "qty": "—", "interval": "Purge quotidienne des réservoirs d'air, dessiccateur à remplacer chaque année" },

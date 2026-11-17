@@ -5,7 +5,8 @@
     "car": "Premier contrôle dans les 6 mois avant les 4 ans du véhicule, puis tous les 2 ans. Contre-visite sous 2 mois en cas de défaillance majeure.",
     "van": "Comme les voitures (véhicules ≤ 3,5 t) ; contrôle pollution complémentaire annuel pour certains utilitaires.",
     "motorcycle": "Deux-roues motorisés (catégorie L) : contrôle technique en vigueur depuis avril 2024, calendrier progressif selon l'année de mise en circulation.",
-    "truck": "Poids lourds : contrôle annuel en centre agréé poids lourds."
+    "truck": "Poids lourds : contrôle annuel en centre agréé poids lourds.",
+    "tractor": "Tracteurs agricoles : pas de contrôle technique périodique obligatoire en France à ce jour. Pour la route, éclairage, signalisation, freinage et gabarit restent contrôlables par les forces de l'ordre ; pour les salariés, l'employeur doit faire vérifier les équipements de travail."
   },
   "severity_labels": {
     "minor": "Mineure (pas de contre-visite)",

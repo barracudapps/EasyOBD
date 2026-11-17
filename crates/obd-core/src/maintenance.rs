@@ -49,13 +49,17 @@ pub struct VehicleProfile {
     /// Driven axle(s): "front", "rear" or "both". Absent = front (most cars).
     #[serde(default)]
     pub traction: Option<String>,
-    /// Body style (3D silhouette). Cars: hatch, sedan, estate, suv, mpv, coupe, pickup, micro.
+    /// Body style (3D silhouette). Cars: hatch, sedan, estate, suv, mpv, coupe, supercar, pickup, micro.
+    /// Tractors: tractor.
     /// Motorcycles: naked, adventure, sport, cruiser, scooter.
     #[serde(default)]
     pub body: Option<String>,
     /// Motorcycles: chain (default), shaft, belt, cvt (scooter variator) or hub (hub motor).
     #[serde(default)]
     pub final_drive: Option<String>,
+    /// Cars: "front" (default), "mid" (behind the seats: Ferrari, Lamborghini, Lotus…) or "rear" (Porsche 911).
+    #[serde(default)]
+    pub engine_position: Option<String>,
 }
 
 impl VehicleProfile {
@@ -408,11 +412,14 @@ mod tests {
             if let Some(t) = &p.traction {
                 assert!(["front", "rear", "both"].contains(&t.as_str()), "{}: bad traction {t}", p.id);
             }
+            if let Some(e) = &p.engine_position {
+                assert!(["front", "mid", "rear"].contains(&e.as_str()), "{}: bad engine position {e}", p.id);
+            }
             if let Some(f) = &p.final_drive {
                 assert!(["chain", "shaft", "belt", "cvt", "hub"].contains(&f.as_str()), "{}: bad final drive {f}", p.id);
             }
             if let Some(b) = &p.body {
-                assert!(["hatch", "sedan", "estate", "suv", "mpv", "coupe", "pickup", "micro", "naked", "adventure", "sport", "cruiser", "scooter"].contains(&b.as_str()), "{}: bad body {b}", p.id);
+                assert!(["hatch", "sedan", "estate", "suv", "mpv", "coupe", "supercar", "pickup", "micro", "tractor", "naked", "adventure", "sport", "cruiser", "scooter"].contains(&b.as_str()), "{}: bad body {b}", p.id);
             }
         }
         for t in &m.tutorials {

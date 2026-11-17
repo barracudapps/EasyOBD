@@ -203,7 +203,7 @@ impl Specs {
             return out;
         }
 
-        if p.vehicle_type == "truck" {
+        if matches!(p.vehicle_type.as_str(), "truck" | "tractor") {
             out.push(Alternative {
                 label: format!("Huile {visc} ACEA E6 / E4 avec l'homologation constructeur, conditionnement 208 L"),
                 compatibility: Compatibility::Equivalent,
@@ -303,7 +303,7 @@ impl Specs {
             fluids.push(item("Huile moteur", "Norme indiquée dans le carnet (ex. ACEA C3 + homologation constructeur)", Source::Typical, None));
         }
         fluids.push(item("Liquide de frein", &typ.brake_fluid.kind, Source::Typical, Some(&typ.brake_fluid.interval)));
-        if p.vehicle_type != "truck" || electric {
+        if !matches!(p.vehicle_type.as_str(), "truck" | "tractor") || electric {
             fluids.push(item(
                 "Liquide de refroidissement",
                 if electric { "Liquide spécifique faible conductivité (batterie) + liquide classique (habitacle)" } else { "Technologie OAT / Si-OAT selon constructeur (ne pas mélanger)" },

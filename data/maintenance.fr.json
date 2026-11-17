@@ -21,6 +21,11 @@
       "id": "truck",
       "name": "Poids lourd",
       "icon": "truck"
+    },
+    {
+      "id": "tractor",
+      "name": "Tracteur agricole",
+      "icon": "tractor"
     }
   ],
   "components": {
@@ -182,8 +187,9 @@
       "fuel": "petrol",
       "cylinders": 4,
       "oil_spec": "5W40 RN17 RSA",
-      "body": "coupe",
-      "traction": "rear"
+      "body": "supercar",
+      "traction": "rear",
+      "engine_position": "mid"
     },
     {
       "id": "audi-a1-gb-30-tfsi-110",
@@ -2941,7 +2947,8 @@
       "cylinders": 6,
       "oil_spec": "0W40 Porsche C40",
       "body": "coupe",
-      "traction": "rear"
+      "traction": "rear",
+      "engine_position": "rear"
     },
     {
       "id": "porsche-cayenne-e3-3-0-v6-353",
@@ -6326,6 +6333,1127 @@
       "fuel": "diesel",
       "cylinders": 4,
       "oil_spec": "5W30 VW 507.00"
+    },
+    {
+      "id": "ferrari-458-italia-4-5-v8-570",
+      "type": "car",
+      "make": "Ferrari",
+      "model": "458 Italia",
+      "engine": "4.5 V8 570",
+      "years": [
+        2009,
+        2015
+      ],
+      "fuel": "petrol",
+      "cylinders": 8,
+      "body": "supercar",
+      "traction": "rear",
+      "engine_position": "mid"
+    },
+    {
+      "id": "ferrari-488-gtb-3-9-v8-biturbo-670",
+      "type": "car",
+      "make": "Ferrari",
+      "model": "488 GTB",
+      "engine": "3.9 V8 biturbo 670",
+      "years": [
+        2015,
+        2019
+      ],
+      "fuel": "petrol",
+      "cylinders": 8,
+      "body": "supercar",
+      "traction": "rear",
+      "engine_position": "mid"
+    },
+    {
+      "id": "ferrari-f8-tributo-3-9-v8-biturbo-720",
+      "type": "car",
+      "make": "Ferrari",
+      "model": "F8 Tributo",
+      "engine": "3.9 V8 biturbo 720",
+      "years": [
+        2019,
+        2023
+      ],
+      "fuel": "petrol",
+      "cylinders": 8,
+      "body": "supercar",
+      "traction": "rear",
+      "engine_position": "mid"
+    },
+    {
+      "id": "ferrari-296-gtb-3-0-v6-biturbo-hybride-rechargeable-830",
+      "type": "car",
+      "make": "Ferrari",
+      "model": "296 GTB",
+      "engine": "3.0 V6 biturbo hybride rechargeable 830",
+      "years": [
+        2022,
+        2026
+      ],
+      "fuel": "hybrid",
+      "cylinders": 6,
+      "body": "supercar",
+      "traction": "rear",
+      "engine_position": "mid"
+    },
+    {
+      "id": "ferrari-sf90-stradale-4-0-v8-hybride-rechargeable-1000",
+      "type": "car",
+      "make": "Ferrari",
+      "model": "SF90 Stradale",
+      "engine": "4.0 V8 hybride rechargeable 1000",
+      "years": [
+        2020,
+        2026
+      ],
+      "fuel": "hybrid",
+      "cylinders": 8,
+      "body": "supercar",
+      "traction": "both",
+      "engine_position": "mid"
+    },
+    {
+      "id": "ferrari-roma-3-9-v8-biturbo-620",
+      "type": "car",
+      "make": "Ferrari",
+      "model": "Roma",
+      "engine": "3.9 V8 biturbo 620",
+      "years": [
+        2020,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 8,
+      "body": "coupe",
+      "traction": "rear"
+    },
+    {
+      "id": "ferrari-812-superfast-6-5-v12-800",
+      "type": "car",
+      "make": "Ferrari",
+      "model": "812 Superfast",
+      "engine": "6.5 V12 800",
+      "years": [
+        2017,
+        2024
+      ],
+      "fuel": "petrol",
+      "cylinders": 12,
+      "body": "coupe",
+      "traction": "rear"
+    },
+    {
+      "id": "ferrari-purosangue-6-5-v12-725",
+      "type": "car",
+      "make": "Ferrari",
+      "model": "Purosangue",
+      "engine": "6.5 V12 725",
+      "years": [
+        2023,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 12,
+      "body": "suv",
+      "traction": "both"
+    },
+    {
+      "id": "ferrari-california-t-3-9-v8-biturbo-560",
+      "type": "car",
+      "make": "Ferrari",
+      "model": "California T",
+      "engine": "3.9 V8 biturbo 560",
+      "years": [
+        2014,
+        2017
+      ],
+      "fuel": "petrol",
+      "cylinders": 8,
+      "body": "coupe",
+      "traction": "rear"
+    },
+    {
+      "id": "lamborghini-huracan-5-2-v10-610",
+      "type": "car",
+      "make": "Lamborghini",
+      "model": "Huracán",
+      "engine": "5.2 V10 610",
+      "years": [
+        2014,
+        2024
+      ],
+      "fuel": "petrol",
+      "cylinders": 10,
+      "body": "supercar",
+      "traction": "both",
+      "engine_position": "mid"
+    },
+    {
+      "id": "lamborghini-gallardo-5-2-v10-560",
+      "type": "car",
+      "make": "Lamborghini",
+      "model": "Gallardo",
+      "engine": "5.2 V10 560",
+      "years": [
+        2008,
+        2013
+      ],
+      "fuel": "petrol",
+      "cylinders": 10,
+      "body": "supercar",
+      "traction": "both",
+      "engine_position": "mid"
+    },
+    {
+      "id": "lamborghini-aventador-6-5-v12-740",
+      "type": "car",
+      "make": "Lamborghini",
+      "model": "Aventador",
+      "engine": "6.5 V12 740",
+      "years": [
+        2011,
+        2022
+      ],
+      "fuel": "petrol",
+      "cylinders": 12,
+      "body": "supercar",
+      "traction": "both",
+      "engine_position": "mid"
+    },
+    {
+      "id": "lamborghini-revuelto-6-5-v12-hybride-rechargeable-1015",
+      "type": "car",
+      "make": "Lamborghini",
+      "model": "Revuelto",
+      "engine": "6.5 V12 hybride rechargeable 1015",
+      "years": [
+        2023,
+        2026
+      ],
+      "fuel": "hybrid",
+      "cylinders": 12,
+      "body": "supercar",
+      "traction": "both",
+      "engine_position": "mid"
+    },
+    {
+      "id": "lamborghini-urus-4-0-v8-biturbo-650",
+      "type": "car",
+      "make": "Lamborghini",
+      "model": "Urus",
+      "engine": "4.0 V8 biturbo 650",
+      "years": [
+        2018,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 8,
+      "body": "suv",
+      "traction": "both"
+    },
+    {
+      "id": "lotus-elise-s2-1-8-136-moteur-toyota",
+      "type": "car",
+      "make": "Lotus",
+      "model": "Elise (S2)",
+      "engine": "1.8 136 (moteur Toyota)",
+      "years": [
+        2005,
+        2021
+      ],
+      "fuel": "petrol",
+      "cylinders": 4,
+      "body": "supercar",
+      "traction": "rear",
+      "engine_position": "mid"
+    },
+    {
+      "id": "lotus-exige-s3-3-5-v6-compresseur-350",
+      "type": "car",
+      "make": "Lotus",
+      "model": "Exige (S3)",
+      "engine": "3.5 V6 compresseur 350",
+      "years": [
+        2012,
+        2021
+      ],
+      "fuel": "petrol",
+      "cylinders": 6,
+      "body": "supercar",
+      "traction": "rear",
+      "engine_position": "mid"
+    },
+    {
+      "id": "lotus-evora-3-5-v6-compresseur-406",
+      "type": "car",
+      "make": "Lotus",
+      "model": "Evora",
+      "engine": "3.5 V6 compresseur 406",
+      "years": [
+        2009,
+        2021
+      ],
+      "fuel": "petrol",
+      "cylinders": 6,
+      "body": "supercar",
+      "traction": "rear",
+      "engine_position": "mid"
+    },
+    {
+      "id": "lotus-emira-3-5-v6-compresseur-405",
+      "type": "car",
+      "make": "Lotus",
+      "model": "Emira",
+      "engine": "3.5 V6 compresseur 405",
+      "years": [
+        2022,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 6,
+      "body": "supercar",
+      "traction": "rear",
+      "engine_position": "mid"
+    },
+    {
+      "id": "lotus-emira-2-0-i4-turbo-365-moteur-amg",
+      "type": "car",
+      "make": "Lotus",
+      "model": "Emira",
+      "engine": "2.0 i4 turbo 365 (moteur AMG)",
+      "years": [
+        2023,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 4,
+      "body": "supercar",
+      "traction": "rear",
+      "engine_position": "mid"
+    },
+    {
+      "id": "lotus-eletre-112-kwh",
+      "type": "car",
+      "make": "Lotus",
+      "model": "Eletre",
+      "engine": "112 kWh",
+      "years": [
+        2023,
+        2026
+      ],
+      "fuel": "electric",
+      "body": "suv",
+      "traction": "both"
+    },
+    {
+      "id": "jaguar-f-type-5-0-v8-compresseur-450",
+      "type": "car",
+      "make": "Jaguar",
+      "model": "F-Type",
+      "engine": "5.0 V8 compresseur 450",
+      "years": [
+        2013,
+        2024
+      ],
+      "fuel": "petrol",
+      "cylinders": 8,
+      "body": "coupe",
+      "traction": "both"
+    },
+    {
+      "id": "jaguar-f-type-2-0-p300",
+      "type": "car",
+      "make": "Jaguar",
+      "model": "F-Type",
+      "engine": "2.0 P300",
+      "years": [
+        2017,
+        2024
+      ],
+      "fuel": "petrol",
+      "cylinders": 4,
+      "body": "coupe",
+      "traction": "rear"
+    },
+    {
+      "id": "jaguar-xe-2-0-d180",
+      "type": "car",
+      "make": "Jaguar",
+      "model": "XE",
+      "engine": "2.0 D180",
+      "years": [
+        2015,
+        2024
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "body": "sedan",
+      "traction": "rear"
+    },
+    {
+      "id": "jaguar-xf-x260-2-0-d180",
+      "type": "car",
+      "make": "Jaguar",
+      "model": "XF (X260)",
+      "engine": "2.0 D180",
+      "years": [
+        2015,
+        2024
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "body": "sedan",
+      "traction": "rear"
+    },
+    {
+      "id": "jaguar-f-pace-2-0-d180",
+      "type": "car",
+      "make": "Jaguar",
+      "model": "F-Pace",
+      "engine": "2.0 D180",
+      "years": [
+        2016,
+        2024
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "body": "suv",
+      "traction": "both"
+    },
+    {
+      "id": "jaguar-f-pace-p400e-hybride-rechargeable",
+      "type": "car",
+      "make": "Jaguar",
+      "model": "F-Pace",
+      "engine": "P400e hybride rechargeable",
+      "years": [
+        2021,
+        2024
+      ],
+      "fuel": "hybrid",
+      "cylinders": 4,
+      "body": "suv",
+      "traction": "both"
+    },
+    {
+      "id": "jaguar-e-pace-2-0-d150",
+      "type": "car",
+      "make": "Jaguar",
+      "model": "E-Pace",
+      "engine": "2.0 D150",
+      "years": [
+        2017,
+        2024
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "body": "suv",
+      "traction": "both"
+    },
+    {
+      "id": "jaguar-xj-x351-3-0-v6-diesel-300",
+      "type": "car",
+      "make": "Jaguar",
+      "model": "XJ (X351)",
+      "engine": "3.0 V6 Diesel 300",
+      "years": [
+        2010,
+        2019
+      ],
+      "fuel": "diesel",
+      "cylinders": 6,
+      "body": "sedan",
+      "traction": "rear"
+    },
+    {
+      "id": "porsche-911-997-carrera-3-6-325",
+      "type": "car",
+      "make": "Porsche",
+      "model": "911 (997)",
+      "engine": "Carrera 3.6 325",
+      "years": [
+        2004,
+        2008
+      ],
+      "fuel": "petrol",
+      "cylinders": 6,
+      "body": "coupe",
+      "traction": "rear",
+      "engine_position": "rear"
+    },
+    {
+      "id": "porsche-911-991-carrera-3-4-350",
+      "type": "car",
+      "make": "Porsche",
+      "model": "911 (991)",
+      "engine": "Carrera 3.4 350",
+      "years": [
+        2012,
+        2015
+      ],
+      "fuel": "petrol",
+      "cylinders": 6,
+      "body": "coupe",
+      "traction": "rear",
+      "engine_position": "rear"
+    },
+    {
+      "id": "porsche-911-992-turbo-s-3-8-650",
+      "type": "car",
+      "make": "Porsche",
+      "model": "911 (992)",
+      "engine": "Turbo S 3.8 650",
+      "years": [
+        2020,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 6,
+      "body": "coupe",
+      "traction": "both",
+      "engine_position": "rear"
+    },
+    {
+      "id": "porsche-911-992-gt3-4-0-510",
+      "type": "car",
+      "make": "Porsche",
+      "model": "911 (992)",
+      "engine": "GT3 4.0 510",
+      "years": [
+        2021,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 6,
+      "body": "coupe",
+      "traction": "rear",
+      "engine_position": "rear"
+    },
+    {
+      "id": "porsche-718-cayman-2-0-300",
+      "type": "car",
+      "make": "Porsche",
+      "model": "718 Cayman",
+      "engine": "2.0 300",
+      "years": [
+        2016,
+        2025
+      ],
+      "fuel": "petrol",
+      "cylinders": 4,
+      "body": "supercar",
+      "traction": "rear",
+      "engine_position": "mid"
+    },
+    {
+      "id": "porsche-718-boxster-2-0-300",
+      "type": "car",
+      "make": "Porsche",
+      "model": "718 Boxster",
+      "engine": "2.0 300",
+      "years": [
+        2016,
+        2025
+      ],
+      "fuel": "petrol",
+      "cylinders": 4,
+      "body": "supercar",
+      "traction": "rear",
+      "engine_position": "mid"
+    },
+    {
+      "id": "porsche-cayman-987-2-7-245",
+      "type": "car",
+      "make": "Porsche",
+      "model": "Cayman (987)",
+      "engine": "2.7 245",
+      "years": [
+        2005,
+        2008
+      ],
+      "fuel": "petrol",
+      "cylinders": 6,
+      "body": "supercar",
+      "traction": "rear",
+      "engine_position": "mid"
+    },
+    {
+      "id": "porsche-panamera-971-2-9-v6-4-e-hybrid",
+      "type": "car",
+      "make": "Porsche",
+      "model": "Panamera (971)",
+      "engine": "2.9 V6 4 E-Hybrid",
+      "years": [
+        2017,
+        2023
+      ],
+      "fuel": "hybrid",
+      "cylinders": 6,
+      "body": "sedan",
+      "traction": "both"
+    },
+    {
+      "id": "porsche-cayenne-955-4-5-v8-s-340",
+      "type": "car",
+      "make": "Porsche",
+      "model": "Cayenne (955)",
+      "engine": "4.5 V8 S 340",
+      "years": [
+        2002,
+        2007
+      ],
+      "fuel": "petrol",
+      "cylinders": 8,
+      "body": "suv",
+      "traction": "both"
+    },
+    {
+      "id": "porsche-macan-electric-100-kwh",
+      "type": "car",
+      "make": "Porsche",
+      "model": "Macan Electric",
+      "engine": "100 kWh",
+      "years": [
+        2024,
+        2026
+      ],
+      "fuel": "electric",
+      "body": "suv",
+      "traction": "both"
+    },
+    {
+      "id": "mclaren-720s-4-0-v8-biturbo-720",
+      "type": "car",
+      "make": "McLaren",
+      "model": "720S",
+      "engine": "4.0 V8 biturbo 720",
+      "years": [
+        2017,
+        2023
+      ],
+      "fuel": "petrol",
+      "cylinders": 8,
+      "body": "supercar",
+      "traction": "rear",
+      "engine_position": "mid"
+    },
+    {
+      "id": "mclaren-570s-3-8-v8-biturbo-570",
+      "type": "car",
+      "make": "McLaren",
+      "model": "570S",
+      "engine": "3.8 V8 biturbo 570",
+      "years": [
+        2015,
+        2021
+      ],
+      "fuel": "petrol",
+      "cylinders": 8,
+      "body": "supercar",
+      "traction": "rear",
+      "engine_position": "mid"
+    },
+    {
+      "id": "mclaren-artura-3-0-v6-biturbo-hybride-rechargeable-680",
+      "type": "car",
+      "make": "McLaren",
+      "model": "Artura",
+      "engine": "3.0 V6 biturbo hybride rechargeable 680",
+      "years": [
+        2022,
+        2026
+      ],
+      "fuel": "hybrid",
+      "cylinders": 6,
+      "body": "supercar",
+      "traction": "rear",
+      "engine_position": "mid"
+    },
+    {
+      "id": "aston-martin-vantage-4-0-v8-biturbo-510",
+      "type": "car",
+      "make": "Aston Martin",
+      "model": "Vantage",
+      "engine": "4.0 V8 biturbo 510",
+      "years": [
+        2018,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 8,
+      "body": "coupe",
+      "traction": "rear"
+    },
+    {
+      "id": "aston-martin-db11-5-2-v12-biturbo-608",
+      "type": "car",
+      "make": "Aston Martin",
+      "model": "DB11",
+      "engine": "5.2 V12 biturbo 608",
+      "years": [
+        2016,
+        2023
+      ],
+      "fuel": "petrol",
+      "cylinders": 12,
+      "body": "coupe",
+      "traction": "rear"
+    },
+    {
+      "id": "aston-martin-dbx-4-0-v8-biturbo-550",
+      "type": "car",
+      "make": "Aston Martin",
+      "model": "DBX",
+      "engine": "4.0 V8 biturbo 550",
+      "years": [
+        2020,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 8,
+      "body": "suv",
+      "traction": "both"
+    },
+    {
+      "id": "maserati-ghibli-3-0-v6-diesel-275",
+      "type": "car",
+      "make": "Maserati",
+      "model": "Ghibli",
+      "engine": "3.0 V6 Diesel 275",
+      "years": [
+        2013,
+        2023
+      ],
+      "fuel": "diesel",
+      "cylinders": 6,
+      "body": "sedan",
+      "traction": "rear"
+    },
+    {
+      "id": "maserati-levante-3-0-v6-biturbo-350",
+      "type": "car",
+      "make": "Maserati",
+      "model": "Levante",
+      "engine": "3.0 V6 biturbo 350",
+      "years": [
+        2016,
+        2024
+      ],
+      "fuel": "petrol",
+      "cylinders": 6,
+      "body": "suv",
+      "traction": "both"
+    },
+    {
+      "id": "maserati-mc20-3-0-v6-nettuno-630",
+      "type": "car",
+      "make": "Maserati",
+      "model": "MC20",
+      "engine": "3.0 V6 Nettuno 630",
+      "years": [
+        2021,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 6,
+      "body": "supercar",
+      "traction": "rear",
+      "engine_position": "mid"
+    },
+    {
+      "id": "bentley-continental-gt-6-0-w12-635",
+      "type": "car",
+      "make": "Bentley",
+      "model": "Continental GT",
+      "engine": "6.0 W12 635",
+      "years": [
+        2018,
+        2024
+      ],
+      "fuel": "petrol",
+      "cylinders": 12,
+      "body": "coupe",
+      "traction": "both"
+    },
+    {
+      "id": "alpine-a110-1-8-tce-300-s",
+      "type": "car",
+      "make": "Alpine",
+      "model": "A110",
+      "engine": "1.8 TCe 300 (S)",
+      "years": [
+        2022,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 4,
+      "body": "supercar",
+      "traction": "rear",
+      "engine_position": "mid"
+    },
+    {
+      "id": "audi-r8-5-2-v10-620",
+      "type": "car",
+      "make": "Audi",
+      "model": "R8",
+      "engine": "5.2 V10 620",
+      "years": [
+        2015,
+        2024
+      ],
+      "fuel": "petrol",
+      "cylinders": 10,
+      "body": "supercar",
+      "traction": "both",
+      "engine_position": "mid"
+    },
+    {
+      "id": "mercedes-benz-amg-gt-4-0-v8-biturbo-476",
+      "type": "car",
+      "make": "Mercedes-Benz",
+      "model": "AMG GT",
+      "engine": "4.0 V8 biturbo 476",
+      "years": [
+        2015,
+        2022
+      ],
+      "fuel": "petrol",
+      "cylinders": 8,
+      "body": "coupe",
+      "traction": "rear"
+    },
+    {
+      "id": "chevrolet-corvette-c8-6-2-v8-482",
+      "type": "car",
+      "make": "Chevrolet",
+      "model": "Corvette (C8)",
+      "engine": "6.2 V8 482",
+      "years": [
+        2020,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 8,
+      "body": "supercar",
+      "traction": "rear",
+      "engine_position": "mid"
+    },
+    {
+      "id": "nissan-gt-r-r35-3-8-v6-biturbo-570",
+      "type": "car",
+      "make": "Nissan",
+      "model": "GT-R (R35)",
+      "engine": "3.8 V6 biturbo 570",
+      "years": [
+        2009,
+        2024
+      ],
+      "fuel": "petrol",
+      "cylinders": 6,
+      "body": "coupe",
+      "traction": "both"
+    },
+    {
+      "id": "john-deere-5075e-2-9-l-3-cyl-75-ch",
+      "type": "tractor",
+      "make": "John Deere",
+      "model": "5075E",
+      "engine": "2.9 L 3 cyl. 75 ch",
+      "years": [
+        2014,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 3,
+      "body": "tractor",
+      "traction": "both"
+    },
+    {
+      "id": "john-deere-6r-155-powertech-6-8-l-155-ch",
+      "type": "tractor",
+      "make": "John Deere",
+      "model": "6R 155",
+      "engine": "PowerTech 6.8 L 155 ch",
+      "years": [
+        2021,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 6,
+      "body": "tractor",
+      "traction": "both"
+    },
+    {
+      "id": "john-deere-6r-250-powertech-9-0-l-250-ch",
+      "type": "tractor",
+      "make": "John Deere",
+      "model": "6R 250",
+      "engine": "PowerTech 9.0 L 250 ch",
+      "years": [
+        2021,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 6,
+      "body": "tractor",
+      "traction": "both"
+    },
+    {
+      "id": "john-deere-8r-410-powertech-13-6-l-410-ch",
+      "type": "tractor",
+      "make": "John Deere",
+      "model": "8R 410",
+      "engine": "PowerTech 13.6 L 410 ch",
+      "years": [
+        2020,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 6,
+      "body": "tractor",
+      "traction": "both"
+    },
+    {
+      "id": "fendt-211-vario-agco-power-3-3-l-110-ch",
+      "type": "tractor",
+      "make": "Fendt",
+      "model": "211 Vario",
+      "engine": "AGCO Power 3.3 L 110 ch",
+      "years": [
+        2018,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 3,
+      "body": "tractor",
+      "traction": "both"
+    },
+    {
+      "id": "fendt-724-vario-deutz-tcd-6-1-l-240-ch",
+      "type": "tractor",
+      "make": "Fendt",
+      "model": "724 Vario",
+      "engine": "Deutz TCD 6.1 L 240 ch",
+      "years": [
+        2019,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 6,
+      "body": "tractor",
+      "traction": "both"
+    },
+    {
+      "id": "fendt-942-vario-man-9-0-l-420-ch",
+      "type": "tractor",
+      "make": "Fendt",
+      "model": "942 Vario",
+      "engine": "MAN 9.0 L 420 ch",
+      "years": [
+        2019,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 6,
+      "body": "tractor",
+      "traction": "both"
+    },
+    {
+      "id": "claas-arion-660-fpt-6-7-l-205-ch",
+      "type": "tractor",
+      "make": "Claas",
+      "model": "Arion 660",
+      "engine": "FPT 6.7 L 205 ch",
+      "years": [
+        2019,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 6,
+      "body": "tractor",
+      "traction": "both"
+    },
+    {
+      "id": "claas-axion-870-fpt-6-7-l-295-ch",
+      "type": "tractor",
+      "make": "Claas",
+      "model": "Axion 870",
+      "engine": "FPT 6.7 L 295 ch",
+      "years": [
+        2019,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 6,
+      "body": "tractor",
+      "traction": "both"
+    },
+    {
+      "id": "new-holland-t6-180-fpt-nef-6-7-l-175-ch",
+      "type": "tractor",
+      "make": "New Holland",
+      "model": "T6.180",
+      "engine": "FPT NEF 6.7 L 175 ch",
+      "years": [
+        2017,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 6,
+      "body": "tractor",
+      "traction": "both"
+    },
+    {
+      "id": "new-holland-t7-270-fpt-nef-6-7-l-270-ch",
+      "type": "tractor",
+      "make": "New Holland",
+      "model": "T7.270",
+      "engine": "FPT NEF 6.7 L 270 ch",
+      "years": [
+        2015,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 6,
+      "body": "tractor",
+      "traction": "both"
+    },
+    {
+      "id": "case-ih-puma-185-fpt-6-7-l-185-ch",
+      "type": "tractor",
+      "make": "Case IH",
+      "model": "Puma 185",
+      "engine": "FPT 6.7 L 185 ch",
+      "years": [
+        2018,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 6,
+      "body": "tractor",
+      "traction": "both"
+    },
+    {
+      "id": "case-ih-magnum-340-fpt-cursor-9-8-7-l-340-ch",
+      "type": "tractor",
+      "make": "Case IH",
+      "model": "Magnum 340",
+      "engine": "FPT Cursor 9 8.7 L 340 ch",
+      "years": [
+        2018,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 6,
+      "body": "tractor",
+      "traction": "both"
+    },
+    {
+      "id": "massey-ferguson-5s-145-agco-power-4-4-l-145-ch",
+      "type": "tractor",
+      "make": "Massey Ferguson",
+      "model": "5S.145",
+      "engine": "AGCO Power 4.4 L 145 ch",
+      "years": [
+        2020,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "body": "tractor",
+      "traction": "both"
+    },
+    {
+      "id": "massey-ferguson-7s-190-agco-power-6-6-l-190-ch",
+      "type": "tractor",
+      "make": "Massey Ferguson",
+      "model": "7S.190",
+      "engine": "AGCO Power 6.6 L 190 ch",
+      "years": [
+        2020,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 6,
+      "body": "tractor",
+      "traction": "both"
+    },
+    {
+      "id": "massey-ferguson-8s-265-agco-power-7-4-l-265-ch",
+      "type": "tractor",
+      "make": "Massey Ferguson",
+      "model": "8S.265",
+      "engine": "AGCO Power 7.4 L 265 ch",
+      "years": [
+        2020,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 6,
+      "body": "tractor",
+      "traction": "both"
+    },
+    {
+      "id": "deutz-fahr-6215-rcshift-deutz-tcd-6-1-l-215-ch",
+      "type": "tractor",
+      "make": "Deutz-Fahr",
+      "model": "6215 RCshift",
+      "engine": "Deutz TCD 6.1 L 215 ch",
+      "years": [
+        2018,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 6,
+      "body": "tractor",
+      "traction": "both"
+    },
+    {
+      "id": "kubota-m7-173-kubota-6-1-l-4-cyl-175-ch",
+      "type": "tractor",
+      "make": "Kubota",
+      "model": "M7-173",
+      "engine": "Kubota 6.1 L 4 cyl. 175 ch",
+      "years": [
+        2017,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "body": "tractor",
+      "traction": "both"
+    },
+    {
+      "id": "valtra-t235-agco-power-7-4-l-235-ch",
+      "type": "tractor",
+      "make": "Valtra",
+      "model": "T235",
+      "engine": "AGCO Power 7.4 L 235 ch",
+      "years": [
+        2018,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 6,
+      "body": "tractor",
+      "traction": "both"
+    },
+    {
+      "id": "same-virtus-135-farmotion-4-cyl-130-ch",
+      "type": "tractor",
+      "make": "Same",
+      "model": "Virtus 135",
+      "engine": "FARMotion 4 cyl. 130 ch",
+      "years": [
+        2019,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "body": "tractor",
+      "traction": "both"
     }
   ],
   "tutorials": [
@@ -7016,7 +8144,8 @@
       "vehicle_types": [
         "car",
         "van",
-        "truck"
+        "truck",
+        "tractor"
       ],
       "fuels": [
         "petrol",
@@ -8600,6 +9729,467 @@
             "transmission"
           ],
           "warning": "Un écrou de poulie mal serré détruit l’arbre de vilebrequin."
+        }
+      ]
+    },
+    {
+      "id": "tractor_daily_check",
+      "title": "Tour du tracteur avant le travail",
+      "vehicle_types": [
+        "tractor"
+      ],
+      "fuels": [
+        "diesel"
+      ],
+      "interval": "Chaque jour (ou toutes les 10 heures moteur) avant de sortir.",
+      "difficulty": 1,
+      "time_min": 10,
+      "time_max": 25,
+      "why": "Un tracteur travaille dans la poussière, la paille et la boue, souvent loin de l'atelier. Le tour quotidien évite la surchauffe (radiateur colmaté), l'incendie (paille sur le collecteur) et la casse d'un outil mal attelé.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "Radiateur, refroidisseur d'air et condenseur couverts de poussière ou de balles de céréales.",
+          "means": "Refroidissement colmaté : surchauffe et perte de puissance. Soufflez de l'intérieur vers l'extérieur."
+        },
+        {
+          "sense": "smell",
+          "tip": "Odeur de brûlé ou de paille chaude autour du moteur ou de l'échappement.",
+          "means": "Résidus sur le collecteur ou le FAP : risque d'incendie, nettoyez avant de repartir."
+        },
+        {
+          "sense": "sound",
+          "tip": "Sifflement ou grognement de la pompe hydraulique au relevage.",
+          "means": "Niveau d'huile de transmission / hydraulique bas ou filtre colmaté."
+        },
+        {
+          "sense": "touch",
+          "tip": "Jeu ou claquement en secouant les rotules du 3-points et les broches.",
+          "means": "Usure des rotules ou goupilles manquantes : l'outil peut se décrocher."
+        }
+      ],
+      "components": [
+        "dipstick",
+        "coolant_reservoir",
+        "radiator",
+        "air_filter",
+        "transmission",
+        "wheel_fl",
+        "wheel_fr",
+        "wheel_rl",
+        "wheel_rr",
+        "headlights"
+      ],
+      "tools": [
+        "Lampe",
+        "Soufflette ou brosse douce",
+        "Manomètre pneus basse pression",
+        "Chiffon"
+      ],
+      "safety": [
+        "Moteur arrêté, clé retirée, frein de parc serré, outils posés au sol.",
+        "Ne jamais nettoyer le radiateur moteur tournant : ventilateur et courroie à découvert.",
+        "Protecteurs de prise de force et de cardans en place."
+      ],
+      "shopping": [
+        {
+          "name": "Huile moteur tracteur (appoint) {oil_spec}",
+          "query": "huile moteur tracteur 15W40 20L",
+          "qty": 1,
+          "unit": "bidon 20 L",
+          "price_min": 70,
+          "price_max": 150,
+          "optional": true
+        },
+        {
+          "name": "AdBlue",
+          "query": "AdBlue 10L",
+          "qty": 1,
+          "unit": "bidon 10 L",
+          "price_min": 12,
+          "price_max": 25,
+          "optional": true
+        }
+      ],
+      "steps": [
+        {
+          "title": "Niveaux moteur",
+          "text": "Huile moteur à la jauge (tracteur à plat, moteur arrêté depuis quelques minutes), liquide de refroidissement à froid dans le vase, AdBlue et gazole.",
+          "components": [
+            "dipstick",
+            "coolant_reservoir"
+          ]
+        },
+        {
+          "title": "Huile de transmission / hydraulique",
+          "text": "Voyant ou jauge à l'arrière du pont, outils relevés selon la notice. Sur la plupart des tracteurs, la même huile (UTTO) sert à la boîte, au pont, aux freins à bain d'huile et à l'hydraulique.",
+          "components": [
+            "transmission"
+          ]
+        },
+        {
+          "title": "Faisceau de refroidissement et filtre à air",
+          "text": "Ouvrez le capot, soufflez radiateur, refroidisseur d'air et condenseur. Videz la valve à poussière du filtre à air et regardez l'indicateur de colmatage.",
+          "components": [
+            "radiator",
+            "air_filter"
+          ]
+        },
+        {
+          "title": "Pneus et roues",
+          "text": "Pression adaptée au travail (champ / route) et au lestage, entailles, écrous de roue. Après un démontage, resserrez les écrous au couple au bout de quelques heures.",
+          "components": [
+            "wheel_fl",
+            "wheel_fr",
+            "wheel_rl",
+            "wheel_rr"
+          ]
+        },
+        {
+          "title": "Attelage et éclairage",
+          "text": "Rotules et broches du 3-points, chandelles, crochet, coupleurs hydrauliques propres. Feux, gyrophare, signalisation de l'outil pour la route.",
+          "components": [
+            "headlights"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tractor_greasing",
+      "title": "Graissage des articulations du tracteur",
+      "vehicle_types": [
+        "tractor"
+      ],
+      "fuels": [
+        "diesel"
+      ],
+      "interval": "Toutes les 10 à 50 heures selon le graisseur (pivots d'essieu avant et 3-points souvent toutes les 10 h en conditions dures).",
+      "difficulty": 1,
+      "time_min": 15,
+      "time_max": 40,
+      "why": "Le graissage chasse l'eau et la terre des articulations. Un graisseur oublié, c'est un pivot qui prend du jeu, une rotule grippée ou un cardan qui casse, pour quelques centimes de graisse.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "La graisse neuve ressort propre au bord de l'articulation.",
+          "means": "Graissage complet : arrêtez de pomper, essuyez l'excédent."
+        },
+        {
+          "sense": "touch",
+          "tip": "La pompe force sans que la graisse sorte.",
+          "means": "Graisseur bouché ou articulation grippée : changez le graisseur."
+        },
+        {
+          "sense": "sound",
+          "tip": "Grincement ou claquement en braquant à fond.",
+          "means": "Pivots d'essieu avant secs ou usés."
+        }
+      ],
+      "components": [
+        "wheel_fl",
+        "wheel_fr",
+        "propshaft",
+        "differential"
+      ],
+      "tools": [
+        "Pompe à graisse",
+        "Embout souple et coupleur 4 mors",
+        "Chiffons",
+        "Lampe"
+      ],
+      "safety": [
+        "Moteur arrêté, clé retirée, frein de parc serré.",
+        "Outil frontal ou arrière posé au sol, jamais sous une charge levée.",
+        "Ne graissez pas un cardan moteur tournant."
+      ],
+      "shopping": [
+        {
+          "name": "Graisse lithium ou complexe (EP2)",
+          "query": "graisse EP2 cartouche 400g",
+          "qty": 3,
+          "unit": "cartouche 400 g",
+          "price_min": 4,
+          "price_max": 10
+        },
+        {
+          "name": "Graisseurs de rechange M8/M10",
+          "query": "graisseur M10x1 assortiment",
+          "qty": 1,
+          "unit": "lot",
+          "price_min": 8,
+          "price_max": 20,
+          "optional": true
+        }
+      ],
+      "steps": [
+        {
+          "title": "Nettoyer les graisseurs",
+          "text": "Essuyez chaque graisseur avant de pomper : la terre poussée dans l'articulation l'use plus vite que l'absence de graisse.",
+          "components": [
+            "wheel_fl",
+            "wheel_fr"
+          ]
+        },
+        {
+          "title": "Essieu avant",
+          "text": "Pivots de fusée haut et bas de chaque côté, articulation centrale de l'essieu, vérins de direction.",
+          "components": [
+            "wheel_fl",
+            "wheel_fr"
+          ]
+        },
+        {
+          "title": "Transmission avant",
+          "text": "Croisillons et cannelures de l'arbre de transmission vers le pont avant (selon modèle).",
+          "components": [
+            "propshaft",
+            "differential"
+          ]
+        },
+        {
+          "title": "Relevage arrière et attelage",
+          "text": "Barres de relevage, chandelles réglables, troisième point, crochet et rotules.",
+          "components": [
+            "differential"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tractor_engine_service",
+      "title": "Entretien moteur du tracteur (huile et filtres, 500 h)",
+      "vehicle_types": [
+        "tractor"
+      ],
+      "fuels": [
+        "diesel"
+      ],
+      "interval": "Souvent toutes les 500 heures ou 1 an (de 250 à 750 h selon le constructeur et l'huile) : suivez le compteur d'heures.",
+      "difficulty": 2,
+      "time_min": 60,
+      "time_max": 120,
+      "why": "Un moteur de tracteur tourne longtemps à forte charge. L'huile se charge de suie, le gazole d'eau, et le filtre à air de poussière : ce sont les trois causes principales d'usure prématurée et de perte de puissance.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "Eau ou dépôt au fond du bol du préfiltre / décanteur à gazole.",
+          "means": "Eau dans le carburant : purgez, et changez les filtres plus souvent."
+        },
+        {
+          "sense": "sight",
+          "tip": "Fumée noire à l'effort.",
+          "means": "Filtre à air colmaté ou injection à contrôler."
+        },
+        {
+          "sense": "smell",
+          "tip": "L'huile sent le gazole.",
+          "means": "Dilution par le carburant (injecteur, régénérations) : vidange anticipée."
+        }
+      ],
+      "components": [
+        "oil_drain_plug",
+        "oil_filter",
+        "fuel_filter",
+        "air_filter",
+        "engine",
+        "cabin_filter"
+      ],
+      "tools": [
+        "Clé pour bouchon de vidange",
+        "Clé à filtre (grand diamètre)",
+        "Bac de vidange (≥ 25 L)",
+        "Entonnoir",
+        "Pompe d'amorçage (souvent intégrée)",
+        "Gants nitrile"
+      ],
+      "safety": [
+        "Tracteur à plat, frein de parc serré, clé retirée.",
+        "Huile chaude : brûlures. Laissez tiédir 15 minutes.",
+        "Gazole sous pression sur les rampes common-rail : n'ouvrez jamais un raccord haute pression moteur tournant."
+      ],
+      "shopping": [
+        {
+          "name": "Huile moteur tracteur {oil_spec}",
+          "query": "huile moteur tracteur 10W40 E6 20L",
+          "qty": 1,
+          "unit": "bidon 20 L",
+          "price_min": 80,
+          "price_max": 170
+        },
+        {
+          "name": "Filtre à huile",
+          "query": "filtre à huile tracteur",
+          "qty": 1,
+          "unit": "pièce",
+          "price_min": 15,
+          "price_max": 45
+        },
+        {
+          "name": "Filtres à gazole (principal + préfiltre)",
+          "query": "filtre gasoil tracteur",
+          "qty": 2,
+          "unit": "pièce",
+          "price_min": 15,
+          "price_max": 50
+        },
+        {
+          "name": "Cartouche filtre à air (principale)",
+          "query": "filtre à air tracteur",
+          "qty": 1,
+          "unit": "pièce",
+          "price_min": 40,
+          "price_max": 130,
+          "optional": true
+        },
+        {
+          "name": "Filtre d'habitacle tracteur",
+          "query": "filtre cabine tracteur",
+          "qty": 1,
+          "unit": "pièce",
+          "price_min": 20,
+          "price_max": 90,
+          "optional": true
+        }
+      ],
+      "steps": [
+        {
+          "title": "Vidange",
+          "text": "Moteur tiède, déposez le bouchon de carter et laissez couler entièrement (souvent 15 à 25 L).",
+          "components": [
+            "oil_drain_plug"
+          ]
+        },
+        {
+          "title": "Filtre à huile",
+          "text": "Dévissez, huilez le joint du filtre neuf, serrez à la main puis 3/4 de tour.",
+          "components": [
+            "oil_filter"
+          ]
+        },
+        {
+          "title": "Filtres à gazole",
+          "text": "Remplacez préfiltre et filtre principal, puis purgez l'air avec la pompe d'amorçage jusqu'à sentir une résistance.",
+          "components": [
+            "fuel_filter"
+          ]
+        },
+        {
+          "title": "Filtre à air",
+          "text": "Cartouche principale selon l'indicateur ; la cartouche de sécurité intérieure ne se nettoie jamais (remplacement toutes les 2 à 3 principales).",
+          "components": [
+            "air_filter"
+          ]
+        },
+        {
+          "title": "Filtre d'habitacle",
+          "text": "Soufflez le filtre de cabine de l'intérieur vers l'extérieur, remplacez-le au moins une fois par an. Pour les traitements phytosanitaires, le filtre à charbon actif (catégorie de cabine adaptée) se change selon sa durée d'usage indiquée par le fabricant.",
+          "components": [
+            "cabin_filter"
+          ]
+        },
+        {
+          "title": "Remplissage et contrôle",
+          "text": "Remplissez, démarrez, vérifiez l'absence de fuite et le voyant de pression, puis ajustez à la jauge. Notez les heures au carnet.",
+          "components": [
+            "dipstick",
+            "engine"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tractor_hydraulic_service",
+      "title": "Huile de transmission et hydraulique (UTTO) et filtres",
+      "vehicle_types": [
+        "tractor"
+      ],
+      "fuels": [
+        "diesel"
+      ],
+      "interval": "Souvent toutes les 1 000 à 2 000 heures ou 2 ans ; filtres hydrauliques plus tôt sur certains modèles.",
+      "difficulty": 3,
+      "time_min": 90,
+      "time_max": 180,
+      "why": "La même huile lubrifie la boîte, le pont, les freins à bain d'huile, la prise de force et alimente l'hydraulique. Une huile usée ou de mauvaise norme fait broûter les freins et embrayages humides et fatigue la pompe.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "Huile laiteuse au voyant.",
+          "means": "Eau dans la transmission (lavage haute pression, reniflard) : vidange obligatoire."
+        },
+        {
+          "sense": "sound",
+          "tip": "Freins qui broutent ou grincent en tournant.",
+          "means": "Huile inadaptée aux freins à bain d'huile : norme UTTO du constructeur requise."
+        },
+        {
+          "sense": "touch",
+          "tip": "Relevage lent à chaud.",
+          "means": "Filtre hydraulique colmaté ou huile fatiguée."
+        }
+      ],
+      "components": [
+        "transmission",
+        "differential"
+      ],
+      "tools": [
+        "Bac de grande contenance (60 à 150 L)",
+        "Pompe de transvasement",
+        "Clé à filtre",
+        "Clés plates / douilles",
+        "Gants nitrile"
+      ],
+      "safety": [
+        "Outils posés au sol : le circuit hydraulique peut rester sous pression, actionnez les distributeurs moteur arrêté.",
+        "Un jet d'huile sous pression peut perforer la peau : jamais la main devant une fuite."
+      ],
+      "shopping": [
+        {
+          "name": "Huile de transmission UTTO (norme constructeur)",
+          "query": "huile UTTO transmission hydraulique tracteur 20L",
+          "qty": 4,
+          "unit": "bidon 20 L",
+          "price_min": 70,
+          "price_max": 150
+        },
+        {
+          "name": "Filtre hydraulique / transmission",
+          "query": "filtre hydraulique tracteur",
+          "qty": 1,
+          "unit": "pièce",
+          "price_min": 30,
+          "price_max": 110
+        }
+      ],
+      "steps": [
+        {
+          "title": "Vidange des carters",
+          "text": "Huile tiède, ouvrez les bouchons de la boîte, du pont arrière et éventuellement du pont avant (huile séparée sur certains modèles).",
+          "components": [
+            "transmission",
+            "differential"
+          ]
+        },
+        {
+          "title": "Filtres et crépine",
+          "text": "Remplacez le ou les filtres et nettoyez la crépine d'aspiration si elle est accessible.",
+          "components": [
+            "transmission"
+          ]
+        },
+        {
+          "title": "Remplissage",
+          "text": "Uniquement l'huile à la norme du constructeur, jusqu'au repère du voyant, outils relevés ou baissés comme l'indique la notice.",
+          "components": [
+            "transmission"
+          ]
+        },
+        {
+          "title": "Purge et contrôle",
+          "text": "Moteur au ralenti, actionnez plusieurs fois relevage, direction et distributeurs, puis recontrôlez le niveau.",
+          "components": [
+            "transmission"
+          ]
         }
       ]
     }

@@ -19,7 +19,7 @@
   let polling = $state<ReturnType<typeof setInterval> | null>(null);
   let confirmClear = $state(false);
   /** Heavy vehicle: SAE J1939 instead of OBD-II (default for trucks). */
-  let j1939 = $state(app.profile?.type === 'truck');
+  let j1939 = $state(app.profile?.type === 'truck' || app.profile?.type === 'tractor');
   let lamps = $state<J1939Lamps | null>(null);
   const isJ1939 = $derived(!!app.connection?.j1939);
   const fold = (t: string) => t.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]/g, '');
@@ -230,8 +230,8 @@
       <label class="j1939 card flat">
         <input type="checkbox" bind:checked={j1939} />
         <span class="grow">
-          <strong>Poids lourd : protocole J1939</strong>
-          <span class="small muted block">Camions, bus, engins agricoles et de chantier. Codes SPN / FMI lus sur la prise 9 broches (Deutsch) ou la prise 16 broches poids lourd. Adaptateur compatible J1939 requis (OBDLink, ELM327 v1.4b+ authentique, câble 9 broches).</span>
+          <strong>Poids lourd / tracteur : protocole J1939</strong>
+          <span class="small muted block">Camions, bus, tracteurs (ISOBUS), engins de chantier. Codes SPN / FMI lus sur la prise 9 broches (Deutsch) ou la prise 16 broches poids lourd. Adaptateur compatible J1939 requis (OBDLink, ELM327 v1.4b+ authentique, câble 9 broches).</span>
         </span>
       </label>
 

@@ -130,7 +130,7 @@
 <style>
   .overlay { position: fixed; inset: 0; z-index: 60; background: rgba(2, 6, 15, 0.6); display: grid; place-items: center; padding: 1rem; }
   .modal { width: min(640px, 100%); max-height: 90vh; overflow: auto; display: flex; flex-direction: column; gap: 0.9rem; background: var(--panel-solid); }
-  .types { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.5rem; }
+  .types { display: grid; grid-template-columns: repeat(auto-fit, minmax(96px, 1fr)); gap: 0.5rem; }
   .type { display: flex; flex-direction: column; align-items: center; gap: 0.3rem; padding: 0.7rem 0.3rem; font-size: 0.82rem; font-weight: 600; }
   .filters { display: grid; grid-template-columns: 1fr 180px 150px; gap: 0.5rem; }
   .f-electric { color: #22d3ee; } .f-hybrid { color: #22c55e; } .f-diesel { color: #f59e0b; }

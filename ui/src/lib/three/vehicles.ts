@@ -16,6 +16,8 @@ export interface VehicleSpec {
   engine?: string;
   /** Motorcycles: chain (default), shaft, belt, cvt, hub. */
   finalDrive?: string;
+  /** Cars: front (default), mid (behind the seats) or rear (Porsche 911). */
+  enginePosition?: string;
 }
 
 export const PALETTE = {
@@ -245,6 +247,10 @@ const PAINT_BY_MAKE: Record<string, number> = {
   Volkswagen: 0x7a8796, Alpine: 0x1e5aa8, Porsche: 0xb9bec5, Volvo: 0x4b5563, Polestar: 0xd1d5db, Saab: 0x5f6b52, Hongqi: 0x141414,
   Zeekr: 0x2d3436, Audi: 0x6b7280, Ferrari: 0xb91c1c, KTM: 0xf97316, Ducati: 0xc8102e, Kawasaki: 0x3f9b2e, Triumph: 0x1c2833,
   Yamaha: 0x1e40af, Honda: 0xb91c1c, Husqvarna: 0xe5e7eb, Aprilia: 0x111827, 'Harley-Davidson': 0x111827, Indian: 0x7f1d1d,
+  Lamborghini: 0xe0a106, Lotus: 0x0f5a3a, McLaren: 0xf26b0f, 'Aston Martin': 0x0f4d3c, Maserati: 0x1b2a4a, Bentley: 0x2d3036,
+  Jaguar: 0x17324f, Chevrolet: 0xb3121a, Nissan: 0x8b9199,
+  'John Deere': 0x367c2b, Fendt: 0x3f7d3a, Claas: 0xa8b820, 'New Holland': 0x1e4b9b, 'Case IH': 0xb5121b, 'Massey Ferguson': 0xc8102e,
+  'Deutz-Fahr': 0x6fae1d, Kubota: 0xf26f21, Valtra: 0xb01f24, Same: 0xc81e1e,
   'Moto Guzzi': 0x7f1d1d, Suzuki: 0x1d4ed8, 'Royal Enfield': 0x4b5320, Piaggio: 0x7dd3c0, Scania: 0xe5e7eb,
   DAF: 0xf3f4f6, MAN: 0xe5e7eb, Iveco: 0x1e3a8a, 'Renault Trucks': 0xd1d5db, 'Mercedes-Benz': 0x9ca3af,
 };
@@ -260,9 +266,9 @@ function paintFor(make: string): number {
 
 // ---------------------------------------------------------------- car body styles
 
-export type CarStyle = 'hatch' | 'sedan' | 'estate' | 'suv' | 'mpv' | 'coupe' | 'pickup' | 'micro' | 'van';
+export type CarStyle = 'hatch' | 'sedan' | 'estate' | 'suv' | 'mpv' | 'coupe' | 'supercar' | 'pickup' | 'micro' | 'van';
 /** Dimensions in metres-ish (half length L, half width W). rTop / rBase are offsets from the tail (-L). */
-interface Style { L: number; W: number; wr: number; low: number; belt: number; roof: number; hood: number; ws: number; rTop: number; rBase: number; aF: number; aR: number; doors: 2 | 3 | 4; rails?: boolean; bed?: boolean }
+interface Style { wedge?: number; intakes?: boolean; L: number; W: number; wr: number; low: number; belt: number; roof: number; hood: number; ws: number; rTop: number; rBase: number; aF: number; aR: number; doors: 2 | 3 | 4; rails?: boolean; bed?: boolean }
 export const CAR_STYLES: Record<CarStyle, Style> = {
   hatch: { L: 2.05, W: 0.85, wr: 0.33, low: 0.3, belt: 1.02, roof: 1.48, hood: 0.85, ws: 0.72, rTop: 0.62, rBase: 0.14, aF: 0.72, aR: 0.68, doors: 4 },
   sedan: { L: 2.38, W: 0.88, wr: 0.34, low: 0.3, belt: 1.0, roof: 1.45, hood: 0.92, ws: 0.8, rTop: 1.2, rBase: 0.62, aF: 0.78, aR: 0.8, doors: 4 },
@@ -270,6 +276,8 @@ export const CAR_STYLES: Record<CarStyle, Style> = {
   suv: { L: 2.28, W: 0.93, wr: 0.38, low: 0.4, belt: 1.2, roof: 1.74, hood: 0.92, ws: 0.7, rTop: 0.4, rBase: 0.14, aF: 0.78, aR: 0.74, doors: 4, rails: true },
   mpv: { L: 2.22, W: 0.89, wr: 0.34, low: 0.32, belt: 1.08, roof: 1.76, hood: 0.72, ws: 0.95, rTop: 0.3, rBase: 0.1, aF: 0.74, aR: 0.7, doors: 4 },
   coupe: { L: 2.22, W: 0.91, wr: 0.34, low: 0.26, belt: 0.92, roof: 1.27, hood: 1.05, ws: 0.82, rTop: 0.95, rBase: 0.3, aF: 0.78, aR: 0.72, doors: 2 },
+  // Mid-engine sports car: short nose, cab-forward glasshouse, long engine deck.
+  supercar: { L: 2.26, W: 0.98, wr: 0.35, low: 0.2, belt: 0.8, roof: 1.13, hood: 0.92, ws: 0.95, rTop: 1.32, rBase: 0.5, aF: 0.8, aR: 0.74, doors: 2, wedge: 0.16, intakes: true },
   pickup: { L: 2.65, W: 0.93, wr: 0.39, low: 0.44, belt: 1.24, roof: 1.9, hood: 0.95, ws: 0.6, rTop: 2.42, rBase: 2.32, aF: 0.82, aR: 0.92, doors: 4, bed: true },
   micro: { L: 1.3, W: 0.66, wr: 0.27, low: 0.28, belt: 0.95, roof: 1.55, hood: 0.4, ws: 0.45, rTop: 0.28, rBase: 0.1, aF: 0.5, aR: 0.5, doors: 2 },
   van: { L: 2.55, W: 0.95, wr: 0.36, low: 0.32, belt: 1.22, roof: 2.02, hood: 0.6, ws: 0.35, rTop: 0.12, rBase: 0.06, aF: 0.75, aR: 0.85, doors: 3 },
@@ -292,7 +300,8 @@ function carBody(st: Style, axleF: number, axleR: number, paint: number) {
   lower.absarc(axleF, wr, r, Math.PI, 0, true);
   lower.lineTo(L - 0.14, low);
   lower.quadraticCurveTo(L + 0.03, low, L, low + 0.22);
-  lower.quadraticCurveTo(L - 0.02, belt - 0.1, L - 0.32, belt - 0.03);
+  const wd = st.wedge ?? 0; // how much lower the nose is than the scuttle
+  lower.quadraticCurveTo(L - 0.02, belt - 0.1 - wd, L - 0.32, belt - 0.03 - wd * 0.85);
   lower.lineTo(hoodEnd, belt);
   lower.lineTo(-L + 0.22, belt + 0.03);
   lower.quadraticCurveTo(-L + 0.02, belt, -L, belt - 0.22);
@@ -346,7 +355,7 @@ function carBody(st: Style, axleF: number, axleR: number, paint: number) {
   for (const z of [W - 0.28, -W + 0.28]) {
     add(place(rbox(0.05, 0.08, 0.32), -L - 0.07, belt - 0.14, z), 'light');
     // Headlight lens wrapping the front corner + daytime running light strip
-    add(place(rbox(0.16, 0.075, 0.36, 0.03), L + 0.05, low + (belt - low) * 0.6, Math.sign(z) * (W - 0.22), [0, 0, -0.6]), 'lamp');
+    add(place(rbox(0.16, 0.075, 0.36, 0.03), L + 0.05, low + (belt - wd - low) * 0.6, Math.sign(z) * (W - 0.22), [0, 0, -0.6]), 'lamp');
   }
   // The extrusion bevel pushes the nose and tail 0.08 outward: front / rear details sit on that skin.
   add(place(rbox(0.05, 0.13, W * 1.05, 0.03), L + 0.085, low + 0.25, 0), 'dark');
@@ -374,6 +383,11 @@ function carBody(st: Style, axleF: number, axleR: number, paint: number) {
       const liner = new THREE.TorusGeometry(r - 0.015, 0.035, 8, 28, Math.PI);
       add(place(liner, ax, wr, side * (W - 0.1), [0, 0, 0], [1, 1, 2.2]), 'dark');
     }
+  }
+  // Mid-engine cars: side air intakes ahead of the rear wheels feeding the radiators / engine
+  if (st.intakes) {
+    for (const side of [1, -1]) add(place(rbox(0.5, 0.2, 0.06, 0.05), axleR + r + 0.3, (low + belt) / 2 + 0.02, side * (W - 0.01), [0, side * 0.12, 0]), 'dark');
+    add(place(rbox(0.12, 0.03, W * 1.7, 0.012), -L + 0.12, belt + 0.06, 0)); // ducktail spoiler
   }
   // Rear diffuser / lower valance
   add(place(rbox(0.06, 0.08, W * 1.5, 0.02), -L - 0.05, low + 0.06, 0), 'dark');
@@ -403,6 +417,12 @@ export interface EngineOpts {
   accessories?: boolean;
   /** Intake plenum, runners and throttle body. */
   intake?: boolean;
+  /** First cylinder number minus one (second bank of a V engine). */
+  cylOffset?: number;
+  /** false for the second bank of a V / boxer engine: no crankshaft, sump, oil filter, accessory drive… */
+  primary?: boolean;
+  /** Oil sump under the block (V engines draw a single central sump instead). */
+  sump?: boolean;
 }
 export interface EngineResult {
   len: number;
@@ -470,7 +490,10 @@ function pistonPhase(i: number, n: number) {
  * cam sensor reading its target wheel, timing chain, turbo, alternator, ribbed belt…
  */
 function engine(b: Builder, x: number, y: number, n: number, fuel: string, s = 1, o: EngineOpts = {}): EngineResult {
-  const { turbo = true, accessories = true, intake = true } = o;
+  const { turbo = true, intake = true, cylOffset = 0, primary = true } = o;
+  const accessories = (o.accessories ?? true) && primary;
+  const sump = (o.sump ?? true) && primary;
+  const cid = (i: number) => i + cylOffset;
   const diesel = fuel === 'diesel';
   const pitch = 0.105 * s;
   const len = Math.max(n * pitch + 0.1 * s, 0.34 * s);
@@ -489,42 +512,44 @@ function engine(b: Builder, x: number, y: number, n: number, fuel: string, s = 1
     for (const side of [1, -1]) b.add('engine', at(box(0.012 * s, 0.26 * s, 0.012 * s, ALU, 0.004), x + side * 0.163 * s, y - 0.01 * s, z));
   }
   b.add('engine', at(box(0.36 * s, 0.04 * s, len + 0.02 * s, 0x8c929b, 0.01), x, y - 0.15 * s, 0)); // bedplate
-  b.add('engine', at(new THREE.Mesh(new RoundedBoxGeometry(0.3 * s, 0.1 * s, len * 0.86, 3, 0.03 * s), metal(0x5d636d)), x, y - 0.22 * s, 0)); // sump
-  b.add('oil_drain_plug', at(tf(new THREE.Mesh(new THREE.CylinderGeometry(0.016 * s, 0.016 * s, 0.02 * s, 6), metal(0xd4d4d8)), {}), x, y - 0.275 * s, len * 0.2));
+  if (sump) b.add('engine', at(new THREE.Mesh(new RoundedBoxGeometry(0.3 * s, 0.1 * s, len * 0.86, 3, 0.03 * s), metal(0x5d636d)), x, y - 0.22 * s, 0)); // sump
+  if (sump) b.add('oil_drain_plug', at(tf(new THREE.Mesh(new THREE.CylinderGeometry(0.016 * s, 0.016 * s, 0.02 * s, 6), metal(0xd4d4d8)), {}), x, y - 0.275 * s, len * 0.2));
   b.add('engine', at(new THREE.Mesh(new RoundedBoxGeometry(0.31 * s, 0.1 * s, len * 0.98, 3, 0.02 * s), metal(0x8a9099)), x, y + 0.2 * s, 0)); // head
   b.add('engine', at(box(0.33 * s, 0.012 * s, len * 0.99, 0x2b2f36, 0.004), x, y + 0.153 * s, 0)); // head gasket
   const cover = new THREE.Mesh(new RoundedBoxGeometry(0.27 * s, 0.07 * s, len * 0.94, 4, 0.03 * s), mat(BLACK, { metalness: 0.1, roughness: 0.55 }));
   b.add('engine', at(cover, x, y + 0.285 * s, 0));
   for (const dx of [-0.085, 0.085]) b.add('engine', at(box(0.012 * s, 0.012 * s, len * 0.8, 0x2a2e36, 0.004), x + dx * s, y + 0.322 * s, 0));
-  b.add('oil_filler_cap', at(cyl(0.028 * s, 0.028 * s, 0.025 * s, PALETTE.yellow), x - 0.06 * s, y + 0.33 * s, zT + len * 0.12));
+  if (primary) b.add('oil_filler_cap', at(cyl(0.028 * s, 0.028 * s, 0.025 * s, PALETTE.yellow), x - 0.06 * s, y + 0.33 * s, zT + len * 0.12));
 
+  if (primary) {
   // ---- Crankshaft (main journals + counterweights) and flywheel
-  const crank = new THREE.Group();
-  crank.add(new THREE.Mesh(new THREE.CylinderGeometry(0.022 * s, 0.022 * s, len + 0.16 * s, 16), metal(0xb8bec7)));
-  for (let i = 1; i <= n; i++) {
-    const w = new THREE.Mesh(new THREE.CylinderGeometry(0.06 * s, 0.06 * s, 0.018 * s, 20, 1, false, 0, Math.PI), metal(0x7c828c));
-    w.position.y = zc(i) - pitch * 0.3;
-    w.rotation.y = pistonPhase(i, n);
-    crank.add(w);
+    const crank = new THREE.Group();
+    crank.add(new THREE.Mesh(new THREE.CylinderGeometry(0.022 * s, 0.022 * s, len + 0.16 * s, 16), metal(0xb8bec7)));
+    for (let i = 1; i <= n; i++) {
+      const w = new THREE.Mesh(new THREE.CylinderGeometry(0.06 * s, 0.06 * s, 0.018 * s, 20, 1, false, 0, Math.PI), metal(0x7c828c));
+      w.position.y = zc(i) - pitch * 0.3;
+      w.rotation.y = pistonPhase(i, n);
+      crank.add(w);
+    }
+    crank.rotation.x = Math.PI / 2;
+    crank.userData.spin = 'y';
+    b.add('engine', at(crank, x, yCrank, 0));
+    const fly = new THREE.Group();
+    fly.add(new THREE.Mesh(new THREE.CylinderGeometry(0.15 * s, 0.15 * s, 0.025 * s, 48), metal(0x9aa0a9)));
+    fly.add(new THREE.Mesh(new THREE.TorusGeometry(0.152 * s, 0.006 * s, 6, 96), metal(0x6b7280)).rotateX(Math.PI / 2));
+    fly.rotation.x = Math.PI / 2;
+    fly.userData.spin = 'y';
+    b.add('engine', at(fly, x, yCrank, len / 2 + 0.03 * s));
+    // Crank position sensor reading the flywheel target ring
+    b.add('crank_sensor', at(tf(cyl(0.013 * s, 0.013 * s, 0.05 * s, SENSOR), { rotation: [0, 0, Math.PI / 2] }), x + 0.19 * s, yCrank + 0.03 * s, len / 2 + 0.03 * s));
+    b.add('crank_sensor', at(box(0.025 * s, 0.03 * s, 0.03 * s, BLACK, 0.004), x + 0.225 * s, yCrank + 0.03 * s, len / 2 + 0.03 * s));
   }
-  crank.rotation.x = Math.PI / 2;
-  crank.userData.spin = 'y';
-  b.add('engine', at(crank, x, yCrank, 0));
-  const fly = new THREE.Group();
-  fly.add(new THREE.Mesh(new THREE.CylinderGeometry(0.15 * s, 0.15 * s, 0.025 * s, 48), metal(0x9aa0a9)));
-  fly.add(new THREE.Mesh(new THREE.TorusGeometry(0.152 * s, 0.006 * s, 6, 96), metal(0x6b7280)).rotateX(Math.PI / 2));
-  fly.rotation.x = Math.PI / 2;
-  fly.userData.spin = 'y';
-  b.add('engine', at(fly, x, yCrank, len / 2 + 0.03 * s));
-  // Crank position sensor reading the flywheel target ring
-  b.add('crank_sensor', at(tf(cyl(0.013 * s, 0.013 * s, 0.05 * s, SENSOR), { rotation: [0, 0, Math.PI / 2] }), x + 0.19 * s, yCrank + 0.03 * s, len / 2 + 0.03 * s));
-  b.add('crank_sensor', at(box(0.025 * s, 0.03 * s, 0.03 * s, BLACK, 0.004), x + 0.225 * s, yCrank + 0.03 * s, len / 2 + 0.03 * s));
 
   // ---- Cylinders: liner, piston with rings, gudgeon pin and connecting rod (they move when highlighted)
   for (let i = 1; i <= n; i++) {
     const z = zc(i);
     const liner = new THREE.Mesh(new THREE.CylinderGeometry(0.044 * s, 0.044 * s, 0.2 * s, 28, 1, true), mat(0xcbd5e1, { metalness: 0.8, roughness: 0.25, transparent: true, opacity: 0.35, side: THREE.DoubleSide }));
-    b.add(`cylinder_${i}`, at(liner, x, y + 0.04 * s, z));
+    b.add(`cylinder_${cid(i)}`, at(liner, x, y + 0.04 * s, z));
     const piston = new THREE.Group();
     piston.add(new THREE.Mesh(new THREE.CylinderGeometry(0.041 * s, 0.041 * s, 0.05 * s, 28), metal(0xd6dae0)));
     for (const k of [0.015, 0.006, -0.003]) piston.add(at(new THREE.Mesh(new THREE.TorusGeometry(0.041 * s, 0.0025 * s, 4, 28), mat(0x3f3f46)).rotateX(Math.PI / 2), 0, k * s, 0));
@@ -536,7 +561,7 @@ function engine(b: Builder, x: number, y: number, n: number, fuel: string, s = 1
     piston.add(rod);
     piston.add(at(tf(cyl(0.028 * s, 0.028 * s, 0.02 * s, 0x8b9099, 16), { rotation: [Math.PI / 2, 0, 0] }), 0, -0.135 * s, 0));
     piston.userData.stroke = { amp: 0.035 * s, phase: pistonPhase(i, n) };
-    b.add(`cylinder_${i}`, at(piston, x, y + 0.05 * s, z));
+    b.add(`cylinder_${cid(i)}`, at(piston, x, y + 0.05 * s, z));
   }
 
   // ---- Camshafts with lobes (intake -X, exhaust +X), timing sprockets and chain
@@ -595,11 +620,11 @@ function engine(b: Builder, x: number, y: number, n: number, fuel: string, s = 1
     plug.add(at(new THREE.Mesh(new THREE.CylinderGeometry(0.011 * s, 0.011 * s, 0.012 * s, 6), metal(0xd4d4d8)), 0, -0.02 * s, 0)); // hex
     plug.add(at(cyl(0.007 * s, 0.006 * s, 0.04 * s, 0xf5f5f4, 12), 0, 0.006 * s, 0)); // ceramic
     plug.add(at(cyl(0.003 * s, 0.003 * s, 0.01 * s, 0x9ca3af, 8), 0, 0.03 * s, 0)); // terminal
-    b.add(`spark_plug_${i}`, at(plug, x, yHead + 0.01 * s, z));
-    b.add(`coil_${i}`, at(cyl(0.013 * s, 0.013 * s, 0.1 * s, 0x1f2937, 14), x, y + 0.28 * s, z)); // pencil boot
-    b.add(`coil_${i}`, at(box(0.06 * s, 0.035 * s, 0.045 * s, 0x111827, 0.008 * s), x + 0.012 * s, y + 0.345 * s, z));
-    b.add(`coil_${i}`, at(box(0.02 * s, 0.022 * s, 0.026 * s, 0x374151, 0.004), x + 0.05 * s, y + 0.345 * s, z)); // connector
-    b.add(`coil_${i}`, at(cyl(0.004 * s, 0.004 * s, 0.03 * s, 0x6b7280, 6), x - 0.02 * s, y + 0.36 * s, z + 0.018 * s)); // bolt
+    b.add(`spark_plug_${cid(i)}`, at(plug, x, yHead + 0.01 * s, z));
+    b.add(`coil_${cid(i)}`, at(cyl(0.013 * s, 0.013 * s, 0.1 * s, 0x1f2937, 14), x, y + 0.28 * s, z)); // pencil boot
+    b.add(`coil_${cid(i)}`, at(box(0.06 * s, 0.035 * s, 0.045 * s, 0x111827, 0.008 * s), x + 0.012 * s, y + 0.345 * s, z));
+    b.add(`coil_${cid(i)}`, at(box(0.02 * s, 0.022 * s, 0.026 * s, 0x374151, 0.004), x + 0.05 * s, y + 0.345 * s, z)); // connector
+    b.add(`coil_${cid(i)}`, at(cyl(0.004 * s, 0.004 * s, 0.03 * s, 0x6b7280, 6), x - 0.02 * s, y + 0.36 * s, z + 0.018 * s)); // bolt
   }
   if (!diesel) b.add('engine', tube([[x + 0.06 * s, y + 0.355 * s, zc(1) - 0.04 * s], [x + 0.065 * s, y + 0.36 * s, 0], [x + 0.06 * s, y + 0.355 * s, zc(n) + 0.03 * s]], 0.006 * s, 0x111827)); // coil harness
 
@@ -611,8 +636,8 @@ function engine(b: Builder, x: number, y: number, n: number, fuel: string, s = 1
     inj.add(at(cyl(0.004 * s, 0.003 * s, 0.015 * s, 0x6b7280, 8), 0, -0.044 * s, 0)); // nozzle
     inj.add(at(box(0.024 * s, 0.018 * s, 0.022 * s, BLACK, 0.004), 0.012 * s, 0.03 * s, 0)); // connector
     inj.add(at(cyl(0.012 * s, 0.012 * s, 0.006 * s, 0x84cc16, 14), 0, 0.012 * s, 0)); // seal / clip
-    if (diesel) b.add(`injector_${i}`, at(tf(inj, { rotation: [0, 0, 0.1] }), x + 0.005 * s, y + 0.3 * s, z + 0.03 * s));
-    else b.add(`injector_${i}`, at(tf(inj, { rotation: [0, 0, 0.75] }), x - 0.17 * s, yHead - 0.01 * s, z));
+    if (diesel) b.add(`injector_${cid(i)}`, at(tf(inj, { rotation: [0, 0, 0.1] }), x + 0.005 * s, y + 0.3 * s, z + 0.03 * s));
+    else b.add(`injector_${cid(i)}`, at(tf(inj, { rotation: [0, 0, 0.75] }), x - 0.17 * s, yHead - 0.01 * s, z));
   }
   const railX = diesel ? x - 0.035 * s : x - 0.205 * s;
   const railY = diesel ? y + 0.36 * s : yHead + 0.03 * s;
@@ -620,7 +645,7 @@ function engine(b: Builder, x: number, y: number, n: number, fuel: string, s = 1
   b.add('fuel_rail', at(box(0.02 * s, 0.03 * s, 0.03 * s, SENSOR, 0.004), railX, railY + 0.02 * s, len * 0.42)); // rail pressure sensor
   if (diesel) for (let i = 1; i <= n; i++) b.add('fuel_rail', tube([[railX, railY, zc(i)], [x - 0.01 * s, y + 0.355 * s, zc(i) + 0.03 * s]], 0.004 * s, 0x9ca3af));
   // High-pressure pump driven by the exhaust camshaft at the timing end
-  b.add('fuel_rail', at(new THREE.Mesh(new RoundedBoxGeometry(0.06 * s, 0.07 * s, 0.06 * s, 2, 0.012 * s), metal(0x9aa0a8)), x + 0.07 * s, y + 0.29 * s, zT - 0.02 * s));
+  if (primary) b.add('fuel_rail', at(new THREE.Mesh(new RoundedBoxGeometry(0.06 * s, 0.07 * s, 0.06 * s, 2, 0.012 * s), metal(0x9aa0a8)), x + 0.07 * s, y + 0.29 * s, zT - 0.02 * s));
   b.add('fuel_rail', tube([[x + 0.07 * s, y + 0.33 * s, zT - 0.02 * s], [railX, railY + 0.03 * s, zT + 0.02 * s], [railX, railY, -len * 0.42]], 0.004 * s, 0x9ca3af));
 
   // ---- Intake: plenum, runners, throttle body, MAP sensor
@@ -674,16 +699,18 @@ function engine(b: Builder, x: number, y: number, n: number, fuel: string, s = 1
   }
 
   // ---- Lubrication & cooling: oil filter, sensors, dipstick, thermostat housing
-  b.add('oil_filter', at(tf(cyl(0.04 * s, 0.04 * s, 0.09 * s, 0x2563eb, 24), { rotation: [0, 0, Math.PI / 2] }), x + 0.21 * s, y - 0.07 * s, len * 0.28));
-  b.add('oil_filter', at(tf(new THREE.Mesh(new THREE.CylinderGeometry(0.041 * s, 0.041 * s, 0.012 * s, 12), mat(0x1d4ed8)), { rotation: [0, 0, Math.PI / 2] }), x + 0.258 * s, y - 0.07 * s, len * 0.28));
-  b.add('oil_pressure_sensor', at(tf(cyl(0.01 * s, 0.01 * s, 0.04 * s, 0xf59e0b), { rotation: [0, 0, Math.PI / 2] }), x + 0.18 * s, y - 0.01 * s, len * 0.1));
-  b.add('knock_sensor', at(tf(cyl(0.02 * s, 0.02 * s, 0.015 * s, SENSOR), { rotation: [0, 0, Math.PI / 2] }), x - 0.168 * s, y - 0.02 * s, 0));
-  b.add('knock_sensor', at(tf(cyl(0.005 * s, 0.005 * s, 0.03 * s, 0x9ca3af), { rotation: [0, 0, Math.PI / 2] }), x - 0.17 * s, y - 0.02 * s, 0));
-  b.add('dipstick', tube([[x - 0.15 * s, y - 0.12 * s, len * 0.15], [x - 0.2 * s, y + 0.1 * s, len * 0.18], [x - 0.2 * s, y + 0.32 * s, len * 0.2]], 0.006 * s, 0x9ca3af));
-  b.add('dipstick', at(new THREE.Mesh(new THREE.TorusGeometry(0.014 * s, 0.005 * s, 6, 16), mat(PALETTE.yellow)), x - 0.2 * s, y + 0.345 * s, len * 0.2));
-  b.add('thermostat', at(new THREE.Mesh(new RoundedBoxGeometry(0.05 * s, 0.05 * s, 0.05 * s, 2, 0.01 * s), metal(0x9aa0a8)), x + 0.12 * s, yHead, zT + 0.03 * s));
-  b.add('thermostat', tube([[x + 0.12 * s, yHead + 0.02 * s, zT + 0.01 * s], [x + 0.2 * s, yHead + 0.05 * s, zT - 0.05 * s]], 0.014 * s, 0x111827));
-  b.add('coolant_temp_sensor', at(cyl(0.008 * s, 0.008 * s, 0.035 * s, 0x06b6d4), x + 0.14 * s, yHead + 0.04 * s, zT + 0.04 * s));
+  if (primary) {
+    b.add('oil_filter', at(tf(cyl(0.04 * s, 0.04 * s, 0.09 * s, 0x2563eb, 24), { rotation: [0, 0, Math.PI / 2] }), x + 0.21 * s, y - 0.07 * s, len * 0.28));
+    b.add('oil_filter', at(tf(new THREE.Mesh(new THREE.CylinderGeometry(0.041 * s, 0.041 * s, 0.012 * s, 12), mat(0x1d4ed8)), { rotation: [0, 0, Math.PI / 2] }), x + 0.258 * s, y - 0.07 * s, len * 0.28));
+    b.add('oil_pressure_sensor', at(tf(cyl(0.01 * s, 0.01 * s, 0.04 * s, 0xf59e0b), { rotation: [0, 0, Math.PI / 2] }), x + 0.18 * s, y - 0.01 * s, len * 0.1));
+    b.add('knock_sensor', at(tf(cyl(0.02 * s, 0.02 * s, 0.015 * s, SENSOR), { rotation: [0, 0, Math.PI / 2] }), x - 0.168 * s, y - 0.02 * s, 0));
+    b.add('knock_sensor', at(tf(cyl(0.005 * s, 0.005 * s, 0.03 * s, 0x9ca3af), { rotation: [0, 0, Math.PI / 2] }), x - 0.17 * s, y - 0.02 * s, 0));
+    b.add('dipstick', tube([[x - 0.15 * s, y - 0.12 * s, len * 0.15], [x - 0.2 * s, y + 0.1 * s, len * 0.18], [x - 0.2 * s, y + 0.32 * s, len * 0.2]], 0.006 * s, 0x9ca3af));
+    b.add('dipstick', at(new THREE.Mesh(new THREE.TorusGeometry(0.014 * s, 0.005 * s, 6, 16), mat(PALETTE.yellow)), x - 0.2 * s, y + 0.345 * s, len * 0.2));
+    b.add('thermostat', at(new THREE.Mesh(new RoundedBoxGeometry(0.05 * s, 0.05 * s, 0.05 * s, 2, 0.01 * s), metal(0x9aa0a8)), x + 0.12 * s, yHead, zT + 0.03 * s));
+    b.add('thermostat', tube([[x + 0.12 * s, yHead + 0.02 * s, zT + 0.01 * s], [x + 0.2 * s, yHead + 0.05 * s, zT - 0.05 * s]], 0.014 * s, 0x111827));
+    b.add('coolant_temp_sensor', at(cyl(0.008 * s, 0.008 * s, 0.035 * s, 0x06b6d4), x + 0.14 * s, yHead + 0.04 * s, zT + 0.04 * s));
+  }
 
   // ---- Accessory drive (front-end): crank damper, water pump, alternator, A/C, tensioner, ribbed belt
   if (accessories) {
@@ -717,6 +744,58 @@ function engine(b: Builder, x: number, y: number, n: number, fuel: string, s = 1
   return { len, exhaustOut };
 }
 
+/**
+ * Engine layout from the description: V (two banks), boxer (flat, opposed banks) or inline.
+ * Returns the half-angle of the banks from vertical (0 = inline).
+ */
+export function engineLayout(spec: VehicleSpec): number {
+  const n = spec.cylinders || 4;
+  const e = `${spec.make ?? ''} ${spec.engine ?? ''}`.toLowerCase();
+  // Porsche 911 / Boxster / Cayman (rear or mid engine) and Subaru use flat (boxer) engines.
+  const porscheFlat = spec.make === 'Porsche' && (spec.enginePosition === 'rear' || spec.enginePosition === 'mid') && (n === 4 || n === 6);
+  if (/subaru|boxer|flat/.test(e) || porscheFlat) return Math.PI / 2 - 0.08;
+  if (/\bw12\b/.test(e)) return 0.55;
+  if (n >= 8 || /\bv\s?(6|8|10|12)\b/.test(e)) return 0.72;
+  return 0;
+}
+
+/**
+ * Inline engine, or two mirrored banks around a common crankshaft for V and boxer engines
+ * (cylinders 1..n/2 on the first bank, the rest on the second; one sump, one accessory drive).
+ */
+function engineAssembly(b: Builder, x: number, y: number, n: number, fuel: string, s: number, o: EngineOpts & { bank?: number }): EngineResult {
+  const half = o.bank ?? 0;
+  if (!half || n < 4) return engine(b, x, y, n, fuel, s, o);
+  const nA = Math.ceil(n / 2);
+  const yC = y - 0.1 * s;
+  const bankBuilder = (sign: 1 | -1): Builder => ({
+    root: b.root,
+    add(id, obj) {
+      const g = new THREE.Group();
+      g.add(obj);
+      g.position.set(x, yC, 0);
+      g.rotation.z = -sign * half;
+      if (sign < 0) g.scale.x = -1;
+      return b.add(id, g);
+    },
+  });
+  const a = engine(bankBuilder(1), 0, 0.1 * s, nA, fuel, s, { ...o, intake: false, sump: false });
+  engine(bankBuilder(-1), 0, 0.1 * s, n - nA, fuel, s, { ...o, intake: false, primary: false, cylOffset: nA });
+  // Central sump and, for V engines, the intake plenum in the valley
+  b.add('engine', at(new THREE.Mesh(new RoundedBoxGeometry(0.42 * s, 0.1 * s, a.len * 0.9, 3, 0.03 * s), mat(0x5d636d, { metalness: 0.65, roughness: 0.45 })), x, yC - 0.12 * s, 0));
+  b.add('oil_drain_plug', at(cyl(0.016 * s, 0.016 * s, 0.02 * s, 0xd4d4d8, 6), x, yC - 0.175 * s, a.len * 0.2));
+  if (half < 1.2 && (o.intake ?? true)) {
+    const py = yC + 0.33 * s * Math.cos(half) + 0.05 * s;
+    b.add('intake_manifold', at(new THREE.Mesh(new RoundedBoxGeometry(0.16 * s, 0.09 * s, a.len * 0.95, 3, 0.03 * s), mat(0x262a31, { roughness: 0.6 })), x, py, 0));
+    b.add('throttle_body', at(tf(cyl(0.035 * s, 0.035 * s, 0.05 * s, 0xa7adb6, 20), { rotation: [Math.PI / 2, 0, 0] }), x, py, a.len / 2 + 0.03 * s));
+    b.add('map_sensor', at(box(0.03 * s, 0.022 * s, 0.03 * s, 0x10b981, 0.004), x, py + 0.055 * s, a.len * 0.3));
+  }
+  // Bank-A exhaust outlet to world coordinates
+  const [lx, ly, lz] = a.exhaustOut;
+  const c = Math.cos(-half), sn = Math.sin(-half);
+  return { len: a.len, exhaustOut: [x + lx * c - ly * sn, yC + lx * sn + ly * c, lz] };
+}
+
 function addHeadlights(b: Builder, x: number, y: number, zs: number[]) {
   for (const z of zs) {
     const l = box(0.05, 0.1, 0.24, 0xfef9c3, 0.03);
@@ -727,8 +806,10 @@ function addHeadlights(b: Builder, x: number, y: number, zs: number[]) {
 }
 
 /** Chassis parts common to all cars: hubs/bearings, shocks + springs, drive shafts. */
-function chassis(b: Builder, o: { W: number; wr: number; axleF: number; axleR: number; driven: 'front' | 'rear' | 'both' }) {
+function chassis(b: Builder, o: { W: number; wr: number; axleF: number; axleR: number; driven: 'front' | 'rear' | 'both'; top?: number }) {
   const { W, wr, axleF, axleR } = o;
+  // Strut top under the bonnet / wing line (low sports cars)
+  const k = Math.min(1, ((o.top ?? 2) - wr - 0.05) / 0.68);
   const corners: [string, number, number][] = [['fl', axleF, W - 0.05], ['fr', axleF, -W + 0.05], ['rl', axleR, W - 0.05], ['rr', axleR, -W + 0.05]];
   for (const [s, x, z] of corners) {
     const sz = Math.sign(z);
@@ -736,12 +817,12 @@ function chassis(b: Builder, o: { W: number; wr: number; axleF: number; axleR: n
     // Shock absorber with coil spring
     const shockX = x + (x > 0 ? -0.06 : 0.06);
     const zS = z - sz * 0.27;
-    b.add(`shock_${s}`, at(cyl(0.03, 0.03, 0.5, 0x52525b), shockX, wr + 0.32, zS));
-    b.add(`shock_${s}`, at(cyl(0.018, 0.018, 0.2, 0xd4d4d8), shockX, wr + 0.63, zS));
+    b.add(`shock_${s}`, at(cyl(0.03, 0.03, 0.5 * k, 0x52525b), shockX, wr + 0.07 + 0.25 * k, zS));
+    b.add(`shock_${s}`, at(cyl(0.018, 0.018, 0.2 * k, 0xd4d4d8), shockX, wr + 0.07 + 0.56 * k, zS));
     const pts: THREE.Vector3[] = [];
     for (let i = 0; i <= 90; i++) {
       const a = (i / 90) * Math.PI * 2 * 6;
-      pts.push(new THREE.Vector3(shockX + Math.cos(a) * 0.065, wr + 0.12 + (i / 90) * 0.42, zS + Math.sin(a) * 0.065));
+      pts.push(new THREE.Vector3(shockX + Math.cos(a) * 0.065, wr + 0.12 + (i / 90) * 0.42 * k, zS + Math.sin(a) * 0.065));
     }
     b.add(`shock_${s}`, new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts), 200, 0.011, 6, false), mat(0xdc2626, { metalness: 0.3, roughness: 0.4 })));
   }
@@ -821,22 +902,26 @@ function carLike(spec: VehicleSpec, style: CarStyle): THREE.Group {
     b.add(`brake_${s}`, at(brakeDisc(wr, s.startsWith('r') ? 0.85 : 1), x, wr, z - Math.sign(z) * 0.13));
   }
   const driven = (['front', 'rear', 'both'].includes(spec.traction ?? '') ? spec.traction : 'front') as 'front' | 'rear' | 'both';
-  chassis(b, { W, wr, axleF, axleR, driven });
+  chassis(b, { W, wr, axleF, axleR, driven, top: belt - 0.08 });
 
-  const ex = axleF + 0.05;
+  const pos = spec.enginePosition === 'mid' || spec.enginePosition === 'rear' ? spec.enginePosition : 'front';
+  // Front: over the front axle. Mid: between the seats and the rear axle. Rear: overhanging the rear axle (911).
+  const ex = pos === 'mid' ? axleR + 0.74 : pos === 'rear' ? axleR - 0.2 : axleF + 0.05;
   const ey = Math.min(0.58, belt - 0.46); // low-slung coupés: keep the engine under the bonnet
   // Common to all energies (engine-bay parts are placed relative to the scuttle so every style fits)
-  b.add('radiator', at(box(0.06, 0.42, W * 1.5, 0x64748b, 0.02), L - 0.22, 0.68, 0));
-  b.add('cooling_fan', at(tf(fan(0.18), { rotation: [0, Math.PI / 2, 0] }), L - 0.3, 0.68, -0.2));
+  const radH = Math.min(0.42, belt - st.low - 0.3);
+  const radY = st.low + 0.08 + radH / 2;
+  b.add('radiator', at(box(0.06, radH, W * 1.5, 0x64748b, 0.02), L - 0.22, radY, 0));
+  b.add('cooling_fan', at(tf(fan(Math.min(0.18, radH / 2.2)), { rotation: [0, Math.PI / 2, 0] }), L - 0.3, radY, -0.2));
   b.add('brake_fluid_reservoir', at(box(0.08, 0.08, 0.1, 0xfef08a, 0.02), hoodEnd + 0.05, ey + 0.32, W - 0.35));
-  b.add('washer_reservoir', at(box(0.14, 0.18, 0.14, 0x60a5fa, 0.03), L - 0.35, 0.65, W - 0.28));
+  b.add('washer_reservoir', at(box(0.14, 0.18, 0.14, 0x60a5fa, 0.03), L - 0.35, Math.min(0.65, belt - 0.3), W - 0.28));
   b.add('battery', at(box(0.24, 0.18, 0.17, 0x111827, 0.02), ex - 0.15, ey + 0.06, -W + 0.28));
   b.add('battery', at(cyl(0.015, 0.015, 0.03, 0xef4444), ex - 0.08, ey + 0.17, -W + 0.24));
   const ecuX = hoodEnd - 0.02;
   b.add('ecu', at(box(0.2, 0.05, 0.16, 0x0f766e, 0.01), ecuX, ey + 0.2, -W + 0.3));
   b.add('abs_module', at(box(0.14, 0.12, 0.12, 0x6b7280, 0.02), hoodEnd + 0.03, ey + 0.1, W - 0.2));
   b.add('cabin_filter', at(box(0.22, 0.03, 0.3, 0xfde68a, 0.01), hoodEnd - 0.12, Math.min(ey + 0.38, belt - 0.06), 0));
-  addHeadlights(b, L - 0.05, st.low + (belt - st.low) * 0.62, [W - 0.25, -W + 0.25]);
+  addHeadlights(b, L - 0.05, st.low + (belt - (st.wedge ?? 0) - st.low) * 0.6, [W - 0.25, -W + 0.25]);
   const wiper = box(0.03, 0.02, 0.5, 0x0f172a, 0.005);
   wiper.rotation.z = -0.5;
   b.add('wiper_blades', at(wiper, hoodEnd - 0.05, belt + 0.05, 0.2));
@@ -871,12 +956,15 @@ function carLike(spec: VehicleSpec, style: CarStyle): THREE.Group {
     return b.root;
   }
   const n = spec.cylinders;
-  const gearZ = Math.max(n * 0.055, 0.2);
+  // Engine length along the crank: one bank for V / boxer engines.
+  const nRow = engineLayout(spec) ? Math.ceil(n / 2) : n;
+  const gearZ = Math.max(nRow * 0.055, 0.2);
   b.add('starter', at(tf(cyl(0.05, 0.05, 0.18, 0x6b7280), { rotation: [Math.PI / 2, 0, 0] }), ex - 0.18, 0.45, gearZ + 0.12));
   b.add('egt_sensor', at(cyl(0.012, 0.012, 0.08, 0xf472b6), axleF - 0.62, 0.32, -0.12));
 
   // ---- Combustion / hybrid powertrain (transverse engine)
-  const { exhaustOut } = engine(b, ex, ey, n, spec.fuel, 1, { turbo: hasTurbo(spec) });
+  const bank = engineLayout(spec);
+  const { exhaustOut } = engineAssembly(b, ex, ey, n, spec.fuel, bank ? 0.9 : 1, { turbo: hasTurbo(spec), bank });
   b.add('transmission', at(box(0.42, 0.34, 0.32, 0x52525b, 0.05), ex - 0.05, 0.6, gearZ + 0.3));
   b.add('vehicle_speed_sensor', at(cyl(0.02, 0.02, 0.06, 0x10b981), ex - 0.25, 0.55, 0.5));
   b.add('clutch_slave', at(tf(cyl(0.025, 0.025, 0.09, 0xa3e635), { rotation: [0, 0, Math.PI / 2] }), ex - 0.3, 0.62, gearZ + 0.22));
@@ -885,7 +973,7 @@ function carLike(spec: VehicleSpec, style: CarStyle): THREE.Group {
   b.add('air_filter', at(box(0.32, 0.14, 0.26, 0x1f2937, 0.04), ex + 0.25, ey + 0.32, -W + 0.32));
   b.add('maf_sensor', at(tf(cyl(0.045, 0.045, 0.1, 0xf97316), { rotation: [Math.PI / 2, 0, 0] }), ex + 0.08, ey + 0.32, -W + 0.52));
   b.add('iat_sensor', at(cyl(0.01, 0.01, 0.04, 0xf97316), ex + 0.08, ey + 0.38, -W + 0.52));
-  b.add('vacuum_hoses', tube([[ex + 0.05, ey + 0.32, -W + 0.6], [ex - 0.15, ey + 0.36, -0.1], [ex - 0.3, ey + 0.26, n * 0.055 + 0.1]], 0.04, 0x111827));
+  b.add('vacuum_hoses', tube([[ex + 0.05, ey + 0.32, -W + 0.6], [ex - 0.15, ey + 0.36, -0.1], [ex - 0.3, ey + 0.26, nRow * 0.055 + 0.1]], 0.04, 0x111827));
   b.add('vacuum_hoses', tube([[ex - 0.36, ey + 0.26, -0.1], [ex - 0.25, ey + 0.4, -0.2], [ex - 0.05, ey + 0.36, -0.15]], 0.012, 0x111827));
   b.add('purge_valve', at(cyl(0.025, 0.025, 0.05, 0x22c55e), ex - 0.4, ey + 0.32, -0.2));
   b.add('egr_valve', at(box(0.08, 0.08, 0.08, 0x78716c, 0.02), ex - 0.3, ey + 0.3, -0.18));
@@ -893,9 +981,12 @@ function carLike(spec: VehicleSpec, style: CarStyle): THREE.Group {
   b.add('intercooler', at(box(0.06, 0.18, W * 1.2, 0x475569, 0.02), L - 0.12, 0.38, 0));
 
   const yUnder = 0.24;
-  b.add('exhaust', tube([exhaustOut, [exhaustOut[0] + 0.02, 0.38, -0.05], [ex + 0.1, yUnder, -0.1], [axleF - 0.6, yUnder, -0.12]], 0.035, PALETTE.exhaust));
-  b.add('catalytic_converter', at(tf(cyl(0.09, 0.09, 0.36, 0xa8a29e, 24), { rotation: [0, 0, Math.PI / 2] }), axleF - 0.8, yUnder, -0.12));
-  b.add('o2_sensor_downstream', at(cyl(0.015, 0.015, 0.08, 0xf472b6), axleF - 1.03, yUnder + 0.08, -0.12));
+  const front = pos === 'front';
+  // Front engine: catalyst under the floor. Mid / rear engine: catalyst right behind the engine, silencer at the tail.
+  const catX = front ? axleF - 0.8 : Math.max(ex - 0.42, -L + 0.62);
+  b.add('exhaust', tube([exhaustOut, [exhaustOut[0] + 0.02, Math.max(yUnder + 0.1, exhaustOut[1] - 0.15), -0.05], [catX + 0.35, yUnder, -0.1], [catX + 0.2, yUnder, -0.12]], 0.035, PALETTE.exhaust));
+  b.add('catalytic_converter', at(tf(cyl(0.09, 0.09, 0.36, 0xa8a29e, 24), { rotation: [0, 0, Math.PI / 2] }), catX, yUnder, -0.12));
+  b.add('o2_sensor_downstream', at(cyl(0.015, 0.015, 0.08, 0xf472b6), catX - 0.23, yUnder + 0.08, -0.12));
   const dpfX = axleF - 1.35;
   if (spec.fuel === 'diesel') {
     b.add('nox_sensor', at(box(0.06, 0.04, 0.05, 0x10b981, 0.01), dpfX - 0.3, yUnder + 0.1, -0.2));
@@ -905,29 +996,32 @@ function carLike(spec: VehicleSpec, style: CarStyle): THREE.Group {
     b.add('dpf_pressure_sensor', tube([[dpfX - 0.18, yUnder + 0.08, -0.12], [dpfX, yUnder + 0.16, -0.25], [dpfX + 0.18, yUnder + 0.08, -0.12]], 0.008, 0x111827));
     b.add('adblue_tank', at(box(0.22, 0.2, 0.2, 0x38bdf8, 0.04), axleR + 0.15, 0.4, -W + 0.3));
   }
-  b.add('exhaust', tube([[axleF - 0.98, yUnder, -0.12], [dpfX - 0.3, yUnder, -0.12], [axleR + 0.1, yUnder + 0.05, -0.3], [-L + 0.35, yUnder + 0.05, -0.35]], 0.03, PALETTE.exhaust));
+  if (front) b.add('exhaust', tube([[axleF - 0.98, yUnder, -0.12], [dpfX - 0.3, yUnder, -0.12], [axleR + 0.1, yUnder + 0.05, -0.3], [-L + 0.35, yUnder + 0.05, -0.35]], 0.03, PALETTE.exhaust));
+  else b.add('exhaust', tube([[catX - 0.18, yUnder, -0.12], [-L + 0.4, yUnder + 0.05, -0.3]], 0.03, PALETTE.exhaust));
   b.add('exhaust', at(tf(cyl(0.12, 0.12, 0.4, 0x57534e, 24), { rotation: [0, 0, Math.PI / 2], scale: [1, 1, 0.7] }), -L + 0.25, yUnder + 0.05, -0.35));
 
   // Rear / all-wheel drive: propeller shaft and rear differential (transverse engine kept for readability)
   const rwd = driven !== 'front';
   if (rwd) {
-    b.add('propshaft', tube([[ex - 0.1, 0.45, gearZ + 0.1], [ex - 0.5, 0.3, 0.05], [axleR + 0.2, wr + 0.02, 0]], 0.028, 0x4b5563));
+    if (front) b.add('propshaft', tube([[ex - 0.1, 0.45, gearZ + 0.1], [ex - 0.5, 0.3, 0.05], [axleR + 0.2, wr + 0.02, 0]], 0.028, 0x4b5563));
     b.add('differential', at(tf(cyl(0.12, 0.12, 0.2, 0x52525b, 24), { rotation: [Math.PI / 2, 0, 0] }), axleR, wr + 0.02, 0));
     b.add('differential', at(tf(cyl(0.06, 0.06, 0.1, 0x6b7280, 16), { rotation: [0, 0, Math.PI / 2] }), axleR + 0.15, wr + 0.02, 0));
   }
-  b.add('fuel_tank', at(box(0.6, 0.22, rwd ? W * 0.65 : W * 1.3, 0x1e3a8a, 0.06), axleR + 0.75, 0.33, rwd ? W * 0.45 : 0.08));
-  b.add('fuel_pump', at(cyl(0.06, 0.06, 0.06, 0xfacc15), axleR + 0.75, 0.47, 0.25));
+  // Mid / rear engine: the tank moves to the front (911, Lotus, Ferrari…).
+  const tankX = front ? axleR + 0.75 : axleF - 0.2;
+  b.add('fuel_tank', at(box(0.6, 0.22, rwd && front ? W * 0.65 : W * 1.3, 0x1e3a8a, 0.06), tankX, 0.33, rwd && front ? W * 0.45 : 0.08));
+  b.add('fuel_pump', at(cyl(0.06, 0.06, 0.06, 0xfacc15), tankX, 0.47, 0.25));
   b.add('fuel_filter', at(tf(cyl(0.04, 0.04, 0.14, 0xfde047), { rotation: [0, 0, Math.PI / 2] }), 0.0, 0.26, W - 0.35));
-  b.add('fuel_rail', tube([[axleR + 0.75, 0.42, 0.3], [0.0, 0.26, W - 0.35], [ex - 0.3, 0.5, 0.2]], 0.008, 0x65a30d));
+  b.add('fuel_rail', tube([[tankX, 0.42, 0.3], [0.0, 0.26, W - 0.35], [ex - 0.3, 0.5, 0.2]], 0.008, 0x65a30d));
   b.add('evap_canister', at(cyl(0.07, 0.07, 0.2, 0x166534), axleR + 0.2, 0.45, W - 0.25));
   b.add('fuel_cap', at(tf(cyl(0.06, 0.06, 0.02, 0x9ca3af), { rotation: [Math.PI / 2, 0, 0] }), axleR + 0.15, belt - 0.1, -W - 0.005));
 
   if (spec.fuel === 'hybrid') {
     // Small traction battery under the rear seat + motor-generator in the gearbox + inverter.
-    b.add('hv_battery', at(box(0.5, 0.18, W * 1.2, 0x374151, 0.03), axleR + 0.25, 0.55, 0));
+    b.add('hv_battery', at(box(0.5, 0.18, W * 1.2, 0x374151, 0.03), front ? axleR + 0.25 : (axleF + axleR) / 2 - 0.1, front ? 0.55 : 0.3, 0));
     b.add('inverter', at(box(0.26, 0.1, 0.3, 0x475569, 0.03), ex - 0.1, ey + 0.38, W - 0.45));
     b.add('drive_motor', at(tf(cyl(0.12, 0.12, 0.14, 0x9ca3af, 24), { rotation: [Math.PI / 2, 0, 0] }), ex - 0.05, 0.6, gearZ + 0.52));
-    b.add('hv_cables', tube([[axleR + 0.25, 0.55, -0.3], [0, 0.3, -0.4], [ex - 0.1, ey + 0.38, W - 0.45]], 0.016, 0xf97316));
+    b.add('hv_cables', tube([[front ? axleR + 0.25 : (axleF + axleR) / 2 - 0.1, front ? 0.55 : 0.3, -0.3], [0, 0.3, -0.4], [ex - 0.1, ey + 0.38, W - 0.45]], 0.016, 0xf97316));
   }
   return b.root;
 }
@@ -1123,8 +1217,8 @@ function motorcycle(spec: VehicleSpec, style: MotoStyle): THREE.Group {
       const outZ = side * (0.33 - up * 0.08);
       const outY = oy + 0.02 + Math.sin(up) * 0.2;
       b.add(`spark_plug_${i}`, at(tf(cyl(0.012, 0.012, 0.07, 0xe5e7eb), { rotation: [Math.PI / 2, 0, 0] }), ox + 0.04 + along, outY + 0.04, outZ));
-      b.add(`coil_${i}`, at(box(0.05, 0.05, 0.04, 0x111827, 0.01), ox + 0.04 + along, outY + 0.09, outZ));
-      b.add(`injector_${i}`, at(cyl(0.01, 0.01, 0.07, 0x84cc16), ox - 0.06 + along, outY + 0.02, side * 0.24));
+      b.add(`coil_${cid(i)}`, at(box(0.05, 0.05, 0.04, 0x111827, 0.01), ox + 0.04 + along, outY + 0.09, outZ));
+      b.add(`injector_${cid(i)}`, at(cyl(0.01, 0.01, 0.07, 0x84cc16), ox - 0.06 + along, outY + 0.02, side * 0.24));
       b.add('cam_sensor', at(cyl(0.012, 0.012, 0.04, 0x10b981), ox + 0.1, outY, outZ - side * 0.03));
     } else if (layout === 'v') {
       // Longitudinal V: front cylinder leans forward, rear cylinder leans back
@@ -1138,8 +1232,8 @@ function motorcycle(spec: VehicleSpec, style: MotoStyle): THREE.Group {
       const tx = cx - Math.sin(ang) * 0.15;
       const ty = oy + 0.22 * s + Math.cos(ang) * 0.15;
       b.add(`spark_plug_${i}`, at(tf(cyl(0.01, 0.01, 0.07, 0xe5e7eb), { rotation: [0, 0, ang] }), tx, ty, z + 0.05));
-      b.add(`coil_${i}`, at(box(0.04, 0.05, 0.04, 0x111827, 0.01), tx, ty + 0.04, z + 0.08));
-      b.add(`injector_${i}`, at(cyl(0.01, 0.01, 0.07, 0x84cc16), (cx + ox) / 2, oy + 0.32 * s, z - 0.06));
+      b.add(`coil_${cid(i)}`, at(box(0.04, 0.05, 0.04, 0x111827, 0.01), tx, ty + 0.04, z + 0.08));
+      b.add(`injector_${cid(i)}`, at(cyl(0.01, 0.01, 0.07, 0x84cc16), (cx + ox) / 2, oy + 0.32 * s, z - 0.06));
     } else {
       const z = -((n - 1) * 0.1 * s) / 2 + (i - 1) * 0.1 * s;
       const c = cyl(0.05 * s, 0.05 * s, 0.22 * s, 0x94a3b8);
@@ -1150,8 +1244,8 @@ function motorcycle(spec: VehicleSpec, style: MotoStyle): THREE.Group {
       const tx = scooter ? cx + 0.13 : cx + 0.03;
       const ty = scooter ? cy + 0.04 : cy + 0.15;
       b.add(`spark_plug_${i}`, at(cyl(0.01, 0.01, 0.07, 0xe5e7eb), tx, ty, z));
-      b.add(`coil_${i}`, at(box(0.04, 0.06, 0.04, 0x111827, 0.01), tx, ty + 0.06, z));
-      b.add(`injector_${i}`, at(cyl(0.01, 0.01, 0.07, 0x84cc16), cx - 0.12, cy + 0.08, z));
+      b.add(`coil_${cid(i)}`, at(box(0.04, 0.06, 0.04, 0x111827, 0.01), tx, ty + 0.06, z));
+      b.add(`injector_${cid(i)}`, at(cyl(0.01, 0.01, 0.07, 0x84cc16), cx - 0.12, cy + 0.08, z));
     }
   }
   b.add('oil_filter', at(cyl(0.04, 0.04, 0.08, 0x2563eb), ox + 0.15 * s, oy - 0.12, 0.12));
@@ -1274,8 +1368,193 @@ function truck(spec: VehicleSpec): THREE.Group {
 
 const MOTO_STYLES: MotoStyle[] = ['naked', 'adventure', 'sport', 'cruiser', 'scooter'];
 
+// ---------------------------------------------------------------- agricultural tractor
+
+/** Rim colour by tractor brand (John Deere yellow, others steel grey). */
+const RIM_BY_MAKE: Record<string, number> = { 'John Deere': 0xf2c200, Kubota: 0xf26f21, Claas: 0x4b5563, 'Case IH': 0x9ca3af, 'Massey Ferguson': 0x6b7280 };
+
+/** Agricultural tyre: tall sidewall, chevron lugs, pressed-steel rim. Spins around its local Z axis. */
+function tractorWheel(r: number, w: number, rimColor: number, outward: boolean) {
+  const g = new THREE.Group();
+  const rubber = mat(0x17191d, { metalness: 0, roughness: 0.95 });
+  const tyre = new THREE.Mesh(new THREE.TorusGeometry(r * 0.72, r * 0.27, 16, 64), rubber);
+  tyre.scale.z = w / (r * 0.54);
+  g.add(tyre);
+  // Chevron lugs: two staggered rows of bars on the tread, angled in a V
+  const lugs = Math.round(r * 30);
+  for (let i = 0; i < lugs; i++) {
+    const a = (i / lugs) * Math.PI * 2;
+    for (const side of [1, -1]) {
+      const lug = new THREE.Mesh(new THREE.BoxGeometry(r * 0.07, r * 0.06, w * 0.5), rubber);
+      const aa = a + (side > 0 ? 0 : Math.PI / lugs);
+      lug.position.set(Math.cos(aa) * r * 0.99, Math.sin(aa) * r * 0.99, side * w * 0.22);
+      lug.rotation.set(0, side * 0.55, aa);
+      g.add(lug);
+    }
+  }
+  const rimMat = mat(rimColor, { metalness: 0.35, roughness: 0.45 });
+  const barrel = new THREE.Mesh(new THREE.CylinderGeometry(r * 0.5, r * 0.5, w * 0.8, 40, 1, true), rimMat);
+  barrel.rotation.x = Math.PI / 2;
+  g.add(barrel);
+  const face = outward ? 1 : -1;
+  const disc = new THREE.Mesh(new THREE.CylinderGeometry(r * 0.48, r * 0.48, 0.03, 40), rimMat);
+  disc.rotation.x = Math.PI / 2;
+  disc.position.z = face * w * 0.05;
+  g.add(disc);
+  // Lightening holes and hub with studs
+  for (let i = 0; i < 8; i++) {
+    const a = (i / 8) * Math.PI * 2;
+    const hole = new THREE.Mesh(new THREE.CylinderGeometry(r * 0.06, r * 0.06, 0.035, 16), mat(0x0b0d10));
+    hole.rotation.x = Math.PI / 2;
+    hole.position.set(Math.cos(a) * r * 0.32, Math.sin(a) * r * 0.32, face * w * 0.05);
+    g.add(hole);
+  }
+  const hub = new THREE.Mesh(new THREE.CylinderGeometry(r * 0.16, r * 0.18, w * 0.4, 24), mat(0x3f444d, { metalness: 0.6, roughness: 0.4 }));
+  hub.rotation.x = Math.PI / 2;
+  hub.position.z = face * w * 0.15;
+  g.add(hub);
+  g.userData.spin = 'z';
+  return g;
+}
+
+/** Fender: arched painted sheet over a wheel (axis Z), from angle a0 to a1. */
+function fender(r: number, width: number, a0: number, a1: number) {
+  const sh = new THREE.Shape();
+  sh.absarc(0, 0, r + 0.1, a0, a1, false);
+  sh.absarc(0, 0, r + 0.06, a1, a0, true);
+  const geo = new THREE.ExtrudeGeometry(sh, { depth: width, bevelEnabled: true, bevelSize: 0.015, bevelThickness: 0.015, bevelSegments: 2, curveSegments: 32 });
+  geo.translate(0, 0, -width / 2);
+  return geo;
+}
+
+function tractor(spec: VehicleSpec): THREE.Group {
+  const b = builder();
+  const paint = paintFor(spec.make ?? '');
+  const rim = RIM_BY_MAKE[spec.make ?? ''] ?? 0x8a8f96;
+  const rR = 0.92, rF = 0.6; // rear / front wheel radius (≈ 1.85 m and 1.2 m tyres)
+  const xR = -0.95, xF = 1.6; // rear / front axle
+  const zR = 0.88, zF = 0.82; // half track
+  const big = (spec.cylinders ?? 6) >= 6;
+
+  // ---- Wheels, fenders, axles
+  for (const side of [1, -1] as const) {
+    const sfx = side > 0 ? 'l' : 'r';
+    b.add(`wheel_r${sfx}`, at(tractorWheel(rR, 0.6, rim, true), xR, rR, side * zR));
+    b.add(`wheel_f${sfx}`, at(tractorWheel(rF, 0.42, rim, true), xF, rF, side * zF));
+    b.add(`brake_r${sfx}`, at(tf(cyl(0.22, 0.22, 0.12, 0x52525b, 24), { rotation: [Math.PI / 2, 0, 0] }), xR, rR, side * 0.42)); // wet brake housing
+    b.add(`wheel_speed_sensor_r${sfx}`, at(box(0.05, 0.07, 0.05, 0x10b981, 0.01), xR + 0.18, rR + 0.15, side * 0.4));
+  }
+  b.add('differential', at(tf(cyl(0.16, 0.2, 1.0, 0x3f444d, 24), { rotation: [Math.PI / 2, 0, 0] }), xR, rR, 0)); // rear axle trumpets
+  b.add('differential', at(new THREE.Mesh(new RoundedBoxGeometry(0.55, 0.6, 0.55, 3, 0.08), mat(0x3a3f47, { metalness: 0.5, roughness: 0.5 })), xR, rR, 0));
+  b.add('differential', at(new THREE.Mesh(new RoundedBoxGeometry(0.3, 0.26, 1.2, 3, 0.06), mat(0x3a3f47, { metalness: 0.5, roughness: 0.5 })), xF, rF, 0)); // front axle beam
+  b.add('propshaft', tube([[xR + 0.35, 0.55, 0.08], [0.4, 0.5, 0.1], [xF - 0.15, rF, 0.05]], 0.045, 0x4b5563));
+  // Transmission housing (gearbox + rear axle centre), between engine and rear axle
+  b.add('transmission', at(new THREE.Mesh(new RoundedBoxGeometry(1.3, 0.62, 0.62, 3, 0.1), mat(0x3a3f47, { metalness: 0.5, roughness: 0.5 })), -0.35, 0.95, 0));
+  b.add('vehicle_speed_sensor', at(cyl(0.025, 0.025, 0.08, 0x10b981), -0.1, 1.29, 0.2));
+  // Rear linkage (3-point hitch) and PTO
+  for (const z of [0.36, -0.36]) {
+    b.add('transmission', tube([[xR - 0.2, 0.62, z * 0.6], [-1.95, 0.48, z]], 0.035, 0x52525b)); // lower links
+    b.add('transmission', tube([[xR - 0.1, 1.55, z * 0.8], [-1.55, 1.5, z * 0.85], [-1.6, 0.9, z]], 0.03, 0x52525b)); // lift arms + rods
+    b.add('transmission', at(new THREE.Mesh(new THREE.TorusGeometry(0.045, 0.015, 8, 16), mat(0x9ca3af)), -1.97, 0.48, z));
+  }
+  b.add('transmission', tube([[xR - 0.25, 1.15, 0], [-1.9, 1.05, 0]], 0.04, 0xd4d4d8)); // top link
+  b.add('transmission', at(tf(cyl(0.045, 0.045, 0.16, 0x9ca3af, 12), { rotation: [0, 0, Math.PI / 2] }), -1.42, 0.72, 0)); // PTO stub
+  b.add('transmission', at(tf(new THREE.Mesh(new THREE.CylinderGeometry(0.12, 0.12, 0.14, 20, 1, true, 0, Math.PI), mat(paint)), { rotation: [0, 0, Math.PI / 2] }), -1.42, 0.74, 0)); // PTO guard
+
+  // ---- Engine (longitudinal: crankshaft along X, accessory belt at the front)
+  const s = big ? 1.4 : 1.2;
+  const ex = 0.78, ey = 1.08;
+  const longi = (id: string, obj: THREE.Object3D) => {
+    const g = new THREE.Group();
+    g.add(obj);
+    g.position.set(ex, ey, 0);
+    g.rotation.y = -Math.PI / 2;
+    return b.add(id, g);
+  };
+  const eng = engine({ root: b.root, add: longi }, 0, 0, spec.cylinders || 6, 'diesel', s, { turbo: true });
+  // exhaust outlet (engine-local x → world z, local z → world -x)
+  const [lx, ly, lz] = eng.exhaustOut;
+  const out: [number, number, number] = [ex - lz, ey + ly, lx];
+
+  // ---- Bonnet, grille, front weights
+  const hood = new THREE.Shape();
+  hood.moveTo(0.02, 0.0);
+  hood.lineTo(2.18, 0.0);
+  hood.lineTo(2.2, 0.62);
+  hood.quadraticCurveTo(2.18, 0.86, 1.95, 0.9);
+  hood.lineTo(0.02, 0.98);
+  hood.lineTo(0.02, 0.0);
+  const hoodGeo = new THREE.ExtrudeGeometry(hood, { depth: 0.96, bevelEnabled: true, bevelSize: 0.06, bevelThickness: 0.06, bevelSegments: 4, curveSegments: 16 });
+  hoodGeo.translate(0, 0.98, -0.48);
+  const panels: Panel[] = [{ geo: hoodGeo, ghost: true }];
+  panels.push({ geo: place(rbox(0.05, 0.62, 0.86, 0.03), 2.27, 1.33, 0), kind: 'dark' }); // grille
+  for (let i = 0; i < 6; i++) panels.push({ geo: place(rbox(0.02, 0.025, 0.82, 0.008), 2.3, 1.08 + i * 0.1, 0), kind: 'trim' });
+  for (const z of [0.3, -0.3]) panels.push({ geo: place(rbox(0.04, 0.1, 0.18, 0.03), 2.29, 1.7, z), kind: 'lamp' });
+  panels.push({ geo: place(rbox(0.32, 0.5, 0.8, 0.05), 2.45, 0.78, 0), kind: 'dark' }); // front weight block
+  // Fenders
+  for (const side of [1, -1]) {
+    panels.push({ geo: place(fender(rR, 0.66, 0.15, Math.PI - 0.05), xR, rR, side * zR) });
+    panels.push({ geo: place(fender(rF, 0.46, 0.35, Math.PI - 0.35), xF, rF, side * zF) });
+  }
+  // ---- Cab: corner posts, large glass, roof
+  const cx0 = -1.42, cx1 = 0.02, cy0 = 1.62, cy1 = 2.95, cz = 0.62;
+  for (const [x, z] of [[cx0, cz], [cx0, -cz], [cx1, cz], [cx1, -cz]] as [number, number][]) panels.push({ geo: place(rbox(0.06, cy1 - cy0, 0.06, 0.02), x, (cy0 + cy1) / 2, z), kind: 'dark' });
+  panels.push({ geo: place(rbox(cx1 - cx0 - 0.02, cy1 - cy0 - 0.06, 2 * cz - 0.02, 0.02), (cx0 + cx1) / 2, (cy0 + cy1) / 2, 0), kind: 'glass', ghost: true });
+  panels.push({ geo: place(rbox(cx1 - cx0 + 0.3, 0.14, 2 * cz + 0.22, 0.06), (cx0 + cx1) / 2 - 0.02, cy1 + 0.07, 0), ghost: true }); // roof
+  panels.push({ geo: place(rbox(cx1 - cx0 + 0.02, 0.1, 2 * cz + 0.02, 0.02), (cx0 + cx1) / 2, cy0, 0), kind: 'dark' }); // cab floor
+  for (const side of [1, -1]) {
+    panels.push({ geo: place(rbox(0.04, 0.35, 0.03, 0.01), cx1 + 0.05, 2.35, side * (cz + 0.35)), kind: 'dark' }); // mirror arm + head
+    panels.push({ geo: place(rbox(0.05, 0.28, 0.18, 0.02), cx1 + 0.08, 2.45, side * (cz + 0.5)), kind: 'glass' });
+    panels.push({ geo: place(rbox(0.45, 0.04, 0.28, 0.01), (cx0 + cx1) / 2 + 0.2, 0.78 + (side > 0 ? 0.32 : 0), side * (cz + 0.05)), kind: 'alu' }); // steps
+  }
+  for (const z of [0.45, 0.15, -0.15, -0.45]) panels.push({ geo: place(rbox(0.05, 0.08, 0.14, 0.02), cx1 + 0.17, cy1 + 0.05, z), kind: 'lamp' }); // work lights
+  b.root.add(bodyShell(panels, paint));
+  b.add('headlights', at(box(0.05, 0.1, 0.18, 0xfef9c3, 0.03), 2.3, 1.7, 0.3));
+  b.add('headlights', at(box(0.05, 0.1, 0.18, 0xfef9c3, 0.03), 2.3, 1.7, -0.3));
+
+  // Cab interior, controls, electronics
+  b.add('cabin', at(box(0.5, 0.12, 0.5, 0x1e293b, 0.05), -0.75, 1.95, 0)); // seat
+  b.add('cabin', at(tf(box(0.1, 0.6, 0.5, 0x1e293b, 0.05), { rotation: [0, 0, 0.15] }), -1.02, 2.3, 0));
+  const sw = new THREE.Mesh(new THREE.TorusGeometry(0.19, 0.022, 10, 32), mat(0x111827, { roughness: 0.7 }));
+  sw.rotation.set(0, Math.PI / 2, 0.6);
+  b.add('steering_angle', at(sw, -0.2, 2.25, 0));
+  b.add('cabin', at(box(0.3, 0.12, 0.2, 0x111827, 0.03), -0.65, 2.15, -0.45)); // armrest terminal
+  b.add('ecu', at(box(0.25, 0.06, 0.2, 0x0f766e, 0.01), -0.6, 1.75, 0.45));
+  b.add('cabin_filter', at(box(0.35, 0.04, 0.45, 0xfde68a, 0.01), -0.7, cy1 + 0.02, 0));
+  b.add('can_bus', tube([[-0.6, 1.75, 0.45], [-0.2, 1.4, 0.3], [ex, ey + 0.3, 0.3], [2.0, 1.4, 0.2]], 0.012, 0xf59e0b));
+  b.add('can_bus', tube([[-0.6, 1.75, 0.45], [-1.3, 1.5, 0.4], [-1.5, 1.2, 0.3]], 0.012, 0xf59e0b)); // to the ISOBUS rear socket
+  b.add('can_bus', at(tf(cyl(0.05, 0.05, 0.06, 0x111827, 16), { rotation: [0, 0, Math.PI / 2] }), -1.52, 1.2, 0.3));
+
+  // ---- Cooling, intake, fuel, exhaust after-treatment
+  b.add('radiator', at(box(0.08, 0.6, 0.7, 0x64748b, 0.02), 2.05, 1.32, 0));
+  b.add('cooling_fan', at(tf(fan(0.28), { rotation: [0, Math.PI / 2, 0] }), 1.93, 1.32, 0));
+  b.add('intercooler', at(box(0.06, 0.5, 0.65, 0x475569, 0.02), 2.14, 1.32, 0));
+  b.add('coolant_reservoir', at(box(0.2, 0.15, 0.2, 0xe0f2fe, 0.03), 1.75, 1.75, -0.22));
+  b.add('air_filter', at(tf(cyl(0.14, 0.14, 0.55, 0x1f2937, 24), { rotation: [0, 0, Math.PI / 2] }), 1.55, 1.72, 0.2));
+  b.add('maf_sensor', at(tf(cyl(0.05, 0.05, 0.1, 0xf97316), { rotation: [0, 0, Math.PI / 2] }), 1.2, 1.72, 0.2));
+  b.add('vacuum_hoses', tube([[1.25, 1.72, 0.2], [1.0, 1.65, 0.3], [ex + 0.05, ey + 0.1, 0.38]], 0.06, 0x111827));
+  b.add('fuel_tank', at(new THREE.Mesh(new RoundedBoxGeometry(1.0, 0.55, 0.42, 3, 0.12), mat(0x1f2937, { roughness: 0.6 })), -0.45, 1.1, 0.62));
+  b.add('fuel_cap', at(cyl(0.07, 0.07, 0.03, 0x111827), -0.2, 1.39, 0.62));
+  b.add('fuel_filter', at(cyl(0.05, 0.05, 0.18, 0xfde047), 0.25, 0.95, 0.42));
+  b.add('fuel_pump', at(cyl(0.05, 0.05, 0.08, 0xfacc15), -0.45, 1.4, 0.75));
+  b.add('fuel_rail', tube([[-0.45, 1.3, 0.62], [0.25, 0.95, 0.42], [ex, ey + 0.3, -0.3]], 0.01, 0x65a30d));
+  b.add('adblue_tank', at(box(0.3, 0.35, 0.3, 0x38bdf8, 0.05), -0.45, 1.05, -0.62));
+  b.add('battery', at(box(0.35, 0.25, 0.22, 0x111827, 0.02), 0.25, 0.85, -0.5));
+  b.add('starter', at(tf(cyl(0.07, 0.07, 0.24, 0x6b7280), { rotation: [0, 0, Math.PI / 2] }), 0.1, 0.9, -0.3));
+  // Turbo → after-treatment box (DOC + DPF + SCR) → vertical stack in front of the cab pillar
+  b.add('exhaust', tube([out, [out[0] - 0.25, out[1] + 0.15, out[2] + 0.02], [0.1, 1.6, 0.5], [0.15, 1.75, 0.5]], 0.06, PALETTE.exhaust));
+  b.add('dpf', at(cyl(0.18, 0.18, 0.7, 0xb4b9c2, 28), 0.15, 2.05, 0.5));
+  b.add('catalytic_converter', at(cyl(0.12, 0.12, 0.2, 0xa8a29e, 24), 0.15, 1.65, 0.5));
+  b.add('dpf_pressure_sensor', at(box(0.07, 0.05, 0.05, 0x10b981, 0.01), 0.35, 2.05, 0.5));
+  b.add('nox_sensor', at(box(0.07, 0.05, 0.05, 0x10b981, 0.01), 0.15, 2.48, 0.68));
+  b.add('egt_sensor', at(cyl(0.014, 0.014, 0.1, 0xf472b6), 0.3, 1.8, 0.5));
+  b.add('exhaust', tube([[0.15, 2.4, 0.5], [0.15, 3.2, 0.5]], 0.06, 0x8a8f98));
+  b.add('exhaust', at(tf(cyl(0.065, 0.065, 0.04, 0x52525b, 16), { rotation: [0.6, 0, 0] }), 0.15, 3.22, 0.5));
+  return b.root;
+}
+
 export function buildVehicle(spec: VehicleSpec): THREE.Group {
-  const n = Math.min(Math.max(spec.cylinders || 4, 1), 8);
+  const n = Math.min(Math.max(spec.cylinders || 4, 1), 12);
   const s = { ...spec, cylinders: n };
   switch (spec.type) {
     case 'motorcycle': {
@@ -1284,6 +1563,8 @@ export function buildVehicle(spec: VehicleSpec): THREE.Group {
     }
     case 'truck':
       return truck({ ...s, cylinders: spec.cylinders || 6 });
+    case 'tractor':
+      return tractor({ ...s, cylinders: Math.min(spec.cylinders || 6, 6) });
     case 'van':
       return carLike(s, 'van');
     default:

@@ -254,7 +254,7 @@ export async function bootstrap() {
 /** Vehicle description for the 3D scene. */
 export function sceneVehicle() {
   const p = app.profile;
-  return { type: p?.type ?? 'car', cylinders: p?.cylinders ?? 4, fuel: p?.fuel ?? 'petrol', traction: p?.traction ?? 'front', make: p?.make ?? '', body: p?.body ?? undefined, engine: p?.engine ?? '', finalDrive: p?.final_drive ?? undefined };
+  return { type: p?.type ?? 'car', cylinders: p?.cylinders ?? 4, fuel: p?.fuel ?? 'petrol', traction: p?.traction ?? 'front', make: p?.make ?? '', body: p?.body ?? undefined, engine: p?.engine ?? '', finalDrive: p?.final_drive ?? undefined, enginePosition: p?.engine_position ?? undefined };
 }
 
 export const fmt = {

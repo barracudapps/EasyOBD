@@ -29,6 +29,7 @@ const fmtDate = (d: Date) => d.toLocaleDateString('fr-FR', { month: 'long', year
  *  (cars, vans); every year for trucks. Uses the last inspection date when known. */
 export function nextInspection(v: GarageVehicle): Date | null {
   const type = v.profile.type;
+  if (type === 'tractor') return null; // no periodic inspection for agricultural tractors in France
   const period = type === 'truck' ? 12 : 24;
   if (v.lastInspection) return addMonths(new Date(v.lastInspection), period);
   if (!v.firstRegistration) return null;

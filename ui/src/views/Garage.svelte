@@ -21,7 +21,7 @@
 
   const kindLabel: Record<JournalKind, string> = { diagnostic: 'Diagnostic', maintenance: 'Entretien', repair: 'Réparation', inspection: 'Contrôle technique', note: 'Note' };
   const kindIcon: Record<JournalKind, string> = { diagnostic: 'scan', maintenance: 'wrench', repair: 'wrench', inspection: 'shield', note: 'book' };
-  const typeIcon = (t: string) => (t === 'motorcycle' ? 'motorcycle' : t === 'truck' ? 'truck' : t === 'van' ? 'van' : 'car');
+  const typeIcon = (t: string) => (['motorcycle', 'truck', 'van', 'tractor'].includes(t) ? t : 'car');
   const fuelLabel: Record<string, string> = { petrol: 'Essence', diesel: 'Diesel', hybrid: 'Hybride', electric: 'Électrique' };
 
   function lastEntry(v: GarageVehicle) {
