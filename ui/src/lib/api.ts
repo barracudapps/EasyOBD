@@ -59,7 +59,11 @@ export async function call<T = unknown>(cmd: string, args: Record<string, unknow
         case 'read_dtcs': return (await webSession.readDtcs()) as T;
         case 'read_j1939': {
           const make = (args as { make?: string }).make;
-          return (await webSession.readJ1939((raw) => call('j1939_decode', { raw, make }))) as T;
+          return (await webSession.readJ1939((raw, raw_dm2) => call('j1939_decode', { raw, raw_dm2, make }))) as T;
+        }
+        case 'clear_j1939': {
+          const raw = await webSession.clearJ1939();
+          return (await call('j1939_acks', { raw })) as T;
         }
         case 'read_live': return (await webSession.readLive()) as T;
         case 'clear_dtcs': return (await webSession.clear()) as T;

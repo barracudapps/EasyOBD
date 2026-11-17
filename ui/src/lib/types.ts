@@ -41,7 +41,7 @@ export interface ConnectResult {
 }
 export interface J1939Lamps { mil: boolean; red_stop: boolean; amber_warning: boolean; protect: boolean }
 export interface J1939Result { lamps: J1939Lamps; items: DtcItem[]; sources: string[] }
-export interface DtcItem { code: string; kind: 'stored' | 'pending' | 'permanent' | 'active'; diagnosis: Diagnosis | null; source?: string; occurrences?: number }
+export interface DtcItem { code: string; kind: 'stored' | 'pending' | 'permanent' | 'active' | 'previous'; diagnosis: Diagnosis | null; source?: string; occurrences?: number }
 export interface LiveValue { key: string; label: string; unit: string; min: number; max: number; value: number }
 
 export interface VehicleType { id: string; name: string; icon: string }

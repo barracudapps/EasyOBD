@@ -39,7 +39,7 @@ des liens vers AutoDoc, Mister Auto et Oscaro, le temps nécessaire et le niveau
 | **Véhicules électriques** | Modèle 3D dédié (batterie de traction, moteur, onduleur, réducteur, chargeur, câbles orange), codes P0Axx, pistes propres aux électriques (batterie 12 V, isolement, recharge, réducteur, disques corrodés), tutoriels et scénarios dédiés, mode audio adapté. |
 | **Fiche technique** | Capacités (huile, refroidissement, liquide de frein, boîte, AdBlue), fluides et **couples de serrage**, chaque valeur étant marquée *Modèle*, *Marque* ou *Typique*. |
 | **Alternatives moins chères** | Huile de même norme en marque distributeur, 5W40 à la place de 5W30 seulement quand le moteur l'autorise (interdit sur les courroies baignées dans l'huile), équipementier d'origine plutôt que pièce siglée, DOT 4 ou 5.1 mais jamais DOT 5… |
-| **Poids lourds J1939** | Lecture des défauts SPN / FMI des camions, bus et engins (prise 9 broches), témoins rouge STOP / ambre / dépollution, calculateur d'origine (moteur, post-traitement, boîte…). Une cinquantaine de SPN courants expliqués (FAP, AdBlue, NOx, EGR, suralimentation, injecteurs, pressions, températures) avec causes et solutions, adaptées au type de défaillance (FMI). Recherche « SPN 3251 FMI 0 » dans l'encyclopédie. |
+| **Poids lourds J1939** | Lecture des défauts actifs (DM1) et **mémorisés (DM2)**, **effacement (DM11)** avec confirmation, défauts SPN / FMI des camions, bus et engins (prise 9 broches), témoins rouge STOP / ambre / dépollution, calculateur d'origine (moteur, post-traitement, boîte…). Une cinquantaine de SPN courants expliqués (FAP, AdBlue, NOx, EGR, suralimentation, injecteurs, pressions, températures) avec causes et solutions, adaptées au type de défaillance (FMI). Recherche « SPN 3251 FMI 0 » dans l'encyclopédie. |
 | **Contrôle technique** | Liste de préparation filtrée selon le véhicule, emplacements du **VIN** par marque, pré-contrôle OBD (voyant, codes, autodiagnostics terminés). |
 | **Procédures spécifiques** | Étapes issues du manuel du propriétaire, insérées dans les tutoriels (ex. Tesla : mise hors tension, mode Cric, batterie basse tension) avec leur source. |
 | **Vidéos de réparation** | Recherche YouTube préremplie (intervention + véhicule), lecteur intégré (youtube-nocookie) pour une vidéo collée ou mise en favori, recherche dans l'app avec votre propre clé API. |
@@ -153,7 +153,7 @@ Android.
 - **Liens boutiques** : la recherche AutoDoc pointe directement sur le site. Pour Mister Auto et Oscaro, les liens passent par une recherche Google limitée au site. Ces modèles d'URL sont configurables dans `providers`. Aucun partenariat ni API de prix temps réel n'est intégré pour l'instant.
 - Les **profils véhicules** (motorisations, années, contenances, normes d'huile) sont des valeurs de départ à vérifier dans le carnet d'entretien : la norme d'huile n'est indiquée que lorsqu'elle est sûre. La saisie manuelle couvre tous les autres véhicules.
 - La **3D** est procédurale : les silhouettes sont des familles (citadine, SUV, supercar…), pas la forme exacte de chaque modèle.
-- **Poids lourds (J1939)** : lecture des défauts actifs (DM1, messages multi-trames inclus) avec un adaptateur compatible J1939 (OBDLink, STN, ELM327 v1.4b+ authentique). Testé sur le simulateur et sur des trames de référence, pas encore sur un camion réel. L'effacement des défauts et les données en direct J1939 ne sont pas encore proposés.
+- **Poids lourds (J1939)** : lecture des défauts actifs (DM1, messages multi-trames inclus) avec un adaptateur compatible J1939 (OBDLink, STN, ELM327 v1.4b+ authentique). Testé sur le simulateur et sur des trames de référence, pas encore sur un camion réel. Les défauts mémorisés (DM2) et l'effacement (DM11) passent par une requête de PGN au format ELM (`00FECB`, `00FED3`) ; les données en direct J1939 ne sont pas encore proposées.
 - **Analyse audio** : elle est heuristique et oriente, sans jamais remplacer un contrôle.
 - **Vidéos** : YouTube n'autorise plus l'intégration d'une page de résultats de recherche. La recherche s'ouvre donc sur YouTube, sauf si une clé API est fournie. Dans l'application de bureau, certaines vidéos peuvent refuser la lecture intégrée : le bouton « ouvrir dans YouTube » sert alors de repli.
 
@@ -171,7 +171,7 @@ Pistes détaillées dans [docs/MODELE_ECONOMIQUE.md](docs/MODELE_ECONOMIQUE.md) 
 ## Feuille de route
 
 - Bluetooth LE dans l'application Android et iOS (déjà possible dans Chrome Android via la version web).
-- J1939 : défauts historiques (DM2), données en direct (PGN moteur), effacement (DM11) ; adressage CAN 29 bits pour le mode expert.
+- J1939 : données en direct (PGN moteur) ; adressage CAN 29 bits pour le mode expert.
 - Packs de données téléchargeables par véhicule (base de codes constructeur, profils), mis en cache pour un usage hors ligne.
 - Partenariats ou API marchands pour des prix en temps réel.
 - Silhouettes dédiées pour les modèles très typés (Multipla, 2CV, Classe G, Defender).

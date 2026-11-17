@@ -128,6 +128,28 @@ impl Elm327 {
         Ok(report)
     }
 
+    /// Requests a J1939 PGN (global destination) and returns the raw answers, headers on.
+    fn j1939_request(&mut self, pgn: u32) -> Result<String> {
+        let raw = self.command_with_timeout(&crate::j1939::request_text(pgn), Duration::from_millis(3000))?;
+        if raw.contains('?') {
+            return Err(Error::Protocol("l'adaptateur refuse la requête J1939 : ELM327 v1.4b+, OBDLink ou STN requis".into()));
+        }
+        Ok(raw)
+    }
+
+    /// DM2: previously active (stored) faults. An empty report means "no stored fault" (or no answer).
+    pub fn read_j1939_dm2(&mut self) -> Result<crate::j1939::DmReport> {
+        let raw = self.j1939_request(crate::j1939::PGN_DM2)?;
+        Ok(crate::j1939::read_dm(&raw, crate::j1939::PGN_DM2))
+    }
+
+    /// DM11: asks every ECU to clear its active / stored diagnostic information.
+    /// Returns the acknowledging sources (address, positive). Faults still present come back at once.
+    pub fn clear_j1939(&mut self) -> Result<Vec<(u8, bool)>> {
+        let raw = self.j1939_request(crate::j1939::PGN_DM11)?;
+        Ok(crate::j1939::acks(&raw))
+    }
+
     pub fn is_can(&self) -> Option<bool> {
         self.protocol.map(|p| (6..=9).contains(&p))
     }

@@ -30,6 +30,8 @@ pub struct Simulator {
     j1939: Vec<(u32, u8, u8, u8)>,
     j1939_mode: bool,
     monitoring: bool,
+    /// Previously active J1939 faults (DM2).
+    j1939_prev: Vec<(u32, u8, u8, u8)>,
 }
 
 /// Encodes a 5-character DTC into its two raw bytes (inverse of [`crate::dtc::decode`]).
@@ -46,7 +48,9 @@ impl Simulator {
     pub fn new(dtcs: Vec<Dtc>, vin: &str) -> Self {
         Self { dtcs, vin: vin.to_string(), echo: true, searched: false, tick: 0, input: Vec::new(), output: VecDeque::new(), overrides: HashMap::new(), header: None, session: 1, param_0100: 0, monitors_reset: false,
             // Truck demo: DPF back-pressure high and AdBlue low (aftertreatment), torque derate (engine).
-            j1939: vec![(3251, 0, 2, 0x3D), (1761, 18, 1, 0x3D), (1569, 31, 1, 0x00)], j1939_mode: false, monitoring: false }
+            j1939: vec![(3251, 0, 2, 0x3D), (1761, 18, 1, 0x3D), (1569, 31, 1, 0x00)], j1939_mode: false, monitoring: false,
+            // Stored history: NOx sensor signal erratic, SCR conversion efficiency low (aftertreatment).
+            j1939_prev: vec![(3226, 2, 4, 0x3D), (4364, 18, 3, 0x3D)] }
     }
 
     /// Demo car: misfire on cylinder 2, lean mixture, tired catalytic converter.
@@ -99,6 +103,19 @@ impl Simulator {
 
     fn respond(&mut self, cmd: &str) -> String {
         let cmd = cmd.trim().to_uppercase().replace(' ', "");
+        // J1939 PGN requests (ELM format: the PGN as 6 hex digits)
+        if self.j1939_mode {
+            match cmd.as_str() {
+                "00FECB" => return self.dm_frames(&self.j1939_prev, 0xCB),
+                "00FED3" => {
+                    // DM11: history cleared; the AdBlue level fault is a present condition and stays active.
+                    self.j1939_prev.clear();
+                    self.j1939.retain(|f| f.0 == 1761);
+                    return [0x00u8, 0x3D].iter().map(|sa| format!("18 E8 FF {sa:02X} 00 FF FF FF FF D3 FE 00\r")).collect();
+                }
+                _ => {}
+            }
+        }
         if let Some(at) = cmd.strip_prefix("AT") {
             return match at {
                 "Z" => {
@@ -178,12 +195,17 @@ impl Simulator {
     /// Physical UDS requests: engine ECU (7E0) and gearbox (7E1) answer, others are silent.
     /// DM1 broadcast of every source address, as seen with headers on (`ATH1`, `ATS1`).
     fn dm1_frames(&self) -> String {
-        let mut sources: Vec<u8> = self.j1939.iter().map(|f| f.3).collect();
+        self.dm_frames(&self.j1939, 0xCA)
+    }
+
+    /// DM1 / DM2 frames (`pgn_lo` = CA or CB) of every source address in `faults`.
+    fn dm_frames(&self, all: &[(u32, u8, u8, u8)], pgn_lo: u8) -> String {
+        let mut sources: Vec<u8> = all.iter().map(|f| f.3).collect();
         sources.sort();
         sources.dedup();
         let mut out = String::new();
         for sa in sources {
-            let faults: Vec<_> = self.j1939.iter().filter(|f| f.3 == sa).collect();
+            let faults: Vec<_> = all.iter().filter(|f| f.3 == sa).collect();
             let lamps: u8 = if sa == 0x3D { 0x44 } else { 0x04 };
             let mut payload = vec![lamps, 0xFF];
             for (spn, fmi, oc, _) in &faults {
@@ -191,10 +213,10 @@ impl Simulator {
             }
             if payload.len() <= 8 {
                 payload.resize(8, 0xFF);
-                out.push_str(&format!("18 FE CA {sa:02X} {}\r", hex(&payload)));
+                out.push_str(&format!("18 FE {pgn_lo:02X} {sa:02X} {}\r", hex(&payload)));
             } else {
                 let n = payload.len().div_ceil(7);
-                out.push_str(&format!("1C EC FF {sa:02X} 20 {:02X} {:02X} {n:02X} FF CA FE 00\r", payload.len() & 0xFF, payload.len() >> 8));
+                out.push_str(&format!("1C EC FF {sa:02X} 20 {:02X} {:02X} {n:02X} FF {pgn_lo:02X} FE 00\r", payload.len() & 0xFF, payload.len() >> 8));
                 for (i, chunk) in payload.chunks(7).enumerate() {
                     let mut c = chunk.to_vec();
                     c.resize(7, 0xFF);
@@ -363,6 +385,20 @@ impl Transport for Simulator {
 mod tests {
     use super::*;
     use crate::Elm327;
+
+    #[test]
+    fn j1939_dm2_and_clear() {
+        let mut elm = Elm327::new(Box::new(Simulator::demo()));
+        elm.initialize_j1939().unwrap();
+        let prev = elm.read_j1939_dm2().unwrap();
+        assert!(prev.active.iter().any(|d| d.spn == 3226 && d.fmi == 2), "{prev:?}");
+        let acks = elm.clear_j1939().unwrap();
+        assert!(acks.iter().any(|(sa, ok)| *sa == 0x3D && *ok));
+        assert!(elm.read_j1939_dm2().unwrap().active.is_empty());
+        // The AdBlue level fault is still present after clearing
+        let now = elm.read_j1939_dm1().unwrap();
+        assert_eq!(now.active.iter().map(|d| d.spn).collect::<Vec<_>>(), vec![1761]);
+    }
 
     #[test]
     fn j1939_dm1_monitor() {

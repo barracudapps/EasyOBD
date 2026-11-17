@@ -45,7 +45,7 @@ fn e(err: Error) -> String {
 }
 
 /// DM1 report → `{ lamps, items: [{ code, kind, source, occurrences, diagnosis }] }` (same item shape as OBD codes).
-fn j1939_items(report: &crate::j1939::DmReport, make: Option<&str>) -> Value {
+fn j1939_items(report: &crate::j1939::DmReport, previous: Option<&crate::j1939::DmReport>, make: Option<&str>) -> Value {
     let kb = KnowledgeBase::embedded();
     let j = crate::j1939::J1939Kb::embedded();
     let mut active = report.active.clone();
@@ -53,10 +53,16 @@ fn j1939_items(report: &crate::j1939::DmReport, make: Option<&str>) -> Value {
     let consequence = |spn: u32| matches!(spn, 1569 | 5246);
     let sev = |d: &crate::j1939::J1939Dtc| j.diagnose(kb, d.spn, d.fmi, None).severity;
     active.sort_by(|a, b| consequence(a.spn).cmp(&consequence(b.spn)).then(sev(b).cmp(&sev(a))));
-    let items: Vec<Value> = active
-        .iter()
-        .map(|d| json!({ "code": d.code(), "kind": "active", "spn": d.spn, "fmi": d.fmi, "source": j.source_name(d.source), "occurrences": d.occurrences, "diagnosis": j.diagnose(kb, d.spn, d.fmi, make) }))
-        .collect();
+    let item = |d: &crate::j1939::J1939Dtc, kind: &str| json!({ "code": d.code(), "kind": kind, "spn": d.spn, "fmi": d.fmi, "source": j.source_name(d.source), "occurrences": d.occurrences, "diagnosis": j.diagnose(kb, d.spn, d.fmi, make) });
+    let mut items: Vec<Value> = active.iter().map(|d| item(d, "active")).collect();
+    // DM2: previously active faults (history), after the active ones and without duplicates.
+    if let Some(prev) = previous {
+        for d in &prev.active {
+            if !active.iter().any(|a| a.spn == d.spn && a.fmi == d.fmi) {
+                items.push(item(d, "previous"));
+            }
+        }
+    }
     json!({ "lamps": report.lamps, "items": items, "sources": report.sources.iter().map(|s| j.source_name(*s)).collect::<Vec<_>>() })
 }
 
@@ -191,8 +197,16 @@ impl Session {
             }
             "read_j1939" => {
                 let make = opt::<String>(args, "make").or_else(|| self.make());
-                let report = self.elm()?.read_j1939_dm1().map_err(e)?;
-                Ok(j1939_items(&report, make.as_deref()))
+                let elm = self.elm()?;
+                let report = elm.read_j1939_dm1().map_err(e)?;
+                let previous = elm.read_j1939_dm2().ok();
+                Ok(j1939_items(&report, previous.as_ref(), make.as_deref()))
+            }
+            "clear_j1939" => {
+                // DM11 to every ECU. The UI asks for confirmation; present faults come back right away.
+                let acks = self.elm()?.clear_j1939().map_err(e)?;
+                let j = crate::j1939::J1939Kb::embedded();
+                Ok(json!({ "acks": acks.iter().map(|(sa, ok)| json!({ "source": j.source_name(*sa), "ok": ok })).collect::<Vec<_>>() }))
             }
             "j1939_decode" => {
                 // Browser build: raw ATDM1 monitor output captured by JavaScript.
@@ -202,7 +216,14 @@ impl Session {
                 if report.sources.is_empty() {
                     return Err("aucun message J1939 reçu : contact mis ? prise poids lourd J1939 ?".into());
                 }
-                Ok(j1939_items(&report, make.as_deref()))
+                let previous = opt::<String>(args, "raw_dm2").map(|r| crate::j1939::read_dm(&r, crate::j1939::PGN_DM2));
+                Ok(j1939_items(&report, previous.as_ref(), make.as_deref()))
+            }
+            "j1939_acks" => {
+                // Browser build: raw answer to a DM11 request.
+                let raw: String = arg(args, "raw")?;
+                let j = crate::j1939::J1939Kb::embedded();
+                Ok(json!({ "acks": crate::j1939::acks(&raw).iter().map(|(sa, ok)| json!({ "source": j.source_name(*sa), "ok": ok })).collect::<Vec<_>>() }))
             }
             "j1939_lookup" => {
                 let spn: u32 = arg(args, "spn")?;
@@ -376,11 +397,17 @@ mod tests {
         let r = s.handle("connect", &json!({ "spec": { "kind": "simulator", "address": "" }, "j1939": true })).unwrap();
         assert_eq!(r["j1939"], true);
         let j = s.handle("read_j1939", &Value::Null).unwrap();
-        assert_eq!(j["items"].as_array().unwrap().len(), 3);
+        assert!(j["items"].as_array().unwrap().iter().any(|i| i["kind"] == "previous" && i["spn"] == 3226), "{j}");
+        assert_eq!(j["items"].as_array().unwrap().len(), 5); // 3 active (DM1) + 2 previously active (DM2)
         assert!(j["lamps"]["red_stop"] == false && j["lamps"]["mil"] == true);
         assert!(j["items"][0]["diagnosis"]["title"].as_str().unwrap().contains("FAP"));
         assert_eq!(j["items"][0]["source"], "Post-traitement (échappement)");
         assert_eq!(j["items"][2]["spn"], 1569);
+        // DM11 clear: history gone, the present AdBlue level fault stays
+        let c = s.handle("clear_j1939", &Value::Null).unwrap();
+        assert!(c["acks"].as_array().unwrap().iter().any(|a| a["ok"] == true));
+        let j = s.handle("read_j1939", &Value::Null).unwrap();
+        assert_eq!(j["items"].as_array().unwrap().iter().map(|i| i["spn"].as_u64().unwrap()).collect::<Vec<_>>(), vec![1761]);
 
         // Clicking a part suggests interventions
         let a = s.handle("component_actions", &json!({ "id": "coil_2", "profile": { "id": "x", "type": "car", "make": "Renault", "model": "Clio", "fuel": "petrol", "cylinders": 4 } })).unwrap();

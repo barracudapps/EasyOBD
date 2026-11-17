@@ -190,10 +190,25 @@ export class WebObdSession {
     };
   }
 
-  async readJ1939(decode: (raw: string) => Promise<unknown>) {
+  async readJ1939(decode: (raw: string, rawDm2: string | null) => Promise<unknown>) {
     const raw = await this.monitor('ATDM1', 3500);
     if (raw.includes('?')) throw new Error("l'adaptateur ne connaît pas ATDM1 (J1939) : ELM327 v1.4b+, OBDLink ou STN requis");
-    return decode(raw);
+    // DM2 (previously active faults): request PGN 65227, ELM format. Optional: some ECUs do not answer.
+    let dm2: string | null = null;
+    try {
+      dm2 = await this.command('00FECB', 3000);
+      if (dm2.includes('?')) dm2 = null;
+    } catch {
+      dm2 = null;
+    }
+    return decode(raw, dm2);
+  }
+
+  /** DM11: asks every ECU to clear its diagnostic information; returns the raw acknowledgements. */
+  async clearJ1939() {
+    const raw = await this.command('00FED3', 3000);
+    if (raw.includes('?')) throw new Error("l'adaptateur refuse la requête J1939 (DM11)");
+    return raw;
   }
 
   private async ask<T = any>(cmd: string, timeoutMs?: number): Promise<T> {

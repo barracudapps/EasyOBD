@@ -49,7 +49,7 @@
   let manual = $state({ kind: 'wifi' as 'wifi' | 'serial', address: '192.168.0.10:35000', baud: 38400 });
 
   const mediumIcon: Record<string, string> = { usb: 'usb', bluetooth: 'bluetooth', ble: 'bluetooth', wifi: 'wifi', simulator: 'sim' };
-  const kindLabel: Record<string, string> = { stored: 'Confirmé', pending: 'En attente', permanent: 'Permanent', active: 'Actif' };
+  const kindLabel: Record<string, string> = { stored: 'Confirmé', pending: 'En attente', permanent: 'Permanent', active: 'Actif', previous: 'Mémorisé' };
   const current = $derived(app.dtcs.find((d) => d.code === selected) ?? null);
 
   $effect(() => {
@@ -127,9 +127,16 @@
   async function clearCodes() {
     busy = 'clear';
     try {
-      await call('clear_dtcs');
-      confirmClear = false;
-      toast('Codes effacés. Le voyant s’éteint ; le code reviendra si la panne persiste.', 'ok');
+      if (isJ1939) {
+        const r = await call<{ acks: { source: string; ok: boolean }[] }>('clear_j1939');
+        confirmClear = false;
+        const ok = r.acks.filter((a) => a.ok).map((a) => a.source);
+        toast(ok.length ? `Effacement accepté par : ${ok.join(', ')}. Les défauts encore présents reviennent aussitôt.` : "Demande d'effacement envoyée (DM11). Aucun calculateur n'a confirmé : certains exigent l'outil du constructeur.", ok.length ? 'ok' : 'info');
+      } else {
+        await call('clear_dtcs');
+        confirmClear = false;
+        toast('Codes effacés. Le voyant s’éteint ; le code reviendra si la panne persiste.', 'ok');
+      }
       if (!app.connection?.simulated) addJournal({ kind: 'repair', title: 'Codes défaut effacés', codes: app.dtcs.map((d) => d.code) });
       await readCodes();
     } catch (e) {
@@ -183,7 +190,7 @@
   <div class="row spread">
     <div>
       <h1>Diagnostic <span class="grad-text">{isJ1939 || (!app.connection && j1939) ? 'J1939' : 'OBD-II'}</span></h1>
-      <p class="muted">Branchez l'adaptateur sur la prise OBD (sous le volant), mettez le contact, puis connectez-vous.</p>
+      <p class="muted">{isJ1939 || (!app.connection && j1939) ? "Branchez l'adaptateur sur la prise de diagnostic poids lourd (9 broches, souvent sous le tableau de bord ou dans la cabine), mettez le contact, puis connectez-vous." : "Branchez l'adaptateur sur la prise OBD (sous le volant), mettez le contact, puis connectez-vous."}</p>
     </div>
   </div>
 
@@ -311,11 +318,11 @@
         <button class="btn sm" onclick={() => (polling ? stopLive() : startLive())}><Icon name="gauge" size={15} /> {polling ? 'Arrêter le direct' : 'Données en direct'}</button>
         {/if}
         {#if confirmClear}
-          <span class="small">Effacer les codes et éteindre le voyant ?</span>
+          <span class="small">{isJ1939 ? 'Effacer les défauts (DM11) de tous les calculateurs, moteur arrêté, contact mis ?' : 'Effacer les codes et éteindre le voyant ?'}</span>
           <button class="btn danger sm" onclick={clearCodes}>Confirmer</button>
           <button class="btn ghost sm" onclick={() => (confirmClear = false)}>Annuler</button>
         {:else}
-          <button class="btn sm" onclick={() => (confirmClear = true)} disabled={!app.dtcs.length || isJ1939} title={isJ1939 ? "Sur poids lourd, l'effacement se fait avec l'outil du constructeur après réparation" : ''}><Icon name="trash" size={15} /> Effacer</button>
+          <button class="btn sm" onclick={() => (confirmClear = true)} disabled={!app.dtcs.length} title={isJ1939 ? "Effacement J1939 (DM11) après réparation : certains calculateurs exigent l'outil du constructeur" : ''}><Icon name="trash" size={15} /> Effacer</button>
         {/if}
         <div class="grow"></div>
         <button class="btn ghost sm" onclick={() => window.print()} title="Imprimer ou enregistrer en PDF"><Icon name="book" size={15} /> Rapport</button>

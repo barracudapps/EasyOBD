@@ -15,7 +15,12 @@ use crate::knowledge::{Cause, Diagnosis, KnowledgeBase, MatchKind, Severity, Sen
 const EMBEDDED: &str = include_str!("../../../data/j1939.fr.json");
 
 pub const PGN_DM1: u32 = 0xFECA;
+/// Previously active DTCs.
 pub const PGN_DM2: u32 = 0xFECB;
+/// Clear / reset of active DTCs (DM11) — a request for this PGN asks every ECU to clear.
+pub const PGN_DM11: u32 = 0xFED3;
+/// Acknowledgement (positive / negative) answered to a request such as DM11.
+pub const PGN_ACK: u32 = 0xE800;
 const PGN_TP_CM: u32 = 0xEC00;
 const PGN_TP_DT: u32 = 0xEB00;
 
@@ -164,9 +169,14 @@ pub struct DmReport {
 
 /// Collects every DM1 seen in raw monitor output, merged by source, without duplicates.
 pub fn read_dm1(raw: &str) -> DmReport {
+    read_dm(raw, PGN_DM1)
+}
+
+/// Same for any diagnostic message with the DM1 layout (DM1 active, DM2 previously active).
+pub fn read_dm(raw: &str, wanted: u32) -> DmReport {
     let mut r = DmReport::default();
     for (pgn, sa, payload) in assemble(&parse_frames(raw)) {
-        if pgn != PGN_DM1 {
+        if pgn != wanted {
             continue;
         }
         let (l, dtcs) = parse_dm(&payload, sa);
@@ -184,6 +194,16 @@ pub fn read_dm1(raw: &str) -> DmReport {
         }
     }
     r
+}
+
+/// Source addresses that acknowledged a request (PGN 0xE800), with `true` for a positive ACK.
+pub fn acks(raw: &str) -> Vec<(u8, bool)> {
+    assemble(&parse_frames(raw)).into_iter().filter(|(pgn, _, _)| *pgn == PGN_ACK).map(|(_, sa, p)| (sa, p.first() == Some(&0))).collect()
+}
+
+/// ELM327 request text for a PGN (default `ATJE` format: the adapter puts the bytes in J1939 order).
+pub fn request_text(pgn: u32) -> String {
+    format!("{pgn:06X}")
 }
 
 // ------------------------------------------------------------------------------------ knowledge
