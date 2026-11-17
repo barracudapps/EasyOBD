@@ -1,6 +1,9 @@
 <script lang="ts">
   import { app, go, type View } from '../lib/state.svelte';
   import Icon from '../components/Icon.svelte';
+  import Reminders from '../components/Reminders.svelte';
+  import { currentVehicle } from '../lib/state.svelte';
+  const vehicle = $derived(app.vehicleId ? currentVehicle() : null);
 
   let code = $state('');
   app.highlight = [];
@@ -38,6 +41,16 @@
       <button class="btn primary sm" type="submit">Expliquer</button>
     </form>
   </section>
+
+  {#if vehicle}
+    <div class="card col mycar">
+      <div class="row spread">
+        <div class="row"><Icon name="car" size={20} /><div><strong>{vehicle.name}</strong><div class="tiny muted">{vehicle.profile.make} {vehicle.profile.model} · {vehicle.profile.engine}{vehicle.mileage ? ` · ${vehicle.mileage.toLocaleString('fr-FR')} km` : ''}</div></div></div>
+        <button class="btn sm" onclick={() => go('garage')}>Mon garage</button>
+      </div>
+      <Reminders {vehicle} limit={3} compact />
+    </div>
+  {/if}
 
   <div class="grid-2">
     {#each actions as a}
@@ -84,6 +97,7 @@
   .t-amber { --tone: #f59e0b; --tone-bg: rgba(245, 158, 11, 0.13); }
   .t-green { --tone: #22c55e; --tone-bg: rgba(34, 197, 94, 0.13); }
   .t-blue { --tone: #60a5fa; --tone-bg: rgba(96, 165, 250, 0.13); }
+  .mycar { border-color: color-mix(in srgb, var(--accent) 35%, var(--border)); }
   .stats { justify-content: space-around; text-align: center; }
   .stats div { display: flex; flex-direction: column; }
   .stats strong { font-size: 1.4rem; }

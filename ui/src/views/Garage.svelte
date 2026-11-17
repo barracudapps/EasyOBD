@@ -4,6 +4,7 @@
     type GarageVehicle, type JournalKind,
   } from '../lib/state.svelte';
   import Icon from '../components/Icon.svelte';
+  import Reminders from '../components/Reminders.svelte';
 
   let confirmDelete = $state<string | null>(null);
   let filter = $state<JournalKind | ''>('');
@@ -124,6 +125,8 @@
           <label class="field">Surnom<input class="input" value={current.name} onchange={(e) => updateVehicle(current.id, { name: (e.target as HTMLInputElement).value })} /></label>
           <label class="field">Immatriculation<input class="input mono" value={current.plate ?? ''} placeholder="AB-123-CD" onchange={(e) => updateVehicle(current.id, { plate: (e.target as HTMLInputElement).value.toUpperCase() })} /></label>
           <label class="field">Kilométrage<input class="input" type="number" min="0" value={current.mileage ?? ''} onchange={(e) => updateVehicle(current.id, { mileage: Number((e.target as HTMLInputElement).value) || undefined })} /></label>
+          <label class="field">1re mise en circulation<input class="input" type="date" value={current.firstRegistration ?? ''} onchange={(e) => updateVehicle(current.id, { firstRegistration: (e.target as HTMLInputElement).value || undefined })} /></label>
+          <label class="field">Dernier contrôle technique<input class="input" type="date" value={current.lastInspection ?? ''} onchange={(e) => updateVehicle(current.id, { lastInspection: (e.target as HTMLInputElement).value || undefined })} /></label>
           <label class="field">VIN<input class="input mono" value={current.vin ?? ''} placeholder="Lu automatiquement via OBD" onchange={(e) => updateVehicle(current.id, { vin: (e.target as HTMLInputElement).value.toUpperCase() })} /></label>
         </div>
         <label class="field">Notes<textarea class="input" rows="2" value={current.notes ?? ''} placeholder="Particularités, pièces montées, références…" onchange={(e) => updateVehicle(current.id, { notes: (e.target as HTMLTextAreaElement).value })}></textarea></label>
@@ -135,6 +138,12 @@
       </div>
 
       <div class="card col">
+        <div class="row spread"><h2>Rappels</h2><button class="btn ghost sm" onclick={() => window.print()}><Icon name="book" size={15} /> Imprimer le carnet</button></div>
+        <Reminders vehicle={current} />
+        <p class="tiny faint">Intervalles typiques : le plan d'entretien du constructeur prime. Le kilométrage du véhicule doit être à jour.</p>
+      </div>
+
+      <div class="card col print-journal">
         <div class="row spread">
           <h2>Carnet du véhicule</h2>
           <div class="row">
@@ -188,6 +197,14 @@
 </div>
 
 <style>
+  @media print {
+    :global(.topbar), :global(.sidenav), :global(.stage), :global(.toast), .vehicles, .row :global(.btn), label.btn, select, .empty { display: none !important; }
+    :global(body) { background: #fff !important; color: #000 !important; }
+    :global(.card) { box-shadow: none !important; border: 1px solid #ccc !important; background: #fff !important; break-inside: avoid; }
+    :global(.main) { display: block !important; padding: 0 !important; }
+    :global(.muted), :global(.faint) { color: #444 !important; }
+    :global(input), :global(textarea) { border: none !important; background: none !important; color: #000 !important; }
+  }
   .empty { align-items: center; text-align: center; padding: 2rem; color: var(--muted); }
   .vehicles { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 0.6rem; }
   .vcard { position: relative; padding: 0; }

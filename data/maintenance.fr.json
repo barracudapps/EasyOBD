@@ -5996,7 +5996,9 @@
             "oil_filter"
           ]
         }
-      ]
+      ],
+      "interval_km": 20000,
+      "interval_months": 12
     },
     {
       "id": "air_filter",
@@ -6072,7 +6074,9 @@
             "air_filter"
           ]
         }
-      ]
+      ],
+      "interval_km": 30000,
+      "interval_months": 24
     },
     {
       "id": "cabin_filter",
@@ -6155,7 +6159,9 @@
             "cabin"
           ]
         }
-      ]
+      ],
+      "interval_km": 15000,
+      "interval_months": 12
     },
     {
       "id": "spark_plugs",
@@ -6276,7 +6282,9 @@
             "coil_4"
           ]
         }
-      ]
+      ],
+      "interval_km": 60000,
+      "interval_months": 60
     },
     {
       "id": "fuel_filter_diesel",
@@ -6354,7 +6362,9 @@
           ],
           "tip": "Le moteur peut tousser quelques secondes : c'est l'air qui s'évacue."
         }
-      ]
+      ],
+      "interval_km": 40000,
+      "interval_months": 36
     },
     {
       "id": "brake_pads_front",
@@ -6517,7 +6527,9 @@
             "brake_fr"
           ]
         }
-      ]
+      ],
+      "interval_km": 20000,
+      "interval_months": 12
     },
     {
       "id": "fluids_check",
@@ -6642,7 +6654,8 @@
             "headlights"
           ]
         }
-      ]
+      ],
+      "interval_months": 1
     },
     {
       "id": "battery_replace",
@@ -6736,7 +6749,8 @@
             "ecu"
           ]
         }
-      ]
+      ],
+      "interval_months": 60
     },
     {
       "id": "moto_oil_change",
@@ -6840,7 +6854,9 @@
             "engine"
           ]
         }
-      ]
+      ],
+      "interval_km": 10000,
+      "interval_months": 12
     },
     {
       "id": "chain_maintenance",
@@ -6957,7 +6973,9 @@
           ],
           "warning": "Un alignement différent à gauche et à droite use la chaîne et rend la moto instable."
         }
-      ]
+      ],
+      "interval_km": 1000,
+      "interval_months": 1
     },
     {
       "id": "truck_daily_check",
@@ -7168,7 +7186,9 @@
             "ecu"
           ]
         }
-      ]
+      ],
+      "interval_km": 100000,
+      "interval_months": 12
     },
     {
       "id": "ev_check",
@@ -7300,7 +7320,8 @@
             "washer_reservoir"
           ]
         }
-      ]
+      ],
+      "interval_months": 1
     },
     {
       "id": "ev_brakes",
@@ -7405,7 +7426,9 @@
             "brake_rr"
           ]
         }
-      ]
+      ],
+      "interval_km": 15000,
+      "interval_months": 12
     },
     {
       "id": "chassis_check",
@@ -7551,7 +7574,9 @@
             "brake_rr"
           ]
         }
-      ]
+      ],
+      "interval_km": 20000,
+      "interval_months": 12
     },
     {
       "id": "ev_moto_check",
@@ -7629,7 +7654,8 @@
             "wheel_rr"
           ]
         }
-      ]
+      ],
+      "interval_months": 1
     },
     {
       "id": "clutch_slave",

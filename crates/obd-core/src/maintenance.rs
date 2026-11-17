@@ -149,6 +149,11 @@ pub struct Tutorial {
     pub vehicle_types: Vec<String>,
     pub fuels: Vec<String>,
     pub interval: String,
+    /// Typical interval used for reminders (the manufacturer schedule prevails).
+    #[serde(default)]
+    pub interval_km: Option<u32>,
+    #[serde(default)]
+    pub interval_months: Option<u32>,
     pub difficulty: u8,
     pub time_min: u32,
     pub time_max: u32,
@@ -205,6 +210,8 @@ pub struct TutorialSummary {
     pub id: String,
     pub title: String,
     pub interval: String,
+    pub interval_km: Option<u32>,
+    pub interval_months: Option<u32>,
     pub difficulty: u8,
     pub time_min: u32,
     pub time_max: u32,
@@ -259,6 +266,8 @@ impl Maintenance {
                 id: t.id.clone(),
                 title: t.title.clone(),
                 interval: t.interval.clone(),
+                interval_km: t.interval_km,
+                interval_months: t.interval_months,
                 difficulty: t.difficulty,
                 time_min: t.time_min,
                 time_max: t.time_max,

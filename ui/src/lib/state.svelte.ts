@@ -11,6 +11,9 @@ export interface GarageVehicle {
   vin?: string;
   mileage?: number;
   notes?: string;
+  /** Date of first registration (ISO yyyy-mm-dd), for technical inspection reminders. */
+  firstRegistration?: string;
+  lastInspection?: string;
   created: number;
 }
 export type JournalKind = 'diagnostic' | 'maintenance' | 'repair' | 'inspection' | 'note';
