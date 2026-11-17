@@ -166,3 +166,17 @@ label.field { display: flex; flex-direction: column; gap: 0.3rem; font-size: 0.8
   body { font-size: 14.5px; }
   .card { padding: 0.9rem; border-radius: 14px; }
 }
+
+/* Print: reports and vehicle log (browser "Print" → "Save as PDF") */
+.print-only { display: none; }
+@media print {
+  .topbar, .sidenav, .stage, .toast, .no-print, .tabs, .btn { display: none !important; }
+  .print-only { display: block !important; }
+  body { background: #fff !important; color: #000 !important; }
+  .card { box-shadow: none !important; border: 1px solid #ccc !important; background: #fff !important; break-inside: avoid; backdrop-filter: none !important; }
+  .main { display: block !important; padding: 0 !important; }
+  .muted, .faint { color: #444 !important; }
+  .grad-text { color: #000 !important; -webkit-text-fill-color: #000; background: none; }
+  input, textarea, select { border: none !important; background: none !important; color: #000 !important; }
+  .pill { border-color: #999 !important; color: #000 !important; background: none !important; }
+}

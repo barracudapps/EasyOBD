@@ -203,6 +203,10 @@
       </div>
     </div>
   {:else}
+    <div class="print-only">
+      <h1>Rapport de diagnostic EasyOBD</h1>
+      <p>{new Date().toLocaleString('fr-FR')} · {app.profile ? `${app.profile.make} ${app.profile.model} ${app.profile.engine}` : ''}</p>
+    </div>
     <div class="card conn">
       <div class="grid-3">
         <div><div class="tiny faint">VÉHICULE</div><strong>{app.connection.vehicle.make ?? 'Marque inconnue'} {app.connection.vehicle.model_year ?? ''}</strong>
@@ -226,6 +230,7 @@
           <button class="btn sm" onclick={() => (confirmClear = true)} disabled={!app.dtcs.length}><Icon name="trash" size={15} /> Effacer</button>
         {/if}
         <div class="grow"></div>
+        <button class="btn ghost sm" onclick={() => window.print()} title="Imprimer ou enregistrer en PDF"><Icon name="book" size={15} /> Rapport</button>
         <button class="btn ghost sm" onclick={disconnect}>Déconnecter</button>
       </div>
     </div>
@@ -249,8 +254,22 @@
           {/each}
         </div>
         {#if current?.diagnosis}
-          <div class="card"><DiagnosisDetail d={current.diagnosis} /></div>
+          <div class="card no-print"><DiagnosisDetail d={current.diagnosis} /></div>
         {/if}
+        <div class="print-only">
+          {#each app.dtcs as item}
+            {#if item.diagnosis}
+              <div class="card" style="margin-bottom:0.6rem">
+                <h3>{item.code} · {item.diagnosis.title}</h3>
+                <p>{item.diagnosis.description}</p>
+                <p><strong>Puis-je rouler ?</strong> {item.diagnosis.drivable}</p>
+                <p><strong>Causes probables :</strong> {item.diagnosis.causes.map((c) => `${c.text} (${c.likelihood} %)`).join(' ; ')}</p>
+                <p><strong>Solutions :</strong> {item.diagnosis.solutions.map((s) => `${s.title} (${s.difficulty_label}, ${Math.round(s.cost.parts_min)}–${Math.round(s.cost.parts_max)} € de pièces)`).join(' ; ')}</p>
+              </div>
+            {/if}
+          {/each}
+          <p class="tiny">Rapport indicatif généré par EasyOBD : il ne remplace pas un diagnostic professionnel.</p>
+        </div>
       {/if}
     {:else}
       <div class="gauges">

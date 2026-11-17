@@ -84,7 +84,7 @@
       <button class="btn primary" onclick={newVehicle}>Ajouter un véhicule</button>
     </div>
   {:else}
-    <div class="vehicles">
+    <div class="vehicles no-print">
       {#each app.garage as v (v.id)}
         {@const last = lastEntry(v)}
         <div class="card flat vcard" class:selected={v.id === app.vehicleId}>
@@ -197,14 +197,6 @@
 </div>
 
 <style>
-  @media print {
-    :global(.topbar), :global(.sidenav), :global(.stage), :global(.toast), .vehicles, .row :global(.btn), label.btn, select, .empty { display: none !important; }
-    :global(body) { background: #fff !important; color: #000 !important; }
-    :global(.card) { box-shadow: none !important; border: 1px solid #ccc !important; background: #fff !important; break-inside: avoid; }
-    :global(.main) { display: block !important; padding: 0 !important; }
-    :global(.muted), :global(.faint) { color: #444 !important; }
-    :global(input), :global(textarea) { border: none !important; background: none !important; color: #000 !important; }
-  }
   .empty { align-items: center; text-align: center; padding: 2rem; color: var(--muted); }
   .vehicles { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 0.6rem; }
   .vcard { position: relative; padding: 0; }

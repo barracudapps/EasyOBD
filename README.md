@@ -19,6 +19,7 @@ des liens vers AutoDoc, Mister Auto et Oscaro, le temps nécessaire et le niveau
 
 | Module | Ce qu'il fait |
 |---|---|
+| **Base de codes** | Plus de 180 fiches (codes et familles de codes P, C, B et U) avec explication, vérifications par les sens, causes et solutions chiffrées. |
 | **Diagnostic OBD-II** | Codes confirmés, en attente et permanents (services 03/07/0A), effacement (04), VIN, protocole, voyant moteur, tension batterie, données en direct (régime, températures, débit d'air, corrections de richesse…). |
 | **Vue 3D** | Voiture, utilitaire, moto et poids lourd générés en 3D, avec le bon nombre de cylindres. Les pièces en cause sont mises en évidence avec la couleur de gravité. On peut toucher une pièce pour l'identifier ou l'isoler. |
 | **Fiche de code** | « Comprendre » (fonctionnement), **vérifications par les sens** (vue, ouïe, odorat, toucher, ressenti) pour écarter les fausses pistes, causes classées par probabilité, solutions avec difficulté 1 à 5, temps, outils, étapes, pièces avec fourchette de prix et liens boutiques, coût « soi-même » ou « garage ». |
@@ -39,7 +40,10 @@ des liens vers AutoDoc, Mister Auto et Oscaro, le temps nécessaire et le niveau
 | **Contrôle technique** | Liste de préparation filtrée selon le véhicule, emplacements du **VIN** par marque, pré-contrôle OBD (voyant, codes, autodiagnostics terminés). |
 | **Procédures spécifiques** | Étapes issues du manuel du propriétaire, insérées dans les tutoriels (ex. Tesla : mise hors tension, mode Cric, batterie basse tension) avec leur source. |
 | **Vidéos de réparation** | Recherche YouTube préremplie (intervention + véhicule), lecteur intégré (youtube-nocookie) pour une vidéo collée ou mise en favori, recherche dans l'app avec votre propre clé API. |
-| **Catalogue** | Plus de 200 profils de voitures, utilitaires, motos et poids lourds (Kia, Hyundai, Tesla, BMW, Mercedes, Renault, Peugeot, Triumph, Ducati, KTM, Scania…), avec filtres par marque et par énergie. |
+| **Catalogue** | Plus de 400 profils (79 marques) de voitures, utilitaires, motos et poids lourds, dont des véhicules électriques et des marques chinoises (Kia, Tesla, Zeekr, BYD, NIO, Volvo, Saab, Triumph, Aprilia, Scania…), avec filtres par marque et par énergie. |
+| **Mon garage** | Plusieurs véhicules, chacun avec son propre travail (photos, listes, contrôle technique), un **carnet** (diagnostics, entretiens, réparations, coûts), des **rappels** d'entretien et de contrôle technique, l'impression ou l'export PDF, et la sauvegarde ou restauration en JSON. Le véhicule est reconnu par son VIN au branchement. |
+| **Photos** | Photos de référence libres de droits (Wikimedia Commons, auteur crédité) et vos propres photos par étape ou par pièce, compressées et stockées sur l'appareil. |
+| **Rapport** | Rapport de diagnostic imprimable ou enregistrable en PDF. |
 
 ## Captures d'écran
 
