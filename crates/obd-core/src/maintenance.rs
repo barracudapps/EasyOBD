@@ -451,6 +451,17 @@ mod tests {
     }
 
     #[test]
+    fn tesla_power_off_step_does_not_point_at_the_battery() {
+        // The power-off step added to every Tesla tutorial is done on the touchscreen:
+        // it must not highlight the 12 V battery in tutorials that have nothing to do with it.
+        let m = Maintenance::embedded();
+        let p = VehicleProfile { vehicle_type: "car".into(), make: "Tesla".into(), model: "Model 3".into(), fuel: "electric".into(), ..Default::default() };
+        let t = m.tutorial_for("brake_pads_front", &p).unwrap();
+        assert!(t.steps[0].title.contains("hors tension"));
+        assert!(!t.steps[0].components.contains(&"battery".to_string()), "{:?}", t.steps[0].components);
+    }
+
+    #[test]
     fn make_specific_tutorials() {
         let m = Maintenance::embedded();
         let ids = |make: &str| -> Vec<String> {

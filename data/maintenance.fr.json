@@ -14512,7 +14512,7 @@
           "title": "Mettre la Tesla hors tension",
           "text": "Sur l'écran tactile : Commandes > Sécurité > Mettre hors tension. Attendez que l'écran s'éteigne. Le véhicule se réveille si vous appuyez sur la pédale de frein, ouvrez une porte ou approchez la clé (téléphone, carte) : intervenez sans entrer dans l'habitacle, la clé éloignée.",
           "components": [
-            "battery"
+            "cabin"
           ],
           "source": "Manuel du propriétaire Tesla"
         }
