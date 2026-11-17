@@ -4,10 +4,12 @@
   import type { Diagnosis } from '../lib/types';
   import Icon from './Icon.svelte';
   import SenseChecks from './SenseChecks.svelte';
+  import VideoPanel from './VideoPanel.svelte';
 
   let { d }: { d: Diagnosis } = $props();
   let tab = $state<'learn' | 'causes' | 'fix'>('learn');
   let openSolution = $state(0);
+  let videoFor = $state<number | null>(null);
 
   $effect(() => {
     void d.code;
@@ -129,6 +131,12 @@
                 {#if s.tools.length}
                   <div><h3>Outils</h3><div class="row" style="margin-top:0.4rem">{#each s.tools as t}<span class="pill">{t}</span>{/each}</div></div>
                 {/if}
+                <div>
+                  <button class="btn sm" onclick={() => (videoFor = videoFor === i ? null : i)}><Icon name="sim" size={14} /> Vidéos de réparation</button>
+                  {#if videoFor === i}
+                    <div style="margin-top:0.6rem"><VideoPanel query={`${s.title} ${app.profile ? `${app.profile.make} ${app.profile.model}` : d.code}`} topic={`${d.code}.${i}`} /></div>
+                  {/if}
+                </div>
                 {#if s.steps.length}
                   <div>
                     <h3>Étapes</h3>

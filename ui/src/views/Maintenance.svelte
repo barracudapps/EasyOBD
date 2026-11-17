@@ -6,12 +6,13 @@
   import SenseChecks from '../components/SenseChecks.svelte';
   import Alternatives from '../components/Alternatives.svelte';
   import VehicleSheet from '../components/VehicleSheet.svelte';
+  import VideoPanel from '../components/VideoPanel.svelte';
   import type { Alternative } from '../lib/types';
 
   let list = $state<TutorialSummary[]>([]);
   let tut = $state<Tutorial | null>(null);
   let shopping = $state<ShoppingList | null>(null);
-  let tab = $state<'why' | 'shop' | 'steps'>('steps');
+  let tab = $state<'why' | 'shop' | 'steps' | 'video'>('steps');
   let step = $state(0);
   let bought = $state<Record<string, boolean>>({});
   let alternatives = $state<Alternative[][]>([]);
@@ -124,6 +125,7 @@
       <button class:active={tab === 'steps'} onclick={() => { tab = 'steps'; showStep(); }}><Icon name="wrench" size={15} /> Étapes</button>
       <button class:active={tab === 'shop'} onclick={() => (tab = 'shop')}><Icon name="cart" size={15} /> Liste de courses</button>
       <button class:active={tab === 'why'} onclick={() => { tab = 'why'; app.highlight = tut!.components; }}><Icon name="school" size={15} /> Pourquoi ?</button>
+      <button class:active={tab === 'video'} onclick={() => (tab = 'video')}><Icon name="sim" size={15} /> Vidéos</button>
     </div>
 
     {#if tab === 'steps'}
@@ -184,6 +186,8 @@
         </div>
         <p class="tiny faint">Les recherches incluent la marque et le modèle. Vérifiez toujours la compatibilité avec votre immatriculation sur le site.</p>
       </div>
+    {:else if tab === 'video'}
+      <div class="card fade-in"><VideoPanel query={`${tut.title} ${app.profile.make} ${app.profile.model}`} topic={`${tut.id}.${app.profile.id}`} /></div>
     {:else}
       <div class="card col fade-in">
         <h3>Pourquoi cet entretien ?</h3>

@@ -389,6 +389,9 @@ function carLike(spec: VehicleSpec, big: boolean): THREE.Group {
   engine(b, ex, ey, spec.cylinders, spec.fuel);
   b.add('transmission', at(box(0.42, 0.34, 0.32, 0x52525b, 0.05), ex - 0.05, 0.6, Math.max(spec.cylinders * 0.055, 0.2) + 0.3));
   b.add('vehicle_speed_sensor', at(cyl(0.02, 0.02, 0.06, 0x10b981), ex - 0.25, 0.55, 0.5));
+  b.add('clutch_slave', at(tf(cyl(0.025, 0.025, 0.09, 0xa3e635), { rotation: [0, 0, Math.PI / 2] }), ex - 0.3, 0.62, Math.max(spec.cylinders * 0.055, 0.2) + 0.22));
+  b.add('clutch_master', at(cyl(0.022, 0.022, 0.08, 0xa3e635), ex - 0.62, ey + 0.2, W - 0.4));
+  b.add('clutch_master', tube([[ex - 0.62, ey + 0.16, W - 0.4], [ex - 0.45, 0.62, W - 0.55], [ex - 0.3, 0.62, Math.max(spec.cylinders * 0.055, 0.2) + 0.22]], 0.006, 0x111827));
   b.add('intake_manifold', at(box(0.14, 0.12, spec.cylinders * 0.11 + 0.05, 0x334155, 0.04), ex - 0.3, ey + 0.18, 0));
   b.add('map_sensor', at(box(0.04, 0.03, 0.04, 0x10b981, 0.01), ex - 0.33, ey + 0.27, 0.12));
   b.add('throttle_body', at(tf(cyl(0.05, 0.05, 0.08, 0x9ca3af), { rotation: [Math.PI / 2, 0, 0] }), ex - 0.3, ey + 0.2, spec.cylinders * 0.055 + 0.1));
@@ -490,6 +493,9 @@ function motorcycle(spec: VehicleSpec): THREE.Group {
   b.add('oil_filler_cap', at(cyl(0.025, 0.025, 0.03, PALETTE.yellow), -0.08, 0.62, 0.14));
   b.add('dipstick', at(box(0.04, 0.04, 0.01, 0xfde68a, 0.005), -0.05, 0.42, 0.14));
   b.add('transmission', at(box(0.2, 0.18, 0.22, 0x52525b, 0.03), -0.18, 0.45, 0));
+  b.add('clutch_slave', at(tf(cyl(0.022, 0.022, 0.07, 0xa3e635), { rotation: [0, 0, Math.PI / 2] }), -0.12, 0.47, 0.15));
+  b.add('clutch_master', at(box(0.06, 0.04, 0.05, 0x111827, 0.01), front - 0.22, 1.08, 0.3));
+  b.add('clutch_master', tube([[front - 0.22, 1.06, 0.3], [front - 0.3, 0.9, 0.2], [0.0, 0.6, 0.16], [-0.12, 0.47, 0.15]], 0.006, 0x111827));
   b.add('sprocket_front', at(tf(cyl(0.05, 0.05, 0.015, 0xa1a1aa, 16), { rotation: [Math.PI / 2, 0, 0] }), -0.2, 0.42, 0.13));
   b.add('sprocket_rear', at(tf(cyl(0.13, 0.13, 0.015, 0xa1a1aa, 32), { rotation: [Math.PI / 2, 0, 0] }), rear, wr, 0.13));
   const chainShape = new THREE.Shape();

@@ -95,9 +95,29 @@
     },
     "reducer_oil": {
       "name": "Huile de réducteur"
+    },
+    "clutch_slave": {
+      "name": "Cylindre récepteur d'embrayage"
+    },
+    "clutch_master": {
+      "name": "Maître-cylindre / émetteur d'embrayage"
     }
   },
   "profiles": [
+    {
+      "id": "audi-a3-8v-1-6-tdi-110",
+      "type": "car",
+      "make": "Audi",
+      "model": "A3 (8V)",
+      "engine": "1.6 TDI 110",
+      "years": [
+        2012,
+        2020
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "oil_spec": "5W30 VW 507.00"
+    },
     {
       "id": "audi-a3-8y-35-tfsi-1-5-150",
       "type": "car",
@@ -142,6 +162,20 @@
       "traction": "rear"
     },
     {
+      "id": "bmw-serie-1-f20-116d",
+      "type": "car",
+      "make": "BMW",
+      "model": "Série 1 (F20)",
+      "engine": "116d",
+      "years": [
+        2011,
+        2019
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "oil_spec": "5W30 BMW LL-04"
+    },
+    {
       "id": "bmw-serie-1-f40-118i-1-5-140",
       "type": "car",
       "make": "BMW",
@@ -155,6 +189,20 @@
       "cylinders": 3,
       "oil_capacity_l": 4.25,
       "oil_spec": "0W20 BMW LL-17FE+"
+    },
+    {
+      "id": "bmw-serie-3-f30-318d",
+      "type": "car",
+      "make": "BMW",
+      "model": "Série 3 (F30)",
+      "engine": "318d",
+      "years": [
+        2012,
+        2019
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "oil_spec": "5W30 BMW LL-04"
     },
     {
       "id": "bmw-serie-3-g20-320d-2-0-190",
@@ -252,6 +300,20 @@
       "traction": "front"
     },
     {
+      "id": "citroen-c3-ii-1-4-hdi-70",
+      "type": "car",
+      "make": "Citroën",
+      "model": "C3 II",
+      "engine": "1.4 HDi 70",
+      "years": [
+        2009,
+        2016
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "oil_spec": "5W30 PSA B71 2290"
+    },
+    {
       "id": "citroen-c3-puretech",
       "type": "car",
       "make": "Citroën",
@@ -280,6 +342,20 @@
       "fuel": "diesel",
       "cylinders": 4,
       "oil_capacity_l": 4.25,
+      "oil_spec": "0W30 PSA B71 2312"
+    },
+    {
+      "id": "citroen-c4-picasso-ii-1-6-bluehdi-120",
+      "type": "car",
+      "make": "Citroën",
+      "model": "C4 Picasso II",
+      "engine": "1.6 BlueHDi 120",
+      "years": [
+        2013,
+        2022
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
       "oil_spec": "0W30 PSA B71 2312"
     },
     {
@@ -324,6 +400,20 @@
       "oil_spec": "0W30 PSA B71 2312"
     },
     {
+      "id": "dacia-duster-i-1-5-dci-110",
+      "type": "car",
+      "make": "Dacia",
+      "model": "Duster I",
+      "engine": "1.5 dCi 110",
+      "years": [
+        2010,
+        2018
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "oil_spec": "5W30 RN0720"
+    },
+    {
       "id": "dacia-duster-ii-1-5-blue-dci-115",
       "type": "car",
       "make": "Dacia",
@@ -352,6 +442,20 @@
       "cylinders": 3,
       "oil_capacity_l": 4.2,
       "oil_spec": "5W30 RN17"
+    },
+    {
+      "id": "dacia-sandero-ii-1-5-dci-90",
+      "type": "car",
+      "make": "Dacia",
+      "model": "Sandero II",
+      "engine": "1.5 dCi 90",
+      "years": [
+        2012,
+        2020
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "oil_spec": "5W30 RN0720"
     },
     {
       "id": "dacia-sandero3-tce90",
@@ -424,6 +528,34 @@
       "oil_spec": "0W30"
     },
     {
+      "id": "fiat-tipo-1-6-multijet-120",
+      "type": "car",
+      "make": "Fiat",
+      "model": "Tipo",
+      "engine": "1.6 Multijet 120",
+      "years": [
+        2016,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "oil_spec": "0W30 ACEA C2"
+    },
+    {
+      "id": "ford-fiesta-vi-1-4-tdci-70",
+      "type": "car",
+      "make": "Ford",
+      "model": "Fiesta VI",
+      "engine": "1.4 TDCi 70",
+      "years": [
+        2008,
+        2017
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "oil_spec": "5W30 WSS-M2C913-C"
+    },
+    {
       "id": "ford-fiesta-ecoboost",
       "type": "car",
       "make": "Ford",
@@ -438,6 +570,20 @@
       "oil_capacity_l": 4.1,
       "oil_spec": "5W20 WSS-M2C948-B",
       "coolant_l": 4.5
+    },
+    {
+      "id": "ford-focus-iii-1-0-ecoboost-125",
+      "type": "car",
+      "make": "Ford",
+      "model": "Focus III",
+      "engine": "1.0 EcoBoost 125",
+      "years": [
+        2012,
+        2018
+      ],
+      "fuel": "petrol",
+      "cylinders": 3,
+      "oil_spec": "5W20 WSS-M2C948-B"
     },
     {
       "id": "ford-focus-iv-1-5-ecoblue-120",
@@ -536,6 +682,20 @@
       "traction": "front"
     },
     {
+      "id": "hyundai-tucson-iii-1-7-crdi-115",
+      "type": "car",
+      "make": "Hyundai",
+      "model": "Tucson III",
+      "engine": "1.7 CRDi 115",
+      "years": [
+        2015,
+        2020
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "oil_spec": "5W30 ACEA C3"
+    },
+    {
       "id": "hyundai-tucson-iv-1-6-t-gdi-hybride",
       "type": "car",
       "make": "Hyundai",
@@ -581,6 +741,20 @@
       "oil_spec": "0W20 ACEA C5"
     },
     {
+      "id": "hyundai-i30-ii-gd-1-6-crdi-110",
+      "type": "car",
+      "make": "Hyundai",
+      "model": "i30 II (GD)",
+      "engine": "1.6 CRDi 110",
+      "years": [
+        2012,
+        2017
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "oil_spec": "5W30 ACEA C3"
+    },
+    {
       "id": "hyundai-i30-iii-1-0-t-gdi-120",
       "type": "car",
       "make": "Hyundai",
@@ -594,6 +768,48 @@
       "cylinders": 3,
       "oil_capacity_l": 3.6,
       "oil_spec": "5W30 ACEA C2"
+    },
+    {
+      "id": "kia-ceed-ii-jd-1-0-t-gdi-120",
+      "type": "car",
+      "make": "Kia",
+      "model": "Ceed II (JD)",
+      "engine": "1.0 T-GDi 120",
+      "years": [
+        2015,
+        2018
+      ],
+      "fuel": "petrol",
+      "cylinders": 3,
+      "oil_spec": "5W30 ACEA C2"
+    },
+    {
+      "id": "kia-ceed-ii-jd-1-4-cvvt-100",
+      "type": "car",
+      "make": "Kia",
+      "model": "Ceed II (JD)",
+      "engine": "1.4 CVVT 100",
+      "years": [
+        2012,
+        2018
+      ],
+      "fuel": "petrol",
+      "cylinders": 4,
+      "oil_spec": "5W30 ACEA A5"
+    },
+    {
+      "id": "kia-ceed-ii-jd-1-6-crdi-110-136",
+      "type": "car",
+      "make": "Kia",
+      "model": "Ceed II (JD)",
+      "engine": "1.6 CRDi 110/136",
+      "years": [
+        2012,
+        2018
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "oil_spec": "5W30 ACEA C3"
     },
     {
       "id": "kia-ceed-iii-1-5-t-gdi-160",
@@ -680,6 +896,20 @@
       "cylinders": 3,
       "oil_capacity_l": 3.6,
       "oil_spec": "0W20 ACEA C5"
+    },
+    {
+      "id": "kia-sportage-iv-1-7-crdi-115",
+      "type": "car",
+      "make": "Kia",
+      "model": "Sportage IV",
+      "engine": "1.7 CRDi 115",
+      "years": [
+        2016,
+        2021
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "oil_spec": "5W30 ACEA C3"
     },
     {
       "id": "kia-sportage-v-1-6-t-gdi-hybride",
@@ -779,6 +1009,20 @@
       "traction": "front"
     },
     {
+      "id": "mercedes-benz-classe-a-w176-a-180-cdi",
+      "type": "car",
+      "make": "Mercedes-Benz",
+      "model": "Classe A (W176)",
+      "engine": "A 180 CDI",
+      "years": [
+        2012,
+        2018
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "oil_spec": "5W30 MB 229.51"
+    },
+    {
       "id": "mercedes-benz-classe-a-w177-a-180-d-1-5",
       "type": "car",
       "make": "Mercedes-Benz",
@@ -876,6 +1120,20 @@
       "traction": "front"
     },
     {
+      "id": "nissan-qashqai-ii-1-5-dci-110",
+      "type": "car",
+      "make": "Nissan",
+      "model": "Qashqai II",
+      "engine": "1.5 dCi 110",
+      "years": [
+        2014,
+        2021
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "oil_spec": "5W30 ACEA C3"
+    },
+    {
       "id": "nissan-qashqai-iii-1-3-dig-t-mild-hybrid-140",
       "type": "car",
       "make": "Nissan",
@@ -887,6 +1145,20 @@
       ],
       "fuel": "petrol",
       "cylinders": 4
+    },
+    {
+      "id": "opel-astra-j-1-7-cdti-110",
+      "type": "car",
+      "make": "Opel",
+      "model": "Astra J",
+      "engine": "1.7 CDTI 110",
+      "years": [
+        2009,
+        2015
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "oil_spec": "5W30 GM dexos2"
     },
     {
       "id": "opel-astra-l-1-2-turbo-130",
@@ -902,6 +1174,20 @@
       "cylinders": 3,
       "oil_capacity_l": 3.5,
       "oil_spec": "0W30 PSA B71 2312"
+    },
+    {
+      "id": "opel-corsa-d-1-3-cdti-75",
+      "type": "car",
+      "make": "Opel",
+      "model": "Corsa D",
+      "engine": "1.3 CDTI 75",
+      "years": [
+        2006,
+        2014
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "oil_spec": "5W30 GM dexos2"
     },
     {
       "id": "opel-corsa-f-1-2-turbo-100",
@@ -947,6 +1233,34 @@
       "oil_spec": "0W30 PSA B71 2312"
     },
     {
+      "id": "peugeot-206-1-4-hdi-70",
+      "type": "car",
+      "make": "Peugeot",
+      "model": "206",
+      "engine": "1.4 HDi 70",
+      "years": [
+        1998,
+        2012
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "oil_spec": "5W30 PSA B71 2290"
+    },
+    {
+      "id": "peugeot-207-1-6-hdi-90",
+      "type": "car",
+      "make": "Peugeot",
+      "model": "207",
+      "engine": "1.6 HDi 90",
+      "years": [
+        2006,
+        2014
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "oil_spec": "5W30 PSA B71 2290"
+    },
+    {
       "id": "peugeot-208-puretech",
       "type": "car",
       "make": "Peugeot",
@@ -976,6 +1290,20 @@
       "cylinders": 4,
       "oil_capacity_l": 4.25,
       "oil_spec": "0W30 PSA B71 2312"
+    },
+    {
+      "id": "peugeot-308-i-1-6-hdi-110",
+      "type": "car",
+      "make": "Peugeot",
+      "model": "308 I",
+      "engine": "1.6 HDi 110",
+      "years": [
+        2007,
+        2013
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "oil_spec": "5W30 PSA B71 2290"
     },
     {
       "id": "peugeot-308-bluehdi",
@@ -1063,6 +1391,20 @@
       "oil_spec": "5W30 RN17"
     },
     {
+      "id": "renault-clio-iii-1-5-dci-85",
+      "type": "car",
+      "make": "Renault",
+      "model": "Clio III",
+      "engine": "1.5 dCi 85",
+      "years": [
+        2005,
+        2014
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "oil_spec": "5W30 RN0720"
+    },
+    {
       "id": "renault-clio4-dci90",
       "type": "car",
       "make": "Renault",
@@ -1108,6 +1450,20 @@
       "traction": "front"
     },
     {
+      "id": "renault-megane-iii-1-5-dci-110",
+      "type": "car",
+      "make": "Renault",
+      "model": "Mégane III",
+      "engine": "1.5 dCi 110",
+      "years": [
+        2008,
+        2016
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "oil_spec": "5W30 RN0720"
+    },
+    {
       "id": "renault-megane-iv-1-5-blue-dci-115",
       "type": "car",
       "make": "Renault",
@@ -1134,6 +1490,20 @@
       ],
       "fuel": "electric",
       "traction": "front"
+    },
+    {
+      "id": "renault-scenic-iii-1-5-dci-110",
+      "type": "car",
+      "make": "Renault",
+      "model": "Scénic III",
+      "engine": "1.5 dCi 110",
+      "years": [
+        2009,
+        2016
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "oil_spec": "5W30 RN0720"
     },
     {
       "id": "renault-twingo-e-tech-22-kwh",
@@ -1192,6 +1562,20 @@
       "oil_spec": "0W20 VW 508.00"
     },
     {
+      "id": "seat-leon-iii-1-6-tdi-110",
+      "type": "car",
+      "make": "Seat",
+      "model": "Leon III",
+      "engine": "1.6 TDI 110",
+      "years": [
+        2013,
+        2020
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "oil_spec": "5W30 VW 507.00"
+    },
+    {
       "id": "seat-leon-iv-1-5-tsi-130",
       "type": "car",
       "make": "Seat",
@@ -1235,6 +1619,20 @@
       "oil_spec": "0W20 VW 508.00"
     },
     {
+      "id": "skoda-octavia-iii-1-6-tdi-110",
+      "type": "car",
+      "make": "Skoda",
+      "model": "Octavia III",
+      "engine": "1.6 TDI 110",
+      "years": [
+        2013,
+        2020
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "oil_spec": "5W30 VW 507.00"
+    },
+    {
       "id": "skoda-octavia-iv-2-0-tdi-116",
       "type": "car",
       "make": "Skoda",
@@ -1248,6 +1646,33 @@
       "cylinders": 4,
       "oil_capacity_l": 4.6,
       "oil_spec": "0W30 VW 507.00"
+    },
+    {
+      "id": "smart-fortwo-eq-17-6-kwh",
+      "type": "car",
+      "make": "Smart",
+      "model": "Fortwo EQ",
+      "engine": "17,6 kWh",
+      "years": [
+        2017,
+        2024
+      ],
+      "fuel": "electric",
+      "traction": "rear"
+    },
+    {
+      "id": "suzuki-ignis-iii-1-2-dualjet",
+      "type": "car",
+      "make": "Suzuki",
+      "model": "Ignis III",
+      "engine": "1.2 Dualjet",
+      "years": [
+        2016,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 4,
+      "oil_spec": "0W20"
     },
     {
       "id": "suzuki-swift-vi-1-2-dualjet-hybrid",
@@ -1331,6 +1756,20 @@
       "traction": "rear"
     },
     {
+      "id": "toyota-auris-ii-1-8-hybride-136",
+      "type": "car",
+      "make": "Toyota",
+      "model": "Auris II",
+      "engine": "1.8 Hybride 136",
+      "years": [
+        2012,
+        2019
+      ],
+      "fuel": "hybrid",
+      "cylinders": 4,
+      "oil_spec": "0W20"
+    },
+    {
       "id": "toyota-c-hr-1-8-hybride-122",
       "type": "car",
       "make": "Toyota",
@@ -1359,6 +1798,20 @@
       "cylinders": 4,
       "oil_capacity_l": 4.2,
       "oil_spec": "0W16 / 0W20"
+    },
+    {
+      "id": "toyota-prius-iii-1-8-hybride-136",
+      "type": "car",
+      "make": "Toyota",
+      "model": "Prius III",
+      "engine": "1.8 Hybride 136",
+      "years": [
+        2009,
+        2015
+      ],
+      "fuel": "hybrid",
+      "cylinders": 4,
+      "oil_spec": "0W20"
     },
     {
       "id": "toyota-rav4-v-2-5-hybride-218",
@@ -1418,6 +1871,20 @@
       ],
       "fuel": "electric",
       "traction": "front"
+    },
+    {
+      "id": "volkswagen-golf-vi-1-6-tdi-105",
+      "type": "car",
+      "make": "Volkswagen",
+      "model": "Golf VI",
+      "engine": "1.6 TDI 105",
+      "years": [
+        2008,
+        2013
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "oil_spec": "5W30 VW 507.00"
     },
     {
       "id": "vw-golf7-tsi",
@@ -1508,6 +1975,20 @@
       "traction": "rear"
     },
     {
+      "id": "volkswagen-polo-v-1-2-tsi-90",
+      "type": "car",
+      "make": "Volkswagen",
+      "model": "Polo V",
+      "engine": "1.2 TSI 90",
+      "years": [
+        2009,
+        2017
+      ],
+      "fuel": "petrol",
+      "cylinders": 4,
+      "oil_spec": "5W30 VW 504.00"
+    },
+    {
       "id": "volkswagen-polo-vi-1-0-tsi-95",
       "type": "car",
       "make": "Volkswagen",
@@ -1565,6 +2046,20 @@
       "oil_spec": "0W20 VCC RBS0-2AE"
     },
     {
+      "id": "bmw-c-400-x-350-cm3-monocylindre",
+      "type": "motorcycle",
+      "make": "BMW",
+      "model": "C 400 X",
+      "engine": "350 cm³ monocylindre",
+      "years": [
+        2018,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 1,
+      "oil_spec": "5W40 JASO MB"
+    },
+    {
       "id": "bmw-f-900-r-895-cm3-bicylindre",
       "type": "motorcycle",
       "make": "BMW",
@@ -1573,6 +2068,20 @@
       "years": [
         2020,
         2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 2,
+      "oil_spec": "5W40 JASO MA2"
+    },
+    {
+      "id": "bmw-r-1200-gs-lc-1170-cm3-boxer",
+      "type": "motorcycle",
+      "make": "BMW",
+      "model": "R 1200 GS (LC)",
+      "engine": "1170 cm³ boxer",
+      "years": [
+        2013,
+        2018
       ],
       "fuel": "petrol",
       "cylinders": 2,
@@ -1594,6 +2103,34 @@
       "oil_spec": "5W40 JASO MA2"
     },
     {
+      "id": "bmw-r-1300-gs-1300-cm3-boxer",
+      "type": "motorcycle",
+      "make": "BMW",
+      "model": "R 1300 GS",
+      "engine": "1300 cm³ boxer",
+      "years": [
+        2023,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 2,
+      "oil_spec": "5W40 JASO MA2"
+    },
+    {
+      "id": "bmw-s-1000-rr-999-cm3-4-cylindres",
+      "type": "motorcycle",
+      "make": "BMW",
+      "model": "S 1000 RR",
+      "engine": "999 cm³ 4 cylindres",
+      "years": [
+        2019,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 4,
+      "oil_spec": "5W40 JASO MA2"
+    },
+    {
       "id": "ducati-monster-937-937-cm3-bicylindre",
       "type": "motorcycle",
       "make": "Ducati",
@@ -1601,6 +2138,34 @@
       "engine": "937 cm³ bicylindre",
       "years": [
         2021,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 2,
+      "oil_spec": "15W50 JASO MA2"
+    },
+    {
+      "id": "ducati-multistrada-v4-1158-cm3-v4",
+      "type": "motorcycle",
+      "make": "Ducati",
+      "model": "Multistrada V4",
+      "engine": "1158 cm³ V4",
+      "years": [
+        2021,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 4,
+      "oil_spec": "15W50 JASO MA2"
+    },
+    {
+      "id": "ducati-scrambler-800-803-cm3-bicylindre",
+      "type": "motorcycle",
+      "make": "Ducati",
+      "model": "Scrambler 800",
+      "engine": "803 cm³ bicylindre",
+      "years": [
+        2015,
         2026
       ],
       "fuel": "petrol",
@@ -1679,6 +2244,34 @@
       "oil_spec": "10W30 JASO MA"
     },
     {
+      "id": "honda-forza-125-125-cm3-monocylindre",
+      "type": "motorcycle",
+      "make": "Honda",
+      "model": "Forza 125",
+      "engine": "125 cm³ monocylindre",
+      "years": [
+        2015,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 1,
+      "oil_spec": "10W30 JASO MB"
+    },
+    {
+      "id": "honda-nc750x-745-cm3-bicylindre",
+      "type": "motorcycle",
+      "make": "Honda",
+      "model": "NC750X",
+      "engine": "745 cm³ bicylindre",
+      "years": [
+        2014,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 2,
+      "oil_spec": "10W30 JASO MA"
+    },
+    {
       "id": "honda-pcx125",
       "type": "motorcycle",
       "make": "Honda",
@@ -1692,6 +2285,20 @@
       "cylinders": 1,
       "oil_capacity_l": 0.8,
       "oil_spec": "10W30 JASO MB"
+    },
+    {
+      "id": "ktm-1290-super-adventure-1301-cm3-bicylindre",
+      "type": "motorcycle",
+      "make": "KTM",
+      "model": "1290 Super Adventure",
+      "engine": "1301 cm³ bicylindre",
+      "years": [
+        2021,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 2,
+      "oil_spec": "10W50 JASO MA2"
     },
     {
       "id": "ktm-390-duke-373-cm3-monocylindre",
@@ -1708,6 +2315,20 @@
       "oil_spec": "10W50 JASO MA2"
     },
     {
+      "id": "ktm-790-adventure-799-cm3-bicylindre",
+      "type": "motorcycle",
+      "make": "KTM",
+      "model": "790 Adventure",
+      "engine": "799 cm³ bicylindre",
+      "years": [
+        2019,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 2,
+      "oil_spec": "10W50 JASO MA2"
+    },
+    {
       "id": "ktm-890-duke-889-cm3-bicylindre",
       "type": "motorcycle",
       "make": "KTM",
@@ -1720,6 +2341,20 @@
       "fuel": "petrol",
       "cylinders": 2,
       "oil_spec": "10W50 JASO MA2"
+    },
+    {
+      "id": "kawasaki-versys-650-649-cm3-bicylindre",
+      "type": "motorcycle",
+      "make": "Kawasaki",
+      "model": "Versys 650",
+      "engine": "649 cm³ bicylindre",
+      "years": [
+        2015,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 2,
+      "oil_spec": "10W40 JASO MA"
     },
     {
       "id": "kawasaki-z650",
@@ -1752,6 +2387,20 @@
       "oil_spec": "10W40 JASO MA"
     },
     {
+      "id": "moto-guzzi-v85-tt-853-cm3-v-twin",
+      "type": "motorcycle",
+      "make": "Moto Guzzi",
+      "model": "V85 TT",
+      "engine": "853 cm³ V-twin",
+      "years": [
+        2019,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 2,
+      "oil_spec": "10W60 JASO MA2"
+    },
+    {
       "id": "piaggio-vespa-gts-300-278-cm3-monocylindre",
       "type": "motorcycle",
       "make": "Piaggio",
@@ -1764,6 +2413,20 @@
       "fuel": "petrol",
       "cylinders": 1,
       "oil_spec": "5W40 JASO MB"
+    },
+    {
+      "id": "royal-enfield-himalayan-450-452-cm3-monocylindre",
+      "type": "motorcycle",
+      "make": "Royal Enfield",
+      "model": "Himalayan 450",
+      "engine": "452 cm³ monocylindre",
+      "years": [
+        2024,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 1,
+      "oil_spec": "10W50 JASO MA2"
     },
     {
       "id": "super-soco-cpx-2-batteries-60-v",
@@ -1793,6 +2456,34 @@
       "oil_spec": "10W40 JASO MA"
     },
     {
+      "id": "suzuki-v-strom-650-645-cm3-bicylindre",
+      "type": "motorcycle",
+      "make": "Suzuki",
+      "model": "V-Strom 650",
+      "engine": "645 cm³ bicylindre",
+      "years": [
+        2017,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 2,
+      "oil_spec": "10W40 JASO MA"
+    },
+    {
+      "id": "triumph-bonneville-t120-1200-cm3-bicylindre",
+      "type": "motorcycle",
+      "make": "Triumph",
+      "model": "Bonneville T120",
+      "engine": "1200 cm³ bicylindre",
+      "years": [
+        2016,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 2,
+      "oil_spec": "10W40 JASO MA"
+    },
+    {
       "id": "triumph-street-triple-765-765-cm3-tricylindre",
       "type": "motorcycle",
       "make": "Triumph",
@@ -1801,6 +2492,48 @@
       "years": [
         2017,
         2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 3,
+      "oil_spec": "10W40 JASO MA"
+    },
+    {
+      "id": "triumph-tiger-1200-2022-1160-cm3-tricylindre",
+      "type": "motorcycle",
+      "make": "Triumph",
+      "model": "Tiger 1200 (2022)",
+      "engine": "1160 cm³ tricylindre",
+      "years": [
+        2022,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 3,
+      "oil_spec": "10W40 JASO MA"
+    },
+    {
+      "id": "triumph-tiger-900-888-cm3-tricylindre",
+      "type": "motorcycle",
+      "make": "Triumph",
+      "model": "Tiger 900",
+      "engine": "888 cm³ tricylindre",
+      "years": [
+        2020,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 3,
+      "oil_spec": "10W40 JASO MA"
+    },
+    {
+      "id": "triumph-tiger-explorer-1200-1215-cm3-tricylindre",
+      "type": "motorcycle",
+      "make": "Triumph",
+      "model": "Tiger Explorer 1200",
+      "engine": "1215 cm³ tricylindre",
+      "years": [
+        2012,
+        2021
       ],
       "fuel": "petrol",
       "cylinders": 3,
@@ -1837,6 +2570,20 @@
       "chain": "525 – 108 maillons"
     },
     {
+      "id": "yamaha-mt-09-889-cm3-tricylindre",
+      "type": "motorcycle",
+      "make": "Yamaha",
+      "model": "MT-09",
+      "engine": "889 cm³ tricylindre",
+      "years": [
+        2021,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 3,
+      "oil_spec": "10W40 JASO MA"
+    },
+    {
       "id": "yamaha-tmax-560-562-cm3-bicylindre",
       "type": "motorcycle",
       "make": "Yamaha",
@@ -1862,6 +2609,20 @@
       ],
       "fuel": "petrol",
       "cylinders": 3,
+      "oil_spec": "10W40 JASO MA"
+    },
+    {
+      "id": "yamaha-tenere-700-689-cm3-bicylindre",
+      "type": "motorcycle",
+      "make": "Yamaha",
+      "model": "Ténéré 700",
+      "engine": "689 cm³ bicylindre",
+      "years": [
+        2019,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 2,
       "oil_spec": "10W40 JASO MA"
     },
     {
@@ -2037,6 +2798,20 @@
       "coolant_l": 6.5
     },
     {
+      "id": "citroen-jumpy-ii-2-0-hdi-120",
+      "type": "van",
+      "make": "Citroën",
+      "model": "Jumpy II",
+      "engine": "2.0 HDi 120",
+      "years": [
+        2007,
+        2016
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "oil_spec": "5W30 PSA B71 2290"
+    },
+    {
       "id": "fiat-ducato-2-2-multijet-140",
       "type": "van",
       "make": "Fiat",
@@ -2076,6 +2851,20 @@
       "fuel": "diesel",
       "cylinders": 4,
       "oil_spec": "0W30 WSS-M2C950-A"
+    },
+    {
+      "id": "iveco-daily-2-3-hpi-136",
+      "type": "van",
+      "make": "Iveco",
+      "model": "Daily",
+      "engine": "2.3 HPI 136",
+      "years": [
+        2014,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "oil_spec": "5W30 ACEA C3"
     },
     {
       "id": "mercedes-benz-sprinter-907-314-cdi-2-1",
@@ -2143,6 +2932,34 @@
       ],
       "fuel": "electric",
       "traction": "front"
+    },
+    {
+      "id": "renault-kangoo-ii-1-5-dci-90",
+      "type": "van",
+      "make": "Renault",
+      "model": "Kangoo II",
+      "engine": "1.5 dCi 90",
+      "years": [
+        2008,
+        2021
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "oil_spec": "5W30 RN0720"
+    },
+    {
+      "id": "renault-master-ii-2-5-dci-120",
+      "type": "van",
+      "make": "Renault",
+      "model": "Master II",
+      "engine": "2.5 dCi 120",
+      "years": [
+        2003,
+        2010
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "oil_spec": "5W30 RN0720"
     },
     {
       "id": "renault-master3-dci",
@@ -3994,6 +4811,151 @@
           ]
         }
       ]
+    },
+    {
+      "id": "clutch_slave",
+      "title": "Remplacement du cylindre récepteur d'embrayage (commande hydraulique)",
+      "vehicle_types": [
+        "motorcycle",
+        "car",
+        "van"
+      ],
+      "fuels": [
+        "petrol",
+        "diesel",
+        "hybrid"
+      ],
+      "interval": "Selon l'état : en cas de fuite, d'embrayage spongieux ou qui ne débraye plus franchement.",
+      "difficulty": 3,
+      "time_min": 45,
+      "time_max": 120,
+      "why": "Une commande d'embrayage hydraulique fonctionne comme un frein : le maître-cylindre (au levier ou à la pédale) pousse du liquide vers le cylindre récepteur, qui actionne l'embrayage. Un joint usé laisse fuir le liquide ou entrer de l'air : l'embrayage devient spongieux, puis ne débraye plus.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "Traces de liquide (huileux, odeur sucrée-chimique) autour du récepteur, sur le carter ou le pignon de sortie (moto).",
+          "means": "Fuite du récepteur : remplacement du kit de joints ou du récepteur complet."
+        },
+        {
+          "sense": "feel",
+          "tip": "Levier ou pédale spongieux, point de débrayage qui se déplace, vitesses qui craquent à l'arrêt.",
+          "means": "Air dans le circuit ou joint fatigué."
+        },
+        {
+          "sense": "sight",
+          "tip": "Niveau du bocal d'embrayage qui baisse, ou liquide foncé (brun).",
+          "means": "Fuite, ou liquide à remplacer (tous les 2 ans comme le liquide de frein)."
+        },
+        {
+          "sense": "touch",
+          "tip": "Levier (moto) ou pédale qui reste en bas ou remonte lentement.",
+          "means": "Récepteur ou émetteur grippé."
+        }
+      ],
+      "components": [
+        "clutch_slave",
+        "clutch_master",
+        "transmission"
+      ],
+      "tools": [
+        "Clés et douilles",
+        "Kit de purge (seringue + tuyau) ou purgeur",
+        "Chiffons",
+        "Nettoyant frein",
+        "Bac"
+      ],
+      "safety": [
+        "Le liquide (DOT 4 le plus souvent) attaque la peinture et les plastiques : protégez et rincez à l'eau.",
+        "Voiture : sur de nombreux modèles le récepteur est concentrique (dans la cloche d'embrayage) et impose la dépose de la boîte : intervention d'atelier."
+      ],
+      "shopping": [
+        {
+          "name": "Cylindre récepteur d'embrayage",
+          "query": "cylindre récepteur embrayage",
+          "qty": 1,
+          "unit": "pièce",
+          "price_min": 30,
+          "price_max": 160
+        },
+        {
+          "name": "Kit de réparation (joints) du récepteur",
+          "query": "kit réparation récepteur embrayage",
+          "qty": 1,
+          "unit": "kit",
+          "price_min": 10,
+          "price_max": 40,
+          "optional": true
+        },
+        {
+          "name": "Liquide de frein DOT 4",
+          "query": "liquide de frein DOT 4",
+          "qty": 1,
+          "unit": "flacon 0,5 L",
+          "price_min": 5,
+          "price_max": 15
+        },
+        {
+          "name": "Nettoyant frein",
+          "query": "nettoyant frein",
+          "qty": 1,
+          "unit": "bombe",
+          "price_min": 4,
+          "price_max": 10
+        }
+      ],
+      "steps": [
+        {
+          "title": "Confirmer la fuite",
+          "text": "Nettoyez la zone, faites quelques débrayages, puis observez où réapparaît le liquide.",
+          "components": [
+            "clutch_slave",
+            "clutch_master"
+          ],
+          "tip": "Un liquide présent sur le pignon de sortie d'une moto vient très souvent du récepteur, situé juste derrière."
+        },
+        {
+          "title": "Accéder au récepteur",
+          "text": "Moto : déposez le cache du pignon de sortie (côté gauche le plus souvent). Voiture : accès par le dessous, côté boîte de vitesses.",
+          "components": [
+            "clutch_slave",
+            "sprocket_front",
+            "transmission"
+          ]
+        },
+        {
+          "title": "Vider et débrancher",
+          "text": "Videz le bocal à la seringue, placez un chiffon, débranchez la durite (vis banjo avec deux joints cuivre neufs au remontage).",
+          "components": [
+            "clutch_master",
+            "clutch_slave"
+          ],
+          "warning": "Protégez la peinture : le liquide l'attaque."
+        },
+        {
+          "title": "Remplacer",
+          "text": "Déposez le récepteur (2 ou 3 vis), nettoyez le logement, montez le récepteur neuf ou remplacez ses joints (piston propre, sans rayure). La tige de poussée doit être correctement engagée.",
+          "components": [
+            "clutch_slave"
+          ]
+        },
+        {
+          "title": "Purger le circuit",
+          "text": "Remplissez le bocal, ouvrez la vis de purge et pompez (ou poussez le liquide par le bas à la seringue) jusqu'à ce qu'il sorte sans bulle. Refermez au couple (souvent 6 à 8 N·m sur une vis de purge).",
+          "components": [
+            "clutch_slave",
+            "clutch_master"
+          ],
+          "tip": "La purge par le bas (seringue sur la vis de purge) chasse les bulles bien plus vite sur une moto."
+        },
+        {
+          "title": "Contrôler",
+          "text": "Niveau du bocal au repère, levier ferme, débrayage franc moteur tournant à l'arrêt (passage de la 1re sans craquement), aucune fuite.",
+          "components": [
+            "clutch_master",
+            "clutch_slave"
+          ]
+        }
+      ]
     }
   ],
   "procedures": [
@@ -4135,6 +5097,20 @@
       ],
       "notes": [
         "Véhicule électrique : la batterie 12 V maintient les calculateurs éveillés. Une coupure peut nécessiter de réinitialiser quelques réglages (vitres, alarme)."
+      ]
+    },
+    {
+      "match": {
+        "make": "Triumph",
+        "model_contains": [
+          "Tiger Explorer"
+        ]
+      },
+      "tutorials": [
+        "clutch_slave"
+      ],
+      "notes": [
+        "Tiger Explorer 1200 : défaillance connue du cylindre récepteur d'embrayage (retour d'expérience d'utilisateurs, dont l'auteur d'EasyOBD). Une fuite se repère souvent par du liquide sur le pignon de sortie, derrière le cache côté gauche."
       ]
     }
   ]

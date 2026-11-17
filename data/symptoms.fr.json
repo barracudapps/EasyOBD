@@ -81,7 +81,8 @@
             "short_trips": -30,
             "brake_corrosion": 2,
             "ev_12v": 1,
-            "battery_weak": -30
+            "battery_weak": -30,
+            "clutch_hydraulic": -30
           }
         },
         {
@@ -570,6 +571,13 @@
             "ev_12v": 8,
             "battery_weak": 4
           }
+        },
+        {
+          "id": "clutch_spongy",
+          "label": "Embrayage spongieux, vitesses qui craquent, point de débrayage qui change",
+          "weights": {
+            "clutch_hydraulic": 8
+          }
         }
       ]
     },
@@ -705,6 +713,13 @@
           "label": "Bouchon de réservoir mal fermé / joint abîmé",
           "weights": {
             "evap_cap": 9
+          }
+        },
+        {
+          "id": "clutch_leak",
+          "label": "Liquide près de la boîte ou sur le pignon de sortie (moto)",
+          "weights": {
+            "clutch_hydraulic": 7
           }
         },
         {
@@ -1568,6 +1583,23 @@
         "Jantes : chocs de trottoir ?"
       ],
       "severity": "low"
+    },
+    {
+      "id": "clutch_hydraulic",
+      "title": "Commande d'embrayage hydraulique (récepteur / émetteur)",
+      "explanation": "Un joint de cylindre récepteur ou émetteur usé laisse fuir le liquide ou entrer de l'air : l'embrayage devient spongieux puis ne débraye plus.",
+      "codes": [],
+      "components": [
+        "clutch_slave",
+        "clutch_master"
+      ],
+      "next_checks": [
+        "Niveau du bocal d'embrayage",
+        "Traces de liquide autour du récepteur",
+        "Purger le circuit : si le défaut revient vite, remplacer le récepteur"
+      ],
+      "severity": "medium",
+      "tutorial": "clutch_slave"
     }
   ]
 }
