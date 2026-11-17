@@ -7,18 +7,41 @@
       "level": 1,
       "profile": "toyota-yaris3-hybrid",
       "story": "Une cliente : « Le voyant moteur s'est allumé deux jours après mon plein. La voiture roule parfaitement. »",
-      "codes": [{ "code": "P0455", "kind": "stored" }],
+      "codes": [
+        {
+          "code": "P0455",
+          "kind": "stored"
+        }
+      ],
       "live": {},
       "clues": [
-        { "sense": "sight", "text": "Le bouchon de réservoir tourne sans « clic » final, il était juste posé." },
-        { "sense": "smell", "text": "Légère odeur d'essence près de la trappe à carburant." }
+        {
+          "sense": "sight",
+          "text": "Le bouchon de réservoir tourne sans « clic » final, il était juste posé."
+        },
+        {
+          "sense": "smell",
+          "text": "Légère odeur d'essence près de la trappe à carburant."
+        }
       ],
       "question": {
         "text": "Quelle est la première action, la plus logique et la moins chère ?",
         "options": [
-          { "text": "Remplacer le canister", "correct": false, "feedback": "Pièce coûteuse (50–220 €) alors que la cause la plus fréquente est gratuite à vérifier." },
-          { "text": "Revisser correctement le bouchon (ou le remplacer), effacer le code et rouler quelques jours", "correct": true, "feedback": "Exact : la moitié des P0455 viennent du bouchon. Le code ne revient pas si l'étanchéité est rétablie." },
-          { "text": "Remplacer l'électrovanne de purge", "correct": false, "feedback": "Possible, mais seulement si le bouchon est hors de cause." }
+          {
+            "text": "Remplacer le canister",
+            "correct": false,
+            "feedback": "Pièce coûteuse (50–220 €) alors que la cause la plus fréquente est gratuite à vérifier."
+          },
+          {
+            "text": "Revisser correctement le bouchon (ou le remplacer), effacer le code et rouler quelques jours",
+            "correct": true,
+            "feedback": "Exact : la moitié des P0455 viennent du bouchon. Le code ne revient pas si l'étanchéité est rétablie."
+          },
+          {
+            "text": "Remplacer l'électrovanne de purge",
+            "correct": false,
+            "feedback": "Possible, mais seulement si le bouchon est hors de cause."
+          }
         ]
       },
       "debrief": "Règle d'or : toujours commencer par la vérification la plus simple et la moins chère. Un code EVAP sans symptôme de conduite pointe très souvent vers le bouchon."
@@ -29,19 +52,47 @@
       "level": 1,
       "profile": "renault-clio5-tce90",
       "story": "Un client : « Depuis une semaine, la voiture tremble au feu rouge, surtout les jours de pluie. Le voyant moteur a clignoté une fois. »",
-      "codes": [{ "code": "P0302", "kind": "stored" }],
-      "live": { "coolant": 89 },
+      "codes": [
+        {
+          "code": "P0302",
+          "kind": "stored"
+        }
+      ],
+      "live": {
+        "coolant": 89
+      },
       "clues": [
-        { "sense": "sight", "text": "La bobine n° 2 présente une fine trace blanche le long de son corps." },
-        { "sense": "feel", "text": "Le tremblement disparaît au-delà de 2 500 tr/min." },
-        { "sense": "sight", "text": "Les bougies ont 40 000 km et une couleur brun clair homogène." }
+        {
+          "sense": "sight",
+          "text": "La bobine n° 2 présente une fine trace blanche le long de son corps."
+        },
+        {
+          "sense": "feel",
+          "text": "Le tremblement disparaît au-delà de 2 500 tr/min."
+        },
+        {
+          "sense": "sight",
+          "text": "Les bougies ont 40 000 km et une couleur brun clair homogène."
+        }
       ],
       "question": {
         "text": "Comment confirmer la pièce fautive avant d'acheter ?",
         "options": [
-          { "text": "Remplacer l'injecteur n° 2", "correct": false, "feedback": "Le défaut est sensible à l'humidité : l'allumage est bien plus probable que l'injection." },
-          { "text": "Intervertir les bobines 2 et 3, effacer le code et rouler : si le code devient P0303, la bobine est en cause", "correct": true, "feedback": "Parfait : le test d'inversion confirme la pièce sans rien acheter. Ici, le défaut suit la bobine." },
-          { "text": "Remplacer les 3 bobines par précaution", "correct": false, "feedback": "Coûteux et inutile : une seule bobine est fautive." }
+          {
+            "text": "Remplacer l'injecteur n° 2",
+            "correct": false,
+            "feedback": "Le défaut est sensible à l'humidité : l'allumage est bien plus probable que l'injection."
+          },
+          {
+            "text": "Intervertir les bobines 2 et 3, effacer le code et rouler : si le code devient P0303, la bobine est en cause",
+            "correct": true,
+            "feedback": "Parfait : le test d'inversion confirme la pièce sans rien acheter. Ici, le défaut suit la bobine."
+          },
+          {
+            "text": "Remplacer les 3 bobines par précaution",
+            "correct": false,
+            "feedback": "Coûteux et inutile : une seule bobine est fautive."
+          }
         ]
       },
       "debrief": "Un raté sur un seul cylindre qui empire à l'humidité désigne l'allumage. L'inversion de pièces identiques est une méthode de diagnostic universelle et gratuite."
@@ -52,18 +103,43 @@
       "level": 1,
       "profile": "dacia-sandero3-tce90",
       "story": "Une cliente : « En hiver, mon chauffage reste tiède et l'aiguille de température est très basse sur autoroute. »",
-      "codes": [{ "code": "P0128", "kind": "stored" }],
-      "live": { "coolant": 68 },
+      "codes": [
+        {
+          "code": "P0128",
+          "kind": "stored"
+        }
+      ],
+      "live": {
+        "coolant": 68
+      },
       "clues": [
-        { "sense": "touch", "text": "5 minutes après un démarrage à froid, la durite supérieure du radiateur est déjà chaude." },
-        { "sense": "sight", "text": "En données en direct, la température plafonne à 68 °C après 20 minutes de route." }
+        {
+          "sense": "touch",
+          "text": "5 minutes après un démarrage à froid, la durite supérieure du radiateur est déjà chaude."
+        },
+        {
+          "sense": "sight",
+          "text": "En données en direct, la température plafonne à 68 °C après 20 minutes de route."
+        }
       ],
       "question": {
         "text": "Quelle pièce remplacer ?",
         "options": [
-          { "text": "Le thermostat", "correct": true, "feedback": "Oui : le liquide passe au radiateur dès le départ, le thermostat est bloqué ouvert." },
-          { "text": "La sonde de température", "correct": false, "feedback": "La durite chaude dès le démarrage confirme que la sonde dit vrai : le moteur est réellement froid." },
-          { "text": "La pompe à eau", "correct": false, "feedback": "Une pompe défaillante provoquerait plutôt une surchauffe." }
+          {
+            "text": "Le thermostat",
+            "correct": true,
+            "feedback": "Oui : le liquide passe au radiateur dès le départ, le thermostat est bloqué ouvert."
+          },
+          {
+            "text": "La sonde de température",
+            "correct": false,
+            "feedback": "La durite chaude dès le démarrage confirme que la sonde dit vrai : le moteur est réellement froid."
+          },
+          {
+            "text": "La pompe à eau",
+            "correct": false,
+            "feedback": "Une pompe défaillante provoquerait plutôt une surchauffe."
+          }
         ]
       },
       "debrief": "Le toucher de la durite supérieure permet de distinguer un thermostat ouvert d'une sonde défaillante."
@@ -74,19 +150,47 @@
       "level": 2,
       "profile": "citroen-berlingo-bluehdi",
       "story": "Un artisan : « Le voyant batterie s'allume par moments et ce matin le démarreur tournait lentement. »",
-      "codes": [{ "code": "P0562", "kind": "stored" }],
-      "live": { "voltage": 12.2 },
+      "codes": [
+        {
+          "code": "P0562",
+          "kind": "stored"
+        }
+      ],
+      "live": {
+        "voltage": 12.2
+      },
       "clues": [
-        { "sense": "sound", "text": "Aucun couinement de courroie, même en braquant." },
-        { "sense": "sight", "text": "La courroie est en bon état et bien tendue ; cosses propres." },
-        { "sense": "sight", "text": "Tension mesurée moteur tournant : 12,2 V (contre 13,8–14,7 V attendus)." }
+        {
+          "sense": "sound",
+          "text": "Aucun couinement de courroie, même en braquant."
+        },
+        {
+          "sense": "sight",
+          "text": "La courroie est en bon état et bien tendue ; cosses propres."
+        },
+        {
+          "sense": "sight",
+          "text": "Tension mesurée moteur tournant : 12,2 V (contre 13,8–14,7 V attendus)."
+        }
       ],
       "question": {
         "text": "Quelle est la cause la plus probable ?",
         "options": [
-          { "text": "Batterie usée", "correct": false, "feedback": "Une batterie usée démarre mal, mais moteur tournant c'est l'alternateur qui doit fournir 13,8 V et plus." },
-          { "text": "Alternateur (ou son régulateur) qui ne charge plus", "correct": true, "feedback": "Exact : 12,2 V moteur tournant, courroie saine : l'alternateur ne charge pas." },
-          { "text": "Calculateur moteur défectueux", "correct": false, "feedback": "Il signale la sous-tension mais n'en est pas la cause." }
+          {
+            "text": "Batterie usée",
+            "correct": false,
+            "feedback": "Une batterie usée démarre mal, mais moteur tournant c'est l'alternateur qui doit fournir 13,8 V et plus."
+          },
+          {
+            "text": "Alternateur (ou son régulateur) qui ne charge plus",
+            "correct": true,
+            "feedback": "Exact : 12,2 V moteur tournant, courroie saine : l'alternateur ne charge pas."
+          },
+          {
+            "text": "Calculateur moteur défectueux",
+            "correct": false,
+            "feedback": "Il signale la sous-tension mais n'en est pas la cause."
+          }
         ]
       },
       "debrief": "Deux mesures de tension (moteur arrêté puis tournant) séparent batterie et alternateur en 30 secondes."
@@ -97,19 +201,52 @@
       "level": 2,
       "profile": "ford-fiesta-ecoboost",
       "story": "Un client : « Au ralenti, le moteur hésite et a déjà calé deux fois. En roulant, rien d'anormal. »",
-      "codes": [{ "code": "P0171", "kind": "stored" }, { "code": "P2187", "kind": "pending" }],
-      "live": { "stft": 18, "ltft": 22 },
+      "codes": [
+        {
+          "code": "P0171",
+          "kind": "stored"
+        },
+        {
+          "code": "P2187",
+          "kind": "pending"
+        }
+      ],
+      "live": {
+        "stft": 18,
+        "ltft": 22
+      },
       "clues": [
-        { "sense": "sound", "text": "Sifflement fin au ralenti côté cache-culbuteurs." },
-        { "sense": "feel", "text": "Le bouchon de remplissage d'huile est très difficile à retirer moteur tournant (forte aspiration)." },
-        { "sense": "sight", "text": "Corrections de richesse : +18 % court terme, +22 % long terme au ralenti, proches de 0 % à 2 500 tr/min." }
+        {
+          "sense": "sound",
+          "text": "Sifflement fin au ralenti côté cache-culbuteurs."
+        },
+        {
+          "sense": "feel",
+          "text": "Le bouchon de remplissage d'huile est très difficile à retirer moteur tournant (forte aspiration)."
+        },
+        {
+          "sense": "sight",
+          "text": "Corrections de richesse : +18 % court terme, +22 % long terme au ralenti, proches de 0 % à 2 500 tr/min."
+        }
       ],
       "question": {
         "text": "Où se trouve probablement le problème ?",
         "options": [
-          { "text": "Pompe à carburant faible", "correct": false, "feedback": "Une pompe faible donnerait un mélange pauvre surtout en charge, pas au ralenti." },
-          { "text": "Débitmètre encrassé", "correct": false, "feedback": "Possible, mais l'aspiration au bouchon d'huile désigne un défaut précis." },
-          { "text": "Membrane de reniflard (recyclage des vapeurs d'huile) percée", "correct": true, "feedback": "Bravo : une forte aspiration au bouchon d'huile et un sifflement indiquent une membrane percée, donc une prise d'air." }
+          {
+            "text": "Pompe à carburant faible",
+            "correct": false,
+            "feedback": "Une pompe faible donnerait un mélange pauvre surtout en charge, pas au ralenti."
+          },
+          {
+            "text": "Débitmètre encrassé",
+            "correct": false,
+            "feedback": "Possible, mais l'aspiration au bouchon d'huile désigne un défaut précis."
+          },
+          {
+            "text": "Membrane de reniflard (recyclage des vapeurs d'huile) percée",
+            "correct": true,
+            "feedback": "Bravo : une forte aspiration au bouchon d'huile et un sifflement indiquent une membrane percée, donc une prise d'air."
+          }
         ]
       },
       "debrief": "Pauvre au ralenti, normal en charge = prise d'air. Les corrections de richesse (STFT/LTFT) et le test du bouchon d'huile le confirment sans outil spécial."
@@ -120,19 +257,45 @@
       "level": 2,
       "profile": "vw-golf7-tdi",
       "story": "Une cliente : « En côte, la voiture n'avance plus, un voyant s'allume et j'entends un souffle quand j'accélère. »",
-      "codes": [{ "code": "P0299", "kind": "stored" }],
+      "codes": [
+        {
+          "code": "P0299",
+          "kind": "stored"
+        }
+      ],
       "live": {},
       "clues": [
-        { "sense": "sound", "text": "Souffle « pschitt » qui augmente avec l'accélération." },
-        { "sense": "sight", "text": "Film d'huile épais et poussiéreux sur la durite entre l'échangeur et le boîtier papillon." },
-        { "sense": "sound", "text": "Pas de sifflement de sirène." }
+        {
+          "sense": "sound",
+          "text": "Souffle « pschitt » qui augmente avec l'accélération."
+        },
+        {
+          "sense": "sight",
+          "text": "Film d'huile épais et poussiéreux sur la durite entre l'échangeur et le boîtier papillon."
+        },
+        {
+          "sense": "sound",
+          "text": "Pas de sifflement de sirène."
+        }
       ],
       "question": {
         "text": "Quelle intervention proposez-vous ?",
         "options": [
-          { "text": "Remplacer la durite de suralimentation fendue", "correct": true, "feedback": "Exact : souffle + trace d'huile = fuite sur la durite (20–90 €)." },
-          { "text": "Remplacer le turbo", "correct": false, "feedback": "Sans sifflement de sirène ni fumée bleue, le turbo est probablement sain : vous éviteriez une facture de 300 à 900 € de pièces." },
-          { "text": "Nettoyer la vanne EGR", "correct": false, "feedback": "Ne correspond pas au souffle entendu." }
+          {
+            "text": "Remplacer la durite de suralimentation fendue",
+            "correct": true,
+            "feedback": "Exact : souffle + trace d'huile = fuite sur la durite (20–90 €)."
+          },
+          {
+            "text": "Remplacer le turbo",
+            "correct": false,
+            "feedback": "Sans sifflement de sirène ni fumée bleue, le turbo est probablement sain : vous éviteriez une facture de 300 à 900 € de pièces."
+          },
+          {
+            "text": "Nettoyer la vanne EGR",
+            "correct": false,
+            "feedback": "Ne correspond pas au souffle entendu."
+          }
         ]
       },
       "debrief": "P0299 ne veut pas dire « turbo mort ». Écouter (souffle ou sirène) et regarder (traces d'huile) évite des remplacements coûteux."
@@ -143,19 +306,45 @@
       "level": 3,
       "profile": "peugeot-208-puretech",
       "story": "Un étudiant : « Contrôle technique refusé pour le voyant moteur. Un garage m'a dit qu'il fallait changer le catalyseur à 900 €. »",
-      "codes": [{ "code": "P0420", "kind": "stored" }],
+      "codes": [
+        {
+          "code": "P0420",
+          "kind": "stored"
+        }
+      ],
       "live": {},
       "clues": [
-        { "sense": "sound", "text": "En tapotant le catalyseur froid : son plein, pas de bruit de cailloux." },
-        { "sense": "sight", "text": "La sonde lambda aval a 160 000 km et son signal oscille presque autant que la sonde amont." },
-        { "sense": "smell", "text": "Pas d'odeur d'œuf pourri." }
+        {
+          "sense": "sound",
+          "text": "En tapotant le catalyseur froid : son plein, pas de bruit de cailloux."
+        },
+        {
+          "sense": "sight",
+          "text": "La sonde lambda aval a 160 000 km et son signal oscille presque autant que la sonde amont."
+        },
+        {
+          "sense": "smell",
+          "text": "Pas d'odeur d'œuf pourri."
+        }
       ],
       "question": {
         "text": "Que conseillez-vous ?",
         "options": [
-          { "text": "Changer le catalyseur comme conseillé", "correct": false, "feedback": "Le catalyseur semble intact. Commencez par moins cher." },
-          { "text": "Remplacer d'abord la sonde lambda aval (25–110 €), puis réévaluer", "correct": true, "feedback": "Bonne stratégie : une sonde aval vieillissante peut provoquer un P0420. Si le code revient, le catalyseur sera en cause." },
-          { "text": "Supprimer le catalyseur", "correct": false, "feedback": "Illégal, polluant, et refus garanti au contrôle technique." }
+          {
+            "text": "Changer le catalyseur comme conseillé",
+            "correct": false,
+            "feedback": "Le catalyseur semble intact. Commencez par moins cher."
+          },
+          {
+            "text": "Remplacer d'abord la sonde lambda aval (25–110 €), puis réévaluer",
+            "correct": true,
+            "feedback": "Bonne stratégie : une sonde aval vieillissante peut provoquer un P0420. Si le code revient, le catalyseur sera en cause."
+          },
+          {
+            "text": "Supprimer le catalyseur",
+            "correct": false,
+            "feedback": "Illégal, polluant, et refus garanti au contrôle technique."
+          }
         ]
       },
       "debrief": "Avant une grosse dépense, éliminer les causes bon marché qui produisent le même code. Le tapotement du catalyseur est un test sensoriel rapide."
@@ -166,22 +355,194 @@
       "level": 3,
       "profile": "renault-master3-dci",
       "story": "Un livreur : « Je fais 30 arrêts par jour en ville. Le voyant FAP s'allume et la camionnette manque de puissance. »",
-      "codes": [{ "code": "P2463", "kind": "stored" }],
+      "codes": [
+        {
+          "code": "P2463",
+          "kind": "stored"
+        }
+      ],
       "live": {},
       "clues": [
-        { "sense": "sound", "text": "Le ventilateur tourne souvent après l'arrêt du moteur." },
-        { "sense": "sight", "text": "Pas de fumée noire, embout d'échappement propre." },
-        { "sense": "feel", "text": "Jamais de trajet de plus de 15 minutes." }
+        {
+          "sense": "sound",
+          "text": "Le ventilateur tourne souvent après l'arrêt du moteur."
+        },
+        {
+          "sense": "sight",
+          "text": "Pas de fumée noire, embout d'échappement propre."
+        },
+        {
+          "sense": "feel",
+          "text": "Jamais de trajet de plus de 15 minutes."
+        }
       ],
       "question": {
         "text": "Quelle première solution ?",
         "options": [
-          { "text": "Remplacer le FAP", "correct": false, "feedback": "Prématuré : le filtre n'est pas forcément endommagé, il est simplement plein." },
-          { "text": "Régénération : 20–30 min sur voie rapide à régime soutenu, ou régénération forcée à la valise", "correct": true, "feedback": "Oui. Et expliquez au client que ses régénérations sont interrompues : prévoir un trajet rapide par semaine." },
-          { "text": "Nettoyer la vanne EGR", "correct": false, "feedback": "Utile si le moteur fume, ce qui n'est pas le cas ici." }
+          {
+            "text": "Remplacer le FAP",
+            "correct": false,
+            "feedback": "Prématuré : le filtre n'est pas forcément endommagé, il est simplement plein."
+          },
+          {
+            "text": "Régénération : 20–30 min sur voie rapide à régime soutenu, ou régénération forcée à la valise",
+            "correct": true,
+            "feedback": "Oui. Et expliquez au client que ses régénérations sont interrompues : prévoir un trajet rapide par semaine."
+          },
+          {
+            "text": "Nettoyer la vanne EGR",
+            "correct": false,
+            "feedback": "Utile si le moteur fume, ce qui n'est pas le cas ici."
+          }
         ]
       },
       "debrief": "Le mode d'utilisation explique souvent la panne. Expliquer la cause au client évite la récidive."
+    },
+    {
+      "id": "ev-12v",
+      "title": "La voiture électrique qui ne démarre plus",
+      "level": 1,
+      "profile": "renault-zoe2-r135",
+      "story": "Une cliente : « Ma Zoe est chargée à 90 %, mais ce matin l'écran clignote et le voyant Ready ne s'allume jamais. »",
+      "codes": [
+        {
+          "code": "P0562",
+          "kind": "stored"
+        }
+      ],
+      "live": {
+        "voltage": 11.6
+      },
+      "clues": [
+        {
+          "sense": "sight",
+          "text": "Batterie 12 V d'origine, datée de 6 ans."
+        },
+        {
+          "sense": "sight",
+          "text": "Tension 12 V mesurée : 11,6 V véhicule éteint."
+        },
+        {
+          "sense": "sound",
+          "text": "Des relais cliquettent sous le capot à l'appui sur Start, puis plus rien."
+        }
+      ],
+      "question": {
+        "text": "Que faites-vous en premier ?",
+        "options": [
+          {
+            "text": "Faire diagnostiquer la batterie de traction",
+            "correct": false,
+            "feedback": "Elle est chargée à 90 % : rien n'indique un défaut haute tension."
+          },
+          {
+            "text": "Recharger ou remplacer la batterie 12 V",
+            "correct": true,
+            "feedback": "Exact : sans 12 V, les relais qui connectent la haute tension ne peuvent pas se fermer. 11,6 V, c'est une batterie 12 V à plat."
+          },
+          {
+            "text": "Mettre la voiture en charge rapide",
+            "correct": false,
+            "feedback": "La recharge de la batterie de traction ne réveillera pas un véhicule dont la 12 V est à plat."
+          }
+        ]
+      },
+      "debrief": "Sur un véhicule électrique, la batterie 12 V reste la première cause de panne. Un booster ou un chargeur 12 V règle souvent le problème en quelques minutes."
+    },
+    {
+      "id": "ev-brakes",
+      "title": "Grincement au freinage d'une électrique",
+      "level": 2,
+      "profile": "tesla-model3-rwd",
+      "story": "Un client : « Ma Model 3 a 3 ans. Ça racle au freinage le matin et le volant vibre un peu en freinant fort. Aucun voyant. »",
+      "codes": [],
+      "live": {
+        "rpm": 0
+      },
+      "clues": [
+        {
+          "sense": "sight",
+          "text": "Les disques arrière portent un large anneau de rouille ; les plaquettes ont encore 8 mm."
+        },
+        {
+          "sense": "feel",
+          "text": "Le client conduit en mode « freinage régénératif fort » et n'utilise presque jamais la pédale."
+        },
+        {
+          "sense": "sound",
+          "text": "Le raclement disparaît après quelques kilomètres."
+        }
+      ],
+      "question": {
+        "text": "Quelle est la bonne approche ?",
+        "options": [
+          {
+            "text": "Remplacer immédiatement les plaquettes",
+            "correct": false,
+            "feedback": "Elles ont 8 mm : elles ne sont pas en cause."
+          },
+          {
+            "text": "Faire des freinages appuyés pour décaper les disques, puis les remplacer avec les plaquettes si des piqûres persistent",
+            "correct": true,
+            "feedback": "Oui : la corrosion vient du manque d'utilisation. Freiner fort régulièrement entretient les disques."
+          },
+          {
+            "text": "Il n'y a pas de code défaut, donc aucun problème",
+            "correct": false,
+            "feedback": "Les freins, roulements et cardans ne produisent aucun code : seuls vos sens les diagnostiquent."
+          }
+        ]
+      },
+      "debrief": "Sur les véhicules électriques, beaucoup de problèmes sont mécaniques et silencieux pour l'OBD : freins corrodés, roulements, cardans, amortisseurs. L'observation est essentielle."
+    },
+    {
+      "id": "ev-isolation",
+      "title": "Coupure après le lavage",
+      "level": 3,
+      "profile": "peugeot-e208",
+      "story": "Un client : « Après un lavage haute pression du moteur, mon e-208 affiche un défaut électrique et refuse de rouler. »",
+      "codes": [
+        {
+          "code": "P0AA6",
+          "kind": "stored"
+        }
+      ],
+      "live": {},
+      "clues": [
+        {
+          "sense": "sight",
+          "text": "De l'eau stagne autour d'un connecteur orange sous le capot avant."
+        },
+        {
+          "sense": "smell",
+          "text": "Aucune odeur de brûlé."
+        },
+        {
+          "sense": "feel",
+          "text": "Le client propose de « souffler » sur le connecteur pour le sécher."
+        }
+      ],
+      "question": {
+        "text": "Quelle est la conduite à tenir ?",
+        "options": [
+          {
+            "text": "Débrancher le connecteur orange pour le sécher",
+            "correct": false,
+            "feedback": "Danger de mort : jamais d'intervention sur la haute tension sans habilitation ni consignation."
+          },
+          {
+            "text": "Ne rien toucher, faire remorquer vers un atelier habilité qui consignera le véhicule et mesurera l'isolement",
+            "correct": true,
+            "feedback": "Exact. L'humidité est probablement la cause, mais seule une personne habilitée peut intervenir."
+          },
+          {
+            "text": "Effacer le code et rouler",
+            "correct": false,
+            "feedback": "Un défaut d'isolement est une alerte de sécurité : on ne roule pas."
+          }
+        ]
+      },
+      "debrief": "La sécurité passe avant le diagnostic. Avec un véhicule électrique, le premier réflexe est d'identifier ce qu'on ne doit PAS toucher."
     }
   ]
 }

@@ -1,0 +1,529 @@
+{
+  "version": "2026.11.1",
+  "disclaimer": "Conseils de préparation basés sur le contrôle technique français (arrêté du 18 juin 1991 modifié, réforme 2018). Seul le contrôleur agréé fait foi. Les niveaux de défaillance indiqués sont les plus fréquents pour le défaut décrit.",
+  "periodicity": {
+    "car": "Premier contrôle dans les 6 mois avant les 4 ans du véhicule, puis tous les 2 ans. Contre-visite sous 2 mois en cas de défaillance majeure.",
+    "van": "Comme les voitures (véhicules ≤ 3,5 t) ; contrôle pollution complémentaire annuel pour certains utilitaires.",
+    "motorcycle": "Deux-roues motorisés (catégorie L) : contrôle technique en vigueur depuis avril 2024, calendrier progressif selon l'année de mise en circulation.",
+    "truck": "Poids lourds : contrôle annuel en centre agréé poids lourds."
+  },
+  "severity_labels": {
+    "minor": "Mineure (pas de contre-visite)",
+    "major": "Majeure (contre-visite sous 2 mois)",
+    "critical": "Critique (circulation autorisée le jour même seulement)"
+  },
+  "sections": [
+    {
+      "title": "Documents",
+      "items": [
+        {
+          "id": "doc_reg",
+          "label": "Certificat d'immatriculation (carte grise) original",
+          "how": "Le contrôleur compare le VIN (rubrique E) au véhicule.",
+          "sense": "sight",
+          "severity": "major"
+        },
+        {
+          "id": "doc_pv",
+          "label": "Dernier procès-verbal (en cas de contre-visite)",
+          "how": "Gardez-le dans la boîte à gants.",
+          "sense": "sight",
+          "severity": "minor"
+        }
+      ]
+    },
+    {
+      "title": "Identification",
+      "items": [
+        {
+          "id": "vin_match",
+          "label": "VIN lisible et identique à la carte grise",
+          "how": "Retrouvez le VIN aux emplacements indiqués ci-dessous ; nettoyez la frappe si elle est rouillée ou peinte.",
+          "sense": "sight",
+          "severity": "major"
+        },
+        {
+          "id": "plates",
+          "label": "Plaques d'immatriculation lisibles, bien fixées, conformes",
+          "how": "Pas de plaque fissurée ni de police fantaisie.",
+          "sense": "sight",
+          "severity": "minor"
+        }
+      ]
+    },
+    {
+      "title": "Éclairage et signalisation",
+      "items": [
+        {
+          "id": "lights",
+          "label": "Toutes les ampoules fonctionnent",
+          "how": "Feux de position, croisement, route, antibrouillard arrière, recul, plaque, clignotants (y compris latéraux), 3e feu stop. Utilisez le reflet d'un mur ou d'une vitrine.",
+          "sense": "sight",
+          "severity": "major",
+          "components": [
+            "headlights"
+          ]
+        },
+        {
+          "id": "headlight_aim",
+          "label": "Phares bien réglés et optiques non opaques",
+          "how": "Optiques jaunies : un kit de rénovation suffit souvent.",
+          "sense": "sight",
+          "severity": "major",
+          "components": [
+            "headlights"
+          ]
+        },
+        {
+          "id": "horn",
+          "label": "Avertisseur sonore",
+          "how": "Un simple coup de klaxon.",
+          "sense": "sound",
+          "severity": "major"
+        }
+      ]
+    },
+    {
+      "title": "Visibilité",
+      "items": [
+        {
+          "id": "windscreen",
+          "label": "Pare-brise sans fissure ni impact dans le champ de vision du conducteur",
+          "how": "Un impact dans la zone balayée face au conducteur est une défaillance : faites-le réparer avant (souvent pris en charge par l'assurance bris de glace).",
+          "sense": "sight",
+          "severity": "major",
+          "types": [
+            "car",
+            "van",
+            "truck"
+          ]
+        },
+        {
+          "id": "wipers",
+          "label": "Essuie-glaces efficaces et lave-glace fonctionnel",
+          "how": "Balais qui laissent des traces : à remplacer (10 à 30 €).",
+          "sense": "sight",
+          "severity": "major",
+          "types": [
+            "car",
+            "van",
+            "truck"
+          ],
+          "components": [
+            "wiper_blades",
+            "washer_reservoir"
+          ]
+        },
+        {
+          "id": "mirrors",
+          "label": "Rétroviseurs présents et intacts",
+          "how": "Coque fendue ou glace cassée.",
+          "sense": "sight",
+          "severity": "minor"
+        }
+      ]
+    },
+    {
+      "title": "Freinage",
+      "items": [
+        {
+          "id": "brake_fluid",
+          "label": "Niveau du liquide de frein entre MIN et MAX",
+          "how": "Un niveau sous le MIN signale des plaquettes usées ou une fuite.",
+          "sense": "sight",
+          "severity": "major",
+          "types": [
+            "car",
+            "van",
+            "motorcycle"
+          ],
+          "components": [
+            "brake_fluid_reservoir"
+          ]
+        },
+        {
+          "id": "brake_wear",
+          "label": "Plaquettes et disques non usés",
+          "how": "Vérifiez à travers les jantes : garniture > 3 mm, pas de collerette marquée.",
+          "sense": "sight",
+          "severity": "major",
+          "components": [
+            "brake_fl",
+            "brake_fr"
+          ]
+        },
+        {
+          "id": "brake_rust",
+          "label": "Disques non corrodés (véhicules électriques et hybrides)",
+          "how": "Freinages appuyés répétés les jours précédant le contrôle : un disque rouillé fait chuter l'efficacité mesurée au banc.",
+          "sense": "sight",
+          "severity": "major",
+          "fuels": [
+            "electric",
+            "hybrid"
+          ],
+          "components": [
+            "brake_rl",
+            "brake_rr"
+          ]
+        },
+        {
+          "id": "handbrake",
+          "label": "Frein de stationnement efficace",
+          "how": "En côte, le véhicule doit tenir frein serré.",
+          "sense": "feel",
+          "severity": "major"
+        },
+        {
+          "id": "abs_light",
+          "label": "Voyant ABS / ESP éteint",
+          "how": "Voyant allumé = défaillance majeure.",
+          "sense": "sight",
+          "severity": "major",
+          "components": [
+            "abs_module"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Liaisons au sol",
+      "items": [
+        {
+          "id": "tyres",
+          "label": "Pneus : 1,6 mm minimum, même marque et dimension par essieu, pas de hernie",
+          "how": "Les témoins d'usure dans les rainures ne doivent pas affleurer. Regardez aussi l'intérieur des pneus.",
+          "sense": "sight",
+          "severity": "major",
+          "components": [
+            "wheel_fl",
+            "wheel_fr",
+            "wheel_rl",
+            "wheel_rr"
+          ]
+        },
+        {
+          "id": "cv_boots",
+          "label": "Soufflets de cardan intacts",
+          "how": "Graisse projetée dans le passage de roue = soufflet déchiré.",
+          "sense": "sight",
+          "severity": "major",
+          "types": [
+            "car",
+            "van"
+          ],
+          "components": [
+            "cv_joint_fl",
+            "cv_joint_fr"
+          ]
+        },
+        {
+          "id": "shocks",
+          "label": "Amortisseurs sans fuite",
+          "how": "Corps d'amortisseur gras, rebonds.",
+          "sense": "sight",
+          "severity": "major",
+          "components": [
+            "shock_fl",
+            "shock_fr",
+            "shock_rl",
+            "shock_rr"
+          ]
+        },
+        {
+          "id": "bearings",
+          "label": "Pas de jeu dans les roulements et rotules",
+          "how": "Roue levée, secouez-la à 12 h / 6 h puis 3 h / 9 h.",
+          "sense": "touch",
+          "severity": "major",
+          "types": [
+            "car",
+            "van"
+          ],
+          "components": [
+            "wheel_bearing_fl",
+            "wheel_bearing_fr"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Équipements et habitacle",
+      "items": [
+        {
+          "id": "dash_lights",
+          "label": "Aucun voyant d'alerte allumé (moteur, airbag, ABS, ESP, pression des pneus)",
+          "how": "Un voyant airbag allumé est une défaillance majeure.",
+          "sense": "sight",
+          "severity": "major"
+        },
+        {
+          "id": "belts",
+          "label": "Ceintures : enrouleurs, boucles et sangles en bon état",
+          "how": "Tirez d'un coup sec : la ceinture doit se bloquer.",
+          "sense": "feel",
+          "severity": "major",
+          "types": [
+            "car",
+            "van",
+            "truck"
+          ]
+        },
+        {
+          "id": "seats",
+          "label": "Sièges solidement fixés",
+          "how": "",
+          "sense": "feel",
+          "severity": "major",
+          "types": [
+            "car",
+            "van",
+            "truck"
+          ]
+        },
+        {
+          "id": "doors",
+          "label": "Portes qui s'ouvrent de l'intérieur et de l'extérieur",
+          "how": "",
+          "sense": "feel",
+          "severity": "minor",
+          "types": [
+            "car",
+            "van",
+            "truck"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Pollution et bruit",
+      "items": [
+        {
+          "id": "warm_up",
+          "label": "Moteur chaud à l'arrivée",
+          "how": "Roulez au moins 20 minutes avant (voie rapide si possible) : mesures de pollution plus favorables.",
+          "sense": "feel",
+          "severity": "major",
+          "fuels": [
+            "petrol",
+            "diesel",
+            "hybrid"
+          ]
+        },
+        {
+          "id": "opacity",
+          "label": "Diesel : opacité des fumées",
+          "how": "Un FAP doit être présent et fonctionnel (sa suppression est illégale). Roulez à régime soutenu la veille pour terminer une régénération.",
+          "sense": "sight",
+          "severity": "major",
+          "fuels": [
+            "diesel"
+          ],
+          "components": [
+            "dpf",
+            "exhaust"
+          ]
+        },
+        {
+          "id": "mil",
+          "label": "Voyant moteur éteint, aucun code défaut",
+          "how": "Faites le pré-contrôle OBD ci-dessous. Effacer les codes juste avant ne règle rien : le voyant revient et les autodiagnostics du calculateur apparaissent comme non terminés.",
+          "sense": "sight",
+          "severity": "major",
+          "fuels": [
+            "petrol",
+            "diesel",
+            "hybrid"
+          ]
+        },
+        {
+          "id": "exhaust_leak",
+          "label": "Échappement étanche et bien fixé",
+          "how": "Tapotement ou bruit anormal = fuite.",
+          "sense": "sound",
+          "severity": "major",
+          "fuels": [
+            "petrol",
+            "diesel",
+            "hybrid"
+          ],
+          "components": [
+            "exhaust"
+          ]
+        },
+        {
+          "id": "moto_exhaust",
+          "label": "Moto : silencieux homologué (marquage E) et chicane en place",
+          "how": "Un pot non homologué ou « décatalysé » est refusé.",
+          "sense": "sound",
+          "severity": "major",
+          "types": [
+            "motorcycle"
+          ],
+          "components": [
+            "exhaust"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Véhicule électrique",
+      "items": [
+        {
+          "id": "hv_visual",
+          "label": "Câbles et connecteurs orange sans dommage visible",
+          "how": "Regardez sans toucher.",
+          "sense": "sight",
+          "severity": "major",
+          "fuels": [
+            "electric",
+            "hybrid"
+          ],
+          "components": [
+            "hv_cables"
+          ]
+        },
+        {
+          "id": "charge_port",
+          "label": "Prise de recharge et clapet en bon état",
+          "how": "",
+          "sense": "sight",
+          "severity": "minor",
+          "fuels": [
+            "electric"
+          ],
+          "components": [
+            "charge_port"
+          ]
+        },
+        {
+          "id": "ev_warnings",
+          "label": "Aucune alerte du système électrique au tableau de bord",
+          "how": "Un défaut haute tension ou d'isolement doit être réparé avant.",
+          "sense": "sight",
+          "severity": "major",
+          "fuels": [
+            "electric",
+            "hybrid"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Poids lourds",
+      "items": [
+        {
+          "id": "air_leaks",
+          "label": "Aucune fuite d'air sur le circuit de freinage",
+          "how": "Moteur arrêté, circuit chargé : écoutez les sifflements.",
+          "sense": "sound",
+          "severity": "critical",
+          "types": [
+            "truck"
+          ]
+        },
+        {
+          "id": "tacho",
+          "label": "Chronotachygraphe et limiteur de vitesse à jour (vérification périodique)",
+          "how": "",
+          "sense": "sight",
+          "severity": "major",
+          "types": [
+            "truck"
+          ]
+        }
+      ]
+    }
+  ],
+  "vin_generic": [
+    {
+      "place": "Bas du pare-brise, côté conducteur",
+      "detail": "Lisible depuis l'extérieur sur la plupart des véhicules récents."
+    },
+    {
+      "place": "Plaque constructeur (étiquette ou plaque rivetée)",
+      "detail": "Montant central de porte (pied B) ou encadrement de porte avant, parfois sous le capot."
+    },
+    {
+      "place": "Frappe à froid sur la caisse",
+      "detail": "Numéro gravé dans la tôle : tablier (cloison moteur), passage de roue avant droit, plancher sous le siège passager avant (sous une trappe de moquette) ou plancher du coffre."
+    }
+  ],
+  "vin_by_make": {
+    "Volkswagen": [
+      "Frappe sur le tablier côté droit, sous la grille d'auvent (dans le compartiment moteur)",
+      "Bas du pare-brise côté conducteur",
+      "Étiquette dans le coffre (roue de secours) ou montant de porte"
+    ],
+    "Audi": [
+      "Frappe sur le tablier côté droit, sous la grille d'auvent",
+      "Bas du pare-brise côté conducteur"
+    ],
+    "Skoda": [
+      "Frappe sur le tablier côté droit, sous la grille d'auvent",
+      "Bas du pare-brise côté conducteur"
+    ],
+    "Seat": [
+      "Frappe sur le tablier côté droit, sous la grille d'auvent",
+      "Bas du pare-brise côté conducteur"
+    ],
+    "Cupra": [
+      "Frappe sur le tablier côté droit",
+      "Bas du pare-brise côté conducteur"
+    ],
+    "BMW": [
+      "Frappe sur la tourelle d'amortisseur avant droite (compartiment moteur)",
+      "Bas du pare-brise côté conducteur",
+      "Étiquette sur le pied B"
+    ],
+    "Mini": [
+      "Frappe sur la tourelle d'amortisseur avant droite",
+      "Bas du pare-brise côté conducteur"
+    ],
+    "Tesla": [
+      "Plaque visible en bas du pare-brise côté conducteur",
+      "Étiquette sur le montant de porte (pied B) côté conducteur",
+      "Frappe sur la caisse : voir le manuel du propriétaire de votre modèle"
+    ],
+    "Renault": [
+      "Bas du pare-brise côté conducteur",
+      "Plaque constructeur sur le pied B ou dans le compartiment moteur",
+      "Frappe sur la caisse : souvent plancher côté passager avant ou passage de roue avant droit (selon modèle)"
+    ],
+    "Dacia": [
+      "Bas du pare-brise côté conducteur",
+      "Plaque constructeur sur le pied B",
+      "Frappe sur la caisse : souvent plancher côté passager avant (selon modèle)"
+    ],
+    "Peugeot": [
+      "Bas du pare-brise côté conducteur",
+      "Plaque constructeur sur le pied B côté passager",
+      "Frappe sur la caisse : souvent plancher sous le siège passager avant ou passage de roue avant droit (selon modèle)"
+    ],
+    "Citroën": [
+      "Bas du pare-brise côté conducteur",
+      "Plaque constructeur sur le pied B",
+      "Frappe sur la caisse : souvent plancher sous le siège passager avant (selon modèle)"
+    ]
+  },
+  "vin_motorcycle": [
+    {
+      "place": "Colonne de direction (tube de direction)",
+      "detail": "Frappe à froid sur le cadre, côté droit le plus souvent ; tournez le guidon pour la voir."
+    },
+    {
+      "place": "Plaque constructeur",
+      "detail": "Sur le cadre près de la colonne ou sous la selle."
+    }
+  ],
+  "vin_truck": [
+    {
+      "place": "Longeron avant droit du châssis",
+      "detail": "Frappe à froid sur le longeron, à l'avant de la roue avant droite le plus souvent."
+    },
+    {
+      "place": "Plaque constructeur",
+      "detail": "Marchepied ou encadrement de porte passager."
+    }
+  ]
+}

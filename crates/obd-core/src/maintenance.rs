@@ -46,6 +46,9 @@ pub struct VehicleProfile {
     pub coolant_l: Option<f64>,
     #[serde(default)]
     pub chain: Option<String>,
+    /// Driven axle for electric vehicles: "front" or "rear".
+    #[serde(default)]
+    pub traction: Option<String>,
 }
 
 impl VehicleProfile {
@@ -83,6 +86,43 @@ pub struct TutorialStep {
     pub tip: Option<String>,
     #[serde(default)]
     pub warning: Option<String>,
+    /// Where a vehicle-specific step comes from (e.g. "Manuel du propriétaire Tesla").
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub source: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, Deserialize)]
+struct ProcMatch {
+    #[serde(default)]
+    make: Option<String>,
+    #[serde(default)]
+    fuel: Option<String>,
+    #[serde(default)]
+    model_contains: Vec<String>,
+}
+
+/// Vehicle-specific additions to tutorials (owner's manual procedures, EV safety…).
+#[derive(Debug, Clone, Deserialize)]
+struct Procedure {
+    #[serde(rename = "match")]
+    when: ProcMatch,
+    tutorials: Vec<String>,
+    #[serde(default)]
+    steps_before: Vec<TutorialStep>,
+    #[serde(default)]
+    replace_steps: Vec<TutorialStep>,
+    #[serde(default)]
+    notes: Vec<String>,
+}
+
+impl Procedure {
+    fn applies(&self, tutorial: &str, p: &VehicleProfile) -> bool {
+        let w = &self.when;
+        (self.tutorials.iter().any(|t| t == "*" || t == tutorial))
+            && w.make.as_ref().is_none_or(|m| m == &p.make)
+            && w.fuel.as_ref().is_none_or(|f| f == &p.fuel)
+            && (w.model_contains.is_empty() || w.model_contains.iter().any(|m| p.model.contains(m.as_str())))
+    }
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -124,6 +164,9 @@ pub struct Tutorial {
     #[serde(default)]
     shopping: Vec<ShoppingTemplate>,
     pub steps: Vec<TutorialStep>,
+    /// Vehicle-specific notes added by [`Maintenance::tutorial_for`].
+    #[serde(default)]
+    pub vehicle_notes: Vec<String>,
 }
 
 impl Tutorial {
@@ -175,6 +218,8 @@ struct MaintenanceFile {
     components: BTreeMap<String, ComponentInfo>,
     profiles: Vec<VehicleProfile>,
     tutorials: Vec<Tutorial>,
+    #[serde(default)]
+    procedures: Vec<Procedure>,
 }
 
 pub struct Maintenance {
@@ -184,6 +229,7 @@ pub struct Maintenance {
     pub components: BTreeMap<String, ComponentInfo>,
     pub profiles: Vec<VehicleProfile>,
     pub tutorials: Vec<Tutorial>,
+    procedures: Vec<Procedure>,
 }
 
 impl Maintenance {
@@ -201,6 +247,7 @@ impl Maintenance {
             components: f.components,
             profiles: f.profiles,
             tutorials: f.tutorials,
+            procedures: f.procedures,
         })
     }
 
@@ -226,6 +273,26 @@ impl Maintenance {
     /// Tutorial with its spark-plug / coil steps adapted to the vehicle's cylinder count.
     pub fn tutorial_for(&self, id: &str, p: &VehicleProfile) -> Option<Tutorial> {
         let mut t = self.tutorial(id)?.clone();
+        // Vehicle-specific procedures: replacements first, then prepended steps (most generic first).
+        let procs: Vec<&Procedure> = self.procedures.iter().filter(|pr| pr.applies(id, p)).collect();
+        if let Some(r) = procs.iter().rev().find(|pr| !pr.replace_steps.is_empty()) {
+            t.steps = r.replace_steps.clone();
+        }
+        let replaced = procs.iter().any(|pr| !pr.replace_steps.is_empty());
+        let mut before: Vec<TutorialStep> = Vec::new();
+        for pr in &procs {
+            t.vehicle_notes.extend(pr.notes.iter().cloned());
+            if replaced {
+                continue;
+            }
+            for s in &pr.steps_before {
+                if !before.iter().any(|b| b.title == s.title) {
+                    before.push(s.clone());
+                }
+            }
+        }
+        before.append(&mut t.steps);
+        t.steps = before;
         let cyl = p.cylinders.unwrap_or(4);
         let fix = |list: &mut Vec<String>| {
             let mut out: Vec<String> = Vec::new();
@@ -331,6 +398,25 @@ mod tests {
         assert_eq!(plugs.items[0].qty, 3.0);
         let t = m.tutorial_for("spark_plugs", p).unwrap();
         assert!(t.components.contains(&"coil_3".to_string()) && !t.components.contains(&"coil_4".to_string()));
+    }
+
+    #[test]
+    fn vehicle_specific_procedures() {
+        let m = Maintenance::embedded();
+        let p = |id: &str| m.profiles.iter().find(|p| p.id == id).unwrap().clone();
+        let tesla = p("tesla-model3-rwd");
+        let t = m.tutorial_for("ev_brakes", &tesla).unwrap();
+        assert!(t.steps[0].title.contains("hors tension") || t.steps[1].title.contains("hors tension"), "{:?}", t.steps.iter().map(|s| &s.title).collect::<Vec<_>>());
+        assert!(t.steps.iter().any(|s| s.title.contains("Lever un véhicule électrique")));
+        assert!(!t.steps.iter().any(|s| s.title.contains("mode Cric")));
+        assert!(!t.vehicle_notes.is_empty());
+        let s = p("tesla-model-s-long-range");
+        assert!(m.tutorial_for("chassis_check", &s).unwrap().steps.iter().any(|s| s.title.contains("mode Cric")));
+        let b = m.tutorial_for("battery_replace", &tesla).unwrap();
+        assert!(b.steps.iter().any(|s| s.text.contains("16 V")));
+        // Other makes are untouched.
+        let golf = p("vw-golf7-tdi");
+        assert!(m.tutorial_for("oil_change", &golf).unwrap().steps[0].source.is_none());
     }
 
     #[test]

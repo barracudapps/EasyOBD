@@ -51,8 +51,13 @@ fn make_from_wmi(wmi: &str) -> Option<&'static str> {
         ("ZFF", "Ferrari"), ("SAL", "Land Rover"), ("SAJ", "Jaguar"), ("YV1", "Volvo"), ("JTD", "Toyota"),
         ("JT2", "Toyota"), ("SB1", "Toyota"), ("VNK", "Toyota"), ("JHM", "Honda"), ("JN1", "Nissan"), ("SJN", "Nissan"),
         ("JMZ", "Mazda"), ("KMH", "Hyundai"), ("TMA", "Hyundai"), ("KNA", "Kia"), ("U5Y", "Kia"), ("WF0", "Ford"),
-        ("1FA", "Ford"), ("1G1", "Chevrolet"), ("5YJ", "Tesla"), ("LRW", "Tesla"), ("XLR", "Tesla"),
-        ("JS2", "Suzuki"), ("TSM", "Suzuki"), ("JMB", "Mitsubishi"),
+        ("1FA", "Ford"), ("1G1", "Chevrolet"), ("5YJ", "Tesla"), ("XP7", "Tesla"), ("7SA", "Tesla"), ("LRW", "Tesla"),
+        ("JS2", "Suzuki"), ("TSM", "Suzuki"), ("JMB", "Mitsubishi"), ("SJA", "Bentley"),
+        ("LSJ", "MG"), ("SDP", "MG"), ("LGX", "BYD"), ("LC0", "BYD"), ("YS2", "Scania"), ("YV2", "Volvo Trucks"),
+        ("XLR", "DAF"), ("WMA", "MAN"), ("ZCF", "Iveco"), ("WDF", "Mercedes-Benz Utilitaires"), ("W1V", "Mercedes-Benz Utilitaires"),
+        ("ZDM", "Ducati"), ("VBK", "KTM"), ("SMT", "Triumph"), ("JYA", "Yamaha"), ("JH2", "Honda Moto"), ("JKA", "Kawasaki"),
+        ("WB1", "BMW Motorrad"), ("ZAP", "Piaggio"), ("538", "Zero Motorcycles"), ("WMZ", "Mini"), ("VSE", "Cupra / Seat"),
+        ("LVS", "Ford (Chine)"), ("LFV", "Volkswagen (Chine)"),
     ];
     TABLE.iter().find(|(p, _)| wmi.starts_with(p)).map(|(_, m)| *m)
 }

@@ -2,384 +2,4098 @@
   "version": "2026.11.1",
   "disclaimer": "Valeurs indicatives (contenances, normes d'huile, intervalles). Vérifiez toujours dans le carnet d'entretien ou la notice de votre véhicule : elles varient selon la motorisation et l'année.",
   "vehicle_types": [
-    { "id": "car", "name": "Voiture", "icon": "car" },
-    { "id": "van", "name": "Utilitaire", "icon": "van" },
-    { "id": "motorcycle", "name": "Moto / scooter", "icon": "motorcycle" },
-    { "id": "truck", "name": "Poids lourd", "icon": "truck" }
+    {
+      "id": "car",
+      "name": "Voiture",
+      "icon": "car"
+    },
+    {
+      "id": "van",
+      "name": "Utilitaire",
+      "icon": "van"
+    },
+    {
+      "id": "motorcycle",
+      "name": "Moto / scooter",
+      "icon": "motorcycle"
+    },
+    {
+      "id": "truck",
+      "name": "Poids lourd",
+      "icon": "truck"
+    }
   ],
   "components": {
-    "oil_filter": { "name": "Filtre à huile" },
-    "oil_drain_plug": { "name": "Bouchon de vidange" },
-    "oil_filler_cap": { "name": "Bouchon de remplissage d'huile" },
-    "dipstick": { "name": "Jauge à huile" },
-    "cabin_filter": { "name": "Filtre d'habitacle" },
-    "coolant_reservoir": { "name": "Vase d'expansion" },
-    "brake_fluid_reservoir": { "name": "Bocal de liquide de frein" },
-    "washer_reservoir": { "name": "Réservoir de lave-glace" },
-    "brake_fl": { "name": "Frein avant gauche (disque + plaquettes)" },
-    "brake_fr": { "name": "Frein avant droit (disque + plaquettes)" },
-    "wheel_fl": { "name": "Roue avant gauche" },
-    "wheel_fr": { "name": "Roue avant droite" },
-    "wheel_rl": { "name": "Roue arrière gauche" },
-    "wheel_rr": { "name": "Roue arrière droite" },
-    "wiper_blades": { "name": "Balais d'essuie-glace" },
-    "headlights": { "name": "Éclairage" },
-    "chain": { "name": "Chaîne de transmission" },
-    "sprocket_front": { "name": "Pignon de sortie de boîte" },
-    "sprocket_rear": { "name": "Couronne" },
-    "adblue_tank": { "name": "Réservoir AdBlue" },
-    "accessory_belt": { "name": "Courroie d'accessoires" }
+    "oil_filter": {
+      "name": "Filtre à huile"
+    },
+    "oil_drain_plug": {
+      "name": "Bouchon de vidange"
+    },
+    "oil_filler_cap": {
+      "name": "Bouchon de remplissage d'huile"
+    },
+    "dipstick": {
+      "name": "Jauge à huile"
+    },
+    "cabin_filter": {
+      "name": "Filtre d'habitacle"
+    },
+    "coolant_reservoir": {
+      "name": "Vase d'expansion"
+    },
+    "brake_fluid_reservoir": {
+      "name": "Bocal de liquide de frein"
+    },
+    "washer_reservoir": {
+      "name": "Réservoir de lave-glace"
+    },
+    "brake_fl": {
+      "name": "Frein avant gauche (disque + plaquettes)"
+    },
+    "brake_fr": {
+      "name": "Frein avant droit (disque + plaquettes)"
+    },
+    "wheel_fl": {
+      "name": "Roue avant gauche"
+    },
+    "wheel_fr": {
+      "name": "Roue avant droite"
+    },
+    "wheel_rl": {
+      "name": "Roue arrière gauche"
+    },
+    "wheel_rr": {
+      "name": "Roue arrière droite"
+    },
+    "wiper_blades": {
+      "name": "Balais d'essuie-glace"
+    },
+    "headlights": {
+      "name": "Éclairage"
+    },
+    "chain": {
+      "name": "Chaîne de transmission"
+    },
+    "sprocket_front": {
+      "name": "Pignon de sortie de boîte"
+    },
+    "sprocket_rear": {
+      "name": "Couronne"
+    },
+    "adblue_tank": {
+      "name": "Réservoir AdBlue"
+    },
+    "accessory_belt": {
+      "name": "Courroie d'accessoires"
+    },
+    "brake_rl": {
+      "name": "Frein arrière gauche"
+    },
+    "brake_rr": {
+      "name": "Frein arrière droit"
+    },
+    "reducer_oil": {
+      "name": "Huile de réducteur"
+    }
   },
   "profiles": [
-    { "id": "renault-clio5-tce90", "type": "car", "make": "Renault", "model": "Clio V", "engine": "1.0 TCe 90", "years": [2019, 2026], "fuel": "petrol", "cylinders": 3, "oil_capacity_l": 4.2, "oil_spec": "5W30 RN17", "coolant_l": 5.5 },
-    { "id": "renault-clio4-dci90", "type": "car", "make": "Renault", "model": "Clio IV", "engine": "1.5 dCi 90", "years": [2012, 2019], "fuel": "diesel", "cylinders": 4, "oil_capacity_l": 4.5, "oil_spec": "5W30 RN0720", "coolant_l": 5.5 },
-    { "id": "peugeot-208-puretech", "type": "car", "make": "Peugeot", "model": "208", "engine": "1.2 PureTech 82/100", "years": [2012, 2026], "fuel": "petrol", "cylinders": 3, "oil_capacity_l": 3.5, "oil_spec": "0W30 PSA B71 2312", "coolant_l": 5.0 },
-    { "id": "peugeot-308-bluehdi", "type": "car", "make": "Peugeot", "model": "308 II", "engine": "1.5 BlueHDi 130", "years": [2017, 2021], "fuel": "diesel", "cylinders": 4, "oil_capacity_l": 4.25, "oil_spec": "0W30 PSA B71 2312", "coolant_l": 6.0 },
-    { "id": "citroen-c3-puretech", "type": "car", "make": "Citroën", "model": "C3 III", "engine": "1.2 PureTech 83", "years": [2016, 2024], "fuel": "petrol", "cylinders": 3, "oil_capacity_l": 3.5, "oil_spec": "0W30 PSA B71 2312", "coolant_l": 5.0 },
-    { "id": "dacia-sandero3-tce90", "type": "car", "make": "Dacia", "model": "Sandero III", "engine": "1.0 TCe 90", "years": [2020, 2026], "fuel": "petrol", "cylinders": 3, "oil_capacity_l": 4.2, "oil_spec": "5W30 RN17", "coolant_l": 5.5 },
-    { "id": "vw-golf7-tdi", "type": "car", "make": "Volkswagen", "model": "Golf VII", "engine": "1.6 TDI 115", "years": [2013, 2020], "fuel": "diesel", "cylinders": 4, "oil_capacity_l": 4.3, "oil_spec": "5W30 VW 507.00", "coolant_l": 6.5 },
-    { "id": "vw-golf7-tsi", "type": "car", "make": "Volkswagen", "model": "Golf VII", "engine": "1.4 TSI 125", "years": [2013, 2020], "fuel": "petrol", "cylinders": 4, "oil_capacity_l": 4.0, "oil_spec": "5W30 VW 504.00", "coolant_l": 6.0 },
-    { "id": "toyota-yaris3-hybrid", "type": "car", "make": "Toyota", "model": "Yaris III", "engine": "1.5 Hybride 100", "years": [2012, 2020], "fuel": "hybrid", "cylinders": 4, "oil_capacity_l": 3.7, "oil_spec": "0W20", "coolant_l": 4.5 },
-    { "id": "ford-fiesta-ecoboost", "type": "car", "make": "Ford", "model": "Fiesta VII", "engine": "1.0 EcoBoost 100", "years": [2017, 2023], "fuel": "petrol", "cylinders": 3, "oil_capacity_l": 4.1, "oil_spec": "5W20 WSS-M2C948-B", "coolant_l": 4.5 },
-    { "id": "renault-master3-dci", "type": "van", "make": "Renault", "model": "Master III", "engine": "2.3 dCi 135", "years": [2014, 2026], "fuel": "diesel", "cylinders": 4, "oil_capacity_l": 6.6, "oil_spec": "5W30 RN0720", "coolant_l": 10.0 },
-    { "id": "citroen-berlingo-bluehdi", "type": "van", "make": "Citroën", "model": "Berlingo III", "engine": "1.5 BlueHDi 100", "years": [2018, 2026], "fuel": "diesel", "cylinders": 4, "oil_capacity_l": 4.25, "oil_spec": "0W30 PSA B71 2312", "coolant_l": 6.5 },
-    { "id": "yamaha-mt07", "type": "motorcycle", "make": "Yamaha", "model": "MT-07", "engine": "689 cm³ bicylindre", "years": [2014, 2026], "fuel": "petrol", "cylinders": 2, "oil_capacity_l": 3.0, "oil_spec": "10W40 JASO MA2", "chain": "525 – 108 maillons" },
-    { "id": "honda-cb500f", "type": "motorcycle", "make": "Honda", "model": "CB500F", "engine": "471 cm³ bicylindre", "years": [2013, 2026], "fuel": "petrol", "cylinders": 2, "oil_capacity_l": 3.2, "oil_spec": "10W30 JASO MA", "chain": "520 – 112 maillons" },
-    { "id": "kawasaki-z650", "type": "motorcycle", "make": "Kawasaki", "model": "Z650", "engine": "649 cm³ bicylindre", "years": [2017, 2026], "fuel": "petrol", "cylinders": 2, "oil_capacity_l": 2.3, "oil_spec": "10W40 JASO MA", "chain": "520 – 114 maillons" },
-    { "id": "honda-pcx125", "type": "motorcycle", "make": "Honda", "model": "PCX 125", "engine": "125 cm³ monocylindre", "years": [2018, 2026], "fuel": "petrol", "cylinders": 1, "oil_capacity_l": 0.8, "oil_spec": "10W30 JASO MB" },
-    { "id": "renault-trucks-t-dti13", "type": "truck", "make": "Renault Trucks", "model": "T", "engine": "DTI 13 (13 L)", "years": [2013, 2026], "fuel": "diesel", "cylinders": 6, "oil_capacity_l": 35, "oil_spec": "10W30 VDS-4.5 / ACEA E6", "coolant_l": 45 },
-    { "id": "mercedes-actros-om471", "type": "truck", "make": "Mercedes-Benz", "model": "Actros", "engine": "OM 471 (12,8 L)", "years": [2011, 2026], "fuel": "diesel", "cylinders": 6, "oil_capacity_l": 39, "oil_spec": "10W30 MB 228.51", "coolant_l": 48 }
+    {
+      "id": "audi-a3-8y-35-tfsi-1-5-150",
+      "type": "car",
+      "make": "Audi",
+      "model": "A3 (8Y)",
+      "engine": "35 TFSI 1.5 150",
+      "years": [
+        2020,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 4,
+      "oil_capacity_l": 4.0,
+      "oil_spec": "0W20 VW 508.00"
+    },
+    {
+      "id": "audi-a4-b9-2-0-tdi-150",
+      "type": "car",
+      "make": "Audi",
+      "model": "A4 (B9)",
+      "engine": "2.0 TDI 150",
+      "years": [
+        2015,
+        2024
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "oil_capacity_l": 4.6,
+      "oil_spec": "5W30 VW 507.00"
+    },
+    {
+      "id": "audi-q4-e-tron-40-77-kwh",
+      "type": "car",
+      "make": "Audi",
+      "model": "Q4 e-tron",
+      "engine": "40 – 77 kWh",
+      "years": [
+        2021,
+        2026
+      ],
+      "fuel": "electric"
+    },
+    {
+      "id": "bmw-serie-1-f40-118i-1-5-140",
+      "type": "car",
+      "make": "BMW",
+      "model": "Série 1 (F40)",
+      "engine": "118i 1.5 140",
+      "years": [
+        2019,
+        2024
+      ],
+      "fuel": "petrol",
+      "cylinders": 3,
+      "oil_capacity_l": 4.25,
+      "oil_spec": "0W20 BMW LL-17FE+"
+    },
+    {
+      "id": "bmw-serie-3-g20-320d-2-0-190",
+      "type": "car",
+      "make": "BMW",
+      "model": "Série 3 (G20)",
+      "engine": "320d 2.0 190",
+      "years": [
+        2019,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "oil_capacity_l": 5.2,
+      "oil_spec": "5W30 BMW LL-04"
+    },
+    {
+      "id": "bmw-x1-u11-sdrive18d",
+      "type": "car",
+      "make": "BMW",
+      "model": "X1 (U11)",
+      "engine": "sDrive18d",
+      "years": [
+        2022,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "oil_capacity_l": 5.2,
+      "oil_spec": "0W20 BMW LL-19FE"
+    },
+    {
+      "id": "bmw-i4-edrive40",
+      "type": "car",
+      "make": "BMW",
+      "model": "i4",
+      "engine": "eDrive40",
+      "years": [
+        2021,
+        2026
+      ],
+      "fuel": "electric"
+    },
+    {
+      "id": "bmw-ix3-286-ch",
+      "type": "car",
+      "make": "BMW",
+      "model": "iX3",
+      "engine": "286 ch",
+      "years": [
+        2021,
+        2025
+      ],
+      "fuel": "electric"
+    },
+    {
+      "id": "byd-atto-3-60-kwh",
+      "type": "car",
+      "make": "BYD",
+      "model": "Atto 3",
+      "engine": "60 kWh",
+      "years": [
+        2022,
+        2026
+      ],
+      "fuel": "electric"
+    },
+    {
+      "id": "byd-dolphin-60-kwh",
+      "type": "car",
+      "make": "BYD",
+      "model": "Dolphin",
+      "engine": "60 kWh",
+      "years": [
+        2023,
+        2026
+      ],
+      "fuel": "electric"
+    },
+    {
+      "id": "citroen-ami-5-5-kwh",
+      "type": "car",
+      "make": "Citroën",
+      "model": "Ami",
+      "engine": "5,5 kWh",
+      "years": [
+        2020,
+        2026
+      ],
+      "fuel": "electric"
+    },
+    {
+      "id": "citroen-c3-puretech",
+      "type": "car",
+      "make": "Citroën",
+      "model": "C3 III",
+      "engine": "1.2 PureTech 83",
+      "years": [
+        2016,
+        2024
+      ],
+      "fuel": "petrol",
+      "cylinders": 3,
+      "oil_capacity_l": 3.5,
+      "oil_spec": "0W30 PSA B71 2312",
+      "coolant_l": 5.0
+    },
+    {
+      "id": "citroen-c4-iii-1-5-bluehdi-130",
+      "type": "car",
+      "make": "Citroën",
+      "model": "C4 III",
+      "engine": "1.5 BlueHDi 130",
+      "years": [
+        2020,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "oil_capacity_l": 4.25,
+      "oil_spec": "0W30 PSA B71 2312"
+    },
+    {
+      "id": "citroen-e-c4-136-ch-50-kwh",
+      "type": "car",
+      "make": "Citroën",
+      "model": "ë-C4",
+      "engine": "136 ch – 50 kWh",
+      "years": [
+        2020,
+        2026
+      ],
+      "fuel": "electric"
+    },
+    {
+      "id": "cupra-born-58-kwh",
+      "type": "car",
+      "make": "Cupra",
+      "model": "Born",
+      "engine": "58 kWh",
+      "years": [
+        2021,
+        2026
+      ],
+      "fuel": "electric"
+    },
+    {
+      "id": "ds-ds-7-crossback-1-5-bluehdi-130",
+      "type": "car",
+      "make": "DS",
+      "model": "DS 7 Crossback",
+      "engine": "1.5 BlueHDi 130",
+      "years": [
+        2018,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "oil_capacity_l": 4.25,
+      "oil_spec": "0W30 PSA B71 2312"
+    },
+    {
+      "id": "dacia-duster-ii-1-5-blue-dci-115",
+      "type": "car",
+      "make": "Dacia",
+      "model": "Duster II",
+      "engine": "1.5 Blue dCi 115",
+      "years": [
+        2018,
+        2024
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "oil_capacity_l": 4.6,
+      "oil_spec": "5W30 RN0720"
+    },
+    {
+      "id": "dacia-jogger-1-0-tce-110",
+      "type": "car",
+      "make": "Dacia",
+      "model": "Jogger",
+      "engine": "1.0 TCe 110",
+      "years": [
+        2022,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 3,
+      "oil_capacity_l": 4.2,
+      "oil_spec": "5W30 RN17"
+    },
+    {
+      "id": "dacia-sandero3-tce90",
+      "type": "car",
+      "make": "Dacia",
+      "model": "Sandero III",
+      "engine": "1.0 TCe 90",
+      "years": [
+        2020,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 3,
+      "oil_capacity_l": 4.2,
+      "oil_spec": "5W30 RN17",
+      "coolant_l": 5.5
+    },
+    {
+      "id": "dacia-spring",
+      "type": "car",
+      "make": "Dacia",
+      "model": "Spring",
+      "engine": "45 ch – 27 kWh",
+      "years": [
+        2021,
+        2026
+      ],
+      "fuel": "electric",
+      "traction": "front"
+    },
+    {
+      "id": "fiat-500-312-1-0-hybrid-70",
+      "type": "car",
+      "make": "Fiat",
+      "model": "500 (312)",
+      "engine": "1.0 Hybrid 70",
+      "years": [
+        2020,
+        2026
+      ],
+      "fuel": "hybrid",
+      "cylinders": 3,
+      "oil_spec": "0W30"
+    },
+    {
+      "id": "fiat-500e-42-kwh",
+      "type": "car",
+      "make": "Fiat",
+      "model": "500e",
+      "engine": "42 kWh",
+      "years": [
+        2020,
+        2026
+      ],
+      "fuel": "electric"
+    },
+    {
+      "id": "fiat-panda-iii-1-0-hybrid-70",
+      "type": "car",
+      "make": "Fiat",
+      "model": "Panda III",
+      "engine": "1.0 Hybrid 70",
+      "years": [
+        2020,
+        2026
+      ],
+      "fuel": "hybrid",
+      "cylinders": 3,
+      "oil_spec": "0W30"
+    },
+    {
+      "id": "ford-fiesta-ecoboost",
+      "type": "car",
+      "make": "Ford",
+      "model": "Fiesta VII",
+      "engine": "1.0 EcoBoost 100",
+      "years": [
+        2017,
+        2023
+      ],
+      "fuel": "petrol",
+      "cylinders": 3,
+      "oil_capacity_l": 4.1,
+      "oil_spec": "5W20 WSS-M2C948-B",
+      "coolant_l": 4.5
+    },
+    {
+      "id": "ford-focus-iv-1-5-ecoblue-120",
+      "type": "car",
+      "make": "Ford",
+      "model": "Focus IV",
+      "engine": "1.5 EcoBlue 120",
+      "years": [
+        2018,
+        2025
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "oil_spec": "0W30 WSS-M2C950-A"
+    },
+    {
+      "id": "ford-mustang-mach-e-75-kwh",
+      "type": "car",
+      "make": "Ford",
+      "model": "Mustang Mach-E",
+      "engine": "75 kWh",
+      "years": [
+        2021,
+        2026
+      ],
+      "fuel": "electric"
+    },
+    {
+      "id": "ford-puma-1-0-ecoboost-mhev-125",
+      "type": "car",
+      "make": "Ford",
+      "model": "Puma",
+      "engine": "1.0 EcoBoost mHEV 125",
+      "years": [
+        2019,
+        2026
+      ],
+      "fuel": "hybrid",
+      "cylinders": 3,
+      "oil_capacity_l": 4.1,
+      "oil_spec": "5W20 WSS-M2C948-B"
+    },
+    {
+      "id": "honda-civic-xi-2-0-e-hev",
+      "type": "car",
+      "make": "Honda",
+      "model": "Civic XI",
+      "engine": "2.0 e:HEV",
+      "years": [
+        2022,
+        2026
+      ],
+      "fuel": "hybrid",
+      "cylinders": 4,
+      "oil_spec": "0W20"
+    },
+    {
+      "id": "honda-jazz-iv-1-5-e-hev",
+      "type": "car",
+      "make": "Honda",
+      "model": "Jazz IV",
+      "engine": "1.5 e:HEV",
+      "years": [
+        2020,
+        2026
+      ],
+      "fuel": "hybrid",
+      "cylinders": 4,
+      "oil_spec": "0W20"
+    },
+    {
+      "id": "hyundai-ioniq-5-77-kwh",
+      "type": "car",
+      "make": "Hyundai",
+      "model": "Ioniq 5",
+      "engine": "77 kWh",
+      "years": [
+        2021,
+        2026
+      ],
+      "fuel": "electric"
+    },
+    {
+      "id": "hyundai-kona-electric-64-kwh-204-ch",
+      "type": "car",
+      "make": "Hyundai",
+      "model": "Kona Electric",
+      "engine": "64 kWh 204 ch",
+      "years": [
+        2018,
+        2023
+      ],
+      "fuel": "electric"
+    },
+    {
+      "id": "hyundai-tucson-iv-1-6-t-gdi-hybride",
+      "type": "car",
+      "make": "Hyundai",
+      "model": "Tucson IV",
+      "engine": "1.6 T-GDi Hybride",
+      "years": [
+        2020,
+        2026
+      ],
+      "fuel": "hybrid",
+      "cylinders": 4,
+      "oil_capacity_l": 4.8,
+      "oil_spec": "0W20 ACEA C5"
+    },
+    {
+      "id": "hyundai-i10-iii-1-0-mpi-67",
+      "type": "car",
+      "make": "Hyundai",
+      "model": "i10 III",
+      "engine": "1.0 MPi 67",
+      "years": [
+        2020,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 3,
+      "oil_capacity_l": 3.2,
+      "oil_spec": "0W20 ACEA C5"
+    },
+    {
+      "id": "hyundai-i20-iii-1-0-t-gdi-100",
+      "type": "car",
+      "make": "Hyundai",
+      "model": "i20 III",
+      "engine": "1.0 T-GDi 100",
+      "years": [
+        2020,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 3,
+      "oil_capacity_l": 3.6,
+      "oil_spec": "0W20 ACEA C5"
+    },
+    {
+      "id": "hyundai-i30-iii-1-0-t-gdi-120",
+      "type": "car",
+      "make": "Hyundai",
+      "model": "i30 III",
+      "engine": "1.0 T-GDi 120",
+      "years": [
+        2017,
+        2024
+      ],
+      "fuel": "petrol",
+      "cylinders": 3,
+      "oil_capacity_l": 3.6,
+      "oil_spec": "5W30 ACEA C2"
+    },
+    {
+      "id": "kia-ceed-iii-1-5-t-gdi-160",
+      "type": "car",
+      "make": "Kia",
+      "model": "Ceed III",
+      "engine": "1.5 T-GDi 160",
+      "years": [
+        2021,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 4,
+      "oil_capacity_l": 4.2,
+      "oil_spec": "0W20 ACEA C5"
+    },
+    {
+      "id": "kia-ev3-81-kwh",
+      "type": "car",
+      "make": "Kia",
+      "model": "EV3",
+      "engine": "81 kWh",
+      "years": [
+        2024,
+        2026
+      ],
+      "fuel": "electric"
+    },
+    {
+      "id": "kia-ev6-77-kwh",
+      "type": "car",
+      "make": "Kia",
+      "model": "EV6",
+      "engine": "77 kWh",
+      "years": [
+        2021,
+        2026
+      ],
+      "fuel": "electric"
+    },
+    {
+      "id": "kia-niro-ii-1-6-gdi-hybride",
+      "type": "car",
+      "make": "Kia",
+      "model": "Niro II",
+      "engine": "1.6 GDi Hybride",
+      "years": [
+        2022,
+        2026
+      ],
+      "fuel": "hybrid",
+      "cylinders": 4,
+      "oil_capacity_l": 3.8,
+      "oil_spec": "0W20 ACEA C5"
+    },
+    {
+      "id": "kia-picanto-iii-1-0-mpi-67",
+      "type": "car",
+      "make": "Kia",
+      "model": "Picanto III",
+      "engine": "1.0 MPi 67",
+      "years": [
+        2017,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 3,
+      "oil_capacity_l": 3.2,
+      "oil_spec": "0W20 ACEA C5"
+    },
+    {
+      "id": "kia-rio-iv-1-0-t-gdi-100",
+      "type": "car",
+      "make": "Kia",
+      "model": "Rio IV",
+      "engine": "1.0 T-GDi 100",
+      "years": [
+        2017,
+        2023
+      ],
+      "fuel": "petrol",
+      "cylinders": 3,
+      "oil_capacity_l": 3.6,
+      "oil_spec": "0W20 ACEA C5"
+    },
+    {
+      "id": "kia-sportage-v-1-6-t-gdi-hybride",
+      "type": "car",
+      "make": "Kia",
+      "model": "Sportage V",
+      "engine": "1.6 T-GDi Hybride",
+      "years": [
+        2021,
+        2026
+      ],
+      "fuel": "hybrid",
+      "cylinders": 4,
+      "oil_capacity_l": 4.8,
+      "oil_spec": "0W20 ACEA C5"
+    },
+    {
+      "id": "kia-e-niro-niro-ev-64-kwh-204-ch",
+      "type": "car",
+      "make": "Kia",
+      "model": "e-Niro / Niro EV",
+      "engine": "64 kWh 204 ch",
+      "years": [
+        2019,
+        2026
+      ],
+      "fuel": "electric"
+    },
+    {
+      "id": "mg-mg4-electric-64-kwh",
+      "type": "car",
+      "make": "MG",
+      "model": "MG4 Electric",
+      "engine": "64 kWh",
+      "years": [
+        2022,
+        2026
+      ],
+      "fuel": "electric"
+    },
+    {
+      "id": "mg-zs-ev-72-kwh",
+      "type": "car",
+      "make": "MG",
+      "model": "ZS EV",
+      "engine": "72 kWh",
+      "years": [
+        2021,
+        2026
+      ],
+      "fuel": "electric"
+    },
+    {
+      "id": "mazda-2-1-5-skyactiv-g-90",
+      "type": "car",
+      "make": "Mazda",
+      "model": "2",
+      "engine": "1.5 Skyactiv-G 90",
+      "years": [
+        2015,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 4,
+      "oil_capacity_l": 4.2,
+      "oil_spec": "0W20"
+    },
+    {
+      "id": "mazda-cx-5-ii-2-0-skyactiv-g-165",
+      "type": "car",
+      "make": "Mazda",
+      "model": "CX-5 II",
+      "engine": "2.0 Skyactiv-G 165",
+      "years": [
+        2017,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 4,
+      "oil_capacity_l": 4.2,
+      "oil_spec": "0W20"
+    },
+    {
+      "id": "mazda-mx-30-35-5-kwh",
+      "type": "car",
+      "make": "Mazda",
+      "model": "MX-30",
+      "engine": "35,5 kWh",
+      "years": [
+        2020,
+        2026
+      ],
+      "fuel": "electric"
+    },
+    {
+      "id": "mercedes-benz-classe-a-w177-a-180-d-1-5",
+      "type": "car",
+      "make": "Mercedes-Benz",
+      "model": "Classe A (W177)",
+      "engine": "A 180 d 1.5",
+      "years": [
+        2018,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "oil_capacity_l": 5.0,
+      "oil_spec": "5W30 MB 229.51"
+    },
+    {
+      "id": "mercedes-benz-classe-c-w205-c-220-d-2-1",
+      "type": "car",
+      "make": "Mercedes-Benz",
+      "model": "Classe C (W205)",
+      "engine": "C 220 d 2.1",
+      "years": [
+        2014,
+        2021
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "oil_capacity_l": 6.5,
+      "oil_spec": "5W30 MB 229.51"
+    },
+    {
+      "id": "mercedes-benz-eqa-250",
+      "type": "car",
+      "make": "Mercedes-Benz",
+      "model": "EQA",
+      "engine": "250",
+      "years": [
+        2021,
+        2026
+      ],
+      "fuel": "electric"
+    },
+    {
+      "id": "mini-cooper-f56-1-5-136",
+      "type": "car",
+      "make": "Mini",
+      "model": "Cooper (F56)",
+      "engine": "1.5 136",
+      "years": [
+        2014,
+        2024
+      ],
+      "fuel": "petrol",
+      "cylinders": 3,
+      "oil_capacity_l": 4.25,
+      "oil_spec": "5W30 BMW LL-04"
+    },
+    {
+      "id": "mini-cooper-se-32-6-kwh",
+      "type": "car",
+      "make": "Mini",
+      "model": "Cooper SE",
+      "engine": "32,6 kWh",
+      "years": [
+        2020,
+        2024
+      ],
+      "fuel": "electric"
+    },
+    {
+      "id": "nissan-juke-ii-1-0-dig-t-114",
+      "type": "car",
+      "make": "Nissan",
+      "model": "Juke II",
+      "engine": "1.0 DIG-T 114",
+      "years": [
+        2019,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 3
+    },
+    {
+      "id": "nissan-leaf-ii-40-kwh",
+      "type": "car",
+      "make": "Nissan",
+      "model": "Leaf II",
+      "engine": "40 kWh",
+      "years": [
+        2018,
+        2026
+      ],
+      "fuel": "electric"
+    },
+    {
+      "id": "nissan-qashqai-iii-1-3-dig-t-mild-hybrid-140",
+      "type": "car",
+      "make": "Nissan",
+      "model": "Qashqai III",
+      "engine": "1.3 DIG-T Mild Hybrid 140",
+      "years": [
+        2021,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 4
+    },
+    {
+      "id": "opel-astra-l-1-2-turbo-130",
+      "type": "car",
+      "make": "Opel",
+      "model": "Astra L",
+      "engine": "1.2 Turbo 130",
+      "years": [
+        2021,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 3,
+      "oil_capacity_l": 3.5,
+      "oil_spec": "0W30 PSA B71 2312"
+    },
+    {
+      "id": "opel-corsa-f-1-2-turbo-100",
+      "type": "car",
+      "make": "Opel",
+      "model": "Corsa F",
+      "engine": "1.2 Turbo 100",
+      "years": [
+        2019,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 3,
+      "oil_capacity_l": 3.5,
+      "oil_spec": "0W30 PSA B71 2312"
+    },
+    {
+      "id": "opel-corsa-e-136-ch-50-kwh",
+      "type": "car",
+      "make": "Opel",
+      "model": "Corsa-e",
+      "engine": "136 ch – 50 kWh",
+      "years": [
+        2020,
+        2026
+      ],
+      "fuel": "electric"
+    },
+    {
+      "id": "peugeot-2008-ii-1-2-puretech-130",
+      "type": "car",
+      "make": "Peugeot",
+      "model": "2008 II",
+      "engine": "1.2 PureTech 130",
+      "years": [
+        2019,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 3,
+      "oil_capacity_l": 3.5,
+      "oil_spec": "0W30 PSA B71 2312"
+    },
+    {
+      "id": "peugeot-208-puretech",
+      "type": "car",
+      "make": "Peugeot",
+      "model": "208",
+      "engine": "1.2 PureTech 82/100",
+      "years": [
+        2012,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 3,
+      "oil_capacity_l": 3.5,
+      "oil_spec": "0W30 PSA B71 2312",
+      "coolant_l": 5.0
+    },
+    {
+      "id": "peugeot-3008-ii-1-5-bluehdi-130",
+      "type": "car",
+      "make": "Peugeot",
+      "model": "3008 II",
+      "engine": "1.5 BlueHDi 130",
+      "years": [
+        2017,
+        2023
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "oil_capacity_l": 4.25,
+      "oil_spec": "0W30 PSA B71 2312"
+    },
+    {
+      "id": "peugeot-308-bluehdi",
+      "type": "car",
+      "make": "Peugeot",
+      "model": "308 II",
+      "engine": "1.5 BlueHDi 130",
+      "years": [
+        2017,
+        2021
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "oil_capacity_l": 4.25,
+      "oil_spec": "0W30 PSA B71 2312",
+      "coolant_l": 6.0
+    },
+    {
+      "id": "peugeot-308-iii-1-2-puretech-130",
+      "type": "car",
+      "make": "Peugeot",
+      "model": "308 III",
+      "engine": "1.2 PureTech 130",
+      "years": [
+        2021,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 3,
+      "oil_capacity_l": 3.5,
+      "oil_spec": "0W20 PSA B71 2010"
+    },
+    {
+      "id": "peugeot-e-2008-136-ch-50-kwh",
+      "type": "car",
+      "make": "Peugeot",
+      "model": "e-2008",
+      "engine": "136 ch – 50 kWh",
+      "years": [
+        2020,
+        2026
+      ],
+      "fuel": "electric"
+    },
+    {
+      "id": "peugeot-e208",
+      "type": "car",
+      "make": "Peugeot",
+      "model": "e-208",
+      "engine": "136 ch – 50 kWh",
+      "years": [
+        2019,
+        2026
+      ],
+      "fuel": "electric",
+      "traction": "front"
+    },
+    {
+      "id": "renault-austral-e-tech-full-hybrid-200",
+      "type": "car",
+      "make": "Renault",
+      "model": "Austral",
+      "engine": "E-Tech Full Hybrid 200",
+      "years": [
+        2022,
+        2026
+      ],
+      "fuel": "hybrid",
+      "cylinders": 3
+    },
+    {
+      "id": "renault-captur-ii-1-3-tce-140",
+      "type": "car",
+      "make": "Renault",
+      "model": "Captur II",
+      "engine": "1.3 TCe 140",
+      "years": [
+        2019,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 4,
+      "oil_capacity_l": 5.3,
+      "oil_spec": "5W30 RN17"
+    },
+    {
+      "id": "renault-clio4-dci90",
+      "type": "car",
+      "make": "Renault",
+      "model": "Clio IV",
+      "engine": "1.5 dCi 90",
+      "years": [
+        2012,
+        2019
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "oil_capacity_l": 4.5,
+      "oil_spec": "5W30 RN0720",
+      "coolant_l": 5.5
+    },
+    {
+      "id": "renault-clio5-tce90",
+      "type": "car",
+      "make": "Renault",
+      "model": "Clio V",
+      "engine": "1.0 TCe 90",
+      "years": [
+        2019,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 3,
+      "oil_capacity_l": 4.2,
+      "oil_spec": "5W30 RN17",
+      "coolant_l": 5.5
+    },
+    {
+      "id": "renault-megane-etech",
+      "type": "car",
+      "make": "Renault",
+      "model": "Mégane E-Tech",
+      "engine": "EV60 220 ch",
+      "years": [
+        2022,
+        2026
+      ],
+      "fuel": "electric",
+      "traction": "front"
+    },
+    {
+      "id": "renault-megane-iv-1-5-blue-dci-115",
+      "type": "car",
+      "make": "Renault",
+      "model": "Mégane IV",
+      "engine": "1.5 Blue dCi 115",
+      "years": [
+        2018,
+        2024
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "oil_capacity_l": 4.6,
+      "oil_spec": "5W30 RN0720"
+    },
+    {
+      "id": "renault-r5-e-tech-52-kwh",
+      "type": "car",
+      "make": "Renault",
+      "model": "R5 E-Tech",
+      "engine": "52 kWh",
+      "years": [
+        2024,
+        2026
+      ],
+      "fuel": "electric"
+    },
+    {
+      "id": "renault-twingo-e-tech-22-kwh",
+      "type": "car",
+      "make": "Renault",
+      "model": "Twingo E-Tech",
+      "engine": "22 kWh",
+      "years": [
+        2020,
+        2024
+      ],
+      "fuel": "electric"
+    },
+    {
+      "id": "renault-twingo-iii-sce-65",
+      "type": "car",
+      "make": "Renault",
+      "model": "Twingo III",
+      "engine": "SCe 65",
+      "years": [
+        2014,
+        2024
+      ],
+      "fuel": "petrol",
+      "cylinders": 3,
+      "oil_capacity_l": 4.0,
+      "oil_spec": "5W40 RN0710"
+    },
+    {
+      "id": "renault-zoe2-r135",
+      "type": "car",
+      "make": "Renault",
+      "model": "Zoe II",
+      "engine": "R135 – 52 kWh",
+      "years": [
+        2019,
+        2024
+      ],
+      "fuel": "electric",
+      "traction": "front"
+    },
+    {
+      "id": "seat-ibiza-v-1-0-tsi-95",
+      "type": "car",
+      "make": "Seat",
+      "model": "Ibiza V",
+      "engine": "1.0 TSI 95",
+      "years": [
+        2017,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 3,
+      "oil_capacity_l": 4.0,
+      "oil_spec": "0W20 VW 508.00"
+    },
+    {
+      "id": "seat-leon-iv-1-5-tsi-130",
+      "type": "car",
+      "make": "Seat",
+      "model": "Leon IV",
+      "engine": "1.5 TSI 130",
+      "years": [
+        2020,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 4,
+      "oil_capacity_l": 4.0,
+      "oil_spec": "0W20 VW 508.00"
+    },
+    {
+      "id": "skoda-enyaq-80-77-kwh",
+      "type": "car",
+      "make": "Skoda",
+      "model": "Enyaq",
+      "engine": "80 – 77 kWh",
+      "years": [
+        2021,
+        2026
+      ],
+      "fuel": "electric"
+    },
+    {
+      "id": "skoda-fabia-iv-1-0-tsi-95",
+      "type": "car",
+      "make": "Skoda",
+      "model": "Fabia IV",
+      "engine": "1.0 TSI 95",
+      "years": [
+        2021,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 3,
+      "oil_capacity_l": 4.0,
+      "oil_spec": "0W20 VW 508.00"
+    },
+    {
+      "id": "skoda-octavia-iv-2-0-tdi-116",
+      "type": "car",
+      "make": "Skoda",
+      "model": "Octavia IV",
+      "engine": "2.0 TDI 116",
+      "years": [
+        2020,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "oil_capacity_l": 4.6,
+      "oil_spec": "0W30 VW 507.00"
+    },
+    {
+      "id": "suzuki-swift-vi-1-2-dualjet-hybrid",
+      "type": "car",
+      "make": "Suzuki",
+      "model": "Swift VI",
+      "engine": "1.2 Dualjet Hybrid",
+      "years": [
+        2017,
+        2026
+      ],
+      "fuel": "hybrid",
+      "cylinders": 4,
+      "oil_capacity_l": 3.1,
+      "oil_spec": "0W20"
+    },
+    {
+      "id": "suzuki-vitara-iv-1-4-boosterjet-hybrid",
+      "type": "car",
+      "make": "Suzuki",
+      "model": "Vitara IV",
+      "engine": "1.4 Boosterjet Hybrid",
+      "years": [
+        2020,
+        2026
+      ],
+      "fuel": "hybrid",
+      "cylinders": 4,
+      "oil_spec": "0W20"
+    },
+    {
+      "id": "tesla-model-3-grande-autonomie-awd",
+      "type": "car",
+      "make": "Tesla",
+      "model": "Model 3",
+      "engine": "Grande Autonomie AWD",
+      "years": [
+        2019,
+        2026
+      ],
+      "fuel": "electric"
+    },
+    {
+      "id": "tesla-model3-rwd",
+      "type": "car",
+      "make": "Tesla",
+      "model": "Model 3",
+      "engine": "Propulsion – 60 kWh",
+      "years": [
+        2021,
+        2026
+      ],
+      "fuel": "electric",
+      "traction": "rear"
+    },
+    {
+      "id": "tesla-model-s-long-range",
+      "type": "car",
+      "make": "Tesla",
+      "model": "Model S",
+      "engine": "Long Range",
+      "years": [
+        2016,
+        2026
+      ],
+      "fuel": "electric"
+    },
+    {
+      "id": "tesla-model-y-propulsion-grande-autonomie",
+      "type": "car",
+      "make": "Tesla",
+      "model": "Model Y",
+      "engine": "Propulsion / Grande Autonomie",
+      "years": [
+        2021,
+        2026
+      ],
+      "fuel": "electric"
+    },
+    {
+      "id": "toyota-c-hr-1-8-hybride-122",
+      "type": "car",
+      "make": "Toyota",
+      "model": "C-HR",
+      "engine": "1.8 Hybride 122",
+      "years": [
+        2016,
+        2023
+      ],
+      "fuel": "hybrid",
+      "cylinders": 4,
+      "oil_capacity_l": 4.2,
+      "oil_spec": "0W20"
+    },
+    {
+      "id": "toyota-corolla-xii-1-8-hybride-122",
+      "type": "car",
+      "make": "Toyota",
+      "model": "Corolla XII",
+      "engine": "1.8 Hybride 122",
+      "years": [
+        2019,
+        2026
+      ],
+      "fuel": "hybrid",
+      "cylinders": 4,
+      "oil_capacity_l": 4.2,
+      "oil_spec": "0W16 / 0W20"
+    },
+    {
+      "id": "toyota-rav4-v-2-5-hybride-218",
+      "type": "car",
+      "make": "Toyota",
+      "model": "RAV4 V",
+      "engine": "2.5 Hybride 218",
+      "years": [
+        2019,
+        2026
+      ],
+      "fuel": "hybrid",
+      "cylinders": 4,
+      "oil_capacity_l": 4.5,
+      "oil_spec": "0W16 / 0W20"
+    },
+    {
+      "id": "toyota-yaris3-hybrid",
+      "type": "car",
+      "make": "Toyota",
+      "model": "Yaris III",
+      "engine": "1.5 Hybride 100",
+      "years": [
+        2012,
+        2020
+      ],
+      "fuel": "hybrid",
+      "cylinders": 4,
+      "oil_capacity_l": 3.7,
+      "oil_spec": "0W20",
+      "coolant_l": 4.5
+    },
+    {
+      "id": "toyota-yaris-iv-1-5-hybride-116",
+      "type": "car",
+      "make": "Toyota",
+      "model": "Yaris IV",
+      "engine": "1.5 Hybride 116",
+      "years": [
+        2020,
+        2026
+      ],
+      "fuel": "hybrid",
+      "cylinders": 3,
+      "oil_capacity_l": 4.0,
+      "oil_spec": "0W16 / 0W20"
+    },
+    {
+      "id": "toyota-bz4x-71-kwh",
+      "type": "car",
+      "make": "Toyota",
+      "model": "bZ4X",
+      "engine": "71 kWh",
+      "years": [
+        2022,
+        2026
+      ],
+      "fuel": "electric"
+    },
+    {
+      "id": "vw-golf7-tsi",
+      "type": "car",
+      "make": "Volkswagen",
+      "model": "Golf VII",
+      "engine": "1.4 TSI 125",
+      "years": [
+        2013,
+        2020
+      ],
+      "fuel": "petrol",
+      "cylinders": 4,
+      "oil_capacity_l": 4.0,
+      "oil_spec": "5W30 VW 504.00",
+      "coolant_l": 6.0
+    },
+    {
+      "id": "vw-golf7-tdi",
+      "type": "car",
+      "make": "Volkswagen",
+      "model": "Golf VII",
+      "engine": "1.6 TDI 115",
+      "years": [
+        2013,
+        2020
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "oil_capacity_l": 4.3,
+      "oil_spec": "5W30 VW 507.00",
+      "coolant_l": 6.5
+    },
+    {
+      "id": "volkswagen-golf-viii-1-5-etsi-150",
+      "type": "car",
+      "make": "Volkswagen",
+      "model": "Golf VIII",
+      "engine": "1.5 eTSI 150",
+      "years": [
+        2020,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 4,
+      "oil_capacity_l": 4.0,
+      "oil_spec": "0W20 VW 508.00"
+    },
+    {
+      "id": "volkswagen-golf-viii-2-0-tdi-150",
+      "type": "car",
+      "make": "Volkswagen",
+      "model": "Golf VIII",
+      "engine": "2.0 TDI 150",
+      "years": [
+        2020,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "oil_capacity_l": 4.6,
+      "oil_spec": "0W30 VW 507.00"
+    },
+    {
+      "id": "vw-id3-pro",
+      "type": "car",
+      "make": "Volkswagen",
+      "model": "ID.3",
+      "engine": "Pro – 58 kWh",
+      "years": [
+        2020,
+        2026
+      ],
+      "fuel": "electric",
+      "traction": "rear"
+    },
+    {
+      "id": "volkswagen-id-4-pro-77-kwh",
+      "type": "car",
+      "make": "Volkswagen",
+      "model": "ID.4",
+      "engine": "Pro 77 kWh",
+      "years": [
+        2021,
+        2026
+      ],
+      "fuel": "electric"
+    },
+    {
+      "id": "volkswagen-polo-vi-1-0-tsi-95",
+      "type": "car",
+      "make": "Volkswagen",
+      "model": "Polo VI",
+      "engine": "1.0 TSI 95",
+      "years": [
+        2017,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 3,
+      "oil_capacity_l": 4.0,
+      "oil_spec": "0W20 VW 508.00"
+    },
+    {
+      "id": "volkswagen-tiguan-ii-2-0-tdi-150",
+      "type": "car",
+      "make": "Volkswagen",
+      "model": "Tiguan II",
+      "engine": "2.0 TDI 150",
+      "years": [
+        2016,
+        2024
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "oil_capacity_l": 4.6,
+      "oil_spec": "5W30 VW 507.00"
+    },
+    {
+      "id": "volvo-ex30-69-kwh",
+      "type": "car",
+      "make": "Volvo",
+      "model": "EX30",
+      "engine": "69 kWh",
+      "years": [
+        2023,
+        2026
+      ],
+      "fuel": "electric"
+    },
+    {
+      "id": "volvo-xc40-b4-mild-hybrid",
+      "type": "car",
+      "make": "Volvo",
+      "model": "XC40",
+      "engine": "B4 Mild Hybrid",
+      "years": [
+        2020,
+        2026
+      ],
+      "fuel": "hybrid",
+      "cylinders": 4,
+      "oil_spec": "0W20 VCC RBS0-2AE"
+    },
+    {
+      "id": "bmw-f-900-r-895-cm3-bicylindre",
+      "type": "motorcycle",
+      "make": "BMW",
+      "model": "F 900 R",
+      "engine": "895 cm³ bicylindre",
+      "years": [
+        2020,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 2,
+      "oil_spec": "5W40 JASO MA2"
+    },
+    {
+      "id": "bmw-r-1250-gs-1254-cm3-boxer",
+      "type": "motorcycle",
+      "make": "BMW",
+      "model": "R 1250 GS",
+      "engine": "1254 cm³ boxer",
+      "years": [
+        2019,
+        2023
+      ],
+      "fuel": "petrol",
+      "cylinders": 2,
+      "oil_capacity_l": 4.0,
+      "oil_spec": "5W40 JASO MA2"
+    },
+    {
+      "id": "ducati-monster-937-937-cm3-bicylindre",
+      "type": "motorcycle",
+      "make": "Ducati",
+      "model": "Monster (937)",
+      "engine": "937 cm³ bicylindre",
+      "years": [
+        2021,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 2,
+      "oil_spec": "15W50 JASO MA2"
+    },
+    {
+      "id": "energica-experia-22-5-kwh",
+      "type": "motorcycle",
+      "make": "Energica",
+      "model": "Experia",
+      "engine": "22,5 kWh",
+      "years": [
+        2022,
+        2026
+      ],
+      "fuel": "electric"
+    },
+    {
+      "id": "harley-davidson-sportster-s-1252-cm3-v-twin",
+      "type": "motorcycle",
+      "make": "Harley-Davidson",
+      "model": "Sportster S",
+      "engine": "1252 cm³ V-twin",
+      "years": [
+        2021,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 2,
+      "oil_spec": "SAE 20W50"
+    },
+    {
+      "id": "honda-africa-twin-crf1100l-1084-cm3-bicylindre",
+      "type": "motorcycle",
+      "make": "Honda",
+      "model": "Africa Twin CRF1100L",
+      "engine": "1084 cm³ bicylindre",
+      "years": [
+        2020,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 2,
+      "oil_spec": "10W30 JASO MA"
+    },
+    {
+      "id": "honda-cb500f",
+      "type": "motorcycle",
+      "make": "Honda",
+      "model": "CB500F",
+      "engine": "471 cm³ bicylindre",
+      "years": [
+        2013,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 2,
+      "oil_capacity_l": 3.2,
+      "oil_spec": "10W30 JASO MA",
+      "chain": "520 – 112 maillons"
+    },
+    {
+      "id": "honda-cb650r-649-cm3-4-cylindres",
+      "type": "motorcycle",
+      "make": "Honda",
+      "model": "CB650R",
+      "engine": "649 cm³ 4 cylindres",
+      "years": [
+        2019,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 4,
+      "oil_spec": "10W30 JASO MA"
+    },
+    {
+      "id": "honda-pcx125",
+      "type": "motorcycle",
+      "make": "Honda",
+      "model": "PCX 125",
+      "engine": "125 cm³ monocylindre",
+      "years": [
+        2018,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 1,
+      "oil_capacity_l": 0.8,
+      "oil_spec": "10W30 JASO MB"
+    },
+    {
+      "id": "ktm-390-duke-373-cm3-monocylindre",
+      "type": "motorcycle",
+      "make": "KTM",
+      "model": "390 Duke",
+      "engine": "373 cm³ monocylindre",
+      "years": [
+        2017,
+        2023
+      ],
+      "fuel": "petrol",
+      "cylinders": 1,
+      "oil_spec": "10W50 JASO MA2"
+    },
+    {
+      "id": "ktm-890-duke-889-cm3-bicylindre",
+      "type": "motorcycle",
+      "make": "KTM",
+      "model": "890 Duke",
+      "engine": "889 cm³ bicylindre",
+      "years": [
+        2020,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 2,
+      "oil_spec": "10W50 JASO MA2"
+    },
+    {
+      "id": "kawasaki-z650",
+      "type": "motorcycle",
+      "make": "Kawasaki",
+      "model": "Z650",
+      "engine": "649 cm³ bicylindre",
+      "years": [
+        2017,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 2,
+      "oil_capacity_l": 2.3,
+      "oil_spec": "10W40 JASO MA",
+      "chain": "520 – 114 maillons"
+    },
+    {
+      "id": "kawasaki-z900-948-cm3-4-cylindres",
+      "type": "motorcycle",
+      "make": "Kawasaki",
+      "model": "Z900",
+      "engine": "948 cm³ 4 cylindres",
+      "years": [
+        2017,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 4,
+      "oil_spec": "10W40 JASO MA"
+    },
+    {
+      "id": "piaggio-vespa-gts-300-278-cm3-monocylindre",
+      "type": "motorcycle",
+      "make": "Piaggio",
+      "model": "Vespa GTS 300",
+      "engine": "278 cm³ monocylindre",
+      "years": [
+        2019,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 1,
+      "oil_spec": "5W40 JASO MB"
+    },
+    {
+      "id": "super-soco-cpx-2-batteries-60-v",
+      "type": "motorcycle",
+      "make": "Super Soco",
+      "model": "CPx",
+      "engine": "2 batteries 60 V",
+      "years": [
+        2019,
+        2026
+      ],
+      "fuel": "electric"
+    },
+    {
+      "id": "suzuki-sv650-645-cm3-bicylindre",
+      "type": "motorcycle",
+      "make": "Suzuki",
+      "model": "SV650",
+      "engine": "645 cm³ bicylindre",
+      "years": [
+        2016,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 2,
+      "oil_spec": "10W40 JASO MA"
+    },
+    {
+      "id": "triumph-street-triple-765-765-cm3-tricylindre",
+      "type": "motorcycle",
+      "make": "Triumph",
+      "model": "Street Triple 765",
+      "engine": "765 cm³ tricylindre",
+      "years": [
+        2017,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 3,
+      "oil_spec": "10W40 JASO MA"
+    },
+    {
+      "id": "triumph-trident-660-660-cm3-tricylindre",
+      "type": "motorcycle",
+      "make": "Triumph",
+      "model": "Trident 660",
+      "engine": "660 cm³ tricylindre",
+      "years": [
+        2021,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 3,
+      "oil_spec": "10W40 JASO MA"
+    },
+    {
+      "id": "yamaha-mt07",
+      "type": "motorcycle",
+      "make": "Yamaha",
+      "model": "MT-07",
+      "engine": "689 cm³ bicylindre",
+      "years": [
+        2014,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 2,
+      "oil_capacity_l": 3.0,
+      "oil_spec": "10W40 JASO MA2",
+      "chain": "525 – 108 maillons"
+    },
+    {
+      "id": "yamaha-tmax-560-562-cm3-bicylindre",
+      "type": "motorcycle",
+      "make": "Yamaha",
+      "model": "TMAX 560",
+      "engine": "562 cm³ bicylindre",
+      "years": [
+        2020,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 2,
+      "oil_spec": "10W40 JASO MA"
+    },
+    {
+      "id": "yamaha-tracer-9-890-cm3-tricylindre",
+      "type": "motorcycle",
+      "make": "Yamaha",
+      "model": "Tracer 9",
+      "engine": "890 cm³ tricylindre",
+      "years": [
+        2021,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 3,
+      "oil_spec": "10W40 JASO MA"
+    },
+    {
+      "id": "yamaha-xmax-125-125-cm3-monocylindre",
+      "type": "motorcycle",
+      "make": "Yamaha",
+      "model": "XMAX 125",
+      "engine": "125 cm³ monocylindre",
+      "years": [
+        2018,
+        2026
+      ],
+      "fuel": "petrol",
+      "cylinders": 1,
+      "oil_spec": "10W40 JASO MB"
+    },
+    {
+      "id": "zero-srf",
+      "type": "motorcycle",
+      "make": "Zero",
+      "model": "SR/F",
+      "engine": "ZF 17.3 kWh",
+      "years": [
+        2019,
+        2026
+      ],
+      "fuel": "electric",
+      "chain": "courroie crantée"
+    },
+    {
+      "id": "daf-xf-mx-13-12-9-l",
+      "type": "truck",
+      "make": "DAF",
+      "model": "XF",
+      "engine": "MX-13 (12,9 L)",
+      "years": [
+        2017,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 6,
+      "oil_spec": "10W30 ACEA E6"
+    },
+    {
+      "id": "iveco-s-way-cursor-13",
+      "type": "truck",
+      "make": "Iveco",
+      "model": "S-Way",
+      "engine": "Cursor 13",
+      "years": [
+        2019,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 6,
+      "oil_spec": "10W40 ACEA E6"
+    },
+    {
+      "id": "man-tgx-d2676-12-4-l",
+      "type": "truck",
+      "make": "MAN",
+      "model": "TGX",
+      "engine": "D2676 (12,4 L)",
+      "years": [
+        2020,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 6,
+      "oil_spec": "10W40 MAN M 3477"
+    },
+    {
+      "id": "mercedes-actros-om471",
+      "type": "truck",
+      "make": "Mercedes-Benz",
+      "model": "Actros",
+      "engine": "OM 471 (12,8 L)",
+      "years": [
+        2011,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 6,
+      "oil_capacity_l": 39,
+      "oil_spec": "10W30 MB 228.51",
+      "coolant_l": 48
+    },
+    {
+      "id": "renault-trucks-e-tech-t-electrique",
+      "type": "truck",
+      "make": "Renault Trucks",
+      "model": "E-Tech T",
+      "engine": "Électrique",
+      "years": [
+        2023,
+        2026
+      ],
+      "fuel": "electric"
+    },
+    {
+      "id": "renault-trucks-t-dti13",
+      "type": "truck",
+      "make": "Renault Trucks",
+      "model": "T",
+      "engine": "DTI 13 (13 L)",
+      "years": [
+        2013,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 6,
+      "oil_capacity_l": 35,
+      "oil_spec": "10W30 VDS-4.5 / ACEA E6",
+      "coolant_l": 45
+    },
+    {
+      "id": "scania-serie-r-dc13-13-l",
+      "type": "truck",
+      "make": "Scania",
+      "model": "Série R",
+      "engine": "DC13 (13 L)",
+      "years": [
+        2016,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 6,
+      "oil_spec": "10W30 Scania LDF-4"
+    },
+    {
+      "id": "volvo-fh-d13k-13-l",
+      "type": "truck",
+      "make": "Volvo",
+      "model": "FH",
+      "engine": "D13K (13 L)",
+      "years": [
+        2013,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 6,
+      "oil_spec": "10W30 VDS-4.5"
+    },
+    {
+      "id": "volvo-fh-electric-540-kwh",
+      "type": "truck",
+      "make": "Volvo",
+      "model": "FH Electric",
+      "engine": "540 kWh",
+      "years": [
+        2022,
+        2026
+      ],
+      "fuel": "electric"
+    },
+    {
+      "id": "citroen-berlingo-bluehdi",
+      "type": "van",
+      "make": "Citroën",
+      "model": "Berlingo III",
+      "engine": "1.5 BlueHDi 100",
+      "years": [
+        2018,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "oil_capacity_l": 4.25,
+      "oil_spec": "0W30 PSA B71 2312",
+      "coolant_l": 6.5
+    },
+    {
+      "id": "fiat-ducato-2-2-multijet-140",
+      "type": "van",
+      "make": "Fiat",
+      "model": "Ducato",
+      "engine": "2.2 Multijet 140",
+      "years": [
+        2021,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "oil_spec": "0W30"
+    },
+    {
+      "id": "ford-e-transit-68-kwh",
+      "type": "van",
+      "make": "Ford",
+      "model": "E-Transit",
+      "engine": "68 kWh",
+      "years": [
+        2022,
+        2026
+      ],
+      "fuel": "electric"
+    },
+    {
+      "id": "ford-transit-custom-2-0-ecoblue-130",
+      "type": "van",
+      "make": "Ford",
+      "model": "Transit Custom",
+      "engine": "2.0 EcoBlue 130",
+      "years": [
+        2016,
+        2023
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "oil_spec": "0W30 WSS-M2C950-A"
+    },
+    {
+      "id": "mercedes-benz-sprinter-907-314-cdi-2-1",
+      "type": "van",
+      "make": "Mercedes-Benz",
+      "model": "Sprinter (907)",
+      "engine": "314 CDI 2.1",
+      "years": [
+        2018,
+        2023
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "oil_spec": "5W30 MB 229.52"
+    },
+    {
+      "id": "mercedes-benz-esprinter-113-kwh",
+      "type": "van",
+      "make": "Mercedes-Benz",
+      "model": "eSprinter",
+      "engine": "113 kWh",
+      "years": [
+        2023,
+        2026
+      ],
+      "fuel": "electric"
+    },
+    {
+      "id": "peugeot-expert-iii-2-0-bluehdi-145",
+      "type": "van",
+      "make": "Peugeot",
+      "model": "Expert III",
+      "engine": "2.0 BlueHDi 145",
+      "years": [
+        2016,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "oil_spec": "0W30 PSA B71 2312"
+    },
+    {
+      "id": "peugeot-e-expert-75-kwh",
+      "type": "van",
+      "make": "Peugeot",
+      "model": "e-Expert",
+      "engine": "75 kWh",
+      "years": [
+        2020,
+        2026
+      ],
+      "fuel": "electric"
+    },
+    {
+      "id": "renault-kangoo-etech",
+      "type": "van",
+      "make": "Renault",
+      "model": "Kangoo E-Tech",
+      "engine": "EV45 – 45 kWh",
+      "years": [
+        2022,
+        2026
+      ],
+      "fuel": "electric",
+      "traction": "front"
+    },
+    {
+      "id": "renault-master3-dci",
+      "type": "van",
+      "make": "Renault",
+      "model": "Master III",
+      "engine": "2.3 dCi 135",
+      "years": [
+        2014,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "oil_capacity_l": 6.6,
+      "oil_spec": "5W30 RN0720",
+      "coolant_l": 10.0
+    },
+    {
+      "id": "renault-trafic-iii-2-0-blue-dci-130",
+      "type": "van",
+      "make": "Renault",
+      "model": "Trafic III",
+      "engine": "2.0 Blue dCi 130",
+      "years": [
+        2019,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "oil_spec": "5W30 RN0720"
+    },
+    {
+      "id": "toyota-proace-city-1-5-d-4d-100",
+      "type": "van",
+      "make": "Toyota",
+      "model": "Proace City",
+      "engine": "1.5 D-4D 100",
+      "years": [
+        2019,
+        2026
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "oil_spec": "0W30"
+    },
+    {
+      "id": "volkswagen-id-buzz-77-kwh",
+      "type": "van",
+      "make": "Volkswagen",
+      "model": "ID. Buzz",
+      "engine": "77 kWh",
+      "years": [
+        2022,
+        2026
+      ],
+      "fuel": "electric"
+    },
+    {
+      "id": "volkswagen-transporter-t6-1-2-0-tdi-150",
+      "type": "van",
+      "make": "Volkswagen",
+      "model": "Transporter T6.1",
+      "engine": "2.0 TDI 150",
+      "years": [
+        2019,
+        2024
+      ],
+      "fuel": "diesel",
+      "cylinders": 4,
+      "oil_spec": "5W30 VW 507.00"
+    }
   ],
   "tutorials": [
     {
       "id": "oil_change",
       "title": "Vidange moteur et filtre à huile",
-      "vehicle_types": ["car", "van"],
-      "fuels": ["petrol", "diesel", "hybrid"],
+      "vehicle_types": [
+        "car",
+        "van"
+      ],
+      "fuels": [
+        "petrol",
+        "diesel",
+        "hybrid"
+      ],
       "interval": "Tous les 15 000 à 30 000 km ou 1 à 2 ans selon le constructeur (le plus tôt des deux).",
-      "difficulty": 2, "time_min": 45, "time_max": 75,
+      "difficulty": 2,
+      "time_min": 45,
+      "time_max": 75,
       "why": "L'huile lubrifie, refroidit et nettoie le moteur. Avec le temps, elle se charge de suie et d'acides et perd sa viscosité. Une huile usée accélère l'usure de la chaîne de distribution, du turbo et du déphaseur (codes P0011, P0016, P0299…).",
       "sensory_checks": [
-        { "sense": "sight", "tip": "Essuyez la jauge sur un papier blanc : une huile ambrée et translucide est saine. Noire, épaisse ou granuleuse : la vidange est due.", "means": "Huile usée." },
-        { "sense": "sight", "tip": "Huile laiteuse « café au lait » sous le bouchon de remplissage.", "means": "Condensation (trajets courts) ou, si abondant et liquide qui baisse, joint de culasse." },
-        { "sense": "smell", "tip": "L'huile sent le carburant.", "means": "Dilution par le carburant (régénérations de FAP avortées, injecteur) : vidanger plus souvent." }
+        {
+          "sense": "sight",
+          "tip": "Essuyez la jauge sur un papier blanc : une huile ambrée et translucide est saine. Noire, épaisse ou granuleuse : la vidange est due.",
+          "means": "Huile usée."
+        },
+        {
+          "sense": "sight",
+          "tip": "Huile laiteuse « café au lait » sous le bouchon de remplissage.",
+          "means": "Condensation (trajets courts) ou, si abondant et liquide qui baisse, joint de culasse."
+        },
+        {
+          "sense": "smell",
+          "tip": "L'huile sent le carburant.",
+          "means": "Dilution par le carburant (régénérations de FAP avortées, injecteur) : vidanger plus souvent."
+        }
       ],
-      "components": ["oil_drain_plug", "oil_filter", "oil_filler_cap", "dipstick", "engine"],
-      "tools": ["Clé pour bouchon de vidange", "Clé à filtre", "Bac de vidange (≥ 8 L)", "Entonnoir", "Cric + chandelles ou rampes", "Gants nitrile", "Clé dynamométrique"],
-      "safety": ["Ne jamais travailler sous un véhicule tenu uniquement par le cric : utilisez des chandelles.", "Huile chaude = brûlures : moteur tiède seulement.", "Rapportez l'huile usagée en déchetterie ou au magasin."],
+      "components": [
+        "oil_drain_plug",
+        "oil_filter",
+        "oil_filler_cap",
+        "dipstick",
+        "engine"
+      ],
+      "tools": [
+        "Clé pour bouchon de vidange",
+        "Clé à filtre",
+        "Bac de vidange (≥ 8 L)",
+        "Entonnoir",
+        "Cric + chandelles ou rampes",
+        "Gants nitrile",
+        "Clé dynamométrique"
+      ],
+      "safety": [
+        "Ne jamais travailler sous un véhicule tenu uniquement par le cric : utilisez des chandelles.",
+        "Huile chaude = brûlures : moteur tiède seulement.",
+        "Rapportez l'huile usagée en déchetterie ou au magasin."
+      ],
       "shopping": [
-        { "name": "Huile moteur {oil_spec}", "query": "huile moteur {oil_spec}", "qty_from": "oil_capacity_l", "round_up": true, "unit": "L", "price_min": 7, "price_max": 14 },
-        { "name": "Filtre à huile", "query": "filtre à huile", "qty": 1, "unit": "pièce", "price_min": 6, "price_max": 20 },
-        { "name": "Joint de bouchon de vidange", "query": "joint bouchon de vidange", "qty": 1, "unit": "pièce", "price_min": 1, "price_max": 4 },
-        { "name": "Gants nitrile", "query": "gants nitrile mécanique", "qty": 1, "unit": "boîte", "price_min": 6, "price_max": 12, "optional": true }
+        {
+          "name": "Huile moteur {oil_spec}",
+          "query": "huile moteur {oil_spec}",
+          "qty_from": "oil_capacity_l",
+          "round_up": true,
+          "unit": "L",
+          "price_min": 7,
+          "price_max": 14
+        },
+        {
+          "name": "Filtre à huile",
+          "query": "filtre à huile",
+          "qty": 1,
+          "unit": "pièce",
+          "price_min": 6,
+          "price_max": 20
+        },
+        {
+          "name": "Joint de bouchon de vidange",
+          "query": "joint bouchon de vidange",
+          "qty": 1,
+          "unit": "pièce",
+          "price_min": 1,
+          "price_max": 4
+        },
+        {
+          "name": "Gants nitrile",
+          "query": "gants nitrile mécanique",
+          "qty": 1,
+          "unit": "boîte",
+          "price_min": 6,
+          "price_max": 12,
+          "optional": true
+        }
       ],
       "steps": [
-        { "title": "Faire chauffer puis sécuriser", "text": "Roulez 5 minutes pour fluidifier l'huile, garez-vous à plat, serrez le frein à main. Levez l'avant et posez-le sur chandelles.", "components": ["engine"], "warning": "Jamais sous la voiture sans chandelles." },
-        { "title": "Ouvrir le bouchon de remplissage", "text": "Dévissez le bouchon de remplissage sur le dessus du moteur : l'huile s'écoulera plus vite.", "components": ["oil_filler_cap"] },
-        { "title": "Vidanger", "text": "Placez le bac, dévissez le bouchon de vidange sous le carter (sens inverse des aiguilles d'une montre, vu de dessous). Laissez s'écouler 10 minutes.", "components": ["oil_drain_plug"], "tip": "Observez l'huile qui coule : paillettes métalliques = usure anormale à signaler." },
-        { "title": "Remplacer le filtre", "text": "Dévissez le filtre (ou la cartouche dans son boîtier). Huilez le joint du filtre neuf, vissez à la main puis 3/4 de tour (ou au couple indiqué).", "components": ["oil_filter"] },
-        { "title": "Refermer le carter", "text": "Remettez le bouchon de vidange avec un joint neuf, serré au couple (souvent 20–30 N·m). Ne forcez pas : le carter est souvent en aluminium.", "components": ["oil_drain_plug"] },
-        { "title": "Remplir", "text": "Versez la quantité indiquée moins 0,5 L, attendez 2 minutes, contrôlez à la jauge et complétez jusqu'au repère MAX sans le dépasser.", "components": ["oil_filler_cap", "dipstick"] },
-        { "title": "Contrôler", "text": "Démarrez 1 minute (voyant d'huile éteint en quelques secondes), vérifiez l'absence de fuite, arrêtez, attendez 5 minutes et refaites le niveau. Réinitialisez l'indicateur d'entretien.", "components": ["dipstick", "oil_filter"] }
+        {
+          "title": "Faire chauffer puis sécuriser",
+          "text": "Roulez 5 minutes pour fluidifier l'huile, garez-vous à plat, serrez le frein à main. Levez l'avant et posez-le sur chandelles.",
+          "components": [
+            "engine"
+          ],
+          "warning": "Jamais sous la voiture sans chandelles."
+        },
+        {
+          "title": "Ouvrir le bouchon de remplissage",
+          "text": "Dévissez le bouchon de remplissage sur le dessus du moteur : l'huile s'écoulera plus vite.",
+          "components": [
+            "oil_filler_cap"
+          ]
+        },
+        {
+          "title": "Vidanger",
+          "text": "Placez le bac, dévissez le bouchon de vidange sous le carter (sens inverse des aiguilles d'une montre, vu de dessous). Laissez s'écouler 10 minutes.",
+          "components": [
+            "oil_drain_plug"
+          ],
+          "tip": "Observez l'huile qui coule : paillettes métalliques = usure anormale à signaler."
+        },
+        {
+          "title": "Remplacer le filtre",
+          "text": "Dévissez le filtre (ou la cartouche dans son boîtier). Huilez le joint du filtre neuf, vissez à la main puis 3/4 de tour (ou au couple indiqué).",
+          "components": [
+            "oil_filter"
+          ]
+        },
+        {
+          "title": "Refermer le carter",
+          "text": "Remettez le bouchon de vidange avec un joint neuf, serré au couple (souvent 20–30 N·m). Ne forcez pas : le carter est souvent en aluminium.",
+          "components": [
+            "oil_drain_plug"
+          ]
+        },
+        {
+          "title": "Remplir",
+          "text": "Versez la quantité indiquée moins 0,5 L, attendez 2 minutes, contrôlez à la jauge et complétez jusqu'au repère MAX sans le dépasser.",
+          "components": [
+            "oil_filler_cap",
+            "dipstick"
+          ]
+        },
+        {
+          "title": "Contrôler",
+          "text": "Démarrez 1 minute (voyant d'huile éteint en quelques secondes), vérifiez l'absence de fuite, arrêtez, attendez 5 minutes et refaites le niveau. Réinitialisez l'indicateur d'entretien.",
+          "components": [
+            "dipstick",
+            "oil_filter"
+          ]
+        }
       ]
     },
     {
       "id": "air_filter",
       "title": "Remplacement du filtre à air",
-      "vehicle_types": ["car", "van"],
-      "fuels": ["petrol", "diesel", "hybrid"],
+      "vehicle_types": [
+        "car",
+        "van"
+      ],
+      "fuels": [
+        "petrol",
+        "diesel",
+        "hybrid"
+      ],
       "interval": "Tous les 20 000 à 40 000 km, plus souvent en milieu poussiéreux.",
-      "difficulty": 1, "time_min": 5, "time_max": 20,
+      "difficulty": 1,
+      "time_min": 5,
+      "time_max": 20,
       "why": "Le moteur aspire environ 10 000 litres d'air par litre de carburant. Un filtre colmaté fait perdre de la puissance et augmente la consommation. Un filtre percé laisse passer la poussière, qui use le moteur et salit le débitmètre (codes P0100–P0104, P0172).",
       "sensory_checks": [
-        { "sense": "sight", "tip": "Placez une lampe derrière le filtre : la lumière doit passer à travers les plis.", "means": "Lumière bloquée : filtre colmaté." },
-        { "sense": "sight", "tip": "Feuilles, insectes, traces d'huile dans la boîte à air.", "means": "Huile : reniflard qui renvoie trop de vapeurs." }
+        {
+          "sense": "sight",
+          "tip": "Placez une lampe derrière le filtre : la lumière doit passer à travers les plis.",
+          "means": "Lumière bloquée : filtre colmaté."
+        },
+        {
+          "sense": "sight",
+          "tip": "Feuilles, insectes, traces d'huile dans la boîte à air.",
+          "means": "Huile : reniflard qui renvoie trop de vapeurs."
+        }
       ],
-      "components": ["air_filter", "maf_sensor"],
-      "tools": ["Tournevis ou clé Torx", "Aspirateur"],
-      "safety": ["Ne faites jamais tourner le moteur sans filtre à air."],
+      "components": [
+        "air_filter",
+        "maf_sensor"
+      ],
+      "tools": [
+        "Tournevis ou clé Torx",
+        "Aspirateur"
+      ],
+      "safety": [
+        "Ne faites jamais tourner le moteur sans filtre à air."
+      ],
       "shopping": [
-        { "name": "Filtre à air", "query": "filtre à air", "qty": 1, "unit": "pièce", "price_min": 8, "price_max": 30 }
+        {
+          "name": "Filtre à air",
+          "query": "filtre à air",
+          "qty": 1,
+          "unit": "pièce",
+          "price_min": 8,
+          "price_max": 30
+        }
       ],
       "steps": [
-        { "title": "Ouvrir la boîte à air", "text": "Défaites les clips ou vis du couvercle, sans tirer sur le débitmètre ni son connecteur.", "components": ["air_filter", "maf_sensor"] },
-        { "title": "Remplacer le filtre", "text": "Notez le sens de montage, retirez l'ancien filtre, aspirez les débris, posez le neuf bien à plat dans sa gorge.", "components": ["air_filter"], "tip": "Comparez l'ancien et le neuf : c'est le meilleur moyen d'apprendre à juger l'encrassement." },
-        { "title": "Refermer", "text": "Remettez le couvercle en vérifiant qu'il ferme sur tout le pourtour : un défaut d'étanchéité laisse passer de l'air non filtré.", "components": ["air_filter"] }
+        {
+          "title": "Ouvrir la boîte à air",
+          "text": "Défaites les clips ou vis du couvercle, sans tirer sur le débitmètre ni son connecteur.",
+          "components": [
+            "air_filter",
+            "maf_sensor"
+          ]
+        },
+        {
+          "title": "Remplacer le filtre",
+          "text": "Notez le sens de montage, retirez l'ancien filtre, aspirez les débris, posez le neuf bien à plat dans sa gorge.",
+          "components": [
+            "air_filter"
+          ],
+          "tip": "Comparez l'ancien et le neuf : c'est le meilleur moyen d'apprendre à juger l'encrassement."
+        },
+        {
+          "title": "Refermer",
+          "text": "Remettez le couvercle en vérifiant qu'il ferme sur tout le pourtour : un défaut d'étanchéité laisse passer de l'air non filtré.",
+          "components": [
+            "air_filter"
+          ]
+        }
       ]
     },
     {
       "id": "cabin_filter",
       "title": "Remplacement du filtre d'habitacle",
-      "vehicle_types": ["car", "van", "truck"],
-      "fuels": ["petrol", "diesel", "hybrid", "electric"],
+      "vehicle_types": [
+        "car",
+        "van",
+        "truck"
+      ],
+      "fuels": [
+        "petrol",
+        "diesel",
+        "hybrid",
+        "electric"
+      ],
       "interval": "Tous les ans ou 15 000 km, idéalement avant l'été.",
-      "difficulty": 1, "time_min": 10, "time_max": 30,
+      "difficulty": 1,
+      "time_min": 10,
+      "time_max": 30,
       "why": "Il filtre l'air soufflé dans l'habitacle : pollens, particules et, en version charbon actif, odeurs. Encrassé, il réduit la ventilation et favorise la buée et les odeurs de moisi.",
       "sensory_checks": [
-        { "sense": "smell", "tip": "Odeur de moisi à la mise en route de la ventilation.", "means": "Filtre humide et colonisé : remplacer et désinfecter la climatisation." },
-        { "sense": "feel", "tip": "Le débit d'air est faible même à fond, buée difficile à chasser.", "means": "Filtre colmaté." }
+        {
+          "sense": "smell",
+          "tip": "Odeur de moisi à la mise en route de la ventilation.",
+          "means": "Filtre humide et colonisé : remplacer et désinfecter la climatisation."
+        },
+        {
+          "sense": "feel",
+          "tip": "Le débit d'air est faible même à fond, buée difficile à chasser.",
+          "means": "Filtre colmaté."
+        }
       ],
-      "components": ["cabin_filter", "cabin"],
-      "tools": ["Tournevis", "Lampe"],
+      "components": [
+        "cabin_filter",
+        "cabin"
+      ],
+      "tools": [
+        "Tournevis",
+        "Lampe"
+      ],
       "safety": [],
       "shopping": [
-        { "name": "Filtre d'habitacle (charbon actif)", "query": "filtre habitacle charbon actif", "qty": 1, "unit": "pièce", "price_min": 8, "price_max": 30 },
-        { "name": "Nettoyant climatisation", "query": "nettoyant climatisation", "qty": 1, "unit": "bombe", "price_min": 8, "price_max": 18, "optional": true }
+        {
+          "name": "Filtre d'habitacle (charbon actif)",
+          "query": "filtre habitacle charbon actif",
+          "qty": 1,
+          "unit": "pièce",
+          "price_min": 8,
+          "price_max": 30
+        },
+        {
+          "name": "Nettoyant climatisation",
+          "query": "nettoyant climatisation",
+          "qty": 1,
+          "unit": "bombe",
+          "price_min": 8,
+          "price_max": 18,
+          "optional": true
+        }
       ],
       "steps": [
-        { "title": "Localiser le filtre", "text": "Il se trouve le plus souvent derrière la boîte à gants (il faut la déclipser), parfois sous l'auvent de pare-brise.", "components": ["cabin_filter"] },
-        { "title": "Remplacer", "text": "Retirez le capot du logement, sortez l'ancien filtre, respectez la flèche de sens d'air (AIR FLOW) sur le neuf.", "components": ["cabin_filter"] },
-        { "title": "Assainir (optionnel)", "text": "Avec le nettoyant, traitez l'évaporateur de climatisation selon la notice du produit.", "components": ["cabin"] }
+        {
+          "title": "Localiser le filtre",
+          "text": "Il se trouve le plus souvent derrière la boîte à gants (il faut la déclipser), parfois sous l'auvent de pare-brise.",
+          "components": [
+            "cabin_filter"
+          ]
+        },
+        {
+          "title": "Remplacer",
+          "text": "Retirez le capot du logement, sortez l'ancien filtre, respectez la flèche de sens d'air (AIR FLOW) sur le neuf.",
+          "components": [
+            "cabin_filter"
+          ]
+        },
+        {
+          "title": "Assainir (optionnel)",
+          "text": "Avec le nettoyant, traitez l'évaporateur de climatisation selon la notice du produit.",
+          "components": [
+            "cabin"
+          ]
+        }
       ]
     },
     {
       "id": "spark_plugs",
       "title": "Remplacement des bougies d'allumage",
-      "vehicle_types": ["car", "van", "motorcycle"],
-      "fuels": ["petrol", "hybrid"],
+      "vehicle_types": [
+        "car",
+        "van",
+        "motorcycle"
+      ],
+      "fuels": [
+        "petrol",
+        "hybrid"
+      ],
       "interval": "Tous les 30 000 à 60 000 km (bougies iridium : jusqu'à 100 000 km).",
-      "difficulty": 2, "time_min": 30, "time_max": 90,
+      "difficulty": 2,
+      "time_min": 30,
+      "time_max": 90,
       "why": "La bougie crée l'étincelle qui enflamme le mélange. Usée, elle demande plus de tension à la bobine : ratés d'allumage (P0300–P0308), bobines qui grillent, surconsommation.",
       "sensory_checks": [
-        { "sense": "sight", "tip": "Culot brun clair : bonne combustion. Noir et sec : mélange riche. Noir et gras : huile. Blanc : trop chaud ou mélange pauvre.", "means": "La couleur de chaque bougie renseigne sur son cylindre." },
-        { "sense": "feel", "tip": "Démarrages plus longs, tremblements à l'accélération sous la pluie.", "means": "Allumage fatigué." }
+        {
+          "sense": "sight",
+          "tip": "Culot brun clair : bonne combustion. Noir et sec : mélange riche. Noir et gras : huile. Blanc : trop chaud ou mélange pauvre.",
+          "means": "La couleur de chaque bougie renseigne sur son cylindre."
+        },
+        {
+          "sense": "feel",
+          "tip": "Démarrages plus longs, tremblements à l'accélération sous la pluie.",
+          "means": "Allumage fatigué."
+        }
       ],
-      "components": ["spark_plug_1", "spark_plug_2", "spark_plug_3", "spark_plug_4", "coil_1", "coil_2", "coil_3", "coil_4"],
-      "tools": ["Douille à bougie (16 ou 14 mm, avec caoutchouc)", "Rallonge", "Clé dynamométrique", "Soufflette"],
-      "safety": ["Moteur froid uniquement : une culasse en aluminium chaude s'abîme facilement.", "Vissez toujours à la main d'abord pour ne pas foirer le filetage."],
+      "components": [
+        "spark_plug_1",
+        "spark_plug_2",
+        "spark_plug_3",
+        "spark_plug_4",
+        "coil_1",
+        "coil_2",
+        "coil_3",
+        "coil_4"
+      ],
+      "tools": [
+        "Douille à bougie (16 ou 14 mm, avec caoutchouc)",
+        "Rallonge",
+        "Clé dynamométrique",
+        "Soufflette"
+      ],
+      "safety": [
+        "Moteur froid uniquement : une culasse en aluminium chaude s'abîme facilement.",
+        "Vissez toujours à la main d'abord pour ne pas foirer le filetage."
+      ],
       "shopping": [
-        { "name": "Bougie d'allumage", "query": "bougie d'allumage", "qty_from": "cylinders", "unit": "pièce", "price_min": 4, "price_max": 15 },
-        { "name": "Graisse diélectrique", "query": "graisse diélectrique", "qty": 1, "unit": "tube", "price_min": 5, "price_max": 10, "optional": true }
+        {
+          "name": "Bougie d'allumage",
+          "query": "bougie d'allumage",
+          "qty_from": "cylinders",
+          "unit": "pièce",
+          "price_min": 4,
+          "price_max": 15
+        },
+        {
+          "name": "Graisse diélectrique",
+          "query": "graisse diélectrique",
+          "qty": 1,
+          "unit": "tube",
+          "price_min": 5,
+          "price_max": 10,
+          "optional": true
+        }
       ],
       "steps": [
-        { "title": "Déposer les bobines", "text": "Retirez le cache moteur, débranchez les connecteurs puis extrayez chaque bobine en tirant bien droit. Notez l'ordre.", "components": ["coil_1", "coil_2", "coil_3", "coil_4"] },
-        { "title": "Nettoyer les puits", "text": "Soufflez dans les puits de bougies avant de dévisser, pour éviter que des débris tombent dans le cylindre.", "components": ["spark_plug_1", "spark_plug_2"] },
-        { "title": "Dévisser et lire", "text": "Dévissez chaque bougie et alignez-les dans l'ordre : comparez leur couleur.", "components": ["spark_plug_1", "spark_plug_2", "spark_plug_3", "spark_plug_4"], "tip": "Une bougie différente des autres désigne le cylindre à surveiller." },
-        { "title": "Monter les neuves", "text": "Vissez à la main jusqu'en butée puis serrez au couple (≈ 25 N·m sur la plupart des moteurs récents).", "components": ["spark_plug_1", "spark_plug_2", "spark_plug_3", "spark_plug_4"], "warning": "Un serrage excessif peut arracher le filetage de la culasse." },
-        { "title": "Remonter les bobines", "text": "Remettez les bobines (une touche de graisse diélectrique dans le capuchon) et leurs connecteurs. Démarrez : le moteur doit tourner rond.", "components": ["coil_1", "coil_2", "coil_3", "coil_4"] }
+        {
+          "title": "Déposer les bobines",
+          "text": "Retirez le cache moteur, débranchez les connecteurs puis extrayez chaque bobine en tirant bien droit. Notez l'ordre.",
+          "components": [
+            "coil_1",
+            "coil_2",
+            "coil_3",
+            "coil_4"
+          ]
+        },
+        {
+          "title": "Nettoyer les puits",
+          "text": "Soufflez dans les puits de bougies avant de dévisser, pour éviter que des débris tombent dans le cylindre.",
+          "components": [
+            "spark_plug_1",
+            "spark_plug_2"
+          ]
+        },
+        {
+          "title": "Dévisser et lire",
+          "text": "Dévissez chaque bougie et alignez-les dans l'ordre : comparez leur couleur.",
+          "components": [
+            "spark_plug_1",
+            "spark_plug_2",
+            "spark_plug_3",
+            "spark_plug_4"
+          ],
+          "tip": "Une bougie différente des autres désigne le cylindre à surveiller."
+        },
+        {
+          "title": "Monter les neuves",
+          "text": "Vissez à la main jusqu'en butée puis serrez au couple (≈ 25 N·m sur la plupart des moteurs récents).",
+          "components": [
+            "spark_plug_1",
+            "spark_plug_2",
+            "spark_plug_3",
+            "spark_plug_4"
+          ],
+          "warning": "Un serrage excessif peut arracher le filetage de la culasse."
+        },
+        {
+          "title": "Remonter les bobines",
+          "text": "Remettez les bobines (une touche de graisse diélectrique dans le capuchon) et leurs connecteurs. Démarrez : le moteur doit tourner rond.",
+          "components": [
+            "coil_1",
+            "coil_2",
+            "coil_3",
+            "coil_4"
+          ]
+        }
       ]
     },
     {
       "id": "fuel_filter_diesel",
       "title": "Remplacement du filtre à gazole",
-      "vehicle_types": ["car", "van", "truck"],
-      "fuels": ["diesel"],
+      "vehicle_types": [
+        "car",
+        "van",
+        "truck"
+      ],
+      "fuels": [
+        "diesel"
+      ],
       "interval": "Tous les 30 000 à 60 000 km, et au moindre doute après un plein douteux.",
-      "difficulty": 2, "time_min": 20, "time_max": 60,
+      "difficulty": 2,
+      "time_min": 20,
+      "time_max": 60,
       "why": "Les injecteurs common-rail travaillent à plus de 2 000 bar avec des jeux de quelques microns. Le filtre arrête impuretés et eau : le négliger peut coûter des injecteurs ou la pompe haute pression (code P0087).",
       "sensory_checks": [
-        { "sense": "feel", "tip": "Trous à l'accélération en côte ou chargé, démarrage long.", "means": "Filtre qui colmate." },
-        { "sense": "sight", "tip": "Voyant « eau dans le gazole » allumé.", "means": "Purger l'eau du filtre rapidement." }
+        {
+          "sense": "feel",
+          "tip": "Trous à l'accélération en côte ou chargé, démarrage long.",
+          "means": "Filtre qui colmate."
+        },
+        {
+          "sense": "sight",
+          "tip": "Voyant « eau dans le gazole » allumé.",
+          "means": "Purger l'eau du filtre rapidement."
+        }
       ],
-      "components": ["fuel_filter", "fuel_rail"],
-      "tools": ["Clés", "Bac", "Chiffons", "Poire d'amorçage"],
-      "safety": ["Pas de flamme ni de cigarette.", "Le gazole attaque les durites et l'enrobé : protégez le sol."],
+      "components": [
+        "fuel_filter",
+        "fuel_rail"
+      ],
+      "tools": [
+        "Clés",
+        "Bac",
+        "Chiffons",
+        "Poire d'amorçage"
+      ],
+      "safety": [
+        "Pas de flamme ni de cigarette.",
+        "Le gazole attaque les durites et l'enrobé : protégez le sol."
+      ],
       "shopping": [
-        { "name": "Filtre à gazole", "query": "filtre à carburant gazole", "qty": 1, "unit": "pièce", "price_min": 10, "price_max": 45 }
+        {
+          "name": "Filtre à gazole",
+          "query": "filtre à carburant gazole",
+          "qty": 1,
+          "unit": "pièce",
+          "price_min": 10,
+          "price_max": 45
+        }
       ],
       "steps": [
-        { "title": "Repérer le sens", "text": "Photographiez le montage des raccords (entrée / sortie) avant de démonter.", "components": ["fuel_filter"] },
-        { "title": "Remplacer", "text": "Débranchez les raccords, déposez l'ancien filtre, montez le neuf dans le bon sens.", "components": ["fuel_filter"] },
-        { "title": "Réamorcer", "text": "Actionnez la poire d'amorçage jusqu'à ce qu'elle devienne dure (ou mettez le contact 3–4 fois), puis démarrez.", "components": ["fuel_filter", "fuel_rail"], "tip": "Le moteur peut tousser quelques secondes : c'est l'air qui s'évacue." }
+        {
+          "title": "Repérer le sens",
+          "text": "Photographiez le montage des raccords (entrée / sortie) avant de démonter.",
+          "components": [
+            "fuel_filter"
+          ]
+        },
+        {
+          "title": "Remplacer",
+          "text": "Débranchez les raccords, déposez l'ancien filtre, montez le neuf dans le bon sens.",
+          "components": [
+            "fuel_filter"
+          ]
+        },
+        {
+          "title": "Réamorcer",
+          "text": "Actionnez la poire d'amorçage jusqu'à ce qu'elle devienne dure (ou mettez le contact 3–4 fois), puis démarrez.",
+          "components": [
+            "fuel_filter",
+            "fuel_rail"
+          ],
+          "tip": "Le moteur peut tousser quelques secondes : c'est l'air qui s'évacue."
+        }
       ]
     },
     {
       "id": "brake_pads_front",
       "title": "Remplacement des plaquettes de frein avant",
-      "vehicle_types": ["car", "van"],
-      "fuels": ["petrol", "diesel", "hybrid", "electric"],
+      "vehicle_types": [
+        "car",
+        "van"
+      ],
+      "fuels": [
+        "petrol",
+        "diesel",
+        "hybrid",
+        "electric"
+      ],
       "interval": "Selon l'usure : contrôle tous les 10 000 km, remplacement typique entre 20 000 et 50 000 km.",
-      "difficulty": 3, "time_min": 60, "time_max": 120,
+      "difficulty": 3,
+      "time_min": 60,
+      "time_max": 120,
       "why": "Les plaquettes frottent sur les disques pour transformer la vitesse en chaleur. Une plaquette usée jusqu'au métal raye le disque et allonge les distances de freinage.",
       "sensory_checks": [
-        { "sense": "sound", "tip": "Sifflement aigu au freinage qui disparaît en appuyant plus fort.", "means": "Témoin d'usure mécanique : plaquettes en fin de vie." },
-        { "sense": "sound", "tip": "Grincement métallique grave.", "means": "Métal contre métal : arrêtez-vous, disque en danger." },
-        { "sense": "feel", "tip": "Vibrations dans le volant ou la pédale au freinage.", "means": "Disques voilés : remplacer disques + plaquettes." },
-        { "sense": "sight", "tip": "À travers la jante : garniture de moins de 3 mm, collerette (bourrelet) sur le bord du disque.", "means": "Usure avancée." },
-        { "sense": "smell", "tip": "Odeur de brûlé âcre après une descente, roue très chaude.", "means": "Étrier grippé si un seul côté chauffe." }
+        {
+          "sense": "sound",
+          "tip": "Sifflement aigu au freinage qui disparaît en appuyant plus fort.",
+          "means": "Témoin d'usure mécanique : plaquettes en fin de vie."
+        },
+        {
+          "sense": "sound",
+          "tip": "Grincement métallique grave.",
+          "means": "Métal contre métal : arrêtez-vous, disque en danger."
+        },
+        {
+          "sense": "feel",
+          "tip": "Vibrations dans le volant ou la pédale au freinage.",
+          "means": "Disques voilés : remplacer disques + plaquettes."
+        },
+        {
+          "sense": "sight",
+          "tip": "À travers la jante : garniture de moins de 3 mm, collerette (bourrelet) sur le bord du disque.",
+          "means": "Usure avancée."
+        },
+        {
+          "sense": "smell",
+          "tip": "Odeur de brûlé âcre après une descente, roue très chaude.",
+          "means": "Étrier grippé si un seul côté chauffe."
+        },
+        {
+          "sense": "sight",
+          "tip": "Véhicule électrique ou hybride : disques couverts d'un anneau de rouille ou piqués, car le freinage régénératif sollicite peu les freins.",
+          "means": "Corrosion : freinages appuyés réguliers, voire remplacement des disques."
+        }
       ],
-      "components": ["brake_fl", "brake_fr", "wheel_fl", "wheel_fr", "brake_fluid_reservoir"],
-      "tools": ["Cric + chandelles", "Clé à roue", "Repousse-piston", "Clés plates / douilles", "Brosse métallique", "Clé dynamométrique"],
-      "safety": ["Les freins sont un organe de sécurité : en cas de doute, faites contrôler.", "Toujours changer les deux côtés d'un même essieu.", "Pompez la pédale plusieurs fois avant de rouler."],
+      "components": [
+        "brake_fl",
+        "brake_fr",
+        "wheel_fl",
+        "wheel_fr",
+        "brake_fluid_reservoir"
+      ],
+      "tools": [
+        "Cric + chandelles",
+        "Clé à roue",
+        "Repousse-piston",
+        "Clés plates / douilles",
+        "Brosse métallique",
+        "Clé dynamométrique"
+      ],
+      "safety": [
+        "Les freins sont un organe de sécurité : en cas de doute, faites contrôler.",
+        "Toujours changer les deux côtés d'un même essieu.",
+        "Pompez la pédale plusieurs fois avant de rouler."
+      ],
       "shopping": [
-        { "name": "Jeu de plaquettes avant", "query": "plaquettes de frein avant", "qty": 1, "unit": "jeu", "price_min": 20, "price_max": 70 },
-        { "name": "Disques de frein avant (paire)", "query": "disques de frein avant", "qty": 1, "unit": "paire", "price_min": 40, "price_max": 150, "optional": true },
-        { "name": "Nettoyant frein", "query": "nettoyant frein", "qty": 1, "unit": "bombe", "price_min": 4, "price_max": 10 },
-        { "name": "Graisse cuivre / céramique", "query": "graisse céramique frein", "qty": 1, "unit": "tube", "price_min": 5, "price_max": 12, "optional": true }
+        {
+          "name": "Jeu de plaquettes avant",
+          "query": "plaquettes de frein avant",
+          "qty": 1,
+          "unit": "jeu",
+          "price_min": 20,
+          "price_max": 70
+        },
+        {
+          "name": "Disques de frein avant (paire)",
+          "query": "disques de frein avant",
+          "qty": 1,
+          "unit": "paire",
+          "price_min": 40,
+          "price_max": 150,
+          "optional": true
+        },
+        {
+          "name": "Nettoyant frein",
+          "query": "nettoyant frein",
+          "qty": 1,
+          "unit": "bombe",
+          "price_min": 4,
+          "price_max": 10
+        },
+        {
+          "name": "Graisse cuivre / céramique",
+          "query": "graisse céramique frein",
+          "qty": 1,
+          "unit": "tube",
+          "price_min": 5,
+          "price_max": 12,
+          "optional": true
+        }
       ],
       "steps": [
-        { "title": "Lever et déposer la roue", "text": "Desserrez les écrous au sol, levez, posez sur chandelle, déposez la roue.", "components": ["wheel_fl"], "warning": "Chandelle obligatoire." },
-        { "title": "Déposer l'étrier", "text": "Dévissez les deux vis de guide de l'étrier, basculez-le et suspendez-le avec un fil : il ne doit pas pendre par son flexible.", "components": ["brake_fl"] },
-        { "title": "Contrôler le disque", "text": "Mesurez l'épaisseur (minimum gravé sur le disque) et cherchez rayures ou collerette.", "components": ["brake_fl"], "tip": "Passez l'ongle sur la piste : un sillon qui accroche signale un disque à changer." },
-        { "title": "Repousser le piston", "text": "Surveillez le bocal de liquide de frein : il remonte. Repoussez le piston lentement avec l'outil.", "components": ["brake_fl", "brake_fluid_reservoir"] },
-        { "title": "Monter les plaquettes", "text": "Nettoyez le support, une fine touche de graisse céramique sur les points de glissement (jamais sur la garniture), posez les plaquettes et l'étrier, serrez au couple.", "components": ["brake_fl"] },
-        { "title": "Même chose de l'autre côté", "text": "Répétez à droite, remontez les roues au couple, pompez la pédale jusqu'à ce qu'elle soit ferme.", "components": ["brake_fr", "wheel_fr"] },
-        { "title": "Rodage", "text": "Pendant 200 km, freinez progressivement en évitant les freinages d'urgence.", "components": ["brake_fl", "brake_fr"] }
+        {
+          "title": "Lever et déposer la roue",
+          "text": "Desserrez les écrous au sol, levez, posez sur chandelle, déposez la roue.",
+          "components": [
+            "wheel_fl"
+          ],
+          "warning": "Chandelle obligatoire."
+        },
+        {
+          "title": "Déposer l'étrier",
+          "text": "Dévissez les deux vis de guide de l'étrier, basculez-le et suspendez-le avec un fil : il ne doit pas pendre par son flexible.",
+          "components": [
+            "brake_fl"
+          ]
+        },
+        {
+          "title": "Contrôler le disque",
+          "text": "Mesurez l'épaisseur (minimum gravé sur le disque) et cherchez rayures ou collerette.",
+          "components": [
+            "brake_fl"
+          ],
+          "tip": "Passez l'ongle sur la piste : un sillon qui accroche signale un disque à changer."
+        },
+        {
+          "title": "Repousser le piston",
+          "text": "Surveillez le bocal de liquide de frein : il remonte. Repoussez le piston lentement avec l'outil.",
+          "components": [
+            "brake_fl",
+            "brake_fluid_reservoir"
+          ]
+        },
+        {
+          "title": "Monter les plaquettes",
+          "text": "Nettoyez le support, une fine touche de graisse céramique sur les points de glissement (jamais sur la garniture), posez les plaquettes et l'étrier, serrez au couple.",
+          "components": [
+            "brake_fl"
+          ]
+        },
+        {
+          "title": "Même chose de l'autre côté",
+          "text": "Répétez à droite, remontez les roues au couple, pompez la pédale jusqu'à ce qu'elle soit ferme.",
+          "components": [
+            "brake_fr",
+            "wheel_fr"
+          ]
+        },
+        {
+          "title": "Rodage",
+          "text": "Pendant 200 km, freinez progressivement en évitant les freinages d'urgence.",
+          "components": [
+            "brake_fl",
+            "brake_fr"
+          ]
+        }
       ]
     },
     {
       "id": "fluids_check",
       "title": "Contrôle mensuel des niveaux et de l'éclairage",
-      "vehicle_types": ["car", "van", "truck"],
-      "fuels": ["petrol", "diesel", "hybrid", "electric"],
+      "vehicle_types": [
+        "car",
+        "van",
+        "truck"
+      ],
+      "fuels": [
+        "petrol",
+        "diesel",
+        "hybrid"
+      ],
       "interval": "Une fois par mois et avant un long trajet.",
-      "difficulty": 1, "time_min": 10, "time_max": 15,
+      "difficulty": 1,
+      "time_min": 10,
+      "time_max": 15,
       "why": "Dix minutes par mois suffisent pour repérer une fuite naissante ou une ampoule grillée avant qu'elles ne deviennent une panne, une amende ou un accident. C'est aussi le meilleur moyen de connaître son véhicule.",
       "sensory_checks": [
-        { "sense": "sight", "tip": "Taches sous la voiture garée : noire = huile, verte / rose / bleue = liquide de refroidissement, claire et huileuse = liquide de frein, transparente = condensation de climatisation (normal).", "means": "Identifier une fuite par sa couleur." },
-        { "sense": "smell", "tip": "Odeur sucrée = liquide de refroidissement ; odeur d'huile chaude = fuite sur l'échappement.", "means": "Localiser une fuite." }
+        {
+          "sense": "sight",
+          "tip": "Taches sous la voiture garée : noire = huile, verte / rose / bleue = liquide de refroidissement, claire et huileuse = liquide de frein, transparente = condensation de climatisation (normal).",
+          "means": "Identifier une fuite par sa couleur."
+        },
+        {
+          "sense": "smell",
+          "tip": "Odeur sucrée = liquide de refroidissement ; odeur d'huile chaude = fuite sur l'échappement.",
+          "means": "Localiser une fuite."
+        }
       ],
-      "components": ["dipstick", "coolant_reservoir", "brake_fluid_reservoir", "washer_reservoir", "headlights", "wheel_fl", "wheel_fr", "wheel_rl", "wheel_rr"],
-      "tools": ["Chiffon", "Manomètre de pression des pneus"],
-      "safety": ["Ne jamais ouvrir le vase d'expansion moteur chaud."],
+      "components": [
+        "dipstick",
+        "coolant_reservoir",
+        "brake_fluid_reservoir",
+        "washer_reservoir",
+        "headlights",
+        "wheel_fl",
+        "wheel_fr",
+        "wheel_rl",
+        "wheel_rr"
+      ],
+      "tools": [
+        "Chiffon",
+        "Manomètre de pression des pneus"
+      ],
+      "safety": [
+        "Ne jamais ouvrir le vase d'expansion moteur chaud."
+      ],
       "shopping": [
-        { "name": "Liquide de lave-glace", "query": "liquide lave-glace", "qty": 1, "unit": "bidon 5 L", "price_min": 4, "price_max": 10 },
-        { "name": "Huile moteur (appoint) {oil_spec}", "query": "huile moteur {oil_spec} 1L", "qty": 1, "unit": "L", "price_min": 8, "price_max": 16, "optional": true },
-        { "name": "Manomètre de pression des pneus", "query": "manomètre pneu", "qty": 1, "unit": "pièce", "price_min": 8, "price_max": 25, "optional": true }
+        {
+          "name": "Liquide de lave-glace",
+          "query": "liquide lave-glace",
+          "qty": 1,
+          "unit": "bidon 5 L",
+          "price_min": 4,
+          "price_max": 10
+        },
+        {
+          "name": "Huile moteur (appoint) {oil_spec}",
+          "query": "huile moteur {oil_spec} 1L",
+          "qty": 1,
+          "unit": "L",
+          "price_min": 8,
+          "price_max": 16,
+          "optional": true
+        },
+        {
+          "name": "Manomètre de pression des pneus",
+          "query": "manomètre pneu",
+          "qty": 1,
+          "unit": "pièce",
+          "price_min": 8,
+          "price_max": 25,
+          "optional": true
+        }
       ],
       "steps": [
-        { "title": "Huile", "text": "À plat, moteur arrêté depuis 5 min : niveau entre MIN et MAX sur la jauge.", "components": ["dipstick"] },
-        { "title": "Liquide de refroidissement", "text": "Moteur froid : niveau entre MIN et MAX du vase d'expansion.", "components": ["coolant_reservoir"], "warning": "Jamais à chaud : risque de brûlure grave." },
-        { "title": "Liquide de frein", "text": "Niveau entre MIN et MAX. Une baisse lente est normale (usure des plaquettes), une baisse rapide est une fuite : garage.", "components": ["brake_fluid_reservoir"] },
-        { "title": "Lave-glace", "text": "Complétez avec un produit adapté à la saison.", "components": ["washer_reservoir"] },
-        { "title": "Pneus", "text": "Pression à froid (étiquette dans la portière), usure (témoins dans les rainures, 1,6 mm minimum), hernies sur les flancs.", "components": ["wheel_fl", "wheel_fr", "wheel_rl", "wheel_rr"] },
-        { "title": "Éclairage", "text": "Faites le tour : feux de position, croisement, stop (reflet sur un mur ou un vitrage), clignotants.", "components": ["headlights"] }
+        {
+          "title": "Huile",
+          "text": "À plat, moteur arrêté depuis 5 min : niveau entre MIN et MAX sur la jauge.",
+          "components": [
+            "dipstick"
+          ]
+        },
+        {
+          "title": "Liquide de refroidissement",
+          "text": "Moteur froid : niveau entre MIN et MAX du vase d'expansion.",
+          "components": [
+            "coolant_reservoir"
+          ],
+          "warning": "Jamais à chaud : risque de brûlure grave."
+        },
+        {
+          "title": "Liquide de frein",
+          "text": "Niveau entre MIN et MAX. Une baisse lente est normale (usure des plaquettes), une baisse rapide est une fuite : garage.",
+          "components": [
+            "brake_fluid_reservoir"
+          ]
+        },
+        {
+          "title": "Lave-glace",
+          "text": "Complétez avec un produit adapté à la saison.",
+          "components": [
+            "washer_reservoir"
+          ]
+        },
+        {
+          "title": "Pneus",
+          "text": "Pression à froid (étiquette dans la portière), usure (témoins dans les rainures, 1,6 mm minimum), hernies sur les flancs.",
+          "components": [
+            "wheel_fl",
+            "wheel_fr",
+            "wheel_rl",
+            "wheel_rr"
+          ]
+        },
+        {
+          "title": "Éclairage",
+          "text": "Faites le tour : feux de position, croisement, stop (reflet sur un mur ou un vitrage), clignotants.",
+          "components": [
+            "headlights"
+          ]
+        }
       ]
     },
     {
       "id": "battery_replace",
       "title": "Remplacement de la batterie 12 V",
-      "vehicle_types": ["car", "van", "motorcycle"],
-      "fuels": ["petrol", "diesel", "hybrid", "electric"],
+      "vehicle_types": [
+        "car",
+        "van",
+        "motorcycle"
+      ],
+      "fuels": [
+        "petrol",
+        "diesel",
+        "hybrid",
+        "electric"
+      ],
       "interval": "Durée de vie typique : 4 à 6 ans.",
-      "difficulty": 1, "time_min": 15, "time_max": 45,
+      "difficulty": 1,
+      "time_min": 15,
+      "time_max": 45,
       "why": "La batterie fournit le courant de démarrage et stabilise la tension de bord. Une batterie faible provoque des défauts électroniques fantômes (P0562, U0001, P0606) bien avant de laisser en panne.",
       "sensory_checks": [
-        { "sense": "sound", "tip": "Démarreur lent par temps froid.", "means": "Batterie en fin de vie." },
-        { "sense": "sight", "tip": "Sulfate blanc ou vert sur les cosses, boîtier gonflé.", "means": "Contact dégradé ou batterie surchargée." }
+        {
+          "sense": "sound",
+          "tip": "Démarreur lent par temps froid.",
+          "means": "Batterie en fin de vie."
+        },
+        {
+          "sense": "sight",
+          "tip": "Sulfate blanc ou vert sur les cosses, boîtier gonflé.",
+          "means": "Contact dégradé ou batterie surchargée."
+        }
       ],
-      "components": ["battery"],
-      "tools": ["Clés de 10 et 13", "Brosse à cosses", "Mémoriseur 12 V (optionnel)"],
-      "safety": ["Débrancher le – en premier, rebrancher le + en premier.", "Batterie Start & Stop : remplacer par la même technologie (EFB ou AGM)."],
+      "components": [
+        "battery"
+      ],
+      "tools": [
+        "Clés de 10 et 13",
+        "Brosse à cosses",
+        "Mémoriseur 12 V (optionnel)"
+      ],
+      "safety": [
+        "Débrancher le – en premier, rebrancher le + en premier.",
+        "Batterie Start & Stop : remplacer par la même technologie (EFB ou AGM)."
+      ],
       "shopping": [
-        { "name": "Batterie 12 V", "query": "batterie voiture", "qty": 1, "unit": "pièce", "price_min": 70, "price_max": 220 },
-        { "name": "Graisse pour cosses", "query": "graisse cosse batterie", "qty": 1, "unit": "bombe", "price_min": 5, "price_max": 12, "optional": true }
+        {
+          "name": "Batterie 12 V",
+          "query": "batterie voiture",
+          "qty": 1,
+          "unit": "pièce",
+          "price_min": 70,
+          "price_max": 220
+        },
+        {
+          "name": "Graisse pour cosses",
+          "query": "graisse cosse batterie",
+          "qty": 1,
+          "unit": "bombe",
+          "price_min": 5,
+          "price_max": 12,
+          "optional": true
+        }
       ],
       "steps": [
-        { "title": "Relever les caractéristiques", "text": "Notez capacité (Ah), courant de démarrage (A EN), technologie et position des bornes de l'ancienne batterie.", "components": ["battery"] },
-        { "title": "Débrancher", "text": "Coupez tout, débranchez la borne – puis la borne +, retirez la bride de maintien.", "components": ["battery"] },
-        { "title": "Remplacer", "text": "Posez la neuve, fixez la bride, rebranchez le + puis le –, graissez les cosses.", "components": ["battery"] },
-        { "title": "Réinitialiser", "text": "Recalez vitres électriques, horloge ; certaines voitures demandent l'enregistrement de la batterie (valise).", "components": ["battery", "ecu"] }
+        {
+          "title": "Relever les caractéristiques",
+          "text": "Notez capacité (Ah), courant de démarrage (A EN), technologie et position des bornes de l'ancienne batterie.",
+          "components": [
+            "battery"
+          ]
+        },
+        {
+          "title": "Débrancher",
+          "text": "Coupez tout, débranchez la borne – puis la borne +, retirez la bride de maintien.",
+          "components": [
+            "battery"
+          ]
+        },
+        {
+          "title": "Remplacer",
+          "text": "Posez la neuve, fixez la bride, rebranchez le + puis le –, graissez les cosses.",
+          "components": [
+            "battery"
+          ]
+        },
+        {
+          "title": "Réinitialiser",
+          "text": "Recalez vitres électriques, horloge ; certaines voitures demandent l'enregistrement de la batterie (valise).",
+          "components": [
+            "battery",
+            "ecu"
+          ]
+        }
       ]
     },
     {
       "id": "moto_oil_change",
       "title": "Vidange moto (huile + filtre)",
-      "vehicle_types": ["motorcycle"],
-      "fuels": ["petrol"],
+      "vehicle_types": [
+        "motorcycle"
+      ],
+      "fuels": [
+        "petrol"
+      ],
       "interval": "Tous les 6 000 à 12 000 km ou chaque année.",
-      "difficulty": 2, "time_min": 30, "time_max": 60,
+      "difficulty": 2,
+      "time_min": 30,
+      "time_max": 60,
       "why": "Sur la plupart des motos, la même huile lubrifie le moteur, la boîte et l'embrayage à bain d'huile. D'où la norme JASO MA : une huile auto « économie d'énergie » fait patiner l'embrayage.",
       "sensory_checks": [
-        { "sense": "sight", "tip": "Hublot de niveau : huile foncée et opaque.", "means": "Vidange due." },
-        { "sense": "feel", "tip": "Passages de vitesses durs, embrayage qui patine.", "means": "Huile usée ou inadaptée." }
+        {
+          "sense": "sight",
+          "tip": "Hublot de niveau : huile foncée et opaque.",
+          "means": "Vidange due."
+        },
+        {
+          "sense": "feel",
+          "tip": "Passages de vitesses durs, embrayage qui patine.",
+          "means": "Huile usée ou inadaptée."
+        }
       ],
-      "components": ["oil_drain_plug", "oil_filter", "oil_filler_cap", "engine"],
-      "tools": ["Béquille d'atelier", "Clé de vidange", "Clé à filtre", "Bac", "Clé dynamométrique"],
-      "safety": ["Moto stable sur béquille d'atelier.", "Pas d'huile sur le pneu arrière ni sur le disque."],
+      "components": [
+        "oil_drain_plug",
+        "oil_filter",
+        "oil_filler_cap",
+        "engine"
+      ],
+      "tools": [
+        "Béquille d'atelier",
+        "Clé de vidange",
+        "Clé à filtre",
+        "Bac",
+        "Clé dynamométrique"
+      ],
+      "safety": [
+        "Moto stable sur béquille d'atelier.",
+        "Pas d'huile sur le pneu arrière ni sur le disque."
+      ],
       "shopping": [
-        { "name": "Huile moto {oil_spec}", "query": "huile moto {oil_spec}", "qty_from": "oil_capacity_l", "round_up": true, "unit": "L", "price_min": 9, "price_max": 18 },
-        { "name": "Filtre à huile moto", "query": "filtre à huile moto", "qty": 1, "unit": "pièce", "price_min": 6, "price_max": 18 },
-        { "name": "Joint de bouchon de vidange", "query": "joint bouchon vidange moto", "qty": 1, "unit": "pièce", "price_min": 1, "price_max": 4 }
+        {
+          "name": "Huile moto {oil_spec}",
+          "query": "huile moto {oil_spec}",
+          "qty_from": "oil_capacity_l",
+          "round_up": true,
+          "unit": "L",
+          "price_min": 9,
+          "price_max": 18
+        },
+        {
+          "name": "Filtre à huile moto",
+          "query": "filtre à huile moto",
+          "qty": 1,
+          "unit": "pièce",
+          "price_min": 6,
+          "price_max": 18
+        },
+        {
+          "name": "Joint de bouchon de vidange",
+          "query": "joint bouchon vidange moto",
+          "qty": 1,
+          "unit": "pièce",
+          "price_min": 1,
+          "price_max": 4
+        }
       ],
       "steps": [
-        { "title": "Chauffer et caler", "text": "Moteur tiède, moto droite sur béquille d'atelier.", "components": ["engine"] },
-        { "title": "Vidanger", "text": "Ouvrez le bouchon de remplissage puis le bouchon de vidange ; laissez couler.", "components": ["oil_filler_cap", "oil_drain_plug"] },
-        { "title": "Filtre", "text": "Remplacez le filtre (joint huilé, serrage à la main + 3/4 de tour).", "components": ["oil_filter"] },
-        { "title": "Remplir et contrôler", "text": "Bouchon avec joint neuf au couple, remplissez, faites tourner 1 minute, contrôlez au hublot, moto droite.", "components": ["oil_filler_cap", "engine"] }
+        {
+          "title": "Chauffer et caler",
+          "text": "Moteur tiède, moto droite sur béquille d'atelier.",
+          "components": [
+            "engine"
+          ]
+        },
+        {
+          "title": "Vidanger",
+          "text": "Ouvrez le bouchon de remplissage puis le bouchon de vidange ; laissez couler.",
+          "components": [
+            "oil_filler_cap",
+            "oil_drain_plug"
+          ]
+        },
+        {
+          "title": "Filtre",
+          "text": "Remplacez le filtre (joint huilé, serrage à la main + 3/4 de tour).",
+          "components": [
+            "oil_filter"
+          ]
+        },
+        {
+          "title": "Remplir et contrôler",
+          "text": "Bouchon avec joint neuf au couple, remplissez, faites tourner 1 minute, contrôlez au hublot, moto droite.",
+          "components": [
+            "oil_filler_cap",
+            "engine"
+          ]
+        }
       ]
     },
     {
       "id": "chain_maintenance",
       "title": "Entretien de la chaîne (nettoyage, graissage, tension)",
-      "vehicle_types": ["motorcycle"],
-      "fuels": ["petrol", "electric"],
+      "vehicle_types": [
+        "motorcycle"
+      ],
+      "fuels": [
+        "petrol"
+      ],
       "interval": "Graissage tous les 500 à 1 000 km et après la pluie ; contrôle de tension tous les 1 000 km.",
-      "difficulty": 1, "time_min": 15, "time_max": 40,
+      "difficulty": 1,
+      "time_min": 15,
+      "time_max": 40,
       "why": "La chaîne transmet toute la puissance à la roue. Sèche ou mal tendue, elle s'use en quelques milliers de km, use pignon et couronne, et peut casser.",
       "sensory_checks": [
-        { "sense": "sound", "tip": "Bruit de « ferraille » ou claquement en accélérant / décélérant.", "means": "Chaîne trop détendue ou sèche." },
-        { "sense": "touch", "tip": "Tirez la chaîne vers l'arrière au niveau de la couronne : si on voit plus de la moitié d'une dent, elle est allongée.", "means": "Kit chaîne à remplacer." },
-        { "sense": "sight", "tip": "Dents de couronne en forme de crochet ou de vague.", "means": "Couronne usée : remplacer le kit complet." }
+        {
+          "sense": "sound",
+          "tip": "Bruit de « ferraille » ou claquement en accélérant / décélérant.",
+          "means": "Chaîne trop détendue ou sèche."
+        },
+        {
+          "sense": "touch",
+          "tip": "Tirez la chaîne vers l'arrière au niveau de la couronne : si on voit plus de la moitié d'une dent, elle est allongée.",
+          "means": "Kit chaîne à remplacer."
+        },
+        {
+          "sense": "sight",
+          "tip": "Dents de couronne en forme de crochet ou de vague.",
+          "means": "Couronne usée : remplacer le kit complet."
+        }
       ],
-      "components": ["chain", "sprocket_front", "sprocket_rear", "wheel_rr"],
-      "tools": ["Béquille d'atelier", "Brosse à chaîne", "Clés pour axe de roue", "Réglet"],
-      "safety": ["Jamais les doigts près de la chaîne moteur tournant.", "Pas de graisse sur le pneu ni sur le disque."],
+      "components": [
+        "chain",
+        "sprocket_front",
+        "sprocket_rear",
+        "wheel_rr"
+      ],
+      "tools": [
+        "Béquille d'atelier",
+        "Brosse à chaîne",
+        "Clés pour axe de roue",
+        "Réglet"
+      ],
+      "safety": [
+        "Jamais les doigts près de la chaîne moteur tournant.",
+        "Pas de graisse sur le pneu ni sur le disque."
+      ],
       "shopping": [
-        { "name": "Nettoyant chaîne", "query": "nettoyant chaîne moto", "qty": 1, "unit": "bombe", "price_min": 8, "price_max": 18 },
-        { "name": "Graisse chaîne", "query": "graisse chaîne moto", "qty": 1, "unit": "bombe", "price_min": 8, "price_max": 18 },
-        { "name": "Brosse à chaîne", "query": "brosse chaîne moto", "qty": 1, "unit": "pièce", "price_min": 5, "price_max": 15, "optional": true },
-        { "name": "Kit chaîne {chain}", "query": "kit chaîne", "qty": 1, "unit": "kit", "price_min": 70, "price_max": 220, "optional": true }
+        {
+          "name": "Nettoyant chaîne",
+          "query": "nettoyant chaîne moto",
+          "qty": 1,
+          "unit": "bombe",
+          "price_min": 8,
+          "price_max": 18
+        },
+        {
+          "name": "Graisse chaîne",
+          "query": "graisse chaîne moto",
+          "qty": 1,
+          "unit": "bombe",
+          "price_min": 8,
+          "price_max": 18
+        },
+        {
+          "name": "Brosse à chaîne",
+          "query": "brosse chaîne moto",
+          "qty": 1,
+          "unit": "pièce",
+          "price_min": 5,
+          "price_max": 15,
+          "optional": true
+        },
+        {
+          "name": "Kit chaîne {chain}",
+          "query": "kit chaîne",
+          "qty": 1,
+          "unit": "kit",
+          "price_min": 70,
+          "price_max": 220,
+          "optional": true
+        }
       ],
       "steps": [
-        { "title": "Nettoyer", "text": "Moto sur béquille, boîte au point mort : nettoyez la chaîne en faisant tourner la roue à la main, essuyez.", "components": ["chain"] },
-        { "title": "Graisser", "text": "Pulvérisez la graisse sur l'intérieur de la chaîne (côté pignons), en faisant tourner la roue. Laissez sécher 15 minutes.", "components": ["chain", "sprocket_rear"] },
-        { "title": "Contrôler la tension", "text": "Au milieu du brin inférieur, le débattement doit correspondre à la notice (souvent 25–35 mm).", "components": ["chain"] },
-        { "title": "Retendre si besoin", "text": "Desserrez l'axe de roue, agissez sur les tendeurs de façon identique à gauche et à droite (repères), resserrez l'axe au couple.", "components": ["wheel_rr", "chain"], "warning": "Un alignement différent à gauche et à droite use la chaîne et rend la moto instable." }
+        {
+          "title": "Nettoyer",
+          "text": "Moto sur béquille, boîte au point mort : nettoyez la chaîne en faisant tourner la roue à la main, essuyez.",
+          "components": [
+            "chain"
+          ]
+        },
+        {
+          "title": "Graisser",
+          "text": "Pulvérisez la graisse sur l'intérieur de la chaîne (côté pignons), en faisant tourner la roue. Laissez sécher 15 minutes.",
+          "components": [
+            "chain",
+            "sprocket_rear"
+          ]
+        },
+        {
+          "title": "Contrôler la tension",
+          "text": "Au milieu du brin inférieur, le débattement doit correspondre à la notice (souvent 25–35 mm).",
+          "components": [
+            "chain"
+          ]
+        },
+        {
+          "title": "Retendre si besoin",
+          "text": "Desserrez l'axe de roue, agissez sur les tendeurs de façon identique à gauche et à droite (repères), resserrez l'axe au couple.",
+          "components": [
+            "wheel_rr",
+            "chain"
+          ],
+          "warning": "Un alignement différent à gauche et à droite use la chaîne et rend la moto instable."
+        }
       ]
     },
     {
       "id": "truck_daily_check",
       "title": "Tour du véhicule poids lourd (contrôle quotidien)",
-      "vehicle_types": ["truck"],
-      "fuels": ["diesel"],
+      "vehicle_types": [
+        "truck"
+      ],
+      "fuels": [
+        "diesel"
+      ],
       "interval": "Chaque jour avant le départ.",
-      "difficulty": 1, "time_min": 10, "time_max": 20,
+      "difficulty": 1,
+      "time_min": 10,
+      "time_max": 20,
       "why": "Le contrôle visuel quotidien est une obligation pour le conducteur. C'est aussi le meilleur moyen de repérer une fuite d'air, d'huile ou d'AdBlue, ou un pneu endommagé, avant la panne sur autoroute.",
       "sensory_checks": [
-        { "sense": "sound", "tip": "Sifflement d'air, circuit chargé et moteur arrêté.", "means": "Fuite pneumatique (freinage, suspension) : à localiser avant de partir." },
-        { "sense": "sight", "tip": "Cristaux blancs autour du réservoir AdBlue ou des raccords.", "means": "Fuite d'AdBlue." },
-        { "sense": "smell", "tip": "Odeur de chaud au niveau d'une roue à l'arrivée.", "means": "Frein qui frotte : contrôler l'ajustement." }
+        {
+          "sense": "sound",
+          "tip": "Sifflement d'air, circuit chargé et moteur arrêté.",
+          "means": "Fuite pneumatique (freinage, suspension) : à localiser avant de partir."
+        },
+        {
+          "sense": "sight",
+          "tip": "Cristaux blancs autour du réservoir AdBlue ou des raccords.",
+          "means": "Fuite d'AdBlue."
+        },
+        {
+          "sense": "smell",
+          "tip": "Odeur de chaud au niveau d'une roue à l'arrivée.",
+          "means": "Frein qui frotte : contrôler l'ajustement."
+        }
       ],
-      "components": ["dipstick", "coolant_reservoir", "adblue_tank", "wheel_fl", "wheel_fr", "wheel_rl", "wheel_rr", "headlights"],
-      "tools": ["Lampe", "Manomètre", "Gilet haute visibilité"],
-      "safety": ["Calez le véhicule, gilet haute visibilité."],
+      "components": [
+        "dipstick",
+        "coolant_reservoir",
+        "adblue_tank",
+        "wheel_fl",
+        "wheel_fr",
+        "wheel_rl",
+        "wheel_rr",
+        "headlights"
+      ],
+      "tools": [
+        "Lampe",
+        "Manomètre",
+        "Gilet haute visibilité"
+      ],
+      "safety": [
+        "Calez le véhicule, gilet haute visibilité."
+      ],
       "shopping": [
-        { "name": "AdBlue", "query": "AdBlue 10L", "qty": 1, "unit": "bidon 10 L", "price_min": 12, "price_max": 25 },
-        { "name": "Huile moteur PL (appoint) {oil_spec}", "query": "huile moteur poids lourd {oil_spec} 5L", "qty": 1, "unit": "bidon 5 L", "price_min": 30, "price_max": 60, "optional": true }
+        {
+          "name": "AdBlue",
+          "query": "AdBlue 10L",
+          "qty": 1,
+          "unit": "bidon 10 L",
+          "price_min": 12,
+          "price_max": 25
+        },
+        {
+          "name": "Huile moteur PL (appoint) {oil_spec}",
+          "query": "huile moteur poids lourd {oil_spec} 5L",
+          "qty": 1,
+          "unit": "bidon 5 L",
+          "price_min": 30,
+          "price_max": 60,
+          "optional": true
+        }
       ],
       "steps": [
-        { "title": "Niveaux", "text": "Huile, liquide de refroidissement, AdBlue, lave-glace.", "components": ["dipstick", "coolant_reservoir", "adblue_tank"] },
-        { "title": "Pneumatiques et roues", "text": "Pression, entailles, écrous de roue (indicateurs de desserrage).", "components": ["wheel_fl", "wheel_fr", "wheel_rl", "wheel_rr"] },
-        { "title": "Air et freinage", "text": "Montée en pression, purge des réservoirs, écoute des fuites.", "components": ["engine"] },
-        { "title": "Éclairage et signalisation", "text": "Feux, clignotants, gyrophares, plaques et dispositifs réfléchissants.", "components": ["headlights"] }
+        {
+          "title": "Niveaux",
+          "text": "Huile, liquide de refroidissement, AdBlue, lave-glace.",
+          "components": [
+            "dipstick",
+            "coolant_reservoir",
+            "adblue_tank"
+          ]
+        },
+        {
+          "title": "Pneumatiques et roues",
+          "text": "Pression, entailles, écrous de roue (indicateurs de desserrage).",
+          "components": [
+            "wheel_fl",
+            "wheel_fr",
+            "wheel_rl",
+            "wheel_rr"
+          ]
+        },
+        {
+          "title": "Air et freinage",
+          "text": "Montée en pression, purge des réservoirs, écoute des fuites.",
+          "components": [
+            "engine"
+          ]
+        },
+        {
+          "title": "Éclairage et signalisation",
+          "text": "Feux, clignotants, gyrophares, plaques et dispositifs réfléchissants.",
+          "components": [
+            "headlights"
+          ]
+        }
       ]
     },
     {
       "id": "truck_oil_service",
       "title": "Vidange poids lourd (huile + filtres)",
-      "vehicle_types": ["truck"],
-      "fuels": ["diesel"],
+      "vehicle_types": [
+        "truck"
+      ],
+      "fuels": [
+        "diesel"
+      ],
       "interval": "Selon la sévérité d'usage : souvent 60 000 à 150 000 km (indicateur de bord).",
-      "difficulty": 4, "time_min": 90, "time_max": 180,
+      "difficulty": 4,
+      "time_min": 90,
+      "time_max": 180,
       "why": "Un moteur de 13 litres contient 35 à 40 litres d'huile. Le respect de la norme constructeur (VDS, MB 228.5x…) est indispensable au maintien de la garantie et à la longévité du moteur et du système de dépollution.",
       "sensory_checks": [
-        { "sense": "sight", "tip": "Huile noire et collante à la jauge, consommation qui augmente.", "means": "Service à avancer." }
+        {
+          "sense": "sight",
+          "tip": "Huile noire et collante à la jauge, consommation qui augmente.",
+          "means": "Service à avancer."
+        }
       ],
-      "components": ["oil_drain_plug", "oil_filter", "fuel_filter", "air_filter", "engine"],
-      "tools": ["Fosse ou pont", "Bac ≥ 50 L", "Clés à filtre PL", "Pompe de remplissage"],
-      "safety": ["Intervention en atelier équipé (fosse, récupération des huiles)."],
+      "components": [
+        "oil_drain_plug",
+        "oil_filter",
+        "fuel_filter",
+        "air_filter",
+        "engine"
+      ],
+      "tools": [
+        "Fosse ou pont",
+        "Bac ≥ 50 L",
+        "Clés à filtre PL",
+        "Pompe de remplissage"
+      ],
+      "safety": [
+        "Intervention en atelier équipé (fosse, récupération des huiles)."
+      ],
       "shopping": [
-        { "name": "Huile moteur PL {oil_spec}", "query": "huile moteur poids lourd {oil_spec}", "qty_from": "oil_capacity_l", "round_up": true, "unit": "L", "price_min": 5, "price_max": 10 },
-        { "name": "Filtres à huile PL (kit)", "query": "filtre à huile poids lourd", "qty": 1, "unit": "kit", "price_min": 30, "price_max": 90 },
-        { "name": "Filtres à gazole PL (kit)", "query": "filtre gasoil poids lourd", "qty": 1, "unit": "kit", "price_min": 40, "price_max": 120 },
-        { "name": "Filtre à air PL", "query": "filtre à air poids lourd", "qty": 1, "unit": "pièce", "price_min": 60, "price_max": 180, "optional": true }
+        {
+          "name": "Huile moteur PL {oil_spec}",
+          "query": "huile moteur poids lourd {oil_spec}",
+          "qty_from": "oil_capacity_l",
+          "round_up": true,
+          "unit": "L",
+          "price_min": 5,
+          "price_max": 10
+        },
+        {
+          "name": "Filtres à huile PL (kit)",
+          "query": "filtre à huile poids lourd",
+          "qty": 1,
+          "unit": "kit",
+          "price_min": 30,
+          "price_max": 90
+        },
+        {
+          "name": "Filtres à gazole PL (kit)",
+          "query": "filtre gasoil poids lourd",
+          "qty": 1,
+          "unit": "kit",
+          "price_min": 40,
+          "price_max": 120
+        },
+        {
+          "name": "Filtre à air PL",
+          "query": "filtre à air poids lourd",
+          "qty": 1,
+          "unit": "pièce",
+          "price_min": 60,
+          "price_max": 180,
+          "optional": true
+        }
       ],
       "steps": [
-        { "title": "Vidanger", "text": "Moteur chaud, véhicule sur fosse : vidange complète.", "components": ["oil_drain_plug"] },
-        { "title": "Filtres", "text": "Remplacez filtres à huile et à gazole (cartouches), joints neufs huilés.", "components": ["oil_filter", "fuel_filter"] },
-        { "title": "Remplir et purger", "text": "Remplissez à la quantité constructeur, purgez le circuit de gazole, démarrez et contrôlez les fuites.", "components": ["engine", "fuel_filter"] },
-        { "title": "Réinitialiser", "text": "Remettez à zéro l'indicateur de maintenance.", "components": ["ecu"] }
+        {
+          "title": "Vidanger",
+          "text": "Moteur chaud, véhicule sur fosse : vidange complète.",
+          "components": [
+            "oil_drain_plug"
+          ]
+        },
+        {
+          "title": "Filtres",
+          "text": "Remplacez filtres à huile et à gazole (cartouches), joints neufs huilés.",
+          "components": [
+            "oil_filter",
+            "fuel_filter"
+          ]
+        },
+        {
+          "title": "Remplir et purger",
+          "text": "Remplissez à la quantité constructeur, purgez le circuit de gazole, démarrez et contrôlez les fuites.",
+          "components": [
+            "engine",
+            "fuel_filter"
+          ]
+        },
+        {
+          "title": "Réinitialiser",
+          "text": "Remettez à zéro l'indicateur de maintenance.",
+          "components": [
+            "ecu"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ev_check",
+      "title": "Contrôle mensuel d'un véhicule électrique",
+      "vehicle_types": [
+        "car",
+        "van"
+      ],
+      "fuels": [
+        "electric"
+      ],
+      "interval": "Une fois par mois et avant un long trajet.",
+      "difficulty": 1,
+      "time_min": 10,
+      "time_max": 20,
+      "why": "Un véhicule électrique a peu de pièces d'usure, mais il pèse lourd et freine peu mécaniquement. Pneus, freins, batterie 12 V et liquides de refroidissement méritent un coup d'œil régulier, sans jamais toucher aux éléments orange.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "Câbles et connecteurs ORANGE : regardez sans toucher. Gaine abîmée, trace de frottement, humidité ?",
+          "means": "Haute tension : faites intervenir un atelier habilité."
+        },
+        {
+          "sense": "sound",
+          "tip": "Sifflement aigu qui suit la vitesse, plus fort en accélération ou en décélération.",
+          "means": "Réducteur ou roulement : à faire contrôler."
+        },
+        {
+          "sense": "feel",
+          "tip": "Le véhicule met longtemps à passer « Ready » ou l'écran redémarre.",
+          "means": "Batterie 12 V faible : la cause n° 1 des pannes de véhicules électriques."
+        }
+      ],
+      "components": [
+        "battery",
+        "coolant_reservoir",
+        "battery_coolant",
+        "washer_reservoir",
+        "wheel_fl",
+        "wheel_fr",
+        "wheel_rl",
+        "wheel_rr",
+        "hv_cables",
+        "charge_port"
+      ],
+      "tools": [
+        "Manomètre de pression des pneus",
+        "Lampe"
+      ],
+      "safety": [
+        "Ne jamais toucher ni débrancher un élément orange (haute tension).",
+        "Ne pas ouvrir les circuits de refroidissement à chaud."
+      ],
+      "shopping": [
+        {
+          "name": "Liquide de lave-glace",
+          "query": "liquide lave-glace",
+          "qty": 1,
+          "unit": "bidon 5 L",
+          "price_min": 4,
+          "price_max": 10
+        },
+        {
+          "name": "Manomètre de pression des pneus",
+          "query": "manomètre pneu",
+          "qty": 1,
+          "unit": "pièce",
+          "price_min": 8,
+          "price_max": 25,
+          "optional": true
+        },
+        {
+          "name": "Mainteneur de charge 12 V",
+          "query": "chargeur mainteneur batterie 12V",
+          "qty": 1,
+          "unit": "pièce",
+          "price_min": 30,
+          "price_max": 80,
+          "optional": true
+        }
+      ],
+      "steps": [
+        {
+          "title": "Batterie 12 V",
+          "text": "Véhicule éteint depuis plus d'une heure : tension ≥ 12,4 V au multimètre ou en données en direct. Cosses propres et serrées.",
+          "components": [
+            "battery"
+          ],
+          "tip": "La 12 V d'un véhicule électrique travaille même à l'arrêt (télématique) : changez-la tous les 4 à 6 ans."
+        },
+        {
+          "title": "Liquides de refroidissement",
+          "text": "Il y a souvent deux vases : batterie / électronique et habitacle. Niveau entre MIN et MAX, véhicule froid.",
+          "components": [
+            "coolant_reservoir",
+            "battery_coolant"
+          ]
+        },
+        {
+          "title": "Pneus",
+          "text": "Pression à froid (étiquette de portière) et usure : le couple instantané et le poids usent les pneus 20 à 30 % plus vite.",
+          "components": [
+            "wheel_fl",
+            "wheel_fr",
+            "wheel_rl",
+            "wheel_rr"
+          ]
+        },
+        {
+          "title": "Prise de recharge",
+          "text": "Clapet, joint et broches propres et secs, sans trace de brûlure.",
+          "components": [
+            "charge_port"
+          ],
+          "warning": "Ne nettoyez jamais les broches pendant une charge."
+        },
+        {
+          "title": "Câbles orange (regard seulement)",
+          "text": "Inspectez visuellement sous le capot et sous le véhicule : aucun frottement ni gaine abîmée.",
+          "components": [
+            "hv_cables"
+          ],
+          "warning": "Haute tension : ne touchez pas."
+        },
+        {
+          "title": "Lave-glace",
+          "text": "Complétez avec un produit adapté à la saison.",
+          "components": [
+            "washer_reservoir"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ev_brakes",
+      "title": "Entretenir les freins d'un véhicule électrique",
+      "vehicle_types": [
+        "car",
+        "van"
+      ],
+      "fuels": [
+        "electric",
+        "hybrid"
+      ],
+      "interval": "Contrôle tous les 15 000 km ou chaque année ; freinages appuyés une fois par semaine.",
+      "difficulty": 2,
+      "time_min": 15,
+      "time_max": 60,
+      "why": "Le freinage régénératif fait l'essentiel du travail : les disques servent si peu qu'ils rouillent et se piquent, surtout à l'arrière. Un disque corrodé freine moins bien, grince et vibre. Freiner fort de temps en temps garde les disques propres.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "Anneau de rouille sur la piste du disque, piste marbrée ou piquée.",
+          "means": "Corrosion : freinages appuyés ; si les piqûres restent, remplacer disques + plaquettes."
+        },
+        {
+          "sense": "sound",
+          "tip": "Raclement métallique les premiers kilomètres du matin, qui disparaît ensuite.",
+          "means": "Rouille superficielle : normal si ça disparaît, à surveiller sinon."
+        },
+        {
+          "sense": "feel",
+          "tip": "Vibrations dans la pédale ou le volant au freinage.",
+          "means": "Disque voilé ou corrosion inégale."
+        }
+      ],
+      "components": [
+        "brake_fl",
+        "brake_fr",
+        "brake_rl",
+        "brake_rr"
+      ],
+      "tools": [
+        "Lampe",
+        "Route dégagée et sûre"
+      ],
+      "safety": [
+        "Faites les freinages appuyés uniquement sur route dégagée, sans véhicule derrière."
+      ],
+      "shopping": [
+        {
+          "name": "Disques de frein arrière (paire)",
+          "query": "disques de frein arrière",
+          "qty": 1,
+          "unit": "paire",
+          "price_min": 40,
+          "price_max": 160,
+          "optional": true
+        },
+        {
+          "name": "Plaquettes de frein arrière",
+          "query": "plaquettes de frein arrière",
+          "qty": 1,
+          "unit": "jeu",
+          "price_min": 20,
+          "price_max": 70,
+          "optional": true
+        }
+      ],
+      "steps": [
+        {
+          "title": "Inspecter les disques",
+          "text": "À travers les jantes, regardez la piste des quatre disques : brillante et lisse, ou rouillée et piquée ?",
+          "components": [
+            "brake_fl",
+            "brake_fr",
+            "brake_rl",
+            "brake_rr"
+          ]
+        },
+        {
+          "title": "Désactiver la régénération (si possible)",
+          "text": "Certains véhicules permettent de réduire la récupération d'énergie : les freins travailleront davantage pendant l'exercice.",
+          "components": [
+            "drive_motor"
+          ]
+        },
+        {
+          "title": "Freinages appuyés",
+          "text": "Sur route dégagée, effectuez 5 à 10 freinages fermes de 70 à 20 km/h, sans aller jusqu'à l'arrêt.",
+          "components": [
+            "brake_fl",
+            "brake_fr",
+            "brake_rl",
+            "brake_rr"
+          ],
+          "warning": "Vérifiez qu'aucun véhicule ne vous suit."
+        },
+        {
+          "title": "Recontrôler",
+          "text": "Les pistes doivent être redevenues brillantes. Sinon, faites remplacer disques et plaquettes.",
+          "components": [
+            "brake_rl",
+            "brake_rr"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chassis_check",
+      "title": "Contrôle roulements, cardans, amortisseurs et disques",
+      "vehicle_types": [
+        "car",
+        "van"
+      ],
+      "fuels": [
+        "petrol",
+        "diesel",
+        "hybrid",
+        "electric"
+      ],
+      "interval": "Tous les 20 000 km ou au moindre bruit nouveau.",
+      "difficulty": 2,
+      "time_min": 30,
+      "time_max": 60,
+      "why": "Ces pièces ne génèrent souvent aucun code défaut : seuls vos sens permettent de les diagnostiquer. Les véhicules électriques, plus lourds et au couple instantané, les sollicitent davantage.",
+      "sensory_checks": [
+        {
+          "sense": "sound",
+          "tip": "Ronronnement qui augmente avec la vitesse et change en virage.",
+          "means": "Roulement : s'il diminue en virage à droite, c'est plutôt le roulement gauche (et inversement)."
+        },
+        {
+          "sense": "sound",
+          "tip": "Clac-clac rapide en braquant à fond et en accélérant (parking).",
+          "means": "Cardan usé, côté opposé au braquage le plus souvent."
+        },
+        {
+          "sense": "feel",
+          "tip": "Le véhicule rebondit après un dos-d'âne, ou le volant vibre à certaines vitesses.",
+          "means": "Amortisseurs fatigués, ou équilibrage des roues / disque voilé."
+        },
+        {
+          "sense": "sight",
+          "tip": "Graisse projetée à l'intérieur de la jante ou dans le passage de roue.",
+          "means": "Soufflet de cardan déchiré : à remplacer avant que le joint ne s'use."
+        }
+      ],
+      "components": [
+        "wheel_bearing_fl",
+        "wheel_bearing_fr",
+        "wheel_bearing_rl",
+        "wheel_bearing_rr",
+        "cv_joint_fl",
+        "cv_joint_fr",
+        "shock_fl",
+        "shock_fr",
+        "shock_rl",
+        "shock_rr"
+      ],
+      "tools": [
+        "Cric + chandelles",
+        "Lampe"
+      ],
+      "safety": [
+        "Ne jamais se placer sous un véhicule tenu uniquement par le cric."
+      ],
+      "shopping": [
+        {
+          "name": "Kit roulement de roue",
+          "query": "kit roulement de roue",
+          "qty": 1,
+          "unit": "kit",
+          "price_min": 25,
+          "price_max": 120,
+          "optional": true
+        },
+        {
+          "name": "Kit soufflet de cardan",
+          "query": "soufflet de cardan",
+          "qty": 1,
+          "unit": "kit",
+          "price_min": 10,
+          "price_max": 40,
+          "optional": true
+        },
+        {
+          "name": "Amortisseurs (paire)",
+          "query": "amortisseurs",
+          "qty": 1,
+          "unit": "paire",
+          "price_min": 60,
+          "price_max": 250,
+          "optional": true
+        }
+      ],
+      "steps": [
+        {
+          "title": "Écoute sur route",
+          "text": "Sur route lisse entre 50 et 90 km/h, écoutez : ronronnement qui suit la vitesse ? Faites de longues courbes à gauche puis à droite.",
+          "components": [
+            "wheel_bearing_fl",
+            "wheel_bearing_fr",
+            "wheel_bearing_rl",
+            "wheel_bearing_rr"
+          ]
+        },
+        {
+          "title": "Test cardans",
+          "text": "Sur un parking, braquez à fond et accélérez doucement en cercle, dans les deux sens : un clac-clac régulier signe un cardan usé.",
+          "components": [
+            "cv_joint_fl",
+            "cv_joint_fr"
+          ]
+        },
+        {
+          "title": "Jeu de roue",
+          "text": "Roue levée, saisissez-la à 12 h et 6 h et secouez : un jeu ou un claquement indique un roulement (ou une rotule). Tournez-la : grattement = roulement.",
+          "components": [
+            "wheel_bearing_fl",
+            "wheel_fl"
+          ],
+          "warning": "Véhicule sur chandelle."
+        },
+        {
+          "title": "Soufflets",
+          "text": "Braquez à fond et inspectez les soufflets de cardan derrière les roues avant : déchirure, graisse projetée ?",
+          "components": [
+            "cv_joint_fl",
+            "cv_joint_fr"
+          ]
+        },
+        {
+          "title": "Amortisseurs",
+          "text": "Appuyez fort sur chaque coin et relâchez : le véhicule doit revenir en place sans rebondir. Cherchez des traces d'huile sur le corps de l'amortisseur.",
+          "components": [
+            "shock_fl",
+            "shock_fr",
+            "shock_rl",
+            "shock_rr"
+          ]
+        },
+        {
+          "title": "Disques",
+          "text": "Piste du disque : rayures profondes, collerette, bleuissement (surchauffe) ou rouille (véhicule électrique).",
+          "components": [
+            "brake_fl",
+            "brake_fr",
+            "brake_rl",
+            "brake_rr"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ev_moto_check",
+      "title": "Contrôle d'une moto électrique",
+      "vehicle_types": [
+        "motorcycle"
+      ],
+      "fuels": [
+        "electric"
+      ],
+      "interval": "Tous les mois.",
+      "difficulty": 1,
+      "time_min": 10,
+      "time_max": 20,
+      "why": "Pas de vidange sur une moto électrique, mais la transmission (courroie ou chaîne), les freins et les pneus restent à surveiller.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "Courroie : dents fissurées ou manquantes, cailloux coincés.",
+          "means": "Courroie à remplacer avant la casse."
+        },
+        {
+          "sense": "sound",
+          "tip": "Claquement ou sifflement de la transmission.",
+          "means": "Tension ou alignement à vérifier."
+        }
+      ],
+      "components": [
+        "chain",
+        "sprocket_rear",
+        "brake_fl",
+        "wheel_fl",
+        "wheel_rr",
+        "battery"
+      ],
+      "tools": [
+        "Lampe",
+        "Manomètre"
+      ],
+      "safety": [
+        "Ne touchez pas aux connecteurs haute tension."
+      ],
+      "shopping": [
+        {
+          "name": "Nettoyant frein",
+          "query": "nettoyant frein",
+          "qty": 1,
+          "unit": "bombe",
+          "price_min": 4,
+          "price_max": 10,
+          "optional": true
+        }
+      ],
+      "steps": [
+        {
+          "title": "Transmission",
+          "text": "Inspectez la courroie (ou la chaîne) et sa tension selon la notice.",
+          "components": [
+            "chain",
+            "sprocket_rear"
+          ]
+        },
+        {
+          "title": "Freins",
+          "text": "Épaisseur des plaquettes, état des disques.",
+          "components": [
+            "brake_fl"
+          ]
+        },
+        {
+          "title": "Pneus",
+          "text": "Pression et usure.",
+          "components": [
+            "wheel_fl",
+            "wheel_rr"
+          ]
+        }
+      ]
+    }
+  ],
+  "procedures": [
+    {
+      "match": {
+        "fuel": "electric"
+      },
+      "tutorials": [
+        "brake_pads_front",
+        "ev_brakes",
+        "chassis_check"
+      ],
+      "steps_before": [
+        {
+          "title": "Lever un véhicule électrique",
+          "text": "Utilisez uniquement les points de levage indiqués dans le manuel, avec des tampons adaptés. Ne placez jamais le cric ou une chandelle sous la batterie de traction (le plancher).",
+          "components": [
+            "hv_battery"
+          ],
+          "warning": "Un cric mal placé peut endommager la batterie haute tension : risque d'incendie différé.",
+          "source": "Règle générale véhicules électriques"
+        }
+      ]
+    },
+    {
+      "match": {
+        "make": "Tesla"
+      },
+      "tutorials": [
+        "*"
+      ],
+      "notes": [
+        "Tesla : le manuel du propriétaire de votre année-modèle (écran tactile > Manuel, ou site Tesla) fait foi. Les procédures évoluent avec les versions et les mises à jour logicielles."
+      ],
+      "steps_before": [
+        {
+          "title": "Mettre la Tesla hors tension",
+          "text": "Sur l'écran tactile : Commandes > Sécurité > Mettre hors tension. Attendez que l'écran s'éteigne. Le véhicule se réveille si vous appuyez sur la pédale de frein, ouvrez une porte ou approchez la clé (téléphone, carte) : intervenez sans entrer dans l'habitacle, la clé éloignée.",
+          "components": [
+            "battery"
+          ],
+          "source": "Manuel du propriétaire Tesla"
+        }
+      ]
+    },
+    {
+      "match": {
+        "make": "Tesla",
+        "model_contains": [
+          "Model S",
+          "Model X"
+        ]
+      },
+      "tutorials": [
+        "brake_pads_front",
+        "ev_brakes",
+        "chassis_check",
+        "oil_change"
+      ],
+      "steps_before": [
+        {
+          "title": "Activer le mode Cric (suspension pneumatique)",
+          "text": "Avant de lever le véhicule : Commandes > Suspension > Cric. Sinon la suspension pneumatique peut se remettre à niveau pendant que le véhicule est levé.",
+          "components": [
+            "shock_fl",
+            "shock_fr",
+            "shock_rl",
+            "shock_rr"
+          ],
+          "warning": "Ne levez jamais une Model S / X sans le mode Cric activé.",
+          "source": "Manuel du propriétaire Tesla"
+        }
+      ]
+    },
+    {
+      "match": {
+        "make": "Tesla"
+      },
+      "tutorials": [
+        "battery_replace"
+      ],
+      "replace_steps": [
+        {
+          "title": "Mettre la Tesla hors tension",
+          "text": "Écran tactile : Commandes > Sécurité > Mettre hors tension. Ne touchez plus la pédale de frein ni les portes ensuite.",
+          "components": [
+            "battery"
+          ],
+          "source": "Manuel du propriétaire Tesla"
+        },
+        {
+          "title": "Identifier le type de batterie basse tension",
+          "text": "Les modèles anciens ont une batterie 12 V au plomb. Les modèles récents (environ 2021 et après selon le modèle) ont une batterie basse tension lithium-ion 16 V : son remplacement est réservé au service Tesla.",
+          "components": [
+            "battery"
+          ],
+          "warning": "Batterie lithium-ion 16 V : ne la remplacez pas par une batterie 12 V au plomb.",
+          "source": "Manuel du propriétaire Tesla"
+        },
+        {
+          "title": "Accéder à la batterie basse tension",
+          "text": "Coffre avant ouvert, déposez le bac de rangement et les caches d'accès (auvent / panneau) selon la procédure de votre modèle.",
+          "components": [
+            "battery"
+          ],
+          "source": "Manuel du propriétaire Tesla"
+        },
+        {
+          "title": "Débrancher la batterie basse tension",
+          "text": "Débranchez d'abord la borne négative et isolez-la pour qu'elle ne touche rien, puis la positive.",
+          "components": [
+            "battery"
+          ],
+          "warning": "Ne touchez à aucun élément orange (haute tension).",
+          "source": "Manuel du propriétaire Tesla"
+        },
+        {
+          "title": "Remplacer et rebrancher",
+          "text": "Posez la batterie de même type et capacité, rebranchez la positive puis la négative en dernier, remontez les caches.",
+          "components": [
+            "battery"
+          ]
+        },
+        {
+          "title": "Réveiller et contrôler",
+          "text": "Ouvrez une porte ou appuyez sur la pédale de frein : le véhicule redémarre. Vérifiez l'absence d'alerte à l'écran ; certaines alertes disparaissent après un cycle de conduite.",
+          "components": [
+            "battery"
+          ]
+        }
+      ]
+    },
+    {
+      "match": {
+        "fuel": "electric"
+      },
+      "tutorials": [
+        "battery_replace"
+      ],
+      "notes": [
+        "Véhicule électrique : la batterie 12 V maintient les calculateurs éveillés. Une coupure peut nécessiter de réinitialiser quelques réglages (vitres, alarme)."
       ]
     }
   ]

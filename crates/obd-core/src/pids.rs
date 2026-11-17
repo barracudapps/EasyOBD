@@ -64,6 +64,39 @@ pub struct MonitorStatus {
     pub dtc_count: u8,
 }
 
+/// One readiness monitor (self-test run by the engine computer).
+#[derive(Debug, Clone, Serialize)]
+pub struct Monitor {
+    pub name: &'static str,
+    pub complete: bool,
+}
+
+/// Readiness monitors from mode 01 PID 01 (bytes B, C, D). Only supported monitors are returned.
+pub fn decode_readiness(data: &[u8]) -> Vec<Monitor> {
+    if data.len() < 4 {
+        return vec![];
+    }
+    let (b, c, d) = (data[1], data[2], data[3]);
+    let mut out = Vec::new();
+    for (bit, name) in [(0, "Ratés d'allumage"), (1, "Système d'alimentation"), (2, "Composants")] {
+        if b & (1 << bit) != 0 {
+            out.push(Monitor { name, complete: b & (1 << (bit + 4)) == 0 });
+        }
+    }
+    let diesel = b & 0x08 != 0;
+    let names: [&str; 8] = if diesel {
+        ["Catalyseur NMHC", "Traitement des NOx / SCR", "Réservé", "Pression de suralimentation", "Réservé", "Capteur de gaz d'échappement", "Filtre à particules", "EGR / distribution variable"]
+    } else {
+        ["Catalyseur", "Catalyseur chauffé", "Système EVAP", "Air secondaire", "Climatisation", "Sonde lambda", "Chauffage de sonde lambda", "EGR / distribution variable"]
+    };
+    for (bit, name) in names.iter().enumerate() {
+        if c & (1 << bit) != 0 && *name != "Réservé" {
+            out.push(Monitor { name, complete: d & (1 << bit) == 0 });
+        }
+    }
+    out
+}
+
 pub fn decode_monitor_status(data: &[u8]) -> Option<MonitorStatus> {
     data.first().map(|a| MonitorStatus { mil_on: a & 0x80 != 0, dtc_count: a & 0x7F })
 }
@@ -78,6 +111,9 @@ mod tests {
         assert_eq!(find("coolant").unwrap().decode(&[0x7B]), Some(83.0));
         assert_eq!(find("stft").unwrap().decode(&[0x80]), Some(0.0));
         assert_eq!(find("rpm").unwrap().decode(&[0x1A]), None);
+        let r = decode_readiness(&[0x82, 0x07, 0x65, 0x04]);
+        assert_eq!(r.iter().filter(|m| m.complete).count(), r.len() - 1);
+        assert!(r.iter().any(|m| m.name == "Système EVAP" && !m.complete));
         let s = decode_monitor_status(&[0x82]).unwrap();
         assert!(s.mil_on);
         assert_eq!(s.dtc_count, 2);

@@ -23,6 +23,8 @@ pub struct Simulator {
     header: Option<u16>,
     session: u8,
     param_0100: u8,
+    /// Readiness monitors are reset by a code clear (service 04), like on a real car.
+    monitors_reset: bool,
 }
 
 /// Encodes a 5-character DTC into its two raw bytes (inverse of [`crate::dtc::decode`]).
@@ -37,7 +39,7 @@ pub fn encode(code: &str) -> Option<[u8; 2]> {
 
 impl Simulator {
     pub fn new(dtcs: Vec<Dtc>, vin: &str) -> Self {
-        Self { dtcs, vin: vin.to_string(), echo: true, searched: false, tick: 0, input: Vec::new(), output: VecDeque::new(), overrides: HashMap::new(), header: None, session: 1, param_0100: 0 }
+        Self { dtcs, vin: vin.to_string(), echo: true, searched: false, tick: 0, input: Vec::new(), output: VecDeque::new(), overrides: HashMap::new(), header: None, session: 1, param_0100: 0, monitors_reset: false }
     }
 
     /// Demo car: misfire on cylinder 2, lean mixture, tired catalytic converter.
@@ -118,7 +120,7 @@ impl Simulator {
             "0101" => {
                 let stored = self.dtcs.iter().filter(|d| d.kind == DtcKind::Stored).count() as u8;
                 let a = if stored > 0 { 0x80 | stored } else { 0 };
-                format!("41 01 {a:02X} 07 E5 00")
+                if self.monitors_reset { format!("41 01 {a:02X} 67 E5 A5") } else { format!("41 01 {a:02X} 07 E5 00") }
             }
             "03" | "07" | "0A" => {
                 let kind = match cmd.as_str() { "03" => DtcKind::Stored, "07" => DtcKind::Pending, _ => DtcKind::Permanent };
@@ -126,6 +128,7 @@ impl Simulator {
             }
             "04" => {
                 self.dtcs.clear();
+                self.monitors_reset = true;
                 "44".into()
             }
             "0902" => {

@@ -11,6 +11,8 @@
 //! * [`uds`]       – expert mode: ECU scan, identification, UDS codes, guarded writes (ISO 14229)
 //! * [`knowledge`] – repair knowledge base: explanations, 3D components, fixes, parts, cost, time, skill
 //! * [`simulator`] – a virtual car with an ELM327, used for demos, training and tests
+//! * [`specs`]     – vehicle technical sheet (capacities, fluids, torques) and cheaper valid alternatives
+//! * [`inspection`] – technical inspection preparation (checklist, VIN locations, OBD pre-check)
 //! * [`maintenance`] – illustrated maintenance tutorials and vehicle-specific shopping lists
 //! * [`symptoms`]  – "diagnostic à l'œil" questionnaire (no scan tool needed)
 //! * [`audio`]     – offline engine-sound analysis (RPM, misfire, squeal, whistle, ticking)
@@ -22,10 +24,12 @@ pub mod ble;
 pub mod detect;
 pub mod dtc;
 pub mod elm327;
+pub mod inspection;
 pub mod knowledge;
 pub mod maintenance;
 pub mod pids;
 pub mod simulator;
+pub mod specs;
 pub mod symptoms;
 pub mod training;
 pub mod transport;

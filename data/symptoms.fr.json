@@ -3,161 +3,1569 @@
   "intro": "Répondez avec ce que vous voyez, entendez, sentez et ressentez. Plusieurs réponses sont possibles. Chaque réponse précise le diagnostic ; « Je ne sais pas » n'influence rien.",
   "questions": [
     {
-      "id": "fuel", "sense": "sight", "multi": false,
+      "id": "fuel",
+      "sense": "sight",
+      "multi": false,
       "text": "Quel carburant utilise le véhicule ?",
       "options": [
-        { "id": "petrol", "label": "Essence", "weights": { "dpf_clogged": -5, "glow_plugs": -5, "misfire_ignition": 1 } },
-        { "id": "diesel", "label": "Diesel", "weights": { "misfire_ignition": -3, "dpf_clogged": 1, "egr_clogged": 1, "glow_plugs": 1 } },
-        { "id": "hybrid", "label": "Hybride", "weights": { "dpf_clogged": -5, "glow_plugs": -5 } },
-        { "id": "unknown", "label": "Je ne sais pas", "weights": {} }
+        {
+          "id": "petrol",
+          "label": "Essence",
+          "weights": {
+            "dpf_clogged": -5,
+            "glow_plugs": -5,
+            "misfire_ignition": 1,
+            "ev_12v": -30,
+            "hv_isolation": -30,
+            "charging_fault": -30,
+            "reducer_noise": -30,
+            "hv_battery_degraded": -30,
+            "brake_corrosion": -30
+          }
+        },
+        {
+          "id": "diesel",
+          "label": "Diesel",
+          "weights": {
+            "misfire_ignition": -3,
+            "dpf_clogged": 1,
+            "egr_clogged": 1,
+            "glow_plugs": 1,
+            "ev_12v": -30,
+            "hv_isolation": -30,
+            "charging_fault": -30,
+            "reducer_noise": -30,
+            "hv_battery_degraded": -30,
+            "brake_corrosion": -30
+          }
+        },
+        {
+          "id": "hybrid",
+          "label": "Hybride",
+          "weights": {
+            "dpf_clogged": -5,
+            "glow_plugs": -5,
+            "brake_corrosion": 1
+          }
+        },
+        {
+          "id": "electric",
+          "label": "100 % électrique",
+          "weights": {
+            "misfire_ignition": -30,
+            "vacuum_leak": -30,
+            "maf_dirty": -30,
+            "turbo_leak": -30,
+            "turbo_worn": -30,
+            "egr_clogged": -30,
+            "dpf_clogged": -30,
+            "glow_plugs": -30,
+            "head_gasket": -30,
+            "thermostat_open": -30,
+            "coolant_sensor": -30,
+            "oil_burning": -30,
+            "oil_leak": -30,
+            "oil_low": -30,
+            "oil_pressure": -30,
+            "timing_chain": -30,
+            "exhaust_leak": -30,
+            "cat_worn": -30,
+            "o2_sensor": -30,
+            "rich_mixture": -30,
+            "injector_fault": -30,
+            "fuel_filter": -30,
+            "evap_cap": -30,
+            "crank_sensor": -30,
+            "accessory_belt": -30,
+            "alternator": -30,
+            "short_trips": -30,
+            "brake_corrosion": 2,
+            "ev_12v": 1,
+            "battery_weak": -30
+          }
+        },
+        {
+          "id": "unknown",
+          "label": "Je ne sais pas",
+          "weights": {}
+        }
       ]
     },
     {
-      "id": "lights", "sense": "sight", "multi": true,
+      "id": "lights",
+      "sense": "sight",
+      "multi": true,
       "text": "Quels voyants sont allumés au tableau de bord ?",
       "help": "Mettez le contact sans démarrer : tous s'allument quelques secondes (test). Notez ceux qui restent allumés moteur tournant.",
       "options": [
-        { "id": "mil_steady", "label": "Voyant moteur (orange) fixe", "weights": { "misfire_ignition": 1, "vacuum_leak": 2, "maf_dirty": 2, "egr_clogged": 2, "cat_worn": 3, "o2_sensor": 3, "evap_cap": 3 } },
-        { "id": "mil_flash", "label": "Voyant moteur clignotant", "weights": { "misfire_ignition": 6, "injector_fault": 3 } },
-        { "id": "battery", "label": "Voyant batterie (rouge)", "weights": { "alternator": 6, "accessory_belt": 3, "battery_weak": 1 } },
-        { "id": "oil", "label": "Voyant d'huile (rouge, burette)", "weights": { "oil_pressure": 8 } },
-        { "id": "temp", "label": "Voyant de température", "weights": { "overheating": 7, "head_gasket": 2 } },
-        { "id": "glow_dpf", "label": "Voyant de préchauffage ou FAP", "weights": { "dpf_clogged": 5, "glow_plugs": 4 } },
-        { "id": "abs", "label": "Voyant ABS / ESP", "weights": { "abs_sensor": 6 } },
-        { "id": "brake_red", "label": "Voyant de freinage (rouge, « ! »)", "weights": { "brake_wear": 4 } },
-        { "id": "none", "label": "Aucun", "weights": {} }
+        {
+          "id": "mil_steady",
+          "label": "Voyant moteur (orange) fixe",
+          "weights": {
+            "misfire_ignition": 1,
+            "vacuum_leak": 2,
+            "maf_dirty": 2,
+            "egr_clogged": 2,
+            "cat_worn": 3,
+            "o2_sensor": 3,
+            "evap_cap": 3
+          }
+        },
+        {
+          "id": "mil_flash",
+          "label": "Voyant moteur clignotant",
+          "weights": {
+            "misfire_ignition": 6,
+            "injector_fault": 3
+          }
+        },
+        {
+          "id": "battery",
+          "label": "Voyant batterie (rouge)",
+          "weights": {
+            "alternator": 6,
+            "accessory_belt": 3,
+            "battery_weak": 1
+          }
+        },
+        {
+          "id": "oil",
+          "label": "Voyant d'huile (rouge, burette)",
+          "weights": {
+            "oil_pressure": 8
+          }
+        },
+        {
+          "id": "temp",
+          "label": "Voyant de température",
+          "weights": {
+            "overheating": 7,
+            "head_gasket": 2
+          }
+        },
+        {
+          "id": "glow_dpf",
+          "label": "Voyant de préchauffage ou FAP",
+          "weights": {
+            "dpf_clogged": 5,
+            "glow_plugs": 4
+          }
+        },
+        {
+          "id": "abs",
+          "label": "Voyant ABS / ESP",
+          "weights": {
+            "abs_sensor": 6
+          }
+        },
+        {
+          "id": "brake_red",
+          "label": "Voyant de freinage (rouge, « ! »)",
+          "weights": {
+            "brake_wear": 4
+          }
+        },
+        {
+          "id": "ev_fault",
+          "label": "Voyant de défaut électrique / tortue / « Ready » qui ne s'allume pas",
+          "weights": {
+            "ev_12v": 5,
+            "hv_isolation": 5,
+            "hv_battery_degraded": 3
+          }
+        },
+        {
+          "id": "none",
+          "label": "Aucun",
+          "weights": {}
+        }
       ]
     },
     {
-      "id": "smoke", "sense": "sight", "multi": false,
+      "id": "smoke",
+      "sense": "sight",
+      "multi": false,
       "text": "De quelle couleur est la fumée à l'échappement ?",
       "help": "Observez au démarrage puis moteur chaud lors d'un coup d'accélérateur, idéalement avec l'aide d'une deuxième personne.",
       "options": [
-        { "id": "none", "label": "Pas de fumée visible", "weights": {} },
-        { "id": "white_thin", "label": "Blanche légère, qui disparaît une fois chaud", "weights": {}, "note": "Normal par temps froid : c'est de la vapeur d'eau." },
-        { "id": "white_thick", "label": "Blanche épaisse et persistante, odeur sucrée", "weights": { "head_gasket": 8, "overheating": 2 } },
-        { "id": "white_cold_diesel", "label": "Blanche âcre au démarrage à froid (diesel)", "weights": { "glow_plugs": 6, "injector_fault": 2 } },
-        { "id": "blue", "label": "Bleue / grise, odeur d'huile brûlée", "weights": { "oil_burning": 7, "turbo_worn": 4 } },
-        { "id": "black", "label": "Noire, surtout à l'accélération", "weights": { "maf_dirty": 4, "egr_clogged": 5, "turbo_leak": 4, "injector_fault": 4, "rich_mixture": 3, "dpf_clogged": 2 } }
-      ]
+        {
+          "id": "none",
+          "label": "Pas de fumée visible",
+          "weights": {}
+        },
+        {
+          "id": "white_thin",
+          "label": "Blanche légère, qui disparaît une fois chaud",
+          "weights": {},
+          "note": "Normal par temps froid : c'est de la vapeur d'eau."
+        },
+        {
+          "id": "white_thick",
+          "label": "Blanche épaisse et persistante, odeur sucrée",
+          "weights": {
+            "head_gasket": 8,
+            "overheating": 2
+          }
+        },
+        {
+          "id": "white_cold_diesel",
+          "label": "Blanche âcre au démarrage à froid (diesel)",
+          "weights": {
+            "glow_plugs": 6,
+            "injector_fault": 2
+          }
+        },
+        {
+          "id": "blue",
+          "label": "Bleue / grise, odeur d'huile brûlée",
+          "weights": {
+            "oil_burning": 7,
+            "turbo_worn": 4
+          }
+        },
+        {
+          "id": "black",
+          "label": "Noire, surtout à l'accélération",
+          "weights": {
+            "maf_dirty": 4,
+            "egr_clogged": 5,
+            "turbo_leak": 4,
+            "injector_fault": 4,
+            "rich_mixture": 3,
+            "dpf_clogged": 2
+          }
+        }
+      ],
+      "hide_if": {
+        "question": "fuel",
+        "options": [
+          "electric"
+        ]
+      }
     },
     {
-      "id": "noises", "sense": "sound", "multi": true,
+      "id": "noises",
+      "sense": "sound",
+      "multi": true,
       "text": "Quels bruits entendez-vous ?",
       "help": "Astuce : enregistrez le bruit avec l'outil « Diagnostic audio », il vous aidera à le qualifier.",
       "options": [
-        { "id": "squeal_start", "label": "Sifflement / couinement aigu au démarrage ou en braquant", "weights": { "accessory_belt": 8, "alternator": 1 } },
-        { "id": "whistle_rpm", "label": "Sifflement de sirène qui monte avec le régime", "weights": { "turbo_worn": 7 } },
-        { "id": "hiss_accel", "label": "Souffle / « pschitt » à l'accélération", "weights": { "turbo_leak": 8 } },
-        { "id": "hiss_idle", "label": "Sifflement fin au ralenti sous le capot", "weights": { "vacuum_leak": 7 } },
-        { "id": "tick", "label": "Tic-tic rapide du moteur, au rythme du régime", "weights": { "oil_low": 5, "exhaust_leak": 3, "injector_fault": 2 } },
-        { "id": "knock_deep", "label": "Claquement sourd et profond, plus fort en charge", "weights": { "oil_pressure": 6 } },
-        { "id": "chain_rattle", "label": "Bruit de chaîne / raclement 1 à 3 s au démarrage à froid", "weights": { "timing_chain": 8 } },
-        { "id": "exhaust_puff", "label": "Tapotement ou « pof-pof » côté échappement", "weights": { "exhaust_leak": 7, "misfire_ignition": 2 } },
-        { "id": "brake_squeal", "label": "Grincement ou crissement au freinage", "weights": { "brake_wear": 8 } },
-        { "id": "hum_speed", "label": "Ronronnement qui augmente avec la vitesse (pas le régime)", "weights": { "wheel_bearing": 8 } },
-        { "id": "click_turn", "label": "Clac-clac en braquant et en accélérant", "weights": { "cv_joint": 9 } },
-        { "id": "slow_crank", "label": "Démarreur qui tourne lentement / « clac » sans démarrer", "weights": { "battery_weak": 8 } },
-        { "id": "none", "label": "Aucun bruit anormal", "weights": {} }
+        {
+          "id": "squeal_start",
+          "label": "Sifflement / couinement aigu au démarrage ou en braquant",
+          "weights": {
+            "accessory_belt": 8,
+            "alternator": 1
+          }
+        },
+        {
+          "id": "whistle_rpm",
+          "label": "Sifflement de sirène qui monte avec le régime",
+          "weights": {
+            "turbo_worn": 7
+          }
+        },
+        {
+          "id": "hiss_accel",
+          "label": "Souffle / « pschitt » à l'accélération",
+          "weights": {
+            "turbo_leak": 8
+          }
+        },
+        {
+          "id": "hiss_idle",
+          "label": "Sifflement fin au ralenti sous le capot",
+          "weights": {
+            "vacuum_leak": 7
+          }
+        },
+        {
+          "id": "tick",
+          "label": "Tic-tic rapide du moteur, au rythme du régime",
+          "weights": {
+            "oil_low": 5,
+            "exhaust_leak": 3,
+            "injector_fault": 2
+          }
+        },
+        {
+          "id": "knock_deep",
+          "label": "Claquement sourd et profond, plus fort en charge",
+          "weights": {
+            "oil_pressure": 6
+          }
+        },
+        {
+          "id": "chain_rattle",
+          "label": "Bruit de chaîne / raclement 1 à 3 s au démarrage à froid",
+          "weights": {
+            "timing_chain": 8
+          }
+        },
+        {
+          "id": "exhaust_puff",
+          "label": "Tapotement ou « pof-pof » côté échappement",
+          "weights": {
+            "exhaust_leak": 7,
+            "misfire_ignition": 2
+          }
+        },
+        {
+          "id": "brake_squeal",
+          "label": "Grincement ou crissement au freinage",
+          "weights": {
+            "brake_wear": 8
+          }
+        },
+        {
+          "id": "hum_speed",
+          "label": "Ronronnement qui augmente avec la vitesse (pas le régime)",
+          "weights": {
+            "wheel_bearing": 8
+          }
+        },
+        {
+          "id": "click_turn",
+          "label": "Clac-clac en braquant et en accélérant",
+          "weights": {
+            "cv_joint": 9
+          }
+        },
+        {
+          "id": "slow_crank",
+          "label": "Démarreur qui tourne lentement / « clac » sans démarrer",
+          "weights": {
+            "battery_weak": 8,
+            "ev_12v": 4
+          }
+        },
+        {
+          "id": "whine_speed",
+          "label": "Sifflement aigu qui suit la vitesse, plus fort en accélération ou en décélération",
+          "weights": {
+            "reducer_noise": 7,
+            "wheel_bearing": 3
+          }
+        },
+        {
+          "id": "grind_morning",
+          "label": "Raclement métallique au freinage les premiers kilomètres, qui disparaît ensuite",
+          "weights": {
+            "brake_corrosion": 8,
+            "brake_wear": 2
+          }
+        },
+        {
+          "id": "clunk_bump",
+          "label": "Cognement sourd sur les bosses ou les dos-d'âne",
+          "weights": {
+            "suspension_wear": 8
+          }
+        },
+        {
+          "id": "none",
+          "label": "Aucun bruit anormal",
+          "weights": {}
+        }
       ]
     },
     {
-      "id": "smells", "sense": "smell", "multi": true,
+      "id": "smells",
+      "sense": "smell",
+      "multi": true,
       "text": "Quelles odeurs remarquez-vous ?",
       "options": [
-        { "id": "fuel", "label": "Essence ou gazole", "weights": { "rich_mixture": 5, "injector_fault": 4, "evap_cap": 3, "misfire_ignition": 2 } },
-        { "id": "sweet", "label": "Sucrée, sirop (liquide de refroidissement)", "weights": { "head_gasket": 4, "overheating": 5 } },
-        { "id": "burnt_oil", "label": "Huile chaude / brûlée", "weights": { "oil_burning": 4, "oil_leak": 6, "turbo_worn": 2 } },
-        { "id": "rotten_egg", "label": "Œuf pourri (soufre)", "weights": { "cat_worn": 7, "rich_mixture": 2, "battery_weak": 1 } },
-        { "id": "acrid", "label": "Brûlé âcre près d'une roue", "weights": { "brake_wear": 4, "brake_caliper": 8 } },
-        { "id": "electric", "label": "Plastique / électrique brûlé", "weights": { "alternator": 3, "electrical_short": 8 } },
-        { "id": "none", "label": "Rien de particulier", "weights": {} }
+        {
+          "id": "fuel",
+          "label": "Essence ou gazole",
+          "weights": {
+            "rich_mixture": 5,
+            "injector_fault": 4,
+            "evap_cap": 3,
+            "misfire_ignition": 2
+          }
+        },
+        {
+          "id": "sweet",
+          "label": "Sucrée, sirop (liquide de refroidissement)",
+          "weights": {
+            "head_gasket": 4,
+            "overheating": 5
+          }
+        },
+        {
+          "id": "burnt_oil",
+          "label": "Huile chaude / brûlée",
+          "weights": {
+            "oil_burning": 4,
+            "oil_leak": 6,
+            "turbo_worn": 2
+          }
+        },
+        {
+          "id": "rotten_egg",
+          "label": "Œuf pourri (soufre)",
+          "weights": {
+            "cat_worn": 7,
+            "rich_mixture": 2,
+            "battery_weak": 1
+          }
+        },
+        {
+          "id": "acrid",
+          "label": "Brûlé âcre près d'une roue",
+          "weights": {
+            "brake_wear": 4,
+            "brake_caliper": 8
+          }
+        },
+        {
+          "id": "electric",
+          "label": "Plastique / électrique brûlé",
+          "weights": {
+            "alternator": 3,
+            "electrical_short": 8
+          }
+        },
+        {
+          "id": "none",
+          "label": "Rien de particulier",
+          "weights": {}
+        }
       ]
     },
     {
-      "id": "behaviour", "sense": "feel", "multi": true,
+      "id": "behaviour",
+      "sense": "feel",
+      "multi": true,
       "text": "Comment se comporte le véhicule ?",
       "options": [
-        { "id": "shake_idle", "label": "Tremble au ralenti", "weights": { "misfire_ignition": 6, "vacuum_leak": 3, "injector_fault": 3, "engine_mount": 3 } },
-        { "id": "jerk_accel", "label": "À-coups / trous à l'accélération", "weights": { "misfire_ignition": 5, "maf_dirty": 3, "fuel_filter": 4, "egr_clogged": 2 } },
-        { "id": "power_loss", "label": "Perte de puissance / mode dégradé", "weights": { "turbo_leak": 5, "turbo_worn": 3, "egr_clogged": 4, "dpf_clogged": 5, "maf_dirty": 4, "cat_worn": 2, "fuel_filter": 3 } },
-        { "id": "stalls", "label": "Cale", "weights": { "vacuum_leak": 3, "egr_clogged": 3, "crank_sensor": 5, "fuel_filter": 2 } },
-        { "id": "hard_cold", "label": "Démarre mal à froid", "weights": { "glow_plugs": 6, "battery_weak": 4, "coolant_sensor": 3 } },
-        { "id": "hard_hot", "label": "Démarre mal ou cale une fois chaud", "weights": { "crank_sensor": 7, "coolant_sensor": 3 } },
-        { "id": "consumption", "label": "Consomme plus que d'habitude", "weights": { "thermostat_open": 3, "o2_sensor": 4, "maf_dirty": 2, "rich_mixture": 4, "misfire_ignition": 2 } },
-        { "id": "cold_heater", "label": "Chauffage tiède, moteur long à chauffer", "weights": { "thermostat_open": 8 } },
-        { "id": "brake_vibe", "label": "Vibrations au freinage", "weights": { "brake_wear": 6 } },
-        { "id": "pulls", "label": "Tire d'un côté", "weights": { "brake_caliper": 5, "tyre_pressure": 6 } },
-        { "id": "clunk_gear", "label": "Choc en passant D/R ou en lâchant l'embrayage", "weights": { "engine_mount": 8 } }
+        {
+          "id": "shake_idle",
+          "label": "Tremble au ralenti",
+          "weights": {
+            "misfire_ignition": 6,
+            "vacuum_leak": 3,
+            "injector_fault": 3,
+            "engine_mount": 3
+          }
+        },
+        {
+          "id": "jerk_accel",
+          "label": "À-coups / trous à l'accélération",
+          "weights": {
+            "misfire_ignition": 5,
+            "maf_dirty": 3,
+            "fuel_filter": 4,
+            "egr_clogged": 2
+          }
+        },
+        {
+          "id": "power_loss",
+          "label": "Perte de puissance / mode dégradé",
+          "weights": {
+            "turbo_leak": 5,
+            "turbo_worn": 3,
+            "egr_clogged": 4,
+            "dpf_clogged": 5,
+            "maf_dirty": 4,
+            "cat_worn": 2,
+            "fuel_filter": 3
+          }
+        },
+        {
+          "id": "stalls",
+          "label": "Cale",
+          "weights": {
+            "vacuum_leak": 3,
+            "egr_clogged": 3,
+            "crank_sensor": 5,
+            "fuel_filter": 2
+          }
+        },
+        {
+          "id": "hard_cold",
+          "label": "Démarre mal à froid",
+          "weights": {
+            "glow_plugs": 6,
+            "battery_weak": 4,
+            "coolant_sensor": 3
+          }
+        },
+        {
+          "id": "hard_hot",
+          "label": "Démarre mal ou cale une fois chaud",
+          "weights": {
+            "crank_sensor": 7,
+            "coolant_sensor": 3
+          }
+        },
+        {
+          "id": "consumption",
+          "label": "Consomme plus que d'habitude",
+          "weights": {
+            "thermostat_open": 3,
+            "o2_sensor": 4,
+            "maf_dirty": 2,
+            "rich_mixture": 4,
+            "misfire_ignition": 2
+          }
+        },
+        {
+          "id": "cold_heater",
+          "label": "Chauffage tiède, moteur long à chauffer",
+          "weights": {
+            "thermostat_open": 8
+          }
+        },
+        {
+          "id": "brake_vibe",
+          "label": "Vibrations au freinage",
+          "weights": {
+            "brake_wear": 6
+          }
+        },
+        {
+          "id": "pulls",
+          "label": "Tire d'un côté",
+          "weights": {
+            "brake_caliper": 5,
+            "tyre_pressure": 6
+          }
+        },
+        {
+          "id": "clunk_gear",
+          "label": "Choc en passant D/R ou en lâchant l'embrayage",
+          "weights": {
+            "engine_mount": 8
+          }
+        },
+        {
+          "id": "bounce",
+          "label": "Rebondit après les bosses, plonge au freinage",
+          "weights": {
+            "suspension_wear": 7
+          }
+        },
+        {
+          "id": "wheel_vibe",
+          "label": "Vibrations dans le volant à certaines vitesses (sans freiner)",
+          "weights": {
+            "wheel_balance": 7,
+            "cv_joint": 2
+          }
+        },
+        {
+          "id": "range_drop",
+          "label": "Autonomie en forte baisse (électrique)",
+          "weights": {
+            "hv_battery_degraded": 7,
+            "tyre_pressure": 2
+          }
+        },
+        {
+          "id": "no_ready",
+          "label": "Ne passe pas en « Ready » / ne démarre pas, écran qui clignote",
+          "weights": {
+            "ev_12v": 8,
+            "battery_weak": 4
+          }
+        }
       ]
     },
     {
-      "id": "when", "sense": "feel", "multi": true,
+      "id": "when",
+      "sense": "feel",
+      "multi": true,
       "text": "Quand le problème se manifeste-t-il ?",
       "options": [
-        { "id": "cold", "label": "À froid", "weights": { "timing_chain": 2, "glow_plugs": 2, "vacuum_leak": 1, "exhaust_leak": 2 } },
-        { "id": "hot", "label": "Moteur chaud", "weights": { "crank_sensor": 2, "overheating": 2, "coolant_sensor": 1 } },
-        { "id": "rain", "label": "Par temps humide / après un lavage", "weights": { "misfire_ignition": 4, "accessory_belt": 3, "electrical_short": 2 } },
-        { "id": "city", "label": "Après beaucoup de petits trajets en ville", "weights": { "dpf_clogged": 5, "egr_clogged": 4, "battery_weak": 2 } },
-        { "id": "highway", "label": "Sur voie rapide, en charge", "weights": { "turbo_leak": 3, "turbo_worn": 2, "fuel_filter": 2, "overheating": 1 } },
-        { "id": "always", "label": "Tout le temps", "weights": {} }
+        {
+          "id": "cold",
+          "label": "À froid",
+          "weights": {
+            "timing_chain": 2,
+            "glow_plugs": 2,
+            "vacuum_leak": 1,
+            "exhaust_leak": 2
+          }
+        },
+        {
+          "id": "hot",
+          "label": "Moteur chaud",
+          "weights": {
+            "crank_sensor": 2,
+            "overheating": 2,
+            "coolant_sensor": 1
+          }
+        },
+        {
+          "id": "rain",
+          "label": "Par temps humide / après un lavage",
+          "weights": {
+            "misfire_ignition": 4,
+            "accessory_belt": 3,
+            "electrical_short": 2
+          }
+        },
+        {
+          "id": "city",
+          "label": "Après beaucoup de petits trajets en ville",
+          "weights": {
+            "dpf_clogged": 5,
+            "egr_clogged": 4,
+            "battery_weak": 2
+          }
+        },
+        {
+          "id": "highway",
+          "label": "Sur voie rapide, en charge",
+          "weights": {
+            "turbo_leak": 3,
+            "turbo_worn": 2,
+            "fuel_filter": 2,
+            "overheating": 1
+          }
+        },
+        {
+          "id": "always",
+          "label": "Tout le temps",
+          "weights": {}
+        }
       ]
     },
     {
-      "id": "fluids", "sense": "touch", "multi": true,
+      "id": "fluids",
+      "sense": "touch",
+      "multi": true,
       "text": "Qu'observez-vous en ouvrant le capot ou sous le véhicule ?",
       "help": "Moteur froid. Placez un carton sous le moteur une nuit pour identifier une fuite.",
       "options": [
-        { "id": "oil_drops", "label": "Niveau d'huile qui baisse sans tache", "weights": { "oil_burning": 6, "turbo_worn": 2 } },
-        { "id": "oil_stain", "label": "Tache noire / brune sous le moteur", "weights": { "oil_leak": 7 } },
-        { "id": "coolant_drop", "label": "Liquide de refroidissement qui baisse", "weights": { "overheating": 4, "head_gasket": 5 } },
-        { "id": "coolant_stain", "label": "Tache verte, rose ou bleue", "weights": { "overheating": 6 } },
-        { "id": "mayo", "label": "Dépôt crémeux sous le bouchon d'huile", "weights": { "head_gasket": 4, "short_trips": 5 } },
-        { "id": "cracked_hose", "label": "Durite fendue, craquelée, ou colliers huileux", "weights": { "vacuum_leak": 5, "turbo_leak": 5 } },
-        { "id": "belt_cracks", "label": "Courroie craquelée ou lustrée", "weights": { "accessory_belt": 7 } },
-        { "id": "corroded", "label": "Cosses de batterie blanches / vertes", "weights": { "battery_weak": 6 } },
-        { "id": "cap_loose", "label": "Bouchon de réservoir mal fermé / joint abîmé", "weights": { "evap_cap": 9 } },
-        { "id": "nothing", "label": "Rien de visible", "weights": {} }
+        {
+          "id": "oil_drops",
+          "label": "Niveau d'huile qui baisse sans tache",
+          "weights": {
+            "oil_burning": 6,
+            "turbo_worn": 2
+          }
+        },
+        {
+          "id": "oil_stain",
+          "label": "Tache noire / brune sous le moteur",
+          "weights": {
+            "oil_leak": 7
+          }
+        },
+        {
+          "id": "coolant_drop",
+          "label": "Liquide de refroidissement qui baisse",
+          "weights": {
+            "overheating": 4,
+            "head_gasket": 5
+          }
+        },
+        {
+          "id": "coolant_stain",
+          "label": "Tache verte, rose ou bleue",
+          "weights": {
+            "overheating": 6
+          }
+        },
+        {
+          "id": "mayo",
+          "label": "Dépôt crémeux sous le bouchon d'huile",
+          "weights": {
+            "head_gasket": 4,
+            "short_trips": 5
+          }
+        },
+        {
+          "id": "cracked_hose",
+          "label": "Durite fendue, craquelée, ou colliers huileux",
+          "weights": {
+            "vacuum_leak": 5,
+            "turbo_leak": 5
+          }
+        },
+        {
+          "id": "belt_cracks",
+          "label": "Courroie craquelée ou lustrée",
+          "weights": {
+            "accessory_belt": 7
+          }
+        },
+        {
+          "id": "corroded",
+          "label": "Cosses de batterie blanches / vertes",
+          "weights": {
+            "battery_weak": 6
+          }
+        },
+        {
+          "id": "cap_loose",
+          "label": "Bouchon de réservoir mal fermé / joint abîmé",
+          "weights": {
+            "evap_cap": 9
+          }
+        },
+        {
+          "id": "nothing",
+          "label": "Rien de visible",
+          "weights": {}
+        }
+      ]
+    },
+    {
+      "id": "charging",
+      "sense": "sight",
+      "multi": true,
+      "show_if": {
+        "question": "fuel",
+        "options": [
+          "electric",
+          "hybrid"
+        ]
+      },
+      "text": "Comment se passe la recharge ?",
+      "help": "Uniquement pour les véhicules électriques et hybrides rechargeables.",
+      "options": [
+        {
+          "id": "no_start",
+          "label": "La charge ne démarre pas (quelle que soit la borne)",
+          "weights": {
+            "charging_fault": 8
+          }
+        },
+        {
+          "id": "one_station",
+          "label": "Problème sur une seule borne ou un seul câble",
+          "weights": {
+            "charging_fault": 2
+          },
+          "note": "Si la charge fonctionne ailleurs, la borne ou le câble est en cause, pas le véhicule."
+        },
+        {
+          "id": "slow_dc",
+          "label": "Charge rapide très lente",
+          "weights": {
+            "hv_battery_degraded": 3,
+            "charging_fault": 2
+          },
+          "note": "En hiver, une batterie froide charge lentement : préchauffez-la (planification de départ) avant une charge rapide."
+        },
+        {
+          "id": "stops",
+          "label": "La charge s'interrompt",
+          "weights": {
+            "charging_fault": 6,
+            "hv_isolation": 2
+          }
+        },
+        {
+          "id": "ok",
+          "label": "Aucun problème",
+          "weights": {}
+        }
       ]
     }
   ],
   "hypotheses": [
-    { "id": "misfire_ignition", "title": "Ratés d'allumage (bougies / bobines)", "explanation": "Une bougie usée ou une bobine fissurée ne produit plus une étincelle fiable, surtout par temps humide.", "codes": ["P0300", "P0301", "P0351"], "components": ["spark_plug_1", "spark_plug_2", "spark_plug_3", "spark_plug_4", "coil_1", "coil_2", "coil_3", "coil_4"], "next_checks": ["Lire les codes (P030x indique le cylindre)", "Inverser deux bobines et voir si le défaut suit", "Lire la couleur des bougies"], "severity": "high", "tutorial": "spark_plugs" },
-    { "id": "vacuum_leak", "title": "Prise d'air à l'admission", "explanation": "De l'air entre sans être mesuré : le mélange devient pauvre, le ralenti instable.", "codes": ["P0171", "P2187", "P0507"], "components": ["vacuum_hoses", "intake_manifold"], "next_checks": ["Écouter les sifflements au ralenti", "Test au nettoyant frein autour des durites", "Aspiration au bouchon d'huile (reniflard)"], "severity": "medium" },
-    { "id": "maf_dirty", "title": "Débitmètre d'air encrassé", "explanation": "Le capteur sous-estime l'air : manque de puissance, fumée noire en diesel.", "codes": ["P0101", "P0171"], "components": ["maf_sensor", "air_filter"], "next_checks": ["Inspecter le filtre à air", "Nettoyer le débitmètre au produit spécifique"], "severity": "medium", "tutorial": "air_filter" },
-    { "id": "turbo_leak", "title": "Fuite de suralimentation (durite turbo)", "explanation": "L'air comprimé s'échappe avant le moteur : souffle, perte de puissance, fumée noire.", "codes": ["P0299"], "components": ["intercooler", "turbo", "vacuum_hoses"], "next_checks": ["Inspecter les durites et colliers (traces d'huile)", "Écouter un souffle en accélérant capot ouvert, à l'arrêt, avec un assistant"], "severity": "high" },
-    { "id": "turbo_worn", "title": "Turbo usé", "explanation": "Roulements ou étanchéité du turbo fatigués : sifflement de sirène, fumée bleue, consommation d'huile.", "codes": ["P0299", "P0234"], "components": ["turbo"], "next_checks": ["Moteur froid : jeu radial de l'axe du turbo (garage)", "Huile dans les durites côté admission"], "severity": "high" },
-    { "id": "egr_clogged", "title": "Vanne EGR encrassée", "explanation": "La calamine bloque la vanne EGR : à-coups, fumée noire, calages.", "codes": ["P0401", "P0400"], "components": ["egr_valve", "intake_manifold"], "next_checks": ["Lire les codes", "Inspecter la vanne déposée"], "severity": "medium" },
-    { "id": "dpf_clogged", "title": "Filtre à particules colmaté (diesel)", "explanation": "Les régénérations n'aboutissent pas (trajets courts) : la suie s'accumule.", "codes": ["P2463", "P2002"], "components": ["dpf", "dpf_pressure_sensor"], "next_checks": ["Rouler 20–30 min sur voie rapide à 2 500–3 000 tr/min", "Vérifier l'additif FAP si équipé"], "severity": "medium" },
-    { "id": "glow_plugs", "title": "Préchauffage défaillant (diesel)", "explanation": "Une ou plusieurs bougies de préchauffage ne chauffent plus.", "codes": ["P0380", "P0670"], "components": ["glow_plugs"], "next_checks": ["Mesure des bougies au multimètre", "Contrôle du boîtier de préchauffage"], "severity": "medium" },
-    { "id": "head_gasket", "title": "Joint de culasse", "explanation": "Le liquide de refroidissement passe dans les cylindres ou dans l'huile. À confirmer avant toute conclusion : c'est une réparation lourde.", "codes": ["P0217"], "components": ["engine", "coolant_reservoir"], "next_checks": ["Test CO₂ du vase d'expansion (kit de test chimique)", "Bulles dans le vase moteur tournant", "Analyse d'huile"], "severity": "critical" },
-    { "id": "overheating", "title": "Défaut de refroidissement", "explanation": "Fuite, ventilateur ou thermostat bloqué fermé : le moteur chauffe.", "codes": ["P0217", "P0480", "P0128"], "components": ["radiator", "cooling_fan", "thermostat", "coolant_reservoir"], "next_checks": ["Niveau moteur froid", "Le ventilateur se déclenche-t-il au ralenti ?", "Durite supérieure chaude ?"], "severity": "critical" },
-    { "id": "thermostat_open", "title": "Thermostat bloqué ouvert", "explanation": "Le moteur reste trop froid : chauffage tiède, surconsommation.", "codes": ["P0128"], "components": ["thermostat"], "next_checks": ["Durite supérieure qui chauffe dès le démarrage"], "severity": "low" },
-    { "id": "coolant_sensor", "title": "Sonde de température moteur", "explanation": "Le calculateur croit le moteur froid (ou chaud) : démarrages difficiles, surconsommation.", "codes": ["P0115", "P0117", "P0118"], "components": ["coolant_temp_sensor"], "next_checks": ["Comparer la valeur lue en données en direct avec la réalité"], "severity": "medium" },
-    { "id": "oil_burning", "title": "Consommation d'huile (segments / joints de soupapes)", "explanation": "L'huile passe dans la chambre de combustion et brûle : fumée bleue, niveau qui baisse.", "codes": ["P0420"], "components": ["engine", "dipstick"], "next_checks": ["Mesurer la consommation sur 1 000 km", "Test de compression"], "severity": "high" },
-    { "id": "oil_leak", "title": "Fuite d'huile", "explanation": "Joint de cache-culbuteurs, de carter ou de filtre : l'huile goutte, parfois sur l'échappement (odeur).", "codes": [], "components": ["engine", "oil_filter", "oil_drain_plug"], "next_checks": ["Carton sous le moteur une nuit", "Nettoyer le moteur puis repérer la source"], "severity": "medium", "tutorial": "oil_change" },
-    { "id": "oil_low", "title": "Niveau / pression d'huile insuffisants (cliquetis de poussoirs)", "explanation": "Les poussoirs hydrauliques claquent quand l'huile manque ou est usée.", "codes": ["P0011", "P0520"], "components": ["dipstick", "engine"], "next_checks": ["Vérifier le niveau d'huile immédiatement"], "severity": "high", "tutorial": "oil_change" },
-    { "id": "oil_pressure", "title": "Chute de pression d'huile", "explanation": "Danger immédiat pour le moteur (coussinets).", "codes": ["P0520", "P0521", "P0522"], "components": ["oil_pressure_sensor", "engine"], "next_checks": ["ARRÊTER le moteur", "Contrôler le niveau", "Manomètre de pression (garage)"], "severity": "critical" },
-    { "id": "timing_chain", "title": "Chaîne de distribution allongée", "explanation": "La chaîne se détend avec l'âge et une huile négligée : bruit au démarrage, codes de calage.", "codes": ["P0016", "P0011"], "components": ["timing_chain", "vvt_solenoid"], "next_checks": ["Lire les codes P0016 / P0011", "Valeurs de déphasage à la valise (garage)"], "severity": "high" },
-    { "id": "exhaust_leak", "title": "Fuite d'échappement", "explanation": "Joint de collecteur ou silencieux percé : tapotement, plus fort à froid.", "codes": ["P0420", "P0133"], "components": ["exhaust", "catalytic_converter"], "next_checks": ["Moteur froid, chiffon devant la sortie : chercher où ça souffle", "Traces noires de suie aux raccords"], "severity": "medium" },
-    { "id": "cat_worn", "title": "Catalyseur fatigué", "explanation": "Le catalyseur ne dépollue plus (odeur d'œuf pourri, code P0420).", "codes": ["P0420", "P0430"], "components": ["catalytic_converter", "o2_sensor_downstream"], "next_checks": ["Tapoter le catalyseur froid : bruit de cailloux ?", "Contrôler d'abord la sonde aval"], "severity": "medium" },
-    { "id": "o2_sensor", "title": "Sonde lambda", "explanation": "Une sonde lente fausse le dosage : surconsommation.", "codes": ["P0130", "P0133", "P0136"], "components": ["o2_sensor_upstream", "o2_sensor_downstream"], "next_checks": ["Lire les codes", "Observer la sonde amont en données en direct (elle doit osciller)"], "severity": "medium" },
-    { "id": "rich_mixture", "title": "Mélange trop riche", "explanation": "Trop de carburant : odeur, fumée noire, bougies noires.", "codes": ["P0172"], "components": ["air_filter", "purge_valve"], "next_checks": ["Filtre à air", "Électrovanne de purge canister"], "severity": "medium" },
-    { "id": "injector_fault", "title": "Injecteur défectueux", "explanation": "Un injecteur qui fuit ou pulvérise mal : tremblements, odeur, fumée.", "codes": ["P0201", "P0300"], "components": ["injector_1", "injector_2", "injector_3", "injector_4", "fuel_rail"], "next_checks": ["Écouter chaque injecteur (tournevis-stéthoscope)", "Test de retour (diesel, garage)"], "severity": "high" },
-    { "id": "fuel_filter", "title": "Filtre à carburant colmaté", "explanation": "Le carburant passe mal : trous à l'accélération en charge.", "codes": ["P0087"], "components": ["fuel_filter", "fuel_pump"], "next_checks": ["Date du dernier remplacement"], "severity": "medium", "tutorial": "fuel_filter_diesel" },
-    { "id": "evap_cap", "title": "Bouchon de réservoir / circuit EVAP", "explanation": "Le bouchon mal fermé ou son joint usé provoque une fuite de vapeurs (voyant moteur).", "codes": ["P0455", "P0442", "P0456"], "components": ["fuel_cap", "evap_canister"], "next_checks": ["Revisser jusqu'au clic", "Joint du bouchon"], "severity": "low" },
-    { "id": "crank_sensor", "title": "Capteur de vilebrequin (PMH)", "explanation": "Il lâche souvent à chaud : calage, redémarrage après refroidissement.", "codes": ["P0335"], "components": ["crank_sensor"], "next_checks": ["Compte-tours pendant le démarreur : bouge-t-il ?"], "severity": "high" },
-    { "id": "accessory_belt", "title": "Courroie d'accessoires", "explanation": "Courroie usée ou détendue : elle patine (couinement), l'alternateur charge mal.", "codes": ["P0562"], "components": ["accessory_belt", "alternator"], "next_checks": ["Inspecter craquelures et lustrage", "Vérifier le galet tendeur"], "severity": "medium" },
-    { "id": "battery_weak", "title": "Batterie faible", "explanation": "La batterie ne tient plus la charge : démarrages lents, défauts électroniques.", "codes": ["P0562", "U0001"], "components": ["battery"], "next_checks": ["Tension moteur arrêté ≥ 12,4 V", "Nettoyer les cosses"], "severity": "medium", "tutorial": "battery_replace" },
-    { "id": "alternator", "title": "Alternateur", "explanation": "L'alternateur ne recharge plus : voyant batterie, phares qui faiblissent.", "codes": ["P0562", "P0563"], "components": ["alternator", "battery"], "next_checks": ["Tension moteur tournant : 13,8–14,7 V"], "severity": "high" },
-    { "id": "electrical_short", "title": "Court-circuit / échauffement électrique", "explanation": "Odeur de plastique brûlé : faisceau ou composant qui chauffe. Risque d'incendie.", "codes": ["U0001"], "components": ["can_bus", "battery"], "next_checks": ["Couper le contact, débrancher la batterie si la fumée persiste", "Faire contrôler sans tarder"], "severity": "critical" },
-    { "id": "brake_wear", "title": "Freins usés (plaquettes / disques)", "explanation": "Témoin d'usure qui siffle, disques voilés qui vibrent.", "codes": [], "components": ["brake_fl", "brake_fr"], "next_checks": ["Épaisseur des plaquettes à travers la jante", "Collerette sur les disques"], "severity": "high", "tutorial": "brake_pads_front" },
-    { "id": "brake_caliper", "title": "Étrier de frein grippé", "explanation": "Un frein reste serré : la roue chauffe, la voiture tire d'un côté.", "codes": [], "components": ["brake_fl", "brake_fr"], "next_checks": ["Comparer la chaleur des jantes après un trajet (sans toucher le disque)"], "severity": "high" },
-    { "id": "abs_sensor", "title": "Capteur ABS", "explanation": "Un capteur de roue sale ou coupé désactive l'ABS et l'ESP.", "codes": ["U0121"], "components": ["wheel_speed_sensor_fl", "wheel_speed_sensor_fr", "wheel_speed_sensor_rl", "wheel_speed_sensor_rr", "abs_module"], "next_checks": ["Lire le calculateur ABS", "Câble de capteur arraché ?"], "severity": "high" },
-    { "id": "wheel_bearing", "title": "Roulement de roue", "explanation": "Un roulement usé ronronne de plus en plus fort avec la vitesse, et change de ton en virage.", "codes": [], "components": ["wheel_fl", "wheel_fr", "wheel_rl", "wheel_rr"], "next_checks": ["En virage à droite, le bruit diminue ? Le roulement gauche est suspect (et inversement)", "Roue levée : jeu ou grattement en la tournant"], "severity": "medium" },
-    { "id": "cv_joint", "title": "Cardan / soufflet de cardan", "explanation": "Un soufflet déchiré laisse sortir la graisse : le joint s'use et claque en braquant.", "codes": [], "components": ["wheel_fl", "wheel_fr"], "next_checks": ["Inspecter les soufflets (graisse projetée dans le passage de roue)"], "severity": "medium" },
-    { "id": "engine_mount", "title": "Support moteur", "explanation": "Un support usé laisse bouger le moteur : vibrations au ralenti et chocs.", "codes": [], "components": ["engine"], "next_checks": ["Capot ouvert, assistant qui passe D puis R frein serré : le moteur bascule-t-il fortement ?"], "severity": "low" },
-    { "id": "tyre_pressure", "title": "Pression ou usure des pneus", "explanation": "Un pneu sous-gonflé fait tirer la voiture et s'use vite.", "codes": [], "components": ["wheel_fl", "wheel_fr", "wheel_rl", "wheel_rr"], "next_checks": ["Pression à froid selon l'étiquette de portière"], "severity": "medium", "tutorial": "fluids_check" },
-    { "id": "short_trips", "title": "Condensation (trajets courts)", "explanation": "Un dépôt crémeux sous le bouchon d'huile, sans perte de liquide, vient souvent de la condensation sur trajets courts : pas grave en soi.", "codes": [], "components": ["oil_filler_cap"], "next_checks": ["Le niveau de liquide de refroidissement est-il stable ? Si oui, rassurant"], "severity": "low" }
+    {
+      "id": "misfire_ignition",
+      "title": "Ratés d'allumage (bougies / bobines)",
+      "explanation": "Une bougie usée ou une bobine fissurée ne produit plus une étincelle fiable, surtout par temps humide.",
+      "codes": [
+        "P0300",
+        "P0301",
+        "P0351"
+      ],
+      "components": [
+        "spark_plug_1",
+        "spark_plug_2",
+        "spark_plug_3",
+        "spark_plug_4",
+        "coil_1",
+        "coil_2",
+        "coil_3",
+        "coil_4"
+      ],
+      "next_checks": [
+        "Lire les codes (P030x indique le cylindre)",
+        "Inverser deux bobines et voir si le défaut suit",
+        "Lire la couleur des bougies"
+      ],
+      "severity": "high",
+      "tutorial": "spark_plugs"
+    },
+    {
+      "id": "vacuum_leak",
+      "title": "Prise d'air à l'admission",
+      "explanation": "De l'air entre sans être mesuré : le mélange devient pauvre, le ralenti instable.",
+      "codes": [
+        "P0171",
+        "P2187",
+        "P0507"
+      ],
+      "components": [
+        "vacuum_hoses",
+        "intake_manifold"
+      ],
+      "next_checks": [
+        "Écouter les sifflements au ralenti",
+        "Test au nettoyant frein autour des durites",
+        "Aspiration au bouchon d'huile (reniflard)"
+      ],
+      "severity": "medium"
+    },
+    {
+      "id": "maf_dirty",
+      "title": "Débitmètre d'air encrassé",
+      "explanation": "Le capteur sous-estime l'air : manque de puissance, fumée noire en diesel.",
+      "codes": [
+        "P0101",
+        "P0171"
+      ],
+      "components": [
+        "maf_sensor",
+        "air_filter"
+      ],
+      "next_checks": [
+        "Inspecter le filtre à air",
+        "Nettoyer le débitmètre au produit spécifique"
+      ],
+      "severity": "medium",
+      "tutorial": "air_filter"
+    },
+    {
+      "id": "turbo_leak",
+      "title": "Fuite de suralimentation (durite turbo)",
+      "explanation": "L'air comprimé s'échappe avant le moteur : souffle, perte de puissance, fumée noire.",
+      "codes": [
+        "P0299"
+      ],
+      "components": [
+        "intercooler",
+        "turbo",
+        "vacuum_hoses"
+      ],
+      "next_checks": [
+        "Inspecter les durites et colliers (traces d'huile)",
+        "Écouter un souffle en accélérant capot ouvert, à l'arrêt, avec un assistant"
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "turbo_worn",
+      "title": "Turbo usé",
+      "explanation": "Roulements ou étanchéité du turbo fatigués : sifflement de sirène, fumée bleue, consommation d'huile.",
+      "codes": [
+        "P0299",
+        "P0234"
+      ],
+      "components": [
+        "turbo"
+      ],
+      "next_checks": [
+        "Moteur froid : jeu radial de l'axe du turbo (garage)",
+        "Huile dans les durites côté admission"
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "egr_clogged",
+      "title": "Vanne EGR encrassée",
+      "explanation": "La calamine bloque la vanne EGR : à-coups, fumée noire, calages.",
+      "codes": [
+        "P0401",
+        "P0400"
+      ],
+      "components": [
+        "egr_valve",
+        "intake_manifold"
+      ],
+      "next_checks": [
+        "Lire les codes",
+        "Inspecter la vanne déposée"
+      ],
+      "severity": "medium"
+    },
+    {
+      "id": "dpf_clogged",
+      "title": "Filtre à particules colmaté (diesel)",
+      "explanation": "Les régénérations n'aboutissent pas (trajets courts) : la suie s'accumule.",
+      "codes": [
+        "P2463",
+        "P2002"
+      ],
+      "components": [
+        "dpf",
+        "dpf_pressure_sensor"
+      ],
+      "next_checks": [
+        "Rouler 20–30 min sur voie rapide à 2 500–3 000 tr/min",
+        "Vérifier l'additif FAP si équipé"
+      ],
+      "severity": "medium"
+    },
+    {
+      "id": "glow_plugs",
+      "title": "Préchauffage défaillant (diesel)",
+      "explanation": "Une ou plusieurs bougies de préchauffage ne chauffent plus.",
+      "codes": [
+        "P0380",
+        "P0670"
+      ],
+      "components": [
+        "glow_plugs"
+      ],
+      "next_checks": [
+        "Mesure des bougies au multimètre",
+        "Contrôle du boîtier de préchauffage"
+      ],
+      "severity": "medium"
+    },
+    {
+      "id": "head_gasket",
+      "title": "Joint de culasse",
+      "explanation": "Le liquide de refroidissement passe dans les cylindres ou dans l'huile. À confirmer avant toute conclusion : c'est une réparation lourde.",
+      "codes": [
+        "P0217"
+      ],
+      "components": [
+        "engine",
+        "coolant_reservoir"
+      ],
+      "next_checks": [
+        "Test CO₂ du vase d'expansion (kit de test chimique)",
+        "Bulles dans le vase moteur tournant",
+        "Analyse d'huile"
+      ],
+      "severity": "critical"
+    },
+    {
+      "id": "overheating",
+      "title": "Défaut de refroidissement",
+      "explanation": "Fuite, ventilateur ou thermostat bloqué fermé : le moteur chauffe.",
+      "codes": [
+        "P0217",
+        "P0480",
+        "P0128"
+      ],
+      "components": [
+        "radiator",
+        "cooling_fan",
+        "thermostat",
+        "coolant_reservoir"
+      ],
+      "next_checks": [
+        "Niveau moteur froid",
+        "Le ventilateur se déclenche-t-il au ralenti ?",
+        "Durite supérieure chaude ?"
+      ],
+      "severity": "critical"
+    },
+    {
+      "id": "thermostat_open",
+      "title": "Thermostat bloqué ouvert",
+      "explanation": "Le moteur reste trop froid : chauffage tiède, surconsommation.",
+      "codes": [
+        "P0128"
+      ],
+      "components": [
+        "thermostat"
+      ],
+      "next_checks": [
+        "Durite supérieure qui chauffe dès le démarrage"
+      ],
+      "severity": "low"
+    },
+    {
+      "id": "coolant_sensor",
+      "title": "Sonde de température moteur",
+      "explanation": "Le calculateur croit le moteur froid (ou chaud) : démarrages difficiles, surconsommation.",
+      "codes": [
+        "P0115",
+        "P0117",
+        "P0118"
+      ],
+      "components": [
+        "coolant_temp_sensor"
+      ],
+      "next_checks": [
+        "Comparer la valeur lue en données en direct avec la réalité"
+      ],
+      "severity": "medium"
+    },
+    {
+      "id": "oil_burning",
+      "title": "Consommation d'huile (segments / joints de soupapes)",
+      "explanation": "L'huile passe dans la chambre de combustion et brûle : fumée bleue, niveau qui baisse.",
+      "codes": [
+        "P0420"
+      ],
+      "components": [
+        "engine",
+        "dipstick"
+      ],
+      "next_checks": [
+        "Mesurer la consommation sur 1 000 km",
+        "Test de compression"
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "oil_leak",
+      "title": "Fuite d'huile",
+      "explanation": "Joint de cache-culbuteurs, de carter ou de filtre : l'huile goutte, parfois sur l'échappement (odeur).",
+      "codes": [],
+      "components": [
+        "engine",
+        "oil_filter",
+        "oil_drain_plug"
+      ],
+      "next_checks": [
+        "Carton sous le moteur une nuit",
+        "Nettoyer le moteur puis repérer la source"
+      ],
+      "severity": "medium",
+      "tutorial": "oil_change"
+    },
+    {
+      "id": "oil_low",
+      "title": "Niveau / pression d'huile insuffisants (cliquetis de poussoirs)",
+      "explanation": "Les poussoirs hydrauliques claquent quand l'huile manque ou est usée.",
+      "codes": [
+        "P0011",
+        "P0520"
+      ],
+      "components": [
+        "dipstick",
+        "engine"
+      ],
+      "next_checks": [
+        "Vérifier le niveau d'huile immédiatement"
+      ],
+      "severity": "high",
+      "tutorial": "oil_change"
+    },
+    {
+      "id": "oil_pressure",
+      "title": "Chute de pression d'huile",
+      "explanation": "Danger immédiat pour le moteur (coussinets).",
+      "codes": [
+        "P0520",
+        "P0521",
+        "P0522"
+      ],
+      "components": [
+        "oil_pressure_sensor",
+        "engine"
+      ],
+      "next_checks": [
+        "ARRÊTER le moteur",
+        "Contrôler le niveau",
+        "Manomètre de pression (garage)"
+      ],
+      "severity": "critical"
+    },
+    {
+      "id": "timing_chain",
+      "title": "Chaîne de distribution allongée",
+      "explanation": "La chaîne se détend avec l'âge et une huile négligée : bruit au démarrage, codes de calage.",
+      "codes": [
+        "P0016",
+        "P0011"
+      ],
+      "components": [
+        "timing_chain",
+        "vvt_solenoid"
+      ],
+      "next_checks": [
+        "Lire les codes P0016 / P0011",
+        "Valeurs de déphasage à la valise (garage)"
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "exhaust_leak",
+      "title": "Fuite d'échappement",
+      "explanation": "Joint de collecteur ou silencieux percé : tapotement, plus fort à froid.",
+      "codes": [
+        "P0420",
+        "P0133"
+      ],
+      "components": [
+        "exhaust",
+        "catalytic_converter"
+      ],
+      "next_checks": [
+        "Moteur froid, chiffon devant la sortie : chercher où ça souffle",
+        "Traces noires de suie aux raccords"
+      ],
+      "severity": "medium"
+    },
+    {
+      "id": "cat_worn",
+      "title": "Catalyseur fatigué",
+      "explanation": "Le catalyseur ne dépollue plus (odeur d'œuf pourri, code P0420).",
+      "codes": [
+        "P0420",
+        "P0430"
+      ],
+      "components": [
+        "catalytic_converter",
+        "o2_sensor_downstream"
+      ],
+      "next_checks": [
+        "Tapoter le catalyseur froid : bruit de cailloux ?",
+        "Contrôler d'abord la sonde aval"
+      ],
+      "severity": "medium"
+    },
+    {
+      "id": "o2_sensor",
+      "title": "Sonde lambda",
+      "explanation": "Une sonde lente fausse le dosage : surconsommation.",
+      "codes": [
+        "P0130",
+        "P0133",
+        "P0136"
+      ],
+      "components": [
+        "o2_sensor_upstream",
+        "o2_sensor_downstream"
+      ],
+      "next_checks": [
+        "Lire les codes",
+        "Observer la sonde amont en données en direct (elle doit osciller)"
+      ],
+      "severity": "medium"
+    },
+    {
+      "id": "rich_mixture",
+      "title": "Mélange trop riche",
+      "explanation": "Trop de carburant : odeur, fumée noire, bougies noires.",
+      "codes": [
+        "P0172"
+      ],
+      "components": [
+        "air_filter",
+        "purge_valve"
+      ],
+      "next_checks": [
+        "Filtre à air",
+        "Électrovanne de purge canister"
+      ],
+      "severity": "medium"
+    },
+    {
+      "id": "injector_fault",
+      "title": "Injecteur défectueux",
+      "explanation": "Un injecteur qui fuit ou pulvérise mal : tremblements, odeur, fumée.",
+      "codes": [
+        "P0201",
+        "P0300"
+      ],
+      "components": [
+        "injector_1",
+        "injector_2",
+        "injector_3",
+        "injector_4",
+        "fuel_rail"
+      ],
+      "next_checks": [
+        "Écouter chaque injecteur (tournevis-stéthoscope)",
+        "Test de retour (diesel, garage)"
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "fuel_filter",
+      "title": "Filtre à carburant colmaté",
+      "explanation": "Le carburant passe mal : trous à l'accélération en charge.",
+      "codes": [
+        "P0087"
+      ],
+      "components": [
+        "fuel_filter",
+        "fuel_pump"
+      ],
+      "next_checks": [
+        "Date du dernier remplacement"
+      ],
+      "severity": "medium",
+      "tutorial": "fuel_filter_diesel"
+    },
+    {
+      "id": "evap_cap",
+      "title": "Bouchon de réservoir / circuit EVAP",
+      "explanation": "Le bouchon mal fermé ou son joint usé provoque une fuite de vapeurs (voyant moteur).",
+      "codes": [
+        "P0455",
+        "P0442",
+        "P0456"
+      ],
+      "components": [
+        "fuel_cap",
+        "evap_canister"
+      ],
+      "next_checks": [
+        "Revisser jusqu'au clic",
+        "Joint du bouchon"
+      ],
+      "severity": "low"
+    },
+    {
+      "id": "crank_sensor",
+      "title": "Capteur de vilebrequin (PMH)",
+      "explanation": "Il lâche souvent à chaud : calage, redémarrage après refroidissement.",
+      "codes": [
+        "P0335"
+      ],
+      "components": [
+        "crank_sensor"
+      ],
+      "next_checks": [
+        "Compte-tours pendant le démarreur : bouge-t-il ?"
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "accessory_belt",
+      "title": "Courroie d'accessoires",
+      "explanation": "Courroie usée ou détendue : elle patine (couinement), l'alternateur charge mal.",
+      "codes": [
+        "P0562"
+      ],
+      "components": [
+        "accessory_belt",
+        "alternator"
+      ],
+      "next_checks": [
+        "Inspecter craquelures et lustrage",
+        "Vérifier le galet tendeur"
+      ],
+      "severity": "medium"
+    },
+    {
+      "id": "battery_weak",
+      "title": "Batterie faible",
+      "explanation": "La batterie ne tient plus la charge : démarrages lents, défauts électroniques.",
+      "codes": [
+        "P0562",
+        "U0001"
+      ],
+      "components": [
+        "battery"
+      ],
+      "next_checks": [
+        "Tension moteur arrêté ≥ 12,4 V",
+        "Nettoyer les cosses"
+      ],
+      "severity": "medium",
+      "tutorial": "battery_replace"
+    },
+    {
+      "id": "alternator",
+      "title": "Alternateur",
+      "explanation": "L'alternateur ne recharge plus : voyant batterie, phares qui faiblissent.",
+      "codes": [
+        "P0562",
+        "P0563"
+      ],
+      "components": [
+        "alternator",
+        "battery"
+      ],
+      "next_checks": [
+        "Tension moteur tournant : 13,8–14,7 V"
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "electrical_short",
+      "title": "Court-circuit / échauffement électrique",
+      "explanation": "Odeur de plastique brûlé : faisceau ou composant qui chauffe. Risque d'incendie.",
+      "codes": [
+        "U0001"
+      ],
+      "components": [
+        "can_bus",
+        "battery"
+      ],
+      "next_checks": [
+        "Couper le contact, débrancher la batterie si la fumée persiste",
+        "Faire contrôler sans tarder"
+      ],
+      "severity": "critical"
+    },
+    {
+      "id": "brake_wear",
+      "title": "Freins usés (plaquettes / disques)",
+      "explanation": "Témoin d'usure qui siffle, disques voilés qui vibrent.",
+      "codes": [],
+      "components": [
+        "brake_fl",
+        "brake_fr",
+        "brake_rl",
+        "brake_rr"
+      ],
+      "next_checks": [
+        "Épaisseur des plaquettes à travers la jante",
+        "Collerette sur les disques"
+      ],
+      "severity": "high",
+      "tutorial": "brake_pads_front"
+    },
+    {
+      "id": "brake_caliper",
+      "title": "Étrier de frein grippé",
+      "explanation": "Un frein reste serré : la roue chauffe, la voiture tire d'un côté.",
+      "codes": [],
+      "components": [
+        "brake_fl",
+        "brake_fr"
+      ],
+      "next_checks": [
+        "Comparer la chaleur des jantes après un trajet (sans toucher le disque)"
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "abs_sensor",
+      "title": "Capteur ABS",
+      "explanation": "Un capteur de roue sale ou coupé désactive l'ABS et l'ESP.",
+      "codes": [
+        "U0121"
+      ],
+      "components": [
+        "wheel_speed_sensor_fl",
+        "wheel_speed_sensor_fr",
+        "wheel_speed_sensor_rl",
+        "wheel_speed_sensor_rr",
+        "abs_module"
+      ],
+      "next_checks": [
+        "Lire le calculateur ABS",
+        "Câble de capteur arraché ?"
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "wheel_bearing",
+      "title": "Roulement de roue",
+      "explanation": "Un roulement usé ronronne de plus en plus fort avec la vitesse, et change de ton en virage.",
+      "codes": [],
+      "components": [
+        "wheel_bearing_fl",
+        "wheel_bearing_fr",
+        "wheel_bearing_rl",
+        "wheel_bearing_rr"
+      ],
+      "next_checks": [
+        "En virage à droite, le bruit diminue ? Le roulement gauche est suspect (et inversement)",
+        "Roue levée : jeu ou grattement en la tournant"
+      ],
+      "severity": "medium",
+      "tutorial": "chassis_check"
+    },
+    {
+      "id": "cv_joint",
+      "title": "Cardan / soufflet de cardan",
+      "explanation": "Un soufflet déchiré laisse sortir la graisse : le joint s'use et claque en braquant.",
+      "codes": [],
+      "components": [
+        "cv_joint_fl",
+        "cv_joint_fr"
+      ],
+      "next_checks": [
+        "Inspecter les soufflets (graisse projetée dans le passage de roue)"
+      ],
+      "severity": "medium",
+      "tutorial": "chassis_check"
+    },
+    {
+      "id": "engine_mount",
+      "title": "Support moteur",
+      "explanation": "Un support usé laisse bouger le moteur : vibrations au ralenti et chocs.",
+      "codes": [],
+      "components": [
+        "engine"
+      ],
+      "next_checks": [
+        "Capot ouvert, assistant qui passe D puis R frein serré : le moteur bascule-t-il fortement ?"
+      ],
+      "severity": "low"
+    },
+    {
+      "id": "tyre_pressure",
+      "title": "Pression ou usure des pneus",
+      "explanation": "Un pneu sous-gonflé fait tirer la voiture et s'use vite.",
+      "codes": [],
+      "components": [
+        "wheel_fl",
+        "wheel_fr",
+        "wheel_rl",
+        "wheel_rr"
+      ],
+      "next_checks": [
+        "Pression à froid selon l'étiquette de portière"
+      ],
+      "severity": "medium",
+      "tutorial": "fluids_check"
+    },
+    {
+      "id": "short_trips",
+      "title": "Condensation (trajets courts)",
+      "explanation": "Un dépôt crémeux sous le bouchon d'huile, sans perte de liquide, vient souvent de la condensation sur trajets courts : pas grave en soi.",
+      "codes": [],
+      "components": [
+        "oil_filler_cap"
+      ],
+      "next_checks": [
+        "Le niveau de liquide de refroidissement est-il stable ? Si oui, rassurant"
+      ],
+      "severity": "low"
+    },
+    {
+      "id": "ev_12v",
+      "title": "Batterie 12 V faible (véhicule électrique)",
+      "explanation": "Paradoxe classique : la batterie de traction est pleine, mais la petite batterie 12 V qui « réveille » le véhicule est usée. C'est la première cause de panne des véhicules électriques.",
+      "codes": [
+        "P0562",
+        "P0A94"
+      ],
+      "components": [
+        "battery",
+        "dc_dc_converter"
+      ],
+      "next_checks": [
+        "Tension 12 V véhicule éteint ≥ 12,4 V",
+        "Âge de la batterie 12 V (4 à 6 ans de durée de vie)"
+      ],
+      "severity": "medium",
+      "tutorial": "ev_check"
+    },
+    {
+      "id": "hv_isolation",
+      "title": "Défaut haute tension / isolement",
+      "explanation": "Un défaut sur le circuit haute tension (souvent de l'humidité dans un connecteur). Ne touchez à rien : atelier habilité obligatoire.",
+      "codes": [
+        "P0AA6"
+      ],
+      "components": [
+        "hv_cables",
+        "hv_battery",
+        "inverter"
+      ],
+      "next_checks": [
+        "NE PAS toucher les éléments orange",
+        "Le défaut apparaît-il après la pluie ou un lavage ?",
+        "Faire remorquer vers un atelier habilité"
+      ],
+      "severity": "critical"
+    },
+    {
+      "id": "charging_fault",
+      "title": "Défaut de recharge (prise, chargeur embarqué)",
+      "explanation": "Si la charge échoue sur plusieurs bornes, la prise, le chargeur embarqué ou son logiciel sont en cause.",
+      "codes": [
+        "P0AFA"
+      ],
+      "components": [
+        "charge_port",
+        "onboard_charger"
+      ],
+      "next_checks": [
+        "Essayer une autre borne et un autre câble",
+        "Broches de la prise propres, sans trace de brûlure",
+        "Mise à jour logicielle disponible ?"
+      ],
+      "severity": "medium"
+    },
+    {
+      "id": "reducer_noise",
+      "title": "Réducteur ou moteur électrique bruyant",
+      "explanation": "Un sifflement qui suit la vitesse vient souvent des roulements du réducteur ou du moteur. Comparez avec un véhicule identique : un léger sifflement est normal.",
+      "codes": [
+        "P0A78"
+      ],
+      "components": [
+        "reducer",
+        "drive_motor"
+      ],
+      "next_checks": [
+        "Le bruit change-t-il en accélération / décélération ? (réducteur) ou en virage ? (roulement de roue)",
+        "Niveau d'huile du réducteur (garage)"
+      ],
+      "severity": "medium"
+    },
+    {
+      "id": "hv_battery_degraded",
+      "title": "Batterie de traction dégradée",
+      "explanation": "La capacité a baissé : autonomie réduite. Un certificat d'état de santé (SOH) tranche, et la garantie batterie couvre souvent 8 ans.",
+      "codes": [
+        "P0A7F",
+        "P0A80"
+      ],
+      "components": [
+        "hv_battery"
+      ],
+      "next_checks": [
+        "Comparer l'autonomie à saison égale",
+        "Faire établir un certificat SOH"
+      ],
+      "severity": "medium"
+    },
+    {
+      "id": "brake_corrosion",
+      "title": "Disques de frein corrodés (freinage peu sollicité)",
+      "explanation": "Avec la régénération, les disques servent peu et rouillent, surtout à l'arrière : raclements, vibrations, efficacité réduite.",
+      "codes": [],
+      "components": [
+        "brake_fl",
+        "brake_fr",
+        "brake_rl",
+        "brake_rr"
+      ],
+      "next_checks": [
+        "Regarder la piste des disques à travers la jante",
+        "Freinages appuyés répétés sur route dégagée"
+      ],
+      "severity": "medium",
+      "tutorial": "ev_brakes"
+    },
+    {
+      "id": "suspension_wear",
+      "title": "Amortisseurs ou silentblocs usés",
+      "explanation": "Rebonds, cognements sur les bosses, usure irrégulière des pneus. Les véhicules lourds (électriques) les sollicitent davantage.",
+      "codes": [],
+      "components": [
+        "shock_fl",
+        "shock_fr",
+        "shock_rl",
+        "shock_rr"
+      ],
+      "next_checks": [
+        "Test d'appui sur chaque coin",
+        "Traces d'huile sur les amortisseurs"
+      ],
+      "severity": "medium",
+      "tutorial": "chassis_check"
+    },
+    {
+      "id": "wheel_balance",
+      "title": "Équilibrage des roues / jante voilée",
+      "explanation": "Une vibration du volant à vitesse stabilisée (souvent 90–130 km/h) vient d'un mauvais équilibrage ou d'une jante voilée.",
+      "codes": [],
+      "components": [
+        "wheel_fl",
+        "wheel_fr"
+      ],
+      "next_checks": [
+        "Équilibrage chez un pneumaticien",
+        "Jantes : chocs de trottoir ?"
+      ],
+      "severity": "low"
+    }
   ]
 }

@@ -144,6 +144,10 @@ impl Elm327 {
         Ok(self.mode01(0x01)?.and_then(|d| pids::decode_monitor_status(&d)))
     }
 
+    pub fn readiness(&mut self) -> Result<Vec<pids::Monitor>> {
+        Ok(self.mode01(0x01)?.map(|d| pids::decode_readiness(&d)).unwrap_or_default())
+    }
+
     pub fn battery_voltage(&mut self) -> Result<Option<f64>> {
         let raw = self.command("ATRV")?;
         Ok(raw.trim().trim_end_matches(['V', 'v']).trim().parse().ok())

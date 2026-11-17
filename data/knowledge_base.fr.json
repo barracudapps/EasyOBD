@@ -174,6 +174,66 @@
     },
     "cabin": {
       "name": "Habitacle / carrosserie"
+    },
+    "hv_battery": {
+      "name": "Batterie de traction haute tension"
+    },
+    "drive_motor": {
+      "name": "Moteur électrique de traction"
+    },
+    "inverter": {
+      "name": "Onduleur (électronique de puissance)"
+    },
+    "reducer": {
+      "name": "Réducteur"
+    },
+    "onboard_charger": {
+      "name": "Chargeur embarqué"
+    },
+    "dc_dc_converter": {
+      "name": "Convertisseur DC/DC (charge de la batterie 12 V)"
+    },
+    "charge_port": {
+      "name": "Prise de recharge"
+    },
+    "hv_cables": {
+      "name": "Câbles haute tension (orange)"
+    },
+    "heat_pump": {
+      "name": "Pompe à chaleur / compresseur électrique"
+    },
+    "battery_coolant": {
+      "name": "Circuit de refroidissement de la batterie"
+    },
+    "wheel_bearing_fl": {
+      "name": "Roulement de roue avant gauche"
+    },
+    "wheel_bearing_fr": {
+      "name": "Roulement de roue avant droit"
+    },
+    "wheel_bearing_rl": {
+      "name": "Roulement de roue arrière gauche"
+    },
+    "wheel_bearing_rr": {
+      "name": "Roulement de roue arrière droit"
+    },
+    "cv_joint_fl": {
+      "name": "Cardan avant gauche (soufflet + joint)"
+    },
+    "cv_joint_fr": {
+      "name": "Cardan avant droit (soufflet + joint)"
+    },
+    "shock_fl": {
+      "name": "Amortisseur avant gauche"
+    },
+    "shock_fr": {
+      "name": "Amortisseur avant droit"
+    },
+    "shock_rl": {
+      "name": "Amortisseur arrière gauche"
+    },
+    "shock_rr": {
+      "name": "Amortisseur arrière droit"
     }
   },
   "entries": [
@@ -3949,7 +4009,7 @@
       "system": "Électricité",
       "severity": "medium",
       "drivable": "Oui, mais risque de panne au prochain démarrage. Si le voyant batterie s'allume en roulant, rejoignez un garage rapidement.",
-      "how_it_works": "La batterie démarre le moteur. Ensuite, l'alternateur, entraîné par la courroie, recharge la batterie et alimente tout le véhicule. Tension normale : 12,4–12,7 V moteur arrêté, 13,8–14,7 V moteur tournant.",
+      "how_it_works": "La batterie démarre le moteur. Ensuite, l'alternateur, entraîné par la courroie, recharge la batterie et alimente tout le véhicule. Tension normale : 12,4–12,7 V moteur arrêté, 13,8–14,7 V moteur tournant. Sur un véhicule électrique, c'est le convertisseur DC/DC qui remplace l'alternateur : une batterie 12 V faible empêche le passage en mode « Ready », même si la batterie de traction est pleine.",
       "sensory_checks": [
         {
           "sense": "sight",
@@ -5097,6 +5157,669 @@
               "query": "bloc ABS",
               "price_min": 150,
               "price_max": 800
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "P0AA6",
+      "title": "Défaut d'isolement du circuit haute tension",
+      "description": "Le calculateur a mesuré une fuite de courant entre le circuit haute tension et la carrosserie. C'est un défaut de sécurité : le véhicule coupe ou refuse le mode « Ready » pour protéger les occupants.",
+      "system": "Véhicule électrique / hybride",
+      "severity": "critical",
+      "drivable": "NON. Ne roulez pas, ne rechargez pas, ne touchez pas aux éléments orange. Faites remorquer vers un atelier habilité.",
+      "how_it_works": "Le circuit haute tension (batterie, onduleur, moteur, chargeur, climatisation) est entièrement isolé de la carrosserie. Un contrôleur d'isolement mesure en permanence la résistance entre les deux. Si elle chute (humidité, câble blessé, composant défaillant), le système se coupe.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "Observez sans toucher : connecteur orange humide, câble orange frotté ou écrasé, traces d'eau sous le capot avant après un lavage haute pression ou une inondation.",
+          "means": "Infiltration d'eau : cause fréquente après un lavage moteur ou un passage dans une grosse flaque."
+        },
+        {
+          "sense": "smell",
+          "tip": "Odeur de brûlé électrique ou de plastique chaud près de la batterie ou sous le capot.",
+          "means": "Danger : éloignez-vous du véhicule et appelez l'assistance."
+        },
+        {
+          "sense": "feel",
+          "tip": "Le défaut apparaît surtout par temps humide puis disparaît au sec.",
+          "means": "Infiltration d'eau dans un connecteur, souvent le compresseur de climatisation ou le chargeur."
+        }
+      ],
+      "symptoms": [
+        "Mode « Ready » impossible",
+        "Voyant de défaut électrique (rouge)",
+        "Coupure en roulant"
+      ],
+      "components": [
+        "hv_cables",
+        "hv_battery",
+        "inverter",
+        "onboard_charger",
+        "heat_pump"
+      ],
+      "causes": [
+        {
+          "text": "Humidité dans un connecteur haute tension",
+          "likelihood": 35
+        },
+        {
+          "text": "Compresseur de climatisation électrique défaillant",
+          "likelihood": 20
+        },
+        {
+          "text": "Câble haute tension endommagé",
+          "likelihood": 20
+        },
+        {
+          "text": "Chargeur embarqué ou onduleur défaillant",
+          "likelihood": 15
+        },
+        {
+          "text": "Batterie de traction (infiltration)",
+          "likelihood": 10
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Recherche du défaut d'isolement en atelier habilité",
+          "description": "Ne touchez jamais aux câbles et composants orange : la haute tension (300 à 800 V) peut tuer. Toute intervention exige une habilitation électrique (B1VL/B2VL/BCL selon la norme NF C18-550) et la consignation du véhicule.",
+          "difficulty": 5,
+          "time_min": 60,
+          "time_max": 240,
+          "tools": [
+            "Habilitation électrique",
+            "Valise constructeur",
+            "Équipements de protection isolants"
+          ],
+          "steps": [
+            "Consignation du véhicule",
+            "Mesure d'isolement composant par composant au mégohmmètre",
+            "Séchage ou remplacement du composant fautif"
+          ],
+          "parts": []
+        },
+        {
+          "title": "Remplacement d'un composant haute tension",
+          "description": "Ne touchez jamais aux câbles et composants orange : la haute tension (300 à 800 V) peut tuer. Toute intervention exige une habilitation électrique (B1VL/B2VL/BCL selon la norme NF C18-550) et la consignation du véhicule.",
+          "difficulty": 5,
+          "time_min": 120,
+          "time_max": 480,
+          "tools": [
+            "Habilitation électrique",
+            "Valise constructeur",
+            "Équipements de protection isolants"
+          ],
+          "steps": [
+            "Remplacement du composant",
+            "Contrôle d'isolement final",
+            "Effacement et essai"
+          ],
+          "parts": [
+            {
+              "name": "Compresseur de climatisation électrique",
+              "query": "compresseur climatisation électrique",
+              "price_min": 400,
+              "price_max": 1200
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "P0A80",
+      "title": "Batterie de traction à remplacer (dégradation détectée)",
+      "description": "Le calculateur estime qu'un ou plusieurs blocs de la batterie haute tension sont trop dégradés : écarts de tension entre modules, capacité réduite. Sur les hybrides, un reconditionnement est souvent possible.",
+      "system": "Véhicule électrique / hybride",
+      "severity": "high",
+      "drivable": "Oui à court terme, autonomie et puissance réduites. Faites établir un diagnostic de la batterie (état de santé, SOH).",
+      "how_it_works": "Une batterie de traction est composée de dizaines de modules en série. Le BMS (gestion batterie) surveille leurs tensions et températures. Si un module se décharge plus vite que les autres, toute la batterie est limitée par ce maillon faible.",
+      "sensory_checks": [
+        {
+          "sense": "feel",
+          "tip": "L'autonomie a chuté brutalement (plus de 20 % en quelques mois) ou la jauge saute de plusieurs pourcents d'un coup.",
+          "means": "Module faible : un diagnostic de l'état de santé (SOH) le confirmera."
+        },
+        {
+          "sense": "sound",
+          "tip": "Le ventilateur de la batterie (sous la banquette sur hybride) souffle fort et souvent.",
+          "means": "Batterie qui chauffe : grille d'aération obstruée ou modules fatigués. Nettoyez la grille (hybride)."
+        },
+        {
+          "sense": "sight",
+          "tip": "Grille d'aération de batterie (hybride, souvent près de la banquette arrière) bouchée par des poils ou de la poussière.",
+          "means": "Refroidissement insuffisant : accélère la dégradation, nettoyage simple."
+        }
+      ],
+      "symptoms": [
+        "Autonomie réduite",
+        "Puissance limitée",
+        "Voyant de défaut hybride / électrique"
+      ],
+      "components": [
+        "hv_battery",
+        "battery_coolant"
+      ],
+      "causes": [
+        {
+          "text": "Module(s) de batterie dégradé(s)",
+          "likelihood": 60
+        },
+        {
+          "text": "Refroidissement de la batterie insuffisant",
+          "likelihood": 20
+        },
+        {
+          "text": "Capteur de tension / BMS",
+          "likelihood": 20
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Diagnostic d'état de santé (SOH) de la batterie",
+          "description": "Première étape, la moins chère : faire établir un certificat d'état de santé de la batterie.",
+          "difficulty": 5,
+          "time_min": 30,
+          "time_max": 90,
+          "tools": [
+            "Habilitation électrique",
+            "Valise constructeur",
+            "Équipements de protection isolants"
+          ],
+          "steps": [
+            "Lecture des tensions de chaque module",
+            "Test de capacité",
+            "Décision : équilibrage, remplacement de modules ou de la batterie"
+          ],
+          "parts": []
+        },
+        {
+          "title": "Remplacement de modules / reconditionnement",
+          "description": "Ne touchez jamais aux câbles et composants orange : la haute tension (300 à 800 V) peut tuer. Toute intervention exige une habilitation électrique (B1VL/B2VL/BCL selon la norme NF C18-550) et la consignation du véhicule.",
+          "difficulty": 5,
+          "time_min": 240,
+          "time_max": 600,
+          "tools": [
+            "Habilitation électrique",
+            "Valise constructeur",
+            "Équipements de protection isolants"
+          ],
+          "steps": [
+            "Consignation",
+            "Remplacement des modules faibles",
+            "Équilibrage et essai"
+          ],
+          "parts": [
+            {
+              "name": "Batterie de traction reconditionnée (hybride)",
+              "query": "batterie hybride reconditionnée",
+              "price_min": 900,
+              "price_max": 2500
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "P0A7F",
+      "title": "Dégradation de la batterie haute tension",
+      "description": "La capacité de la batterie de traction a nettement baissé par rapport à l'état neuf. Le système limite la puissance pour la protéger.",
+      "system": "Véhicule électrique / hybride",
+      "severity": "medium",
+      "drivable": "Oui, avec une autonomie réduite. Faites vérifier l'état de santé et la garantie batterie (souvent 8 ans / 160 000 km).",
+      "how_it_works": "Une batterie lithium perd lentement de sa capacité avec les cycles, la chaleur et les recharges rapides répétées. Le calculateur compare la capacité mesurée à la capacité nominale.",
+      "sensory_checks": [
+        {
+          "sense": "feel",
+          "tip": "Autonomie réelle très inférieure à celle des premiers mois, à saison égale.",
+          "means": "Dégradation réelle : vérifiez la garantie constructeur."
+        },
+        {
+          "sense": "sight",
+          "tip": "Historique : recharges rapides quasi quotidiennes, stationnement en plein soleil, souvent à 100 %.",
+          "means": "Usages qui accélèrent le vieillissement : privilégiez 20–80 % au quotidien."
+        }
+      ],
+      "symptoms": [
+        "Autonomie réduite",
+        "Recharge rapide plus lente"
+      ],
+      "components": [
+        "hv_battery"
+      ],
+      "causes": [
+        {
+          "text": "Vieillissement normal des cellules",
+          "likelihood": 55
+        },
+        {
+          "text": "Module défaillant",
+          "likelihood": 30
+        },
+        {
+          "text": "Mauvais calibrage de la jauge",
+          "likelihood": 15
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Certificat d'état de santé et prise en garantie",
+          "description": "Ne touchez jamais aux câbles et composants orange : la haute tension (300 à 800 V) peut tuer. Toute intervention exige une habilitation électrique (B1VL/B2VL/BCL selon la norme NF C18-550) et la consignation du véhicule.",
+          "difficulty": 5,
+          "time_min": 30,
+          "time_max": 90,
+          "tools": [
+            "Habilitation électrique",
+            "Valise constructeur",
+            "Équipements de protection isolants"
+          ],
+          "steps": [
+            "Lecture du SOH",
+            "Comparaison avec le seuil de garantie (souvent 70 %)",
+            "Démarches de prise en charge"
+          ],
+          "parts": []
+        }
+      ]
+    },
+    {
+      "code": "P0AFA",
+      "title": "Tension du système batterie haute tension trop basse",
+      "description": "La tension de la batterie de traction est sous le seuil attendu. Souvent la batterie est simplement très déchargée (véhicule resté longtemps sans recharge), parfois un module est défaillant.",
+      "system": "Véhicule électrique / hybride",
+      "severity": "high",
+      "drivable": "Rechargez le véhicule dès que possible. Si le défaut persiste après une charge complète, faites contrôler la batterie.",
+      "how_it_works": "Le BMS mesure la tension totale de la batterie et celle de chaque module. En dessous d'un seuil, il bloque la décharge pour éviter d'abîmer les cellules.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "Le véhicule est-il resté plusieurs semaines sans recharge, ou la jauge était-elle à 0 % ?",
+          "means": "Décharge profonde : une recharge lente complète peut suffire."
+        },
+        {
+          "sense": "feel",
+          "tip": "Le défaut apparaît surtout par grand froid.",
+          "means": "La tension chute au froid : préchauffez la batterie branchée sur secteur."
+        }
+      ],
+      "symptoms": [
+        "Mode « Ready » refusé",
+        "Autonomie affichée nulle"
+      ],
+      "components": [
+        "hv_battery",
+        "onboard_charger"
+      ],
+      "causes": [
+        {
+          "text": "Batterie très déchargée",
+          "likelihood": 45
+        },
+        {
+          "text": "Module défaillant",
+          "likelihood": 35
+        },
+        {
+          "text": "Capteur de tension / BMS",
+          "likelihood": 20
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Recharge lente complète",
+          "difficulty": 1,
+          "time_min": 480,
+          "time_max": 900,
+          "tools": [
+            "Câble de recharge domestique ou borne"
+          ],
+          "steps": [
+            "Brancher sur une prise ou une borne en courant alternatif",
+            "Laisser charger jusqu'à 100 %",
+            "Effacer le code et observer"
+          ],
+          "parts": []
+        },
+        {
+          "title": "Contrôle des modules de batterie",
+          "description": "Ne touchez jamais aux câbles et composants orange : la haute tension (300 à 800 V) peut tuer. Toute intervention exige une habilitation électrique (B1VL/B2VL/BCL selon la norme NF C18-550) et la consignation du véhicule.",
+          "difficulty": 5,
+          "time_min": 60,
+          "time_max": 180,
+          "tools": [
+            "Habilitation électrique",
+            "Valise constructeur",
+            "Équipements de protection isolants"
+          ],
+          "steps": [
+            "Lecture des tensions module par module",
+            "Remplacement du module faible si nécessaire"
+          ],
+          "parts": []
+        }
+      ]
+    },
+    {
+      "code": "P0A94",
+      "title": "Performance du convertisseur DC/DC",
+      "description": "Le convertisseur DC/DC recharge la batterie 12 V à partir de la haute tension (il remplace l'alternateur). S'il faiblit, la batterie 12 V se vide et le véhicule peut refuser de démarrer.",
+      "system": "Véhicule électrique / hybride",
+      "severity": "high",
+      "drivable": "Risque de panne à tout moment : le véhicule a besoin de sa batterie 12 V pour se mettre en route. Rejoignez un garage.",
+      "how_it_works": "Sur un véhicule électrique, la batterie 12 V alimente les calculateurs, l'éclairage et les relais qui connectent la haute tension. Le DC/DC la maintient chargée vers 13,5–14,5 V quand le véhicule est « Ready ».",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "En données en direct, véhicule « Ready » : la tension 12 V doit être entre 13,5 et 14,5 V.",
+          "means": "Sous 13 V : le DC/DC ne charge plus."
+        },
+        {
+          "sense": "sight",
+          "tip": "Ventilateur ou pompe du circuit de refroidissement de l'électronique : niveau du liquide correct ?",
+          "means": "Surchauffe du convertisseur si le liquide manque."
+        }
+      ],
+      "symptoms": [
+        "Batterie 12 V qui se vide",
+        "Démarrage impossible",
+        "Voyant batterie"
+      ],
+      "components": [
+        "dc_dc_converter",
+        "battery",
+        "battery_coolant"
+      ],
+      "causes": [
+        {
+          "text": "Convertisseur DC/DC défaillant",
+          "likelihood": 50
+        },
+        {
+          "text": "Batterie 12 V usée (perturbe la mesure)",
+          "likelihood": 30
+        },
+        {
+          "text": "Refroidissement de l'électronique insuffisant",
+          "likelihood": 20
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Tester et remplacer la batterie 12 V",
+          "difficulty": 2,
+          "time_min": 20,
+          "time_max": 60,
+          "tools": [
+            "Multimètre",
+            "Clés de 10 et 13"
+          ],
+          "steps": [
+            "Tension 12 V véhicule éteint ≥ 12,4 V ?",
+            "Remplacer la batterie 12 V (technologie identique, souvent AGM)"
+          ],
+          "parts": [
+            {
+              "name": "Batterie 12 V AGM",
+              "query": "batterie AGM 12V",
+              "price_min": 90,
+              "price_max": 220
+            }
+          ]
+        },
+        {
+          "title": "Remplacement du convertisseur DC/DC",
+          "description": "Ne touchez jamais aux câbles et composants orange : la haute tension (300 à 800 V) peut tuer. Toute intervention exige une habilitation électrique (B1VL/B2VL/BCL selon la norme NF C18-550) et la consignation du véhicule.",
+          "difficulty": 5,
+          "time_min": 90,
+          "time_max": 240,
+          "tools": [
+            "Habilitation électrique",
+            "Valise constructeur",
+            "Équipements de protection isolants"
+          ],
+          "steps": [
+            "Consignation",
+            "Remplacement",
+            "Contrôle de charge 12 V"
+          ],
+          "parts": [
+            {
+              "name": "Convertisseur DC/DC",
+              "query": "convertisseur DC DC",
+              "price_min": 300,
+              "price_max": 1200
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "P0A1F",
+      "title": "Défaut du calculateur de gestion de la batterie (BMS)",
+      "description": "Le calculateur qui surveille la batterie de traction (BMS / BECM) signale un défaut interne ou de communication.",
+      "system": "Véhicule électrique / hybride",
+      "severity": "high",
+      "drivable": "Prudence : la recharge ou la mise en route peut être bloquée. Faites contrôler rapidement.",
+      "how_it_works": "Le BMS mesure en permanence tensions, courants et températures des modules, équilibre les cellules et autorise la charge et la décharge. Sans lui, la batterie ne peut pas être exploitée en sécurité.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "Batterie 12 V faible ou cosses oxydées.",
+          "means": "Un BMS mal alimenté provoque de faux défauts : commencez par la 12 V."
+        },
+        {
+          "sense": "feel",
+          "tip": "Le défaut est apparu après une mise à jour logicielle ou un débranchement de la batterie 12 V.",
+          "means": "Réinitialisation ou mise à jour constructeur."
+        }
+      ],
+      "symptoms": [
+        "Recharge refusée",
+        "Voyant de défaut électrique"
+      ],
+      "components": [
+        "hv_battery",
+        "battery",
+        "can_bus"
+      ],
+      "causes": [
+        {
+          "text": "Alimentation 12 V du BMS",
+          "likelihood": 35
+        },
+        {
+          "text": "Logiciel (mise à jour constructeur)",
+          "likelihood": 30
+        },
+        {
+          "text": "BMS défectueux",
+          "likelihood": 35
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Contrôler la batterie 12 V",
+          "difficulty": 1,
+          "time_min": 10,
+          "time_max": 30,
+          "tools": [
+            "Multimètre"
+          ],
+          "steps": [
+            "Tension ≥ 12,4 V véhicule éteint",
+            "Nettoyer et serrer les cosses"
+          ],
+          "parts": []
+        },
+        {
+          "title": "Mise à jour ou remplacement du BMS",
+          "description": "Ne touchez jamais aux câbles et composants orange : la haute tension (300 à 800 V) peut tuer. Toute intervention exige une habilitation électrique (B1VL/B2VL/BCL selon la norme NF C18-550) et la consignation du véhicule.",
+          "difficulty": 5,
+          "time_min": 60,
+          "time_max": 240,
+          "tools": [
+            "Habilitation électrique",
+            "Valise constructeur",
+            "Équipements de protection isolants"
+          ],
+          "steps": [
+            "Mise à jour logicielle en concession",
+            "Remplacement du calculateur si nécessaire"
+          ],
+          "parts": []
+        }
+      ]
+    },
+    {
+      "code": "P0A3F",
+      "title": "Capteur de position du moteur de traction : défaut de circuit",
+      "description": "Le capteur (résolveur) qui mesure la position du rotor du moteur électrique envoie un signal anormal. L'onduleur en a besoin pour piloter le moteur.",
+      "system": "Véhicule électrique / hybride",
+      "severity": "high",
+      "drivable": "Risque de perte de traction. Roulez prudemment jusqu'à un garage, ou faites remorquer si le véhicule refuse d'avancer.",
+      "how_it_works": "Pour créer un champ magnétique tournant au bon moment, l'onduleur doit connaître la position exacte du rotor : c'est le rôle du résolveur, un capteur monté sur l'arbre du moteur.",
+      "sensory_checks": [
+        {
+          "sense": "feel",
+          "tip": "À-coups ou perte de puissance soudaine au démarrage.",
+          "means": "Signal de position perturbé."
+        },
+        {
+          "sense": "sight",
+          "tip": "Connecteur basse tension (petit, non orange) du moteur oxydé ou mal enclenché.",
+          "means": "Contact : peut se vérifier sans toucher à la haute tension, véhicule consigné."
+        }
+      ],
+      "symptoms": [
+        "Perte de traction",
+        "À-coups",
+        "Voyant de défaut électrique"
+      ],
+      "components": [
+        "drive_motor",
+        "inverter"
+      ],
+      "causes": [
+        {
+          "text": "Connecteur / faisceau du résolveur",
+          "likelihood": 45
+        },
+        {
+          "text": "Résolveur défectueux",
+          "likelihood": 40
+        },
+        {
+          "text": "Onduleur",
+          "likelihood": 15
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Contrôle et réparation du circuit du résolveur",
+          "description": "Ne touchez jamais aux câbles et composants orange : la haute tension (300 à 800 V) peut tuer. Toute intervention exige une habilitation électrique (B1VL/B2VL/BCL selon la norme NF C18-550) et la consignation du véhicule.",
+          "difficulty": 5,
+          "time_min": 60,
+          "time_max": 240,
+          "tools": [
+            "Habilitation électrique",
+            "Valise constructeur",
+            "Équipements de protection isolants"
+          ],
+          "steps": [
+            "Contrôle du faisceau",
+            "Remplacement du capteur ou du moteur selon la conception"
+          ],
+          "parts": []
+        }
+      ]
+    },
+    {
+      "code": "P0A78",
+      "title": "Performance de l'onduleur du moteur de traction",
+      "description": "L'onduleur, qui transforme le courant continu de la batterie en courant alternatif pour le moteur, signale un fonctionnement anormal (surchauffe, défaut de transistor).",
+      "system": "Véhicule électrique / hybride",
+      "severity": "high",
+      "drivable": "Puissance limitée ou véhicule immobilisé. Faites contrôler par un atelier habilité.",
+      "how_it_works": "L'onduleur hache des centaines d'ampères des milliers de fois par seconde. Il est refroidi par liquide : une pompe ou un niveau de liquide insuffisant le fait surchauffer.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "Niveau du vase de refroidissement de l'électronique (souvent distinct de celui du chauffage) entre MIN et MAX ?",
+          "means": "Niveau bas : surchauffe de l'onduleur."
+        },
+        {
+          "sense": "sound",
+          "tip": "Bourdonnement ou sifflement inhabituel à l'accélération.",
+          "means": "Onduleur ou moteur qui souffre."
+        }
+      ],
+      "symptoms": [
+        "Perte de puissance",
+        "Véhicule immobilisé"
+      ],
+      "components": [
+        "inverter",
+        "drive_motor",
+        "battery_coolant"
+      ],
+      "causes": [
+        {
+          "text": "Refroidissement de l'électronique (pompe, niveau)",
+          "likelihood": 40
+        },
+        {
+          "text": "Onduleur défaillant",
+          "likelihood": 45
+        },
+        {
+          "text": "Logiciel",
+          "likelihood": 15
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Contrôler le liquide de refroidissement de l'électronique",
+          "difficulty": 1,
+          "time_min": 5,
+          "time_max": 15,
+          "tools": [],
+          "steps": [
+            "Véhicule froid et éteint",
+            "Vérifier le niveau du vase dédié",
+            "Ne compléter qu'avec le liquide préconisé"
+          ],
+          "parts": [
+            {
+              "name": "Liquide de refroidissement (spécification constructeur)",
+              "query": "liquide de refroidissement",
+              "price_min": 8,
+              "price_max": 25
+            }
+          ]
+        },
+        {
+          "title": "Remplacement de l'onduleur",
+          "description": "Ne touchez jamais aux câbles et composants orange : la haute tension (300 à 800 V) peut tuer. Toute intervention exige une habilitation électrique (B1VL/B2VL/BCL selon la norme NF C18-550) et la consignation du véhicule.",
+          "difficulty": 5,
+          "time_min": 180,
+          "time_max": 480,
+          "tools": [
+            "Habilitation électrique",
+            "Valise constructeur",
+            "Équipements de protection isolants"
+          ],
+          "steps": [
+            "Consignation",
+            "Remplacement",
+            "Purge du circuit et essais"
+          ],
+          "parts": [
+            {
+              "name": "Onduleur (échange standard)",
+              "query": "onduleur véhicule électrique",
+              "price_min": 800,
+              "price_max": 3000
             }
           ]
         }

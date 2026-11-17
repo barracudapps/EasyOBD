@@ -29,6 +29,9 @@ pub struct AudioRequest {
     pub rpm_min: Option<f64>,
     #[serde(default)]
     pub rpm_max: Option<f64>,
+    /// Electric vehicle: no combustion rhythm; look for whines (reducer, bearings) and brake noises.
+    #[serde(default)]
+    pub electric: bool,
 }
 
 #[derive(Debug, Clone, Serialize)]
@@ -219,7 +222,7 @@ pub fn analyze(samples: &[f32], req: &AudioRequest) -> AudioReport {
     if level_db < -55.0 {
         return empty(vec!["Signal trop faible : rapprochez le micro du moteur.".into()]);
     }
-    if req.cylinders.is_none() {
+    if req.cylinders.is_none() && !req.electric {
         warnings.push("Nombre de cylindres inconnu : 4 supposés. Choisissez votre véhicule pour un régime plus juste.".into());
     }
     if sr < 22_000.0 {
@@ -247,7 +250,7 @@ pub fn analyze(samples: &[f32], req: &AudioRequest) -> AudioReport {
     let mut periodicity = 0.0;
     let mut misfire_index = None;
 
-    if lag_lo < lag_hi {
+    if lag_lo < lag_hi && !req.electric {
         let ac: Vec<(usize, f64)> = (lag_lo..=lag_hi).map(|l| (l, autocorr(&env, l))).collect();
         let best = ac.iter().map(|a| a.1).fold(f64::MIN, f64::max);
         // Smallest lag that is a local maximum close to the global best (avoids sub-harmonics).
@@ -282,7 +285,7 @@ pub fn analyze(samples: &[f32], req: &AudioRequest) -> AudioReport {
         }
         // If the cycle pattern dominates so much that the firing period was missed entirely,
         // look for a strong peak at cyl × lag in an extended range.
-        if firing_hz.is_none() && cyl >= 2 {
+        if firing_hz.is_none() && cyl >= 2 && !req.electric {
             let hi = (lag_hi * cyl as usize).min(env.len() / 3);
             let lo = lag_lo * cyl as usize;
             if lo < hi {
@@ -313,7 +316,7 @@ pub fn analyze(samples: &[f32], req: &AudioRequest) -> AudioReport {
         }),
         _ => {}
     }
-    if firing_hz.is_none() {
+    if firing_hz.is_none() && !req.electric {
         warnings.push("Pas de rythme moteur net : bruit de fond trop fort ou micro trop loin ?".into());
     }
 
@@ -327,7 +330,8 @@ pub fn analyze(samples: &[f32], req: &AudioRequest) -> AudioReport {
     let half_win = (150.0 / bin_hz).ceil() as usize;
     for k in 2..ps_db.len().saturating_sub(2) {
         let hz = k as f64 * bin_hz;
-        if hz < 800.0 || hz > sr / 2.0 * 0.95 {
+        let min_hz = if req.electric { 250.0 } else { 800.0 };
+        if hz < min_hz || hz > sr / 2.0 * 0.95 {
             continue;
         }
         if !(ps_db[k] > ps_db[k - 1] && ps_db[k] >= ps_db[k + 1]) {
@@ -350,6 +354,21 @@ pub fn analyze(samples: &[f32], req: &AudioRequest) -> AudioReport {
         let e: f64 = ps[k.saturating_sub(2)..(k + 3).min(ps.len())].iter().sum();
         e / total_power.max(1e-20)
     };
+    if req.electric {
+        if let Some(t) = tones.iter().find(|t| (250.0..1500.0).contains(&t.hz) && tone_energy_share(t) > 0.01) {
+            findings.push(AudioFinding {
+                id: "whine",
+                title: "Sifflement / ronronnement tonal",
+                confidence: ((t.prominence_db - 12.0) / 20.0).clamp(0.25, 0.85),
+                explanation: format!(
+                    "Note pure vers {:.0} Hz. Si elle monte avec la vitesse et change en accélération / décélération : réducteur ou moteur. \
+                     Si elle change surtout en virage : roulement de roue.",
+                    t.hz
+                ),
+                hypotheses: vec!["reducer_noise", "wheel_bearing"],
+            });
+        }
+    }
     if let Some(t) = tones.iter().find(|t| (1500.0..5000.0).contains(&t.hz) && tone_energy_share(t) > 0.01) {
         findings.push(AudioFinding {
             id: "squeal",
@@ -360,7 +379,7 @@ pub fn analyze(samples: &[f32], req: &AudioRequest) -> AudioReport {
                  S'il apparaît au freinage : témoin d'usure des plaquettes.",
                 t.hz
             ),
-            hypotheses: vec!["accessory_belt", "brake_wear"],
+            hypotheses: if req.electric { vec!["brake_wear", "brake_corrosion"] } else { vec!["accessory_belt", "brake_wear"] },
         });
     }
     if let Some(t) = tones.iter().find(|t| (5000.0..12_000.0).contains(&t.hz) && tone_energy_share(t) > 0.005) {
@@ -407,7 +426,7 @@ pub fn analyze(samples: &[f32], req: &AudioRequest) -> AudioReport {
     let p50 = percentile(&envelope(&hp, hop), 0.5);
     let p99 = percentile(&envelope(&hp, hop), 0.99);
     let crest = if p50 > 0.0 { p99 / p50 } else { 0.0 };
-    if crest > 4.0 {
+    if crest > 4.0 && !req.electric {
         // Periodic? Check the camshaft (half crank) and crank frequencies around the estimated RPM.
         let periodic = estimated_rpm
             .map(|rpm| {
@@ -436,7 +455,7 @@ pub fn analyze(samples: &[f32], req: &AudioRequest) -> AudioReport {
         let m = slow.iter().sum::<f64>() / slow.len() as f64;
         let sd = (slow.iter().map(|v| (v - m).powi(2)).sum::<f64>() / slow.len() as f64).sqrt();
         let cv = sd / m.max(1e-12);
-        if cv > 0.25 && !findings.iter().any(|f| f.id == "misfire") {
+        if cv > 0.25 && !req.electric && !findings.iter().any(|f| f.id == "misfire") {
             findings.push(AudioFinding {
                 id: "unstable",
                 title: "Régime / volume instable",
@@ -523,7 +542,7 @@ mod tests {
     }
 
     fn req(cyl: u32) -> AudioRequest {
-        AudioRequest { sample_rate: SR, cylinders: Some(cyl), rpm_min: Some(600.0), rpm_max: Some(1100.0) }
+        AudioRequest { sample_rate: SR, cylinders: Some(cyl), rpm_min: Some(600.0), rpm_max: Some(1100.0), electric: false }
     }
 
     #[test]
@@ -552,6 +571,21 @@ mod tests {
         let r = analyze(&s, &req(4));
         assert!(r.findings.iter().any(|f| f.id == "squeal"), "{:?} tones {:?}", r.findings, r.tones);
         assert!(r.tones.iter().any(|t| (t.hz - 3200.0).abs() < 20.0));
+    }
+
+    #[test]
+    fn electric_whine() {
+        let mut seed: u32 = 7;
+        let s: Vec<f32> = (0..(SR as usize * 5))
+            .map(|i| {
+                seed = seed.wrapping_mul(1_103_515_245).wrapping_add(12_345);
+                0.1 * (2.0 * std::f32::consts::PI * 620.0 * i as f32 / SR).sin() + ((seed >> 16) as f32 / 32768.0 - 1.0) * 0.03
+            })
+            .collect();
+        let r = analyze(&s, &AudioRequest { sample_rate: SR, cylinders: None, rpm_min: None, rpm_max: None, electric: true });
+        assert!(r.findings.iter().any(|f| f.id == "whine"), "{:?}", r.findings);
+        assert!(r.estimated_rpm.is_none());
+        assert!(!r.warnings.iter().any(|w| w.contains("cylindres")));
     }
 
     #[test]

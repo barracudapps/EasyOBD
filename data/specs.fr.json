@@ -1,0 +1,137 @@
+{
+  "version": "2026.11.1",
+  "disclaimer": "Les valeurs « typiques » couvrent la majorité des véhicules de la catégorie mais ne remplacent pas la documentation constructeur (carnet, manuel du propriétaire, base technique). En cas de doute, la valeur constructeur prime toujours.",
+  "typical": {
+    "car": {
+      "coolant_l": "5 – 7 L",
+      "brake_fluid": { "type": "DOT 4 (souvent « DOT 4 Class 6 / LV » sur les véhicules avec ESP)", "qty": "0,8 – 1,0 L pour une purge complète", "interval": "Tous les 2 ans" },
+      "gearbox": "Boîte manuelle : 1,6 – 2,2 L de 75W80 ou 75W90 GL-4 (selon norme constructeur) · Boîte automatique : huile ATF spécifique, vidange en atelier",
+      "torques": [
+        ["Écrous / vis de roue", "100 – 140 N·m", "Serrer en étoile, à la main puis à la clé dynamométrique, véhicule au sol."],
+        ["Bouchon de vidange (carter alu)", "25 – 35 N·m", "Toujours avec un joint neuf ; un carter alu se foire vite."],
+        ["Bougies d'allumage (M12/M14, siège plat)", "20 – 28 N·m", "Bougies à siège conique : 15 – 20 N·m."],
+        ["Vis de guide d'étrier", "25 – 35 N·m", "Souvent avec frein-filet préappliqué : vis neuves recommandées."],
+        ["Vis de support d'étrier avant", "80 – 120 N·m", "Vis neuves si microencapsulées."],
+        ["Vis de fixation de disque", "8 – 12 N·m", "Simple vis de maintien, ne pas forcer."],
+        ["Filtre à huile (cartouche vissée)", "Serrage à la main + 3/4 de tour", "Couvercle de boîtier plastique : 25 N·m le plus souvent."],
+        ["Écrou supérieur d'amortisseur", "40 – 65 N·m", "Véhicule sur ses roues pour serrer les silentblocs de bras."]
+      ],
+      "adblue_l": "Diesels Euro 6 récents : réservoir de 12 à 20 L"
+    },
+    "van": {
+      "coolant_l": "8 – 11 L",
+      "brake_fluid": { "type": "DOT 4", "qty": "1,0 – 1,2 L pour une purge complète", "interval": "Tous les 2 ans" },
+      "gearbox": "Boîte manuelle : 2 – 2,5 L de 75W80 / 75W90 selon norme",
+      "torques": [
+        ["Écrous / vis de roue", "160 – 200 N·m", "Utilitaires lourds (Sprinter, Master, Ducato) : souvent 180 N·m et plus."],
+        ["Bouchon de vidange", "30 – 40 N·m", "Joint neuf."],
+        ["Vis de guide d'étrier", "25 – 35 N·m", ""],
+        ["Vis de support d'étrier avant", "150 – 250 N·m", ""]
+      ],
+      "adblue_l": "Réservoir de 15 à 25 L"
+    },
+    "motorcycle": {
+      "coolant_l": "1,2 – 2,5 L (moteurs refroidis par liquide)",
+      "brake_fluid": { "type": "DOT 4 (DOT 5.1 accepté par la plupart des constructeurs)", "qty": "0,25 – 0,5 L pour les deux circuits", "interval": "Tous les 2 ans" },
+      "gearbox": "Boîte lubrifiée par l'huile moteur (sauf boxers BMW, Harley-Davidson, Moto Guzzi : huile de boîte séparée)",
+      "torques": [
+        ["Axe de roue avant", "60 – 100 N·m", "Pincement de fourche : 20 – 25 N·m."],
+        ["Écrou d'axe de roue arrière", "90 – 130 N·m", ""],
+        ["Bouchon de vidange", "20 – 30 N·m", "Joint neuf."],
+        ["Vis d'étrier radial", "40 – 50 N·m", ""],
+        ["Bougie d'allumage", "12 – 18 N·m", ""],
+        ["Vis de disque de frein", "20 – 30 N·m", "Frein-filet moyen, vis souvent à usage unique."]
+      ],
+      "adblue_l": null
+    },
+    "truck": {
+      "coolant_l": "40 – 60 L",
+      "brake_fluid": { "type": "Freinage pneumatique (pas de liquide) ; embrayage hydraulique : huile minérale ou DOT 4 selon constructeur", "qty": "—", "interval": "Purge quotidienne des réservoirs d'air, dessiccateur à remplacer chaque année" },
+      "gearbox": "Boîte : 12 – 16 L d'huile de boîte poids lourd selon constructeur",
+      "torques": [
+        ["Écrous de roue (M22×1,5)", "600 – 650 N·m", "Resserrer après 50 à 100 km. Indicateurs de desserrage conseillés."],
+        ["Bouchon de vidange", "60 – 100 N·m", ""]
+      ],
+      "adblue_l": "Réservoir de 40 à 90 L"
+    }
+  },
+  "electric": {
+    "coolant_l": "Circuit batterie / électronique : 6 – 12 L, liquide spécifique faible conductivité (atelier)",
+    "gearbox": "Réducteur : 0,7 – 1,5 L d'huile spécifique (souvent à vie ou 150 000 km)",
+    "note": "Pas d'huile moteur ni de bougies. Pièces d'usure : pneus, freins, batterie basse tension, filtre d'habitacle, balais d'essuie-glace, liquide de frein."
+  },
+  "wheel_torque_by_make": {
+    "Tesla": "175 N·m (Model 3 / Y)",
+    "BMW": "140 N·m",
+    "Mini": "140 N·m",
+    "Mercedes-Benz": "130 N·m (150 N·m sur certains modèles)",
+    "Volkswagen": "120 – 140 N·m selon génération (140 N·m sur les plateformes récentes)",
+    "Audi": "120 – 140 N·m selon génération",
+    "Skoda": "120 – 140 N·m selon génération",
+    "Seat": "120 – 140 N·m selon génération",
+    "Cupra": "140 N·m",
+    "Renault": "105 – 110 N·m",
+    "Dacia": "105 – 110 N·m",
+    "Peugeot": "100 N·m",
+    "Citroën": "100 N·m",
+    "DS": "100 N·m",
+    "Opel": "110 – 130 N·m",
+    "Toyota": "103 N·m",
+    "Ford": "135 N·m"
+  },
+  "part_advice": [
+    { "keywords": ["plaquette", "disque"], "label": "Freinage",
+      "options": [
+        { "label": "Équipementier d'origine (Bosch, TRW, ATE, Brembo, Textar)", "compatibility": "equivalent", "saving": "20 – 40 %", "note": "Souvent la même pièce que celle du constructeur, sans le logo." },
+        { "label": "Adaptable économique homologué ECE R90", "compatibility": "compatible", "saving": "40 – 60 %", "note": "Exigez le marquage ECE R90. Plus de bruit ou de poussière possibles." },
+        { "label": "Pièce sans homologation ECE R90", "compatibility": "forbidden", "saving": null, "note": "Organe de sécurité : jamais de pièce non homologuée." }
+      ] },
+    { "keywords": ["filtre"], "label": "Filtration",
+      "options": [
+        { "label": "Mann, Mahle, Bosch, Purflux, Hengst (qualité d'origine)", "compatibility": "equivalent", "saving": "30 – 50 %", "note": "Ce sont les fabricants des filtres d'origine." },
+        { "label": "Premier prix", "compatibility": "compatible", "saving": "50 – 70 %", "note": "Acceptable pour l'habitacle ou l'air ; restez sur une marque reconnue pour l'huile et le carburant." }
+      ] },
+    { "keywords": ["bougie d'allumage"], "label": "Allumage",
+      "options": [
+        { "label": "NGK, Bosch, Denso, même référence que l'origine", "compatibility": "equivalent", "saving": "20 – 40 %", "note": "Respectez la technologie : iridium ou platine si c'est l'origine (intervalle de remplacement long)." },
+        { "label": "Bougie nickel à la place d'une iridium", "compatibility": "discouraged", "saving": "50 %", "note": "Moins chère mais à remplacer 2 à 3 fois plus souvent ; ratés possibles sur moteur turbo." }
+      ] },
+    { "keywords": ["bougie de préchauffage"], "label": "Préchauffage",
+      "options": [
+        { "label": "Beru, NGK, Bosch, Champion (équipementiers d'origine)", "compatibility": "equivalent", "saving": "20 – 40 %", "note": "Même tension et même longueur que l'origine." }
+      ] },
+    { "keywords": ["batterie"], "label": "Batterie",
+      "options": [
+        { "label": "Même technologie (AGM / EFB / classique), capacité égale ou supérieure, marque générique", "compatibility": "equivalent", "saving": "20 – 40 %", "note": "Start & Stop : AGM ou EFB obligatoire. Batterie lithium d'origine (certains véhicules électriques) : pièce constructeur uniquement." },
+        { "label": "Batterie classique à la place d'une AGM/EFB", "compatibility": "forbidden", "saving": null, "note": "Usure très rapide et dysfonctionnements du Start & Stop." }
+      ] },
+    { "keywords": ["liquide de refroidissement"], "label": "Refroidissement",
+      "options": [
+        { "label": "Même technologie (OAT / Si-OAT / HOAT) et même norme (ex. G12evo, G13, Renault Type D), marque générique", "compatibility": "equivalent", "saving": "30 – 50 %", "note": "La couleur ne fait pas la norme : lisez l'étiquette." },
+        { "label": "Mélanger deux technologies différentes", "compatibility": "forbidden", "saving": null, "note": "Risque de dépôts (gel) et de corrosion du circuit." }
+      ] },
+    { "keywords": ["liquide de frein"], "label": "Liquide de frein",
+      "options": [
+        { "label": "DOT 4 ou DOT 5.1 (base glycol), marque générique", "compatibility": "equivalent", "saving": "30 – 50 %", "note": "Miscibles et compatibles. DOT 4 « Class 6 / LV » si le constructeur l'exige (ESP)." },
+        { "label": "DOT 5 (silicone)", "compatibility": "forbidden", "saving": null, "note": "Incompatible avec les circuits glycol : joints détruits." }
+      ] },
+    { "keywords": ["amortisseur"], "label": "Suspension",
+      "options": [
+        { "label": "Monroe, Sachs, Bilstein, KYB (équipementiers)", "compatibility": "equivalent", "saving": "20 – 40 %", "note": "Toujours par paire sur un même essieu." }
+      ] },
+    { "keywords": ["sonde lambda", "capteur", "débitmètre"], "label": "Capteurs",
+      "options": [
+        { "label": "Bosch, NTK/NGK, Denso, Continental/VDO (fabricants d'origine)", "compatibility": "equivalent", "saving": "20 – 40 %", "note": "Préférez la marque qui équipait le véhicule d'origine (inscrite sur l'ancienne pièce)." },
+        { "label": "Capteur premier prix", "compatibility": "discouraged", "saving": "50 – 70 %", "note": "Retours fréquents, signaux imprécis : économie souvent illusoire." }
+      ] },
+    { "keywords": ["catalyseur", "filtre à particules"], "label": "Dépollution",
+      "options": [
+        { "label": "Adaptable homologué (marquage E + numéro d'homologation)", "compatibility": "compatible", "saving": "40 – 70 %", "note": "Exigez l'homologation pour votre véhicule : sinon refus au contrôle technique." }
+      ] },
+    { "keywords": ["turbo", "injecteur", "alternateur", "calculateur", "bloc abs", "onduleur", "pompe à carburant"], "label": "Échange standard",
+      "options": [
+        { "label": "Échange standard / reconditionné garanti", "compatibility": "equivalent", "saving": "30 – 60 %", "note": "Pièce remise à neuf avec garantie (souvent 1 à 2 ans), ancienne pièce consignée." },
+        { "label": "Pièce d'occasion (casse)", "compatibility": "discouraged", "saving": "60 – 80 %", "note": "Sans garantie ; codage parfois nécessaire (injecteurs, calculateurs)." }
+      ] }
+  ]
+}

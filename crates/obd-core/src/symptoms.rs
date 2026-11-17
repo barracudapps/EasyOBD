@@ -24,6 +24,19 @@ pub struct AnswerOption {
     pub note: Option<String>,
 }
 
+/// Display condition on another question's answer (e.g. only for electric vehicles).
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct Condition {
+    pub question: String,
+    pub options: Vec<String>,
+}
+
+impl Condition {
+    fn matches(&self, answers: &HashMap<String, Vec<String>>) -> bool {
+        answers.get(&self.question).is_some_and(|a| a.iter().any(|o| self.options.contains(o)))
+    }
+}
+
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct Question {
     pub id: String,
@@ -33,6 +46,17 @@ pub struct Question {
     #[serde(default)]
     pub help: Option<String>,
     pub options: Vec<AnswerOption>,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub show_if: Option<Condition>,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub hide_if: Option<Condition>,
+}
+
+impl Question {
+    /// Whether the question applies given the answers so far.
+    pub fn visible(&self, answers: &HashMap<String, Vec<String>>) -> bool {
+        self.show_if.as_ref().is_none_or(|c| c.matches(answers)) && !self.hide_if.as_ref().is_some_and(|c| c.matches(answers))
+    }
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -120,7 +144,7 @@ impl SymptomGuide {
     pub fn evaluate(&self, kb: &KnowledgeBase, answers: &HashMap<String, Vec<String>>, extra: &[ExtraEvidence]) -> Evaluation {
         let mut scores: HashMap<&str, (f64, Vec<String>)> = HashMap::new();
         let mut notes = Vec::new();
-        for q in &self.questions {
+        for q in self.questions.iter().filter(|q| q.visible(answers)) {
             let Some(selected) = answers.get(&q.id) else { continue };
             for opt in q.options.iter().filter(|o| selected.contains(&o.id)) {
                 if let Some(n) = &opt.note {
@@ -227,6 +251,15 @@ mod tests {
         let e = g.evaluate(kb, &answers(&[("smoke", &["white_thin"])]), &[]);
         assert!(e.hypotheses.is_empty());
         assert_eq!(e.notes.len(), 1);
+
+        // Electric vehicle: engine hypotheses are excluded, EV ones come up.
+        let e = g.evaluate(kb, &answers(&[("fuel", &["electric"]), ("behaviour", &["no_ready"]), ("noises", &["slow_crank", "whine_speed"])]), &[]);
+        assert_eq!(e.hypotheses[0].id, "ev_12v");
+        assert!(e.hypotheses.iter().all(|h| h.id != "misfire_ignition" && h.id != "alternator"));
+        assert!(e.hypotheses.iter().any(|h| h.id == "reducer_noise"));
+        // Smoke answers are ignored for an EV (question hidden).
+        let e = g.evaluate(kb, &answers(&[("fuel", &["electric"]), ("smoke", &["blue"])]), &[]);
+        assert!(e.hypotheses.is_empty());
 
         let extra = [ExtraEvidence { hypothesis: "accessory_belt".into(), weight: 8.0, label: "Audio : couinement tonal".into() }];
         let e = g.evaluate(kb, &HashMap::new(), &extra);

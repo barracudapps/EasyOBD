@@ -11,7 +11,9 @@ use serde_json::{json, Value};
 use crate::audio::{self, AudioRequest};
 use crate::detect::{self, ConnKind, ConnectionSpec, DiscoverOptions};
 use crate::knowledge::KnowledgeBase;
+use crate::inspection::Inspection;
 use crate::maintenance::{Maintenance, VehicleProfile};
+use crate::specs::Specs;
 use crate::symptoms::{ExtraEvidence, SymptomGuide};
 use crate::uds::{self, WriteRecord};
 use crate::vin::VehicleInfo;
@@ -143,7 +145,46 @@ impl Session {
                 let p: VehicleProfile = arg(args, "profile")?;
                 let t = maint.tutorial_for(&id, &p).ok_or("tutoriel introuvable")?;
                 let list = maint.shopping_list(kb, &id, &p);
-                Ok(json!({ "tutorial": t, "shopping": list }))
+                let specs = Specs::embedded();
+                let alternatives: Vec<Value> = list
+                    .as_ref()
+                    .map(|l| l.items.iter().map(|i| json!(specs.alternatives_for(&i.name, &p))).collect())
+                    .unwrap_or_default();
+                Ok(json!({ "tutorial": t, "shopping": list, "alternatives": alternatives }))
+            }
+
+            "vehicle_sheet" => {
+                let p: VehicleProfile = arg(args, "profile")?;
+                to_value(Specs::embedded().sheet(&p))
+            }
+            "inspection_guide" => {
+                let p: VehicleProfile = arg(args, "profile")?;
+                to_value(Inspection::embedded().guide(&p))
+            }
+            "inspection_precheck" => {
+                let elm = self.elm()?;
+                let monitor = elm.monitor_status().map_err(e)?;
+                let readiness = elm.readiness().map_err(e)?;
+                let dtcs = elm.read_all_dtcs().map_err(e)?;
+                let incomplete = readiness.iter().filter(|m| !m.complete).count();
+                let mil = monitor.map(|m| m.mil_on).unwrap_or(false);
+                let mut advice = Vec::new();
+                if mil {
+                    advice.push("Voyant moteur allumé : défaillance majeure au contrôle technique. Réparez avant de vous présenter.".to_string());
+                }
+                if !dtcs.is_empty() && !mil {
+                    advice.push("Des codes sont enregistrés sans voyant : consultez-les, ils annoncent souvent un futur voyant.".to_string());
+                }
+                if incomplete > 0 {
+                    advice.push(format!(
+                        "{incomplete} autodiagnostic(s) non terminé(s) : les codes ont probablement été effacés récemment. Roulez 50 à 150 km \
+                         (ville + voie rapide) avant le contrôle pour qu'ils se terminent."
+                    ));
+                }
+                if advice.is_empty() {
+                    advice.push("Tout est en ordre côté calculateur moteur.".to_string());
+                }
+                Ok(json!({ "mil_on": mil, "dtcs": dtcs, "readiness": readiness, "ready": !mil && dtcs.is_empty() && incomplete == 0, "advice": advice }))
             }
 
             // ---- Symptom questionnaire & audio --------------------------------------------------
@@ -234,6 +275,15 @@ mod tests {
         let p = &Maintenance::embedded().profiles[0];
         let t = s.handle("tutorial", &json!({ "id": "oil_change", "profile": p })).unwrap();
         assert!(t["shopping"]["items"].as_array().unwrap().len() >= 3);
+        assert!(t["alternatives"][0].as_array().unwrap().len() >= 1);
+        assert!(s.handle("vehicle_sheet", &json!({ "profile": p })).unwrap()["sections"].as_array().unwrap().len() >= 4);
+        assert!(s.handle("inspection_guide", &json!({ "profile": p })).unwrap()["sections"].as_array().unwrap().len() >= 5);
+        let pre = s.handle("inspection_precheck", &Value::Null).unwrap();
+        assert_eq!(pre["ready"], false); // misfire code stored
+        s.handle("clear_dtcs", &Value::Null).unwrap();
+        let pre = s.handle("inspection_precheck", &Value::Null).unwrap();
+        assert_eq!(pre["ready"], false); // monitors reset by the clear
+        assert!(pre["advice"][0].as_str().unwrap().contains("autodiagnostic"));
         assert!(s.handle("bogus", &Value::Null).is_err());
     }
 }

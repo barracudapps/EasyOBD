@@ -87,6 +87,9 @@ pub fn simulator_for(s: &Scenario) -> Simulator {
         "Volkswagen" => "WVWZZZAUZHW100005",
         "Toyota" => "VNKKD3D3X0A100006",
         "Ford" => "WF0DXXGAKDH100007",
+        "Tesla" => "LRW3E7EK0NC100008",
+        "Kia" => "KNADB812AM6100009",
+        "Hyundai" => "KMHK381GFNU100010",
         _ => "VF1RFB00X6W123456",
     };
     let dtcs = s.codes.iter().map(|c| Dtc { code: c.code.clone(), kind: c.kind }).collect();
