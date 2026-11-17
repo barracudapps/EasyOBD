@@ -70,5 +70,86 @@
    "license": "CC BY-SA 3.0",
    "source": "https://commons.wikimedia.org/wiki/File:Double_valve_automotive_thermostat.jpg"
   }
+ ],
+ "clutch_slave": [
+  {
+   "file": "nehmerzylinder-img-6706.jpg",
+   "alt": "Cylindre récepteur d'embrayage (avec soufflet)",
+   "credit": "Hans Haase",
+   "license": "CC BY-SA 4.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Nehmerzylinder_IMG_6706.JPG"
+  }
+ ],
+ "glow_plugs": [
+  {
+   "file": "glow-plug.jpg",
+   "alt": "Bougie de préchauffage usagée",
+   "credit": "Donar Reiskoffer",
+   "license": "CC BY 3.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Glow_plug.JPG"
+  }
+ ],
+ "dpf": [
+  {
+   "file": "diesel-particulate-filter-01.jpg",
+   "alt": "Filtre à particules en coupe",
+   "credit": "Hatsukari715",
+   "license": "Public domain",
+   "source": "https://commons.wikimedia.org/wiki/File:Diesel_particulate_filter_01.JPG"
+  }
+ ],
+ "turbo": [
+  {
+   "file": "turbocharger-3.jpg",
+   "alt": "Turbocompresseur et collecteur",
+   "credit": "Tiia Monto",
+   "license": "CC BY 4.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Turbocharger_3.jpg"
+  }
+ ],
+ "timing_chain": [
+  {
+   "file": "camshaft-driving-chain-steuerkette-bmw-r1300-gs.jpg",
+   "alt": "Chaîne de distribution (vue en coupe d'un moteur BMW)",
+   "credit": "Wikisympathisant",
+   "license": "CC BY-SA 4.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Camshaft-driving-chain_Steuerkette_BMW_R1300-GS.jpg"
+  }
+ ],
+ "dipstick": [
+  {
+   "file": "engine-oil-dipstick-reading-level.jpg",
+   "alt": "Lecture du niveau d'huile à la jauge, sur papier blanc",
+   "credit": "Dvortygirl",
+   "license": "CC BY-SA 3.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Engine_oil_dipstick_reading_level.JPG"
+  }
+ ],
+ "cabin_filter": [
+  {
+   "file": "a-dirty-cabin-filter.jpg",
+   "alt": "Filtre d'habitacle encrassé (feuilles, poussière)",
+   "credit": "UnifiedFunctionality",
+   "license": "CC BY-SA 4.0",
+   "source": "https://commons.wikimedia.org/wiki/File:A_dirty_cabin_filter.jpg"
+  }
+ ],
+ "sprocket_front": [
+  {
+   "file": "pignoni-50-cc.jpg",
+   "alt": "Pignon de sortie usé (à gauche) et neuf (à droite)",
+   "credit": "A7N8X",
+   "license": "CC BY 3.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Pignoni_50_cc.jpg"
+  }
+ ],
+ "injector": [
+  {
+   "file": "changing-a-fuel-injector-while-performing-maintenance-on-a-car-engine.jpg",
+   "alt": "Remplacement d'un injecteur",
+   "credit": "Shixart1985",
+   "license": "CC BY 2.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Changing_a_fuel_injector_while_performing_maintenance_on_a_car_engine.jpg"
+  }
  ]
 }

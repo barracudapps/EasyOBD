@@ -40,6 +40,51 @@
       "component": "thermostat",
       "file": "File:Double valve automotive thermostat.jpg",
       "alt": "Thermostat de refroidissement"
+    },
+    {
+      "component": "clutch_slave",
+      "file": "File:Nehmerzylinder IMG 6706.JPG",
+      "alt": "Cylindre récepteur d'embrayage (avec soufflet)"
+    },
+    {
+      "component": "glow_plugs",
+      "file": "File:Glow plug.JPG",
+      "alt": "Bougie de préchauffage usagée"
+    },
+    {
+      "component": "dpf",
+      "file": "File:Diesel particulate filter 01.JPG",
+      "alt": "Filtre à particules en coupe"
+    },
+    {
+      "component": "turbo",
+      "file": "File:Turbocharger 3.jpg",
+      "alt": "Turbocompresseur et collecteur"
+    },
+    {
+      "component": "timing_chain",
+      "file": "File:Camshaft-driving-chain Steuerkette BMW R1300-GS.jpg",
+      "alt": "Chaîne de distribution (vue en coupe d'un moteur BMW)"
+    },
+    {
+      "component": "dipstick",
+      "file": "File:Engine oil dipstick reading level.JPG",
+      "alt": "Lecture du niveau d'huile à la jauge, sur papier blanc"
+    },
+    {
+      "component": "cabin_filter",
+      "file": "File:A dirty cabin filter.jpg",
+      "alt": "Filtre d'habitacle encrassé (feuilles, poussière)"
+    },
+    {
+      "component": "sprocket_front",
+      "file": "File:Pignoni 50 cc.jpg",
+      "alt": "Pignon de sortie usé (à gauche) et neuf (à droite)"
+    },
+    {
+      "component": "injector",
+      "file": "File:Changing a fuel injector while performing maintenance on a car engine.jpg",
+      "alt": "Remplacement d'un injecteur"
     }
   ]
 }
