@@ -166,17 +166,20 @@
         {#each shopping.items as i, idx}
           <div class="item" class:done={bought[i.name]}>
             <button class="check" aria-label="Acheté" onclick={() => toggleBought(i.name)}>{#if bought[i.name]}<Icon name="check" size={14} />{/if}</button>
-            <div class="grow">
-              <div><strong>{i.qty} {i.unit}</strong> · {i.name} {#if i.optional}<span class="pill tiny">optionnel</span>{/if}</div>
-              <div class="small muted">{fmt.eur(i.price_min, i.price_max)}
-                {#if !i.qty_known}<span class="warnq"> · quantité à vérifier dans le carnet d'entretien</span>{/if}</div>
+            <div class="info">
+              <div class="iname">{i.name} {#if i.optional}<span class="pill tiny">optionnel</span>{/if}</div>
+              <div class="imeta small">
+                <span class="qty">{i.qty} {i.unit}</span>
+                <span class="price">{fmt.eur(i.price_min, i.price_max)}</span>
+                {#if !i.qty_known}<span class="pill tiny sev-medium" title="Contenance non renseignée pour ce modèle : vérifiez le carnet d'entretien">quantité à vérifier</span>{/if}
+              </div>
             </div>
-            <div class="row">
+            <div class="shops">
               {#each i.links as l}
-                <button class="btn sm shop" style="--shop:{l.color ?? 'var(--accent)'}" onclick={() => openUrl(l.url)}>{l.name} <Icon name="external" size={12} /></button>
+                <button class="chip-shop" style="--shop:{l.color ?? 'var(--accent)'}" onclick={() => openUrl(l.url)}>{l.name}<Icon name="external" size={11} /></button>
               {/each}
               {#if alternatives[idx]?.length}
-                <button class="btn sm ghost" onclick={() => (openAlt = openAlt === idx ? null : idx)}><Icon name="euro" size={13} /> Moins cher ?</button>
+                <button class="chip-alt" class:on={openAlt === idx} onclick={() => (openAlt = openAlt === idx ? null : idx)}><Icon name="euro" size={12} /> Moins cher ?</button>
               {/if}
             </div>
             {#if openAlt === idx}<div class="altwrap"><Alternatives items={alternatives[idx]} /></div>{/if}
@@ -206,11 +209,19 @@
   .sdot { width: 30px; height: 30px; border-radius: 50%; border: 1px solid var(--border-2); background: var(--panel-2); cursor: pointer; font-weight: 700; font-size: 0.8rem; }
   .sdot.done { border-color: var(--accent); color: var(--accent); }
   .sdot.on { background: var(--grad); color: #06121c; border: none; }
-  .item { display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; padding: 0.65rem 0; border-bottom: 1px solid var(--border); }
-  .item.done .grow { opacity: 0.5; text-decoration: line-through; }
-  .check { width: 24px; height: 24px; border-radius: 7px; border: 1px solid var(--border-2); background: var(--panel-2); display: grid; place-items: center; cursor: pointer; color: var(--ok); }
-  .shop { border-color: color-mix(in srgb, var(--shop) 55%, transparent); }
-  .warnq { color: var(--medium); }
+  .item { display: grid; grid-template-columns: 26px 1fr; column-gap: 0.75rem; row-gap: 0.45rem; padding: 0.8rem 0; border-bottom: 1px solid var(--border); align-items: start; }
+  .item .info, .item .shops, .item .altwrap { grid-column: 2; }
+  .item.done .info { opacity: 0.5; text-decoration: line-through; }
+  .iname { font-weight: 650; line-height: 1.35; }
+  .imeta { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; color: var(--muted); margin-top: 0.15rem; }
+  .imeta .qty { color: var(--text); font-weight: 600; }
+  .shops { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+  .chip-shop, .chip-alt { display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.28rem 0.6rem; border-radius: 8px; font-size: 0.78rem; font-weight: 600; cursor: pointer; background: transparent; color: var(--text);
+    border: 1px solid color-mix(in srgb, var(--shop, var(--accent)) 45%, transparent); }
+  .chip-shop:hover { background: color-mix(in srgb, var(--shop) 15%, transparent); border-color: var(--shop); }
+  .chip-alt { border-color: var(--border-2); color: var(--muted); }
+  .chip-alt:hover, .chip-alt.on { color: var(--accent); border-color: var(--accent); }
+  .check { margin-top: 0.1rem; width: 24px; height: 24px; border-radius: 7px; border: 1px solid var(--border-2); background: var(--panel-2); display: grid; place-items: center; cursor: pointer; color: var(--ok); }
   .altwrap { flex-basis: 100%; }
   .srcpill { color: var(--accent); }
   .totals { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; }

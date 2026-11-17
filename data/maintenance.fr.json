@@ -4344,7 +4344,8 @@
           "round_up": true,
           "unit": "L",
           "price_min": 7,
-          "price_max": 14
+          "price_max": 14,
+          "qty": 5
         },
         {
           "name": "Filtre à huile",
@@ -5219,7 +5220,8 @@
           "round_up": true,
           "unit": "L",
           "price_min": 9,
-          "price_max": 18
+          "price_max": 18,
+          "qty": 3
         },
         {
           "name": "Filtre à huile moto",
@@ -5537,7 +5539,8 @@
           "round_up": true,
           "unit": "L",
           "price_min": 5,
-          "price_max": 10
+          "price_max": 10,
+          "qty": 35
         },
         {
           "name": "Filtres à huile PL (kit)",

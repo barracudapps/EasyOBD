@@ -380,10 +380,26 @@ function carLike(spec: VehicleSpec, big: boolean): THREE.Group {
   b.add('can_bus', tube([[ex - 0.55, ey + 0.2, -W + 0.3], [ex - 0.9, 0.9, -0.2], [ex - 1.0, 0.95, 0.3], [ex - 0.5, ey + 0.1, W - 0.2]], 0.01, 0xf59e0b));
   b.add('can_bus', tube([[ex - 1.0, 0.95, 0], [axleR + 0.3, 0.6, 0.0], [axleR, wr + 0.2, W - 0.2]], 0.01, 0xf59e0b));
 
+  // Cabin controls and safety
+  const wheelX = ex - 0.95;
+  const sw = new THREE.Mesh(new THREE.TorusGeometry(0.17, 0.025, 10, 32), mat(0x111827, { roughness: 0.7 }));
+  sw.rotation.y = Math.PI / 2;
+  sw.rotation.x = 0.35;
+  b.add('airbag', at(sw, wheelX, 0.98, W - 0.45));
+  b.add('airbag', at(tf(cyl(0.07, 0.07, 0.05, 0x1f2937), { rotation: [0, 0, Math.PI / 2 - 0.35] }), wheelX + 0.02, 0.98, W - 0.45));
+  b.add('steering_angle', at(tf(cyl(0.05, 0.05, 0.04, 0x10b981), { rotation: [0, 0, Math.PI / 2 - 0.35] }), wheelX + 0.12, 0.93, W - 0.45));
+  b.add('accelerator_pedal', at(box(0.04, 0.12, 0.06, 0x374151, 0.01), ex - 0.75, 0.42, W - 0.62));
+  b.add('brake_switch', at(box(0.05, 0.13, 0.08, 0x111827, 0.01), ex - 0.75, 0.44, W - 0.45));
+  b.add('brake_switch', at(cyl(0.015, 0.015, 0.05, 0x10b981), ex - 0.7, 0.55, W - 0.45));
+  b.add('ac_compressor', at(tf(cyl(0.07, 0.07, 0.14, 0x9ca3af), { rotation: [Math.PI / 2, 0, 0] }), ex + 0.2, 0.42, -0.35));
+
   if (electric) {
     evPowertrain(b, { L, W, wr, axleF, axleR, driven });
     return b.root;
   }
+  b.add('starter', at(tf(cyl(0.05, 0.05, 0.18, 0x6b7280), { rotation: [Math.PI / 2, 0, 0] }), ex - 0.18, 0.45, Math.max(spec.cylinders * 0.055, 0.2) + 0.12));
+  b.add('swirl_flaps', at(box(0.05, 0.05, spec.cylinders * 0.11, 0xa16207, 0.01), ex - 0.24, ey + 0.13, 0));
+  b.add('egt_sensor', at(cyl(0.012, 0.012, 0.08, 0xf472b6), axleF - 0.62, 0.32, -0.12));
 
   // ---- Combustion / hybrid powertrain (transverse engine)
   engine(b, ex, ey, spec.cylinders, spec.fuel);
@@ -415,6 +431,8 @@ function carLike(spec: VehicleSpec, big: boolean): THREE.Group {
   b.add('o2_sensor_downstream', at(cyl(0.015, 0.015, 0.08, 0xf472b6), axleF - 1.03, yUnder + 0.08, -0.12));
   const dpfX = axleF - 1.35;
   if (spec.fuel === 'diesel') {
+    b.add('nox_sensor', at(box(0.06, 0.04, 0.05, 0x10b981, 0.01), dpfX - 0.3, yUnder + 0.1, -0.2));
+    b.add('egt_sensor', at(cyl(0.012, 0.012, 0.08, 0xf472b6), dpfX + 0.24, yUnder + 0.08, -0.12));
     b.add('dpf', at(tf(cyl(0.1, 0.1, 0.4, 0x57534e, 24), { rotation: [0, 0, Math.PI / 2] }), dpfX, yUnder, -0.12));
     b.add('dpf_pressure_sensor', at(box(0.05, 0.04, 0.04, 0x10b981, 0.01), dpfX, yUnder + 0.16, -0.25));
     b.add('dpf_pressure_sensor', tube([[dpfX - 0.18, yUnder + 0.08, -0.12], [dpfX, yUnder + 0.16, -0.25], [dpfX + 0.18, yUnder + 0.08, -0.12]], 0.008, 0x111827));

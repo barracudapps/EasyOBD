@@ -119,10 +119,10 @@
                         <div>{p.qty > 1 ? `${p.qty} × ` : ''}{p.name}</div>
                         <div class="small muted">{fmt.eur(p.price_min, p.price_max)}</div>
                       </div>
-                      <div class="row shops">
+                      <div class="shops">
                         {#each p.links as l}
-                          <button class="btn sm shop" style="--shop:{l.color ?? 'var(--accent)'}" onclick={() => openUrl(l.url)}>
-                            {l.name} <Icon name="external" size={13} />
+                          <button class="chip-shop" style="--shop:{l.color ?? 'var(--accent)'}" onclick={() => openUrl(l.url)}>
+                            {l.name}<Icon name="external" size={11} />
                           </button>
                         {/each}
                       </div>
@@ -167,9 +167,12 @@
   .costs { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; }
   .cost { padding: 0.75rem; border-radius: 12px; background: var(--panel-2); border: 1px solid var(--border); }
   .cost .big { font-size: 1.35rem; font-weight: 800; }
-  .part { display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap; padding: 0.6rem 0; border-bottom: 1px solid var(--border); }
-  .shop { border-color: color-mix(in srgb, var(--shop) 55%, transparent); }
-  .shop:hover { background: color-mix(in srgb, var(--shop) 18%, transparent); border-color: var(--shop); }
+  .part { display: flex; flex-direction: column; gap: 0.4rem; padding: 0.65rem 0; border-bottom: 1px solid var(--border); }
+  .part .grow > div:first-child { font-weight: 600; }
+  .shops { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+  .chip-shop { display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.28rem 0.6rem; border-radius: 8px; font-size: 0.78rem; font-weight: 600; cursor: pointer; background: transparent; color: var(--text);
+    border: 1px solid color-mix(in srgb, var(--shop) 45%, transparent); }
+  .chip-shop:hover { background: color-mix(in srgb, var(--shop) 15%, transparent); border-color: var(--shop); }
   .steps { margin: 0.4rem 0 0; padding-left: 1.2rem; display: flex; flex-direction: column; gap: 0.3rem; }
   @media (max-width: 520px) { .costs { grid-template-columns: 1fr; } }
 </style>
