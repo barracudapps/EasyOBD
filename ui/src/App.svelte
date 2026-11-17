@@ -17,6 +17,8 @@
   import Garage from './views/Garage.svelte';
 
   let ready = $state(false);
+  let moreOpen = $state(false);
+  const primary: View[] = ['home', 'garage', 'diagnostic', 'maintenance'];
   let failure = $state('');
 
   const nav: { id: View; label: string; icon: string }[] = [
@@ -78,6 +80,20 @@
     <div class="grow"></div>
     <div class="platform tiny faint">{isNative ? 'Application' : 'Version web'}</div>
   </nav>
+
+  <nav class="bottomnav">
+    {#each nav.filter((n) => primary.includes(n.id)) as n}
+      <button class:active={app.view === n.id} onclick={() => { moreOpen = false; go(n.id); }}><Icon name={n.icon} size={21} /><span>{n.label}</span></button>
+    {/each}
+    <button class:active={moreOpen || !primary.includes(app.view)} onclick={() => (moreOpen = !moreOpen)}><Icon name="layers" size={21} /><span>Plus</span></button>
+  </nav>
+  {#if moreOpen}
+    <div class="moresheet card fade-in" role="dialog" aria-label="Autres sections">
+      {#each nav.filter((n) => !primary.includes(n.id)) as n}
+        <button class:active={app.view === n.id} onclick={() => { moreOpen = false; go(n.id); }}><Icon name={n.icon} size={22} /><span>{n.label}</span></button>
+      {/each}
+    </div>
+  {/if}
 
   <main class="main" class:staged={withStage.includes(app.view)}>
     {#if failure}
@@ -146,14 +162,20 @@
     .main.staged { grid-template-columns: 1fr; }
     .stage { position: relative; top: 0; height: 46vh; order: -1; }
   }
+  .bottomnav, .moresheet { display: none; }
   @media (max-width: 720px) {
     .shell { grid-template-columns: 1fr; grid-template-rows: 56px 1fr; padding-bottom: 70px; }
+    .sidenav { display: none !important; }
+    .bottomnav { display: flex; position: fixed; left: 0; right: 0; bottom: 0; height: 66px; z-index: 30; padding: 6px; gap: 2px;
+      border-top: 1px solid var(--border); background: color-mix(in srgb, var(--bg) 92%, transparent); backdrop-filter: blur(16px); }
+    .bottomnav button { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; border: none; background: none; border-radius: 12px; color: var(--muted); font-size: 0.68rem; font-weight: 600; cursor: pointer; }
+    .bottomnav button.active { color: var(--text); background: var(--panel-2); }
+    .bottomnav button.active :global(svg) { color: var(--accent); }
+    .moresheet { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.4rem; position: fixed; left: 10px; right: 10px; bottom: 76px; z-index: 31; padding: 0.7rem; background: var(--panel-solid); }
+    .moresheet button { display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 0.7rem 0.3rem; border: 1px solid var(--border); border-radius: 12px; background: var(--panel-2); color: var(--text); font-size: 0.78rem; font-weight: 600; cursor: pointer; }
+    .moresheet button.active { border-color: var(--accent); }
     .topbar { padding: 0 0.75rem; }
     .vlabel, .conn { display: none; }
-    .sidenav { position: fixed; top: auto; bottom: 0; left: 0; right: 0; height: 66px; flex-direction: row; overflow-x: auto; z-index: 30;
-      border-right: none; border-top: 1px solid var(--border); background: color-mix(in srgb, var(--bg) 90%, transparent); backdrop-filter: blur(16px); padding: 6px; }
-    .sidenav button { min-width: 64px; }
-    .sidenav .grow, .platform { display: none; }
     .main { padding: 0.75rem; gap: 0.75rem; }
     .stage { height: 38vh; min-height: 260px; }
     .toast { left: 12px; right: 12px; bottom: 80px; }
