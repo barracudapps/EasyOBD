@@ -158,6 +158,10 @@ Pistes détaillées dans [docs/MODELE_ECONOMIQUE.md](docs/MODELE_ECONOMIQUE.md) 
 - Historique des diagnostics par véhicule, export PDF du rapport.
 - Traduction anglaise : le format des données le permet déjà, avec un fichier par langue.
 
+## Crédits photos
+
+Les photos de référence (`ui/public/photos`) proviennent de Wikimedia Commons, sous licences libres (domaine public, CC BY, CC BY-SA). Leur auteur, leur licence et un lien vers la source sont affichés dans l'application et listés dans `ui/public/photos/manifest.json`. Elles sont réutilisées sans modification autre qu'un redimensionnement.
+
 ## Licence
 
 MIT. Voir [LICENSE](LICENSE).

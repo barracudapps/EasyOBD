@@ -1,1 +1,74 @@
-{}
+{
+ "spark_plug": [
+  {
+   "file": "spark-plug.jpg",
+   "alt": "Bougie d'allumage",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "source": "https://commons.wikimedia.org/wiki/File:Spark_plug.jpg"
+  }
+ ],
+ "o2_sensor_upstream": [
+  {
+   "file": "lambdasonderb.jpg",
+   "alt": "Sonde lambda",
+   "credit": "Schrauber5",
+   "license": "Public domain",
+   "source": "https://commons.wikimedia.org/wiki/File:LambdasondeRB.jpg"
+  }
+ ],
+ "o2_sensor_downstream": [
+  {
+   "file": "lambdasonderb.jpg",
+   "alt": "Sonde lambda",
+   "credit": "Schrauber5",
+   "license": "Public domain",
+   "source": "https://commons.wikimedia.org/wiki/File:LambdasondeRB.jpg"
+  }
+ ],
+ "catalytic_converter": [
+  {
+   "file": "aufgeschnittener-metall-katalysator-f-r-ein-auto.jpg",
+   "alt": "Catalyseur en coupe (nid d'abeille)",
+   "credit": "User Stahlkocher on de.wikipedia",
+   "license": "CC BY-SA 2.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Aufgeschnittener_Metall_Katalysator_f%C3%BCr_ein_Auto.jpg"
+  }
+ ],
+ "brake": [
+  {
+   "file": "brake-discs.jpg",
+   "alt": "Disque de frein usé : collerette sur le bord extérieur",
+   "credit": "Gordonjcp",
+   "license": "CC BY 2.5",
+   "source": "https://commons.wikimedia.org/wiki/File:Brake_Discs.jpg"
+  }
+ ],
+ "oil_filter": [
+  {
+   "file": "bosch-oil-filter.jpg",
+   "alt": "Filtre à huile",
+   "credit": "Schumi4ever",
+   "license": "CC BY-SA 4.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Bosch_Oil_Filter.JPG"
+  }
+ ],
+ "egr_valve": [
+  {
+   "file": "clogged-egr-valve-intake-manifold.jpg",
+   "alt": "Vanne EGR encrassée (calamine)",
+   "credit": "Moosealope",
+   "license": "CC BY 2.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Clogged_EGR_Valve_Intake_manifold.jpg"
+  }
+ ],
+ "thermostat": [
+  {
+   "file": "double-valve-automotive-thermostat.jpg",
+   "alt": "Thermostat de refroidissement",
+   "credit": "Dougsim",
+   "license": "CC BY-SA 3.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Double_valve_automotive_thermostat.jpg"
+  }
+ ]
+}
