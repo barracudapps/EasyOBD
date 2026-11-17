@@ -53,9 +53,21 @@ pub struct VehicleProfile {
     /// Motorcycles: naked, adventure, sport, cruiser, scooter.
     #[serde(default)]
     pub body: Option<String>,
+    /// Motorcycles: chain (default), shaft, belt, cvt (scooter variator) or hub (hub motor).
+    #[serde(default)]
+    pub final_drive: Option<String>,
 }
 
 impl VehicleProfile {
+    /// Final drive, defaulting to a chain for motorcycles (None for other vehicles).
+    pub fn final_drive_kind(&self) -> Option<&str> {
+        match (&self.final_drive, self.vehicle_type.as_str()) {
+            (Some(f), _) => Some(f.as_str()),
+            (None, "motorcycle") => Some("chain"),
+            _ => None,
+        }
+    }
+
     pub fn label(&self) -> String {
         format!("{} {} {}", self.make, self.model, self.engine).trim().to_string()
     }
@@ -103,6 +115,8 @@ struct ProcMatch {
     fuel: Option<String>,
     #[serde(default)]
     model_contains: Vec<String>,
+    #[serde(default)]
+    final_drive: Option<String>,
 }
 
 /// Vehicle-specific additions to tutorials (owner's manual procedures, EV safety…).
@@ -126,6 +140,7 @@ impl Procedure {
             && w.make.as_ref().is_none_or(|m| m == &p.make)
             && w.fuel.as_ref().is_none_or(|f| f == &p.fuel)
             && (w.model_contains.is_empty() || w.model_contains.iter().any(|m| p.model.contains(m.as_str())))
+            && w.final_drive.as_ref().is_none_or(|f| Some(f.as_str()) == p.final_drive_kind())
     }
 }
 
@@ -152,6 +167,9 @@ pub struct Tutorial {
     pub title: String,
     pub vehicle_types: Vec<String>,
     pub fuels: Vec<String>,
+    /// Restricts a motorcycle tutorial to some final drives (e.g. chain maintenance → `["chain"]`).
+    #[serde(default)]
+    pub final_drives: Vec<String>,
     pub interval: String,
     /// Typical interval used for reminders (the manufacturer schedule prevails).
     #[serde(default)]
@@ -180,7 +198,9 @@ pub struct Tutorial {
 
 impl Tutorial {
     pub fn applies_to(&self, p: &VehicleProfile) -> bool {
-        self.vehicle_types.contains(&p.vehicle_type) && self.fuels.contains(&p.fuel)
+        self.vehicle_types.contains(&p.vehicle_type)
+            && self.fuels.contains(&p.fuel)
+            && (self.final_drives.is_empty() || p.final_drive_kind().is_some_and(|f| self.final_drives.iter().any(|x| x == f)))
     }
 }
 
@@ -388,6 +408,9 @@ mod tests {
             if let Some(t) = &p.traction {
                 assert!(["front", "rear", "both"].contains(&t.as_str()), "{}: bad traction {t}", p.id);
             }
+            if let Some(f) = &p.final_drive {
+                assert!(["chain", "shaft", "belt", "cvt", "hub"].contains(&f.as_str()), "{}: bad final drive {f}", p.id);
+            }
             if let Some(b) = &p.body {
                 assert!(["hatch", "sedan", "estate", "suv", "mpv", "coupe", "pickup", "micro", "naked", "adventure", "sport", "cruiser", "scooter"].contains(&b.as_str()), "{}: bad body {b}", p.id);
             }
@@ -399,6 +422,21 @@ mod tests {
                 assert!(m.components.contains_key(c) || kb.component_info(c).is_some(), "{}: unknown component {c}", t.id);
             }
         }
+    }
+
+    #[test]
+    fn final_drive_selects_tutorials() {
+        let m = Maintenance::embedded();
+        let ids = |id: &str| m.tutorials_for(m.profiles.iter().find(|p| p.id.starts_with(id)).unwrap()).into_iter().map(|t| t.id).collect::<Vec<_>>();
+        let gs = ids("bmw-r-1300-gs");
+        assert!(gs.contains(&"final_drive_oil".to_string()) && !gs.contains(&"chain_maintenance".to_string()));
+        let explorer = ids("triumph-tiger-explorer");
+        assert!(!explorer.contains(&"chain_maintenance".to_string()));
+        assert!(ids("yamaha-mt07").contains(&"chain_maintenance".to_string()));
+        assert!(ids("honda-pcx125").contains(&"cvt_service".to_string()));
+        let explorer_p = m.profiles.iter().find(|p| p.id.starts_with("triumph-tiger-explorer")).unwrap();
+        let t = m.tutorial_for("clutch_slave", explorer_p).unwrap();
+        assert!(t.vehicle_notes.iter().any(|n| n.contains("cardan")));
     }
 
     #[test]

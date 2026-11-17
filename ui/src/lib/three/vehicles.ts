@@ -14,6 +14,8 @@ export interface VehicleSpec {
   body?: string;
   /** Engine description (e.g. "1254 cm³ boxer"): drives the motorcycle engine layout. */
   engine?: string;
+  /** Motorcycles: chain (default), shaft, belt, cvt, hub. */
+  finalDrive?: string;
 }
 
 export const PALETTE = {
@@ -720,21 +722,38 @@ function motorcycle(spec: VehicleSpec, style: MotoStyle): THREE.Group {
   b.add('battery', at(box(0.12, 0.09, 0.1, 0x111827, 0.02), -0.3, seatY - 0.15, 0));
   b.add('ecu', at(box(0.1, 0.03, 0.08, 0x0f766e, 0.01), ecuX, seatY - 0.08, 0));
 
-  // Final drive (chain) — scooters use a belt in the swinging engine: shown as chain for readability
+  // Final drive: chain, toothed belt, shaft + bevel box, scooter variator case, or hub motor
+  const drive = spec.finalDrive ?? 'chain';
   const sprF: [number, number] = scooter ? [-0.25, 0.32] : [-0.2, 0.42 + lift * 0.5];
-  b.add('sprocket_front', at(tf(cyl(0.05, 0.05, 0.015, 0xa1a1aa, 16), { rotation: [Math.PI / 2, 0, 0] }), sprF[0], sprF[1], 0.13));
-  const rearSpr = at(tf(cyl(0.13, 0.13, 0.015, 0xa1a1aa, 32), { rotation: [Math.PI / 2, 0, 0] }), rear, wrR, 0.13);
-  rearSpr.userData.spin = 'y';
-  b.add('sprocket_rear', rearSpr);
-  const chainShape = new THREE.Shape();
-  chainShape.absarc(sprF[0], sprF[1], 0.055, Math.PI / 2, -Math.PI / 2, false);
-  chainShape.absarc(rear, wrR, 0.135, -Math.PI / 2, Math.PI / 2, false);
-  const chainPts = chainShape.getPoints(60).map((p) => new THREE.Vector3(p.x, p.y, 0.13));
-  b.add('chain', tube(chainPts.filter((_, i) => i % 3 === 0).map((v) => [v.x, v.y, v.z] as [number, number, number]), 0.009, 0x52525b));
+  if (drive === 'chain' || drive === 'belt') {
+    const belt = drive === 'belt';
+    const w = belt ? 0.03 : 0.015;
+    b.add('sprocket_front', at(tf(cyl(0.05, 0.05, w, belt ? 0x52525b : 0xa1a1aa, 16), { rotation: [Math.PI / 2, 0, 0] }), sprF[0], sprF[1], 0.13));
+    const rearSpr = at(tf(cyl(0.13, 0.13, w, belt ? 0x52525b : 0xa1a1aa, 32), { rotation: [Math.PI / 2, 0, 0] }), rear, wrR, 0.13);
+    rearSpr.userData.spin = 'y';
+    b.add('sprocket_rear', rearSpr);
+    const chainShape = new THREE.Shape();
+    chainShape.absarc(sprF[0], sprF[1], 0.055, Math.PI / 2, -Math.PI / 2, false);
+    chainShape.absarc(rear, wrR, 0.135, -Math.PI / 2, Math.PI / 2, false);
+    const pts = chainShape.getPoints(60).map((p) => [p.x, p.y, 0.13] as [number, number, number]);
+    const loop = tube(pts.filter((_, i) => i % 3 === 0), belt ? 0.013 : 0.009, belt ? 0x111827 : 0x52525b);
+    if (belt) loop.scale.z = 1.6;
+    b.add(belt ? 'drive_belt' : 'chain', loop);
+  } else if (drive === 'shaft') {
+    // Drive shaft inside the (left) swingarm, bevel gear housing at the rear hub
+    b.add('final_drive', tube([[pivot[0] + 0.02, pivot[1], 0.12], [(pivot[0] + rear) / 2, (pivot[1] + wrR) / 2 + 0.02, 0.13], [rear + 0.05, wrR, 0.13]], 0.032, 0x3f3f46));
+    b.add('final_drive', at(tf(cyl(0.085, 0.07, 0.09, 0x6b7280, 24), { rotation: [Math.PI / 2, 0, 0] }), rear, wrR, 0.12));
+    b.add('final_drive', at(tf(cyl(0.035, 0.035, 0.1, 0x52525b, 16), { rotation: [0, 0, Math.PI / 2] }), rear + 0.08, wrR, 0.12));
+  } else if (drive === 'cvt') {
+    // Variator case on the left, from the crankshaft to the rear wheel
+    b.add('drive_belt', at(tf(box(0.62, 0.16, 0.07, 0x52525b, 0.06), { rotation: [0, 0, 0.12] }), (sprF[0] + rear) / 2 + 0.02, (sprF[1] + wrR) / 2 + 0.02, 0.15));
+  } else if (drive === 'hub') {
+    b.add('drive_motor', at(tf(cyl(0.12, 0.12, 0.1, 0x9ca3af, 28), { rotation: [Math.PI / 2, 0, 0] }), rear, wrR, 0));
+  }
 
   if (spec.fuel === 'electric') {
     b.add('hv_battery', at(box(0.42, 0.32, 0.26, 0x374151, 0.04), scooter ? -0.05 : 0.05, scooter ? 0.42 : 0.55, 0));
-    b.add('drive_motor', at(tf(cyl(0.1, 0.1, 0.16, 0x9ca3af, 24), { rotation: [Math.PI / 2, 0, 0] }), sprF[0] - 0.02, sprF[1], 0));
+    if (drive !== 'hub') b.add('drive_motor', at(tf(cyl(0.1, 0.1, 0.16, 0x9ca3af, 24), { rotation: [Math.PI / 2, 0, 0] }), sprF[0] - 0.02, sprF[1], 0));
     b.add('inverter', at(box(0.14, 0.08, 0.16, 0x475569, 0.02), -0.12, scooter ? 0.6 : 0.66, 0));
     b.add('onboard_charger', at(box(0.14, 0.08, 0.14, 0x334155, 0.02), scooter ? -0.45 : 0.2, scooter ? 0.62 : 0.83, 0));
     b.add('hv_cables', tube([[0.05, 0.6, 0.12], [-0.08, 0.62, 0.12], [sprF[0], sprF[1] + 0.06, 0.1]], 0.012, 0xf97316));

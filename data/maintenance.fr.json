@@ -101,6 +101,12 @@
     },
     "clutch_master": {
       "name": "Maître-cylindre / émetteur d'embrayage"
+    },
+    "final_drive": {
+      "name": "Transmission finale (couple conique du cardan)"
+    },
+    "drive_belt": {
+      "name": "Courroie de transmission"
     }
   },
   "profiles": [
@@ -4517,7 +4523,8 @@
       ],
       "fuel": "petrol",
       "cylinders": 2,
-      "body": "sport"
+      "body": "sport",
+      "final_drive": "chain"
     },
     {
       "id": "aprilia-tuareg-660-659-cm3-bicylindre",
@@ -4531,7 +4538,8 @@
       ],
       "fuel": "petrol",
       "cylinders": 2,
-      "body": "adventure"
+      "body": "adventure",
+      "final_drive": "chain"
     },
     {
       "id": "aprilia-tuono-v4-1077-cm3-v4",
@@ -4545,7 +4553,8 @@
       ],
       "fuel": "petrol",
       "cylinders": 4,
-      "body": "naked"
+      "body": "naked",
+      "final_drive": "chain"
     },
     {
       "id": "bmw-c-400-x-350-cm3-monocylindre",
@@ -4560,7 +4569,8 @@
       "fuel": "petrol",
       "cylinders": 1,
       "oil_spec": "5W40 JASO MB",
-      "body": "scooter"
+      "body": "scooter",
+      "final_drive": "cvt"
     },
     {
       "id": "bmw-ce-04-8-9-kwh",
@@ -4574,7 +4584,8 @@
       ],
       "fuel": "electric",
       "traction": "rear",
-      "body": "scooter"
+      "body": "scooter",
+      "final_drive": "belt"
     },
     {
       "id": "bmw-f-900-gs-895-cm3-bicylindre",
@@ -4588,7 +4599,8 @@
       ],
       "fuel": "petrol",
       "cylinders": 2,
-      "body": "adventure"
+      "body": "adventure",
+      "final_drive": "chain"
     },
     {
       "id": "bmw-f-900-r-895-cm3-bicylindre",
@@ -4603,7 +4615,8 @@
       "fuel": "petrol",
       "cylinders": 2,
       "oil_spec": "5W40 JASO MA2",
-      "body": "naked"
+      "body": "naked",
+      "final_drive": "chain"
     },
     {
       "id": "bmw-r-1200-gs-lc-1170-cm3-boxer",
@@ -4618,7 +4631,8 @@
       "fuel": "petrol",
       "cylinders": 2,
       "oil_spec": "5W40 JASO MA2",
-      "body": "adventure"
+      "body": "adventure",
+      "final_drive": "shaft"
     },
     {
       "id": "bmw-r-1250-gs-1254-cm3-boxer",
@@ -4634,7 +4648,8 @@
       "cylinders": 2,
       "oil_capacity_l": 4.0,
       "oil_spec": "5W40 JASO MA2",
-      "body": "adventure"
+      "body": "adventure",
+      "final_drive": "shaft"
     },
     {
       "id": "bmw-r-1300-gs-1300-cm3-boxer",
@@ -4649,7 +4664,8 @@
       "fuel": "petrol",
       "cylinders": 2,
       "oil_spec": "5W40 JASO MA2",
-      "body": "adventure"
+      "body": "adventure",
+      "final_drive": "shaft"
     },
     {
       "id": "bmw-s-1000-rr-999-cm3-4-cylindres",
@@ -4664,7 +4680,8 @@
       "fuel": "petrol",
       "cylinders": 4,
       "oil_spec": "5W40 JASO MA2",
-      "body": "sport"
+      "body": "sport",
+      "final_drive": "chain"
     },
     {
       "id": "benelli-trk-502-500-cm3-bicylindre",
@@ -4678,7 +4695,8 @@
       ],
       "fuel": "petrol",
       "cylinders": 2,
-      "body": "adventure"
+      "body": "adventure",
+      "final_drive": "chain"
     },
     {
       "id": "cfmoto-800mt-799-cm3-bicylindre",
@@ -4692,7 +4710,8 @@
       ],
       "fuel": "petrol",
       "cylinders": 2,
-      "body": "adventure"
+      "body": "adventure",
+      "final_drive": "chain"
     },
     {
       "id": "ducati-desertx-937-cm3-bicylindre",
@@ -4706,7 +4725,8 @@
       ],
       "fuel": "petrol",
       "cylinders": 2,
-      "body": "adventure"
+      "body": "adventure",
+      "final_drive": "chain"
     },
     {
       "id": "ducati-monster-937-937-cm3-bicylindre",
@@ -4721,7 +4741,8 @@
       "fuel": "petrol",
       "cylinders": 2,
       "oil_spec": "15W50 JASO MA2",
-      "body": "naked"
+      "body": "naked",
+      "final_drive": "chain"
     },
     {
       "id": "ducati-multistrada-v4-1158-cm3-v4",
@@ -4736,7 +4757,8 @@
       "fuel": "petrol",
       "cylinders": 4,
       "oil_spec": "15W50 JASO MA2",
-      "body": "adventure"
+      "body": "adventure",
+      "final_drive": "chain"
     },
     {
       "id": "ducati-panigale-v4-1103-cm3-v4",
@@ -4750,7 +4772,8 @@
       ],
       "fuel": "petrol",
       "cylinders": 4,
-      "body": "sport"
+      "body": "sport",
+      "final_drive": "chain"
     },
     {
       "id": "ducati-scrambler-800-803-cm3-bicylindre",
@@ -4765,7 +4788,8 @@
       "fuel": "petrol",
       "cylinders": 2,
       "oil_spec": "15W50 JASO MA2",
-      "body": "naked"
+      "body": "naked",
+      "final_drive": "chain"
     },
     {
       "id": "energica-experia-22-5-kwh",
@@ -4779,7 +4803,8 @@
       ],
       "fuel": "electric",
       "traction": "front",
-      "body": "naked"
+      "body": "naked",
+      "final_drive": "chain"
     },
     {
       "id": "harley-davidson-pan-america-1250-1252-cm3-v-twin",
@@ -4793,7 +4818,8 @@
       ],
       "fuel": "petrol",
       "cylinders": 2,
-      "body": "adventure"
+      "body": "adventure",
+      "final_drive": "chain"
     },
     {
       "id": "harley-davidson-sportster-s-1252-cm3-v-twin",
@@ -4808,7 +4834,8 @@
       "fuel": "petrol",
       "cylinders": 2,
       "oil_spec": "SAE 20W50",
-      "body": "cruiser"
+      "body": "cruiser",
+      "final_drive": "belt"
     },
     {
       "id": "honda-africa-twin-crf1100l-1084-cm3-bicylindre",
@@ -4823,7 +4850,8 @@
       "fuel": "petrol",
       "cylinders": 2,
       "oil_spec": "10W30 JASO MA",
-      "body": "adventure"
+      "body": "adventure",
+      "final_drive": "chain"
     },
     {
       "id": "honda-cb500f",
@@ -4840,7 +4868,8 @@
       "oil_capacity_l": 3.2,
       "oil_spec": "10W30 JASO MA",
       "chain": "520 – 112 maillons",
-      "body": "naked"
+      "body": "naked",
+      "final_drive": "chain"
     },
     {
       "id": "honda-cb650r-649-cm3-4-cylindres",
@@ -4855,7 +4884,8 @@
       "fuel": "petrol",
       "cylinders": 4,
       "oil_spec": "10W30 JASO MA",
-      "body": "naked"
+      "body": "naked",
+      "final_drive": "chain"
     },
     {
       "id": "honda-forza-125-125-cm3-monocylindre",
@@ -4870,7 +4900,8 @@
       "fuel": "petrol",
       "cylinders": 1,
       "oil_spec": "10W30 JASO MB",
-      "body": "scooter"
+      "body": "scooter",
+      "final_drive": "cvt"
     },
     {
       "id": "honda-gold-wing-sc79-1833-cm3-flat-six",
@@ -4884,7 +4915,8 @@
       ],
       "fuel": "petrol",
       "cylinders": 6,
-      "body": "sport"
+      "body": "sport",
+      "final_drive": "shaft"
     },
     {
       "id": "honda-nc750x-745-cm3-bicylindre",
@@ -4899,7 +4931,8 @@
       "fuel": "petrol",
       "cylinders": 2,
       "oil_spec": "10W30 JASO MA",
-      "body": "adventure"
+      "body": "adventure",
+      "final_drive": "chain"
     },
     {
       "id": "honda-pcx125",
@@ -4915,7 +4948,8 @@
       "cylinders": 1,
       "oil_capacity_l": 0.8,
       "oil_spec": "10W30 JASO MB",
-      "body": "scooter"
+      "body": "scooter",
+      "final_drive": "cvt"
     },
     {
       "id": "honda-rebel-500-471-cm3-bicylindre",
@@ -4929,7 +4963,8 @@
       ],
       "fuel": "petrol",
       "cylinders": 2,
-      "body": "cruiser"
+      "body": "cruiser",
+      "final_drive": "chain"
     },
     {
       "id": "honda-transalp-xl750-755-cm3-bicylindre",
@@ -4943,7 +4978,8 @@
       ],
       "fuel": "petrol",
       "cylinders": 2,
-      "body": "adventure"
+      "body": "adventure",
+      "final_drive": "chain"
     },
     {
       "id": "husqvarna-norden-901-889-cm3-bicylindre",
@@ -4957,7 +4993,8 @@
       ],
       "fuel": "petrol",
       "cylinders": 2,
-      "body": "adventure"
+      "body": "adventure",
+      "final_drive": "chain"
     },
     {
       "id": "husqvarna-svartpilen-401-399-cm3-monocylindre",
@@ -4971,7 +5008,8 @@
       ],
       "fuel": "petrol",
       "cylinders": 1,
-      "body": "naked"
+      "body": "naked",
+      "final_drive": "chain"
     },
     {
       "id": "indian-scout-1133-cm3-v-twin",
@@ -4985,7 +5023,8 @@
       ],
       "fuel": "petrol",
       "cylinders": 2,
-      "body": "cruiser"
+      "body": "cruiser",
+      "final_drive": "belt"
     },
     {
       "id": "ktm-1290-super-adventure-1301-cm3-bicylindre",
@@ -5000,7 +5039,8 @@
       "fuel": "petrol",
       "cylinders": 2,
       "oil_spec": "10W50 JASO MA2",
-      "body": "adventure"
+      "body": "adventure",
+      "final_drive": "chain"
     },
     {
       "id": "ktm-390-duke-373-cm3-monocylindre",
@@ -5015,7 +5055,8 @@
       "fuel": "petrol",
       "cylinders": 1,
       "oil_spec": "10W50 JASO MA2",
-      "body": "naked"
+      "body": "naked",
+      "final_drive": "chain"
     },
     {
       "id": "ktm-790-adventure-799-cm3-bicylindre",
@@ -5030,7 +5071,8 @@
       "fuel": "petrol",
       "cylinders": 2,
       "oil_spec": "10W50 JASO MA2",
-      "body": "adventure"
+      "body": "adventure",
+      "final_drive": "chain"
     },
     {
       "id": "ktm-890-duke-889-cm3-bicylindre",
@@ -5045,7 +5087,8 @@
       "fuel": "petrol",
       "cylinders": 2,
       "oil_spec": "10W50 JASO MA2",
-      "body": "naked"
+      "body": "naked",
+      "final_drive": "chain"
     },
     {
       "id": "kawasaki-ninja-650-649-cm3-bicylindre",
@@ -5059,7 +5102,8 @@
       ],
       "fuel": "petrol",
       "cylinders": 2,
-      "body": "sport"
+      "body": "sport",
+      "final_drive": "chain"
     },
     {
       "id": "kawasaki-versys-650-649-cm3-bicylindre",
@@ -5074,7 +5118,8 @@
       "fuel": "petrol",
       "cylinders": 2,
       "oil_spec": "10W40 JASO MA",
-      "body": "adventure"
+      "body": "adventure",
+      "final_drive": "chain"
     },
     {
       "id": "kawasaki-z650",
@@ -5091,7 +5136,8 @@
       "oil_capacity_l": 2.3,
       "oil_spec": "10W40 JASO MA",
       "chain": "520 – 114 maillons",
-      "body": "naked"
+      "body": "naked",
+      "final_drive": "chain"
     },
     {
       "id": "kawasaki-z900-948-cm3-4-cylindres",
@@ -5106,7 +5152,8 @@
       "fuel": "petrol",
       "cylinders": 4,
       "oil_spec": "10W40 JASO MA",
-      "body": "naked"
+      "body": "naked",
+      "final_drive": "chain"
     },
     {
       "id": "kawasaki-z900rs-948-cm3-4-cylindres",
@@ -5120,7 +5167,8 @@
       ],
       "fuel": "petrol",
       "cylinders": 4,
-      "body": "naked"
+      "body": "naked",
+      "final_drive": "chain"
     },
     {
       "id": "kymco-ak-550-550-cm3-bicylindre",
@@ -5134,7 +5182,8 @@
       ],
       "fuel": "petrol",
       "cylinders": 2,
-      "body": "scooter"
+      "body": "scooter",
+      "final_drive": "belt"
     },
     {
       "id": "mv-agusta-brutale-800-798-cm3-tricylindre",
@@ -5148,7 +5197,8 @@
       ],
       "fuel": "petrol",
       "cylinders": 3,
-      "body": "naked"
+      "body": "naked",
+      "final_drive": "chain"
     },
     {
       "id": "moto-guzzi-v85-tt-853-cm3-v-twin",
@@ -5163,7 +5213,8 @@
       "fuel": "petrol",
       "cylinders": 2,
       "oil_spec": "10W60 JASO MA2",
-      "body": "adventure"
+      "body": "adventure",
+      "final_drive": "shaft"
     },
     {
       "id": "niu-nqi-gt-2-1-kwh",
@@ -5177,7 +5228,8 @@
       ],
       "fuel": "electric",
       "traction": "rear",
-      "body": "scooter"
+      "body": "scooter",
+      "final_drive": "hub"
     },
     {
       "id": "piaggio-mp3-400-350-cm3-monocylindre",
@@ -5191,7 +5243,8 @@
       ],
       "fuel": "petrol",
       "cylinders": 1,
-      "body": "scooter"
+      "body": "scooter",
+      "final_drive": "cvt"
     },
     {
       "id": "piaggio-vespa-gts-300-278-cm3-monocylindre",
@@ -5206,7 +5259,8 @@
       "fuel": "petrol",
       "cylinders": 1,
       "oil_spec": "5W40 JASO MB",
-      "body": "scooter"
+      "body": "scooter",
+      "final_drive": "cvt"
     },
     {
       "id": "royal-enfield-himalayan-450-452-cm3-monocylindre",
@@ -5221,7 +5275,8 @@
       "fuel": "petrol",
       "cylinders": 1,
       "oil_spec": "10W50 JASO MA2",
-      "body": "adventure"
+      "body": "adventure",
+      "final_drive": "chain"
     },
     {
       "id": "silence-s01-5-6-kwh",
@@ -5235,7 +5290,8 @@
       ],
       "fuel": "electric",
       "traction": "rear",
-      "body": "scooter"
+      "body": "scooter",
+      "final_drive": "hub"
     },
     {
       "id": "super-soco-cpx-2-batteries-60-v",
@@ -5249,7 +5305,8 @@
       ],
       "fuel": "electric",
       "traction": "front",
-      "body": "scooter"
+      "body": "scooter",
+      "final_drive": "hub"
     },
     {
       "id": "suzuki-gsx-8s-776-cm3-bicylindre",
@@ -5263,7 +5320,8 @@
       ],
       "fuel": "petrol",
       "cylinders": 2,
-      "body": "naked"
+      "body": "naked",
+      "final_drive": "chain"
     },
     {
       "id": "suzuki-sv650-645-cm3-bicylindre",
@@ -5278,7 +5336,8 @@
       "fuel": "petrol",
       "cylinders": 2,
       "oil_spec": "10W40 JASO MA",
-      "body": "naked"
+      "body": "naked",
+      "final_drive": "chain"
     },
     {
       "id": "suzuki-v-strom-650-645-cm3-bicylindre",
@@ -5293,7 +5352,8 @@
       "fuel": "petrol",
       "cylinders": 2,
       "oil_spec": "10W40 JASO MA",
-      "body": "adventure"
+      "body": "adventure",
+      "final_drive": "chain"
     },
     {
       "id": "triumph-bonneville-t120-1200-cm3-bicylindre",
@@ -5308,7 +5368,8 @@
       "fuel": "petrol",
       "cylinders": 2,
       "oil_spec": "10W40 JASO MA",
-      "body": "naked"
+      "body": "naked",
+      "final_drive": "chain"
     },
     {
       "id": "triumph-speed-400-398-cm3-monocylindre",
@@ -5322,7 +5383,8 @@
       ],
       "fuel": "petrol",
       "cylinders": 1,
-      "body": "naked"
+      "body": "naked",
+      "final_drive": "chain"
     },
     {
       "id": "triumph-street-triple-765-765-cm3-tricylindre",
@@ -5337,7 +5399,8 @@
       "fuel": "petrol",
       "cylinders": 3,
       "oil_spec": "10W40 JASO MA",
-      "body": "naked"
+      "body": "naked",
+      "final_drive": "chain"
     },
     {
       "id": "triumph-street-twin-900-900-cm3-bicylindre",
@@ -5351,7 +5414,8 @@
       ],
       "fuel": "petrol",
       "cylinders": 2,
-      "body": "naked"
+      "body": "naked",
+      "final_drive": "chain"
     },
     {
       "id": "triumph-tiger-1200-2022-1160-cm3-tricylindre",
@@ -5366,7 +5430,8 @@
       "fuel": "petrol",
       "cylinders": 3,
       "oil_spec": "10W40 JASO MA",
-      "body": "adventure"
+      "body": "adventure",
+      "final_drive": "shaft"
     },
     {
       "id": "triumph-tiger-850-sport-888-cm3-tricylindre",
@@ -5380,7 +5445,8 @@
       ],
       "fuel": "petrol",
       "cylinders": 3,
-      "body": "adventure"
+      "body": "adventure",
+      "final_drive": "chain"
     },
     {
       "id": "triumph-tiger-900-888-cm3-tricylindre",
@@ -5395,7 +5461,8 @@
       "fuel": "petrol",
       "cylinders": 3,
       "oil_spec": "10W40 JASO MA",
-      "body": "adventure"
+      "body": "adventure",
+      "final_drive": "chain"
     },
     {
       "id": "triumph-tiger-explorer-1200-1215-cm3-tricylindre",
@@ -5410,7 +5477,8 @@
       "fuel": "petrol",
       "cylinders": 3,
       "oil_spec": "10W40 JASO MA",
-      "body": "adventure"
+      "body": "adventure",
+      "final_drive": "shaft"
     },
     {
       "id": "triumph-trident-660-660-cm3-tricylindre",
@@ -5425,7 +5493,8 @@
       "fuel": "petrol",
       "cylinders": 3,
       "oil_spec": "10W40 JASO MA",
-      "body": "naked"
+      "body": "naked",
+      "final_drive": "chain"
     },
     {
       "id": "voge-525-dsx-494-cm3-bicylindre",
@@ -5439,7 +5508,8 @@
       ],
       "fuel": "petrol",
       "cylinders": 2,
-      "body": "adventure"
+      "body": "adventure",
+      "final_drive": "chain"
     },
     {
       "id": "yamaha-mt-03-321-cm3-bicylindre",
@@ -5453,7 +5523,8 @@
       ],
       "fuel": "petrol",
       "cylinders": 2,
-      "body": "naked"
+      "body": "naked",
+      "final_drive": "chain"
     },
     {
       "id": "yamaha-mt07",
@@ -5470,7 +5541,8 @@
       "oil_capacity_l": 3.0,
       "oil_spec": "10W40 JASO MA2",
       "chain": "525 – 108 maillons",
-      "body": "naked"
+      "body": "naked",
+      "final_drive": "chain"
     },
     {
       "id": "yamaha-mt-09-889-cm3-tricylindre",
@@ -5485,7 +5557,8 @@
       "fuel": "petrol",
       "cylinders": 3,
       "oil_spec": "10W40 JASO MA",
-      "body": "naked"
+      "body": "naked",
+      "final_drive": "chain"
     },
     {
       "id": "yamaha-tmax-560-562-cm3-bicylindre",
@@ -5500,7 +5573,8 @@
       "fuel": "petrol",
       "cylinders": 2,
       "oil_spec": "10W40 JASO MA",
-      "body": "scooter"
+      "body": "scooter",
+      "final_drive": "belt"
     },
     {
       "id": "yamaha-tracer-7-689-cm3-bicylindre",
@@ -5514,7 +5588,8 @@
       ],
       "fuel": "petrol",
       "cylinders": 2,
-      "body": "adventure"
+      "body": "adventure",
+      "final_drive": "chain"
     },
     {
       "id": "yamaha-tracer-9-890-cm3-tricylindre",
@@ -5529,7 +5604,8 @@
       "fuel": "petrol",
       "cylinders": 3,
       "oil_spec": "10W40 JASO MA",
-      "body": "adventure"
+      "body": "adventure",
+      "final_drive": "chain"
     },
     {
       "id": "yamaha-tenere-700-689-cm3-bicylindre",
@@ -5544,7 +5620,8 @@
       "fuel": "petrol",
       "cylinders": 2,
       "oil_spec": "10W40 JASO MA",
-      "body": "adventure"
+      "body": "adventure",
+      "final_drive": "chain"
     },
     {
       "id": "yamaha-xmax-125-125-cm3-monocylindre",
@@ -5559,7 +5636,8 @@
       "fuel": "petrol",
       "cylinders": 1,
       "oil_spec": "10W40 JASO MB",
-      "body": "scooter"
+      "body": "scooter",
+      "final_drive": "cvt"
     },
     {
       "id": "zero-srf",
@@ -5572,9 +5650,9 @@
         2026
       ],
       "fuel": "electric",
-      "chain": "courroie crantée",
       "traction": "front",
-      "body": "naked"
+      "body": "naked",
+      "final_drive": "belt"
     },
     {
       "id": "zontes-350t-348-cm3-monocylindre",
@@ -5588,7 +5666,8 @@
       ],
       "fuel": "petrol",
       "cylinders": 1,
-      "body": "adventure"
+      "body": "adventure",
+      "final_drive": "chain"
     },
     {
       "id": "daf-lf-px-7-6-7-l",
@@ -7265,7 +7344,8 @@
         "motorcycle"
       ],
       "fuels": [
-        "petrol"
+        "petrol",
+        "electric"
       ],
       "interval": "Graissage tous les 500 à 1 000 km et après la pluie ; contrôle de tension tous les 1 000 km.",
       "difficulty": 1,
@@ -7375,7 +7455,10 @@
         }
       ],
       "interval_km": 1000,
-      "interval_months": 1
+      "interval_months": 1,
+      "final_drives": [
+        "chain"
+      ]
     },
     {
       "id": "truck_daily_check",
@@ -8201,6 +8284,324 @@
           ]
         }
       ]
+    },
+    {
+      "id": "final_drive_oil",
+      "title": "Vidange de l'huile de transmission finale (cardan)",
+      "vehicle_types": [
+        "motorcycle"
+      ],
+      "fuels": [
+        "petrol"
+      ],
+      "final_drives": [
+        "shaft"
+      ],
+      "interval": "Selon le carnet : souvent tous les 2 ans ou 20 000 à 40 000 km ; certains constructeurs ne prévoient qu'un contrôle (remplissage « à vie »).",
+      "interval_km": 30000,
+      "interval_months": 24,
+      "difficulty": 2,
+      "time_min": 20,
+      "time_max": 45,
+      "why": "Sur une moto à cardan, un arbre relie la boîte à un couple conique (renvoi d'angle) dans le moyeu arrière. Son huile lubrifie les pignons et le roulement : vieillie ou polluée par de l'eau, elle use les dentures et le roulement du couple conique, une réparation coûteuse.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "Traces d’huile sur la jante arrière, le pneu ou sous le carter du couple conique ?",
+          "means": "Joint spi qui fuit : à remplacer rapidement (huile sur le pneu = danger)."
+        },
+        {
+          "sense": "sound",
+          "tip": "Moto sur béquille, roue arrière tournée à la main : grognement, point dur ou jeu en secouant la roue ?",
+          "means": "Roulement du couple conique fatigué."
+        },
+        {
+          "sense": "sight",
+          "tip": "Huile laiteuse ou pleine de particules à la vidange (bouchon magnétique couvert de limaille) ?",
+          "means": "Eau ou usure interne : faites contrôler le couple conique."
+        }
+      ],
+      "components": [
+        "final_drive",
+        "wheel_rr"
+      ],
+      "tools": [
+        "Clés / douilles (souvent Torx ou six pans)",
+        "Bac de récupération",
+        "Seringue ou flacon à bec",
+        "Clé dynamométrique",
+        "Chiffons"
+      ],
+      "safety": [
+        "Moto stable sur béquille centrale, sur sol plat.",
+        "Huile chaude : brûlures possibles après un trajet ; attendez quelques minutes.",
+        "Aucune huile sur le pneu ni sur le disque : nettoyez au nettoyant frein."
+      ],
+      "shopping": [
+        {
+          "name": "Huile de transmission (viscosité du carnet, souvent 75W-90 / SAE 80W-90 hypoïde)",
+          "query": "huile transmission cardan moto 75w90",
+          "qty": 1,
+          "unit": "flacon 1 L",
+          "price_min": 12,
+          "price_max": 30
+        },
+        {
+          "name": "Joints de bouchons (vidange + remplissage)",
+          "query": "joint bouchon vidange cardan moto",
+          "qty": 2,
+          "unit": "pièce",
+          "price_min": 1,
+          "price_max": 5
+        },
+        {
+          "name": "Nettoyant frein",
+          "query": "nettoyant frein",
+          "qty": 1,
+          "unit": "bombe",
+          "price_min": 4,
+          "price_max": 10,
+          "optional": true
+        }
+      ],
+      "steps": [
+        {
+          "title": "Chauffer légèrement",
+          "text": "Roulez 5 à 10 km : l'huile tiède s'écoule mieux et entraîne les particules.",
+          "components": [
+            "final_drive"
+          ]
+        },
+        {
+          "title": "Ouvrir le remplissage en premier",
+          "text": "Desserrez d'abord le bouchon de remplissage : si vous ne pouvez pas l'ouvrir, vous ne viderez pas une transmission impossible à remplir.",
+          "components": [
+            "final_drive"
+          ],
+          "tip": "Repérez les deux bouchons sur le carter du couple conique (remplissage en haut ou sur le côté, vidange en bas)."
+        },
+        {
+          "title": "Vidanger",
+          "text": "Retirez le bouchon de vidange, laissez couler entièrement. Inspectez l'aimant du bouchon : un léger « feutre » gris est normal, des éclats non.",
+          "components": [
+            "final_drive"
+          ]
+        },
+        {
+          "title": "Remplir",
+          "text": "Joint neuf, bouchon de vidange au couple du carnet. Remplissez à la seringue jusqu'au niveau indiqué (souvent le bas du filetage de remplissage, ou une quantité précise de 150 à 250 ml).",
+          "components": [
+            "final_drive"
+          ],
+          "warning": "Ne remplissez pas « à vue » si le carnet donne une quantité : un excès fait fuir les joints."
+        },
+        {
+          "title": "Contrôler",
+          "text": "Refermez, nettoyez toute trace d'huile sur la jante, le pneu et le disque. Après 50 km, vérifiez l'absence de suintement.",
+          "components": [
+            "final_drive",
+            "wheel_rr"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "belt_drive_check",
+      "title": "Contrôle de la courroie de transmission",
+      "vehicle_types": [
+        "motorcycle"
+      ],
+      "fuels": [
+        "petrol",
+        "electric"
+      ],
+      "final_drives": [
+        "belt"
+      ],
+      "interval": "Contrôle visuel et de tension tous les 5 000 à 8 000 km ; remplacement selon l’état (souvent 40 000 à 80 000 km).",
+      "interval_km": 8000,
+      "difficulty": 1,
+      "time_min": 15,
+      "time_max": 30,
+      "why": "La courroie crantée remplace la chaîne : propre, silencieuse et sans graissage, mais elle craint les cailloux et une mauvaise tension. Une courroie entaillée peut casser sans prévenir.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "Entailles, dents manquantes, fissures sur le dos ou caillou coincé dans la poulie ?",
+          "means": "Courroie à remplacer avant de rouler loin."
+        },
+        {
+          "sense": "sound",
+          "tip": "Couinement ou claquement régulier en roulant ?",
+          "means": "Tension incorrecte, poulie usée ou désalignement."
+        },
+        {
+          "sense": "touch",
+          "tip": "Poussez la courroie à mi-distance avec la force prescrite : la flèche correspond-elle au carnet ?",
+          "means": "Trop tendue : use roulements ; trop lâche : la courroie saute des dents."
+        }
+      ],
+      "components": [
+        "drive_belt",
+        "sprocket_rear",
+        "wheel_rr"
+      ],
+      "tools": [
+        "Jauge de tension de courroie (ou réglet + peson)",
+        "Lampe",
+        "Clés pour l’axe de roue"
+      ],
+      "safety": [
+        "Moteur coupé, contact retiré pour tourner la roue à la main.",
+        "Ne pliez jamais une courroie neuve en boucle serrée : les fibres internes cassent."
+      ],
+      "shopping": [
+        {
+          "name": "Courroie de transmission (référence constructeur)",
+          "query": "courroie transmission moto",
+          "qty": 1,
+          "unit": "pièce",
+          "price_min": 120,
+          "price_max": 350,
+          "optional": true
+        }
+      ],
+      "steps": [
+        {
+          "title": "Inspecter sur tout le tour",
+          "text": "Moto sur béquille, tournez la roue lentement en examinant les dents et le dos de la courroie sur toute sa longueur.",
+          "components": [
+            "drive_belt"
+          ]
+        },
+        {
+          "title": "Contrôler les poulies",
+          "text": "Dents de poulie pointues, gravillons incrustés ou déflecteur de pierres abîmé ?",
+          "components": [
+            "sprocket_rear",
+            "drive_belt"
+          ]
+        },
+        {
+          "title": "Mesurer la tension",
+          "text": "Appliquez la force indiquée au carnet au milieu du brin inférieur et mesurez la flèche. Réglez par les tendeurs de l’axe de roue, en gardant l’alignement.",
+          "components": [
+            "drive_belt",
+            "wheel_rr"
+          ],
+          "tip": "Contrôlez à froid et avec la charge indiquée (pilote assis ou non selon le carnet)."
+        }
+      ]
+    },
+    {
+      "id": "cvt_service",
+      "title": "Entretien du variateur (courroie et galets)",
+      "vehicle_types": [
+        "motorcycle"
+      ],
+      "fuels": [
+        "petrol"
+      ],
+      "final_drives": [
+        "cvt"
+      ],
+      "interval": "Courroie et galets : contrôle tous les 10 000 à 12 000 km, remplacement souvent tous les 20 000 à 24 000 km (selon le carnet).",
+      "interval_km": 20000,
+      "difficulty": 3,
+      "time_min": 60,
+      "time_max": 120,
+      "why": "Le variateur fait office de boîte automatique : des galets centrifuges écartent les flasques de la poulie avant, la courroie monte et le rapport s'allonge. Une courroie usée patine, puis casse et immobilise le scooter.",
+      "sensory_checks": [
+        {
+          "sense": "feel",
+          "tip": "Le scooter monte en régime sans accélérer franchement (patinage), ou vibre au démarrage ?",
+          "means": "Courroie usée ou glissière / embrayage arrière fatigués."
+        },
+        {
+          "sense": "sound",
+          "tip": "Claquement ou bruit de roulement côté carter de variateur ?",
+          "means": "Galets plats ou roulement de poulie."
+        },
+        {
+          "sense": "sight",
+          "tip": "Poussière noire abondante dans le carter, courroie craquelée ou plus étroite que la cote mini ?",
+          "means": "Courroie à remplacer."
+        }
+      ],
+      "components": [
+        "drive_belt",
+        "transmission"
+      ],
+      "tools": [
+        "Clé de maintien de variateur",
+        "Douilles",
+        "Clé à chocs (pratique)",
+        "Pied à coulisse",
+        "Soufflette"
+      ],
+      "safety": [
+        "Moteur froid : le carter de variateur et l’échappement brûlent.",
+        "Ne graissez jamais la courroie ni les flasques."
+      ],
+      "shopping": [
+        {
+          "name": "Courroie de variateur",
+          "query": "courroie variateur scooter",
+          "qty": 1,
+          "unit": "pièce",
+          "price_min": 25,
+          "price_max": 90
+        },
+        {
+          "name": "Jeu de galets de variateur",
+          "query": "galets variateur scooter",
+          "qty": 1,
+          "unit": "jeu",
+          "price_min": 12,
+          "price_max": 40
+        },
+        {
+          "name": "Glissières de variateur",
+          "query": "glissières variateur scooter",
+          "qty": 1,
+          "unit": "jeu",
+          "price_min": 6,
+          "price_max": 20,
+          "optional": true
+        }
+      ],
+      "steps": [
+        {
+          "title": "Ouvrir le carter",
+          "text": "Déposez le carter de variateur (côté gauche), en notant l’emplacement des vis de longueurs différentes.",
+          "components": [
+            "transmission"
+          ]
+        },
+        {
+          "title": "Mesurer la courroie",
+          "text": "Mesurez la largeur au pied à coulisse et comparez à la cote mini du carnet ; inspectez les craquelures.",
+          "components": [
+            "drive_belt"
+          ]
+        },
+        {
+          "title": "Contrôler les galets",
+          "text": "Démontez la poulie avant : des galets aplatis ou des glissières usées se remplacent en jeu complet.",
+          "components": [
+            "drive_belt"
+          ]
+        },
+        {
+          "title": "Remonter",
+          "text": "Nettoyez la poussière à la soufflette (masque), remontez à sec, serrez l’écrou de variateur au couple prescrit.",
+          "components": [
+            "drive_belt",
+            "transmission"
+          ],
+          "warning": "Un écrou de poulie mal serré détruit l’arbre de vilebrequin."
+        }
+      ]
     }
   ],
   "procedures": [
@@ -8355,7 +8756,29 @@
         "clutch_slave"
       ],
       "notes": [
-        "Tiger Explorer 1200 : défaillance connue du cylindre récepteur d'embrayage (retour d'expérience d'utilisateurs, dont l'auteur d'EasyOBD). Une fuite se repère souvent par du liquide sur le pignon de sortie, derrière le cache côté gauche."
+        "Tiger Explorer 1200 : défaillance connue du cylindre récepteur d'embrayage (retour d'expérience d'utilisateurs, dont l'auteur d'EasyOBD). Fuite typique : liquide sur le carter moteur sous le récepteur et embrayage qui devient spongieux. Repérez son emplacement exact dans le manuel d'atelier avant de démonter."
+      ]
+    },
+    {
+      "match": {
+        "final_drive": "shaft"
+      },
+      "tutorials": [
+        "clutch_slave"
+      ],
+      "notes": [
+        "Moto à cardan : il n'y a ni pignon de sortie ni chaîne. Ignorez les mentions du cache de pignon ; le récepteur est fixé sur le carter moteur ou la boîte, à localiser dans le manuel d'atelier."
+      ]
+    },
+    {
+      "match": {
+        "final_drive": "shaft"
+      },
+      "tutorials": [
+        "moto_oil_change"
+      ],
+      "notes": [
+        "Moto à cardan : pensez aussi à contrôler l'huile de transmission finale (tutoriel dédié)."
       ]
     }
   ]

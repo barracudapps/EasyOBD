@@ -338,7 +338,17 @@ impl Specs {
             id.push(item("Cylindres", c.to_string(), Source::Vehicle, None));
         }
         if let Some(c) = &p.chain {
-            id.push(item("Transmission secondaire", c, Source::Vehicle, None));
+            id.push(item("Transmission secondaire", format!("Chaîne {c}"), Source::Vehicle, None));
+        } else if let Some(f) = p.final_drive_kind() {
+            let (label, source) = match (f, p.final_drive.is_some()) {
+                ("shaft", _) => ("Cardan (huile de couple conique à vidanger selon le carnet)", Source::Vehicle),
+                ("belt", _) => ("Courroie crantée (sans graissage, contrôle de tension)", Source::Vehicle),
+                ("cvt", _) => ("Variateur à courroie (scooter)", Source::Vehicle),
+                ("hub", _) => ("Moteur-roue (pas de transmission secondaire)", Source::Vehicle),
+                (_, true) => ("Chaîne", Source::Vehicle),
+                _ => ("Chaîne (le plus courant)", Source::Typical),
+            };
+            id.push(item("Transmission secondaire", label, source, None));
         }
         if electric {
             id.push(item("À savoir", &self.f.electric.note, Source::Typical, None));
