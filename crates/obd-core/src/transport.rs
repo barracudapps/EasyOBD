@@ -11,6 +11,35 @@ use crate::{Error, Result};
 
 pub const POLL_TIMEOUT: Duration = Duration::from_millis(50);
 
+/// Deadline helper that also works on `wasm32-unknown-unknown`, where `Instant` is unavailable:
+/// there, the budget is counted in transport polls instead of wall-clock time.
+pub struct Deadline {
+    #[cfg(not(target_arch = "wasm32"))]
+    end: std::time::Instant,
+    #[cfg(target_arch = "wasm32")]
+    polls_left: u64,
+}
+
+impl Deadline {
+    pub fn after(d: Duration) -> Self {
+        #[cfg(not(target_arch = "wasm32"))]
+        return Self { end: std::time::Instant::now() + d };
+        #[cfg(target_arch = "wasm32")]
+        return Self { polls_left: (d.as_millis() / POLL_TIMEOUT.as_millis()).max(1) as u64 };
+    }
+
+    /// Call once per poll.
+    pub fn expired(&mut self) -> bool {
+        #[cfg(not(target_arch = "wasm32"))]
+        return std::time::Instant::now() > self.end;
+        #[cfg(target_arch = "wasm32")]
+        {
+            self.polls_left = self.polls_left.saturating_sub(1);
+            self.polls_left == 0
+        }
+    }
+}
+
 pub trait Transport: Send {
     fn write_all(&mut self, data: &[u8]) -> Result<()>;
     /// Reads available bytes. Returns `Ok(0)` if nothing arrived within the poll timeout.

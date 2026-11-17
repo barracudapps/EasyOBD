@@ -1,6 +1,6 @@
 [workspace]
 resolver = "2"
-members = ["crates/obd-core"]
+members = ["crates/obd-core", "crates/obd-wasm", "src-tauri"]
 
 [workspace.package]
 version = "0.1.0"

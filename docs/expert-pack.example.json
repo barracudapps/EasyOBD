@@ -1,0 +1,17 @@
+{
+  "name": "Pack de démonstration (simulateur uniquement)",
+  "author": "EasyOBD",
+  "vehicle": "Simulateur EasyOBD – calculateur moteur 0x7E0",
+  "params": [
+    {
+      "name": "Paramètre de test du simulateur",
+      "ecu": "7E0",
+      "did": "0100",
+      "description": "DID fictif qui n'existe que dans le simulateur : sert à apprendre le flux d'écriture (session étendue, relecture, journal, restauration). Ne l'utilisez pas sur un vrai véhicule.",
+      "options": [
+        { "label": "Valeur 00 (origine)", "data": "00" },
+        { "label": "Valeur 05", "data": "05" }
+      ]
+    }
+  ]
+}

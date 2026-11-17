@@ -1,0 +1,18 @@
+{
+  "name": "easyobd",
+  "private": true,
+  "version": "0.1.0",
+  "description": "EasyOBD – diagnostic automobile OBD-II en 3D, pédagogique et multi-plateformes",
+  "scripts": {
+    "tauri": "tauri",
+    "build:wasm": "sh scripts/build-wasm.sh",
+    "dev:web": "npm run build:wasm && npm --prefix ui run dev",
+    "build:web": "npm run build:wasm && npm --prefix ui run build",
+    "dev": "tauri dev",
+    "build": "tauri build",
+    "test": "cargo test --workspace --exclude easyobd && npm --prefix ui run check"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2"
+  }
+}

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>NSBluetoothAlwaysUsageDescription</key>
+  <string>EasyOBD utilise le Bluetooth pour communiquer avec votre adaptateur OBD-II.</string>
+  <key>NSMicrophoneUsageDescription</key>
+  <string>EasyOBD utilise le micro pour analyser le bruit du moteur. L'enregistrement reste sur votre appareil.</string>
+  <key>NSLocalNetworkUsageDescription</key>
+  <string>EasyOBD se connecte aux adaptateurs OBD-II Wi-Fi de votre réseau local.</string>
+</dict>
+</plist>

@@ -11,11 +11,11 @@
 //! Each candidate is probed with `ATI` (and `STI` for STN chips) to confirm it is an OBD interpreter,
 //! identify the chip and flag the common clone firmwares.
 
-use std::time::{Duration, Instant};
+use std::time::Duration;
 
 use serde::{Deserialize, Serialize};
 
-use crate::transport::{TcpTransport, Transport};
+use crate::transport::{Deadline, TcpTransport, Transport};
 use crate::{Error, Result};
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
@@ -114,10 +114,10 @@ pub fn open(spec: &ConnectionSpec) -> Result<Box<dyn Transport>> {
 /// Sends a command and collects the answer until `>` or `timeout`.
 fn ask(t: &mut dyn Transport, cmd: &str, timeout: Duration) -> Option<String> {
     t.write_all(format!("{cmd}\r").as_bytes()).ok()?;
-    let deadline = Instant::now() + timeout;
+    let mut deadline = Deadline::after(timeout);
     let mut out = Vec::new();
     let mut buf = [0u8; 128];
-    while Instant::now() < deadline {
+    while !deadline.expired() {
         let n = t.read(&mut buf).ok()?;
         out.extend_from_slice(&buf[..n]);
         if out.contains(&b'>') {
@@ -275,7 +275,8 @@ pub fn discover(opts: &DiscoverOptions) -> Discovery {
     let mut candidates = Vec::new();
     let mut messages = Vec::new();
 
-    let wifi = opts.wifi.then(|| std::thread::spawn(discover_wifi));
+    // No sockets nor threads in the browser: only the simulator is offered there.
+    let wifi = (opts.wifi && cfg!(not(target_arch = "wasm32"))).then(|| std::thread::spawn(discover_wifi));
 
     #[cfg(feature = "ble")]
     let ble = opts.ble.then(|| {

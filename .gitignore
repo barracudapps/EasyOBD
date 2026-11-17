@@ -1,7 +1,7 @@
 /target
 node_modules/
 /ui/dist
-/ui/src/wasm/pkg
+/ui/public/wasm
 /src-tauri/gen/schemas
 .DS_Store
 *.log

@@ -4,13 +4,13 @@
 //! read until the `>` prompt, cleaned, then assembled into OBD messages (ISO-TP multi-frame
 //! responses are reassembled from the ELM's `0:` / `1:` ... line prefixes).
 
-use std::time::{Duration, Instant};
+use std::time::Duration;
 
 use serde::Serialize;
 
 use crate::dtc::{self, Dtc, DtcKind};
 use crate::pids::{self, LiveValue, MonitorStatus, PidDef};
-use crate::transport::Transport;
+use crate::transport::{Deadline, Transport};
 use crate::vin::{self, VehicleInfo};
 use crate::{Error, Result};
 
@@ -71,7 +71,7 @@ impl Elm327 {
     /// Sends a command and returns the raw text received before the `>` prompt.
     pub fn command_with_timeout(&mut self, cmd: &str, timeout: Duration) -> Result<String> {
         self.transport.write_all(format!("{cmd}\r").as_bytes())?;
-        let deadline = Instant::now() + timeout;
+        let mut deadline = Deadline::after(timeout);
         let mut out = Vec::new();
         let mut buf = [0u8; 256];
         loop {
@@ -81,7 +81,7 @@ impl Elm327 {
                 out.truncate(pos);
                 return Ok(String::from_utf8_lossy(&out).replace('\0', ""));
             }
-            if Instant::now() > deadline {
+            if deadline.expired() {
                 return Err(Error::Timeout);
             }
         }

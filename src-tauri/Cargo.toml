@@ -1,0 +1,23 @@
+[package]
+name = "easyobd"
+description = "EasyOBD – diagnostic automobile OBD-II en 3D"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[lib]
+name = "easyobd_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = [] }
+tauri-plugin-opener = "2"
+serde_json.workspace = true
+obd-core = { path = "../crates/obd-core" }
+
+# Desktop: USB, Bluetooth Classic (serial) and Bluetooth LE adapters.
+[target.'cfg(any(target_os = "macos", target_os = "windows", target_os = "linux"))'.dependencies]
+obd-core = { path = "../crates/obd-core", features = ["serial", "ble"] }

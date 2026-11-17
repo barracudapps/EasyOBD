@@ -1,0 +1,15 @@
+[package]
+name = "obd-wasm"
+description = "WebAssembly bindings of obd-core for the EasyOBD web build"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+obd-core = { path = "../obd-core" }
+serde_json.workspace = true
+# Must match the wasm-bindgen CLI version used by the build script.
+wasm-bindgen = "=0.2.130"
