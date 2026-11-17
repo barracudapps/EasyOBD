@@ -3,6 +3,7 @@
   import { VehicleScene } from '../lib/three/scene';
   import { app, componentName, sceneVehicle } from '../lib/state.svelte';
   import Icon from './Icon.svelte';
+  import Photos from './Photos.svelte';
 
   let host: HTMLDivElement;
   let scene: VehicleScene | null = null;
@@ -64,6 +65,7 @@
         <strong>{componentName(picked)}</strong>
         <button class="btn ghost sm" aria-label="Fermer" onclick={() => (picked = null)}><Icon name="x" size={14} /></button>
       </div>
+      <Photos components={[picked]} userKey={`part.${app.profile?.id ?? 'any'}.${picked}`} compact />
       <button class="btn sm" onclick={() => { app.highlightSeverity = 'info'; app.highlight = [picked!]; }}>Isoler cette pièce</button>
     </div>
   {/if}

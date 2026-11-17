@@ -5,6 +5,7 @@
   import Icon from './Icon.svelte';
   import SenseChecks from './SenseChecks.svelte';
   import VideoPanel from './VideoPanel.svelte';
+  import Photos from './Photos.svelte';
 
   let { d }: { d: Diagnosis } = $props();
   let tab = $state<'learn' | 'causes' | 'fix'>('learn');
@@ -50,6 +51,7 @@
           <div class="card flat col">
             <h3>Comment ça marche</h3>
             <p>{d.how_it_works}</p>
+            <Photos components={d.components.map((c) => c.id)} />
             {#if d.components.length}
               <div class="row">
                 {#each d.components as c}

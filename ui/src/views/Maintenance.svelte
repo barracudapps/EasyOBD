@@ -7,6 +7,7 @@
   import Alternatives from '../components/Alternatives.svelte';
   import VehicleSheet from '../components/VehicleSheet.svelte';
   import VideoPanel from '../components/VideoPanel.svelte';
+  import Photos from '../components/Photos.svelte';
   import type { Alternative } from '../lib/types';
 
   let list = $state<TutorialSummary[]>([]);
@@ -142,7 +143,8 @@
         <p>{s.text}</p>
         {#if s.warning}<div class="callout danger small row"><Icon name="alert" size={16} /> <span class="grow">{s.warning}</span></div>{/if}
         {#if s.tip}<div class="callout info small row"><Icon name="info" size={16} /> <span class="grow">{s.tip}</span></div>{/if}
-        <p class="tiny faint">Les pièces concernées sont mises en évidence dans la vue 3D.</p>
+        <Photos components={s.components} userKey={`step.${app.profile?.id}.${tut.id}.${step}`} />
+        <p class="tiny faint">Les pièces concernées sont mises en évidence dans la vue 3D. Ajoutez vos photos (sens de montage, repères) : elles restent sur cet appareil.</p>
         <div class="row spread">
           <button class="btn sm" disabled={step === 0} onclick={() => { step -= 1; showStep(); }}><Icon name="back" size={15} /> Précédente</button>
           {#if step < tut.steps.length - 1}
