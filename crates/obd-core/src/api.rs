@@ -1,0 +1,239 @@
+//! Single JSON API used by every front-end (Tauri native app and WebAssembly web build), so the
+//! application logic exists only once.
+//!
+//! `Session::handle("command", args)` → JSON result or a French error message.
+
+use std::collections::HashMap;
+
+use serde::Deserialize;
+use serde_json::{json, Value};
+
+use crate::audio::{self, AudioRequest};
+use crate::detect::{self, ConnKind, ConnectionSpec, DiscoverOptions};
+use crate::knowledge::KnowledgeBase;
+use crate::maintenance::{Maintenance, VehicleProfile};
+use crate::symptoms::{ExtraEvidence, SymptomGuide};
+use crate::uds::{self, WriteRecord};
+use crate::vin::VehicleInfo;
+use crate::{training, Elm327, Error};
+
+#[derive(Default)]
+pub struct Session {
+    elm: Option<Elm327>,
+    vehicle: Option<VehicleInfo>,
+    journal: Vec<WriteRecord>,
+}
+
+type R = std::result::Result<Value, String>;
+
+fn arg<T: for<'de> Deserialize<'de>>(args: &Value, key: &str) -> std::result::Result<T, String> {
+    serde_json::from_value(args.get(key).cloned().unwrap_or(Value::Null)).map_err(|e| format!("paramètre « {key} » invalide : {e}"))
+}
+
+fn opt<T: for<'de> Deserialize<'de>>(args: &Value, key: &str) -> Option<T> {
+    args.get(key).cloned().and_then(|v| serde_json::from_value(v).ok())
+}
+
+fn to_value<T: serde::Serialize>(v: T) -> R {
+    serde_json::to_value(v).map_err(|e| e.to_string())
+}
+
+fn e(err: Error) -> String {
+    err.to_string()
+}
+
+impl Session {
+    pub fn new() -> Self {
+        Self::default()
+    }
+
+    fn elm(&mut self) -> std::result::Result<&mut Elm327, String> {
+        self.elm.as_mut().ok_or_else(|| Error::NotConnected.to_string())
+    }
+
+    fn make(&self) -> Option<String> {
+        self.vehicle.as_ref().and_then(|v| v.make.clone())
+    }
+
+    fn require_ack(args: &Value) -> std::result::Result<(), String> {
+        let ack: String = opt(args, "ack").unwrap_or_default();
+        if ack.trim().to_uppercase() == uds::ACK_PHRASE {
+            Ok(())
+        } else {
+            Err(format!("Opération bloquée : tapez « {} » pour confirmer que vous assumez les risques.", uds::ACK_PHRASE))
+        }
+    }
+
+    pub fn handle(&mut self, cmd: &str, args: &Value) -> R {
+        let kb = KnowledgeBase::embedded();
+        let maint = Maintenance::embedded();
+        match cmd {
+            // ---- Knowledge base -----------------------------------------------------------------
+            "kb_info" => {
+                let mut components: HashMap<String, String> = kb.components.iter().map(|(k, v)| (k.clone(), v.name.clone())).collect();
+                components.extend(maint.components.iter().map(|(k, v)| (k.clone(), v.name.clone())));
+                Ok(json!({
+                    "version": kb.version,
+                    "labor_rate_eur_h": kb.labor_rate_eur_h,
+                    "providers": kb.providers,
+                    "components": components,
+                    "catalog": kb.catalog(),
+                }))
+            }
+            "kb_lookup" => {
+                let code: String = arg(args, "code")?;
+                let make = opt::<String>(args, "make").or_else(|| self.make());
+                kb.lookup(&code, make.as_deref()).map(to_value).unwrap_or_else(|| Err(format!("« {code} » n'est pas un code OBD valide (ex. P0301)")))
+            }
+
+            // ---- Adapters & session -------------------------------------------------------------
+            "discover" => {
+                let opts: DiscoverOptions = opt(args, "options").unwrap_or_default();
+                to_value(detect::discover(&opts))
+            }
+            "connect" => {
+                let spec: ConnectionSpec = arg(args, "spec")?;
+                self.elm = None;
+                let mut elm = Elm327::new(detect::open(&spec).map_err(e)?);
+                let adapter = elm.initialize().map_err(e)?;
+                let vehicle = elm.read_vehicle().unwrap_or_default();
+                let monitor = elm.monitor_status().ok().flatten();
+                let battery = elm.battery_voltage().ok().flatten();
+                self.vehicle = Some(vehicle.clone());
+                self.elm = Some(elm);
+                Ok(json!({ "adapter": adapter, "vehicle": vehicle, "monitor": monitor, "battery_v": battery, "simulated": spec.kind == ConnKind::Simulator }))
+            }
+            "disconnect" => {
+                self.elm = None;
+                self.vehicle = None;
+                Ok(Value::Null)
+            }
+            "read_dtcs" => {
+                let make = self.make();
+                let dtcs = self.elm()?.read_all_dtcs().map_err(e)?;
+                let items: Vec<Value> = dtcs
+                    .into_iter()
+                    .map(|d| json!({ "code": d.code, "kind": d.kind, "diagnosis": kb.lookup(&d.code, make.as_deref()) }))
+                    .collect();
+                Ok(Value::Array(items))
+            }
+            "clear_dtcs" => {
+                self.elm()?.clear_dtcs().map_err(e)?;
+                Ok(Value::Null)
+            }
+            "read_live" => {
+                let elm = self.elm()?;
+                let values = elm.read_live().map_err(e)?;
+                let battery = elm.battery_voltage().ok().flatten();
+                Ok(json!({ "values": values, "battery_v": battery }))
+            }
+
+            // ---- Maintenance --------------------------------------------------------------------
+            "maintenance_info" => Ok(json!({
+                "disclaimer": maint.disclaimer,
+                "vehicle_types": maint.vehicle_types,
+                "profiles": maint.profiles,
+            })),
+            "tutorials_for" => {
+                let p: VehicleProfile = arg(args, "profile")?;
+                to_value(maint.tutorials_for(&p))
+            }
+            "tutorial" => {
+                let id: String = arg(args, "id")?;
+                let p: VehicleProfile = arg(args, "profile")?;
+                let t = maint.tutorial_for(&id, &p).ok_or("tutoriel introuvable")?;
+                let list = maint.shopping_list(kb, &id, &p);
+                Ok(json!({ "tutorial": t, "shopping": list }))
+            }
+
+            // ---- Symptom questionnaire & audio --------------------------------------------------
+            "symptoms_guide" => {
+                let g = SymptomGuide::embedded();
+                Ok(json!({ "intro": g.intro, "questions": g.questions }))
+            }
+            "symptoms_evaluate" => {
+                let answers: HashMap<String, Vec<String>> = opt(args, "answers").unwrap_or_default();
+                let extra: Vec<ExtraEvidence> = opt(args, "extra").unwrap_or_default();
+                to_value(SymptomGuide::embedded().evaluate(kb, &answers, &extra))
+            }
+            "audio_analyze" => {
+                let samples: Vec<f32> = arg(args, "samples")?;
+                let req: AudioRequest = arg(args, "request")?;
+                let report = audio::analyze(&samples, &req);
+                let evidence = report.as_evidence();
+                Ok(json!({ "report": report, "evidence": evidence }))
+            }
+
+            // ---- Training -----------------------------------------------------------------------
+            "scenarios" => to_value(training::scenarios()),
+
+            // ---- Expert mode (UDS) --------------------------------------------------------------
+            "expert_info" => Ok(json!({
+                "disclaimer": uds::DISCLAIMER,
+                "ack_phrase": uds::ACK_PHRASE,
+                "ecus": uds::OBD_ECUS.iter().map(|(a, n)| json!({ "tx": a, "name": n })).collect::<Vec<_>>(),
+                "journal": self.journal,
+            })),
+            "uds_scan" => to_value(uds::scan_ecus(self.elm()?).map_err(e)?),
+            "uds_preconditions" => to_value(uds::check_write_preconditions(self.elm()?).map_err(e)?),
+            "uds_raw" => {
+                let ecu: u16 = arg(args, "ecu")?;
+                let req = uds::parse_hex_bytes(&arg::<String>(args, "request")?).map_err(e)?;
+                if uds::is_write_service(req[0]) {
+                    Self::require_ack(args)?;
+                    let pre = uds::check_write_preconditions(self.elm()?).map_err(e)?;
+                    if !pre.ok {
+                        return Err(pre.problems.join(" "));
+                    }
+                }
+                let elm = self.elm()?;
+                elm.uds_target(ecu).map_err(e)?;
+                let res = elm.uds(&req);
+                let _ = elm.uds_release();
+                Ok(json!({ "request": uds::hex(&req), "response": uds::hex(&res.map_err(e)?) }))
+            }
+            "uds_write" => {
+                Self::require_ack(args)?;
+                let ecu: u16 = arg(args, "ecu")?;
+                let did: u16 = arg(args, "did")?;
+                let data = uds::parse_hex_bytes(&arg::<String>(args, "data")?).map_err(e)?;
+                let rec = uds::write_did_verified(self.elm()?, ecu, did, &data).map_err(e)?;
+                self.journal.push(rec.clone());
+                to_value(rec)
+            }
+
+            _ => Err(format!("commande inconnue : {cmd}")),
+        }
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn end_to_end_through_api() {
+        let mut s = Session::new();
+        assert!(s.handle("read_dtcs", &Value::Null).is_err());
+        let r = s.handle("connect", &json!({ "spec": { "kind": "simulator", "address": "misfire-rain" } })).unwrap();
+        assert_eq!(r["vehicle"]["make"], "Renault");
+        let dtcs = s.handle("read_dtcs", &Value::Null).unwrap();
+        assert_eq!(dtcs[0]["code"], "P0302");
+        assert!(dtcs[0]["diagnosis"]["solutions"][0]["parts"][0]["links"][0]["url"].as_str().unwrap().contains("Renault"));
+        assert!(s.handle("read_live", &Value::Null).unwrap()["values"].as_array().unwrap().len() > 5);
+
+        // Writes need the consent phrase.
+        let w = json!({ "ecu": 0x7E0, "did": 0x0100, "data": "05" });
+        assert!(s.handle("uds_write", &w).unwrap_err().contains("ACCEPTE"));
+        assert!(s.handle("uds_raw", &json!({ "ecu": 0x7E0, "request": "22F190" })).unwrap()["response"].as_str().unwrap().starts_with("62 F1 90"));
+
+        let info = s.handle("kb_info", &Value::Null).unwrap();
+        assert!(info["components"]["oil_filter"].is_string());
+        let g = s.handle("symptoms_evaluate", &json!({ "answers": { "noises": ["click_turn"] } })).unwrap();
+        assert_eq!(g["hypotheses"][0]["id"], "cv_joint");
+        let p = &Maintenance::embedded().profiles[0];
+        let t = s.handle("tutorial", &json!({ "id": "oil_change", "profile": p })).unwrap();
+        assert!(t["shopping"]["items"].as_array().unwrap().len() >= 3);
+        assert!(s.handle("bogus", &Value::Null).is_err());
+    }
+}

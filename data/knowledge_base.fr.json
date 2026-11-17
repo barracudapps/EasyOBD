@@ -1,0 +1,5308 @@
+{
+  "version": "2026.11.1",
+  "labor_rate_eur_h": 75,
+  "providers": [
+    {
+      "id": "autodoc",
+      "name": "AutoDoc",
+      "url_template": "https://www.auto-doc.fr/search?keyword={q}",
+      "color": "#f26722"
+    },
+    {
+      "id": "misterauto",
+      "name": "Mister Auto",
+      "url_template": "https://www.google.com/search?q=site%3Amister-auto.com+{q}",
+      "color": "#e30613"
+    },
+    {
+      "id": "oscaro",
+      "name": "Oscaro",
+      "url_template": "https://www.google.com/search?q=site%3Aoscaro.com+{q}",
+      "color": "#0a5fd8"
+    }
+  ],
+  "components": {
+    "engine": {
+      "name": "Bloc moteur"
+    },
+    "cylinder_{n}": {
+      "name": "Cylindre {n}"
+    },
+    "spark_plug_{n}": {
+      "name": "Bougie d'allumage – cylindre {n}"
+    },
+    "coil_{n}": {
+      "name": "Bobine d'allumage – cylindre {n}"
+    },
+    "injector_{n}": {
+      "name": "Injecteur – cylindre {n}"
+    },
+    "intake_manifold": {
+      "name": "Collecteur d'admission"
+    },
+    "throttle_body": {
+      "name": "Boîtier papillon"
+    },
+    "maf_sensor": {
+      "name": "Débitmètre d'air (MAF)"
+    },
+    "map_sensor": {
+      "name": "Capteur de pression d'admission (MAP)"
+    },
+    "iat_sensor": {
+      "name": "Sonde de température d'air"
+    },
+    "air_filter": {
+      "name": "Filtre à air"
+    },
+    "vacuum_hoses": {
+      "name": "Durites de dépression / admission"
+    },
+    "o2_sensor_upstream": {
+      "name": "Sonde lambda amont"
+    },
+    "o2_sensor_downstream": {
+      "name": "Sonde lambda aval"
+    },
+    "catalytic_converter": {
+      "name": "Catalyseur"
+    },
+    "exhaust": {
+      "name": "Ligne d'échappement"
+    },
+    "dpf": {
+      "name": "Filtre à particules (FAP)"
+    },
+    "dpf_pressure_sensor": {
+      "name": "Capteur de pression différentielle FAP"
+    },
+    "egr_valve": {
+      "name": "Vanne EGR"
+    },
+    "turbo": {
+      "name": "Turbocompresseur"
+    },
+    "intercooler": {
+      "name": "Échangeur (intercooler) et durites de suralimentation"
+    },
+    "fuel_tank": {
+      "name": "Réservoir de carburant"
+    },
+    "fuel_pump": {
+      "name": "Pompe à carburant"
+    },
+    "fuel_filter": {
+      "name": "Filtre à carburant"
+    },
+    "fuel_rail": {
+      "name": "Rampe d'injection / capteur de pression"
+    },
+    "evap_canister": {
+      "name": "Canister (absorbeur de vapeurs)"
+    },
+    "purge_valve": {
+      "name": "Électrovanne de purge canister"
+    },
+    "fuel_cap": {
+      "name": "Bouchon de réservoir"
+    },
+    "radiator": {
+      "name": "Radiateur"
+    },
+    "cooling_fan": {
+      "name": "Motoventilateur"
+    },
+    "thermostat": {
+      "name": "Thermostat / calorstat"
+    },
+    "coolant_temp_sensor": {
+      "name": "Sonde de température moteur"
+    },
+    "oil_pressure_sensor": {
+      "name": "Mano-contact de pression d'huile"
+    },
+    "battery": {
+      "name": "Batterie"
+    },
+    "alternator": {
+      "name": "Alternateur"
+    },
+    "ecu": {
+      "name": "Calculateur moteur (ECU)"
+    },
+    "crank_sensor": {
+      "name": "Capteur de vilebrequin (PMH)"
+    },
+    "cam_sensor": {
+      "name": "Capteur d'arbre à cames"
+    },
+    "knock_sensor": {
+      "name": "Capteur de cliquetis"
+    },
+    "timing_chain": {
+      "name": "Distribution (chaîne ou courroie)"
+    },
+    "vvt_solenoid": {
+      "name": "Électrovanne de déphaseur (VVT)"
+    },
+    "glow_plugs": {
+      "name": "Bougies de préchauffage"
+    },
+    "transmission": {
+      "name": "Boîte de vitesses"
+    },
+    "vehicle_speed_sensor": {
+      "name": "Capteur de vitesse véhicule"
+    },
+    "wheel_speed_sensor_fl": {
+      "name": "Capteur ABS avant gauche"
+    },
+    "wheel_speed_sensor_fr": {
+      "name": "Capteur ABS avant droit"
+    },
+    "wheel_speed_sensor_rl": {
+      "name": "Capteur ABS arrière gauche"
+    },
+    "wheel_speed_sensor_rr": {
+      "name": "Capteur ABS arrière droit"
+    },
+    "abs_module": {
+      "name": "Bloc ABS / ESP"
+    },
+    "can_bus": {
+      "name": "Réseau multiplexé CAN (faisceau)"
+    },
+    "cabin": {
+      "name": "Habitacle / carrosserie"
+    }
+  },
+  "entries": [
+    {
+      "code": "P0011",
+      "title": "Calage de l'arbre à cames d'admission trop avancé (banc 1)",
+      "description": "Le calculateur demande un certain calage de l'arbre à cames d'admission via le déphaseur (VVT), mais la position mesurée ne suit pas. C'est très souvent lié à l'huile : niveau bas, huile trop ancienne ou de mauvaise viscosité, ou électrovanne VVT encrassée.",
+      "system": "Distribution",
+      "severity": "medium",
+      "drivable": "Roulable à court terme. Vérifiez le niveau d'huile dès aujourd'hui ; si un bruit de chaîne apparaît, cessez de rouler.",
+      "how_it_works": "Le déphaseur décale l'arbre à cames d'admission grâce à la pression d'huile, pilotée par une électrovanne. C'est ce qui donne du couple en bas et de la puissance en haut. Sans une huile propre et en quantité suffisante, il ne suit plus les ordres du calculateur.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "Tirez la jauge : huile sous le minimum, noire et épaisse, ou couleur « mayonnaise » ?",
+          "means": "Huile basse ou usée : cause la plus probable, à corriger avant tout achat."
+        },
+        {
+          "sense": "sound",
+          "tip": "Écoutez au démarrage à froid : un cliquetis métallique de 1 à 3 s côté distribution.",
+          "means": "Déphaseur ou chaîne fatigués : le problème est mécanique, pas seulement électrique."
+        },
+        {
+          "sense": "feel",
+          "tip": "Le ralenti « pompe » légèrement après une vidange récente ?",
+          "means": "Si l'huile est neuve et correcte, suspectez plutôt l'électrovanne VVT."
+        }
+      ],
+      "symptoms": [
+        "Ralenti instable",
+        "Perte de puissance",
+        "Surconsommation",
+        "Claquement au démarrage à froid"
+      ],
+      "components": [
+        "vvt_solenoid",
+        "cam_sensor",
+        "timing_chain",
+        "engine"
+      ],
+      "causes": [
+        {
+          "text": "Niveau d'huile bas ou huile usagée / mauvaise viscosité",
+          "likelihood": 40
+        },
+        {
+          "text": "Électrovanne VVT encrassée ou défectueuse",
+          "likelihood": 30
+        },
+        {
+          "text": "Chaîne de distribution détendue ou décalée",
+          "likelihood": 20
+        },
+        {
+          "text": "Capteur d'arbre à cames défectueux",
+          "likelihood": 10
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Vidange moteur avec l'huile préconisée",
+          "difficulty": 2,
+          "time_min": 30,
+          "time_max": 60,
+          "tools": [
+            "Clé de vidange",
+            "Bac de récupération",
+            "Clé à filtre"
+          ],
+          "steps": [
+            "Vidanger le moteur chaud",
+            "Remplacer le filtre à huile",
+            "Remplir avec la viscosité constructeur",
+            "Effacer le code et rouler 20 km"
+          ],
+          "parts": [
+            {
+              "name": "Huile moteur 5 L",
+              "query": "huile moteur 5W30 5L",
+              "price_min": 30,
+              "price_max": 60
+            },
+            {
+              "name": "Filtre à huile",
+              "query": "filtre à huile",
+              "price_min": 6,
+              "price_max": 20
+            }
+          ]
+        },
+        {
+          "title": "Nettoyer ou remplacer l'électrovanne VVT",
+          "difficulty": 2,
+          "time_min": 30,
+          "time_max": 75,
+          "tools": [
+            "Clés à douille",
+            "Nettoyant contact",
+            "Multimètre"
+          ],
+          "steps": [
+            "Débrancher et déposer l'électrovanne",
+            "Contrôler la résistance (souvent 6–12 Ω)",
+            "Nettoyer le tamis, ou remplacer la pièce"
+          ],
+          "parts": [
+            {
+              "name": "Électrovanne de déphaseur VVT",
+              "query": "électrovanne arbre à cames",
+              "price_min": 35,
+              "price_max": 120
+            }
+          ]
+        },
+        {
+          "title": "Remplacer le kit chaîne de distribution",
+          "difficulty": 5,
+          "time_min": 300,
+          "time_max": 600,
+          "tools": [
+            "Outils de calage spécifiques",
+            "Clé dynamométrique",
+            "Pont / chandelles"
+          ],
+          "steps": [
+            "Confirmer l'allongement de la chaîne (mesure ou valeurs de déphasage)",
+            "Caler le moteur",
+            "Remplacer chaîne, tendeur, guides et pignons"
+          ],
+          "parts": [
+            {
+              "name": "Kit chaîne de distribution",
+              "query": "kit chaîne de distribution",
+              "price_min": 120,
+              "price_max": 450
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "P0016",
+      "title": "Corrélation vilebrequin / arbre à cames (banc 1, capteur A)",
+      "description": "Les signaux du capteur de vilebrequin et du capteur d'arbre à cames ne sont plus synchronisés. La distribution a peut-être sauté une dent ou s'est allongée. Ce code peut annoncer une casse moteur : à prendre au sérieux.",
+      "system": "Distribution",
+      "severity": "high",
+      "drivable": "Limitez au strict minimum. Une distribution qui saute peut détruire le moteur (soupapes / pistons).",
+      "how_it_works": "Le calculateur compare deux repères : la position du vilebrequin (pistons) et celle de l'arbre à cames (soupapes). La distribution les relie mécaniquement. S'ils se décalent, c'est que la chaîne ou la courroie a bougé, ou qu'un capteur ment.",
+      "sensory_checks": [
+        {
+          "sense": "sound",
+          "tip": "Bruit de chaîne qui « racle » ou claque au démarrage, puis disparaît.",
+          "means": "Chaîne allongée : n'attendez pas, risque de casse moteur."
+        },
+        {
+          "sense": "sight",
+          "tip": "Huile très sale ou niveau bas à la jauge.",
+          "means": "Une huile négligée use la chaîne et grippe le déphaseur."
+        },
+        {
+          "sense": "sight",
+          "tip": "Limaille ou boue sur la tête du capteur déposé.",
+          "means": "Capteur simplement encrassé : nettoyage possible avant de tout démonter."
+        }
+      ],
+      "symptoms": [
+        "Démarrage difficile",
+        "Bruit de chaîne",
+        "Perte de puissance",
+        "Calage moteur"
+      ],
+      "components": [
+        "timing_chain",
+        "crank_sensor",
+        "cam_sensor",
+        "vvt_solenoid"
+      ],
+      "causes": [
+        {
+          "text": "Chaîne ou courroie de distribution allongée / décalée",
+          "likelihood": 50
+        },
+        {
+          "text": "Capteur de vilebrequin ou d'arbre à cames défectueux",
+          "likelihood": 25
+        },
+        {
+          "text": "Déphaseur VVT bloqué, problème d'huile",
+          "likelihood": 20
+        },
+        {
+          "text": "Cible de capteur endommagée",
+          "likelihood": 5
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Contrôler les capteurs PMH et AAC",
+          "difficulty": 2,
+          "time_min": 30,
+          "time_max": 60,
+          "tools": [
+            "Multimètre",
+            "Clés à douille"
+          ],
+          "steps": [
+            "Vérifier connecteurs et câblage",
+            "Inspecter la tête des capteurs (limaille)",
+            "Remplacer le capteur suspect"
+          ],
+          "parts": [
+            {
+              "name": "Capteur d'arbre à cames",
+              "query": "capteur arbre à cames",
+              "price_min": 15,
+              "price_max": 70
+            }
+          ]
+        },
+        {
+          "title": "Remplacer le kit de distribution",
+          "difficulty": 5,
+          "time_min": 240,
+          "time_max": 600,
+          "tools": [
+            "Outils de calage spécifiques",
+            "Clé dynamométrique"
+          ],
+          "steps": [
+            "Vérifier le calage avec les piges",
+            "Remplacer chaîne/courroie, tendeur, galets ou guides",
+            "Remplacer la pompe à eau si entraînée par la courroie"
+          ],
+          "parts": [
+            {
+              "name": "Kit de distribution",
+              "query": "kit distribution",
+              "price_min": 100,
+              "price_max": 450
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "P0087",
+      "title": "Pression de rampe d'injection trop basse",
+      "description": "La pression de carburant mesurée dans la rampe est inférieure à la consigne. Fréquent sur les diesels common-rail et les essences à injection directe : l'alimentation en carburant n'arrive pas à suivre.",
+      "system": "Alimentation carburant",
+      "severity": "high",
+      "drivable": "Risque de calage et de mode dégradé. Évitez les dépassements et les longs trajets.",
+      "how_it_works": "Une pompe basse pression (dans le réservoir) alimente une pompe haute pression qui remplit la rampe commune aux injecteurs. Le capteur de rampe surveille cette pression : trop basse, l'injection devient imprécise.",
+      "sensory_checks": [
+        {
+          "sense": "sound",
+          "tip": "Contact mis, moteur arrêté : on doit entendre la pompe du réservoir bourdonner 2 à 3 s près de la banquette arrière.",
+          "means": "Silence : suspectez la pompe de gavage, son relais ou son fusible."
+        },
+        {
+          "sense": "smell",
+          "tip": "Odeur de gazole ou d'essence sous le capot.",
+          "means": "Fuite sur le circuit : danger d'incendie, à traiter en priorité."
+        },
+        {
+          "sense": "sight",
+          "tip": "Dernier remplacement du filtre à carburant il y a plus de 60 000 km ou 4 ans ?",
+          "means": "Le filtre colmaté est la cause la moins chère : commencez par lui."
+        }
+      ],
+      "symptoms": [
+        "Mode dégradé",
+        "Trous à l'accélération",
+        "Démarrage long",
+        "Calage"
+      ],
+      "components": [
+        "fuel_filter",
+        "fuel_pump",
+        "fuel_rail",
+        "fuel_tank"
+      ],
+      "causes": [
+        {
+          "text": "Filtre à carburant colmaté",
+          "likelihood": 40
+        },
+        {
+          "text": "Pompe de gavage (réservoir) faible",
+          "likelihood": 25
+        },
+        {
+          "text": "Capteur ou régulateur de pression de rampe défectueux",
+          "likelihood": 20
+        },
+        {
+          "text": "Pompe haute pression usée, fuite d'injecteur",
+          "likelihood": 15
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Remplacer le filtre à carburant",
+          "difficulty": 2,
+          "time_min": 20,
+          "time_max": 60,
+          "tools": [
+            "Clés",
+            "Bac",
+            "Poire d'amorçage (diesel)"
+          ],
+          "steps": [
+            "Déposer l'ancien filtre",
+            "Monter le neuf en respectant le sens",
+            "Purger / réamorcer le circuit"
+          ],
+          "parts": [
+            {
+              "name": "Filtre à carburant",
+              "query": "filtre à carburant",
+              "price_min": 10,
+              "price_max": 45
+            }
+          ]
+        },
+        {
+          "title": "Remplacer la pompe de gavage dans le réservoir",
+          "difficulty": 3,
+          "time_min": 60,
+          "time_max": 150,
+          "tools": [
+            "Clé de bague de réservoir",
+            "Extincteur à portée"
+          ],
+          "steps": [
+            "Accéder à la trappe sous la banquette",
+            "Débrancher, déposer le module",
+            "Remplacer la pompe et le joint"
+          ],
+          "parts": [
+            {
+              "name": "Pompe à carburant (module)",
+              "query": "pompe à carburant",
+              "price_min": 60,
+              "price_max": 260
+            }
+          ]
+        },
+        {
+          "title": "Diagnostic haute pression (garage)",
+          "difficulty": 5,
+          "time_min": 60,
+          "time_max": 180,
+          "tools": [
+            "Valise constructeur",
+            "Manomètre haute pression"
+          ],
+          "steps": [
+            "Test de retour injecteurs",
+            "Contrôle du régulateur et de la pompe HP"
+          ],
+          "parts": [
+            {
+              "name": "Capteur de pression de rampe",
+              "query": "capteur pression carburant rampe",
+              "price_min": 40,
+              "price_max": 150
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "range": [
+        "P0100",
+        "P0104"
+      ],
+      "title": "Débitmètre d'air (MAF) : signal anormal",
+      "description": "Le débitmètre mesure la quantité d'air qui entre dans le moteur. Son signal est hors plage ou incohérent : le calculateur dose mal le carburant. Il est souvent simplement encrassé, ou faussé par une prise d'air après le débitmètre.",
+      "system": "Admission d'air",
+      "severity": "medium",
+      "drivable": "Oui, mais avec perte de puissance possible (mode dégradé).",
+      "how_it_works": "Le débitmètre est un fil (ou un film) chauffé placé dans le flux d'air. Plus il y a d'air, plus il refroidit, et le capteur en déduit la masse d'air aspirée. Le calculateur injecte la quantité de carburant correspondante.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "Déposez le débitmètre : fil ou film gris-brun, gras, avec des peluches ?",
+          "means": "Encrassement : un nettoyant spécial suffit souvent."
+        },
+        {
+          "sense": "sight",
+          "tip": "Filtre à air noir, mal posé ou boîte à air mal clipsée.",
+          "means": "De l'air non filtré salit rapidement le capteur."
+        },
+        {
+          "sense": "feel",
+          "tip": "Débranchez le débitmètre et faites un essai : le moteur tourne mieux ?",
+          "means": "Si oui, le débitmètre ment : nettoyage ou remplacement."
+        },
+        {
+          "sense": "sound",
+          "tip": "Sifflement entre le débitmètre et le moteur.",
+          "means": "Prise d'air après la mesure : l'air entre sans être compté."
+        }
+      ],
+      "symptoms": [
+        "Manque de puissance",
+        "Ralenti instable",
+        "Fumée noire (diesel)",
+        "Surconsommation"
+      ],
+      "components": [
+        "maf_sensor",
+        "air_filter",
+        "intake_manifold",
+        "vacuum_hoses"
+      ],
+      "causes": [
+        {
+          "text": "Débitmètre encrassé (huile, poussière)",
+          "likelihood": 40
+        },
+        {
+          "text": "Prise d'air entre débitmètre et moteur",
+          "likelihood": 25
+        },
+        {
+          "text": "Débitmètre défectueux",
+          "likelihood": 20
+        },
+        {
+          "text": "Connecteur ou faisceau oxydé",
+          "likelihood": 15
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Nettoyer le débitmètre et remplacer le filtre à air",
+          "difficulty": 1,
+          "time_min": 15,
+          "time_max": 30,
+          "tools": [
+            "Tournevis Torx",
+            "Nettoyant spécial débitmètre (sans résidu)"
+          ],
+          "steps": [
+            "Débrancher le débitmètre",
+            "Pulvériser le nettoyant sur le fil chaud sans le toucher",
+            "Laisser sécher 10 min",
+            "Remonter avec un filtre à air neuf"
+          ],
+          "parts": [
+            {
+              "name": "Nettoyant débitmètre",
+              "query": "nettoyant débitmètre",
+              "price_min": 8,
+              "price_max": 15
+            },
+            {
+              "name": "Filtre à air",
+              "query": "filtre à air",
+              "price_min": 8,
+              "price_max": 30
+            }
+          ]
+        },
+        {
+          "title": "Remplacer le débitmètre d'air",
+          "difficulty": 1,
+          "time_min": 15,
+          "time_max": 30,
+          "tools": [
+            "Tournevis",
+            "Clé à douille"
+          ],
+          "steps": [
+            "Débrancher le connecteur",
+            "Desserrer les colliers",
+            "Monter le débitmètre neuf, effacer les codes"
+          ],
+          "parts": [
+            {
+              "name": "Débitmètre d'air massique",
+              "query": "débitmètre d'air",
+              "price_min": 40,
+              "price_max": 200
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "range": [
+        "P0105",
+        "P0109"
+      ],
+      "title": "Capteur de pression d'admission (MAP) : signal anormal",
+      "description": "Le capteur MAP mesure la pression (ou la dépression) dans le collecteur d'admission. Un signal faux perturbe le dosage du carburant et, sur un moteur turbo, la régulation de pression.",
+      "system": "Admission d'air",
+      "severity": "medium",
+      "drivable": "Oui, prudence : le moteur peut passer en mode dégradé.",
+      "how_it_works": "Le capteur MAP mesure la pression dans le collecteur : forte dépression au ralenti, pression élevée en charge (turbo). Le calculateur s'en sert pour calculer la quantité d'air et réguler le turbo.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "Durite de dépression du capteur (petit tuyau) fendue, durcie ou débranchée.",
+          "means": "Fuite sur la prise de mesure : réparation à quelques euros."
+        },
+        {
+          "sense": "sight",
+          "tip": "Huile dans le connecteur ou l'orifice du capteur.",
+          "means": "Encrassement par les vapeurs d'huile (reniflard) : nettoyer."
+        },
+        {
+          "sense": "sound",
+          "tip": "Souffle ou sifflement en accélération (moteur turbo).",
+          "means": "Fuite de suralimentation qui fausse la mesure."
+        }
+      ],
+      "symptoms": [
+        "Ralenti irrégulier",
+        "Perte de puissance",
+        "Fumée noire",
+        "À-coups"
+      ],
+      "components": [
+        "map_sensor",
+        "intake_manifold",
+        "vacuum_hoses"
+      ],
+      "causes": [
+        {
+          "text": "Capteur encrassé (huile / calamine)",
+          "likelihood": 35
+        },
+        {
+          "text": "Durite de dépression fendue",
+          "likelihood": 30
+        },
+        {
+          "text": "Capteur défectueux",
+          "likelihood": 25
+        },
+        {
+          "text": "Connecteur oxydé",
+          "likelihood": 10
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Nettoyer le capteur et contrôler les durites",
+          "difficulty": 1,
+          "time_min": 15,
+          "time_max": 40,
+          "tools": [
+            "Nettoyant contact",
+            "Lampe"
+          ],
+          "steps": [
+            "Déposer le capteur (1 ou 2 vis)",
+            "Nettoyer l'orifice",
+            "Inspecter les durites voisines"
+          ],
+          "parts": [
+            {
+              "name": "Nettoyant contacts électriques",
+              "query": "nettoyant contact électrique",
+              "price_min": 6,
+              "price_max": 12
+            }
+          ]
+        },
+        {
+          "title": "Remplacer le capteur MAP",
+          "difficulty": 1,
+          "time_min": 10,
+          "time_max": 30,
+          "tools": [
+            "Clé à douille"
+          ],
+          "steps": [
+            "Débrancher",
+            "Dévisser",
+            "Monter le neuf avec un joint neuf"
+          ],
+          "parts": [
+            {
+              "name": "Capteur pression d'admission",
+              "query": "capteur pression collecteur admission",
+              "price_min": 25,
+              "price_max": 100
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "range": [
+        "P0110",
+        "P0114"
+      ],
+      "title": "Sonde de température d'air d'admission : signal anormal",
+      "description": "Le calculateur lit une température d'air incohérente (souvent -40 °C ou +150 °C, signe d'un circuit coupé ou en court-circuit). La sonde est souvent intégrée au débitmètre ou au capteur MAP.",
+      "system": "Admission d'air",
+      "severity": "low",
+      "drivable": "Oui. Le moteur utilise une valeur par défaut.",
+      "how_it_works": "Une thermistance mesure la température de l'air aspiré. L'air froid est plus dense : le calculateur ajoute un peu de carburant. Une valeur de -40 °C indique un circuit ouvert, +150 °C un court-circuit.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "Connecteur de la sonde (sur le débitmètre ou la durite) mal clipsé ou vert d'oxydation.",
+          "means": "Problème de contact, pas de pièce à changer."
+        },
+        {
+          "sense": "touch",
+          "tip": "Moteur froid, la durite d'admission est à température ambiante : comparez avec la valeur lue en données en direct.",
+          "means": "Écart important : sonde défectueuse."
+        }
+      ],
+      "symptoms": [
+        "Démarrage à froid plus difficile",
+        "Légère surconsommation"
+      ],
+      "components": [
+        "iat_sensor",
+        "maf_sensor"
+      ],
+      "causes": [
+        {
+          "text": "Connecteur débranché ou oxydé",
+          "likelihood": 40
+        },
+        {
+          "text": "Sonde défectueuse",
+          "likelihood": 40
+        },
+        {
+          "text": "Faisceau endommagé",
+          "likelihood": 20
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Contrôler le connecteur puis remplacer la sonde",
+          "difficulty": 1,
+          "time_min": 10,
+          "time_max": 30,
+          "tools": [
+            "Multimètre",
+            "Nettoyant contact"
+          ],
+          "steps": [
+            "Vérifier que le connecteur est bien clipsé",
+            "Mesurer la résistance (≈ 2–3 kΩ à 20 °C)",
+            "Remplacer la sonde si hors valeur"
+          ],
+          "parts": [
+            {
+              "name": "Sonde de température d'air",
+              "query": "capteur température air admission",
+              "price_min": 10,
+              "price_max": 45
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "range": [
+        "P0115",
+        "P0119"
+      ],
+      "title": "Sonde de température de liquide de refroidissement : signal anormal",
+      "description": "La température moteur lue par le calculateur est hors plage ou incohérente. Le calculateur peut alors déclencher le ventilateur en permanence et enrichir le mélange.",
+      "system": "Refroidissement",
+      "severity": "medium",
+      "drivable": "Oui, en surveillant la température. Si le ventilateur ne se déclenche plus, risque de surchauffe.",
+      "how_it_works": "Cette thermistance indique au calculateur la température du moteur. Elle sert à enrichir le mélange à froid, déclencher le ventilateur et afficher la jauge. Si elle ment, tout le comportement à froid ou à chaud est faussé.",
+      "sensory_checks": [
+        {
+          "sense": "touch",
+          "tip": "Moteur chaud (prudence) : la durite supérieure du radiateur est très chaude. Comparez avec la jauge ou la valeur lue.",
+          "means": "Moteur chaud mais jauge froide : sonde ou thermostat."
+        },
+        {
+          "sense": "sound",
+          "tip": "Ventilateur qui tourne à fond dès la mise du contact, moteur froid.",
+          "means": "Mode secours déclenché : sonde ou son connecteur."
+        },
+        {
+          "sense": "sight",
+          "tip": "Niveau du vase d'expansion entre MIN et MAX.",
+          "means": "Niveau bas : une bulle d'air peut fausser la mesure."
+        }
+      ],
+      "symptoms": [
+        "Ventilateur qui tourne en permanence",
+        "Jauge de température erratique",
+        "Démarrage difficile",
+        "Surconsommation"
+      ],
+      "components": [
+        "coolant_temp_sensor",
+        "thermostat"
+      ],
+      "causes": [
+        {
+          "text": "Sonde défectueuse",
+          "likelihood": 55
+        },
+        {
+          "text": "Connecteur oxydé ou faisceau abîmé",
+          "likelihood": 30
+        },
+        {
+          "text": "Niveau de liquide bas (bulle d'air sur la sonde)",
+          "likelihood": 15
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Remplacer la sonde de température",
+          "difficulty": 2,
+          "time_min": 20,
+          "time_max": 45,
+          "tools": [
+            "Clé à douille",
+            "Liquide de refroidissement",
+            "Bac"
+          ],
+          "steps": [
+            "Moteur froid, ouvrir le vase d'expansion",
+            "Remplacer la sonde rapidement pour limiter la perte",
+            "Compléter et purger le circuit"
+          ],
+          "parts": [
+            {
+              "name": "Sonde de température moteur",
+              "query": "sonde température liquide refroidissement",
+              "price_min": 8,
+              "price_max": 35
+            },
+            {
+              "name": "Liquide de refroidissement 1 L",
+              "query": "liquide de refroidissement",
+              "price_min": 5,
+              "price_max": 12
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "P0128",
+      "title": "Température moteur trop basse (thermostat)",
+      "description": "Le moteur met trop longtemps à atteindre sa température de fonctionnement. Dans 9 cas sur 10, le thermostat (calorstat) reste ouvert.",
+      "system": "Refroidissement",
+      "severity": "low",
+      "drivable": "Oui, sans urgence. En hiver, le chauffage sera faible et la consommation plus élevée.",
+      "how_it_works": "Le thermostat est une vanne qui reste fermée à froid pour que le moteur chauffe vite. Il s'ouvre vers 85–95 °C pour envoyer le liquide au radiateur. Bloqué ouvert, le moteur reste trop froid.",
+      "sensory_checks": [
+        {
+          "sense": "touch",
+          "tip": "Moteur froid démarré, au bout de 5 min : la durite supérieure du radiateur doit rester froide.",
+          "means": "Elle chauffe tout de suite : thermostat bloqué ouvert."
+        },
+        {
+          "sense": "feel",
+          "tip": "En hiver, le chauffage reste tiède sur autoroute.",
+          "means": "Signe typique d'un thermostat ouvert."
+        },
+        {
+          "sense": "sight",
+          "tip": "La jauge de température met plus de 10 min à monter ou redescend sur route.",
+          "means": "Confirme le thermostat."
+        }
+      ],
+      "symptoms": [
+        "Chauffage tiède",
+        "Aiguille de température basse",
+        "Surconsommation"
+      ],
+      "components": [
+        "thermostat",
+        "coolant_temp_sensor",
+        "radiator"
+      ],
+      "causes": [
+        {
+          "text": "Thermostat bloqué ouvert",
+          "likelihood": 75
+        },
+        {
+          "text": "Sonde de température défectueuse",
+          "likelihood": 15
+        },
+        {
+          "text": "Ventilateur qui tourne en permanence",
+          "likelihood": 10
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Remplacer le thermostat",
+          "difficulty": 3,
+          "time_min": 45,
+          "time_max": 120,
+          "tools": [
+            "Clés à douille",
+            "Bac",
+            "Entonnoir de purge"
+          ],
+          "steps": [
+            "Vidanger partiellement le circuit",
+            "Déposer le boîtier de thermostat",
+            "Monter le neuf avec un joint neuf",
+            "Remplir et purger soigneusement"
+          ],
+          "parts": [
+            {
+              "name": "Thermostat (calorstat)",
+              "query": "thermostat eau",
+              "price_min": 15,
+              "price_max": 70
+            },
+            {
+              "name": "Liquide de refroidissement 5 L",
+              "query": "liquide de refroidissement 5L",
+              "price_min": 15,
+              "price_max": 35
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "range": [
+        "P0130",
+        "P0135"
+      ],
+      "title": "Sonde lambda amont (banc 1) : défaut de circuit ou de réponse",
+      "description": "La sonde lambda amont mesure l'oxygène dans les gaz d'échappement pour ajuster le mélange air/carburant. Son signal est absent, trop lent ou son chauffage est en panne.",
+      "system": "Échappement / dépollution",
+      "severity": "medium",
+      "drivable": "Oui. Faites réparer rapidement : un mauvais dosage use le catalyseur.",
+      "how_it_works": "La sonde lambda amont « goûte » l'oxygène restant dans les gaz d'échappement. Le calculateur ajuste en permanence le mélange pour rester au dosage idéal (14,7 g d'air pour 1 g d'essence). Elle doit être chaude pour fonctionner, d'où sa résistance de chauffage.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "Fils de la sonde fondus, frottant sur l'échappement ou connecteur noirci.",
+          "means": "Faisceau abîmé : réparer le câble plutôt que la sonde."
+        },
+        {
+          "sense": "sound",
+          "tip": "À froid, petit « tac-tac-tac » d'échappement près du collecteur.",
+          "means": "Fuite d'échappement : l'air aspiré fausse la sonde."
+        },
+        {
+          "sense": "smell",
+          "tip": "Odeur d'essence à l'échappement, surtout à froid.",
+          "means": "Mélange mal régulé : sonde lente ou morte."
+        }
+      ],
+      "symptoms": [
+        "Surconsommation",
+        "Ralenti instable",
+        "Échec au contrôle technique"
+      ],
+      "components": [
+        "o2_sensor_upstream",
+        "exhaust"
+      ],
+      "causes": [
+        {
+          "text": "Sonde usée (plus de 100 000 km)",
+          "likelihood": 50
+        },
+        {
+          "text": "Résistance de chauffage coupée",
+          "likelihood": 25
+        },
+        {
+          "text": "Fuite d'échappement avant la sonde",
+          "likelihood": 15
+        },
+        {
+          "text": "Faisceau brûlé ou connecteur oxydé",
+          "likelihood": 10
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Remplacer la sonde lambda amont",
+          "difficulty": 2,
+          "time_min": 20,
+          "time_max": 60,
+          "tools": [
+            "Douille à sonde lambda (22 mm fendue)",
+            "Dégrippant",
+            "Pâte anti-grippage"
+          ],
+          "steps": [
+            "Débrancher le connecteur",
+            "Dégripper puis dévisser la sonde (échappement tiède)",
+            "Monter la neuve (filetage déjà enduit)",
+            "Effacer le code"
+          ],
+          "parts": [
+            {
+              "name": "Sonde lambda amont",
+              "query": "sonde lambda amont",
+              "price_min": 30,
+              "price_max": 130
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "range": [
+        "P0136",
+        "P0141"
+      ],
+      "title": "Sonde lambda aval (banc 1) : défaut de circuit ou de réponse",
+      "description": "La sonde aval, après le catalyseur, surveille son efficacité. Son signal est absent, figé ou son chauffage ne fonctionne plus.",
+      "system": "Échappement / dépollution",
+      "severity": "low",
+      "drivable": "Oui. Pas d'impact direct sur le moteur, mais refus au contrôle technique.",
+      "how_it_works": "La sonde aval est placée après le catalyseur. Son signal doit rester stable : le catalyseur « amortit » les variations d'oxygène. Elle sert surtout à surveiller le catalyseur.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "Connecteur sous la voiture couvert de boue, de sel ou arraché.",
+          "means": "Contact ou câble endommagé."
+        },
+        {
+          "sense": "sound",
+          "tip": "Tapotement d'échappement entre catalyseur et sonde.",
+          "means": "Fuite qui fausse la mesure."
+        }
+      ],
+      "symptoms": [
+        "Voyant moteur",
+        "Échec au contrôle technique"
+      ],
+      "components": [
+        "o2_sensor_downstream",
+        "catalytic_converter"
+      ],
+      "causes": [
+        {
+          "text": "Sonde usée ou chauffage HS",
+          "likelihood": 60
+        },
+        {
+          "text": "Connecteur / faisceau abîmé",
+          "likelihood": 25
+        },
+        {
+          "text": "Fuite d'échappement",
+          "likelihood": 15
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Remplacer la sonde lambda aval",
+          "difficulty": 2,
+          "time_min": 20,
+          "time_max": 60,
+          "tools": [
+            "Douille à sonde lambda",
+            "Dégrippant",
+            "Chandelles"
+          ],
+          "steps": [
+            "Lever le véhicule en sécurité",
+            "Débrancher et dévisser la sonde",
+            "Monter la neuve",
+            "Effacer le code"
+          ],
+          "parts": [
+            {
+              "name": "Sonde lambda aval",
+              "query": "sonde lambda aval",
+              "price_min": 25,
+              "price_max": 110
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "range": [
+        "P0150",
+        "P0155"
+      ],
+      "title": "Sonde lambda amont (banc 2) : défaut de circuit ou de réponse",
+      "description": "Comme P0130–P0135, mais pour le deuxième banc de cylindres (moteurs en V). Sur un moteur en ligne, vérifiez qu'il s'agit bien du bon code.",
+      "system": "Échappement / dépollution",
+      "severity": "medium",
+      "drivable": "Oui. Faites réparer rapidement.",
+      "how_it_works": "Identique à la sonde amont du banc 1, pour l'autre rangée de cylindres d'un moteur en V. Le banc 1 est celui du cylindre n° 1.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "Repérez le banc 2 : côté opposé au cylindre 1. Vérifiez le faisceau de sa sonde.",
+          "means": "Câble abîmé ou connecteur."
+        },
+        {
+          "sense": "sound",
+          "tip": "Fuite d'échappement côté banc 2.",
+          "means": "Fausse le signal."
+        }
+      ],
+      "symptoms": [
+        "Surconsommation",
+        "Ralenti instable"
+      ],
+      "components": [
+        "o2_sensor_upstream",
+        "exhaust"
+      ],
+      "causes": [
+        {
+          "text": "Sonde usée",
+          "likelihood": 55
+        },
+        {
+          "text": "Chauffage de sonde HS",
+          "likelihood": 30
+        },
+        {
+          "text": "Faisceau / fuite d'échappement",
+          "likelihood": 15
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Remplacer la sonde lambda amont banc 2",
+          "difficulty": 3,
+          "time_min": 30,
+          "time_max": 90,
+          "tools": [
+            "Douille à sonde lambda",
+            "Dégrippant"
+          ],
+          "steps": [
+            "Identifier le banc 2 (côté opposé au cylindre 1)",
+            "Remplacer la sonde",
+            "Effacer le code"
+          ],
+          "parts": [
+            {
+              "name": "Sonde lambda amont",
+              "query": "sonde lambda amont",
+              "price_min": 30,
+              "price_max": 130
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "range": [
+        "P0156",
+        "P0161"
+      ],
+      "title": "Sonde lambda aval (banc 2) : défaut de circuit ou de réponse",
+      "description": "Sonde après le catalyseur du deuxième banc (moteurs en V).",
+      "system": "Échappement / dépollution",
+      "severity": "low",
+      "drivable": "Oui.",
+      "how_it_works": "Sonde de surveillance du catalyseur sur le second banc d'un moteur en V.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "Connecteur de la sonde aval banc 2 abîmé ?",
+          "means": "Contact."
+        },
+        {
+          "sense": "sound",
+          "tip": "Fuite d'échappement près de la sonde.",
+          "means": "Fausse le diagnostic."
+        }
+      ],
+      "symptoms": [
+        "Voyant moteur",
+        "Échec au contrôle technique"
+      ],
+      "components": [
+        "o2_sensor_downstream",
+        "catalytic_converter"
+      ],
+      "causes": [
+        {
+          "text": "Sonde usée ou chauffage HS",
+          "likelihood": 65
+        },
+        {
+          "text": "Faisceau abîmé",
+          "likelihood": 35
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Remplacer la sonde lambda aval banc 2",
+          "difficulty": 2,
+          "time_min": 20,
+          "time_max": 60,
+          "tools": [
+            "Douille à sonde lambda",
+            "Dégrippant"
+          ],
+          "steps": [
+            "Lever le véhicule",
+            "Remplacer la sonde",
+            "Effacer le code"
+          ],
+          "parts": [
+            {
+              "name": "Sonde lambda aval",
+              "query": "sonde lambda aval",
+              "price_min": 25,
+              "price_max": 110
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "P0171",
+      "title": "Mélange trop pauvre (banc 1)",
+      "description": "Le calculateur ajoute beaucoup plus de carburant que prévu pour corriger le mélange : il entre trop d'air ou pas assez de carburant. Cause n° 1 : une prise d'air (durite fendue, joint d'admission).",
+      "system": "Alimentation air / carburant",
+      "severity": "medium",
+      "drivable": "Oui à court terme. Un mélange pauvre prolongé peut faire chauffer les soupapes et le catalyseur.",
+      "how_it_works": "Le calculateur mesure l'air entrant et dose le carburant. La sonde lambda vérifie le résultat. Si elle voit trop d'oxygène, il ajoute du carburant : ce sont les « corrections de richesse ». Au-delà d'environ +25 %, il abandonne et allume le voyant.",
+      "sensory_checks": [
+        {
+          "sense": "sound",
+          "tip": "Moteur au ralenti, capot ouvert : sifflement aigu autour du collecteur ou du reniflard.",
+          "means": "Prise d'air : de loin la cause la plus fréquente."
+        },
+        {
+          "sense": "feel",
+          "tip": "Mettez une main sur le bouchon de remplissage d'huile, moteur au ralenti : forte aspiration ?",
+          "means": "Une aspiration forte ou un bouchon difficile à retirer signale une membrane de reniflard percée."
+        },
+        {
+          "sense": "touch",
+          "tip": "Pliez les durites en caoutchouc : craquelures, mollesse ou dureté ?",
+          "means": "Une durite durcie fuit souvent quand le moteur bouge."
+        },
+        {
+          "sense": "feel",
+          "tip": "Les problèmes disparaissent à haut régime et reviennent au ralenti.",
+          "means": "Typique d'une prise d'air (peu d'air au ralenti = fuite proportionnellement grande)."
+        }
+      ],
+      "symptoms": [
+        "Ralenti instable",
+        "Trous à l'accélération",
+        "Ratés d'allumage",
+        "Sifflement à l'admission"
+      ],
+      "components": [
+        "vacuum_hoses",
+        "intake_manifold",
+        "maf_sensor",
+        "fuel_pump",
+        "fuel_filter",
+        "o2_sensor_upstream"
+      ],
+      "causes": [
+        {
+          "text": "Prise d'air (durite, joint de collecteur, valve de recyclage des vapeurs d'huile)",
+          "likelihood": 45
+        },
+        {
+          "text": "Débitmètre encrassé (sous-estime l'air)",
+          "likelihood": 25
+        },
+        {
+          "text": "Pression de carburant faible (pompe, filtre)",
+          "likelihood": 20
+        },
+        {
+          "text": "Injecteurs encrassés",
+          "likelihood": 10
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Rechercher une prise d'air",
+          "difficulty": 2,
+          "time_min": 30,
+          "time_max": 90,
+          "tools": [
+            "Nettoyant frein en bombe (test au ralenti)",
+            "Lampe",
+            "Machine à fumée (idéal)"
+          ],
+          "steps": [
+            "Moteur au ralenti, écouter les sifflements",
+            "Pulvériser brièvement autour des durites : si le régime change, la fuite est là",
+            "Remplacer la durite ou le joint concerné"
+          ],
+          "parts": [
+            {
+              "name": "Durite de dépression / reniflard",
+              "query": "durite reniflard",
+              "price_min": 10,
+              "price_max": 60
+            },
+            {
+              "name": "Joint de collecteur d'admission",
+              "query": "joint collecteur admission",
+              "price_min": 8,
+              "price_max": 40
+            }
+          ]
+        },
+        {
+          "title": "Nettoyer le débitmètre",
+          "difficulty": 1,
+          "time_min": 15,
+          "time_max": 30,
+          "tools": [
+            "Nettoyant débitmètre"
+          ],
+          "steps": [
+            "Déposer, nettoyer, laisser sécher",
+            "Effacer les corrections (débrancher la batterie 10 min)"
+          ],
+          "parts": [
+            {
+              "name": "Nettoyant débitmètre",
+              "query": "nettoyant débitmètre",
+              "price_min": 8,
+              "price_max": 15
+            }
+          ]
+        },
+        {
+          "title": "Remplacer le filtre à carburant",
+          "difficulty": 2,
+          "time_min": 20,
+          "time_max": 60,
+          "tools": [
+            "Clés",
+            "Bac"
+          ],
+          "steps": [
+            "Remplacer le filtre",
+            "Contrôler la pression d'alimentation si possible"
+          ],
+          "parts": [
+            {
+              "name": "Filtre à carburant",
+              "query": "filtre à carburant",
+              "price_min": 10,
+              "price_max": 45
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "P0174",
+      "title": "Mélange trop pauvre (banc 2)",
+      "description": "Comme P0171 pour le second banc. Si P0171 et P0174 apparaissent ensemble, la cause est commune aux deux bancs : débitmètre, prise d'air centrale ou pression de carburant.",
+      "system": "Alimentation air / carburant",
+      "severity": "medium",
+      "drivable": "Oui à court terme.",
+      "how_it_works": "Même principe que P0171 sur le second banc. Si les deux bancs sont pauvres, la cause est commune : débitmètre, prise d'air centrale ou pression de carburant.",
+      "sensory_checks": [
+        {
+          "sense": "sound",
+          "tip": "Sifflement à l'admission au ralenti.",
+          "means": "Prise d'air."
+        },
+        {
+          "sense": "sight",
+          "tip": "Débitmètre encrassé.",
+          "means": "Il sous-estime l'air, les deux bancs sont pauvres."
+        }
+      ],
+      "symptoms": [
+        "Ralenti instable",
+        "Trous à l'accélération"
+      ],
+      "components": [
+        "vacuum_hoses",
+        "intake_manifold",
+        "maf_sensor",
+        "fuel_pump"
+      ],
+      "causes": [
+        {
+          "text": "Prise d'air",
+          "likelihood": 45
+        },
+        {
+          "text": "Débitmètre encrassé",
+          "likelihood": 30
+        },
+        {
+          "text": "Pression de carburant faible",
+          "likelihood": 25
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Rechercher une prise d'air et nettoyer le débitmètre",
+          "difficulty": 2,
+          "time_min": 30,
+          "time_max": 90,
+          "tools": [
+            "Nettoyant frein",
+            "Nettoyant débitmètre"
+          ],
+          "steps": [
+            "Test au nettoyant frein autour de l'admission",
+            "Nettoyer le débitmètre",
+            "Remplacer les durites fissurées"
+          ],
+          "parts": [
+            {
+              "name": "Durite de dépression",
+              "query": "durite dépression",
+              "price_min": 10,
+              "price_max": 50
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "P0172",
+      "title": "Mélange trop riche (banc 1)",
+      "description": "Le calculateur retire du carburant en permanence : trop d'essence ou pas assez d'air. Souvent un filtre à air bouché, un injecteur qui fuit ou un débitmètre qui surestime.",
+      "system": "Alimentation air / carburant",
+      "severity": "medium",
+      "drivable": "Oui à court terme. Un mélange riche encrasse bougies et catalyseur.",
+      "how_it_works": "Le calculateur retire du carburant en permanence car la sonde lambda voit un mélange trop riche : trop de carburant pour l'air disponible.",
+      "sensory_checks": [
+        {
+          "sense": "smell",
+          "tip": "Forte odeur d'essence à l'échappement, yeux qui piquent.",
+          "means": "Mélange riche confirmé."
+        },
+        {
+          "sense": "sight",
+          "tip": "Bougies noires et sèches (suie), embout d'échappement très noir.",
+          "means": "Riche depuis longtemps."
+        },
+        {
+          "sense": "sight",
+          "tip": "Filtre à air noir ou obstrué.",
+          "means": "Pas assez d'air : cause la moins chère."
+        },
+        {
+          "sense": "smell",
+          "tip": "Odeur d'essence moteur arrêté, sous le capot.",
+          "means": "Injecteur qui fuit ou régulateur : à vérifier vite (incendie)."
+        }
+      ],
+      "symptoms": [
+        "Odeur d'essence",
+        "Fumée noire",
+        "Surconsommation",
+        "Bougies noires"
+      ],
+      "components": [
+        "air_filter",
+        "maf_sensor",
+        "injector_1",
+        "injector_2",
+        "injector_3",
+        "injector_4",
+        "purge_valve"
+      ],
+      "causes": [
+        {
+          "text": "Filtre à air colmaté",
+          "likelihood": 25
+        },
+        {
+          "text": "Injecteur qui fuit ou reste ouvert",
+          "likelihood": 25
+        },
+        {
+          "text": "Débitmètre défectueux",
+          "likelihood": 20
+        },
+        {
+          "text": "Électrovanne de purge canister bloquée ouverte",
+          "likelihood": 15
+        },
+        {
+          "text": "Régulateur de pression de carburant défectueux",
+          "likelihood": 15
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Remplacer le filtre à air",
+          "difficulty": 1,
+          "time_min": 5,
+          "time_max": 15,
+          "tools": [
+            "Tournevis"
+          ],
+          "steps": [
+            "Ouvrir la boîte à air",
+            "Remplacer le filtre"
+          ],
+          "parts": [
+            {
+              "name": "Filtre à air",
+              "query": "filtre à air",
+              "price_min": 8,
+              "price_max": 30
+            }
+          ]
+        },
+        {
+          "title": "Contrôler / remplacer l'électrovanne de purge",
+          "difficulty": 2,
+          "time_min": 15,
+          "time_max": 40,
+          "tools": [
+            "Pompe à vide manuelle ou souffle"
+          ],
+          "steps": [
+            "Débrancher la vanne",
+            "Vérifier qu'elle est étanche hors tension",
+            "Remplacer si elle laisse passer"
+          ],
+          "parts": [
+            {
+              "name": "Électrovanne de purge canister",
+              "query": "électrovanne purge canister",
+              "price_min": 20,
+              "price_max": 80
+            }
+          ]
+        },
+        {
+          "title": "Test et nettoyage des injecteurs",
+          "difficulty": 4,
+          "time_min": 90,
+          "time_max": 180,
+          "tools": [
+            "Banc de nettoyage ultrasons (atelier)"
+          ],
+          "steps": [
+            "Déposer la rampe d'injection",
+            "Test d'étanchéité et de débit",
+            "Remplacer l'injecteur fuyard"
+          ],
+          "parts": [
+            {
+              "name": "Injecteur essence",
+              "query": "injecteur essence",
+              "price_min": 40,
+              "price_max": 160
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "P0175",
+      "title": "Mélange trop riche (banc 2)",
+      "description": "Comme P0172, pour le second banc de cylindres.",
+      "system": "Alimentation air / carburant",
+      "severity": "medium",
+      "drivable": "Oui à court terme.",
+      "how_it_works": "Mélange trop riche sur le second banc.",
+      "sensory_checks": [
+        {
+          "sense": "smell",
+          "tip": "Odeur d'essence à l'échappement.",
+          "means": "Riche."
+        },
+        {
+          "sense": "sight",
+          "tip": "Filtre à air colmaté.",
+          "means": "Cause commune et peu coûteuse."
+        }
+      ],
+      "symptoms": [
+        "Odeur d'essence",
+        "Surconsommation"
+      ],
+      "components": [
+        "air_filter",
+        "maf_sensor",
+        "purge_valve"
+      ],
+      "causes": [
+        {
+          "text": "Filtre à air colmaté / débitmètre",
+          "likelihood": 45
+        },
+        {
+          "text": "Injecteur qui fuit",
+          "likelihood": 30
+        },
+        {
+          "text": "Purge canister bloquée ouverte",
+          "likelihood": 25
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Remplacer le filtre à air et contrôler la purge canister",
+          "difficulty": 1,
+          "time_min": 15,
+          "time_max": 45,
+          "tools": [
+            "Tournevis"
+          ],
+          "steps": [
+            "Filtre à air neuf",
+            "Contrôle de l'électrovanne de purge"
+          ],
+          "parts": [
+            {
+              "name": "Filtre à air",
+              "query": "filtre à air",
+              "price_min": 8,
+              "price_max": 30
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "range": [
+        "P0201",
+        "P0208"
+      ],
+      "n_offset": 0,
+      "title": "Circuit de l'injecteur du cylindre {n} défectueux",
+      "description": "Le calculateur détecte un problème électrique sur la commande de l'injecteur du cylindre {n} : bobinage coupé, court-circuit ou faisceau endommagé. Ce cylindre ne reçoit plus correctement de carburant.",
+      "system": "Injection",
+      "severity": "high",
+      "drivable": "Déconseillé : le cylindre {n} tourne mal et le catalyseur peut surchauffer.",
+      "how_it_works": "Chaque injecteur est une électrovanne qui s'ouvre quelques millisecondes à chaque cycle. Le calculateur surveille le courant de commande : une coupure ou un court-circuit est détecté immédiatement.",
+      "sensory_checks": [
+        {
+          "sense": "sound",
+          "tip": "Stéthoscope de mécanicien (ou long tournevis contre l'oreille) sur l'injecteur {n} : on doit entendre un « tic-tic » régulier.",
+          "means": "Silence : injecteur ou alimentation coupés."
+        },
+        {
+          "sense": "sight",
+          "tip": "Connecteur de l'injecteur {n} cassé, ou fils rongés (traces de rongeurs).",
+          "means": "Réparation de faisceau, injecteur peut-être sain."
+        },
+        {
+          "sense": "smell",
+          "tip": "Odeur de carburant autour de l'injecteur {n}.",
+          "means": "Fuite au joint ou au corps : remplacer joints ou injecteur."
+        }
+      ],
+      "symptoms": [
+        "Moteur qui tourne avec un cylindre en moins (cylindre {n})",
+        "Vibrations",
+        "Perte de puissance",
+        "Voyant moteur clignotant possible"
+      ],
+      "components": [
+        "injector_{n}",
+        "cylinder_{n}",
+        "ecu"
+      ],
+      "causes": [
+        {
+          "text": "Injecteur du cylindre {n} défectueux (bobinage)",
+          "likelihood": 50
+        },
+        {
+          "text": "Connecteur ou faisceau d'injecteur endommagé",
+          "likelihood": 40
+        },
+        {
+          "text": "Étage de commande du calculateur",
+          "likelihood": 10
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Contrôler le connecteur et la résistance de l'injecteur {n}",
+          "difficulty": 2,
+          "time_min": 20,
+          "time_max": 45,
+          "tools": [
+            "Multimètre",
+            "Nettoyant contact"
+          ],
+          "steps": [
+            "Débrancher l'injecteur {n}",
+            "Mesurer la résistance et comparer avec un autre injecteur",
+            "Inverser deux injecteurs pour voir si le défaut suit"
+          ],
+          "parts": [
+            {
+              "name": "Connecteur d'injecteur (kit réparation)",
+              "query": "connecteur injecteur",
+              "price_min": 5,
+              "price_max": 20
+            }
+          ]
+        },
+        {
+          "title": "Remplacer l'injecteur du cylindre {n}",
+          "difficulty": 4,
+          "time_min": 60,
+          "time_max": 180,
+          "tools": [
+            "Clés à douille",
+            "Joints neufs",
+            "Clé dynamométrique",
+            "Valise pour codage (diesel)"
+          ],
+          "steps": [
+            "Dépressuriser le circuit de carburant",
+            "Déposer la rampe ou la bride",
+            "Monter l'injecteur neuf avec joints neufs",
+            "Coder l'injecteur si nécessaire (diesel)"
+          ],
+          "parts": [
+            {
+              "name": "Injecteur",
+              "query": "injecteur",
+              "price_min": 50,
+              "price_max": 400
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "P0217",
+      "title": "Surchauffe moteur",
+      "description": "La température du liquide de refroidissement a dépassé le seuil critique. Une surchauffe peut déformer la culasse et détruire le joint de culasse en quelques minutes.",
+      "system": "Refroidissement",
+      "severity": "critical",
+      "drivable": "NON. Arrêtez-vous dès que possible, coupez le moteur et laissez refroidir. N'ouvrez jamais le vase d'expansion à chaud.",
+      "how_it_works": "Le liquide de refroidissement circule grâce à la pompe à eau. Il se refroidit dans le radiateur, aidé par le ventilateur à l'arrêt. Le thermostat règle le passage. Si un maillon manque, la température s'envole.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "Moteur FROID : niveau du vase d'expansion, traces blanches ou colorées sèches sur les durites et le radiateur.",
+          "means": "Fuite de liquide."
+        },
+        {
+          "sense": "smell",
+          "tip": "Odeur sucrée (sirop) dans l'habitacle ou sous le capot.",
+          "means": "Fuite de liquide de refroidissement, parfois au radiateur de chauffage."
+        },
+        {
+          "sense": "sound",
+          "tip": "Au ralenti, quand la jauge monte, le ventilateur doit se déclencher (bruit de souffle).",
+          "means": "Pas de bruit : ventilateur, relais ou fusible."
+        },
+        {
+          "sense": "sight",
+          "tip": "Fumée blanche abondante et persistante à l'échappement, liquide qui baisse sans fuite visible.",
+          "means": "Joint de culasse possible : garage."
+        }
+      ],
+      "symptoms": [
+        "Aiguille de température dans le rouge",
+        "Vapeur sous le capot",
+        "Perte de liquide",
+        "Chauffage froid"
+      ],
+      "components": [
+        "radiator",
+        "cooling_fan",
+        "thermostat",
+        "coolant_temp_sensor",
+        "engine"
+      ],
+      "causes": [
+        {
+          "text": "Manque de liquide (fuite)",
+          "likelihood": 35
+        },
+        {
+          "text": "Motoventilateur ou son relais en panne",
+          "likelihood": 25
+        },
+        {
+          "text": "Thermostat bloqué fermé",
+          "likelihood": 20
+        },
+        {
+          "text": "Pompe à eau défaillante",
+          "likelihood": 10
+        },
+        {
+          "text": "Joint de culasse",
+          "likelihood": 10
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Rechercher la fuite et compléter le liquide",
+          "difficulty": 1,
+          "time_min": 15,
+          "time_max": 45,
+          "tools": [
+            "Lampe",
+            "Gants"
+          ],
+          "steps": [
+            "Moteur froid, vérifier le niveau",
+            "Chercher traces sous le véhicule, sur les durites et le radiateur",
+            "Compléter avec le liquide préconisé"
+          ],
+          "parts": [
+            {
+              "name": "Liquide de refroidissement 5 L",
+              "query": "liquide de refroidissement 5L",
+              "price_min": 15,
+              "price_max": 35
+            }
+          ]
+        },
+        {
+          "title": "Remplacer le motoventilateur",
+          "difficulty": 3,
+          "time_min": 60,
+          "time_max": 150,
+          "tools": [
+            "Clés à douille",
+            "Tournevis"
+          ],
+          "steps": [
+            "Vérifier fusible et relais d'abord",
+            "Déposer le groupe motoventilateur",
+            "Monter le neuf et tester"
+          ],
+          "parts": [
+            {
+              "name": "Motoventilateur",
+              "query": "ventilateur refroidissement moteur",
+              "price_min": 60,
+              "price_max": 260
+            }
+          ]
+        },
+        {
+          "title": "Remplacer le thermostat",
+          "difficulty": 3,
+          "time_min": 45,
+          "time_max": 120,
+          "tools": [
+            "Clés à douille",
+            "Bac"
+          ],
+          "steps": [
+            "Vidanger partiellement",
+            "Remplacer le thermostat",
+            "Remplir et purger"
+          ],
+          "parts": [
+            {
+              "name": "Thermostat",
+              "query": "thermostat eau",
+              "price_min": 15,
+              "price_max": 70
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "P0234",
+      "title": "Suralimentation excessive (turbo)",
+      "description": "La pression de turbo dépasse la consigne. La régulation (wastegate ou géométrie variable) ne fonctionne plus correctement. Le moteur passe en mode dégradé pour se protéger.",
+      "system": "Suralimentation",
+      "severity": "high",
+      "drivable": "Oui en mode dégradé, sans forcer. Faites contrôler rapidement.",
+      "how_it_works": "Le turbo est entraîné par les gaz d'échappement. Sa pression est limitée par une soupape (wastegate) ou des ailettes mobiles (géométrie variable). Si cette régulation se bloque, la pression monte trop.",
+      "sensory_checks": [
+        {
+          "sense": "feel",
+          "tip": "Coup de pied net à l'accélération puis coupure (mode dégradé).",
+          "means": "Surpression : régulation du turbo grippée."
+        },
+        {
+          "sense": "sight",
+          "tip": "Petites durites de dépression du turbo fendues ou débranchées.",
+          "means": "Commande de régulation inopérante."
+        },
+        {
+          "sense": "touch",
+          "tip": "Moteur froid et arrêté : la tige de commande du turbo bouge-t-elle librement à la main ?",
+          "means": "Bloquée : calamine dans la géométrie variable."
+        }
+      ],
+      "symptoms": [
+        "Mode dégradé",
+        "À-coups à l'accélération",
+        "Sifflement"
+      ],
+      "components": [
+        "turbo",
+        "map_sensor",
+        "vacuum_hoses"
+      ],
+      "causes": [
+        {
+          "text": "Géométrie variable grippée (calamine)",
+          "likelihood": 40
+        },
+        {
+          "text": "Électrovanne de régulation de pression défectueuse",
+          "likelihood": 30
+        },
+        {
+          "text": "Durite de dépression de commande percée",
+          "likelihood": 20
+        },
+        {
+          "text": "Capteur de pression de suralimentation",
+          "likelihood": 10
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Contrôler les durites de commande et l'électrovanne",
+          "difficulty": 2,
+          "time_min": 30,
+          "time_max": 60,
+          "tools": [
+            "Pompe à vide manuelle"
+          ],
+          "steps": [
+            "Inspecter les petites durites de dépression",
+            "Tester la tige de commande du turbo à la pompe à vide",
+            "Remplacer l'électrovanne si défectueuse"
+          ],
+          "parts": [
+            {
+              "name": "Électrovanne de régulation de pression de suralimentation",
+              "query": "électrovanne turbo",
+              "price_min": 30,
+              "price_max": 110
+            }
+          ]
+        },
+        {
+          "title": "Décalaminage / déblocage de la géométrie variable",
+          "difficulty": 4,
+          "time_min": 60,
+          "time_max": 180,
+          "tools": [
+            "Dégrippant",
+            "Station de décalaminage (garage)"
+          ],
+          "steps": [
+            "Décalaminage moteur",
+            "Manipuler la géométrie variable à la main pour la libérer"
+          ],
+          "parts": [
+            {
+              "name": "Additif décalaminant diesel",
+              "query": "nettoyant turbo",
+              "price_min": 10,
+              "price_max": 30
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "P0299",
+      "title": "Suralimentation insuffisante (turbo)",
+      "description": "La pression de turbo n'atteint pas la consigne. Le plus souvent : une durite de suralimentation fendue ou déboîtée. Parfois le turbo lui-même est usé.",
+      "system": "Suralimentation",
+      "severity": "high",
+      "drivable": "Oui en mode dégradé. Si fumée bleue abondante ou bruit de sirène : arrêtez-vous (turbo en fin de vie).",
+      "how_it_works": "Le turbo comprime l'air envoyé au moteur. L'air passe par des durites et l'échangeur (intercooler). Une fuite sur ce trajet ou un turbo usé empêche d'atteindre la pression demandée.",
+      "sensory_checks": [
+        {
+          "sense": "sound",
+          "tip": "Souffle ou « pschitt » à l'accélération, qui augmente avec le régime.",
+          "means": "Durite de suralimentation fendue ou collier desserré."
+        },
+        {
+          "sense": "sight",
+          "tip": "Traces d'huile grasse sur les durites, colliers ou l'échangeur.",
+          "means": "Localise la fuite. Un film d'huile léger est normal (reniflard)."
+        },
+        {
+          "sense": "sound",
+          "tip": "Sifflement strident de sirène qui monte avec le régime.",
+          "means": "Turbo en fin de vie (roulements) : à faire voir rapidement."
+        },
+        {
+          "sense": "sight",
+          "tip": "Fumée bleue à l'échappement.",
+          "means": "Le turbo consomme de l'huile."
+        }
+      ],
+      "symptoms": [
+        "Manque de puissance net",
+        "Mode dégradé",
+        "Sifflement / souffle",
+        "Fumée"
+      ],
+      "components": [
+        "turbo",
+        "intercooler",
+        "vacuum_hoses",
+        "egr_valve"
+      ],
+      "causes": [
+        {
+          "text": "Durite de suralimentation fendue / collier desserré",
+          "likelihood": 40
+        },
+        {
+          "text": "Géométrie variable ou wastegate grippée",
+          "likelihood": 25
+        },
+        {
+          "text": "Vanne EGR bloquée ouverte",
+          "likelihood": 15
+        },
+        {
+          "text": "Turbo usé (jeu, fuite d'huile)",
+          "likelihood": 20
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Remplacer la durite de suralimentation",
+          "difficulty": 2,
+          "time_min": 20,
+          "time_max": 60,
+          "tools": [
+            "Tournevis",
+            "Clés",
+            "Lampe"
+          ],
+          "steps": [
+            "Inspecter toutes les durites entre turbo, échangeur et admission (traces d'huile)",
+            "Remplacer la durite fendue"
+          ],
+          "parts": [
+            {
+              "name": "Durite de turbo / suralimentation",
+              "query": "durite turbo",
+              "price_min": 20,
+              "price_max": 90
+            }
+          ]
+        },
+        {
+          "title": "Remplacer le turbo",
+          "difficulty": 5,
+          "time_min": 180,
+          "time_max": 360,
+          "tools": [
+            "Outillage complet",
+            "Clé dynamométrique"
+          ],
+          "steps": [
+            "Trouver la cause de la casse (huile, filtre)",
+            "Remplacer turbo, joints et tuyaux d'huile",
+            "Vidange moteur obligatoire"
+          ],
+          "parts": [
+            {
+              "name": "Turbocompresseur (échange standard)",
+              "query": "turbo",
+              "price_min": 300,
+              "price_max": 900
+            },
+            {
+              "name": "Kit de joints de turbo",
+              "query": "kit montage turbo",
+              "price_min": 20,
+              "price_max": 60
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "P0300",
+      "title": "Ratés d'allumage aléatoires / multiples",
+      "description": "Le calculateur détecte des ratés de combustion sur plusieurs cylindres sans pouvoir en désigner un seul. La cause est donc souvent commune : bougies usées, mélange pauvre, carburant de mauvaise qualité.",
+      "system": "Allumage",
+      "severity": "high",
+      "drivable": "Si le voyant moteur clignote : NON, risque de détruire le catalyseur. Sinon, roulez doucement jusqu'à la réparation.",
+      "how_it_works": "Le calculateur mesure la vitesse de rotation du vilebrequin à chaque combustion. Un cylindre qui ne « pousse » pas crée un petit ralentissement : c'est un raté. Ici, il est réparti sur plusieurs cylindres.",
+      "sensory_checks": [
+        {
+          "sense": "feel",
+          "tip": "Tremblements au ralenti, à-coups à l'accélération, plutôt sous la pluie ?",
+          "means": "Humidité sur l'allumage : bougies ou bobines fatiguées."
+        },
+        {
+          "sense": "sight",
+          "tip": "Bougies : électrodes usées, dépôts noirs, blancs ou huileux.",
+          "means": "Lisez les bougies : elles racontent l'état de chaque cylindre."
+        },
+        {
+          "sense": "sound",
+          "tip": "Échappement irrégulier (« pof… pof ») au ralenti, main devant la sortie.",
+          "means": "Confirme les ratés."
+        }
+      ],
+      "symptoms": [
+        "Moteur qui tremble",
+        "Perte de puissance",
+        "Voyant moteur clignotant",
+        "À-coups"
+      ],
+      "components": [
+        "spark_plug_1",
+        "spark_plug_2",
+        "spark_plug_3",
+        "spark_plug_4",
+        "coil_1",
+        "coil_2",
+        "coil_3",
+        "coil_4",
+        "vacuum_hoses"
+      ],
+      "causes": [
+        {
+          "text": "Bougies d'allumage usées",
+          "likelihood": 40
+        },
+        {
+          "text": "Prise d'air / mélange pauvre",
+          "likelihood": 25
+        },
+        {
+          "text": "Bobine d'allumage défectueuse",
+          "likelihood": 20
+        },
+        {
+          "text": "Compression faible (usure moteur)",
+          "likelihood": 15
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Remplacer les bougies d'allumage",
+          "difficulty": 2,
+          "time_min": 30,
+          "time_max": 60,
+          "tools": [
+            "Douille à bougie",
+            "Clé dynamométrique",
+            "Rallonge"
+          ],
+          "steps": [
+            "Moteur froid, déposer les bobines",
+            "Dévisser les bougies",
+            "Monter les neuves au bon couple (≈ 25 N·m)",
+            "Remonter les bobines"
+          ],
+          "parts": [
+            {
+              "name": "Bougie d'allumage",
+              "query": "bougie d'allumage",
+              "qty": 4,
+              "price_min": 4,
+              "price_max": 15
+            }
+          ]
+        },
+        {
+          "title": "Rechercher une prise d'air",
+          "difficulty": 2,
+          "time_min": 30,
+          "time_max": 90,
+          "tools": [
+            "Nettoyant frein"
+          ],
+          "steps": [
+            "Test au nettoyant frein autour de l'admission au ralenti"
+          ],
+          "parts": [
+            {
+              "name": "Durite de dépression",
+              "query": "durite dépression",
+              "price_min": 10,
+              "price_max": 50
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "range": [
+        "P0301",
+        "P0308"
+      ],
+      "n_offset": 0,
+      "title": "Ratés d'allumage sur le cylindre {n}",
+      "description": "Le carburant ne brûle pas correctement dans le cylindre {n}. Dans la majorité des cas, la bougie ou la bobine du cylindre {n} est en cause. Astuce : intervertissez la bobine {n} avec celle d'un cylindre voisin. Si le code change de cylindre, c'est la bobine.",
+      "system": "Allumage",
+      "severity": "high",
+      "drivable": "Si le voyant moteur clignote : NON, du carburant imbrûlé peut détruire le catalyseur. Sinon, roulez doucement jusqu'à la réparation.",
+      "how_it_works": "À chaque cycle, la bobine du cylindre {n} envoie une étincelle à la bougie, et l'injecteur pulvérise le carburant. Si l'un des deux faiblit, le mélange ne brûle pas : le vilebrequin ralentit très légèrement et le calculateur le détecte.",
+      "sensory_checks": [
+        {
+          "sense": "feel",
+          "tip": "Le moteur tremble au ralenti et à l'accélération, plus fort par temps humide.",
+          "means": "Allumage (bougie ou bobine) plutôt qu'injection."
+        },
+        {
+          "sense": "sight",
+          "tip": "Inversez la bobine {n} avec celle d'à côté, effacez, roulez. Le code change de cylindre ?",
+          "means": "Oui : la bobine est coupable. Non : bougie, injecteur ou compression."
+        },
+        {
+          "sense": "sight",
+          "tip": "Bougie {n} : électrode usée, noire, mouillée d'essence ou huileuse, comparée aux autres.",
+          "means": "Huileuse : segments ou joints de queue de soupape (garage)."
+        },
+        {
+          "sense": "sight",
+          "tip": "Bobine {n} : fissure, trace blanche ou brûlure sur le corps, huile dans le puits de bougie.",
+          "means": "Arcs électriques : changer la bobine, et le joint de cache-culbuteurs si huile."
+        },
+        {
+          "sense": "smell",
+          "tip": "Odeur d'essence non brûlée à l'échappement.",
+          "means": "Le carburant passe sans brûler : attention au catalyseur."
+        }
+      ],
+      "symptoms": [
+        "Moteur qui tremble au ralenti",
+        "Perte de puissance",
+        "Voyant moteur clignotant",
+        "Odeur d'essence"
+      ],
+      "components": [
+        "cylinder_{n}",
+        "spark_plug_{n}",
+        "coil_{n}",
+        "injector_{n}"
+      ],
+      "causes": [
+        {
+          "text": "Bougie du cylindre {n} usée ou encrassée",
+          "likelihood": 40
+        },
+        {
+          "text": "Bobine d'allumage du cylindre {n} défectueuse",
+          "likelihood": 35
+        },
+        {
+          "text": "Injecteur du cylindre {n} encrassé",
+          "likelihood": 15
+        },
+        {
+          "text": "Compression faible sur le cylindre {n} (soupape, segments)",
+          "likelihood": 10
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Remplacer les bougies d'allumage",
+          "description": "On remplace toujours le jeu complet.",
+          "difficulty": 2,
+          "time_min": 30,
+          "time_max": 60,
+          "tools": [
+            "Douille à bougie",
+            "Clé dynamométrique",
+            "Rallonge"
+          ],
+          "steps": [
+            "Moteur froid, déposer les bobines",
+            "Dévisser les bougies, observer leur couleur",
+            "Monter les neuves au bon couple",
+            "Remonter les bobines, effacer le code"
+          ],
+          "parts": [
+            {
+              "name": "Bougie d'allumage",
+              "query": "bougie d'allumage",
+              "qty": 4,
+              "price_min": 4,
+              "price_max": 15
+            }
+          ]
+        },
+        {
+          "title": "Remplacer la bobine d'allumage du cylindre {n}",
+          "difficulty": 1,
+          "time_min": 10,
+          "time_max": 30,
+          "tools": [
+            "Clé à douille 10 mm",
+            "Tournevis"
+          ],
+          "steps": [
+            "Confirmer avec le test d'inversion des bobines",
+            "Débrancher et extraire la bobine {n}",
+            "Monter la neuve, effacer le code"
+          ],
+          "parts": [
+            {
+              "name": "Bobine d'allumage",
+              "query": "bobine d'allumage",
+              "price_min": 20,
+              "price_max": 90
+            }
+          ]
+        },
+        {
+          "title": "Test de compression du cylindre {n}",
+          "difficulty": 3,
+          "time_min": 30,
+          "time_max": 60,
+          "tools": [
+            "Compressiomètre"
+          ],
+          "steps": [
+            "Déposer toutes les bougies",
+            "Mesurer chaque cylindre",
+            "Écart > 15 % : problème mécanique (garage)"
+          ],
+          "parts": [
+            {
+              "name": "Compressiomètre",
+              "query": "compressiomètre essence",
+              "price_min": 20,
+              "price_max": 60
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "range": [
+        "P0325",
+        "P0329"
+      ],
+      "title": "Capteur de cliquetis : défaut de circuit",
+      "description": "Le capteur de cliquetis « écoute » le moteur pour détecter les détonations anormales. Sans lui, le calculateur retarde l'allumage par sécurité, ce qui fait perdre de la puissance.",
+      "system": "Allumage",
+      "severity": "low",
+      "drivable": "Oui. Évitez le carburant à faible indice d'octane et les fortes charges.",
+      "how_it_works": "Le capteur de cliquetis est un micro piézoélectrique vissé sur le bloc. Il entend les détonations anormales et le calculateur retarde alors l'allumage pour protéger le moteur.",
+      "sensory_checks": [
+        {
+          "sense": "sound",
+          "tip": "En accélération en côte, bruit de billes qui roulent dans une boîte (« cliquetis »).",
+          "means": "Vrai cliquetis : carburant inadapté ou calamine. Sinon, défaut électrique du capteur."
+        },
+        {
+          "sense": "sight",
+          "tip": "Connecteur du capteur, souvent caché sous le collecteur, oxydé ou cassé.",
+          "means": "Contact."
+        }
+      ],
+      "symptoms": [
+        "Légère perte de puissance",
+        "Surconsommation"
+      ],
+      "components": [
+        "knock_sensor",
+        "engine"
+      ],
+      "causes": [
+        {
+          "text": "Connecteur oxydé / faisceau",
+          "likelihood": 45
+        },
+        {
+          "text": "Capteur défectueux",
+          "likelihood": 40
+        },
+        {
+          "text": "Mauvais couple de serrage du capteur",
+          "likelihood": 15
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Remplacer le capteur de cliquetis",
+          "difficulty": 3,
+          "time_min": 30,
+          "time_max": 120,
+          "tools": [
+            "Clé dynamométrique",
+            "Rallonges"
+          ],
+          "steps": [
+            "Accéder au capteur (souvent sous le collecteur d'admission)",
+            "Remplacer et serrer au couple exact (≈ 20 N·m)"
+          ],
+          "parts": [
+            {
+              "name": "Capteur de cliquetis",
+              "query": "capteur de cliquetis",
+              "price_min": 20,
+              "price_max": 70
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "range": [
+        "P0335",
+        "P0339"
+      ],
+      "title": "Capteur de position du vilebrequin (PMH) : défaut",
+      "description": "Ce capteur indique au calculateur la position et la vitesse du moteur. Sans lui, pas d'injection ni d'allumage : le moteur cale ou ne démarre pas.",
+      "system": "Gestion moteur",
+      "severity": "high",
+      "drivable": "Risque de panne immobilisante à tout moment.",
+      "how_it_works": "Une couronne dentée sur le vilebrequin passe devant ce capteur magnétique. À partir de ces impulsions, le calculateur sait où sont les pistons et à quel régime tourne le moteur : c'est le capteur le plus vital.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "Pendant le démarrage, le compte-tours bouge-t-il ? (environ 200 tr/min)",
+          "means": "Aiguille à 0 pendant le démarreur : capteur PMH très suspect."
+        },
+        {
+          "sense": "feel",
+          "tip": "Le moteur cale une fois chaud et redémarre après refroidissement.",
+          "means": "Signature classique d'un capteur PMH qui lâche à chaud."
+        },
+        {
+          "sense": "sight",
+          "tip": "Tête du capteur couverte de limaille.",
+          "means": "À nettoyer ; beaucoup de limaille indique une usure mécanique."
+        }
+      ],
+      "symptoms": [
+        "Moteur qui cale",
+        "Ne démarre pas",
+        "Compte-tours qui chute à 0"
+      ],
+      "components": [
+        "crank_sensor",
+        "engine"
+      ],
+      "causes": [
+        {
+          "text": "Capteur défectueux (souvent après chauffe)",
+          "likelihood": 55
+        },
+        {
+          "text": "Faisceau / connecteur",
+          "likelihood": 30
+        },
+        {
+          "text": "Limaille sur le capteur ou cible abîmée",
+          "likelihood": 15
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Remplacer le capteur PMH",
+          "difficulty": 2,
+          "time_min": 20,
+          "time_max": 60,
+          "tools": [
+            "Clé à douille",
+            "Rallonge"
+          ],
+          "steps": [
+            "Localiser le capteur (près du volant moteur)",
+            "Déposer, nettoyer le logement",
+            "Monter le neuf"
+          ],
+          "parts": [
+            {
+              "name": "Capteur de vilebrequin (PMH)",
+              "query": "capteur vilebrequin",
+              "price_min": 15,
+              "price_max": 70
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "range": [
+        "P0340",
+        "P0344"
+      ],
+      "title": "Capteur d'arbre à cames : défaut",
+      "description": "Le capteur d'arbre à cames permet de savoir quel cylindre est en phase de combustion. En panne, le démarrage est plus long et le moteur peut caler.",
+      "system": "Gestion moteur",
+      "severity": "medium",
+      "drivable": "Oui, mais démarrages longs et risque de calage.",
+      "how_it_works": "Ce capteur lit une cible sur l'arbre à cames pour savoir quel cylindre est en phase d'admission. Sans lui, le moteur démarre en mode secours, plus lentement.",
+      "sensory_checks": [
+        {
+          "sense": "feel",
+          "tip": "Démarrage qui demande 2–3 s de démarreur de plus qu'avant.",
+          "means": "Typique d'un capteur d'arbre à cames absent."
+        },
+        {
+          "sense": "sight",
+          "tip": "Huile dans le connecteur du capteur.",
+          "means": "Joint de capteur fuyard : changer capteur et joint, nettoyer le connecteur."
+        }
+      ],
+      "symptoms": [
+        "Démarrage long",
+        "Calage",
+        "À-coups"
+      ],
+      "components": [
+        "cam_sensor",
+        "timing_chain"
+      ],
+      "causes": [
+        {
+          "text": "Capteur défectueux",
+          "likelihood": 55
+        },
+        {
+          "text": "Connecteur / faisceau (huile dans le connecteur)",
+          "likelihood": 35
+        },
+        {
+          "text": "Distribution décalée",
+          "likelihood": 10
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Remplacer le capteur d'arbre à cames",
+          "difficulty": 2,
+          "time_min": 15,
+          "time_max": 45,
+          "tools": [
+            "Clé à douille"
+          ],
+          "steps": [
+            "Débrancher, déposer le capteur",
+            "Monter le neuf avec joint neuf",
+            "Effacer le code"
+          ],
+          "parts": [
+            {
+              "name": "Capteur d'arbre à cames",
+              "query": "capteur arbre à cames",
+              "price_min": 15,
+              "price_max": 70
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "range": [
+        "P0351",
+        "P0358"
+      ],
+      "n_offset": 50,
+      "title": "Bobine d'allumage du cylindre {n} : défaut de circuit",
+      "description": "Le calculateur détecte un défaut électrique sur la bobine d'allumage du cylindre {n} : bobinage, connecteur ou faisceau.",
+      "system": "Allumage",
+      "severity": "high",
+      "drivable": "Déconseillé : ratés d'allumage probables sur le cylindre {n}.",
+      "how_it_works": "Une bobine transforme les 12 V en plusieurs dizaines de milliers de volts pour l'étincelle. Le calculateur surveille son circuit primaire.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "Bobine {n} : fissures, traces blanches de claquage, connecteur cassé.",
+          "means": "Bobine défectueuse."
+        },
+        {
+          "sense": "sight",
+          "tip": "Inversez la bobine {n} avec une voisine : le défaut suit-il ?",
+          "means": "Oui : bobine. Non : faisceau ou calculateur."
+        },
+        {
+          "sense": "feel",
+          "tip": "Ratés plus forts sous la pluie ou au lavage moteur.",
+          "means": "Isolation de bobine dégradée."
+        }
+      ],
+      "symptoms": [
+        "Moteur qui tremble",
+        "Perte de puissance",
+        "Voyant moteur clignotant"
+      ],
+      "components": [
+        "coil_{n}",
+        "spark_plug_{n}",
+        "cylinder_{n}"
+      ],
+      "causes": [
+        {
+          "text": "Bobine du cylindre {n} défectueuse",
+          "likelihood": 65
+        },
+        {
+          "text": "Connecteur ou faisceau de la bobine",
+          "likelihood": 30
+        },
+        {
+          "text": "Étage de puissance du calculateur",
+          "likelihood": 5
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Remplacer la bobine d'allumage du cylindre {n}",
+          "difficulty": 1,
+          "time_min": 10,
+          "time_max": 30,
+          "tools": [
+            "Clé à douille 10 mm"
+          ],
+          "steps": [
+            "Débrancher la bobine {n}",
+            "L'extraire en tirant droit",
+            "Monter la neuve, effacer le code"
+          ],
+          "parts": [
+            {
+              "name": "Bobine d'allumage",
+              "query": "bobine d'allumage",
+              "price_min": 20,
+              "price_max": 90
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "P0380",
+      "title": "Circuit des bougies de préchauffage (diesel)",
+      "description": "Le circuit de préchauffage du diesel présente un défaut : une ou plusieurs bougies coupées, ou boîtier de préchauffage défaillant.",
+      "system": "Préchauffage diesel",
+      "severity": "medium",
+      "drivable": "Oui, mais démarrages difficiles à froid, fumée blanche.",
+      "how_it_works": "Sur un diesel, l'allumage se fait par compression. À froid, les bougies de préchauffage chauffent la chambre pour faciliter le démarrage. Un boîtier les alimente.",
+      "sensory_checks": [
+        {
+          "sense": "feel",
+          "tip": "Démarrage laborieux sous 5 °C, normal à chaud.",
+          "means": "Préchauffage défaillant."
+        },
+        {
+          "sense": "smell",
+          "tip": "Fumée blanche à l'odeur âcre au démarrage à froid.",
+          "means": "Gazole mal brûlé : bougies HS."
+        },
+        {
+          "sense": "touch",
+          "tip": "Après un cycle de préchauffage, touchez prudemment les fils des bougies : celle qui reste froide est suspecte. Mieux : mesure au multimètre.",
+          "means": "Identifie la bougie coupée."
+        }
+      ],
+      "symptoms": [
+        "Démarrage difficile à froid",
+        "Fumée blanche au démarrage",
+        "Voyant de préchauffage clignotant"
+      ],
+      "components": [
+        "glow_plugs",
+        "ecu"
+      ],
+      "causes": [
+        {
+          "text": "Bougie(s) de préchauffage HS",
+          "likelihood": 60
+        },
+        {
+          "text": "Boîtier / relais de préchauffage",
+          "likelihood": 25
+        },
+        {
+          "text": "Faisceau",
+          "likelihood": 15
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Remplacer les bougies de préchauffage",
+          "difficulty": 3,
+          "time_min": 45,
+          "time_max": 120,
+          "tools": [
+            "Douille longue",
+            "Dégrippant",
+            "Clé dynamométrique"
+          ],
+          "steps": [
+            "Mesurer chaque bougie au multimètre (≈ 0,5–2 Ω)",
+            "Dégripper la veille",
+            "Dévisser moteur tiède, sans forcer (risque de casse)",
+            "Serrer au couple constructeur"
+          ],
+          "parts": [
+            {
+              "name": "Bougie de préchauffage",
+              "query": "bougie de préchauffage",
+              "qty": 4,
+              "price_min": 8,
+              "price_max": 30
+            }
+          ]
+        },
+        {
+          "title": "Remplacer le boîtier de préchauffage",
+          "difficulty": 2,
+          "time_min": 20,
+          "time_max": 45,
+          "tools": [
+            "Clé à douille"
+          ],
+          "steps": [
+            "Localiser le boîtier",
+            "Remplacer",
+            "Tester"
+          ],
+          "parts": [
+            {
+              "name": "Boîtier de préchauffage",
+              "query": "relais préchauffage",
+              "price_min": 30,
+              "price_max": 120
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "P0401",
+      "title": "Débit de recirculation des gaz d'échappement (EGR) insuffisant",
+      "description": "La vanne EGR renvoie une partie des gaz d'échappement à l'admission pour réduire les NOx. Le débit mesuré est trop faible : la vanne ou ses conduits sont généralement encrassés de calamine.",
+      "system": "Dépollution",
+      "severity": "medium",
+      "drivable": "Oui. Faites-le traiter : cela peut provoquer du cliquetis et l'échec au contrôle technique.",
+      "how_it_works": "La vanne EGR renvoie une petite partie des gaz d'échappement dans l'admission. Cela abaisse la température de combustion et donc les NOx. Les gaz chargés de suie encrassent vite la vanne.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "Vanne déposée : clapet et conduits bouchés par une calamine noire et dure.",
+          "means": "Nettoyage nécessaire."
+        },
+        {
+          "sense": "sound",
+          "tip": "Cliquetis à l'accélération à bas régime (essence).",
+          "means": "Moins de gaz recirculés, combustion trop chaude."
+        },
+        {
+          "sense": "feel",
+          "tip": "Trajets courts en ville uniquement ?",
+          "means": "Mode d'utilisation qui encrasse : roulez régulièrement sur voie rapide."
+        }
+      ],
+      "symptoms": [
+        "Cliquetis à l'accélération",
+        "Ralenti instable",
+        "Échec au contrôle technique (NOx)"
+      ],
+      "components": [
+        "egr_valve",
+        "intake_manifold"
+      ],
+      "causes": [
+        {
+          "text": "Vanne EGR ou conduits encrassés",
+          "likelihood": 60
+        },
+        {
+          "text": "Vanne EGR défectueuse",
+          "likelihood": 25
+        },
+        {
+          "text": "Capteur de position EGR / faisceau",
+          "likelihood": 15
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Nettoyer la vanne EGR",
+          "difficulty": 3,
+          "time_min": 60,
+          "time_max": 150,
+          "tools": [
+            "Clés à douille",
+            "Nettoyant EGR / décalaminant",
+            "Joint neuf"
+          ],
+          "steps": [
+            "Déposer la vanne",
+            "Décalaminer clapet et conduits",
+            "Remonter avec un joint neuf",
+            "Lancer l'apprentissage si le constructeur le demande"
+          ],
+          "parts": [
+            {
+              "name": "Nettoyant vanne EGR",
+              "query": "nettoyant vanne EGR",
+              "price_min": 8,
+              "price_max": 20
+            },
+            {
+              "name": "Joint de vanne EGR",
+              "query": "joint vanne EGR",
+              "price_min": 5,
+              "price_max": 20
+            }
+          ]
+        },
+        {
+          "title": "Remplacer la vanne EGR",
+          "difficulty": 3,
+          "time_min": 60,
+          "time_max": 180,
+          "tools": [
+            "Clés à douille",
+            "Valise (apprentissage)"
+          ],
+          "steps": [
+            "Déposer l'ancienne vanne",
+            "Monter la neuve avec joints neufs",
+            "Effectuer l'apprentissage"
+          ],
+          "parts": [
+            {
+              "name": "Vanne EGR",
+              "query": "vanne EGR",
+              "price_min": 60,
+              "price_max": 320
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "range": [
+        "P0400",
+        "P0409"
+      ],
+      "title": "Système de recirculation des gaz (EGR) : défaut",
+      "description": "Défaut détecté sur le système EGR : débit anormal, commande ou capteur de position de la vanne.",
+      "system": "Dépollution",
+      "severity": "medium",
+      "drivable": "Oui, en mode éventuellement dégradé.",
+      "how_it_works": "Système EGR : vanne pilotée électriquement ou par dépression, avec capteur de position.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "Vanne et connecteur : calamine, connecteur oxydé.",
+          "means": "Encrassement ou contact."
+        },
+        {
+          "sense": "feel",
+          "tip": "À-coups ou fumée noire à l'accélération.",
+          "means": "Vanne bloquée ouverte."
+        }
+      ],
+      "symptoms": [
+        "Ralenti instable",
+        "Perte de puissance",
+        "Fumée noire"
+      ],
+      "components": [
+        "egr_valve",
+        "intake_manifold"
+      ],
+      "causes": [
+        {
+          "text": "Vanne encrassée / grippée",
+          "likelihood": 55
+        },
+        {
+          "text": "Vanne défectueuse (moteur électrique)",
+          "likelihood": 30
+        },
+        {
+          "text": "Faisceau / connecteur",
+          "likelihood": 15
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Nettoyer ou remplacer la vanne EGR",
+          "difficulty": 3,
+          "time_min": 60,
+          "time_max": 180,
+          "tools": [
+            "Clés à douille",
+            "Nettoyant EGR"
+          ],
+          "steps": [
+            "Déposer, inspecter, décalaminer",
+            "Remplacer si le clapet ne bouge plus électriquement"
+          ],
+          "parts": [
+            {
+              "name": "Vanne EGR",
+              "query": "vanne EGR",
+              "price_min": 60,
+              "price_max": 320
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "P0420",
+      "title": "Efficacité du catalyseur insuffisante (banc 1)",
+      "description": "La sonde lambda aval montre que le catalyseur ne dépollue plus assez. Avant de changer un catalyseur (cher), vérifiez la sonde aval et l'absence de fuite d'échappement : elles faussent souvent le diagnostic.",
+      "system": "Échappement / dépollution",
+      "severity": "medium",
+      "drivable": "Oui. Pas de danger immédiat, mais refus au contrôle technique et pollution accrue.",
+      "how_it_works": "Le catalyseur transforme les gaz toxiques en gaz moins nocifs grâce à des métaux précieux. La sonde amont voit un signal qui oscille. Si la sonde aval oscille autant, le catalyseur ne fait plus son travail.",
+      "sensory_checks": [
+        {
+          "sense": "sound",
+          "tip": "Tapez doucement sur le catalyseur (échappement froid) : ça sonne comme des cailloux ?",
+          "means": "Nid d'abeille cassé : remplacement inévitable."
+        },
+        {
+          "sense": "smell",
+          "tip": "Odeur d'œuf pourri à l'échappement.",
+          "means": "Catalyseur fatigué ou mélange trop riche."
+        },
+        {
+          "sense": "feel",
+          "tip": "Perte de puissance qui s'aggrave en montée, avec chaleur sous le plancher.",
+          "means": "Catalyseur colmaté : à remplacer, et chercher pourquoi (ratés, huile)."
+        },
+        {
+          "sense": "sound",
+          "tip": "Tapotement d'échappement près des sondes.",
+          "means": "Fuite qui fausse la mesure : à réparer avant de changer le catalyseur."
+        }
+      ],
+      "symptoms": [
+        "Voyant moteur",
+        "Odeur d'œuf pourri",
+        "Légère perte de puissance si colmaté"
+      ],
+      "components": [
+        "catalytic_converter",
+        "o2_sensor_downstream",
+        "o2_sensor_upstream",
+        "exhaust"
+      ],
+      "causes": [
+        {
+          "text": "Catalyseur usé (plus de 150 000 km, ratés passés)",
+          "likelihood": 50
+        },
+        {
+          "text": "Sonde lambda aval défectueuse",
+          "likelihood": 30
+        },
+        {
+          "text": "Fuite d'échappement près des sondes",
+          "likelihood": 15
+        },
+        {
+          "text": "Moteur qui consomme de l'huile",
+          "likelihood": 5
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Remplacer la sonde lambda aval",
+          "description": "Solution la moins chère, à essayer en premier si la sonde a plus de 100 000 km.",
+          "difficulty": 2,
+          "time_min": 20,
+          "time_max": 60,
+          "tools": [
+            "Douille à sonde lambda",
+            "Dégrippant",
+            "Chandelles"
+          ],
+          "steps": [
+            "Lever le véhicule",
+            "Remplacer la sonde après le catalyseur",
+            "Effacer le code et rouler 50 km"
+          ],
+          "parts": [
+            {
+              "name": "Sonde lambda aval",
+              "query": "sonde lambda aval",
+              "price_min": 25,
+              "price_max": 110
+            }
+          ]
+        },
+        {
+          "title": "Remplacer le catalyseur",
+          "difficulty": 3,
+          "time_min": 60,
+          "time_max": 180,
+          "tools": [
+            "Dégrippant",
+            "Clés",
+            "Chandelles",
+            "Joints et visserie neufs"
+          ],
+          "steps": [
+            "Corriger d'abord toute cause de ratés ou de consommation d'huile",
+            "Déposer le catalyseur",
+            "Monter le neuf (homologué) avec joints neufs"
+          ],
+          "parts": [
+            {
+              "name": "Catalyseur homologué",
+              "query": "catalyseur",
+              "price_min": 150,
+              "price_max": 650
+            },
+            {
+              "name": "Kit de montage / joints d'échappement",
+              "query": "joint échappement catalyseur",
+              "price_min": 10,
+              "price_max": 40
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "P0430",
+      "title": "Efficacité du catalyseur insuffisante (banc 2)",
+      "description": "Comme P0420, mais pour le catalyseur du deuxième banc (moteurs en V).",
+      "system": "Échappement / dépollution",
+      "severity": "medium",
+      "drivable": "Oui. Refus au contrôle technique.",
+      "how_it_works": "Même surveillance que P0420 sur le second catalyseur.",
+      "sensory_checks": [
+        {
+          "sense": "sound",
+          "tip": "Bruit de cailloux en tapotant le catalyseur.",
+          "means": "Catalyseur cassé."
+        },
+        {
+          "sense": "smell",
+          "tip": "Odeur d'œuf pourri.",
+          "means": "Catalyseur fatigué."
+        }
+      ],
+      "symptoms": [
+        "Voyant moteur"
+      ],
+      "components": [
+        "catalytic_converter",
+        "o2_sensor_downstream"
+      ],
+      "causes": [
+        {
+          "text": "Catalyseur usé",
+          "likelihood": 55
+        },
+        {
+          "text": "Sonde lambda aval",
+          "likelihood": 30
+        },
+        {
+          "text": "Fuite d'échappement",
+          "likelihood": 15
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Remplacer la sonde lambda aval banc 2",
+          "difficulty": 2,
+          "time_min": 20,
+          "time_max": 60,
+          "tools": [
+            "Douille à sonde lambda"
+          ],
+          "steps": [
+            "Remplacer la sonde",
+            "Effacer et rouler"
+          ],
+          "parts": [
+            {
+              "name": "Sonde lambda aval",
+              "query": "sonde lambda aval",
+              "price_min": 25,
+              "price_max": 110
+            }
+          ]
+        },
+        {
+          "title": "Remplacer le catalyseur banc 2",
+          "difficulty": 3,
+          "time_min": 60,
+          "time_max": 180,
+          "tools": [
+            "Dégrippant",
+            "Clés"
+          ],
+          "steps": [
+            "Déposer et remplacer le catalyseur"
+          ],
+          "parts": [
+            {
+              "name": "Catalyseur",
+              "query": "catalyseur",
+              "price_min": 150,
+              "price_max": 650
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "P0442",
+      "title": "Petite fuite détectée dans le circuit de vapeurs d'essence (EVAP)",
+      "description": "Le circuit qui récupère les vapeurs d'essence du réservoir n'est plus étanche. Très souvent, c'est simplement le bouchon de réservoir mal fermé ou son joint usé.",
+      "system": "Antipollution EVAP",
+      "severity": "low",
+      "drivable": "Oui, sans risque mécanique.",
+      "how_it_works": "Les vapeurs d'essence du réservoir sont stockées dans un canister à charbon actif. Le moteur les aspire ensuite pour les brûler. Le calculateur teste régulièrement l'étanchéité de ce circuit.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "Joint du bouchon de réservoir craquelé, aplati ou absent.",
+          "means": "Cause n° 1 : bouchon à changer."
+        },
+        {
+          "sense": "sound",
+          "tip": "Ouvrez le bouchon après un trajet : petit « pschitt » d'équilibrage ?",
+          "means": "Pas de pschitt peut indiquer une fuite (selon le véhicule)."
+        },
+        {
+          "sense": "smell",
+          "tip": "Odeur d'essence autour du réservoir ou du canister, véhicule garé.",
+          "means": "Fuite sur durite ou canister."
+        }
+      ],
+      "symptoms": [
+        "Voyant moteur",
+        "Légère odeur d'essence"
+      ],
+      "components": [
+        "fuel_cap",
+        "evap_canister",
+        "purge_valve",
+        "fuel_tank"
+      ],
+      "causes": [
+        {
+          "text": "Bouchon de réservoir mal serré ou joint usé",
+          "likelihood": 45
+        },
+        {
+          "text": "Durite EVAP fendue",
+          "likelihood": 25
+        },
+        {
+          "text": "Électrovanne de purge non étanche",
+          "likelihood": 20
+        },
+        {
+          "text": "Canister fissuré",
+          "likelihood": 10
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Remplacer le bouchon de réservoir",
+          "difficulty": 1,
+          "time_min": 2,
+          "time_max": 5,
+          "tools": [],
+          "steps": [
+            "Vérifier l'état du joint",
+            "Monter un bouchon neuf, effacer le code"
+          ],
+          "parts": [
+            {
+              "name": "Bouchon de réservoir",
+              "query": "bouchon réservoir carburant",
+              "price_min": 8,
+              "price_max": 30
+            }
+          ]
+        },
+        {
+          "title": "Remplacer l'électrovanne de purge",
+          "difficulty": 2,
+          "time_min": 15,
+          "time_max": 40,
+          "tools": [
+            "Tournevis"
+          ],
+          "steps": [
+            "Localiser la vanne (souvent sur l'admission)",
+            "Remplacer"
+          ],
+          "parts": [
+            {
+              "name": "Électrovanne de purge canister",
+              "query": "électrovanne purge canister",
+              "price_min": 20,
+              "price_max": 80
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "P0455",
+      "title": "Grosse fuite détectée dans le circuit EVAP",
+      "description": "Le circuit de récupération des vapeurs d'essence présente une fuite importante : bouchon absent ou ouvert, durite débranchée.",
+      "system": "Antipollution EVAP",
+      "severity": "low",
+      "drivable": "Oui. Vérifiez votre bouchon de réservoir en priorité.",
+      "how_it_works": "Test d'étanchéité du circuit des vapeurs d'essence : une grosse fuite signifie souvent un bouchon resté ouvert.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "Bouchon de réservoir bien vissé jusqu'au « clic » ?",
+          "means": "Le code s'effacera seul après quelques trajets."
+        },
+        {
+          "sense": "smell",
+          "tip": "Odeur d'essence vers l'arrière.",
+          "means": "Durite EVAP débranchée."
+        }
+      ],
+      "symptoms": [
+        "Voyant moteur",
+        "Odeur d'essence"
+      ],
+      "components": [
+        "fuel_cap",
+        "evap_canister",
+        "purge_valve"
+      ],
+      "causes": [
+        {
+          "text": "Bouchon de réservoir ouvert / absent",
+          "likelihood": 50
+        },
+        {
+          "text": "Durite EVAP débranchée",
+          "likelihood": 30
+        },
+        {
+          "text": "Canister ou vanne de mise à l'air",
+          "likelihood": 20
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Contrôler / remplacer le bouchon et les durites EVAP",
+          "difficulty": 1,
+          "time_min": 5,
+          "time_max": 30,
+          "tools": [
+            "Lampe"
+          ],
+          "steps": [
+            "Revisser le bouchon jusqu'au clic",
+            "Inspecter les durites vers le canister",
+            "Effacer le code"
+          ],
+          "parts": [
+            {
+              "name": "Bouchon de réservoir",
+              "query": "bouchon réservoir carburant",
+              "price_min": 8,
+              "price_max": 30
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "P0456",
+      "title": "Très petite fuite dans le circuit EVAP",
+      "description": "Micro-fuite dans le circuit des vapeurs d'essence, typiquement le joint du bouchon de réservoir.",
+      "system": "Antipollution EVAP",
+      "severity": "low",
+      "drivable": "Oui.",
+      "how_it_works": "Le calculateur détecte une micro-fuite lors du test d'étanchéité EVAP.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "Joint du bouchon durci ou fendu.",
+          "means": "Bouchon à changer."
+        },
+        {
+          "sense": "touch",
+          "tip": "Le bouchon tourne-t-il dans le vide sans cliquer ?",
+          "means": "Mécanisme du bouchon usé."
+        }
+      ],
+      "symptoms": [
+        "Voyant moteur"
+      ],
+      "components": [
+        "fuel_cap",
+        "evap_canister"
+      ],
+      "causes": [
+        {
+          "text": "Joint du bouchon de réservoir",
+          "likelihood": 60
+        },
+        {
+          "text": "Raccord de durite EVAP",
+          "likelihood": 40
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Remplacer le bouchon de réservoir",
+          "difficulty": 1,
+          "time_min": 2,
+          "time_max": 5,
+          "tools": [],
+          "steps": [
+            "Monter un bouchon neuf",
+            "Effacer le code"
+          ],
+          "parts": [
+            {
+              "name": "Bouchon de réservoir",
+              "query": "bouchon réservoir carburant",
+              "price_min": 8,
+              "price_max": 30
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "range": [
+        "P0440",
+        "P0459"
+      ],
+      "title": "Circuit de récupération des vapeurs d'essence (EVAP) : défaut",
+      "description": "Défaut sur le système EVAP (canister, électrovanne de purge, vanne de mise à l'air ou capteur de pression du réservoir).",
+      "system": "Antipollution EVAP",
+      "severity": "low",
+      "drivable": "Oui.",
+      "how_it_works": "Circuit EVAP : canister, électrovanne de purge, vanne de mise à l'air, capteur de pression du réservoir.",
+      "sensory_checks": [
+        {
+          "sense": "feel",
+          "tip": "Le pistolet de la pompe coupe sans arrêt pendant le plein.",
+          "means": "Canister ou mise à l'air bouchée."
+        },
+        {
+          "sense": "sound",
+          "tip": "Électrovanne de purge : « tic-tic » régulier au ralenti, moteur chaud.",
+          "means": "Elle fonctionne électriquement."
+        },
+        {
+          "sense": "smell",
+          "tip": "Odeur d'essence sous le capot au ralenti.",
+          "means": "Purge non étanche."
+        }
+      ],
+      "symptoms": [
+        "Voyant moteur",
+        "Difficulté à faire le plein (pistolet qui coupe)"
+      ],
+      "components": [
+        "evap_canister",
+        "purge_valve",
+        "fuel_cap",
+        "fuel_tank"
+      ],
+      "causes": [
+        {
+          "text": "Électrovanne de purge",
+          "likelihood": 40
+        },
+        {
+          "text": "Bouchon / durites",
+          "likelihood": 35
+        },
+        {
+          "text": "Canister saturé",
+          "likelihood": 25
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Remplacer l'électrovanne de purge canister",
+          "difficulty": 2,
+          "time_min": 15,
+          "time_max": 40,
+          "tools": [
+            "Tournevis"
+          ],
+          "steps": [
+            "Tester la vanne",
+            "Remplacer si non étanche"
+          ],
+          "parts": [
+            {
+              "name": "Électrovanne de purge canister",
+              "query": "électrovanne purge canister",
+              "price_min": 20,
+              "price_max": 80
+            }
+          ]
+        },
+        {
+          "title": "Remplacer le canister",
+          "difficulty": 3,
+          "time_min": 45,
+          "time_max": 120,
+          "tools": [
+            "Chandelles",
+            "Clés"
+          ],
+          "steps": [
+            "Accéder au canister (souvent près du réservoir)",
+            "Remplacer"
+          ],
+          "parts": [
+            {
+              "name": "Canister / filtre à charbon actif",
+              "query": "canister filtre charbon actif",
+              "price_min": 50,
+              "price_max": 220
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "P0480",
+      "title": "Circuit de commande du motoventilateur (vitesse 1)",
+      "description": "Le calculateur ne parvient pas à piloter le ventilateur de refroidissement : relais, fusible, moteur du ventilateur ou faisceau.",
+      "system": "Refroidissement",
+      "severity": "high",
+      "drivable": "Prudence : surveillez la température. Dans les bouchons, risque de surchauffe.",
+      "how_it_works": "Le motoventilateur refroidit le radiateur quand l'air ne circule pas assez (à l'arrêt, en bouchon, avec la climatisation). Le calculateur le commande via un relais ou un module.",
+      "sensory_checks": [
+        {
+          "sense": "sound",
+          "tip": "Allumez la climatisation, moteur au ralenti : le ventilateur doit se mettre en route.",
+          "means": "S'il reste silencieux : relais, fusible ou moteur."
+        },
+        {
+          "sense": "touch",
+          "tip": "Moteur ARRÊTÉ et contact coupé, la batterie peut rester connectée : faites tourner les pales à la main.",
+          "means": "Point dur ou grincement : moteur du ventilateur usé."
+        },
+        {
+          "sense": "sight",
+          "tip": "Fusible de forte intensité du ventilateur fondu.",
+          "means": "Court-circuit ou moteur grippé."
+        }
+      ],
+      "symptoms": [
+        "Ventilateur qui ne tourne pas",
+        "Température qui monte à l'arrêt",
+        "Climatisation inefficace"
+      ],
+      "components": [
+        "cooling_fan",
+        "radiator",
+        "ecu"
+      ],
+      "causes": [
+        {
+          "text": "Relais du ventilateur",
+          "likelihood": 35
+        },
+        {
+          "text": "Motoventilateur HS",
+          "likelihood": 35
+        },
+        {
+          "text": "Fusible / faisceau",
+          "likelihood": 30
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Remplacer le relais de ventilateur",
+          "difficulty": 1,
+          "time_min": 10,
+          "time_max": 20,
+          "tools": [],
+          "steps": [
+            "Vérifier le fusible",
+            "Remplacer le relais (boîte fusibles moteur)"
+          ],
+          "parts": [
+            {
+              "name": "Relais de ventilateur",
+              "query": "relais ventilateur",
+              "price_min": 10,
+              "price_max": 40
+            }
+          ]
+        },
+        {
+          "title": "Remplacer le motoventilateur",
+          "difficulty": 3,
+          "time_min": 60,
+          "time_max": 150,
+          "tools": [
+            "Clés à douille"
+          ],
+          "steps": [
+            "Tester le moteur en direct sur batterie",
+            "Remplacer le groupe motoventilateur"
+          ],
+          "parts": [
+            {
+              "name": "Motoventilateur",
+              "query": "ventilateur refroidissement moteur",
+              "price_min": 60,
+              "price_max": 260
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "P0500",
+      "title": "Capteur de vitesse du véhicule : défaut",
+      "description": "Le calculateur ne reçoit plus d'information de vitesse. Selon le véhicule, elle provient d'un capteur sur la boîte ou des capteurs ABS.",
+      "system": "Transmission",
+      "severity": "medium",
+      "drivable": "Oui avec prudence : compteur et régulateur de vitesse peuvent ne plus fonctionner.",
+      "how_it_works": "La vitesse du véhicule vient d'un capteur sur la boîte ou des capteurs ABS des roues. Elle alimente le compteur, le régulateur, la direction assistée et la boîte automatique.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "Compteur de vitesse à 0 ou erratique en roulant.",
+          "means": "Confirme l'absence de signal."
+        },
+        {
+          "sense": "sight",
+          "tip": "Voyant ABS allumé en même temps ?",
+          "means": "La vitesse vient probablement de l'ABS : contrôler les capteurs de roue."
+        }
+      ],
+      "symptoms": [
+        "Compteur de vitesse à 0",
+        "Régulateur indisponible",
+        "Passages de rapport anormaux (BVA)"
+      ],
+      "components": [
+        "vehicle_speed_sensor",
+        "transmission",
+        "abs_module"
+      ],
+      "causes": [
+        {
+          "text": "Capteur de vitesse défectueux",
+          "likelihood": 50
+        },
+        {
+          "text": "Faisceau / connecteur",
+          "likelihood": 30
+        },
+        {
+          "text": "Défaut ABS (si la vitesse vient de l'ABS)",
+          "likelihood": 20
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Remplacer le capteur de vitesse",
+          "difficulty": 2,
+          "time_min": 20,
+          "time_max": 60,
+          "tools": [
+            "Clés",
+            "Chandelles"
+          ],
+          "steps": [
+            "Localiser le capteur sur la boîte",
+            "Remplacer"
+          ],
+          "parts": [
+            {
+              "name": "Capteur de vitesse",
+              "query": "capteur de vitesse",
+              "price_min": 15,
+              "price_max": 60
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "P0505",
+      "title": "Régulation du ralenti : défaut",
+      "description": "Le calculateur n'arrive pas à maintenir le régime de ralenti visé. Le boîtier papillon (ou la vanne de ralenti) est généralement encrassé.",
+      "system": "Admission d'air",
+      "severity": "medium",
+      "drivable": "Oui, mais risque de calage au ralenti.",
+      "how_it_works": "Au ralenti, le calculateur ouvre très légèrement le papillon (ou une vanne de ralenti) pour tenir le régime visé, quels que soient la climatisation, la direction ou les phares.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "Papillon déposé : dépôt noir gras autour du volet.",
+          "means": "Encrassement : nettoyage."
+        },
+        {
+          "sense": "feel",
+          "tip": "Le régime baisse fortement à la mise en route de la climatisation, jusqu'au calage.",
+          "means": "Régulation qui ne compense plus."
+        }
+      ],
+      "symptoms": [
+        "Ralenti trop haut ou qui pompe",
+        "Calage à l'arrêt"
+      ],
+      "components": [
+        "throttle_body",
+        "vacuum_hoses"
+      ],
+      "causes": [
+        {
+          "text": "Boîtier papillon encrassé",
+          "likelihood": 55
+        },
+        {
+          "text": "Prise d'air",
+          "likelihood": 25
+        },
+        {
+          "text": "Moteur de papillon défectueux",
+          "likelihood": 20
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Nettoyer le boîtier papillon",
+          "difficulty": 2,
+          "time_min": 20,
+          "time_max": 60,
+          "tools": [
+            "Nettoyant carburateur",
+            "Chiffon",
+            "Tournevis"
+          ],
+          "steps": [
+            "Contact coupé, déposer la durite d'admission",
+            "Nettoyer le papillon et son logement",
+            "Faire l'apprentissage du ralenti (contact 30 s, puis démarrage)"
+          ],
+          "parts": [
+            {
+              "name": "Nettoyant carburateur / papillon",
+              "query": "nettoyant carburateur",
+              "price_min": 6,
+              "price_max": 15
+            }
+          ]
+        },
+        {
+          "title": "Remplacer le boîtier papillon",
+          "difficulty": 3,
+          "time_min": 45,
+          "time_max": 120,
+          "tools": [
+            "Clés à douille",
+            "Valise (apprentissage)"
+          ],
+          "steps": [
+            "Remplacer le boîtier",
+            "Apprentissage des butées"
+          ],
+          "parts": [
+            {
+              "name": "Boîtier papillon",
+              "query": "boîtier papillon",
+              "price_min": 70,
+              "price_max": 300
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "P0507",
+      "title": "Régime de ralenti plus élevé que prévu",
+      "description": "Le ralenti est trop haut : prise d'air après le papillon ou papillon encrassé qui reste entrouvert.",
+      "system": "Admission d'air",
+      "severity": "low",
+      "drivable": "Oui.",
+      "how_it_works": "Le régime de ralenti dépasse la consigne : il entre trop d'air non contrôlé.",
+      "sensory_checks": [
+        {
+          "sense": "sound",
+          "tip": "Sifflement au ralenti.",
+          "means": "Prise d'air."
+        },
+        {
+          "sense": "feel",
+          "tip": "Ralenti haut qui baisse après nettoyage du papillon et apprentissage.",
+          "means": "Encrassement confirmé."
+        }
+      ],
+      "symptoms": [
+        "Ralenti haut",
+        "Voiture qui « pousse » à l'arrêt"
+      ],
+      "components": [
+        "throttle_body",
+        "vacuum_hoses",
+        "intake_manifold"
+      ],
+      "causes": [
+        {
+          "text": "Prise d'air",
+          "likelihood": 50
+        },
+        {
+          "text": "Boîtier papillon encrassé",
+          "likelihood": 40
+        },
+        {
+          "text": "Apprentissage du ralenti perdu",
+          "likelihood": 10
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Nettoyer le boîtier papillon et rechercher une prise d'air",
+          "difficulty": 2,
+          "time_min": 30,
+          "time_max": 75,
+          "tools": [
+            "Nettoyant carburateur",
+            "Nettoyant frein"
+          ],
+          "steps": [
+            "Nettoyer le papillon",
+            "Test de prise d'air",
+            "Apprentissage du ralenti"
+          ],
+          "parts": [
+            {
+              "name": "Nettoyant carburateur / papillon",
+              "query": "nettoyant carburateur",
+              "price_min": 6,
+              "price_max": 15
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "range": [
+        "P0520",
+        "P0524"
+      ],
+      "title": "Capteur / circuit de pression d'huile : défaut",
+      "description": "Le capteur de pression d'huile signale une valeur anormale. Ce peut être le capteur lui-même, mais aussi une vraie chute de pression d'huile, très grave pour le moteur.",
+      "system": "Lubrification",
+      "severity": "critical",
+      "drivable": "Vérifiez immédiatement le niveau d'huile. Si le voyant d'huile rouge s'allume : arrêt immédiat du moteur.",
+      "how_it_works": "Le mano-contact (ou capteur) de pression d'huile surveille la lubrification. Sans pression, les coussinets et le turbo sont détruits en quelques minutes.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "Niveau d'huile à la jauge, moteur à plat et arrêté depuis 5 min.",
+          "means": "Niveau bas : danger réel, compléter immédiatement."
+        },
+        {
+          "sense": "sight",
+          "tip": "Huile qui suinte autour du capteur ou dans son connecteur.",
+          "means": "Capteur fuyard : à changer."
+        },
+        {
+          "sense": "sound",
+          "tip": "Claquement métallique moteur chaud au ralenti.",
+          "means": "Pression réellement faible : arrêtez le moteur, garage."
+        }
+      ],
+      "symptoms": [
+        "Voyant de pression d'huile",
+        "Bruit de claquement",
+        "Jauge d'huile erratique"
+      ],
+      "components": [
+        "oil_pressure_sensor",
+        "engine"
+      ],
+      "causes": [
+        {
+          "text": "Niveau d'huile bas",
+          "likelihood": 35
+        },
+        {
+          "text": "Capteur de pression défectueux / fuyard",
+          "likelihood": 40
+        },
+        {
+          "text": "Faisceau",
+          "likelihood": 10
+        },
+        {
+          "text": "Pompe à huile / crépine bouchée",
+          "likelihood": 15
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Faire le niveau d'huile",
+          "difficulty": 1,
+          "time_min": 5,
+          "time_max": 15,
+          "tools": [
+            "Entonnoir"
+          ],
+          "steps": [
+            "Moteur arrêté depuis 5 min, sur sol plat",
+            "Lire la jauge",
+            "Compléter avec l'huile préconisée"
+          ],
+          "parts": [
+            {
+              "name": "Huile moteur 1 L",
+              "query": "huile moteur 1L",
+              "price_min": 8,
+              "price_max": 18
+            }
+          ]
+        },
+        {
+          "title": "Remplacer le mano-contact de pression d'huile",
+          "difficulty": 2,
+          "time_min": 20,
+          "time_max": 60,
+          "tools": [
+            "Douille à mano-contact"
+          ],
+          "steps": [
+            "Débrancher, dévisser",
+            "Monter le neuf avec joint neuf",
+            "Contrôler la pression réelle au manomètre si doute"
+          ],
+          "parts": [
+            {
+              "name": "Mano-contact de pression d'huile",
+              "query": "mano contact pression huile",
+              "price_min": 8,
+              "price_max": 45
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "P0562",
+      "title": "Tension du système trop basse",
+      "description": "Le calculateur mesure une tension d'alimentation trop faible. Batterie fatiguée, alternateur qui ne charge plus ou mauvaise connexion de masse.",
+      "system": "Électricité",
+      "severity": "medium",
+      "drivable": "Oui, mais risque de panne au prochain démarrage. Si le voyant batterie s'allume en roulant, rejoignez un garage rapidement.",
+      "how_it_works": "La batterie démarre le moteur. Ensuite, l'alternateur, entraîné par la courroie, recharge la batterie et alimente tout le véhicule. Tension normale : 12,4–12,7 V moteur arrêté, 13,8–14,7 V moteur tournant.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "Cosses de batterie : dépôt blanc ou vert, cosse qui bouge à la main.",
+          "means": "Mauvais contact : nettoyage et serrage."
+        },
+        {
+          "sense": "sound",
+          "tip": "Démarreur qui tourne lentement le matin, ou « clac » sans démarrage.",
+          "means": "Batterie faible."
+        },
+        {
+          "sense": "sound",
+          "tip": "Sifflement de courroie au démarrage ou en braquant.",
+          "means": "Courroie qui patine : l'alternateur charge mal."
+        },
+        {
+          "sense": "sight",
+          "tip": "Phares qui baissent au ralenti et remontent quand on accélère.",
+          "means": "Alternateur faible."
+        }
+      ],
+      "symptoms": [
+        "Démarrage laborieux",
+        "Phares faibles",
+        "Voyant batterie",
+        "Défauts électriques divers"
+      ],
+      "components": [
+        "battery",
+        "alternator"
+      ],
+      "causes": [
+        {
+          "text": "Batterie usée",
+          "likelihood": 45
+        },
+        {
+          "text": "Alternateur / régulateur défaillant",
+          "likelihood": 30
+        },
+        {
+          "text": "Cosse oxydée ou masse desserrée",
+          "likelihood": 20
+        },
+        {
+          "text": "Courroie d'accessoires qui patine",
+          "likelihood": 5
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Nettoyer les cosses et tester la batterie",
+          "difficulty": 1,
+          "time_min": 10,
+          "time_max": 30,
+          "tools": [
+            "Multimètre",
+            "Brosse métallique",
+            "Clé de 10"
+          ],
+          "steps": [
+            "Moteur arrêté : ≥ 12,4 V attendu",
+            "Moteur tournant : 13,8–14,7 V attendu",
+            "Nettoyer et resserrer les cosses"
+          ],
+          "parts": [
+            {
+              "name": "Testeur de batterie",
+              "query": "testeur batterie",
+              "price_min": 15,
+              "price_max": 50
+            }
+          ]
+        },
+        {
+          "title": "Remplacer la batterie",
+          "difficulty": 1,
+          "time_min": 15,
+          "time_max": 45,
+          "tools": [
+            "Clés de 10 et 13",
+            "Mémoriseur (optionnel)"
+          ],
+          "steps": [
+            "Débrancher le – puis le +",
+            "Remplacer (même technologie : EFB/AGM si Start&Stop)",
+            "Rebrancher le + puis le –",
+            "Initialiser la batterie si le véhicule l'exige"
+          ],
+          "parts": [
+            {
+              "name": "Batterie",
+              "query": "batterie voiture",
+              "price_min": 70,
+              "price_max": 220
+            }
+          ]
+        },
+        {
+          "title": "Remplacer l'alternateur",
+          "difficulty": 3,
+          "time_min": 60,
+          "time_max": 180,
+          "tools": [
+            "Clés",
+            "Outil de tension de courroie"
+          ],
+          "steps": [
+            "Confirmer la non-charge",
+            "Déposer courroie et alternateur",
+            "Monter le neuf"
+          ],
+          "parts": [
+            {
+              "name": "Alternateur",
+              "query": "alternateur",
+              "price_min": 120,
+              "price_max": 380
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "P0563",
+      "title": "Tension du système trop haute",
+      "description": "Tension d'alimentation trop élevée : le régulateur de l'alternateur surcharge. Cela peut endommager batterie et électronique.",
+      "system": "Électricité",
+      "severity": "high",
+      "drivable": "Limitez les trajets : risque d'endommager des calculateurs.",
+      "how_it_works": "Le régulateur de l'alternateur limite la tension autour de 14,5 V. S'il défaille, la tension monte et met l'électronique en danger.",
+      "sensory_checks": [
+        {
+          "sense": "smell",
+          "tip": "Odeur d'œuf pourri près de la batterie.",
+          "means": "Batterie surchargée qui dégaze : danger."
+        },
+        {
+          "sense": "sight",
+          "tip": "Ampoules qui grillent souvent, phares très éblouissants en accélérant.",
+          "means": "Surtension."
+        }
+      ],
+      "symptoms": [
+        "Ampoules qui grillent",
+        "Batterie qui gonfle / sent l'œuf pourri"
+      ],
+      "components": [
+        "alternator",
+        "battery"
+      ],
+      "causes": [
+        {
+          "text": "Régulateur d'alternateur défectueux",
+          "likelihood": 70
+        },
+        {
+          "text": "Mauvaise masse",
+          "likelihood": 20
+        },
+        {
+          "text": "Booster / chargeur branché",
+          "likelihood": 10
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Remplacer le régulateur ou l'alternateur",
+          "difficulty": 3,
+          "time_min": 60,
+          "time_max": 180,
+          "tools": [
+            "Multimètre",
+            "Clés"
+          ],
+          "steps": [
+            "Mesurer > 15 V moteur tournant confirme le défaut",
+            "Remplacer le régulateur ou l'alternateur complet"
+          ],
+          "parts": [
+            {
+              "name": "Alternateur",
+              "query": "alternateur",
+              "price_min": 120,
+              "price_max": 380
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "P0606",
+      "title": "Défaut interne du calculateur moteur",
+      "description": "Le calculateur détecte une erreur dans son propre processeur. Avant de conclure à une panne du calculateur, vérifiez la tension batterie et les masses : une alimentation instable provoque souvent ce code.",
+      "system": "Électronique",
+      "severity": "high",
+      "drivable": "Imprévisible : le moteur peut caler ou ne plus démarrer.",
+      "how_it_works": "Le calculateur moteur s'auto-teste en permanence (mémoire, processeur). Une alimentation instable provoque souvent de fausses erreurs internes.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "Cosses de batterie et tresses de masse moteur/caisse oxydées ou desserrées.",
+          "means": "Cause fréquente et gratuite à corriger."
+        },
+        {
+          "sense": "sight",
+          "tip": "Traces d'eau ou de corrosion sur le calculateur ou son connecteur.",
+          "means": "Infiltration : calculateur à faire réparer."
+        }
+      ],
+      "symptoms": [
+        "Calage",
+        "Mode dégradé",
+        "Voyants multiples"
+      ],
+      "components": [
+        "ecu",
+        "battery"
+      ],
+      "causes": [
+        {
+          "text": "Tension batterie / masses défectueuses",
+          "likelihood": 40
+        },
+        {
+          "text": "Logiciel du calculateur (mise à jour constructeur)",
+          "likelihood": 30
+        },
+        {
+          "text": "Calculateur défectueux",
+          "likelihood": 30
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Contrôler l'alimentation et les masses",
+          "difficulty": 2,
+          "time_min": 20,
+          "time_max": 60,
+          "tools": [
+            "Multimètre"
+          ],
+          "steps": [
+            "Contrôler la batterie",
+            "Nettoyer les masses moteur / caisse",
+            "Effacer le code et observer"
+          ],
+          "parts": []
+        },
+        {
+          "title": "Reprogrammation ou réparation du calculateur",
+          "difficulty": 5,
+          "time_min": 60,
+          "time_max": 240,
+          "tools": [
+            "Valise constructeur"
+          ],
+          "steps": [
+            "Mise à jour logicielle en concession",
+            "Sinon réparation par un spécialiste ou remplacement avec codage antidémarrage"
+          ],
+          "parts": [
+            {
+              "name": "Réparation calculateur (échange)",
+              "query": "calculateur moteur",
+              "price_min": 150,
+              "price_max": 700
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "P0627",
+      "title": "Circuit de commande de la pompe à carburant",
+      "description": "Défaut électrique sur la commande de la pompe à carburant : relais, faisceau ou module de pompe.",
+      "system": "Alimentation carburant",
+      "severity": "high",
+      "drivable": "Risque de panne sèche électrique (le moteur peut s'arrêter).",
+      "how_it_works": "La pompe à carburant est commandée par le calculateur via un relais ou un module. Elle s'amorce 2 à 3 s à la mise du contact.",
+      "sensory_checks": [
+        {
+          "sense": "sound",
+          "tip": "Contact mis : bourdonnement de 2–3 s à l'arrière.",
+          "means": "Absent : relais, fusible, connecteur ou pompe."
+        },
+        {
+          "sense": "feel",
+          "tip": "Calage aléatoire en roulant, redémarrage après quelques minutes.",
+          "means": "Pompe ou connecteur qui chauffe."
+        }
+      ],
+      "symptoms": [
+        "Démarrage difficile",
+        "Calage",
+        "Pompe qu'on n'entend plus à la mise du contact"
+      ],
+      "components": [
+        "fuel_pump",
+        "fuel_tank",
+        "ecu"
+      ],
+      "causes": [
+        {
+          "text": "Relais ou fusible de pompe",
+          "likelihood": 35
+        },
+        {
+          "text": "Connecteur de pompe oxydé",
+          "likelihood": 30
+        },
+        {
+          "text": "Pompe défectueuse",
+          "likelihood": 35
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Contrôler relais, fusible et connecteur",
+          "difficulty": 2,
+          "time_min": 20,
+          "time_max": 45,
+          "tools": [
+            "Multimètre"
+          ],
+          "steps": [
+            "Vérifier le fusible",
+            "Écouter la pompe à la mise du contact",
+            "Contrôler l'alimentation au connecteur"
+          ],
+          "parts": [
+            {
+              "name": "Relais de pompe à carburant",
+              "query": "relais pompe carburant",
+              "price_min": 10,
+              "price_max": 35
+            }
+          ]
+        },
+        {
+          "title": "Remplacer la pompe à carburant",
+          "difficulty": 3,
+          "time_min": 60,
+          "time_max": 150,
+          "tools": [
+            "Clé de bague de réservoir"
+          ],
+          "steps": [
+            "Accéder au module par la trappe",
+            "Remplacer la pompe et le joint"
+          ],
+          "parts": [
+            {
+              "name": "Pompe à carburant",
+              "query": "pompe à carburant",
+              "price_min": 60,
+              "price_max": 260
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "P0670",
+      "title": "Circuit du boîtier de préchauffage (diesel)",
+      "description": "Le calculateur ne parvient pas à commander le boîtier de préchauffage.",
+      "system": "Préchauffage diesel",
+      "severity": "medium",
+      "drivable": "Oui, démarrages difficiles par temps froid.",
+      "how_it_works": "Le boîtier de préchauffage alimente les bougies de préchauffage sur ordre du calculateur.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "Voyant de préchauffage normal mais démarrage dur à froid.",
+          "means": "Le boîtier ne transmet pas l'ordre."
+        },
+        {
+          "sense": "touch",
+          "tip": "Boîtier très chaud ou connecteur fondu.",
+          "means": "Boîtier en court-circuit."
+        }
+      ],
+      "symptoms": [
+        "Démarrage difficile à froid",
+        "Voyant de préchauffage"
+      ],
+      "components": [
+        "glow_plugs",
+        "ecu"
+      ],
+      "causes": [
+        {
+          "text": "Boîtier de préchauffage défectueux",
+          "likelihood": 60
+        },
+        {
+          "text": "Faisceau / connecteur",
+          "likelihood": 40
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Remplacer le boîtier de préchauffage",
+          "difficulty": 2,
+          "time_min": 20,
+          "time_max": 45,
+          "tools": [
+            "Clé à douille"
+          ],
+          "steps": [
+            "Remplacer le boîtier",
+            "Tester le cycle de préchauffage"
+          ],
+          "parts": [
+            {
+              "name": "Boîtier de préchauffage",
+              "query": "relais préchauffage",
+              "price_min": 30,
+              "price_max": 120
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "P0700",
+      "title": "Défaut dans le système de contrôle de la boîte automatique",
+      "description": "Le calculateur de boîte de vitesses automatique a enregistré un défaut. Ce code est une alerte générique : il faut lire le calculateur de boîte pour connaître le code précis.",
+      "system": "Transmission",
+      "severity": "high",
+      "drivable": "Souvent en mode secours (3e rapport bloqué). Roulez doucement jusqu'au garage.",
+      "how_it_works": "La boîte automatique a son propre calculateur. Ce code moteur signale seulement qu'il a enregistré un défaut, à lire dans la boîte elle-même.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "Huile de boîte (si jauge) : rouge et sans odeur = bon. Brune et sentant le brûlé = usée.",
+          "means": "Huile usée : vidange, voire usure interne."
+        },
+        {
+          "sense": "feel",
+          "tip": "Passages brutaux, patinage, rapports bloqués.",
+          "means": "Mode secours de la boîte."
+        }
+      ],
+      "symptoms": [
+        "Mode secours",
+        "Passages de rapports brutaux",
+        "Patinage"
+      ],
+      "components": [
+        "transmission",
+        "ecu"
+      ],
+      "causes": [
+        {
+          "text": "Niveau / qualité de l'huile de boîte",
+          "likelihood": 30
+        },
+        {
+          "text": "Électrovanne de boîte",
+          "likelihood": 30
+        },
+        {
+          "text": "Capteur de vitesse de boîte",
+          "likelihood": 20
+        },
+        {
+          "text": "Défaut interne de la boîte",
+          "likelihood": 20
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Vidange de boîte automatique",
+          "difficulty": 4,
+          "time_min": 60,
+          "time_max": 150,
+          "tools": [
+            "Pompe de remplissage",
+            "Valise (contrôle de température)"
+          ],
+          "steps": [
+            "Lire le calculateur de boîte",
+            "Vidange + filtre selon procédure constructeur"
+          ],
+          "parts": [
+            {
+              "name": "Huile de boîte automatique (ATF) 1 L",
+              "query": "huile boîte automatique ATF",
+              "qty": 6,
+              "price_min": 9,
+              "price_max": 20
+            },
+            {
+              "name": "Filtre de boîte automatique",
+              "query": "filtre boîte automatique",
+              "price_min": 20,
+              "price_max": 80
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "P2002",
+      "title": "Efficacité du filtre à particules insuffisante",
+      "description": "Le FAP ne retient plus correctement les particules : il est fissuré, percé ou le capteur de pression différentielle donne une mesure fausse.",
+      "system": "Dépollution diesel",
+      "severity": "medium",
+      "drivable": "Oui, mais refus au contrôle technique (opacité).",
+      "how_it_works": "Le FAP est une céramique poreuse qui piège la suie du diesel. Un capteur mesure la différence de pression avant/après : trop faible, le filtre est percé ; trop forte, il est colmaté.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "Intérieur de l'embout d'échappement noir de suie (sur un diesel à FAP, il doit être presque propre).",
+          "means": "FAP percé : la suie passe."
+        },
+        {
+          "sense": "sight",
+          "tip": "Durites du capteur de pression différentielle fendues ou inversées.",
+          "means": "Fausse mesure : correction à quelques euros."
+        }
+      ],
+      "symptoms": [
+        "Voyant moteur / FAP",
+        "Fumée noire"
+      ],
+      "components": [
+        "dpf",
+        "dpf_pressure_sensor",
+        "exhaust"
+      ],
+      "causes": [
+        {
+          "text": "Capteur de pression différentielle ou durites",
+          "likelihood": 40
+        },
+        {
+          "text": "FAP fissuré / percé",
+          "likelihood": 45
+        },
+        {
+          "text": "Fuite d'échappement",
+          "likelihood": 15
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Remplacer le capteur de pression différentielle",
+          "difficulty": 2,
+          "time_min": 20,
+          "time_max": 45,
+          "tools": [
+            "Clés"
+          ],
+          "steps": [
+            "Contrôler les durites du capteur (fissures)",
+            "Remplacer le capteur"
+          ],
+          "parts": [
+            {
+              "name": "Capteur de pression différentielle FAP",
+              "query": "capteur pression différentielle FAP",
+              "price_min": 30,
+              "price_max": 110
+            }
+          ]
+        },
+        {
+          "title": "Remplacer le filtre à particules",
+          "difficulty": 4,
+          "time_min": 120,
+          "time_max": 240,
+          "tools": [
+            "Chandelles",
+            "Dégrippant",
+            "Valise (initialisation)"
+          ],
+          "steps": [
+            "Déposer le FAP",
+            "Monter le neuf avec joints neufs",
+            "Initialiser le FAP au calculateur"
+          ],
+          "parts": [
+            {
+              "name": "Filtre à particules",
+              "query": "filtre à particules",
+              "price_min": 300,
+              "price_max": 1200
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "P2463",
+      "title": "Filtre à particules : accumulation de suie excessive",
+      "description": "Le FAP est trop chargé en suie. Les régénérations n'ont pas eu lieu, souvent à cause de trajets trop courts en ville.",
+      "system": "Dépollution diesel",
+      "severity": "medium",
+      "drivable": "Oui, un trajet sur voie rapide peut suffire. Si la charge est critique, le calculateur bloque le moteur en mode dégradé.",
+      "how_it_works": "La suie s'accumule dans le FAP puis est brûlée lors des « régénérations » (vers 600 °C) qui demandent de rouler plusieurs minutes à régime soutenu. En ville, elles n'ont pas le temps d'aboutir.",
+      "sensory_checks": [
+        {
+          "sense": "sound",
+          "tip": "Après un arrêt, ventilateur qui tourne et ralenti plus haut que d'habitude.",
+          "means": "Une régénération était en cours : ne coupez pas pendant une régénération."
+        },
+        {
+          "sense": "smell",
+          "tip": "Odeur de chaud ou de brûlé à l'échappement sur voie rapide.",
+          "means": "Régénération en cours, c'est normal."
+        },
+        {
+          "sense": "sight",
+          "tip": "Fumée noire à l'accélération.",
+          "means": "Le moteur produit trop de suie : chercher la cause (EGR, injecteur, turbo)."
+        }
+      ],
+      "symptoms": [
+        "Voyant FAP",
+        "Perte de puissance",
+        "Ventilateur qui tourne après l'arrêt"
+      ],
+      "components": [
+        "dpf",
+        "dpf_pressure_sensor",
+        "egr_valve"
+      ],
+      "causes": [
+        {
+          "text": "Trajets courts répétés (pas de régénération)",
+          "likelihood": 50
+        },
+        {
+          "text": "Additif FAP vide (certains modèles)",
+          "likelihood": 20
+        },
+        {
+          "text": "Moteur qui fume (injecteur, EGR, turbo)",
+          "likelihood": 20
+        },
+        {
+          "text": "Capteur de pression faussé",
+          "likelihood": 10
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Régénération sur route",
+          "difficulty": 1,
+          "time_min": 20,
+          "time_max": 40,
+          "tools": [],
+          "steps": [
+            "Rouler 20–30 min sur voie rapide à 2 500–3 000 tr/min (rapport inférieur)",
+            "Ne pas couper le moteur pendant la régénération"
+          ],
+          "parts": [
+            {
+              "name": "Additif nettoyant FAP",
+              "query": "nettoyant FAP additif",
+              "price_min": 10,
+              "price_max": 30
+            }
+          ]
+        },
+        {
+          "title": "Régénération forcée et contrôle de l'additif",
+          "difficulty": 3,
+          "time_min": 30,
+          "time_max": 90,
+          "tools": [
+            "Valise de diagnostic"
+          ],
+          "steps": [
+            "Lancer une régénération forcée via valise",
+            "Remplir le réservoir d'additif si équipé"
+          ],
+          "parts": [
+            {
+              "name": "Additif FAP (Eolys / cérine)",
+              "query": "additif FAP eolys",
+              "price_min": 25,
+              "price_max": 80
+            }
+          ]
+        },
+        {
+          "title": "Nettoyage professionnel du FAP",
+          "difficulty": 4,
+          "time_min": 120,
+          "time_max": 240,
+          "tools": [
+            "Atelier spécialisé"
+          ],
+          "steps": [
+            "Dépose et nettoyage hydro / thermique",
+            "Repose et initialisation"
+          ],
+          "parts": []
+        }
+      ]
+    },
+    {
+      "range": [
+        "P2452",
+        "P2455"
+      ],
+      "title": "Capteur de pression différentielle du FAP : défaut",
+      "description": "Le capteur qui mesure le colmatage du FAP envoie un signal anormal. Sans cette mesure, le calculateur ne peut plus gérer les régénérations.",
+      "system": "Dépollution diesel",
+      "severity": "medium",
+      "drivable": "Oui, à faire réparer : sinon le FAP finira colmaté.",
+      "how_it_works": "Capteur de pression différentielle : deux petites durites prennent la pression avant et après le FAP.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "Durites du capteur fendues, fondues ou débranchées.",
+          "means": "Cause fréquente."
+        },
+        {
+          "sense": "sight",
+          "tip": "Durites inversées après une intervention.",
+          "means": "Le capteur lit des valeurs aberrantes."
+        }
+      ],
+      "symptoms": [
+        "Voyant FAP",
+        "Mode dégradé"
+      ],
+      "components": [
+        "dpf_pressure_sensor",
+        "dpf"
+      ],
+      "causes": [
+        {
+          "text": "Durite du capteur fendue / débranchée",
+          "likelihood": 40
+        },
+        {
+          "text": "Capteur défectueux",
+          "likelihood": 45
+        },
+        {
+          "text": "Connecteur",
+          "likelihood": 15
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Remplacer le capteur et ses durites",
+          "difficulty": 2,
+          "time_min": 20,
+          "time_max": 45,
+          "tools": [
+            "Clés",
+            "Tournevis"
+          ],
+          "steps": [
+            "Contrôler les durites",
+            "Remplacer le capteur",
+            "Effacer le code"
+          ],
+          "parts": [
+            {
+              "name": "Capteur de pression différentielle FAP",
+              "query": "capteur pression différentielle FAP",
+              "price_min": 30,
+              "price_max": 110
+            },
+            {
+              "name": "Durite de capteur FAP",
+              "query": "durite capteur FAP",
+              "price_min": 5,
+              "price_max": 25
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "P2135",
+      "title": "Incohérence entre les capteurs de position du papillon",
+      "description": "Les deux pistes du capteur de position du papillon motorisé ne concordent plus. Pour la sécurité, le calculateur limite fortement la puissance.",
+      "system": "Admission d'air",
+      "severity": "high",
+      "drivable": "En mode dégradé (puissance limitée). Prudence lors des insertions.",
+      "how_it_works": "Le papillon motorisé a deux capteurs de position qui doivent toujours concorder (sécurité). En cas de désaccord, le calculateur limite le moteur.",
+      "sensory_checks": [
+        {
+          "sense": "feel",
+          "tip": "Pédale d'accélérateur sans effet ou accélération très limitée.",
+          "means": "Mode dégradé de sécurité."
+        },
+        {
+          "sense": "sight",
+          "tip": "Connecteur du papillon oxydé ou mal enfoncé.",
+          "means": "Contact."
+        }
+      ],
+      "symptoms": [
+        "Mode dégradé",
+        "Accélérateur qui ne répond plus",
+        "Ralenti instable"
+      ],
+      "components": [
+        "throttle_body",
+        "ecu"
+      ],
+      "causes": [
+        {
+          "text": "Boîtier papillon défectueux (piste usée)",
+          "likelihood": 55
+        },
+        {
+          "text": "Connecteur / faisceau",
+          "likelihood": 30
+        },
+        {
+          "text": "Papillon encrassé",
+          "likelihood": 15
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Nettoyer le boîtier papillon et le connecteur",
+          "difficulty": 2,
+          "time_min": 20,
+          "time_max": 60,
+          "tools": [
+            "Nettoyant carburateur",
+            "Nettoyant contact"
+          ],
+          "steps": [
+            "Nettoyer",
+            "Apprentissage du papillon"
+          ],
+          "parts": [
+            {
+              "name": "Nettoyant carburateur / papillon",
+              "query": "nettoyant carburateur",
+              "price_min": 6,
+              "price_max": 15
+            }
+          ]
+        },
+        {
+          "title": "Remplacer le boîtier papillon",
+          "difficulty": 3,
+          "time_min": 45,
+          "time_max": 120,
+          "tools": [
+            "Clés à douille",
+            "Valise (apprentissage)"
+          ],
+          "steps": [
+            "Remplacer",
+            "Apprentissage des butées"
+          ],
+          "parts": [
+            {
+              "name": "Boîtier papillon",
+              "query": "boîtier papillon",
+              "price_min": 70,
+              "price_max": 300
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "P2187",
+      "title": "Mélange trop pauvre au ralenti (banc 1)",
+      "description": "Le mélange est pauvre surtout au ralenti, quand le débit d'air est faible. Signe classique d'une prise d'air : une petite fuite pèse beaucoup quand peu d'air entre.",
+      "system": "Alimentation air / carburant",
+      "severity": "medium",
+      "drivable": "Oui.",
+      "how_it_works": "Mélange pauvre détecté au ralenti uniquement : la quantité d'air est faible, une petite prise d'air pèse lourd.",
+      "sensory_checks": [
+        {
+          "sense": "feel",
+          "tip": "Main sur le bouchon d'huile au ralenti : forte aspiration ?",
+          "means": "Reniflard (membrane) percé."
+        },
+        {
+          "sense": "sound",
+          "tip": "Sifflement au ralenti qui disparaît en accélérant.",
+          "means": "Prise d'air."
+        }
+      ],
+      "symptoms": [
+        "Ralenti instable",
+        "Calage au ralenti"
+      ],
+      "components": [
+        "vacuum_hoses",
+        "intake_manifold",
+        "purge_valve"
+      ],
+      "causes": [
+        {
+          "text": "Prise d'air (reniflard, durite, joint)",
+          "likelihood": 60
+        },
+        {
+          "text": "Électrovanne de purge non étanche",
+          "likelihood": 20
+        },
+        {
+          "text": "Débitmètre",
+          "likelihood": 20
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Rechercher et réparer la prise d'air",
+          "difficulty": 2,
+          "time_min": 30,
+          "time_max": 90,
+          "tools": [
+            "Nettoyant frein",
+            "Machine à fumée (idéal)"
+          ],
+          "steps": [
+            "Test au ralenti",
+            "Remplacer la durite ou le joint fautif"
+          ],
+          "parts": [
+            {
+              "name": "Durite de reniflard",
+              "query": "durite reniflard",
+              "price_min": 10,
+              "price_max": 60
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "U0001",
+      "title": "Réseau CAN haute vitesse : défaut de communication",
+      "description": "Les calculateurs ne communiquent plus correctement entre eux sur le réseau principal. La cause est souvent électrique : batterie faible, connecteur oxydé, faisceau endommagé.",
+      "system": "Réseau multiplexé",
+      "severity": "high",
+      "drivable": "Imprévisible : plusieurs fonctions peuvent être indisponibles.",
+      "how_it_works": "Les calculateurs dialoguent sur un réseau à deux fils torsadés (CAN-H et CAN-L), comme un petit réseau informatique. Un fil coupé, de l'eau dans un connecteur ou un calculateur défaillant perturbe tout le monde.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "Moquette humide, eau dans les passages de roues ou sous les sièges.",
+          "means": "Infiltration sur des connecteurs : cause classique."
+        },
+        {
+          "sense": "sight",
+          "tip": "Gaines rongées dans le compartiment moteur (rongeurs).",
+          "means": "Faisceau à réparer."
+        },
+        {
+          "sense": "feel",
+          "tip": "Les défauts apparaissent en roulant sur des bosses.",
+          "means": "Faux contact mécanique."
+        }
+      ],
+      "symptoms": [
+        "Voyants multiples",
+        "Tableau de bord qui s'éteint",
+        "Démarrage impossible"
+      ],
+      "components": [
+        "can_bus",
+        "ecu",
+        "battery"
+      ],
+      "causes": [
+        {
+          "text": "Tension batterie faible",
+          "likelihood": 30
+        },
+        {
+          "text": "Connecteur ou faisceau CAN endommagé (humidité, rongeurs)",
+          "likelihood": 45
+        },
+        {
+          "text": "Calculateur défectueux qui perturbe le réseau",
+          "likelihood": 25
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Contrôle de la batterie et des connecteurs",
+          "difficulty": 3,
+          "time_min": 30,
+          "time_max": 120,
+          "tools": [
+            "Multimètre (résistance de terminaison ≈ 60 Ω)"
+          ],
+          "steps": [
+            "Recharger / tester la batterie",
+            "Mesurer la résistance entre CAN-H et CAN-L (broches 6 et 14 de la prise OBD)",
+            "Inspecter les connecteurs exposés à l'eau"
+          ],
+          "parts": []
+        }
+      ]
+    },
+    {
+      "code": "U0100",
+      "title": "Communication perdue avec le calculateur moteur",
+      "description": "Un autre calculateur (boîte, ABS, tableau de bord) ne reçoit plus de messages du calculateur moteur. Alimentation, masse ou faisceau du calculateur moteur en cause le plus souvent.",
+      "system": "Réseau multiplexé",
+      "severity": "high",
+      "drivable": "Risque de calage ou de non-démarrage.",
+      "how_it_works": "Le calculateur moteur annonce sa présence plusieurs fois par seconde sur le réseau. Si les autres modules ne l'entendent plus, ils enregistrent ce code.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "Fusibles du calculateur moteur et masse moteur.",
+          "means": "Alimentation coupée."
+        },
+        {
+          "sense": "feel",
+          "tip": "Coupure moteur franche puis redémarrage normal.",
+          "means": "Alimentation intermittente du calculateur."
+        }
+      ],
+      "symptoms": [
+        "Calage",
+        "Démarrage impossible",
+        "Voyants multiples"
+      ],
+      "components": [
+        "ecu",
+        "can_bus",
+        "battery"
+      ],
+      "causes": [
+        {
+          "text": "Alimentation / masse du calculateur moteur",
+          "likelihood": 40
+        },
+        {
+          "text": "Faisceau CAN",
+          "likelihood": 35
+        },
+        {
+          "text": "Calculateur moteur défectueux",
+          "likelihood": 25
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Contrôler fusibles, masses et connecteur du calculateur",
+          "difficulty": 3,
+          "time_min": 30,
+          "time_max": 120,
+          "tools": [
+            "Multimètre",
+            "Schéma électrique"
+          ],
+          "steps": [
+            "Vérifier les fusibles du calculateur moteur",
+            "Nettoyer les masses",
+            "Contrôler le connecteur du calculateur"
+          ],
+          "parts": []
+        }
+      ]
+    },
+    {
+      "code": "U0121",
+      "title": "Communication perdue avec le module ABS",
+      "description": "Le réseau ne reçoit plus de messages du bloc ABS/ESP. ABS et ESP sont alors désactivés : le freinage classique reste fonctionnel.",
+      "system": "Réseau multiplexé / freinage",
+      "severity": "high",
+      "drivable": "Oui avec prudence : plus d'ABS ni d'ESP. Faites réparer rapidement.",
+      "how_it_works": "Le bloc ABS/ESP partage la vitesse des roues sur le réseau. S'il se tait, ABS et ESP sont désactivés.",
+      "sensory_checks": [
+        {
+          "sense": "sight",
+          "tip": "Voyants ABS et ESP allumés ensemble, compteur erratique.",
+          "means": "Bloc ABS absent du réseau."
+        },
+        {
+          "sense": "sight",
+          "tip": "Connecteur du bloc ABS (près du maître-cylindre) oxydé.",
+          "means": "Contact."
+        }
+      ],
+      "symptoms": [
+        "Voyants ABS / ESP allumés",
+        "Compteur de vitesse erratique"
+      ],
+      "components": [
+        "abs_module",
+        "can_bus"
+      ],
+      "causes": [
+        {
+          "text": "Fusible / alimentation du bloc ABS",
+          "likelihood": 35
+        },
+        {
+          "text": "Connecteur du bloc ABS oxydé",
+          "likelihood": 35
+        },
+        {
+          "text": "Bloc ABS défectueux",
+          "likelihood": 30
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Contrôler fusibles et connecteur ABS",
+          "difficulty": 2,
+          "time_min": 20,
+          "time_max": 60,
+          "tools": [
+            "Multimètre",
+            "Nettoyant contact"
+          ],
+          "steps": [
+            "Vérifier les gros fusibles ABS",
+            "Nettoyer le connecteur du bloc"
+          ],
+          "parts": []
+        },
+        {
+          "title": "Réparation ou échange du bloc ABS",
+          "difficulty": 5,
+          "time_min": 90,
+          "time_max": 240,
+          "tools": [
+            "Valise (codage)",
+            "Purgeur de frein"
+          ],
+          "steps": [
+            "Réparation du calculateur par un spécialiste ou échange",
+            "Codage et purge du circuit de freinage"
+          ],
+          "parts": [
+            {
+              "name": "Bloc ABS (réparation / échange)",
+              "query": "bloc ABS",
+              "price_min": 150,
+              "price_max": 800
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "fallbacks": [
+    {
+      "prefix": "P",
+      "title": "Défaut groupe motopropulseur",
+      "description": "Code lié au moteur ou à la transmission.",
+      "system": "Moteur / transmission",
+      "components": [
+        "engine"
+      ],
+      "severity": "medium"
+    },
+    {
+      "prefix": "P00",
+      "title": "Dosage air / carburant ou dépollution auxiliaire",
+      "description": "Code générique concernant l'admission d'air, le carburant ou la distribution variable.",
+      "system": "Alimentation air / carburant",
+      "components": [
+        "engine",
+        "intake_manifold"
+      ],
+      "severity": "medium"
+    },
+    {
+      "prefix": "P01",
+      "title": "Dosage air / carburant",
+      "description": "Code générique concernant un capteur de dosage (débitmètre, sondes, températures).",
+      "system": "Alimentation air / carburant",
+      "components": [
+        "maf_sensor",
+        "o2_sensor_upstream"
+      ],
+      "severity": "medium"
+    },
+    {
+      "prefix": "P02",
+      "title": "Circuit d'injection",
+      "description": "Code générique concernant l'injection de carburant ou la suralimentation.",
+      "system": "Injection",
+      "components": [
+        "injector_1",
+        "injector_2",
+        "injector_3",
+        "injector_4",
+        "fuel_rail"
+      ],
+      "severity": "medium"
+    },
+    {
+      "prefix": "P03",
+      "title": "Système d'allumage ou ratés d'allumage",
+      "description": "Code générique concernant l'allumage, les capteurs de position moteur ou les ratés.",
+      "system": "Allumage",
+      "components": [
+        "spark_plug_1",
+        "spark_plug_2",
+        "spark_plug_3",
+        "spark_plug_4",
+        "crank_sensor"
+      ],
+      "severity": "high"
+    },
+    {
+      "prefix": "P04",
+      "title": "Dépollution auxiliaire",
+      "description": "Code générique concernant l'EGR, le catalyseur ou les vapeurs d'essence.",
+      "system": "Dépollution",
+      "components": [
+        "egr_valve",
+        "catalytic_converter",
+        "evap_canister"
+      ],
+      "severity": "medium"
+    },
+    {
+      "prefix": "P05",
+      "title": "Vitesse véhicule, ralenti et entrées auxiliaires",
+      "description": "Code générique concernant la vitesse du véhicule, le ralenti ou certains capteurs auxiliaires.",
+      "system": "Gestion moteur",
+      "components": [
+        "throttle_body",
+        "vehicle_speed_sensor"
+      ],
+      "severity": "medium"
+    },
+    {
+      "prefix": "P06",
+      "title": "Calculateur et circuits de sortie",
+      "description": "Code générique concernant le calculateur moteur ou ses sorties de commande.",
+      "system": "Électronique",
+      "components": [
+        "ecu"
+      ],
+      "severity": "medium"
+    },
+    {
+      "prefix": "P07",
+      "title": "Transmission",
+      "description": "Code générique concernant la boîte de vitesses.",
+      "system": "Transmission",
+      "components": [
+        "transmission"
+      ],
+      "severity": "medium"
+    },
+    {
+      "prefix": "P08",
+      "title": "Transmission",
+      "description": "Code générique concernant la boîte de vitesses.",
+      "system": "Transmission",
+      "components": [
+        "transmission"
+      ],
+      "severity": "medium"
+    },
+    {
+      "prefix": "P09",
+      "title": "Transmission",
+      "description": "Code générique concernant la boîte de vitesses.",
+      "system": "Transmission",
+      "components": [
+        "transmission"
+      ],
+      "severity": "medium"
+    },
+    {
+      "prefix": "P0A",
+      "title": "Système hybride / électrique",
+      "description": "Code concernant la propulsion hybride ou électrique (batterie haute tension, onduleur, moteur électrique). Intervention réservée à un professionnel habilité.",
+      "system": "Hybride",
+      "components": [
+        "battery",
+        "ecu"
+      ],
+      "severity": "high"
+    },
+    {
+      "prefix": "P2",
+      "title": "Groupe motopropulseur (codes étendus)",
+      "description": "Code générique étendu (SAE) concernant le moteur : dosage, papillon, dépollution, suralimentation.",
+      "system": "Moteur",
+      "components": [
+        "engine"
+      ],
+      "severity": "medium"
+    },
+    {
+      "prefix": "P1",
+      "title": "Code moteur spécifique constructeur",
+      "description": "Code moteur défini par le constructeur.",
+      "system": "Moteur",
+      "components": [
+        "engine",
+        "ecu"
+      ],
+      "severity": "medium"
+    },
+    {
+      "prefix": "P3",
+      "title": "Groupe motopropulseur",
+      "description": "Code moteur réservé (constructeur ou SAE).",
+      "system": "Moteur",
+      "components": [
+        "engine"
+      ],
+      "severity": "medium"
+    },
+    {
+      "prefix": "C",
+      "title": "Défaut châssis (freinage, direction, suspension)",
+      "description": "Code lié au châssis : le plus souvent l'ABS/ESP et les capteurs de vitesse de roue.",
+      "system": "Châssis / freinage",
+      "components": [
+        "abs_module",
+        "wheel_speed_sensor_fl",
+        "wheel_speed_sensor_fr",
+        "wheel_speed_sensor_rl",
+        "wheel_speed_sensor_rr"
+      ],
+      "severity": "high"
+    },
+    {
+      "prefix": "B",
+      "title": "Défaut carrosserie / habitacle",
+      "description": "Code lié aux équipements de carrosserie : airbags, climatisation, éclairage, confort.",
+      "system": "Carrosserie",
+      "components": [
+        "cabin"
+      ],
+      "severity": "medium"
+    },
+    {
+      "prefix": "U",
+      "title": "Défaut de communication réseau",
+      "description": "Code lié à la communication entre calculateurs (réseau CAN / LIN).",
+      "system": "Réseau multiplexé",
+      "components": [
+        "can_bus",
+        "ecu"
+      ],
+      "severity": "medium"
+    }
+  ]
+}

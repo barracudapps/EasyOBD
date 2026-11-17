@@ -1,0 +1,386 @@
+{
+  "version": "2026.11.1",
+  "disclaimer": "Valeurs indicatives (contenances, normes d'huile, intervalles). Vérifiez toujours dans le carnet d'entretien ou la notice de votre véhicule : elles varient selon la motorisation et l'année.",
+  "vehicle_types": [
+    { "id": "car", "name": "Voiture", "icon": "car" },
+    { "id": "van", "name": "Utilitaire", "icon": "van" },
+    { "id": "motorcycle", "name": "Moto / scooter", "icon": "motorcycle" },
+    { "id": "truck", "name": "Poids lourd", "icon": "truck" }
+  ],
+  "components": {
+    "oil_filter": { "name": "Filtre à huile" },
+    "oil_drain_plug": { "name": "Bouchon de vidange" },
+    "oil_filler_cap": { "name": "Bouchon de remplissage d'huile" },
+    "dipstick": { "name": "Jauge à huile" },
+    "cabin_filter": { "name": "Filtre d'habitacle" },
+    "coolant_reservoir": { "name": "Vase d'expansion" },
+    "brake_fluid_reservoir": { "name": "Bocal de liquide de frein" },
+    "washer_reservoir": { "name": "Réservoir de lave-glace" },
+    "brake_fl": { "name": "Frein avant gauche (disque + plaquettes)" },
+    "brake_fr": { "name": "Frein avant droit (disque + plaquettes)" },
+    "wheel_fl": { "name": "Roue avant gauche" },
+    "wheel_fr": { "name": "Roue avant droite" },
+    "wheel_rl": { "name": "Roue arrière gauche" },
+    "wheel_rr": { "name": "Roue arrière droite" },
+    "wiper_blades": { "name": "Balais d'essuie-glace" },
+    "headlights": { "name": "Éclairage" },
+    "chain": { "name": "Chaîne de transmission" },
+    "sprocket_front": { "name": "Pignon de sortie de boîte" },
+    "sprocket_rear": { "name": "Couronne" },
+    "adblue_tank": { "name": "Réservoir AdBlue" },
+    "accessory_belt": { "name": "Courroie d'accessoires" }
+  },
+  "profiles": [
+    { "id": "renault-clio5-tce90", "type": "car", "make": "Renault", "model": "Clio V", "engine": "1.0 TCe 90", "years": [2019, 2026], "fuel": "petrol", "cylinders": 3, "oil_capacity_l": 4.2, "oil_spec": "5W30 RN17", "coolant_l": 5.5 },
+    { "id": "renault-clio4-dci90", "type": "car", "make": "Renault", "model": "Clio IV", "engine": "1.5 dCi 90", "years": [2012, 2019], "fuel": "diesel", "cylinders": 4, "oil_capacity_l": 4.5, "oil_spec": "5W30 RN0720", "coolant_l": 5.5 },
+    { "id": "peugeot-208-puretech", "type": "car", "make": "Peugeot", "model": "208", "engine": "1.2 PureTech 82/100", "years": [2012, 2026], "fuel": "petrol", "cylinders": 3, "oil_capacity_l": 3.5, "oil_spec": "0W30 PSA B71 2312", "coolant_l": 5.0 },
+    { "id": "peugeot-308-bluehdi", "type": "car", "make": "Peugeot", "model": "308 II", "engine": "1.5 BlueHDi 130", "years": [2017, 2021], "fuel": "diesel", "cylinders": 4, "oil_capacity_l": 4.25, "oil_spec": "0W30 PSA B71 2312", "coolant_l": 6.0 },
+    { "id": "citroen-c3-puretech", "type": "car", "make": "Citroën", "model": "C3 III", "engine": "1.2 PureTech 83", "years": [2016, 2024], "fuel": "petrol", "cylinders": 3, "oil_capacity_l": 3.5, "oil_spec": "0W30 PSA B71 2312", "coolant_l": 5.0 },
+    { "id": "dacia-sandero3-tce90", "type": "car", "make": "Dacia", "model": "Sandero III", "engine": "1.0 TCe 90", "years": [2020, 2026], "fuel": "petrol", "cylinders": 3, "oil_capacity_l": 4.2, "oil_spec": "5W30 RN17", "coolant_l": 5.5 },
+    { "id": "vw-golf7-tdi", "type": "car", "make": "Volkswagen", "model": "Golf VII", "engine": "1.6 TDI 115", "years": [2013, 2020], "fuel": "diesel", "cylinders": 4, "oil_capacity_l": 4.3, "oil_spec": "5W30 VW 507.00", "coolant_l": 6.5 },
+    { "id": "vw-golf7-tsi", "type": "car", "make": "Volkswagen", "model": "Golf VII", "engine": "1.4 TSI 125", "years": [2013, 2020], "fuel": "petrol", "cylinders": 4, "oil_capacity_l": 4.0, "oil_spec": "5W30 VW 504.00", "coolant_l": 6.0 },
+    { "id": "toyota-yaris3-hybrid", "type": "car", "make": "Toyota", "model": "Yaris III", "engine": "1.5 Hybride 100", "years": [2012, 2020], "fuel": "hybrid", "cylinders": 4, "oil_capacity_l": 3.7, "oil_spec": "0W20", "coolant_l": 4.5 },
+    { "id": "ford-fiesta-ecoboost", "type": "car", "make": "Ford", "model": "Fiesta VII", "engine": "1.0 EcoBoost 100", "years": [2017, 2023], "fuel": "petrol", "cylinders": 3, "oil_capacity_l": 4.1, "oil_spec": "5W20 WSS-M2C948-B", "coolant_l": 4.5 },
+    { "id": "renault-master3-dci", "type": "van", "make": "Renault", "model": "Master III", "engine": "2.3 dCi 135", "years": [2014, 2026], "fuel": "diesel", "cylinders": 4, "oil_capacity_l": 6.6, "oil_spec": "5W30 RN0720", "coolant_l": 10.0 },
+    { "id": "citroen-berlingo-bluehdi", "type": "van", "make": "Citroën", "model": "Berlingo III", "engine": "1.5 BlueHDi 100", "years": [2018, 2026], "fuel": "diesel", "cylinders": 4, "oil_capacity_l": 4.25, "oil_spec": "0W30 PSA B71 2312", "coolant_l": 6.5 },
+    { "id": "yamaha-mt07", "type": "motorcycle", "make": "Yamaha", "model": "MT-07", "engine": "689 cm³ bicylindre", "years": [2014, 2026], "fuel": "petrol", "cylinders": 2, "oil_capacity_l": 3.0, "oil_spec": "10W40 JASO MA2", "chain": "525 – 108 maillons" },
+    { "id": "honda-cb500f", "type": "motorcycle", "make": "Honda", "model": "CB500F", "engine": "471 cm³ bicylindre", "years": [2013, 2026], "fuel": "petrol", "cylinders": 2, "oil_capacity_l": 3.2, "oil_spec": "10W30 JASO MA", "chain": "520 – 112 maillons" },
+    { "id": "kawasaki-z650", "type": "motorcycle", "make": "Kawasaki", "model": "Z650", "engine": "649 cm³ bicylindre", "years": [2017, 2026], "fuel": "petrol", "cylinders": 2, "oil_capacity_l": 2.3, "oil_spec": "10W40 JASO MA", "chain": "520 – 114 maillons" },
+    { "id": "honda-pcx125", "type": "motorcycle", "make": "Honda", "model": "PCX 125", "engine": "125 cm³ monocylindre", "years": [2018, 2026], "fuel": "petrol", "cylinders": 1, "oil_capacity_l": 0.8, "oil_spec": "10W30 JASO MB" },
+    { "id": "renault-trucks-t-dti13", "type": "truck", "make": "Renault Trucks", "model": "T", "engine": "DTI 13 (13 L)", "years": [2013, 2026], "fuel": "diesel", "cylinders": 6, "oil_capacity_l": 35, "oil_spec": "10W30 VDS-4.5 / ACEA E6", "coolant_l": 45 },
+    { "id": "mercedes-actros-om471", "type": "truck", "make": "Mercedes-Benz", "model": "Actros", "engine": "OM 471 (12,8 L)", "years": [2011, 2026], "fuel": "diesel", "cylinders": 6, "oil_capacity_l": 39, "oil_spec": "10W30 MB 228.51", "coolant_l": 48 }
+  ],
+  "tutorials": [
+    {
+      "id": "oil_change",
+      "title": "Vidange moteur et filtre à huile",
+      "vehicle_types": ["car", "van"],
+      "fuels": ["petrol", "diesel", "hybrid"],
+      "interval": "Tous les 15 000 à 30 000 km ou 1 à 2 ans selon le constructeur (le plus tôt des deux).",
+      "difficulty": 2, "time_min": 45, "time_max": 75,
+      "why": "L'huile lubrifie, refroidit et nettoie le moteur. Avec le temps, elle se charge de suie et d'acides et perd sa viscosité. Une huile usée accélère l'usure de la chaîne de distribution, du turbo et du déphaseur (codes P0011, P0016, P0299…).",
+      "sensory_checks": [
+        { "sense": "sight", "tip": "Essuyez la jauge sur un papier blanc : une huile ambrée et translucide est saine. Noire, épaisse ou granuleuse : la vidange est due.", "means": "Huile usée." },
+        { "sense": "sight", "tip": "Huile laiteuse « café au lait » sous le bouchon de remplissage.", "means": "Condensation (trajets courts) ou, si abondant et liquide qui baisse, joint de culasse." },
+        { "sense": "smell", "tip": "L'huile sent le carburant.", "means": "Dilution par le carburant (régénérations de FAP avortées, injecteur) : vidanger plus souvent." }
+      ],
+      "components": ["oil_drain_plug", "oil_filter", "oil_filler_cap", "dipstick", "engine"],
+      "tools": ["Clé pour bouchon de vidange", "Clé à filtre", "Bac de vidange (≥ 8 L)", "Entonnoir", "Cric + chandelles ou rampes", "Gants nitrile", "Clé dynamométrique"],
+      "safety": ["Ne jamais travailler sous un véhicule tenu uniquement par le cric : utilisez des chandelles.", "Huile chaude = brûlures : moteur tiède seulement.", "Rapportez l'huile usagée en déchetterie ou au magasin."],
+      "shopping": [
+        { "name": "Huile moteur {oil_spec}", "query": "huile moteur {oil_spec}", "qty_from": "oil_capacity_l", "round_up": true, "unit": "L", "price_min": 7, "price_max": 14 },
+        { "name": "Filtre à huile", "query": "filtre à huile", "qty": 1, "unit": "pièce", "price_min": 6, "price_max": 20 },
+        { "name": "Joint de bouchon de vidange", "query": "joint bouchon de vidange", "qty": 1, "unit": "pièce", "price_min": 1, "price_max": 4 },
+        { "name": "Gants nitrile", "query": "gants nitrile mécanique", "qty": 1, "unit": "boîte", "price_min": 6, "price_max": 12, "optional": true }
+      ],
+      "steps": [
+        { "title": "Faire chauffer puis sécuriser", "text": "Roulez 5 minutes pour fluidifier l'huile, garez-vous à plat, serrez le frein à main. Levez l'avant et posez-le sur chandelles.", "components": ["engine"], "warning": "Jamais sous la voiture sans chandelles." },
+        { "title": "Ouvrir le bouchon de remplissage", "text": "Dévissez le bouchon de remplissage sur le dessus du moteur : l'huile s'écoulera plus vite.", "components": ["oil_filler_cap"] },
+        { "title": "Vidanger", "text": "Placez le bac, dévissez le bouchon de vidange sous le carter (sens inverse des aiguilles d'une montre, vu de dessous). Laissez s'écouler 10 minutes.", "components": ["oil_drain_plug"], "tip": "Observez l'huile qui coule : paillettes métalliques = usure anormale à signaler." },
+        { "title": "Remplacer le filtre", "text": "Dévissez le filtre (ou la cartouche dans son boîtier). Huilez le joint du filtre neuf, vissez à la main puis 3/4 de tour (ou au couple indiqué).", "components": ["oil_filter"] },
+        { "title": "Refermer le carter", "text": "Remettez le bouchon de vidange avec un joint neuf, serré au couple (souvent 20–30 N·m). Ne forcez pas : le carter est souvent en aluminium.", "components": ["oil_drain_plug"] },
+        { "title": "Remplir", "text": "Versez la quantité indiquée moins 0,5 L, attendez 2 minutes, contrôlez à la jauge et complétez jusqu'au repère MAX sans le dépasser.", "components": ["oil_filler_cap", "dipstick"] },
+        { "title": "Contrôler", "text": "Démarrez 1 minute (voyant d'huile éteint en quelques secondes), vérifiez l'absence de fuite, arrêtez, attendez 5 minutes et refaites le niveau. Réinitialisez l'indicateur d'entretien.", "components": ["dipstick", "oil_filter"] }
+      ]
+    },
+    {
+      "id": "air_filter",
+      "title": "Remplacement du filtre à air",
+      "vehicle_types": ["car", "van"],
+      "fuels": ["petrol", "diesel", "hybrid"],
+      "interval": "Tous les 20 000 à 40 000 km, plus souvent en milieu poussiéreux.",
+      "difficulty": 1, "time_min": 5, "time_max": 20,
+      "why": "Le moteur aspire environ 10 000 litres d'air par litre de carburant. Un filtre colmaté fait perdre de la puissance et augmente la consommation. Un filtre percé laisse passer la poussière, qui use le moteur et salit le débitmètre (codes P0100–P0104, P0172).",
+      "sensory_checks": [
+        { "sense": "sight", "tip": "Placez une lampe derrière le filtre : la lumière doit passer à travers les plis.", "means": "Lumière bloquée : filtre colmaté." },
+        { "sense": "sight", "tip": "Feuilles, insectes, traces d'huile dans la boîte à air.", "means": "Huile : reniflard qui renvoie trop de vapeurs." }
+      ],
+      "components": ["air_filter", "maf_sensor"],
+      "tools": ["Tournevis ou clé Torx", "Aspirateur"],
+      "safety": ["Ne faites jamais tourner le moteur sans filtre à air."],
+      "shopping": [
+        { "name": "Filtre à air", "query": "filtre à air", "qty": 1, "unit": "pièce", "price_min": 8, "price_max": 30 }
+      ],
+      "steps": [
+        { "title": "Ouvrir la boîte à air", "text": "Défaites les clips ou vis du couvercle, sans tirer sur le débitmètre ni son connecteur.", "components": ["air_filter", "maf_sensor"] },
+        { "title": "Remplacer le filtre", "text": "Notez le sens de montage, retirez l'ancien filtre, aspirez les débris, posez le neuf bien à plat dans sa gorge.", "components": ["air_filter"], "tip": "Comparez l'ancien et le neuf : c'est le meilleur moyen d'apprendre à juger l'encrassement." },
+        { "title": "Refermer", "text": "Remettez le couvercle en vérifiant qu'il ferme sur tout le pourtour : un défaut d'étanchéité laisse passer de l'air non filtré.", "components": ["air_filter"] }
+      ]
+    },
+    {
+      "id": "cabin_filter",
+      "title": "Remplacement du filtre d'habitacle",
+      "vehicle_types": ["car", "van", "truck"],
+      "fuels": ["petrol", "diesel", "hybrid", "electric"],
+      "interval": "Tous les ans ou 15 000 km, idéalement avant l'été.",
+      "difficulty": 1, "time_min": 10, "time_max": 30,
+      "why": "Il filtre l'air soufflé dans l'habitacle : pollens, particules et, en version charbon actif, odeurs. Encrassé, il réduit la ventilation et favorise la buée et les odeurs de moisi.",
+      "sensory_checks": [
+        { "sense": "smell", "tip": "Odeur de moisi à la mise en route de la ventilation.", "means": "Filtre humide et colonisé : remplacer et désinfecter la climatisation." },
+        { "sense": "feel", "tip": "Le débit d'air est faible même à fond, buée difficile à chasser.", "means": "Filtre colmaté." }
+      ],
+      "components": ["cabin_filter", "cabin"],
+      "tools": ["Tournevis", "Lampe"],
+      "safety": [],
+      "shopping": [
+        { "name": "Filtre d'habitacle (charbon actif)", "query": "filtre habitacle charbon actif", "qty": 1, "unit": "pièce", "price_min": 8, "price_max": 30 },
+        { "name": "Nettoyant climatisation", "query": "nettoyant climatisation", "qty": 1, "unit": "bombe", "price_min": 8, "price_max": 18, "optional": true }
+      ],
+      "steps": [
+        { "title": "Localiser le filtre", "text": "Il se trouve le plus souvent derrière la boîte à gants (il faut la déclipser), parfois sous l'auvent de pare-brise.", "components": ["cabin_filter"] },
+        { "title": "Remplacer", "text": "Retirez le capot du logement, sortez l'ancien filtre, respectez la flèche de sens d'air (AIR FLOW) sur le neuf.", "components": ["cabin_filter"] },
+        { "title": "Assainir (optionnel)", "text": "Avec le nettoyant, traitez l'évaporateur de climatisation selon la notice du produit.", "components": ["cabin"] }
+      ]
+    },
+    {
+      "id": "spark_plugs",
+      "title": "Remplacement des bougies d'allumage",
+      "vehicle_types": ["car", "van", "motorcycle"],
+      "fuels": ["petrol", "hybrid"],
+      "interval": "Tous les 30 000 à 60 000 km (bougies iridium : jusqu'à 100 000 km).",
+      "difficulty": 2, "time_min": 30, "time_max": 90,
+      "why": "La bougie crée l'étincelle qui enflamme le mélange. Usée, elle demande plus de tension à la bobine : ratés d'allumage (P0300–P0308), bobines qui grillent, surconsommation.",
+      "sensory_checks": [
+        { "sense": "sight", "tip": "Culot brun clair : bonne combustion. Noir et sec : mélange riche. Noir et gras : huile. Blanc : trop chaud ou mélange pauvre.", "means": "La couleur de chaque bougie renseigne sur son cylindre." },
+        { "sense": "feel", "tip": "Démarrages plus longs, tremblements à l'accélération sous la pluie.", "means": "Allumage fatigué." }
+      ],
+      "components": ["spark_plug_1", "spark_plug_2", "spark_plug_3", "spark_plug_4", "coil_1", "coil_2", "coil_3", "coil_4"],
+      "tools": ["Douille à bougie (16 ou 14 mm, avec caoutchouc)", "Rallonge", "Clé dynamométrique", "Soufflette"],
+      "safety": ["Moteur froid uniquement : une culasse en aluminium chaude s'abîme facilement.", "Vissez toujours à la main d'abord pour ne pas foirer le filetage."],
+      "shopping": [
+        { "name": "Bougie d'allumage", "query": "bougie d'allumage", "qty_from": "cylinders", "unit": "pièce", "price_min": 4, "price_max": 15 },
+        { "name": "Graisse diélectrique", "query": "graisse diélectrique", "qty": 1, "unit": "tube", "price_min": 5, "price_max": 10, "optional": true }
+      ],
+      "steps": [
+        { "title": "Déposer les bobines", "text": "Retirez le cache moteur, débranchez les connecteurs puis extrayez chaque bobine en tirant bien droit. Notez l'ordre.", "components": ["coil_1", "coil_2", "coil_3", "coil_4"] },
+        { "title": "Nettoyer les puits", "text": "Soufflez dans les puits de bougies avant de dévisser, pour éviter que des débris tombent dans le cylindre.", "components": ["spark_plug_1", "spark_plug_2"] },
+        { "title": "Dévisser et lire", "text": "Dévissez chaque bougie et alignez-les dans l'ordre : comparez leur couleur.", "components": ["spark_plug_1", "spark_plug_2", "spark_plug_3", "spark_plug_4"], "tip": "Une bougie différente des autres désigne le cylindre à surveiller." },
+        { "title": "Monter les neuves", "text": "Vissez à la main jusqu'en butée puis serrez au couple (≈ 25 N·m sur la plupart des moteurs récents).", "components": ["spark_plug_1", "spark_plug_2", "spark_plug_3", "spark_plug_4"], "warning": "Un serrage excessif peut arracher le filetage de la culasse." },
+        { "title": "Remonter les bobines", "text": "Remettez les bobines (une touche de graisse diélectrique dans le capuchon) et leurs connecteurs. Démarrez : le moteur doit tourner rond.", "components": ["coil_1", "coil_2", "coil_3", "coil_4"] }
+      ]
+    },
+    {
+      "id": "fuel_filter_diesel",
+      "title": "Remplacement du filtre à gazole",
+      "vehicle_types": ["car", "van", "truck"],
+      "fuels": ["diesel"],
+      "interval": "Tous les 30 000 à 60 000 km, et au moindre doute après un plein douteux.",
+      "difficulty": 2, "time_min": 20, "time_max": 60,
+      "why": "Les injecteurs common-rail travaillent à plus de 2 000 bar avec des jeux de quelques microns. Le filtre arrête impuretés et eau : le négliger peut coûter des injecteurs ou la pompe haute pression (code P0087).",
+      "sensory_checks": [
+        { "sense": "feel", "tip": "Trous à l'accélération en côte ou chargé, démarrage long.", "means": "Filtre qui colmate." },
+        { "sense": "sight", "tip": "Voyant « eau dans le gazole » allumé.", "means": "Purger l'eau du filtre rapidement." }
+      ],
+      "components": ["fuel_filter", "fuel_rail"],
+      "tools": ["Clés", "Bac", "Chiffons", "Poire d'amorçage"],
+      "safety": ["Pas de flamme ni de cigarette.", "Le gazole attaque les durites et l'enrobé : protégez le sol."],
+      "shopping": [
+        { "name": "Filtre à gazole", "query": "filtre à carburant gazole", "qty": 1, "unit": "pièce", "price_min": 10, "price_max": 45 }
+      ],
+      "steps": [
+        { "title": "Repérer le sens", "text": "Photographiez le montage des raccords (entrée / sortie) avant de démonter.", "components": ["fuel_filter"] },
+        { "title": "Remplacer", "text": "Débranchez les raccords, déposez l'ancien filtre, montez le neuf dans le bon sens.", "components": ["fuel_filter"] },
+        { "title": "Réamorcer", "text": "Actionnez la poire d'amorçage jusqu'à ce qu'elle devienne dure (ou mettez le contact 3–4 fois), puis démarrez.", "components": ["fuel_filter", "fuel_rail"], "tip": "Le moteur peut tousser quelques secondes : c'est l'air qui s'évacue." }
+      ]
+    },
+    {
+      "id": "brake_pads_front",
+      "title": "Remplacement des plaquettes de frein avant",
+      "vehicle_types": ["car", "van"],
+      "fuels": ["petrol", "diesel", "hybrid", "electric"],
+      "interval": "Selon l'usure : contrôle tous les 10 000 km, remplacement typique entre 20 000 et 50 000 km.",
+      "difficulty": 3, "time_min": 60, "time_max": 120,
+      "why": "Les plaquettes frottent sur les disques pour transformer la vitesse en chaleur. Une plaquette usée jusqu'au métal raye le disque et allonge les distances de freinage.",
+      "sensory_checks": [
+        { "sense": "sound", "tip": "Sifflement aigu au freinage qui disparaît en appuyant plus fort.", "means": "Témoin d'usure mécanique : plaquettes en fin de vie." },
+        { "sense": "sound", "tip": "Grincement métallique grave.", "means": "Métal contre métal : arrêtez-vous, disque en danger." },
+        { "sense": "feel", "tip": "Vibrations dans le volant ou la pédale au freinage.", "means": "Disques voilés : remplacer disques + plaquettes." },
+        { "sense": "sight", "tip": "À travers la jante : garniture de moins de 3 mm, collerette (bourrelet) sur le bord du disque.", "means": "Usure avancée." },
+        { "sense": "smell", "tip": "Odeur de brûlé âcre après une descente, roue très chaude.", "means": "Étrier grippé si un seul côté chauffe." }
+      ],
+      "components": ["brake_fl", "brake_fr", "wheel_fl", "wheel_fr", "brake_fluid_reservoir"],
+      "tools": ["Cric + chandelles", "Clé à roue", "Repousse-piston", "Clés plates / douilles", "Brosse métallique", "Clé dynamométrique"],
+      "safety": ["Les freins sont un organe de sécurité : en cas de doute, faites contrôler.", "Toujours changer les deux côtés d'un même essieu.", "Pompez la pédale plusieurs fois avant de rouler."],
+      "shopping": [
+        { "name": "Jeu de plaquettes avant", "query": "plaquettes de frein avant", "qty": 1, "unit": "jeu", "price_min": 20, "price_max": 70 },
+        { "name": "Disques de frein avant (paire)", "query": "disques de frein avant", "qty": 1, "unit": "paire", "price_min": 40, "price_max": 150, "optional": true },
+        { "name": "Nettoyant frein", "query": "nettoyant frein", "qty": 1, "unit": "bombe", "price_min": 4, "price_max": 10 },
+        { "name": "Graisse cuivre / céramique", "query": "graisse céramique frein", "qty": 1, "unit": "tube", "price_min": 5, "price_max": 12, "optional": true }
+      ],
+      "steps": [
+        { "title": "Lever et déposer la roue", "text": "Desserrez les écrous au sol, levez, posez sur chandelle, déposez la roue.", "components": ["wheel_fl"], "warning": "Chandelle obligatoire." },
+        { "title": "Déposer l'étrier", "text": "Dévissez les deux vis de guide de l'étrier, basculez-le et suspendez-le avec un fil : il ne doit pas pendre par son flexible.", "components": ["brake_fl"] },
+        { "title": "Contrôler le disque", "text": "Mesurez l'épaisseur (minimum gravé sur le disque) et cherchez rayures ou collerette.", "components": ["brake_fl"], "tip": "Passez l'ongle sur la piste : un sillon qui accroche signale un disque à changer." },
+        { "title": "Repousser le piston", "text": "Surveillez le bocal de liquide de frein : il remonte. Repoussez le piston lentement avec l'outil.", "components": ["brake_fl", "brake_fluid_reservoir"] },
+        { "title": "Monter les plaquettes", "text": "Nettoyez le support, une fine touche de graisse céramique sur les points de glissement (jamais sur la garniture), posez les plaquettes et l'étrier, serrez au couple.", "components": ["brake_fl"] },
+        { "title": "Même chose de l'autre côté", "text": "Répétez à droite, remontez les roues au couple, pompez la pédale jusqu'à ce qu'elle soit ferme.", "components": ["brake_fr", "wheel_fr"] },
+        { "title": "Rodage", "text": "Pendant 200 km, freinez progressivement en évitant les freinages d'urgence.", "components": ["brake_fl", "brake_fr"] }
+      ]
+    },
+    {
+      "id": "fluids_check",
+      "title": "Contrôle mensuel des niveaux et de l'éclairage",
+      "vehicle_types": ["car", "van", "truck"],
+      "fuels": ["petrol", "diesel", "hybrid", "electric"],
+      "interval": "Une fois par mois et avant un long trajet.",
+      "difficulty": 1, "time_min": 10, "time_max": 15,
+      "why": "Dix minutes par mois suffisent pour repérer une fuite naissante ou une ampoule grillée avant qu'elles ne deviennent une panne, une amende ou un accident. C'est aussi le meilleur moyen de connaître son véhicule.",
+      "sensory_checks": [
+        { "sense": "sight", "tip": "Taches sous la voiture garée : noire = huile, verte / rose / bleue = liquide de refroidissement, claire et huileuse = liquide de frein, transparente = condensation de climatisation (normal).", "means": "Identifier une fuite par sa couleur." },
+        { "sense": "smell", "tip": "Odeur sucrée = liquide de refroidissement ; odeur d'huile chaude = fuite sur l'échappement.", "means": "Localiser une fuite." }
+      ],
+      "components": ["dipstick", "coolant_reservoir", "brake_fluid_reservoir", "washer_reservoir", "headlights", "wheel_fl", "wheel_fr", "wheel_rl", "wheel_rr"],
+      "tools": ["Chiffon", "Manomètre de pression des pneus"],
+      "safety": ["Ne jamais ouvrir le vase d'expansion moteur chaud."],
+      "shopping": [
+        { "name": "Liquide de lave-glace", "query": "liquide lave-glace", "qty": 1, "unit": "bidon 5 L", "price_min": 4, "price_max": 10 },
+        { "name": "Huile moteur (appoint) {oil_spec}", "query": "huile moteur {oil_spec} 1L", "qty": 1, "unit": "L", "price_min": 8, "price_max": 16, "optional": true },
+        { "name": "Manomètre de pression des pneus", "query": "manomètre pneu", "qty": 1, "unit": "pièce", "price_min": 8, "price_max": 25, "optional": true }
+      ],
+      "steps": [
+        { "title": "Huile", "text": "À plat, moteur arrêté depuis 5 min : niveau entre MIN et MAX sur la jauge.", "components": ["dipstick"] },
+        { "title": "Liquide de refroidissement", "text": "Moteur froid : niveau entre MIN et MAX du vase d'expansion.", "components": ["coolant_reservoir"], "warning": "Jamais à chaud : risque de brûlure grave." },
+        { "title": "Liquide de frein", "text": "Niveau entre MIN et MAX. Une baisse lente est normale (usure des plaquettes), une baisse rapide est une fuite : garage.", "components": ["brake_fluid_reservoir"] },
+        { "title": "Lave-glace", "text": "Complétez avec un produit adapté à la saison.", "components": ["washer_reservoir"] },
+        { "title": "Pneus", "text": "Pression à froid (étiquette dans la portière), usure (témoins dans les rainures, 1,6 mm minimum), hernies sur les flancs.", "components": ["wheel_fl", "wheel_fr", "wheel_rl", "wheel_rr"] },
+        { "title": "Éclairage", "text": "Faites le tour : feux de position, croisement, stop (reflet sur un mur ou un vitrage), clignotants.", "components": ["headlights"] }
+      ]
+    },
+    {
+      "id": "battery_replace",
+      "title": "Remplacement de la batterie 12 V",
+      "vehicle_types": ["car", "van", "motorcycle"],
+      "fuels": ["petrol", "diesel", "hybrid", "electric"],
+      "interval": "Durée de vie typique : 4 à 6 ans.",
+      "difficulty": 1, "time_min": 15, "time_max": 45,
+      "why": "La batterie fournit le courant de démarrage et stabilise la tension de bord. Une batterie faible provoque des défauts électroniques fantômes (P0562, U0001, P0606) bien avant de laisser en panne.",
+      "sensory_checks": [
+        { "sense": "sound", "tip": "Démarreur lent par temps froid.", "means": "Batterie en fin de vie." },
+        { "sense": "sight", "tip": "Sulfate blanc ou vert sur les cosses, boîtier gonflé.", "means": "Contact dégradé ou batterie surchargée." }
+      ],
+      "components": ["battery"],
+      "tools": ["Clés de 10 et 13", "Brosse à cosses", "Mémoriseur 12 V (optionnel)"],
+      "safety": ["Débrancher le – en premier, rebrancher le + en premier.", "Batterie Start & Stop : remplacer par la même technologie (EFB ou AGM)."],
+      "shopping": [
+        { "name": "Batterie 12 V", "query": "batterie voiture", "qty": 1, "unit": "pièce", "price_min": 70, "price_max": 220 },
+        { "name": "Graisse pour cosses", "query": "graisse cosse batterie", "qty": 1, "unit": "bombe", "price_min": 5, "price_max": 12, "optional": true }
+      ],
+      "steps": [
+        { "title": "Relever les caractéristiques", "text": "Notez capacité (Ah), courant de démarrage (A EN), technologie et position des bornes de l'ancienne batterie.", "components": ["battery"] },
+        { "title": "Débrancher", "text": "Coupez tout, débranchez la borne – puis la borne +, retirez la bride de maintien.", "components": ["battery"] },
+        { "title": "Remplacer", "text": "Posez la neuve, fixez la bride, rebranchez le + puis le –, graissez les cosses.", "components": ["battery"] },
+        { "title": "Réinitialiser", "text": "Recalez vitres électriques, horloge ; certaines voitures demandent l'enregistrement de la batterie (valise).", "components": ["battery", "ecu"] }
+      ]
+    },
+    {
+      "id": "moto_oil_change",
+      "title": "Vidange moto (huile + filtre)",
+      "vehicle_types": ["motorcycle"],
+      "fuels": ["petrol"],
+      "interval": "Tous les 6 000 à 12 000 km ou chaque année.",
+      "difficulty": 2, "time_min": 30, "time_max": 60,
+      "why": "Sur la plupart des motos, la même huile lubrifie le moteur, la boîte et l'embrayage à bain d'huile. D'où la norme JASO MA : une huile auto « économie d'énergie » fait patiner l'embrayage.",
+      "sensory_checks": [
+        { "sense": "sight", "tip": "Hublot de niveau : huile foncée et opaque.", "means": "Vidange due." },
+        { "sense": "feel", "tip": "Passages de vitesses durs, embrayage qui patine.", "means": "Huile usée ou inadaptée." }
+      ],
+      "components": ["oil_drain_plug", "oil_filter", "oil_filler_cap", "engine"],
+      "tools": ["Béquille d'atelier", "Clé de vidange", "Clé à filtre", "Bac", "Clé dynamométrique"],
+      "safety": ["Moto stable sur béquille d'atelier.", "Pas d'huile sur le pneu arrière ni sur le disque."],
+      "shopping": [
+        { "name": "Huile moto {oil_spec}", "query": "huile moto {oil_spec}", "qty_from": "oil_capacity_l", "round_up": true, "unit": "L", "price_min": 9, "price_max": 18 },
+        { "name": "Filtre à huile moto", "query": "filtre à huile moto", "qty": 1, "unit": "pièce", "price_min": 6, "price_max": 18 },
+        { "name": "Joint de bouchon de vidange", "query": "joint bouchon vidange moto", "qty": 1, "unit": "pièce", "price_min": 1, "price_max": 4 }
+      ],
+      "steps": [
+        { "title": "Chauffer et caler", "text": "Moteur tiède, moto droite sur béquille d'atelier.", "components": ["engine"] },
+        { "title": "Vidanger", "text": "Ouvrez le bouchon de remplissage puis le bouchon de vidange ; laissez couler.", "components": ["oil_filler_cap", "oil_drain_plug"] },
+        { "title": "Filtre", "text": "Remplacez le filtre (joint huilé, serrage à la main + 3/4 de tour).", "components": ["oil_filter"] },
+        { "title": "Remplir et contrôler", "text": "Bouchon avec joint neuf au couple, remplissez, faites tourner 1 minute, contrôlez au hublot, moto droite.", "components": ["oil_filler_cap", "engine"] }
+      ]
+    },
+    {
+      "id": "chain_maintenance",
+      "title": "Entretien de la chaîne (nettoyage, graissage, tension)",
+      "vehicle_types": ["motorcycle"],
+      "fuels": ["petrol", "electric"],
+      "interval": "Graissage tous les 500 à 1 000 km et après la pluie ; contrôle de tension tous les 1 000 km.",
+      "difficulty": 1, "time_min": 15, "time_max": 40,
+      "why": "La chaîne transmet toute la puissance à la roue. Sèche ou mal tendue, elle s'use en quelques milliers de km, use pignon et couronne, et peut casser.",
+      "sensory_checks": [
+        { "sense": "sound", "tip": "Bruit de « ferraille » ou claquement en accélérant / décélérant.", "means": "Chaîne trop détendue ou sèche." },
+        { "sense": "touch", "tip": "Tirez la chaîne vers l'arrière au niveau de la couronne : si on voit plus de la moitié d'une dent, elle est allongée.", "means": "Kit chaîne à remplacer." },
+        { "sense": "sight", "tip": "Dents de couronne en forme de crochet ou de vague.", "means": "Couronne usée : remplacer le kit complet." }
+      ],
+      "components": ["chain", "sprocket_front", "sprocket_rear", "wheel_rr"],
+      "tools": ["Béquille d'atelier", "Brosse à chaîne", "Clés pour axe de roue", "Réglet"],
+      "safety": ["Jamais les doigts près de la chaîne moteur tournant.", "Pas de graisse sur le pneu ni sur le disque."],
+      "shopping": [
+        { "name": "Nettoyant chaîne", "query": "nettoyant chaîne moto", "qty": 1, "unit": "bombe", "price_min": 8, "price_max": 18 },
+        { "name": "Graisse chaîne", "query": "graisse chaîne moto", "qty": 1, "unit": "bombe", "price_min": 8, "price_max": 18 },
+        { "name": "Brosse à chaîne", "query": "brosse chaîne moto", "qty": 1, "unit": "pièce", "price_min": 5, "price_max": 15, "optional": true },
+        { "name": "Kit chaîne {chain}", "query": "kit chaîne", "qty": 1, "unit": "kit", "price_min": 70, "price_max": 220, "optional": true }
+      ],
+      "steps": [
+        { "title": "Nettoyer", "text": "Moto sur béquille, boîte au point mort : nettoyez la chaîne en faisant tourner la roue à la main, essuyez.", "components": ["chain"] },
+        { "title": "Graisser", "text": "Pulvérisez la graisse sur l'intérieur de la chaîne (côté pignons), en faisant tourner la roue. Laissez sécher 15 minutes.", "components": ["chain", "sprocket_rear"] },
+        { "title": "Contrôler la tension", "text": "Au milieu du brin inférieur, le débattement doit correspondre à la notice (souvent 25–35 mm).", "components": ["chain"] },
+        { "title": "Retendre si besoin", "text": "Desserrez l'axe de roue, agissez sur les tendeurs de façon identique à gauche et à droite (repères), resserrez l'axe au couple.", "components": ["wheel_rr", "chain"], "warning": "Un alignement différent à gauche et à droite use la chaîne et rend la moto instable." }
+      ]
+    },
+    {
+      "id": "truck_daily_check",
+      "title": "Tour du véhicule poids lourd (contrôle quotidien)",
+      "vehicle_types": ["truck"],
+      "fuels": ["diesel"],
+      "interval": "Chaque jour avant le départ.",
+      "difficulty": 1, "time_min": 10, "time_max": 20,
+      "why": "Le contrôle visuel quotidien est une obligation pour le conducteur. C'est aussi le meilleur moyen de repérer une fuite d'air, d'huile ou d'AdBlue, ou un pneu endommagé, avant la panne sur autoroute.",
+      "sensory_checks": [
+        { "sense": "sound", "tip": "Sifflement d'air, circuit chargé et moteur arrêté.", "means": "Fuite pneumatique (freinage, suspension) : à localiser avant de partir." },
+        { "sense": "sight", "tip": "Cristaux blancs autour du réservoir AdBlue ou des raccords.", "means": "Fuite d'AdBlue." },
+        { "sense": "smell", "tip": "Odeur de chaud au niveau d'une roue à l'arrivée.", "means": "Frein qui frotte : contrôler l'ajustement." }
+      ],
+      "components": ["dipstick", "coolant_reservoir", "adblue_tank", "wheel_fl", "wheel_fr", "wheel_rl", "wheel_rr", "headlights"],
+      "tools": ["Lampe", "Manomètre", "Gilet haute visibilité"],
+      "safety": ["Calez le véhicule, gilet haute visibilité."],
+      "shopping": [
+        { "name": "AdBlue", "query": "AdBlue 10L", "qty": 1, "unit": "bidon 10 L", "price_min": 12, "price_max": 25 },
+        { "name": "Huile moteur PL (appoint) {oil_spec}", "query": "huile moteur poids lourd {oil_spec} 5L", "qty": 1, "unit": "bidon 5 L", "price_min": 30, "price_max": 60, "optional": true }
+      ],
+      "steps": [
+        { "title": "Niveaux", "text": "Huile, liquide de refroidissement, AdBlue, lave-glace.", "components": ["dipstick", "coolant_reservoir", "adblue_tank"] },
+        { "title": "Pneumatiques et roues", "text": "Pression, entailles, écrous de roue (indicateurs de desserrage).", "components": ["wheel_fl", "wheel_fr", "wheel_rl", "wheel_rr"] },
+        { "title": "Air et freinage", "text": "Montée en pression, purge des réservoirs, écoute des fuites.", "components": ["engine"] },
+        { "title": "Éclairage et signalisation", "text": "Feux, clignotants, gyrophares, plaques et dispositifs réfléchissants.", "components": ["headlights"] }
+      ]
+    },
+    {
+      "id": "truck_oil_service",
+      "title": "Vidange poids lourd (huile + filtres)",
+      "vehicle_types": ["truck"],
+      "fuels": ["diesel"],
+      "interval": "Selon la sévérité d'usage : souvent 60 000 à 150 000 km (indicateur de bord).",
+      "difficulty": 4, "time_min": 90, "time_max": 180,
+      "why": "Un moteur de 13 litres contient 35 à 40 litres d'huile. Le respect de la norme constructeur (VDS, MB 228.5x…) est indispensable au maintien de la garantie et à la longévité du moteur et du système de dépollution.",
+      "sensory_checks": [
+        { "sense": "sight", "tip": "Huile noire et collante à la jauge, consommation qui augmente.", "means": "Service à avancer." }
+      ],
+      "components": ["oil_drain_plug", "oil_filter", "fuel_filter", "air_filter", "engine"],
+      "tools": ["Fosse ou pont", "Bac ≥ 50 L", "Clés à filtre PL", "Pompe de remplissage"],
+      "safety": ["Intervention en atelier équipé (fosse, récupération des huiles)."],
+      "shopping": [
+        { "name": "Huile moteur PL {oil_spec}", "query": "huile moteur poids lourd {oil_spec}", "qty_from": "oil_capacity_l", "round_up": true, "unit": "L", "price_min": 5, "price_max": 10 },
+        { "name": "Filtres à huile PL (kit)", "query": "filtre à huile poids lourd", "qty": 1, "unit": "kit", "price_min": 30, "price_max": 90 },
+        { "name": "Filtres à gazole PL (kit)", "query": "filtre gasoil poids lourd", "qty": 1, "unit": "kit", "price_min": 40, "price_max": 120 },
+        { "name": "Filtre à air PL", "query": "filtre à air poids lourd", "qty": 1, "unit": "pièce", "price_min": 60, "price_max": 180, "optional": true }
+      ],
+      "steps": [
+        { "title": "Vidanger", "text": "Moteur chaud, véhicule sur fosse : vidange complète.", "components": ["oil_drain_plug"] },
+        { "title": "Filtres", "text": "Remplacez filtres à huile et à gazole (cartouches), joints neufs huilés.", "components": ["oil_filter", "fuel_filter"] },
+        { "title": "Remplir et purger", "text": "Remplissez à la quantité constructeur, purgez le circuit de gazole, démarrez et contrôlez les fuites.", "components": ["engine", "fuel_filter"] },
+        { "title": "Réinitialiser", "text": "Remettez à zéro l'indicateur de maintenance.", "components": ["ecu"] }
+      ]
+    }
+  ]
+}

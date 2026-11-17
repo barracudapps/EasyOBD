@@ -1,0 +1,22 @@
+[package]
+name = "obd-core"
+description = "ELM327 / OBD-II protocol, DTC decoding and repair knowledge base for EasyOBD"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[features]
+default = []
+# USB adapters and Bluetooth Classic adapters exposed as serial ports (desktop)
+serial = ["dep:serialport"]
+# Bluetooth Low Energy adapters (Vgate iCar BLE, OBDLink CX, Veepeak BLE, Carista…)
+ble = ["dep:btleplug", "dep:tokio", "dep:futures"]
+
+[dependencies]
+serde.workspace = true
+serde_json.workspace = true
+thiserror.workspace = true
+serialport = { version = "4", optional = true, default-features = false }
+btleplug = { version = "0.13", optional = true }
+tokio = { version = "1", optional = true, features = ["rt-multi-thread", "time", "sync"] }
+futures = { version = "0.3", optional = true }

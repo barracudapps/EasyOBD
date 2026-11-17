@@ -1,0 +1,344 @@
+//! Maintenance tutorials and vehicle-specific shopping lists.
+//!
+//! Data: `data/maintenance.fr.json` – vehicle profiles (car, van, motorcycle, truck), illustrated
+//! step-by-step tutorials (each step lists the 3D components to highlight), and shopping list
+//! templates whose quantities and search terms are resolved against the selected vehicle profile.
+
+use std::collections::BTreeMap;
+use std::sync::OnceLock;
+
+use serde::{Deserialize, Serialize};
+
+use crate::knowledge::{ComponentInfo, KnowledgeBase, SensoryCheck, ShopLink};
+use crate::{Error, Result};
+
+const EMBEDDED: &str = include_str!("../../../data/maintenance.fr.json");
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct VehicleType {
+    pub id: String,
+    pub name: String,
+    pub icon: String,
+}
+
+/// A vehicle profile. Seed profiles ship with the app; users can create custom ones.
+#[derive(Debug, Clone, Serialize, Deserialize, Default)]
+pub struct VehicleProfile {
+    #[serde(default)]
+    pub id: String,
+    #[serde(rename = "type")]
+    pub vehicle_type: String,
+    pub make: String,
+    pub model: String,
+    #[serde(default)]
+    pub engine: String,
+    #[serde(default)]
+    pub years: Option<[u16; 2]>,
+    /// petrol, diesel, hybrid, electric
+    pub fuel: String,
+    #[serde(default)]
+    pub cylinders: Option<u32>,
+    #[serde(default)]
+    pub oil_capacity_l: Option<f64>,
+    #[serde(default)]
+    pub oil_spec: Option<String>,
+    #[serde(default)]
+    pub coolant_l: Option<f64>,
+    #[serde(default)]
+    pub chain: Option<String>,
+}
+
+impl VehicleProfile {
+    pub fn label(&self) -> String {
+        format!("{} {} {}", self.make, self.model, self.engine).trim().to_string()
+    }
+
+    fn number(&self, field: &str) -> Option<f64> {
+        match field {
+            "oil_capacity_l" => self.oil_capacity_l,
+            "coolant_l" => self.coolant_l,
+            "cylinders" => self.cylinders.map(f64::from),
+            _ => None,
+        }
+    }
+
+    /// Replaces `{oil_spec}`, `{chain}`… in templates. Unknown values are removed.
+    fn fill(&self, s: &str) -> String {
+        let out = s
+            .replace("{oil_spec}", self.oil_spec.as_deref().unwrap_or(""))
+            .replace("{chain}", self.chain.as_deref().unwrap_or(""))
+            .replace("{make}", &self.make)
+            .replace("{model}", &self.model);
+        out.split_whitespace().collect::<Vec<_>>().join(" ")
+    }
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct TutorialStep {
+    pub title: String,
+    pub text: String,
+    #[serde(default)]
+    pub components: Vec<String>,
+    #[serde(default)]
+    pub tip: Option<String>,
+    #[serde(default)]
+    pub warning: Option<String>,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+struct ShoppingTemplate {
+    name: String,
+    query: String,
+    #[serde(default)]
+    qty: Option<f64>,
+    #[serde(default)]
+    qty_from: Option<String>,
+    #[serde(default)]
+    round_up: bool,
+    unit: String,
+    price_min: f64,
+    price_max: f64,
+    #[serde(default)]
+    optional: bool,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct Tutorial {
+    pub id: String,
+    pub title: String,
+    pub vehicle_types: Vec<String>,
+    pub fuels: Vec<String>,
+    pub interval: String,
+    pub difficulty: u8,
+    pub time_min: u32,
+    pub time_max: u32,
+    pub why: String,
+    #[serde(default)]
+    pub sensory_checks: Vec<SensoryCheck>,
+    #[serde(default)]
+    pub components: Vec<String>,
+    #[serde(default)]
+    pub tools: Vec<String>,
+    #[serde(default)]
+    pub safety: Vec<String>,
+    #[serde(default)]
+    shopping: Vec<ShoppingTemplate>,
+    pub steps: Vec<TutorialStep>,
+}
+
+impl Tutorial {
+    pub fn applies_to(&self, p: &VehicleProfile) -> bool {
+        self.vehicle_types.contains(&p.vehicle_type) && self.fuels.contains(&p.fuel)
+    }
+}
+
+#[derive(Debug, Clone, Serialize)]
+pub struct ShoppingItem {
+    pub name: String,
+    pub qty: f64,
+    pub unit: String,
+    pub optional: bool,
+    /// Whether the quantity comes from the vehicle profile (otherwise a default was used).
+    pub qty_known: bool,
+    pub price_min: f64,
+    pub price_max: f64,
+    pub links: Vec<ShopLink>,
+}
+
+#[derive(Debug, Clone, Serialize)]
+pub struct ShoppingList {
+    pub tutorial_id: String,
+    pub vehicle: String,
+    pub items: Vec<ShoppingItem>,
+    /// Totals of the required (non-optional) items.
+    pub total_min: f64,
+    pub total_max: f64,
+    pub labor_min: f64,
+    pub labor_max: f64,
+}
+
+#[derive(Debug, Clone, Serialize)]
+pub struct TutorialSummary {
+    pub id: String,
+    pub title: String,
+    pub interval: String,
+    pub difficulty: u8,
+    pub time_min: u32,
+    pub time_max: u32,
+}
+
+#[derive(Debug, Deserialize)]
+struct MaintenanceFile {
+    version: String,
+    disclaimer: String,
+    vehicle_types: Vec<VehicleType>,
+    components: BTreeMap<String, ComponentInfo>,
+    profiles: Vec<VehicleProfile>,
+    tutorials: Vec<Tutorial>,
+}
+
+pub struct Maintenance {
+    pub version: String,
+    pub disclaimer: String,
+    pub vehicle_types: Vec<VehicleType>,
+    pub components: BTreeMap<String, ComponentInfo>,
+    pub profiles: Vec<VehicleProfile>,
+    pub tutorials: Vec<Tutorial>,
+}
+
+impl Maintenance {
+    pub fn embedded() -> &'static Maintenance {
+        static M: OnceLock<Maintenance> = OnceLock::new();
+        M.get_or_init(|| Maintenance::from_json(EMBEDDED).expect("embedded maintenance data must be valid"))
+    }
+
+    pub fn from_json(json: &str) -> Result<Self> {
+        let f: MaintenanceFile = serde_json::from_str(json).map_err(|e| Error::KnowledgeBase(format!("maintenance : {e}")))?;
+        Ok(Self {
+            version: f.version,
+            disclaimer: f.disclaimer,
+            vehicle_types: f.vehicle_types,
+            components: f.components,
+            profiles: f.profiles,
+            tutorials: f.tutorials,
+        })
+    }
+
+    pub fn tutorials_for(&self, p: &VehicleProfile) -> Vec<TutorialSummary> {
+        self.tutorials
+            .iter()
+            .filter(|t| t.applies_to(p))
+            .map(|t| TutorialSummary {
+                id: t.id.clone(),
+                title: t.title.clone(),
+                interval: t.interval.clone(),
+                difficulty: t.difficulty,
+                time_min: t.time_min,
+                time_max: t.time_max,
+            })
+            .collect()
+    }
+
+    pub fn tutorial(&self, id: &str) -> Option<&Tutorial> {
+        self.tutorials.iter().find(|t| t.id == id)
+    }
+
+    /// Tutorial with its spark-plug / coil steps adapted to the vehicle's cylinder count.
+    pub fn tutorial_for(&self, id: &str, p: &VehicleProfile) -> Option<Tutorial> {
+        let mut t = self.tutorial(id)?.clone();
+        let cyl = p.cylinders.unwrap_or(4);
+        let fix = |list: &mut Vec<String>| {
+            let mut out: Vec<String> = Vec::new();
+            for c in list.iter() {
+                let numbered = c.rsplit_once('_').filter(|(_, n)| n.parse::<u32>().is_ok());
+                match numbered {
+                    Some((base, _)) if matches!(base, "spark_plug" | "coil" | "injector" | "cylinder") => {
+                        for n in 1..=cyl {
+                            let id = format!("{base}_{n}");
+                            if !out.contains(&id) {
+                                out.push(id);
+                            }
+                        }
+                    }
+                    _ => out.push(c.clone()),
+                }
+            }
+            *list = out;
+        };
+        fix(&mut t.components);
+        for s in &mut t.steps {
+            fix(&mut s.components);
+        }
+        Some(t)
+    }
+
+    pub fn shopping_list(&self, kb: &KnowledgeBase, tutorial_id: &str, p: &VehicleProfile) -> Option<ShoppingList> {
+        let t = self.tutorial(tutorial_id)?;
+        let vehicle_terms = format!("{} {}", p.make, p.model);
+        let items: Vec<ShoppingItem> = t
+            .shopping
+            .iter()
+            .map(|s| {
+                let from_profile = s.qty_from.as_deref().and_then(|f| p.number(f));
+                let mut qty = from_profile.or(s.qty).unwrap_or(1.0);
+                if s.round_up {
+                    qty = qty.ceil();
+                }
+                let query = p.fill(&s.query);
+                ShoppingItem {
+                    name: p.fill(&s.name),
+                    qty,
+                    unit: s.unit.clone(),
+                    optional: s.optional,
+                    qty_known: s.qty_from.is_none() || from_profile.is_some(),
+                    price_min: (s.price_min * qty).round(),
+                    price_max: (s.price_max * qty).round(),
+                    links: kb.links(&query, Some(&vehicle_terms)),
+                }
+            })
+            .collect();
+        let required = items.iter().filter(|i| !i.optional);
+        let total_min = required.clone().map(|i| i.price_min).sum();
+        let total_max = required.map(|i| i.price_max).sum();
+        let rate = kb.labor_rate_eur_h / 60.0;
+        Some(ShoppingList {
+            tutorial_id: t.id.clone(),
+            vehicle: p.label(),
+            items,
+            total_min,
+            total_max,
+            labor_min: (t.time_min as f64 * rate).round(),
+            labor_max: (t.time_max as f64 * rate).round(),
+        })
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn data_is_consistent() {
+        let m = Maintenance::embedded();
+        let kb = KnowledgeBase::embedded();
+        let types: Vec<_> = m.vehicle_types.iter().map(|t| t.id.as_str()).collect();
+        for p in &m.profiles {
+            assert!(types.contains(&p.vehicle_type.as_str()), "{}", p.id);
+            assert!(!m.tutorials_for(p).is_empty(), "no tutorial for {}", p.id);
+        }
+        for t in &m.tutorials {
+            assert!(t.time_min <= t.time_max, "{}", t.id);
+            let comps = t.components.iter().chain(t.steps.iter().flat_map(|s| s.components.iter()));
+            for c in comps {
+                assert!(m.components.contains_key(c) || kb.component_info(c).is_some(), "{}: unknown component {c}", t.id);
+            }
+        }
+    }
+
+    #[test]
+    fn shopping_list_uses_profile() {
+        let m = Maintenance::embedded();
+        let kb = KnowledgeBase::embedded();
+        let p = m.profiles.iter().find(|p| p.id == "peugeot-208-puretech").unwrap();
+        let list = m.shopping_list(kb, "oil_change", p).unwrap();
+        let oil = &list.items[0];
+        assert_eq!(oil.qty, 4.0); // 3.5 L rounded up
+        assert!(oil.name.contains("0W30"));
+        assert!(oil.links[0].url.contains("208"));
+        assert!(list.total_min > 0.0 && list.total_min <= list.total_max);
+
+        let plugs = m.shopping_list(kb, "spark_plugs", p).unwrap();
+        assert_eq!(plugs.items[0].qty, 3.0);
+        let t = m.tutorial_for("spark_plugs", p).unwrap();
+        assert!(t.components.contains(&"coil_3".to_string()) && !t.components.contains(&"coil_4".to_string()));
+    }
+
+    #[test]
+    fn unknown_quantities_are_flagged() {
+        let m = Maintenance::embedded();
+        let kb = KnowledgeBase::embedded();
+        let p = VehicleProfile { vehicle_type: "car".into(), make: "Fiat".into(), model: "Panda".into(), fuel: "petrol".into(), ..Default::default() };
+        let list = m.shopping_list(kb, "oil_change", &p).unwrap();
+        assert!(!list.items[0].qty_known);
+    }
+}
