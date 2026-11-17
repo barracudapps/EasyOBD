@@ -40,6 +40,9 @@ export class VehicleScene {
   private explodeTarget = 0;
   private explodeOffsets = new Map<THREE.Object3D, THREE.Vector3>();
   private spinning: THREE.Object3D[] = [];
+  /** Reciprocating parts (pistons) of the highlighted components. */
+  private stroking: THREE.Object3D[] = [];
+  private contact: THREE.Mesh;
 
   constructor(private container: HTMLElement) {
     this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: 'high-performance' });
@@ -90,9 +93,33 @@ export class VehicleScene {
     shadowFloor.position.y = 0.001;
     shadowFloor.receiveShadow = true;
     this.scene.add(shadowFloor);
-    const rim = new THREE.DirectionalLight(0x8b5cf6, 1.2);
+    // Cool rim light (kept desaturated so it does not tint the paint) + soft front fill.
+    const rim = new THREE.DirectionalLight(0xc7d2fe, 1.0);
     rim.position.set(-5, 3, -4);
     this.scene.add(rim);
+    const fill = new THREE.DirectionalLight(0xfff7ed, 0.45);
+    fill.position.set(3, 1.2, -5);
+    this.scene.add(fill);
+    // Contact shadow: soft dark blob right under the vehicle (ambient occlusion with the ground).
+    const c = document.createElement('canvas');
+    c.width = c.height = 128;
+    const ctx = c.getContext('2d');
+    if (ctx) {
+      const g = ctx.createRadialGradient(64, 64, 0, 64, 64, 64);
+      g.addColorStop(0, 'rgba(0,0,0,0.85)');
+      g.addColorStop(0.55, 'rgba(0,0,0,0.5)');
+      g.addColorStop(1, 'rgba(0,0,0,0)');
+      ctx.fillStyle = g;
+      ctx.fillRect(0, 0, 128, 128);
+    }
+    this.contact = new THREE.Mesh(
+      new THREE.PlaneGeometry(1, 1),
+      new THREE.MeshBasicMaterial({ map: new THREE.CanvasTexture(c), transparent: true, depthWrite: false, opacity: 0.75 }),
+    );
+    this.contact.rotation.x = -Math.PI / 2;
+    this.contact.position.y = 0.003;
+    this.contact.renderOrder = -1;
+    this.scene.add(this.contact);
 
     // Floor: concentric glow + grid
     const floor = new THREE.Mesh(
@@ -152,6 +179,11 @@ export class VehicleScene {
       }
     });
     this.scene.add(this.model);
+    const bb = new THREE.Box3().setFromObject(this.model);
+    const size = bb.getSize(new THREE.Vector3());
+    const centre = bb.getCenter(new THREE.Vector3());
+    this.contact.scale.set(size.x * 1.15, size.z * 1.35, 1);
+    this.contact.position.set(centre.x, 0.003, centre.z);
     this.computeExplode();
     this.applyXray();
     this.fit();
@@ -228,7 +260,17 @@ export class VehicleScene {
     const any = this.highlighted.size > 0;
     // Rotating parts of the highlighted components (wheels, discs, fan, pulleys, sprockets) turn slowly.
     this.spinning = [];
-    for (const id of this.highlighted) this.components.get(id)?.traverse((o) => o.userData.spin && this.spinning.push(o));
+    for (const o of this.stroking) o.position.y = o.userData.baseY;
+    this.stroking = [];
+    for (const id of this.highlighted) {
+      this.components.get(id)?.traverse((o) => {
+        if (o.userData.spin) this.spinning.push(o);
+        if (o.userData.stroke) {
+          o.userData.baseY ??= o.position.y;
+          this.stroking.push(o);
+        }
+      });
+    }
 
     this.labelObjects.forEach((l) => l.removeFromParent());
     this.labelObjects = [];
@@ -283,15 +325,34 @@ export class VehicleScene {
       const box = new THREE.Box3();
       this.highlighted.forEach((id) => box.expandByObject(this.components.get(id)!));
       const center = box.getCenter(new THREE.Vector3());
-      const size = Math.max(box.getSize(new THREE.Vector3()).length(), 0.8);
-      const dir = this.camera.position.clone().sub(this.controls.target).normalize();
-      if (dir.y < 0.25) dir.y = 0.35;
-      dir.normalize();
-      this.focusTarget = { target: center, pos: center.clone().add(dir.multiplyScalar(size * 2.6 + 2.2)) };
+      this.focusBox(box);
     } else {
       this.fit(this.explodeTarget ? 1.35 : 1);
       this.controls.autoRotate = this.explodeTarget === 0;
     }
+  }
+
+  /** Moves the camera close to a box (small parts get a close-up, big assemblies stay framed). */
+  private focusBox(box: THREE.Box3, from?: THREE.Vector3) {
+    const center = box.getCenter(new THREE.Vector3());
+    const size = Math.max(box.getSize(new THREE.Vector3()).length(), 0.12);
+    const dir = from ? from.clone() : this.camera.position.clone().sub(this.controls.target).normalize();
+    if (dir.y < 0.25) dir.y = 0.35;
+    dir.normalize();
+    this.controls.minDistance = 0.08;
+    this.focusTarget = { target: center, pos: center.clone().add(dir.multiplyScalar(size * 2.4 + 0.45)) };
+  }
+
+  /** Close-up on the engine bay (body made transparent): to look around before working on a part. */
+  focusEngine() {
+    const ids = ['engine', 'drive_motor'].filter((id) => this.components.has(id));
+    if (!ids.length) return false;
+    this.controls.autoRotate = false;
+    const box = new THREE.Box3();
+    ids.forEach((id) => box.expandByObject(this.components.get(id)!));
+    // From above, on the timing / accessory-belt side: belt, alternator, coils and sensors in view.
+    this.focusBox(box, new THREE.Vector3(0.35, 0.85, -0.55));
+    return true;
   }
 
   resetView() {
@@ -339,6 +400,10 @@ export class VehicleScene {
     for (const o of this.spinning) {
       const axis = o.userData.spin as 'x' | 'y' | 'z';
       o.rotation[axis] += dt * 2.5;
+    }
+    for (const o of this.stroking) {
+      const { amp, phase } = o.userData.stroke as { amp: number; phase: number };
+      o.position.y = o.userData.baseY + amp * Math.cos(t * 2.5 + phase);
     }
     if (this.highlighted.size) {
       const pulse = 0.55 + 0.45 * Math.sin(t * 4);

@@ -51,6 +51,9 @@
     <button class="btn sm" class:active={exploded} title="Écarter les pièces pour voir comment elles s'assemblent" onclick={() => { exploded = !exploded; scene?.setExploded(exploded); }}>
       <Icon name="explode" size={16} /> Vue éclatée
     </button>
+    <button class="btn sm" title="Gros plan sur le moteur, carrosserie transparente : tournez et zoomez pour repérer chaque pièce" onclick={() => { app.highlight = []; xray = true; scene?.setXray(true); setTimeout(() => scene?.focusEngine(), 30); }}>
+      <Icon name="wrench" size={16} /> Moteur
+    </button>
     <button class="btn sm" title="Vue d'ensemble" onclick={() => { app.highlight = []; }}>
       <Icon name="cube" size={16} /> Vue globale
     </button>
