@@ -121,6 +121,9 @@ struct ProcMatch {
     model_contains: Vec<String>,
     #[serde(default)]
     final_drive: Option<String>,
+    /// "mid" or "rear" engine (absent in the profile = front).
+    #[serde(default)]
+    engine_position: Option<String>,
 }
 
 /// Vehicle-specific additions to tutorials (owner's manual procedures, EV safety…).
@@ -145,6 +148,7 @@ impl Procedure {
             && w.fuel.as_ref().is_none_or(|f| f == &p.fuel)
             && (w.model_contains.is_empty() || w.model_contains.iter().any(|m| p.model.contains(m.as_str())))
             && w.final_drive.as_ref().is_none_or(|f| Some(f.as_str()) == p.final_drive_kind())
+            && w.engine_position.as_ref().is_none_or(|e| e == p.engine_position.as_deref().unwrap_or("front"))
     }
 }
 
@@ -459,6 +463,17 @@ mod tests {
         let t = m.tutorial_for("brake_pads_front", &p).unwrap();
         assert!(t.steps[0].title.contains("hors tension"));
         assert!(!t.steps[0].components.contains(&"battery".to_string()), "{:?}", t.steps[0].components);
+    }
+
+    #[test]
+    fn rear_and_mid_engine_notes() {
+        let m = Maintenance::embedded();
+        let mut p = VehicleProfile { vehicle_type: "car".into(), make: "Porsche".into(), model: "911 (992)".into(), fuel: "petrol".into(), engine_position: Some("rear".into()), ..Default::default() };
+        assert!(m.tutorial_for("oil_change", &p).unwrap().vehicle_notes.iter().any(|n| n.contains("arrière")));
+        p.engine_position = Some("mid".into());
+        assert!(m.tutorial_for("spark_plugs", &p).unwrap().vehicle_notes.iter().any(|n| n.contains("central")));
+        p.engine_position = None;
+        assert!(m.tutorial_for("oil_change", &p).unwrap().vehicle_notes.iter().all(|n| !n.contains("central") && !n.contains("Moteur arrière")));
     }
 
     #[test]

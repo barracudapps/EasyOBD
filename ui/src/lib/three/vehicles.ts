@@ -19,6 +19,54 @@ export interface VehicleSpec {
   finalDrive?: string;
   /** Cars: front (default), mid (behind the seats) or rear (Porsche 911). */
   enginePosition?: string;
+  /** Model name: some layouts depend on it (longitudinal engines). */
+  model?: string;
+}
+
+/**
+ * Front engine mounted lengthwise (crankshaft along the car): rear-wheel-drive platforms and most
+ * big 4×4s (BMW, Mercedes, Audi A4–A8, Porsche, Jaguar, Mustang, pick-ups, Subaru…). Compact
+ * front-wheel-drive based models of the same makes keep a transverse engine.
+ */
+export function isLongitudinal(spec: VehicleSpec): boolean {
+  const make = spec.make ?? '';
+  const model = spec.model ?? '';
+  const has = (...k: string[]) => k.some((x) => model.includes(x));
+  switch (make) {
+    case 'BMW':
+      return !has('Série 1 (F40)', 'Série 2 Active Tourer', 'X1 (U11)', 'X2', 'i3');
+    case 'Mercedes-Benz':
+      return !has('Classe A', 'Classe B', 'CLA', 'GLA', 'GLB', 'EQA', 'Citan');
+    case 'Audi':
+      return has('A4', 'A5', 'A6', 'A7', 'A8', 'Q5', 'Q7', 'Q8', 'RS4', 'RS5', 'RS6', 'RS7');
+    case 'Jaguar':
+      return !has('E-Pace');
+    case 'Land Rover':
+      return !has('Evoque', 'Discovery Sport', 'Freelander');
+    case 'Volkswagen':
+      return has('Touareg', 'Amarok');
+    case 'Alfa Romeo':
+      return has('Giulia', 'Stelvio');
+    case 'Ford':
+      return has('Mustang', 'Ranger');
+    case 'Toyota':
+      return has('Supra', 'GR86', 'Hilux', 'Land Cruiser');
+    case 'Mazda':
+      return has('MX-5', 'CX-60');
+    case 'Nissan':
+      return has('GT-R', 'Navara');
+    case 'Mitsubishi':
+      return has('L200');
+    case 'Jeep':
+      return has('Wrangler', 'Grand Cherokee');
+    case 'Maxus':
+      return has('T60');
+    case 'Porsche': case 'Maserati': case 'Bentley': case 'Rolls-Royce': case 'Aston Martin': case 'Subaru': case 'Isuzu':
+    case 'Ferrari': case 'Lamborghini':
+      return true;
+    default:
+      return false;
+  }
 }
 
 export const PALETTE = {
@@ -988,10 +1036,37 @@ function carLike(spec: VehicleSpec, style: CarStyle): THREE.Group {
 
   // ---- Combustion / hybrid powertrain (transverse engine)
   const bank = engineLayout(spec);
-  const { exhaustOut } = engineAssembly(b, ex, ey, n, spec.fuel, bank ? 0.9 : 1, { turbo: hasTurbo(spec), bank });
-  b.add('transmission', at(box(0.42, 0.34, 0.32, 0x52525b, 0.05), ex - 0.05, 0.6, gearZ + 0.3));
-  b.add('vehicle_speed_sensor', at(cyl(0.02, 0.02, 0.06, 0x10b981), ex - 0.25, 0.55, 0.5));
-  b.add('clutch_slave', at(tf(cyl(0.025, 0.025, 0.09, 0xa3e635), { rotation: [0, 0, Math.PI / 2] }), ex - 0.3, 0.62, gearZ + 0.22));
+  const longi = pos === 'front' && isLongitudinal(spec);
+  let exhaustOut: [number, number, number];
+  let gearEnd = ex - 0.1; // where the propeller shaft leaves the gearbox
+  if (longi) {
+    // Lengthwise engine set back behind the front axle line, gearbox in the tunnel behind it.
+    const cx = axleF - 0.28;
+    const lb: Builder = {
+      root: b.root,
+      add(id, obj) {
+        const g = new THREE.Group();
+        g.add(obj);
+        g.position.set(cx, ey, 0);
+        g.rotation.y = -Math.PI / 2; // engine-local Z (crankshaft) → car X, timing / belt end forward
+        return b.add(id, g);
+      },
+    };
+    const r = engineAssembly(lb, 0, 0, n, spec.fuel, bank ? 0.9 : 1, { turbo: hasTurbo(spec), bank });
+    const [lx, ly, lz] = r.exhaustOut;
+    exhaustOut = [cx - lz, ey + ly, lx];
+    const gx = cx - r.len / 2 - 0.36;
+    b.add('transmission', at(new THREE.Mesh(new RoundedBoxGeometry(0.62, 0.28, 0.3, 3, 0.07), mat(0x52525b, { metalness: 0.5, roughness: 0.5 })), gx, ey - 0.08, 0));
+    b.add('transmission', at(tf(cyl(0.17, 0.12, 0.16, 0x52525b, 24), { rotation: [0, 0, Math.PI / 2] }), cx - r.len / 2 - 0.02, ey - 0.06, 0)); // bell housing
+    b.add('vehicle_speed_sensor', at(cyl(0.02, 0.02, 0.06, 0x10b981), gx - 0.25, ey + 0.08, 0.1));
+    b.add('clutch_slave', at(tf(cyl(0.025, 0.025, 0.09, 0xa3e635), { rotation: [0, 0, Math.PI / 2] }), gx + 0.2, ey + 0.02, 0.17));
+    gearEnd = gx - 0.31;
+  } else {
+    exhaustOut = engineAssembly(b, ex, ey, n, spec.fuel, bank ? 0.9 : 1, { turbo: hasTurbo(spec), bank }).exhaustOut;
+    b.add('transmission', at(box(0.42, 0.34, 0.32, 0x52525b, 0.05), ex - 0.05, 0.6, gearZ + 0.3));
+    b.add('vehicle_speed_sensor', at(cyl(0.02, 0.02, 0.06, 0x10b981), ex - 0.25, 0.55, 0.5));
+    b.add('clutch_slave', at(tf(cyl(0.025, 0.025, 0.09, 0xa3e635), { rotation: [0, 0, Math.PI / 2] }), ex - 0.3, 0.62, gearZ + 0.22));
+  }
   b.add('clutch_master', at(cyl(0.022, 0.022, 0.08, 0xa3e635), hoodEnd - 0.05, ey + 0.2, W - 0.4));
   b.add('clutch_master', tube([[hoodEnd - 0.05, ey + 0.16, W - 0.4], [ex - 0.45, 0.62, W - 0.55], [ex - 0.3, 0.62, gearZ + 0.22]], 0.006, 0x111827));
   b.add('air_filter', at(box(0.32, 0.14, 0.26, 0x1f2937, 0.04), ex + 0.25, ey + 0.32, -W + 0.32));
@@ -1027,7 +1102,8 @@ function carLike(spec: VehicleSpec, style: CarStyle): THREE.Group {
   // Rear / all-wheel drive: propeller shaft and rear differential (transverse engine kept for readability)
   const rwd = driven !== 'front';
   if (rwd) {
-    if (front) b.add('propshaft', tube([[ex - 0.1, 0.45, gearZ + 0.1], [ex - 0.5, 0.3, 0.05], [axleR + 0.2, wr + 0.02, 0]], 0.028, 0x4b5563));
+    if (longi) b.add('propshaft', tube([[gearEnd, ey - 0.08, 0], [(gearEnd + axleR) / 2, 0.36, 0], [axleR + 0.2, wr + 0.02, 0]], 0.03, 0x4b5563));
+    else if (front) b.add('propshaft', tube([[ex - 0.1, 0.45, gearZ + 0.1], [ex - 0.5, 0.3, 0.05], [axleR + 0.2, wr + 0.02, 0]], 0.028, 0x4b5563));
     b.add('differential', at(tf(cyl(0.12, 0.12, 0.2, 0x52525b, 24), { rotation: [Math.PI / 2, 0, 0] }), axleR, wr + 0.02, 0));
     b.add('differential', at(tf(cyl(0.06, 0.06, 0.1, 0x6b7280, 16), { rotation: [0, 0, Math.PI / 2] }), axleR + 0.15, wr + 0.02, 0));
   }

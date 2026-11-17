@@ -14672,6 +14672,38 @@
       "notes": [
         "Moto à cardan : pensez aussi à contrôler l'huile de transmission finale (tutoriel dédié)."
       ]
+    },
+    {
+      "match": {
+        "engine_position": "rear"
+      },
+      "tutorials": [
+        "oil_change",
+        "air_filter",
+        "spark_plugs",
+        "fuel_filter_diesel",
+        "coolant_change",
+        "timing_belt"
+      ],
+      "notes": [
+        "Moteur arrière (911…) : le moteur se trouve derrière l'essieu arrière. L'accès se fait par le capot moteur arrière et par-dessous : levez et calez l'ARRIÈRE du véhicule, pas l'avant. Le coffre avant ne contient que des réservoirs (lave-glace, liquide de frein) et le rangement."
+      ]
+    },
+    {
+      "match": {
+        "engine_position": "mid"
+      },
+      "tutorials": [
+        "oil_change",
+        "air_filter",
+        "spark_plugs",
+        "fuel_filter_diesel",
+        "coolant_change",
+        "timing_belt"
+      ],
+      "notes": [
+        "Moteur central (derrière les sièges) : l'accès se fait par le capot moteur arrière ou une trappe derrière les sièges, souvent après dépose de caches ; la vidange se fait par-dessous, arrière levé. Les radiateurs sont souvent à l'avant ou dans les flancs : la purge du circuit de refroidissement est longue, suivez le manuel d'atelier."
+      ]
     }
   ]
 }
