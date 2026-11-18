@@ -463,6 +463,13 @@ mod tests {
         let t = m.tutorial_for("brake_pads_front", &p).unwrap();
         assert!(t.steps[0].title.contains("hors tension"));
         assert!(!t.steps[0].components.contains(&"battery".to_string()), "{:?}", t.steps[0].components);
+        // Checks done from outside the car (tyres) have no power-off step at all.
+        let t = m.tutorial_for("tyre_check", &p).unwrap();
+        assert!(t.steps.iter().all(|s| !s.title.contains("hors tension")));
+        assert!(t.steps[0].components.iter().all(|c| c.starts_with("wheel_")));
+        assert!(!t.vehicle_notes.is_empty(), "the owner's manual note still applies");
+        let t = m.tutorial_for("wiper_blades", &p).unwrap();
+        assert!(t.steps[0].title.contains("essuie-glaces"));
     }
 
     #[test]
@@ -528,8 +535,10 @@ mod tests {
         let m = Maintenance::embedded();
         let p = |id: &str| m.profiles.iter().find(|p| p.id == id).unwrap().clone();
         let tesla = p("tesla-model3-rwd");
-        let t = m.tutorial_for("ev_brakes", &tesla).unwrap();
+        let t = m.tutorial_for("brake_pads_front", &tesla).unwrap();
         assert!(t.steps[0].title.contains("hors tension") || t.steps[1].title.contains("hors tension"), "{:?}", t.steps.iter().map(|s| &s.title).collect::<Vec<_>>());
+        // Road tests (regenerative braking off, hard stops) need the car awake: no power-off step.
+        assert!(!m.tutorial_for("ev_brakes", &tesla).unwrap().steps.iter().any(|s| s.title.contains("hors tension")));
         assert!(t.steps.iter().any(|s| s.title.contains("Lever un véhicule électrique")));
         assert!(!t.steps.iter().any(|s| s.title.contains("mode Cric")));
         assert!(!t.vehicle_notes.is_empty());

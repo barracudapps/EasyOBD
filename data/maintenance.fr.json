@@ -14506,6 +14506,19 @@
       ],
       "notes": [
         "Tesla : le manuel du propriétaire de votre année-modèle (écran tactile > Manuel, ou site Tesla) fait foi. Les procédures évoluent avec les versions et les mises à jour logicielles."
+      ]
+    },
+    {
+      "match": {
+        "make": "Tesla"
+      },
+      "tutorials": [
+        "cabin_filter",
+        "brake_pads_front",
+        "brake_fluid",
+        "coolant_change",
+        "bulb_replace",
+        "ev_check"
       ],
       "steps_before": [
         {
@@ -14513,6 +14526,28 @@
           "text": "Sur l'écran tactile : Commandes > Sécurité > Mettre hors tension. Attendez que l'écran s'éteigne. Le véhicule se réveille si vous appuyez sur la pédale de frein, ouvrez une porte ou approchez la clé (téléphone, carte) : intervenez sans entrer dans l'habitacle, la clé éloignée.",
           "components": [
             "cabin"
+          ],
+          "source": "Manuel du propriétaire Tesla"
+        }
+      ]
+    },
+    {
+      "match": {
+        "make": "Tesla",
+        "model_contains": [
+          "Model 3",
+          "Model Y"
+        ]
+      },
+      "tutorials": [
+        "wiper_blades"
+      ],
+      "steps_before": [
+        {
+          "title": "Activer le mode entretien des essuie-glaces",
+          "text": "Écran tactile : Commandes > Entretien > Mode entretien des essuie-glaces. Les bras se placent en position haute pour pouvoir être relevés. Désactivez le mode une fois les balais posés.",
+          "components": [
+            "wiper_blades"
           ],
           "source": "Manuel du propriétaire Tesla"
         }

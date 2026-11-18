@@ -1175,7 +1175,7 @@ function motorcycle(spec: VehicleSpec, style: MotoStyle): THREE.Group {
   b.add('wheel_rr', at(wheel(wrR, style === 'cruiser' ? 0.2 : scooter ? 0.13 : 0.17), rear, wrR, 0));
   b.add('brake_fl', at(brakeDisc(wrF * (scooter ? 1.1 : 1)), front, wrF, 0.09));
   if (!scooter) b.add('brake_fl', at(brakeDisc(wrF), front, wrF, -0.09));
-  b.root.add(at(brakeDisc(wrR * 0.8), rear, wrR, -0.1));
+  b.add('brake_rr', at(brakeDisc(wrR * 0.8), rear, wrR, -0.1));
   b.add('wheel_speed_sensor_fl', at(box(0.03, 0.04, 0.03, 0x10b981, 0.01), front - 0.08, wrF + 0.1, 0.1));
   b.add('wheel_speed_sensor_rr', at(box(0.03, 0.04, 0.03, 0x10b981, 0.01), rear + 0.08, wrR + 0.1, -0.1));
 
@@ -1191,6 +1191,10 @@ function motorcycle(spec: VehicleSpec, style: MotoStyle): THREE.Group {
     b.root.add(tube([[head.x - 0.05, barY + 0.02, z], [head.x - 0.02, barY + 0.17, z * 1.05]], 0.006, 0x111827));
     b.root.add(at(tf(box(0.02, 0.06, 0.1, 0x111827, 0.01), {}), head.x - 0.02, barY + 0.2, z * 1.08));
   }
+
+  // Front brake master cylinder and its fluid reservoir on the right handlebar
+  b.add('brake_fluid_reservoir', at(box(0.05, 0.035, 0.045, 0xfef08a, 0.008), head.x - 0.03, barY + 0.05, -(barW - 0.1)));
+  b.add('brake_fluid_reservoir', at(tf(cyl(0.012, 0.012, 0.07, 0x111827), { rotation: [Math.PI / 2, 0, 0] }), head.x - 0.03, barY + 0.01, -(barW - 0.12)));
 
   // Frame, swingarm, rear shock
   const pivot: [number, number, number] = [scooter ? -0.2 : -0.22, (scooter ? 0.38 : 0.48) + lift * 0.5, 0];
@@ -1284,6 +1288,8 @@ function motorcycle(spec: VehicleSpec, style: MotoStyle): THREE.Group {
   } else if (drive === 'cvt') {
     // Variator case on the left, from the crankshaft to the rear wheel
     b.add('drive_belt', at(tf(box(0.62, 0.16, 0.07, 0x52525b, 0.06), { rotation: [0, 0, 0.12] }), (sprF[0] + rear) / 2 + 0.02, (sprF[1] + wrR) / 2 + 0.02, 0.15));
+    // Reduction gearbox at the rear hub (its own oil, drained by a small plug)
+    b.add('final_drive', at(tf(cyl(0.09, 0.09, 0.06, 0x6b7280, 24), { rotation: [Math.PI / 2, 0, 0] }), rear, wrR, 0.17));
   } else if (drive === 'hub') {
     b.add('drive_motor', at(tf(cyl(0.12, 0.12, 0.1, 0x9ca3af, 28), { rotation: [Math.PI / 2, 0, 0] }), rear, wrR, 0));
   }
@@ -1621,6 +1627,8 @@ function tractor(spec: VehicleSpec): THREE.Group {
   b.add('cabin', at(box(0.3, 0.12, 0.2, 0x111827, 0.03), -0.65, 2.15, -0.45)); // armrest terminal
   b.add('ecu', at(box(0.25, 0.06, 0.2, 0x0f766e, 0.01), -0.6, 1.75, 0.45));
   b.add('cabin_filter', at(box(0.35, 0.04, 0.45, 0xfde68a, 0.01), -0.7, cy1 + 0.02, 0));
+  b.add('brake_fluid_reservoir', at(box(0.1, 0.1, 0.1, 0xfef08a, 0.02), cx1 + 0.12, cy0 + 0.2, 0.42)); // on the bulkhead
+  b.add('washer_reservoir', at(box(0.14, 0.2, 0.14, 0x60a5fa, 0.03), cx1 + 0.12, cy0 + 0.15, -0.42));
   b.add('can_bus', tube([[-0.6, 1.75, 0.45], [-0.2, 1.4, 0.3], [ex, ey + 0.3, 0.3], [2.0, 1.4, 0.2]], 0.012, 0xf59e0b));
   b.add('can_bus', tube([[-0.6, 1.75, 0.45], [-1.3, 1.5, 0.4], [-1.5, 1.2, 0.3]], 0.012, 0xf59e0b)); // to the ISOBUS rear socket
   b.add('can_bus', at(tf(cyl(0.05, 0.05, 0.06, 0x111827, 16), { rotation: [0, 0, Math.PI / 2] }), -1.52, 1.2, 0.3));
